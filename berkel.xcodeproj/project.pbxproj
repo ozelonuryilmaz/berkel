@@ -7,9 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678B537B2AA25F61003F4355 /* SplashViewController.xib */; };
+		678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B537E2AA25F88003F4355 /* MainBaseViewController.swift */; };
+		678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */; };
+		678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53832AA260E9003F4355 /* BaseViewModel.swift */; };
+		678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53892AA261E0003F4355 /* Coordinator.swift */; };
+		678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B538C2AA26241003F4355 /* UIApplication+Extensions.swift */; };
+		678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B538F2AA262BA003F4355 /* WindowHelper.swift */; };
+		678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53912AA26303003F4355 /* UIViewController+Extensions.swift */; };
+		678B53962AA263AF003F4355 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53952AA263AF003F4355 /* Toast.swift */; };
+		678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53972AA263E9003F4355 /* UIColor+Extensions.swift */; };
+		678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53992AA264B0003F4355 /* UIView+Extensions.swift */; };
+		678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539B2AA2662F003F4355 /* Window+Extensions.swift */; };
+		678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539D2AA266FE003F4355 /* AppCoordinator.swift */; };
+		678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */; };
+		67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CC75A52AA25A6F003206F0 /* Color.xcassets */; };
+		67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AB2AA25EF1003206F0 /* SplashCoordinator.swift */; };
+		67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AC2AA25EF1003206F0 /* SplashUIModel.swift */; };
+		67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AD2AA25EF1003206F0 /* SplashViewController.swift */; };
+		67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AE2AA25EF1003206F0 /* SplashRepository.swift */; };
+		67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */; };
+		67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */; };
+		67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B12AA25EF1003206F0 /* SplashPassData.swift */; };
 		67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DF72AA110B400DBCD48 /* AppDelegate.swift */; };
-		67F03DFC2AA110B400DBCD48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DFB2AA110B400DBCD48 /* ViewController.swift */; };
-		67F03DFF2AA110B400DBCD48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03DFD2AA110B400DBCD48 /* Main.storyboard */; };
 		67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E002AA110B500DBCD48 /* Assets.xcassets */; };
 		67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */; };
 		A1692EDDD077A12BAEB75303 /* Pods_berkel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */; };
@@ -19,10 +39,30 @@
 		16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berkel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.release.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.release.xcconfig"; sourceTree = "<group>"; };
 		60657F612E104FB58D480D60 /* Pods-berkel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.debug.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.debug.xcconfig"; sourceTree = "<group>"; };
+		678B537B2AA25F61003F4355 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		678B537E2AA25F88003F4355 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
+		678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelBaseViewController.swift; sourceTree = "<group>"; };
+		678B53832AA260E9003F4355 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		678B53892AA261E0003F4355 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		678B538C2AA26241003F4355 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		678B538F2AA262BA003F4355 /* WindowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowHelper.swift; sourceTree = "<group>"; };
+		678B53912AA26303003F4355 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		678B53952AA263AF003F4355 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		678B53972AA263E9003F4355 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		678B53992AA264B0003F4355 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		678B539B2AA2662F003F4355 /* Window+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Window+Extensions.swift"; sourceTree = "<group>"; };
+		678B539D2AA266FE003F4355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		67CC75A52AA25A6F003206F0 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		67CC75AB2AA25EF1003206F0 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		67CC75AC2AA25EF1003206F0 /* SplashUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIModel.swift; sourceTree = "<group>"; };
+		67CC75AD2AA25EF1003206F0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		67CC75AE2AA25EF1003206F0 /* SplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRepository.swift; sourceTree = "<group>"; };
+		67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		67CC75B12AA25EF1003206F0 /* SplashPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPassData.swift; sourceTree = "<group>"; };
 		67F03DF42AA110B400DBCD48 /* berkel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = berkel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F03DF72AA110B400DBCD48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		67F03DFB2AA110B400DBCD48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		67F03DFE2AA110B400DBCD48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67F03E002AA110B500DBCD48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67F03E032AA110B500DBCD48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67F03E052AA110B500DBCD48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +89,162 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		678B537D2AA25F72003F4355 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */,
+				678B537E2AA25F88003F4355 /* MainBaseViewController.swift */,
+				678B53832AA260E9003F4355 /* BaseViewModel.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		678B53852AA261AA003F4355 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				678B53892AA261E0003F4355 /* Coordinator.swift */,
+				678B539D2AA266FE003F4355 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		678B538B2AA26223003F4355 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				678B53972AA263E9003F4355 /* UIColor+Extensions.swift */,
+				678B538C2AA26241003F4355 /* UIApplication+Extensions.swift */,
+				678B53912AA26303003F4355 /* UIViewController+Extensions.swift */,
+				678B53992AA264B0003F4355 /* UIView+Extensions.swift */,
+				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
+				678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		678B538E2AA262A7003F4355 /* Helpsers */ = {
+			isa = PBXGroup;
+			children = (
+				678B538F2AA262BA003F4355 /* WindowHelper.swift */,
+			);
+			path = Helpsers;
+			sourceTree = "<group>";
+		};
+		678B53932AA2639E003F4355 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				678B53942AA263A3003F4355 /* Toast */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		678B53942AA263A3003F4355 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				678B53952AA263AF003F4355 /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		67CC75A32AA25909003206F0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				67F03E002AA110B500DBCD48 /* Assets.xcassets */,
+				67CC75A52AA25A6F003206F0 /* Color.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		67CC75A42AA25910003206F0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
+				67F03E052AA110B500DBCD48 /* Info.plist */,
+				678B53852AA261AA003F4355 /* Coordinator */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		67CC75A72AA25E85003206F0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75A82AA25E8D003206F0 /* Storyboard */,
+				67CC75A92AA25EB6003206F0 /* Modules */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		67CC75A82AA25E8D003206F0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		67CC75A92AA25EB6003206F0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				678B537D2AA25F72003F4355 /* Bases */,
+				67CC75AA2AA25EC7003206F0 /* Splash */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		67CC75AA2AA25EC7003206F0 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75BF2AA25F12003206F0 /* Builder */,
+				67CC75BE2AA25F0D003206F0 /* Coordinator */,
+				67CC75BD2AA25F06003206F0 /* Repository */,
+				67CC75BC2AA25F00003206F0 /* ViewModel */,
+				67CC75BB2AA25EF4003206F0 /* ViewController */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		67CC75BB2AA25EF4003206F0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75AD2AA25EF1003206F0 /* SplashViewController.swift */,
+				678B537B2AA25F61003F4355 /* SplashViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67CC75BC2AA25F00003206F0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */,
+				67CC75AC2AA25EF1003206F0 /* SplashUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67CC75BD2AA25F06003206F0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75AE2AA25EF1003206F0 /* SplashRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67CC75BE2AA25F0D003206F0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75AB2AA25EF1003206F0 /* SplashCoordinator.swift */,
+				67CC75B12AA25EF1003206F0 /* SplashPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67CC75BF2AA25F12003206F0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		67F03DEB2AA110B400DBCD48 = {
 			isa = PBXGroup;
 			children = (
@@ -70,12 +266,12 @@
 		67F03DF62AA110B400DBCD48 /* berkel */ = {
 			isa = PBXGroup;
 			children = (
-				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
-				67F03DFB2AA110B400DBCD48 /* ViewController.swift */,
-				67F03DFD2AA110B400DBCD48 /* Main.storyboard */,
-				67F03E002AA110B500DBCD48 /* Assets.xcassets */,
-				67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */,
-				67F03E052AA110B500DBCD48 /* Info.plist */,
+				67CC75A32AA25909003206F0 /* Resource */,
+				67CC75A42AA25910003206F0 /* App */,
+				678B53932AA2639E003F4355 /* Libs */,
+				67CC75A72AA25E85003206F0 /* UI */,
+				678B538B2AA26223003F4355 /* Extensions */,
+				678B538E2AA262A7003F4355 /* Helpsers */,
 			);
 			path = berkel;
 			sourceTree = "<group>";
@@ -99,6 +295,7 @@
 				67F03DF02AA110B400DBCD48 /* Sources */,
 				67F03DF12AA110B400DBCD48 /* Frameworks */,
 				67F03DF22AA110B400DBCD48 /* Resources */,
+				F934BCAAEB716A287DF14779 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,7 +346,8 @@
 			files = (
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
-				67F03DFF2AA110B400DBCD48 /* Main.storyboard in Resources */,
+				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
+				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +376,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F934BCAAEB716A287DF14779 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-berkel/Pods-berkel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-berkel/Pods-berkel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-berkel/Pods-berkel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -185,22 +400,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67F03DFC2AA110B400DBCD48 /* ViewController.swift in Sources */,
+				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
+				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
+				678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */,
+				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
+				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
+				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
+				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
+				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
+				678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */,
+				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
+				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
+				678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */,
+				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
+				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
+				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
+				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
+				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
+				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
+				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
+				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		67F03DFD2AA110B400DBCD48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				67F03DFE2AA110B400DBCD48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -262,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -316,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -336,11 +562,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQ9U34VGT6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = berkel/Info.plist;
+				INFOPLIST_FILE = berkel/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Berkel;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -366,11 +592,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQ9U34VGT6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = berkel/Info.plist;
+				INFOPLIST_FILE = berkel/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Berkel;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
