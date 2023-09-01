@@ -17,7 +17,7 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
     private var coordinatorData: SplashPassData { return castPassData(SplashPassData.self) }
 
      override func start() {
-        let controller = SplashBuilder.generate(with: coordinatorData, coordinator: self)
+        let controller = SplashBuilder.generate(coordinator: self)
         
          window?.rootViewController = controller
          window?.makeKeyAndVisible()

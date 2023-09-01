@@ -10,7 +10,7 @@ import UIKit
 
 protocol ISplashUIModel {
 
-	 init(data: SplashPassData)
+	 init()
 
 } 
 
@@ -19,7 +19,7 @@ struct SplashUIModel: ISplashUIModel {
 	// MARK: Definitions
 
 	// MARK: Initialize
-    init(data: SplashPassData) {
+    init() {
 
     }
 

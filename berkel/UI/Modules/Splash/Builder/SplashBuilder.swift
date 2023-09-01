@@ -10,10 +10,9 @@ import UIKit
 
 enum SplashBuilder {
 
-    static func generate(with data: SplashPassData,
-                         coordinator: ISplashCoordinator) -> SplashViewController {
+    static func generate(coordinator: ISplashCoordinator) -> SplashViewController {
         let repository = SplashRepository()
-        let uiModel = SplashUIModel(data: data)
+        let uiModel = SplashUIModel()
         let viewModel = SplashViewModel(repository: repository,
                                         coordinator: coordinator,
                                         uiModel: uiModel)
