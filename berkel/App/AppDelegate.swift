@@ -51,11 +51,15 @@ extension AppDelegate {
         self.appCoordinator = AppCoordinator(window: window)
         self.window = window
         
-        self.startFlowSplash()
+        self.startFlowMain()
     }
-    
+
     func startFlowSplash() {
         self.appCoordinator.start()
+    }
+
+    func startFlowMain() {
+        self.appCoordinator.startFlowMain()
     }
 }
 

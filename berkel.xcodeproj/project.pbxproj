@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
+		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
+		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
+		677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */; };
+		677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E679C2AA353D2001775E2 /* BuyingCoordinator.swift */; };
+		677E67A52AA353D2001775E2 /* BuyingUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E679D2AA353D2001775E2 /* BuyingUIModel.swift */; };
+		677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E679E2AA353D2001775E2 /* BuyingViewController.swift */; };
+		677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E679F2AA353D2001775E2 /* BuyingRepository.swift */; };
+		677E67A82AA353D2001775E2 /* BuyingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67A02AA353D2001775E2 /* BuyingBuilder.swift */; };
+		677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67A12AA353D2001775E2 /* BuyingViewModel.swift */; };
+		677E67AA2AA353D2001775E2 /* BuyingPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67A22AA353D2001775E2 /* BuyingPassData.swift */; };
+		677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677E67A32AA353D2001775E2 /* BuyingViewController.xib */; };
+		677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67AE2AA353EA001775E2 /* WorkerCoordinator.swift */; };
+		677E67B72AA353EA001775E2 /* WorkerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67AF2AA353EA001775E2 /* WorkerUIModel.swift */; };
+		677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67B02AA353EA001775E2 /* WorkerViewController.swift */; };
+		677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67B12AA353EA001775E2 /* WorkerRepository.swift */; };
+		677E67BA2AA353EA001775E2 /* WorkerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67B22AA353EA001775E2 /* WorkerBuilder.swift */; };
+		677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67B32AA353EA001775E2 /* WorkerViewModel.swift */; };
+		677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67B42AA353EA001775E2 /* WorkerPassData.swift */; };
+		677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677E67B52AA353EA001775E2 /* WorkerViewController.xib */; };
+		677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C02AA35403001775E2 /* SellerCoordinator.swift */; };
+		677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C12AA35403001775E2 /* SellerUIModel.swift */; };
+		677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C22AA35403001775E2 /* SellerViewController.swift */; };
+		677E67CB2AA35403001775E2 /* SellerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C32AA35403001775E2 /* SellerRepository.swift */; };
+		677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C42AA35403001775E2 /* SellerBuilder.swift */; };
+		677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C52AA35403001775E2 /* SellerViewModel.swift */; };
+		677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67C62AA35403001775E2 /* SellerPassData.swift */; };
+		677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677E67C72AA35403001775E2 /* SellerViewController.xib */; };
+		677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D02AA35415001775E2 /* SettingsCoordinator.swift */; };
+		677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D12AA35415001775E2 /* SettingsUIModel.swift */; };
+		677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D22AA35415001775E2 /* SettingsViewController.swift */; };
+		677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D32AA35415001775E2 /* SettingsRepository.swift */; };
+		677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D42AA35415001775E2 /* SettingsBuilder.swift */; };
+		677E67DD2AA35415001775E2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D52AA35415001775E2 /* SettingsViewModel.swift */; };
+		677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E67D62AA35415001775E2 /* SettingsPassData.swift */; };
+		677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677E67D72AA35415001775E2 /* SettingsViewController.xib */; };
 		678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678B537B2AA25F61003F4355 /* SplashViewController.xib */; };
 		678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B537E2AA25F88003F4355 /* MainBaseViewController.swift */; };
 		678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */; };
@@ -39,6 +75,42 @@
 		16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berkel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.release.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.release.xcconfig"; sourceTree = "<group>"; };
 		60657F612E104FB58D480D60 /* Pods-berkel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.debug.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.debug.xcconfig"; sourceTree = "<group>"; };
+		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
+		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		677E679C2AA353D2001775E2 /* BuyingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCoordinator.swift; sourceTree = "<group>"; };
+		677E679D2AA353D2001775E2 /* BuyingUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingUIModel.swift; sourceTree = "<group>"; };
+		677E679E2AA353D2001775E2 /* BuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingViewController.swift; sourceTree = "<group>"; };
+		677E679F2AA353D2001775E2 /* BuyingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingRepository.swift; sourceTree = "<group>"; };
+		677E67A02AA353D2001775E2 /* BuyingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingBuilder.swift; sourceTree = "<group>"; };
+		677E67A12AA353D2001775E2 /* BuyingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingViewModel.swift; sourceTree = "<group>"; };
+		677E67A22AA353D2001775E2 /* BuyingPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPassData.swift; sourceTree = "<group>"; };
+		677E67A32AA353D2001775E2 /* BuyingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingViewController.xib; sourceTree = "<group>"; };
+		677E67AE2AA353EA001775E2 /* WorkerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCoordinator.swift; sourceTree = "<group>"; };
+		677E67AF2AA353EA001775E2 /* WorkerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerUIModel.swift; sourceTree = "<group>"; };
+		677E67B02AA353EA001775E2 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
+		677E67B12AA353EA001775E2 /* WorkerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerRepository.swift; sourceTree = "<group>"; };
+		677E67B22AA353EA001775E2 /* WorkerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerBuilder.swift; sourceTree = "<group>"; };
+		677E67B32AA353EA001775E2 /* WorkerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewModel.swift; sourceTree = "<group>"; };
+		677E67B42AA353EA001775E2 /* WorkerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPassData.swift; sourceTree = "<group>"; };
+		677E67B52AA353EA001775E2 /* WorkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerViewController.xib; sourceTree = "<group>"; };
+		677E67C02AA35403001775E2 /* SellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCoordinator.swift; sourceTree = "<group>"; };
+		677E67C12AA35403001775E2 /* SellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerUIModel.swift; sourceTree = "<group>"; };
+		677E67C22AA35403001775E2 /* SellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewController.swift; sourceTree = "<group>"; };
+		677E67C32AA35403001775E2 /* SellerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerRepository.swift; sourceTree = "<group>"; };
+		677E67C42AA35403001775E2 /* SellerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerBuilder.swift; sourceTree = "<group>"; };
+		677E67C52AA35403001775E2 /* SellerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerViewModel.swift; sourceTree = "<group>"; };
+		677E67C62AA35403001775E2 /* SellerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerPassData.swift; sourceTree = "<group>"; };
+		677E67C72AA35403001775E2 /* SellerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerViewController.xib; sourceTree = "<group>"; };
+		677E67D02AA35415001775E2 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		677E67D12AA35415001775E2 /* SettingsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUIModel.swift; sourceTree = "<group>"; };
+		677E67D22AA35415001775E2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		677E67D32AA35415001775E2 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		677E67D42AA35415001775E2 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		677E67D52AA35415001775E2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		677E67D62AA35415001775E2 /* SettingsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPassData.swift; sourceTree = "<group>"; };
+		677E67D72AA35415001775E2 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		678B537B2AA25F61003F4355 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		678B537E2AA25F88003F4355 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
 		678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelBaseViewController.swift; sourceTree = "<group>"; };
@@ -89,12 +161,277 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		677E67932AA35213001775E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				677E67942AA3521B001775E2 /* Buying */,
+				677E67952AA35225001775E2 /* Worker */,
+				677E67962AA35229001775E2 /* Seller */,
+				677E67972AA3522C001775E2 /* Settings */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		677E67942AA3521B001775E2 /* Buying */ = {
+			isa = PBXGroup;
+			children = (
+				677E67982AA35238001775E2 /* BuyingViewController */,
+			);
+			path = Buying;
+			sourceTree = "<group>";
+		};
+		677E67952AA35225001775E2 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				677E67992AA35240001775E2 /* WorkerViewController */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		677E67962AA35229001775E2 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				677E679A2AA35247001775E2 /* SellerViewController */,
+			);
+			path = Seller;
+			sourceTree = "<group>";
+		};
+		677E67972AA3522C001775E2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				677E679B2AA3524D001775E2 /* SettingsViewController */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		677E67982AA35238001775E2 /* BuyingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67F02AA354A4001775E2 /* Builder */,
+				677E67F12AA354A4001775E2 /* Coordinator */,
+				677E67F22AA354A5001775E2 /* Repository */,
+				677E67EF2AA354A4001775E2 /* ViewModel */,
+				677E67F32AA354A5001775E2 /* ViewController */,
+			);
+			path = BuyingViewController;
+			sourceTree = "<group>";
+		};
+		677E67992AA35240001775E2 /* WorkerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67E52AA3548D001775E2 /* Builder */,
+				677E67E92AA3548D001775E2 /* Coordinator */,
+				677E67E62AA3548D001775E2 /* Repository */,
+				677E67E82AA3548D001775E2 /* ViewModel */,
+				677E67E72AA3548D001775E2 /* ViewController */,
+			);
+			path = WorkerViewController;
+			sourceTree = "<group>";
+		};
+		677E679A2AA35247001775E2 /* SellerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67EE2AA35495001775E2 /* Builder */,
+				677E67EC2AA35495001775E2 /* Coordinator */,
+				677E67EB2AA35495001775E2 /* Repository */,
+				677E67EA2AA35495001775E2 /* ViewModel */,
+				677E67ED2AA35495001775E2 /* ViewController */,
+			);
+			path = SellerViewController;
+			sourceTree = "<group>";
+		};
+		677E679B2AA3524D001775E2 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67E32AA35477001775E2 /* Builder */,
+				677E67E22AA35472001775E2 /* Coordinator */,
+				677E67E42AA35480001775E2 /* Repository */,
+				677E67E12AA3546B001775E2 /* ViewModel */,
+				677E67E02AA35465001775E2 /* ViewController */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		677E67E02AA35465001775E2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67D22AA35415001775E2 /* SettingsViewController.swift */,
+				677E67D72AA35415001775E2 /* SettingsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		677E67E12AA3546B001775E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				677E67D52AA35415001775E2 /* SettingsViewModel.swift */,
+				677E67D12AA35415001775E2 /* SettingsUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		677E67E22AA35472001775E2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				677E67D02AA35415001775E2 /* SettingsCoordinator.swift */,
+				677E67D62AA35415001775E2 /* SettingsPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		677E67E32AA35477001775E2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				677E67D42AA35415001775E2 /* SettingsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		677E67E42AA35480001775E2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				677E67D32AA35415001775E2 /* SettingsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		677E67E52AA3548D001775E2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				677E67B22AA353EA001775E2 /* WorkerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		677E67E62AA3548D001775E2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				677E67B12AA353EA001775E2 /* WorkerRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		677E67E72AA3548D001775E2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67B02AA353EA001775E2 /* WorkerViewController.swift */,
+				677E67B52AA353EA001775E2 /* WorkerViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		677E67E82AA3548D001775E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				677E67B32AA353EA001775E2 /* WorkerViewModel.swift */,
+				677E67AF2AA353EA001775E2 /* WorkerUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		677E67E92AA3548D001775E2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				677E67AE2AA353EA001775E2 /* WorkerCoordinator.swift */,
+				677E67B42AA353EA001775E2 /* WorkerPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		677E67EA2AA35495001775E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				677E67C52AA35403001775E2 /* SellerViewModel.swift */,
+				677E67C12AA35403001775E2 /* SellerUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		677E67EB2AA35495001775E2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				677E67C32AA35403001775E2 /* SellerRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		677E67EC2AA35495001775E2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				677E67C02AA35403001775E2 /* SellerCoordinator.swift */,
+				677E67C62AA35403001775E2 /* SellerPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		677E67ED2AA35495001775E2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E67C22AA35403001775E2 /* SellerViewController.swift */,
+				677E67C72AA35403001775E2 /* SellerViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		677E67EE2AA35495001775E2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				677E67C42AA35403001775E2 /* SellerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		677E67EF2AA354A4001775E2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				677E67A12AA353D2001775E2 /* BuyingViewModel.swift */,
+				677E679D2AA353D2001775E2 /* BuyingUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		677E67F02AA354A4001775E2 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				677E67A02AA353D2001775E2 /* BuyingBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		677E67F12AA354A4001775E2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				677E679C2AA353D2001775E2 /* BuyingCoordinator.swift */,
+				677E67A22AA353D2001775E2 /* BuyingPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		677E67F22AA354A5001775E2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				677E679F2AA353D2001775E2 /* BuyingRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		677E67F32AA354A5001775E2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677E679E2AA353D2001775E2 /* BuyingViewController.swift */,
+				677E67A32AA353D2001775E2 /* BuyingViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		678B537D2AA25F72003F4355 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
 				678B53802AA25FC3003F4355 /* BerkelBaseViewController.swift */,
 				678B537E2AA25F88003F4355 /* MainBaseViewController.swift */,
+				677E678F2AA34751001775E2 /* MainNavigationController.swift */,
 				678B53832AA260E9003F4355 /* BaseViewModel.swift */,
+				677E678B2AA34202001775E2 /* MainTabbarController.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -104,6 +441,7 @@
 			children = (
 				678B53892AA261E0003F4355 /* Coordinator.swift */,
 				678B539D2AA266FE003F4355 /* AppCoordinator.swift */,
+				677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -117,6 +455,7 @@
 				678B53992AA264B0003F4355 /* UIView+Extensions.swift */,
 				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
 				678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */,
+				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +525,7 @@
 			children = (
 				678B537D2AA25F72003F4355 /* Bases */,
 				67CC75AA2AA25EC7003206F0 /* Splash */,
+				677E67932AA35213001775E2 /* Controllers */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -347,6 +687,10 @@
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
+				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
+				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
+				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
+				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
 				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,24 +744,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */,
+				677E67CB2AA35403001775E2 /* SellerRepository.swift in Sources */,
 				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
+				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
+				677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */,
+				677E67B72AA353EA001775E2 /* WorkerUIModel.swift in Sources */,
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
+				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
+				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
+				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
+				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
+				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
+				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
+				677E67A52AA353D2001775E2 /* BuyingUIModel.swift in Sources */,
+				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
+				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
+				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
 				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
 				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
+				677E67AA2AA353D2001775E2 /* BuyingPassData.swift in Sources */,
+				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
 				678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */,
+				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
+				677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */,
+				677E67A82AA353D2001775E2 /* BuyingBuilder.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
+				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
 				678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */,
+				677E67BA2AA353EA001775E2 /* WorkerBuilder.swift in Sources */,
+				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
+				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
+				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
+				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
+				677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */,
+				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,
+				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
+				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
 				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
+				677E67DD2AA35415001775E2 /* SettingsViewModel.swift in Sources */,
+				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,

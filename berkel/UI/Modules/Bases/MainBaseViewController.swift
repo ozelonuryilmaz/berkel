@@ -8,9 +8,24 @@
 import Foundation
 
 class MainBaseViewController: BerkelBaseViewController {
-    
+
+    var mainTabbarController: MainTabbarController? {
+        return (tabBarController as? MainTabbarController)
+    }
+
+    public var isShowTabbar: Bool {
+        return true
+    }
+
     override func initDidLoad() {
         super.initDidLoad()
-        // don't delete this method
+        // silmeyin
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // General Configuration
+        visibleTabBar(isVisible: isShowTabbar)
     }
 }
+

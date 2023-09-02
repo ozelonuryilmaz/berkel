@@ -8,6 +8,7 @@
 import UIKit
 
 protocol AppCoordinatorFlow: AnyObject {
+    func startFlowMain()
 
 }
 
@@ -20,4 +21,9 @@ class AppCoordinator: RootableCoordinator, AppCoordinatorFlow {
         coordinate(to: splashCoordinator)
     }
     
+    func startFlowMain() {
+        let tabbarCoordinator = MainTabbarCoordinator(window: self.window)
+        tabbarCoordinator.callbackIsPreparedMainScreen = callbackIsPreparedMainScreen
+        coordinate(to: tabbarCoordinator)
+    }
 }

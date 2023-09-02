@@ -30,13 +30,12 @@ final class SplashViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
-        
+        self.appDelegate.startFlowMain()
     }
 
     override func registerEvents() {
 
     }
-
 }
 
 // MARK: Props
