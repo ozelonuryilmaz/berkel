@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
+		676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72092AA3852D00010350 /* CGFloat+Extension.swift */; };
+		676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E720B2AA3855E00010350 /* UIScreen+Extension.swift */; };
 		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
 		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
 		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
@@ -75,6 +78,9 @@
 		16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berkel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.release.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.release.xcconfig"; sourceTree = "<group>"; };
 		60657F612E104FB58D480D60 /* Pods-berkel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.debug.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.debug.xcconfig"; sourceTree = "<group>"; };
+		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
+		676E72092AA3852D00010350 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		676E720B2AA3855E00010350 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,14 @@
 				56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		676E72062AA383C200010350 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				676E72072AA383CE00010350 /* BerkelTabBar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		677E67932AA35213001775E2 /* Controllers */ = {
@@ -456,6 +470,8 @@
 				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
 				678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */,
 				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
+				676E72092AA3852D00010350 /* CGFloat+Extension.swift */,
+				676E720B2AA3855E00010350 /* UIScreen+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -523,6 +539,7 @@
 		67CC75A92AA25EB6003206F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				676E72062AA383C200010350 /* Components */,
 				678B537D2AA25F72003F4355 /* Bases */,
 				67CC75AA2AA25EC7003206F0 /* Splash */,
 				677E67932AA35213001775E2 /* Controllers */,
@@ -748,6 +765,7 @@
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */,
+				676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */,
 				677E67CB2AA35403001775E2 /* SellerRepository.swift in Sources */,
 				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
 				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
@@ -782,7 +800,9 @@
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
+				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
+				676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */,
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
@@ -943,7 +963,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -973,7 +995,9 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm7;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

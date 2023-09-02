@@ -11,4 +11,3 @@ import Foundation
 struct SplashPassData: ICoordinatorPassData {
 
 }
-

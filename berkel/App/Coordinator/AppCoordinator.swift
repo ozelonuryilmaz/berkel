@@ -8,8 +8,8 @@
 import UIKit
 
 protocol AppCoordinatorFlow: AnyObject {
-    func startFlowMain()
 
+    func startFlowMain()
 }
 
 class AppCoordinator: RootableCoordinator, AppCoordinatorFlow {

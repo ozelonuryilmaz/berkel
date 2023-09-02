@@ -25,7 +25,7 @@ class MainBaseViewController: BerkelBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // General Configuration
-        visibleTabBar(isVisible: isShowTabbar)
+        //visibleTabBar(isVisible: isShowTabbar)
     }
 }
 

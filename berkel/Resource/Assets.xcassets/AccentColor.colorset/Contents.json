@@ -1,10 +1,6 @@
 {
   "colors" : [
     {
-      "color" : {
-        "platform" : "osx",
-        "reference" : "windowBackgroundColor"
-      },
       "idiom" : "universal"
     }
   ],

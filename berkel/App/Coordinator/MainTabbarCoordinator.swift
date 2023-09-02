@@ -90,21 +90,21 @@ fileprivate extension String {
     static var tab_title_buying = "Alış"
     static var tab_title_worker = "İşçi"
     static var tab_title_seller = "Satış"
-    static var tab_title_settings = "Ayarlar"
+    static var tab_title_settings = "Diğer"
 }
 
 // Tab Icons
 fileprivate extension UIImage {
-    static var tab_title_buying = UIImage(named: "ic_tab_1")!.withRenderingMode(.alwaysOriginal)
+    static var tab_title_buying = UIImage(named: "ic_tab_1")!.withRenderingMode(.alwaysTemplate)
     static var tab_title_buying_selected = UIImage(named: "ic_tab_1_selected")!.withRenderingMode(.alwaysOriginal)
 
-    static var tab_title_worker = UIImage(named: "ic_tab_2")!.withRenderingMode(.alwaysOriginal)
+    static var tab_title_worker = UIImage(named: "ic_tab_2")!.withRenderingMode(.alwaysTemplate)
     static var tab_title_worker_selected = UIImage(named: "ic_tab_2_selected")!.withRenderingMode(.alwaysOriginal)
 
-    static var tab_title_seller = UIImage(named: "ic_tab_3")!.withRenderingMode(.alwaysOriginal)
+    static var tab_title_seller = UIImage(named: "ic_tab_3")!.withRenderingMode(.alwaysTemplate)
     static var tab_title_seller_selected = UIImage(named: "ic_tab_3_selected")!.withRenderingMode(.alwaysOriginal)
 
-    static var tab_title_settings = UIImage(named: "ic_tab_4")!.withRenderingMode(.alwaysOriginal)
+    static var tab_title_settings = UIImage(named: "ic_tab_4")!.withRenderingMode(.alwaysTemplate)
     static var tab_title_settings_selected = UIImage(named: "ic_tab_4_selected")!.withRenderingMode(.alwaysOriginal)
 }
 

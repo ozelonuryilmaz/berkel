@@ -9,10 +9,7 @@
 import Foundation
 
 protocol ISplashRepository: AnyObject {
-	// bu metinleri lütfen siliniz.
-	// graph responseları için kullanılan typealias -> GraphAPIResponseType
-	// rest responseları için kullanılan typealias -> RestAPIResponseType
-    
+
 }
 
 final class SplashRepository:  ISplashRepository {

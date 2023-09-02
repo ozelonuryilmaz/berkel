@@ -17,10 +17,9 @@ enum MainTabbarItemPosition: Int {
 
 final class MainTabbarController: UITabBarController {
 
-    private lazy var customTabbar: UITabBar = {
-        let t = UITabBar(frame: tabBar.frame)
-        t.unselectedItemTintColor = .lightGray
-        t.tintColor = .primaryBlue
+    private lazy var customTabbar: BerkelTabBar = {
+        let t = BerkelTabBar(frame: tabBar.frame)
+        t.makeDefaultAppStyle()
         return t
     }()
 
