@@ -13,4 +13,19 @@ target 'berkel' do
   #Keyboard
   pod 'IQKeyboardManagerSwift', '~> 6.5.9'
 
+  #CombineFirebase
+  pod 'CombineFirebase/Storage'
+  pod 'CombineFirebase/Firestore'
+  #pod 'CombineFirebase/RemoteConfig'
+  #pod 'CombineFirebase/Database'
+  #pod 'CombineFirebase/Functions'
+  pod 'CombineFirebase/Auth'
+
+  pod 'CombineFirebaseStorage'
+  pod 'CombineFirebaseFirestore'
+  #pod 'CombineFirebaseRemoteConfig'
+  #pod 'CombineFirebaseDatabase'
+  #pod 'CombineFirebaseFunctions'
+  pod 'CombineFirebaseAuthentication'
+
 end

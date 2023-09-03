@@ -7,8 +7,77 @@
 //
 
 import UIKit
+import Combine
+import FirebaseFirestore
+
+struct City: Codable {
+    var name: String? = nil
+    var state: String? = nil
+
+    // local variable
+    var id: String? = nil
+}
 
 final class BuyingViewController: MainBaseViewController {
+
+    var cancelBag = Set<AnyCancellable>()
+    let db = Firestore.firestore()
+
+    func setSanFranciscoData(city: City) {
+        let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
+            switch completion {
+            case .finished: print("🏁 finished")
+            case .failure(let error): print("❗️ failure: \(error)")
+            }
+        }
+
+        let onValue: () -> Void = {
+            print("✅ value")
+        }
+
+        // Add a new document in collection "cities"
+        (db.collection("cities")
+            .document("SF")
+            .setData(from: city) as AnyPublisher<Void, Error>) // Note: you can use (as Void) for simple setData({})
+        .sink(receiveCompletion: onErrorCompletion, receiveValue: onValue)
+            .store(in: &cancelBag)
+    }
+
+    // Add a new document with a generated id.
+    func addSanFranciscoDocument(city: City) {
+        (db.collection("cities")
+            .addDocument(data: [
+                "name": city.name ?? "nil",
+                "state": city.state ?? "nil"
+            ]) as AnyPublisher<DocumentReference, Error>).sink(receiveCompletion: { completion in
+                
+                switch completion {
+                case .finished:
+                    print("🏁 finished")
+                case .failure(let error):
+                    print("❗️ failure: \(error)")
+                }
+                
+            }, receiveValue: { value in
+                print("** \(value.documentID)")
+            }).store(in: &cancelBag)
+        
+        
+        /*(db.collection("cities")
+            .addDocument(data: [
+                "name": city.name ?? "nil",
+                "state": city.state ?? "nil"
+        ]) as AnyPublisher<DocumentReference, Error>)
+            .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished: print("🏁 finished")
+            case .failure(let error): print("❗️ failure: \(error)")
+            }) { ref in
+            print("Document added with ID: \(ref.documentID)")
+        }.store(in: &cancelBag)*/
+        
+    }
+
 
     // MARK: Constants
 
@@ -18,19 +87,22 @@ final class BuyingViewController: MainBaseViewController {
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: IBuyingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "BuyingViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
         self.observeReactiveDatas()
+
+        //setSanFranciscoData(city: City(name: "Onur", state: "Aktif"))
+                //addSanFranciscoDocument(city: City(name: "Onur", state: "Aktif"))
     }
 
     override func registerEvents() {
@@ -43,7 +115,7 @@ final class BuyingViewController: MainBaseViewController {
     }
 
     private func observeViewState() {
-        
+
     }
 
     private func observeActionState() {
@@ -63,5 +135,5 @@ final class BuyingViewController: MainBaseViewController {
 
 // MARK: Props
 private extension BuyingViewController {
-    
+
 }
