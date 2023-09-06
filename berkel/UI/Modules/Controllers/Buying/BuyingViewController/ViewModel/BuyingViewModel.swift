@@ -13,7 +13,7 @@ protocol IBuyingViewModel: AnyObject {
     init(repository: IBuyingRepository,
          coordinator: IBuyingCoordinator,
          uiModel: IBuyingUIModel)
-    
+
     func getDocuments()
 }
 
@@ -23,6 +23,9 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
     private let repository: IBuyingRepository
     private let coordinator: IBuyingCoordinator
     private var uiModel: IBuyingUIModel
+
+    private let errorState = ErrorStateSubject()
+    var _errorState: ErrorStateSubject { errorState }
 
     // MARK: Initiliazer
     required init(repository: IBuyingRepository,
@@ -40,12 +43,19 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
 internal extension BuyingViewModel {
 
     func getDocuments() {
-        
-        self.repository.getBuyingList(completionHandler: { _ in }).sink { _ in
-            
-        } receiveValue: { items in
-            print("**** \(items)")
-        }.store(in: &cancellables)
+
+        handleResourceToFirestoreState(
+            request: self.repository.getBuyingList(),
+            callbackLoading: { isProgress in
+                print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
+            },
+            callbackSuccess: { data in
+                print("***data: \(data)")
+            },
+            callbackError: {
+                print("Hata varsa yeniden deneyim empty state göster")
+            }
+        )
 
     }
 }
