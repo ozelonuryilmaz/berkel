@@ -6,11 +6,15 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
+import Combine
+
 protocol IBuyingViewModel: AnyObject {
 
     init(repository: IBuyingRepository,
          coordinator: IBuyingCoordinator,
          uiModel: IBuyingUIModel)
+    
+    func getDocuments()
 }
 
 final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
@@ -35,6 +39,15 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
 // MARK: Service
 internal extension BuyingViewModel {
 
+    func getDocuments() {
+        
+        self.repository.getBuyingList(completionHandler: { _ in }).sink { _ in
+            
+        } receiveValue: { items in
+            print("**** \(items)")
+        }.store(in: &cancellables)
+
+    }
 }
 
 // MARK: States

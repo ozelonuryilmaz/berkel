@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Firebase
         FirebaseApp.configure()
-        
+
         // Keyboard Manager
         self.initIQKeyboardManager()
         
