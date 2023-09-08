@@ -56,10 +56,6 @@ final class BuyingViewController: MainBaseViewController {
         }.dispose(in: disposeBag) */
     }
 
-    private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
-    }
-
     // MARK: Define Components (if you have or delete this line)
 }
 

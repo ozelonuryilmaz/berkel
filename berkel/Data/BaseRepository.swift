@@ -25,8 +25,12 @@ class BaseRepository: IBaseRepository {
     func getDocuments<T: Codable>(_ db: CollectionServiceType) -> FirestoreResponseType<[T]> {
         let subject = FirestoreResponseType<[T]>()
 
+        // Source parametresini server olarak ayarla
+        // Tek bir seferlik verileri çekmek için kullanıldı. Cache iptal edildi.
+        let source = FirestoreSource.server
+
         db.collectionReference
-            .getDocuments(as: T.self)
+            .getDocuments(source: source, as: T.self)
             .sink(receiveCompletion: { result in
             switch result {
             case .failure(let error):

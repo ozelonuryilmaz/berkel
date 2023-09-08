@@ -24,10 +24,7 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
     private let coordinator: IBuyingCoordinator
     private var uiModel: IBuyingUIModel
 
-    private let errorState = ErrorStateSubject()
-    var _errorState: ErrorStateSubject { errorState }
-    
-    var response = CurrentValueSubject<[BuyingResponseModel], Never>?(nil)
+    let response = CurrentValueSubject<[BuyingResponseModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingRepository,
@@ -53,10 +50,16 @@ internal extension BuyingViewModel {
                 print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
             },
             callbackSuccess: { [weak self] in
-                print("***data: \(self?.response)")
-            },
-            callbackError: {
-                print("****Hata varsa yeniden deneyim empty state göster")
+                guard let self = self else { return }
+
+                self.response.value?.forEach { item in
+                    print(item.test ?? "")
+                }
+            }, callbackComplete: {
+                print("***data1: \(self.response.value)")
+            }, callbackError: { msg in
+
+
             }
         )
 

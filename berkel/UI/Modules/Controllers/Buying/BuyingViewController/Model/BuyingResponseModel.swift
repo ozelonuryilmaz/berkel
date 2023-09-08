@@ -8,6 +8,6 @@
 import Foundation
 
 struct BuyingResponseModel: Codable {
-    
-    let test: String?
+
+    var test: String?
 }

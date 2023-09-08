@@ -8,43 +8,21 @@
 import Foundation
 import Combine
 
-
-typealias ErrorStateSubject = PassthroughSubject<ErrorState, Never>
-
-enum ErrorState {
-    case Error(errorType: NetworkingError)
-    case ErrorComplete
-}
-
-enum NetworkingError: CustomStringConvertible {
-    case COMMON_ERROR_MESSAGE(error: Error)
-    case UNDEFINED_RESPONSE_TYPE
-
-    var description: String {
-        switch self {
-        case .COMMON_ERROR_MESSAGE(let error):
-            return "Bir hata oluştu. \(error)"
-        case .UNDEFINED_RESPONSE_TYPE:
-            return "Undefined Response"
-        }
-    }
-}
-
 class BaseViewModel {
+
+    var cancelBag = Set<AnyCancellable>()
 
     deinit {
         print("killed: \(type(of: self))")
     }
 
-    var cancelBag = Set<AnyCancellable>()
-
-    func handleResourceToFirestoreState<CONTENT: Codable>(
+    func handleResourceToFirestoreState<CONTENT: Codable, RESPONSE: Codable>(
         request: PassthroughSubject<CONTENT, Error>,
-        response: CurrentValueSubject<CONTENT, Never>?,
+        response: CurrentValueSubject<RESPONSE?, Never>,
         callbackLoading: ((Bool) -> Void)? = nil,
         callbackSuccess: (() -> Void)? = nil,
         callbackComplete: (() -> Void)? = nil,
-        callbackError: (() -> Void)? = nil
+        callbackError: ((_ errorMessage: String) -> Void)? = nil
     ) {
 
         callbackLoading?(true)
@@ -52,16 +30,24 @@ class BaseViewModel {
         request.sink(receiveCompletion: { result in
 
             switch result {
-            case .failure(_):
-                callbackError?()
+            case .failure(let error):
+                callbackError?(error.localizedDescription)
+                callbackComplete?()
+                callbackLoading?(false)
             case .finished:
                 callbackComplete?()
                 callbackLoading?(false)
             }
 
         }, receiveValue: { value in
-            response?.send(value)
-            callbackSuccess?()
+            if let castValue = value as? RESPONSE { // Tip dönüşümü karışmaması için RESPONSE eklendi.
+                response.value = castValue
+                // CurrentValueSubject<[BuyingResponseModel]?, Never>(nil)
+                // ..Never>?(nil) araya ? konulduğunda data(value) yakalanamıyor
+                callbackSuccess?()
+            } else {
+                callbackError?("Undefined Response")
+            }
         }).store(in: &cancelBag)
     }
 
