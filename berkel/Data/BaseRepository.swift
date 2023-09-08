@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import CombineFirebaseFirestore
+import FirebaseFirestore
 
 typealias FirestoreResponseType<ResultData: Codable> = PassthroughSubject<ResultData, Error>
 
@@ -32,7 +32,7 @@ class BaseRepository: IBaseRepository {
             case .failure(let error):
                 subject.send(completion: .failure(error))
             case .finished:
-                break
+                subject.send(completion: .finished)
             }
         }, receiveValue: { snapshot in
             subject.send(snapshot)
@@ -40,4 +40,6 @@ class BaseRepository: IBaseRepository {
 
         return subject
     }
+
+
 }

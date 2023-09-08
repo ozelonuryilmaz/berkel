@@ -26,6 +26,8 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
 
     private let errorState = ErrorStateSubject()
     var _errorState: ErrorStateSubject { errorState }
+    
+    var response = CurrentValueSubject<[BuyingResponseModel], Never>?(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingRepository,
@@ -46,14 +48,15 @@ internal extension BuyingViewModel {
 
         handleResourceToFirestoreState(
             request: self.repository.getBuyingList(),
+            response: self.response,
             callbackLoading: { isProgress in
                 print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
             },
-            callbackSuccess: { data in
-                print("***data: \(data)")
+            callbackSuccess: { [weak self] in
+                print("***data: \(self?.response)")
             },
             callbackError: {
-                print("Hata varsa yeniden deneyim empty state göster")
+                print("****Hata varsa yeniden deneyim empty state göster")
             }
         )
 

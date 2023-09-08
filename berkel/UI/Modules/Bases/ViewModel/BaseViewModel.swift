@@ -40,9 +40,11 @@ class BaseViewModel {
 
     func handleResourceToFirestoreState<CONTENT: Codable>(
         request: PassthroughSubject<CONTENT, Error>,
-        callbackLoading: ((Bool) -> Void)?,
-        callbackSuccess: ((CONTENT) -> Void)?,
-        callbackError: (() -> Void)?
+        response: CurrentValueSubject<CONTENT, Never>?,
+        callbackLoading: ((Bool) -> Void)? = nil,
+        callbackSuccess: (() -> Void)? = nil,
+        callbackComplete: (() -> Void)? = nil,
+        callbackError: (() -> Void)? = nil
     ) {
 
         callbackLoading?(true)
@@ -53,14 +55,13 @@ class BaseViewModel {
             case .failure(_):
                 callbackError?()
             case .finished:
-                break
+                callbackComplete?()
+                callbackLoading?(false)
             }
 
-            callbackLoading?(false)
         }, receiveValue: { value in
-            
-            callbackSuccess?(value)
-            callbackLoading?(false)
+            response?.send(value)
+            callbackSuccess?()
         }).store(in: &cancelBag)
     }
 
