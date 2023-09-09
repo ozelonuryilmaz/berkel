@@ -6,11 +6,17 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
+import Combine
+
 protocol ISettingsViewModel: AnyObject {
+
+    var errorState: ErrorStateSubject { get }
 
     init(repository: ISettingsRepository,
          coordinator: ISettingsCoordinator,
          uiModel: ISettingsUIModel)
+
+    func getDocuments()
 }
 
 final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
@@ -19,6 +25,9 @@ final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
     private let repository: ISettingsRepository
     private let coordinator: ISettingsCoordinator
     private var uiModel: ISettingsUIModel
+
+    let response = CurrentValueSubject<[SettingsResponseModel]?, Never>(nil)
+    var errorState = ErrorStateSubject(nil)
 
     // MARK: Initiliazer
     required init(repository: ISettingsRepository,
@@ -35,6 +44,27 @@ final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
 // MARK: Service
 internal extension SettingsViewModel {
 
+    func getDocuments() {
+
+        handleResourceToFirestoreState(
+            request: self.repository.getBuyingList(),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { isProgress in
+                print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
+            },
+            callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+
+                self.response.value?.forEach { item in
+                    print(item.test ?? "")
+                }
+            }, callbackComplete: {
+
+            }
+        )
+
+    }
 }
 
 // MARK: States

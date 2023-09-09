@@ -32,7 +32,6 @@ final class BuyingViewController: MainBaseViewController {
     override func initialComponents() {
         self.observeReactiveDatas()
 
-        viewModel.getDocuments()
     }
 
     override func registerEvents() {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BuyingResponseModel: Codable {
+struct SettingsResponseModel: Codable {
 
     var test: String?
 }

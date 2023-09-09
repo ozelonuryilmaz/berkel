@@ -10,9 +10,12 @@ import Foundation
 
 protocol ISettingsRepository: AnyObject {
 
+    func getBuyingList() -> FirestoreResponseType<[SettingsResponseModel]>
 }
 
-final class SettingsRepository: ISettingsRepository {
+final class SettingsRepository: BaseRepository, ISettingsRepository {
 
-
+    func getBuyingList() -> FirestoreResponseType<[SettingsResponseModel]> {
+        return getDocuments(SettingsService.list)
+    }
 }

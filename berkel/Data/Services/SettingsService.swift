@@ -7,12 +7,12 @@
 
 import FirebaseFirestore
 
-enum BuyingService {
+enum SettingsService {
 
     case list
 }
 
-extension BuyingService: CollectionServiceType {
+extension SettingsService: CollectionServiceType {
 
     var collectionReference: CollectionReference {
         switch self {

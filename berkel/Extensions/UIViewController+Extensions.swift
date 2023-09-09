@@ -136,12 +136,15 @@ extension UIViewController {
     }
 
     func showErrorAlert(
+        title: String? = "Bilgiler yeniden alınsın mı?",
         errorMessage: String,
         positiveButtonClickListener: (() -> Void)? = nil) {
 
-        showSystemAlert(title: "Hata",
+        showSystemAlert(title: title ?? "Hata",
                         message: errorMessage,
-                        positiveButtonClickListener: positiveButtonClickListener)
+                        positiveButtonText: "Evet",
+                        positiveButtonClickListener: positiveButtonClickListener,
+                        negativeButtonText: "Vazgeç")
     }
 
     func showWarningAlert(
@@ -210,7 +213,7 @@ extension UIViewController {
         }
 
         alertController.addAction(UIAlertAction(title: "Vazgeç", style: .cancel))
-        
+
         present(alertController, animated: true, completion: nil)
     }
 }
@@ -219,17 +222,17 @@ extension UIViewController {
 // MARK: ActionSheet
 extension UIViewController {
     func showActionSheetAlert(title: String?,
-        message: String?,
-        actionSheetItems: [ActionSheetItem],
-        isShowCancelAction: Bool = false,
-        tintColor: UIColor? = .primaryBlue) {
+                              message: String?,
+                              actionSheetItems: [ActionSheetItem],
+                              isShowCancelAction: Bool = false,
+                              tintColor: UIColor? = .primaryBlue) {
         let alertSheet = UIAlertController(title: title, message: message, preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         alertSheet.view.tintColor = tintColor
 
         actionSheetItems.forEach { (actionSheetItem) in
             alertSheet.addAction(UIAlertAction(title: actionSheetItem.title,
-                style: .default,
-                handler: actionSheetItem.action))
+                                               style: .default,
+                                               handler: actionSheetItem.action))
         }
 
         if isShowCancelAction {
@@ -267,11 +270,11 @@ extension UIViewController {
 class ActionSheetItem {
     var title: String
     var style: UIAlertAction.Style = .default
-    var action: (UIAlertAction)->Void
-    
+    var action: (UIAlertAction) -> Void
+
     init(title: String,
          style: UIAlertAction.Style = .default,
-         action: @escaping (UIAlertAction)->Void) {
+         action: @escaping (UIAlertAction) -> Void) {
 
         self.title = title
         self.style = style

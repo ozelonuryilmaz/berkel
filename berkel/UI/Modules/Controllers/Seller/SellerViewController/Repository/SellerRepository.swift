@@ -12,7 +12,7 @@ protocol ISellerRepository: AnyObject {
 
 }
 
-final class SellerRepository: ISellerRepository {
+final class SellerRepository: BaseRepository, ISellerRepository {
 
    
 }

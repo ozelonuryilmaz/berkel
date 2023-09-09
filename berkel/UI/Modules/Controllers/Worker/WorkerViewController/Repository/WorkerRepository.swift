@@ -12,7 +12,7 @@ protocol IWorkerRepository: AnyObject {
 
 }
 
-final class WorkerRepository: IWorkerRepository {
+final class WorkerRepository: BaseRepository, IWorkerRepository {
 
    
 }

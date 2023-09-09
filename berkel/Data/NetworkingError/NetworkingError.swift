@@ -18,7 +18,7 @@ enum NetworkingError: CustomStringConvertible {
     var description: String {
         switch self {
         case .COMMON_ERROR(let error):
-            return "Bir sorun oluştu.\n\(error.localizedDescription)"
+            return "Bir Sorun Oluştu\n\n\(error.localizedDescription)"
         case .UNDEFINED_RESPONSE_TYPE:
             return "Tanımlanamayan server dönüşü"
         }

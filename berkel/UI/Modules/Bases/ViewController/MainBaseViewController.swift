@@ -18,8 +18,8 @@ class MainBaseViewController: BerkelBaseViewController {
     }
 
     override func initDidLoad() {
-        super.initDidLoad()
-        // silmeyin
+        super.initDidLoad()// silmeyin
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

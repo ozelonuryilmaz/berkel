@@ -10,12 +10,11 @@ import Foundation
 
 protocol IBuyingRepository: AnyObject {
 
-    func getBuyingList() -> FirestoreResponseType<[BuyingResponseModel]>
+   
 }
 
 final class BuyingRepository: BaseRepository, IBuyingRepository {
     
-    func getBuyingList() -> FirestoreResponseType<[BuyingResponseModel]> {
-        return getDocuments(BuyingService.list)
-    }
+    
+    
 }

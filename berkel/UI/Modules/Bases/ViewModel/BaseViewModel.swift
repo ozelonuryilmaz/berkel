@@ -30,6 +30,7 @@ class BaseViewModel {
         request.sink(receiveCompletion: { result in
 
             switch result {
+            // finished ve failure'dan sadece biri tetikleniyor
             case .failure(let error):
                 errorState.value = .COMMON_ERROR(error: error)
                 callbackComplete?()
@@ -40,7 +41,8 @@ class BaseViewModel {
             }
 
         }, receiveValue: { value in
-            if let castValue = value as? RESPONSE { // Tip dönüşümü karışmaması için RESPONSE eklendi.
+            // Tip dönüşümü karışmaması için RESPONSE eklendi.
+            if let castValue = value as? RESPONSE {
                 response.value = castValue
                 // CurrentValueSubject<[BuyingResponseModel]?, Never>(nil)
                 // ..Never>?(nil) araya ? konulduğunda data(value) yakalanamıyor

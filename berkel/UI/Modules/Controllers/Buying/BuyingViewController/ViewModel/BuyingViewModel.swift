@@ -16,7 +16,6 @@ protocol IBuyingViewModel: AnyObject {
          coordinator: IBuyingCoordinator,
          uiModel: IBuyingUIModel)
 
-    func getDocuments()
 }
 
 final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
@@ -26,8 +25,6 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
     private let coordinator: IBuyingCoordinator
     private var uiModel: IBuyingUIModel
 
-
-    let response = CurrentValueSubject<[BuyingResponseModel]?, Never>(nil)
     var errorState = ErrorStateSubject(nil)
 
     // MARK: Initiliazer
@@ -45,27 +42,6 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
 // MARK: Service
 internal extension BuyingViewModel {
 
-    func getDocuments() {
-
-        handleResourceToFirestoreState(
-            request: self.repository.getBuyingList(),
-            response: self.response,
-            errorState: self.errorState,
-            callbackLoading: { isProgress in
-                print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
-            },
-            callbackSuccess: { [weak self] in
-                guard let self = self else { return }
-
-                self.response.value?.forEach { item in
-                    print(item.test ?? "")
-                }
-            }, callbackComplete: {
-                print("***data1: \(self.response.value)")
-            }
-        )
-
-    }
 }
 
 // MARK: States
