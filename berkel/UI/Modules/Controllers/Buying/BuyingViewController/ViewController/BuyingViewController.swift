@@ -42,6 +42,7 @@ final class BuyingViewController: MainBaseViewController {
     private func observeReactiveDatas() {
         observeViewState()
         observeActionState()
+        listenErrorState()
     }
 
     private func observeViewState() {
@@ -54,6 +55,18 @@ final class BuyingViewController: MainBaseViewController {
             
             } 
         }.dispose(in: disposeBag) */
+    }
+
+    private func listenErrorState() {
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: {
+                print("Tıklandı")
+            }
+        )
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components (if you have or delete this line)

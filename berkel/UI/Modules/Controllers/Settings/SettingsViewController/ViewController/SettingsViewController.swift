@@ -20,7 +20,6 @@ struct City: Codable {
 
 final class SettingsViewController: MainBaseViewController {
 
-    var cancelBag = Set<AnyCancellable>()
     let db = Firestore.firestore()
 
     func setSanFranciscoData(city: City) {

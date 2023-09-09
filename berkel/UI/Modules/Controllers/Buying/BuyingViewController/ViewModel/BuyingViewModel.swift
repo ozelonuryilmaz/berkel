@@ -10,6 +10,8 @@ import Combine
 
 protocol IBuyingViewModel: AnyObject {
 
+    var errorState: ErrorStateSubject { get }
+
     init(repository: IBuyingRepository,
          coordinator: IBuyingCoordinator,
          uiModel: IBuyingUIModel)
@@ -24,7 +26,9 @@ final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
     private let coordinator: IBuyingCoordinator
     private var uiModel: IBuyingUIModel
 
+
     let response = CurrentValueSubject<[BuyingResponseModel]?, Never>(nil)
+    var errorState = ErrorStateSubject(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingRepository,
@@ -46,6 +50,7 @@ internal extension BuyingViewModel {
         handleResourceToFirestoreState(
             request: self.repository.getBuyingList(),
             response: self.response,
+            errorState: self.errorState,
             callbackLoading: { isProgress in
                 print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
             },
@@ -57,9 +62,6 @@ internal extension BuyingViewModel {
                 }
             }, callbackComplete: {
                 print("***data1: \(self.response.value)")
-            }, callbackError: { msg in
-
-
             }
         )
 

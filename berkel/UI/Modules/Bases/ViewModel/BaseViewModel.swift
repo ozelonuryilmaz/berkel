@@ -19,10 +19,10 @@ class BaseViewModel {
     func handleResourceToFirestoreState<CONTENT: Codable, RESPONSE: Codable>(
         request: PassthroughSubject<CONTENT, Error>,
         response: CurrentValueSubject<RESPONSE?, Never>,
+        errorState: ErrorStateSubject,
         callbackLoading: ((Bool) -> Void)? = nil,
         callbackSuccess: (() -> Void)? = nil,
-        callbackComplete: (() -> Void)? = nil,
-        callbackError: ((_ errorMessage: String) -> Void)? = nil
+        callbackComplete: (() -> Void)? = nil
     ) {
 
         callbackLoading?(true)
@@ -31,7 +31,7 @@ class BaseViewModel {
 
             switch result {
             case .failure(let error):
-                callbackError?(error.localizedDescription)
+                errorState.value = .COMMON_ERROR(error: error)
                 callbackComplete?()
                 callbackLoading?(false)
             case .finished:
@@ -46,7 +46,7 @@ class BaseViewModel {
                 // ..Never>?(nil) araya ? konulduğunda data(value) yakalanamıyor
                 callbackSuccess?()
             } else {
-                callbackError?("Undefined Response")
+                errorState.value = .UNDEFINED_RESPONSE_TYPE
             }
         }).store(in: &cancelBag)
     }
