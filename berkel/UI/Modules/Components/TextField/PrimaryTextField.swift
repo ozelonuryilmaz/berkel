@@ -196,7 +196,11 @@ private extension PrimaryTextField {
     }
 
     func handleVisibilityClearButton() {
-        if textField.text?.isEmpty == true {
+        btnClear.isHidden = true
+        btnClear.snp.updateConstraints { maker in
+            maker.width.equalTo(0)
+        }
+        /*if textField.text?.isEmpty == true {
             btnClear.isHidden = true
             btnClear.snp.updateConstraints { maker in
                 maker.width.equalTo(0)
@@ -206,7 +210,7 @@ private extension PrimaryTextField {
             btnClear.snp.updateConstraints { maker in
                 maker.width.equalTo(32)
             }
-        }
+        }*/
     }
 }
 
