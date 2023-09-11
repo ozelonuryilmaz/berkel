@@ -7,23 +7,33 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol ISplashUIModel {
 
-	 init()
+    init()
 
-} 
+    func isUserAlreadyLogin(completion: @escaping (Bool) -> Void)
+}
 
 struct SplashUIModel: ISplashUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
 
-	// MARK: Initialize
+    // MARK: Initialize
     init() {
 
     }
 
     // MARK: Computed Props
+
+    func isUserAlreadyLogin(completion: @escaping (Bool) -> Void) {
+        Auth.auth().addStateDidChangeListener { _, user in
+            completion(user != nil)
+        }
+    }
+
+
 }
 
 // MARK: Props

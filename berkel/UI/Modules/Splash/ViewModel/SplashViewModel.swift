@@ -7,10 +7,14 @@
 //
 
 protocol ISplashViewModel: AnyObject {
+    
+    var viewState: ScreenStateSubject<SplashViewState> { get }
 
     init(repository: ISplashRepository,
          coordinator: ISplashCoordinator,
          uiModel: ISplashUIModel)
+    
+    func startFlowMainAfterLogin()
 }
 
 final class SplashViewModel: BaseViewModel, ISplashViewModel {
@@ -19,6 +23,8 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
     private let repository: ISplashRepository
     private let coordinator: ISplashCoordinator
     private var uiModel: ISplashUIModel
+    
+    var viewState = ScreenStateSubject<SplashViewState>(nil)
 
     // MARK: Initiliazer
     required init(repository: ISplashRepository,
@@ -29,6 +35,20 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
         self.uiModel = uiModel
     }
 
+    
+    func startFlowMainAfterLogin() {
+        self.uiModel.isUserAlreadyLogin(completion: { [weak self] isLoggedIn in
+            guard let self = self else { return }
+            
+            if isLoggedIn {
+                self.viewStateStartFlowMain()
+            } else {
+                self.presentLoginViewController(didDismissCallback: {
+                    self.startFlowMainAfterLogin()
+                })
+            }
+        })
+    }
 }
 
 
@@ -41,6 +61,9 @@ internal extension SplashViewModel {
 internal extension SplashViewModel {
 
     // MARK: View State
+    func viewStateStartFlowMain() {
+        viewState.value = .startFlowMain
+    }
 
     // MARK: Action State
 
@@ -49,11 +72,14 @@ internal extension SplashViewModel {
 // MARK: Coordinate
 internal extension SplashViewModel {
 
+    func presentLoginViewController(didDismissCallback: DefaultDismissCallback?) {
+        self.coordinator.presentLoginViewController(didDismissCallback: didDismissCallback)
+    }
 }
 
 
 enum SplashViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case startFlowMain
 }
 
 enum SplashActionState {

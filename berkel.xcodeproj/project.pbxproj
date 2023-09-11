@@ -16,6 +16,9 @@
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
 		676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72092AA3852D00010350 /* CGFloat+Extension.swift */; };
 		676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E720B2AA3855E00010350 /* UIScreen+Extension.swift */; };
+		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
+		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
+		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
 		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
 		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
 		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
@@ -99,6 +102,24 @@
 		67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */; };
 		67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */; };
 		67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B12AA25EF1003206F0 /* SplashPassData.swift */; };
+		67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B582AAF83890086E20C /* PrimaryTextField.swift */; };
+		67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */; };
+		67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */; };
+		67EA5B612AAF865E0086E20C /* BaseReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B602AAF865E0086E20C /* BaseReusableView.swift */; };
+		67EA5B692AAF86C70086E20C /* UIView+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B632AAF86C60086E20C /* UIView+Closures.swift */; };
+		67EA5B6A2AAF86C70086E20C /* UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B642AAF86C60086E20C /* UIGestureRecognizer.swift */; };
+		67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B652AAF86C60086E20C /* UIBarButtonItem+Closures.swift */; };
+		67EA5B6C2AAF86C70086E20C /* ClosureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B662AAF86C60086E20C /* ClosureHandler.swift */; };
+		67EA5B6D2AAF86C70086E20C /* UIControl+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B672AAF86C60086E20C /* UIControl+Closures.swift */; };
+		67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B682AAF86C70086E20C /* UIGestureRecognizer+Closures.swift */; };
+		67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */; };
+		67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B752AAF8DFA0086E20C /* LoginCoordinator.swift */; };
+		67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B762AAF8DFA0086E20C /* LoginUIModel.swift */; };
+		67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B772AAF8DFA0086E20C /* LoginViewController.swift */; };
+		67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B782AAF8DFA0086E20C /* LoginRepository.swift */; };
+		67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B792AAF8DFA0086E20C /* LoginBuilder.swift */; };
+		67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B7A2AAF8DFA0086E20C /* LoginViewModel.swift */; };
+		67EA5B832AAF8DFA0086E20C /* LoginPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B7B2AAF8DFA0086E20C /* LoginPassData.swift */; };
 		67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DF72AA110B400DBCD48 /* AppDelegate.swift */; };
 		67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E002AA110B500DBCD48 /* Assets.xcassets */; };
 		67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */; };
@@ -118,6 +139,9 @@
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
 		676E72092AA3852D00010350 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		676E720B2AA3855E00010350 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -201,6 +225,24 @@
 		67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		67CC75B12AA25EF1003206F0 /* SplashPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPassData.swift; sourceTree = "<group>"; };
+		67EA5B582AAF83890086E20C /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
+		67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReusableTextField.swift; sourceTree = "<group>"; };
+		67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		67EA5B602AAF865E0086E20C /* BaseReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReusableView.swift; sourceTree = "<group>"; };
+		67EA5B632AAF86C60086E20C /* UIView+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Closures.swift"; sourceTree = "<group>"; };
+		67EA5B642AAF86C60086E20C /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.swift; sourceTree = "<group>"; };
+		67EA5B652AAF86C60086E20C /* UIBarButtonItem+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Closures.swift"; sourceTree = "<group>"; };
+		67EA5B662AAF86C60086E20C /* ClosureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureHandler.swift; sourceTree = "<group>"; };
+		67EA5B672AAF86C60086E20C /* UIControl+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Closures.swift"; sourceTree = "<group>"; };
+		67EA5B682AAF86C70086E20C /* UIGestureRecognizer+Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+Closures.swift"; sourceTree = "<group>"; };
+		67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		67EA5B752AAF8DFA0086E20C /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		67EA5B762AAF8DFA0086E20C /* LoginUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIModel.swift; sourceTree = "<group>"; };
+		67EA5B772AAF8DFA0086E20C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		67EA5B782AAF8DFA0086E20C /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		67EA5B792AAF8DFA0086E20C /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
+		67EA5B7A2AAF8DFA0086E20C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		67EA5B7B2AAF8DFA0086E20C /* LoginPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassData.swift; sourceTree = "<group>"; };
 		67F03DF42AA110B400DBCD48 /* berkel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = berkel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F03DF72AA110B400DBCD48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67F03E002AA110B500DBCD48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,6 +277,7 @@
 				6710BF382AA79B7B000034FD /* BaseRepository.swift */,
 				675129DE2AAC677B00429CB7 /* NetworkingError */,
 				6710BF3B2AA7AD3D000034FD /* Services */,
+				6772DE452AAF90540044607A /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -310,9 +353,19 @@
 		676E72062AA383C200010350 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67EA5B5F2AAF864B0086E20C /* Views */,
+				67EA5B5A2AAF83AF0086E20C /* TextField */,
 				676E72072AA383CE00010350 /* BerkelTabBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		6772DE452AAF90540044607A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6772DE462AAF905E0044607A /* AuthenticationRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		677E67932AA35213001775E2 /* Controllers */ = {
@@ -607,11 +660,13 @@
 				678B538C2AA26241003F4355 /* UIApplication+Extensions.swift */,
 				678B53912AA26303003F4355 /* UIViewController+Extensions.swift */,
 				678B53992AA264B0003F4355 /* UIView+Extensions.swift */,
-				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
+				67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */,
 				678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */,
+				676E720B2AA3855E00010350 /* UIScreen+Extension.swift */,
+				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
 				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
 				676E72092AA3852D00010350 /* CGFloat+Extension.swift */,
-				676E720B2AA3855E00010350 /* UIScreen+Extension.swift */,
+				67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -627,6 +682,7 @@
 		678B53932AA2639E003F4355 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				67EA5B622AAF86BA0086E20C /* GestureRecognizerClosures */,
 				6797F01C2AA4968500638C09 /* CombineFirebae */,
 				678B53942AA263A3003F4355 /* Toast */,
 			);
@@ -767,9 +823,10 @@
 		67CC75A92AA25EB6003206F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				676E72062AA383C200010350 /* Components */,
 				678B537D2AA25F72003F4355 /* Bases */,
+				676E72062AA383C200010350 /* Components */,
 				67CC75AA2AA25EC7003206F0 /* Splash */,
+				67EA5B732AAF8DCC0086E20C /* Auth */,
 				677E67932AA35213001775E2 /* Controllers */,
 			);
 			path = Modules;
@@ -826,6 +883,100 @@
 			isa = PBXGroup;
 			children = (
 				67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67EA5B5A2AAF83AF0086E20C /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */,
+				67EA5B582AAF83890086E20C /* PrimaryTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		67EA5B5F2AAF864B0086E20C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B602AAF865E0086E20C /* BaseReusableView.swift */,
+				6772DE482AAFB2A30044607A /* ShadowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		67EA5B622AAF86BA0086E20C /* GestureRecognizerClosures */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B662AAF86C60086E20C /* ClosureHandler.swift */,
+				67EA5B652AAF86C60086E20C /* UIBarButtonItem+Closures.swift */,
+				67EA5B672AAF86C60086E20C /* UIControl+Closures.swift */,
+				67EA5B642AAF86C60086E20C /* UIGestureRecognizer.swift */,
+				67EA5B682AAF86C70086E20C /* UIGestureRecognizer+Closures.swift */,
+				67EA5B632AAF86C60086E20C /* UIView+Closures.swift */,
+			);
+			path = GestureRecognizerClosures;
+			sourceTree = "<group>";
+		};
+		67EA5B732AAF8DCC0086E20C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B742AAF8DD80086E20C /* LoginViewController */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		67EA5B742AAF8DD80086E20C /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B892AAF8E100086E20C /* Builder */,
+				67EA5B882AAF8E0B0086E20C /* Coordinator */,
+				67EA5B872AAF8E070086E20C /* Repository */,
+				67EA5B862AAF8E040086E20C /* ViewModel */,
+				67EA5B852AAF8DFF0086E20C /* ViewController */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		67EA5B852AAF8DFF0086E20C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B772AAF8DFA0086E20C /* LoginViewController.swift */,
+				6772DE432AAF8E570044607A /* LoginViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67EA5B862AAF8E040086E20C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B7A2AAF8DFA0086E20C /* LoginViewModel.swift */,
+				67EA5B762AAF8DFA0086E20C /* LoginUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67EA5B872AAF8E070086E20C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B782AAF8DFA0086E20C /* LoginRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67EA5B882AAF8E0B0086E20C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B752AAF8DFA0086E20C /* LoginCoordinator.swift */,
+				67EA5B7B2AAF8DFA0086E20C /* LoginPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67EA5B892AAF8E100086E20C /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67EA5B792AAF8DFA0086E20C /* LoginBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -932,6 +1083,7 @@
 			files = (
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
+				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
@@ -994,7 +1146,9 @@
 			files = (
 				6797F0442AA4974000638C09 /* Auth.swift in Sources */,
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
+				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
+				67EA5B6A2AAF86C70086E20C /* UIGestureRecognizer.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */,
@@ -1007,14 +1161,18 @@
 				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
 				677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */,
 				677E67B72AA353EA001775E2 /* WorkerUIModel.swift in Sources */,
+				67EA5B6D2AAF86C70086E20C /* UIControl+Closures.swift in Sources */,
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
 				6797F0542AA4975300638C09 /* DocumentReference+Combine.swift in Sources */,
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
 				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
+				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
+				67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */,
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
+				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
 				6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
@@ -1025,29 +1183,37 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
+				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
 				6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */,
 				6797F0492AA4974800638C09 /* DatabaseReference+Combine.swift in Sources */,
 				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
+				67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */,
 				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
 				675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */,
 				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
 				677E67AA2AA353D2001775E2 /* BuyingPassData.swift in Sources */,
+				67EA5B6C2AAF86C70086E20C /* ClosureHandler.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
 				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
 				6797F0432AA4974000638C09 /* Firestore.swift in Sources */,
 				678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */,
 				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
+				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
+				67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */,
 				677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */,
 				6797F0422AA4974000638C09 /* Database.swift in Sources */,
 				677E67A82AA353D2001775E2 /* BuyingBuilder.swift in Sources */,
 				6797F0572AA4975C00638C09 /* HTTPSCallable+Combine.swift in Sources */,
+				67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
+				67EA5B612AAF865E0086E20C /* BaseReusableView.swift in Sources */,
 				678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */,
 				677E67BA2AA353EA001775E2 /* WorkerBuilder.swift in Sources */,
+				6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */,
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
@@ -1057,12 +1223,16 @@
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
 				6797F0592AA4976300638C09 /* RemoteConfig+Combine.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
+				67EA5B692AAF86C70086E20C /* UIView+Closures.swift in Sources */,
+				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
 				677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */,
+				67EA5B832AAF8DFA0086E20C /* LoginPassData.swift in Sources */,
 				6797F0522AA4975300638C09 /* WriteBatch+Combine.swift in Sources */,
 				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
+				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
 				6797F0512AA4975300638C09 /* FirestoreError.swift in Sources */,
@@ -1072,8 +1242,10 @@
 				6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */,
 				6797F0362AA4973600638C09 /* PhoneAuthProvider+Combine.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
+				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
+				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,

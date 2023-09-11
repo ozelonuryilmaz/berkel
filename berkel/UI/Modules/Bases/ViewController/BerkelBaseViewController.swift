@@ -29,6 +29,10 @@ class BerkelBaseViewController: UIViewController {
         self.registerEvents()
     }
 
+    // Sayfa kapanmalarını alt sayfaya bildirmek için kullanılıyor
+    public var willDismissCallback: DefaultDismissCallback? = nil
+    public var didDismissCallback: DefaultDismissCallback? = nil
+
     // for all sub class
     func setupView() { }
 
@@ -37,6 +41,18 @@ class BerkelBaseViewController: UIViewController {
 
     // for all sub class
     func registerEvents() { }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.willDismissCallback?()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        self.didDismissCallback?()
+    }
 }
 
 extension BerkelBaseViewController {

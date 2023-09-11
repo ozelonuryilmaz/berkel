@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 typealias ErrorStateSubject = CurrentValueSubject<NetworkingError?, Never>
+typealias ScreenStateSubject<T> = CurrentValueSubject<T?, Never>
 
 
 enum NetworkingError: CustomStringConvertible {
