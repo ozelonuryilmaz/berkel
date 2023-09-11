@@ -8,16 +8,23 @@
 import UIKit
 import SnapKit
 
-typealias PrimarySearchTextFieldListener = ((String) -> (Void))
+typealias PrimaryTextFieldListener = ((String) -> (Void))
 
 @IBDesignable
 class PrimaryTextField: BaseReusableView {
 
-    private let defaultBorderColor: CGColor = UIColor.primaryLightGray.cgColor
+    private let defaultBorderColor: CGColor = UIColor.grayColor.cgColor
     private let focusedBorderColor: CGColor = UIColor.primaryBlue.cgColor
 
-    private var searchClickListener: PrimarySearchTextFieldListener? = nil
-    private var arrayListenDidChange: [PrimarySearchTextFieldListener]? = nil
+    private var clickListener: PrimaryTextFieldListener? = nil
+    private var arrayListenDidChange: [PrimaryTextFieldListener]? = nil
+    
+    @IBInspectable
+    var title: String = "" {
+        didSet {
+            lblTitle.text = title
+        }
+    }
 
     @IBInspectable
     var placeholder: String = "" {
@@ -44,7 +51,7 @@ class PrimaryTextField: BaseReusableView {
     var maxCharacterLenght: Int = Int.max
 
     override func initializeSelf() {
-        self.arrayListenDidChange = [PrimarySearchTextFieldListener]()
+        self.arrayListenDidChange = [PrimaryTextFieldListener]()
         self.textField.delegate = self
         setupAllConstraints()
         initialDefaultUI()
@@ -52,8 +59,8 @@ class PrimaryTextField: BaseReusableView {
 
     // MARK: Actions
 
-    func setOnSearchClickListener(callback: @escaping PrimarySearchTextFieldListener) {
-        self.searchClickListener = callback
+    func setOnTextFieldClickListener(callback: @escaping PrimaryTextFieldListener) {
+        self.clickListener = callback
     }
 
     func convertToJustClickable(handler: @escaping () -> Void) {
@@ -79,13 +86,27 @@ class PrimaryTextField: BaseReusableView {
     }
 
     // MARK: Definitions
+    
+    private lazy var lblTitle: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(cgColor: defaultBorderColor)
+        label.textAlignment = .left
+        label.font = .systemFont(ofSize: 20)
+        
+        addSubview(label)
+        return label
+    }()
+    
+    private lazy var tfBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 1
+        view.layer.borderColor = defaultBorderColor
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
 
-    private lazy var imgSearchIcon: UIImageView = {
-        let imageView = UIImageView()
-        //imageView.image = #imageLiteral(resourceName: "magnifinderGreen")
-
-        addSubview(imageView)
-        return imageView
+        addSubview(view)
+        return view
     }()
 
     lazy var textField: UITextField = {
@@ -99,7 +120,7 @@ class PrimaryTextField: BaseReusableView {
 
         textfield.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
-        addSubview(textfield)
+        tfBackgroundView.addSubview(textfield)
         return textfield
     }()
 
@@ -110,7 +131,7 @@ class PrimaryTextField: BaseReusableView {
 
         button.addTarget(self, action: #selector(self.ActionClearButton), for: .touchUpInside)
 
-        addSubview(button)
+        tfBackgroundView.addSubview(button)
         return button
     }()
 }
@@ -120,11 +141,6 @@ class PrimaryTextField: BaseReusableView {
 private extension PrimaryTextField {
 
     func initialDefaultUI() {
-        self.backgroundColor = .clear
-        self.layer.borderWidth = 1
-        self.layer.borderColor = defaultBorderColor
-        self.layer.cornerRadius = 10
-        self.clipsToBounds = true
 
         self.handleVisibilityClearButton()
     }
@@ -144,16 +160,23 @@ private extension PrimaryTextField {
 private extension PrimaryTextField {
 
     func setupAllConstraints() {
-        setupImageViewSearchIconCons()
+        setuplblTitle()
+        setupTFBackgroundViewCons()
         setupClearButtonCons()
         setupTextFieldCons()
     }
-
-    func setupImageViewSearchIconCons() {
-        imgSearchIcon.snp.makeConstraints { maker in
-            maker.centerY.equalToSuperview()
-            maker.leading.equalToSuperview().offset(10)
-            maker.width.height.equalTo(12)
+    
+    func setuplblTitle() {
+        lblTitle.snp.makeConstraints { maker in
+            maker.top.equalToSuperview()
+            maker.bottom.equalTo(tfBackgroundView.snp.top).inset(-4)
+            maker.height.equalTo(28)
+        }
+    }
+    
+    func setupTFBackgroundViewCons() {
+        tfBackgroundView.snp.makeConstraints { maker in
+            maker.leading.trailing.bottom.equalToSuperview()
         }
     }
 
@@ -167,7 +190,7 @@ private extension PrimaryTextField {
     func setupTextFieldCons() {
         textField.snp.makeConstraints { maker in
             maker.top.bottom.equalToSuperview()
-            maker.leading.equalTo(imgSearchIcon.snp.trailing).offset(5)
+            maker.leading.equalToSuperview().inset(12)
             maker.trailing.equalTo(btnClear.snp.leading)
         }
     }
@@ -191,11 +214,13 @@ private extension PrimaryTextField {
 extension PrimaryTextField: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.layer.borderColor = focusedBorderColor
+        self.tfBackgroundView.layer.borderColor = focusedBorderColor
+        self.lblTitle.textColor = UIColor(cgColor: focusedBorderColor)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.layer.borderColor = defaultBorderColor
+        self.tfBackgroundView.layer.borderColor = defaultBorderColor
+        self.lblTitle.textColor = UIColor(cgColor: defaultBorderColor)
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -214,7 +239,7 @@ extension PrimaryTextField: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text, !text.isEmpty {
-            self.searchClickListener?(text)
+            self.clickListener?(text)
             textField.resignFirstResponder()
             return true
         }
@@ -225,7 +250,7 @@ extension PrimaryTextField: UITextFieldDelegate {
 // MARK: Delegate wrapper completion listener
 extension PrimaryTextField {
 
-    func addListenDidChange(listener: @escaping PrimarySearchTextFieldListener) {
+    func addListenDidChange(listener: @escaping PrimaryTextFieldListener) {
         self.arrayListenDidChange?.append(listener)
     }
 }

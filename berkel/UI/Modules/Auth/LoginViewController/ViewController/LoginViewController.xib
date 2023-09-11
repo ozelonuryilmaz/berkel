@@ -13,9 +13,6 @@
         <array key="MavenPro-Bold.ttf">
             <string>MavenProBold</string>
         </array>
-        <array key="MavenPro-Medium.ttf">
-            <string>MavenProMedium</string>
-        </array>
         <array key="MavenPro-Regular.ttf">
             <string>MavenProRegular</string>
         </array>
@@ -35,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="365" height="811"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnA-xV-hkK" userLabel="bgView">
-                            <rect key="frame" x="0.0" y="0.0" width="365" height="502"/>
+                            <rect key="frame" x="0.0" y="0.0" width="365" height="558"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giriş Yapın" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXb-jP-KH0" userLabel="lblLogin">
                                     <rect key="frame" x="36" y="32" width="313" height="44"/>
@@ -47,13 +44,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLZ-0w-NG1" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="36" y="92" width="335" height="316"/>
+                                    <rect key="frame" x="36" y="92" width="335" height="372"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9s-p4-PBE" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="32" width="319" height="44"/>
+                                            <rect key="frame" x="16" y="32" width="319" height="72"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="HEa-d7-qdx"/>
+                                                <constraint firstAttribute="height" constant="72" id="HEa-d7-qdx"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
@@ -62,13 +59,14 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
                                                     <integer key="value" value="7"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="E-mail"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUg-YV-b7H" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="108" width="319" height="44"/>
+                                            <rect key="frame" x="16" y="136" width="319" height="72"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="Ckc-37-Se9"/>
+                                                <constraint firstAttribute="height" constant="72" id="Ckc-37-Se9"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
@@ -78,10 +76,11 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
                                                     <integer key="value" value="0"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Parola"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DY5-rS-sXq" userLabel="btnLogin">
-                                            <rect key="frame" x="32" y="228" width="307" height="56"/>
+                                            <rect key="frame" x="32" y="284" width="307" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="suP-4y-hWD"/>
@@ -97,11 +96,11 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcU-a2-bdo" userLabel="btnResetPassword">
-                                            <rect key="frame" x="16" y="168" width="319" height="44"/>
+                                            <rect key="frame" x="16" y="224" width="319" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Mvj-Tw-bRA"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="MavenProMedium" family="Maven Pro" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Parolanızı mı unuttunuz?">
                                                 <color key="titleColor" name="Gray110"/>
                                             </state>
@@ -145,7 +144,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="07L-ec-APW" userLabel="stackViewRegister">
-                                    <rect key="frame" x="36" y="436" width="293" height="38"/>
+                                    <rect key="frame" x="36" y="492" width="293" height="38"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız yok mu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5T-35-1Ex" userLabel="lblRegister">
                                             <rect key="frame" x="0.0" y="0.0" width="169.66666666666666" height="38"/>
