@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MavenPro-Bold.ttf">
+            <string>MavenProBold</string>
+        </array>
+        <array key="MavenPro-Regular.ttf">
+            <string>MavenProRegular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="berkel" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIx-FN-3Vb" userLabel="scrollView">
+                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKx-Xz-bbU" userLabel="bgView">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="694"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üye Olun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htl-Ei-pir" userLabel="lblLogin">
+                                    <rect key="frame" x="36" y="32" width="338" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="57Y-3H-B8S"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MavenProRegular" family="Maven Pro" pointSize="30"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEh-VT-HZV" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
+                                    <rect key="frame" x="36" y="92" width="360" height="508"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoF-zh-DwT" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="36" width="344" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="C4r-7B-xgI"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ad Soyad"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XZ-s7-pEr" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="128" width="344" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="8HZ-Ug-Y6R"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="7"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-rd-kTr" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="220" width="344" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="OWF-ds-Pob"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Parola"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-8c-Nq7" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="312" width="344" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="hRQ-nJ-qhW"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Parola"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvT-y4-W19" userLabel="btnLogin">
+                                            <rect key="frame" x="32" y="420" width="332" height="56"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="qwA-E6-DRP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Üye Ol">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="8Em-8c-Nq7" firstAttribute="leading" secondItem="tEh-VT-HZV" secondAttribute="leading" constant="16" id="3Qm-MO-YBz"/>
+                                        <constraint firstAttribute="trailing" secondItem="iHO-rd-kTr" secondAttribute="trailing" id="435-sd-RBU"/>
+                                        <constraint firstAttribute="trailing" secondItem="MoF-zh-DwT" secondAttribute="trailing" id="7q0-GS-iWr"/>
+                                        <constraint firstAttribute="bottom" secondItem="HvT-y4-W19" secondAttribute="bottom" constant="32" id="JiT-JH-xKM"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Em-8c-Nq7" secondAttribute="trailing" id="Qm8-SI-51e"/>
+                                        <constraint firstAttribute="trailing" secondItem="HvT-y4-W19" secondAttribute="trailing" constant="-4" id="Sg7-qu-Jhp"/>
+                                        <constraint firstItem="HvT-y4-W19" firstAttribute="leading" secondItem="tEh-VT-HZV" secondAttribute="leading" constant="32" id="WSb-OJ-jrx"/>
+                                        <constraint firstItem="MoF-zh-DwT" firstAttribute="leading" secondItem="tEh-VT-HZV" secondAttribute="leading" constant="16" id="ZwV-Xq-Sq7"/>
+                                        <constraint firstItem="MoF-zh-DwT" firstAttribute="top" secondItem="tEh-VT-HZV" secondAttribute="top" constant="36" id="bIb-uK-kvI"/>
+                                        <constraint firstItem="4XZ-s7-pEr" firstAttribute="leading" secondItem="tEh-VT-HZV" secondAttribute="leading" constant="16" id="dcU-e4-9Gd"/>
+                                        <constraint firstItem="HvT-y4-W19" firstAttribute="top" secondItem="8Em-8c-Nq7" secondAttribute="bottom" constant="32" id="h3X-Yz-apm"/>
+                                        <constraint firstItem="4XZ-s7-pEr" firstAttribute="top" secondItem="MoF-zh-DwT" secondAttribute="bottom" constant="16" id="j6U-ct-dRd"/>
+                                        <constraint firstItem="iHO-rd-kTr" firstAttribute="leading" secondItem="tEh-VT-HZV" secondAttribute="leading" constant="16" id="m4r-ld-A6o"/>
+                                        <constraint firstAttribute="trailing" secondItem="4XZ-s7-pEr" secondAttribute="trailing" id="qma-fd-CQL"/>
+                                        <constraint firstItem="8Em-8c-Nq7" firstAttribute="top" secondItem="iHO-rd-kTr" secondAttribute="bottom" constant="16" id="r0P-p2-jG5"/>
+                                        <constraint firstItem="iHO-rd-kTr" firstAttribute="top" secondItem="4XZ-s7-pEr" secondAttribute="bottom" constant="16" id="uxJ-di-iwp"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="0.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="5" height="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-hy-5Sx" userLabel="stackViewRegister">
+                                    <rect key="frame" x="36" y="628" width="318" height="38"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız var mı?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJv-ZU-gXA" userLabel="lblRegister">
+                                            <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="38"/>
+                                            <fontDescription key="fontDescription" name="MavenProRegular" family="Maven Pro" pointSize="20"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-zD-aF7" userLabel="btnRegister">
+                                            <rect key="frame" x="164.66666666666663" y="0.0" width="153.33333333333337" height="38"/>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="22"/>
+                                            <state key="normal" title="Giriş Yapın">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" name="Gray110"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Wa3-hy-5Sx" secondAttribute="bottom" constant="28" id="1vC-8C-gux"/>
+                                <constraint firstItem="htl-Ei-pir" firstAttribute="top" secondItem="jKx-Xz-bbU" secondAttribute="top" constant="32" id="2Ma-5v-AEr"/>
+                                <constraint firstItem="Wa3-hy-5Sx" firstAttribute="top" secondItem="tEh-VT-HZV" secondAttribute="bottom" constant="28" id="EgI-ca-1zg"/>
+                                <constraint firstAttribute="trailing" secondItem="htl-Ei-pir" secondAttribute="trailing" constant="16" id="H5L-gQ-kgh"/>
+                                <constraint firstAttribute="trailing" secondItem="tEh-VT-HZV" secondAttribute="trailing" constant="-6" id="Sqq-Xz-uVD"/>
+                                <constraint firstAttribute="trailing" secondItem="Wa3-hy-5Sx" secondAttribute="trailing" constant="36" id="aac-u5-xSQ"/>
+                                <constraint firstItem="Wa3-hy-5Sx" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="ebT-5y-pxE"/>
+                                <constraint firstItem="tEh-VT-HZV" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="f4w-uZ-ETg"/>
+                                <constraint firstItem="htl-Ei-pir" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="l9V-E4-UQf"/>
+                                <constraint firstItem="tEh-VT-HZV" firstAttribute="top" secondItem="htl-Ei-pir" secondAttribute="bottom" constant="16" id="tGr-kX-0L4"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="jKx-Xz-bbU" secondAttribute="bottom" id="Hrk-sw-k8U"/>
+                        <constraint firstItem="jKx-Xz-bbU" firstAttribute="height" secondItem="MIx-FN-3Vb" secondAttribute="height" multiplier="0.8" priority="249" id="L2H-Y2-CZY"/>
+                        <constraint firstItem="jKx-Xz-bbU" firstAttribute="width" secondItem="MIx-FN-3Vb" secondAttribute="width" id="Q6c-Ku-FPX"/>
+                        <constraint firstAttribute="trailing" secondItem="jKx-Xz-bbU" secondAttribute="trailing" id="aw7-Zh-8sg"/>
+                        <constraint firstItem="jKx-Xz-bbU" firstAttribute="top" secondItem="MIx-FN-3Vb" secondAttribute="top" id="jrP-OI-eec"/>
+                        <constraint firstItem="jKx-Xz-bbU" firstAttribute="leading" secondItem="MIx-FN-3Vb" secondAttribute="leading" id="w0N-CZ-aEy"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MIx-FN-3Vb" secondAttribute="trailing" id="7Xb-Q8-X25"/>
+                <constraint firstAttribute="bottom" secondItem="MIx-FN-3Vb" secondAttribute="bottom" id="n5W-F2-dAB"/>
+                <constraint firstItem="MIx-FN-3Vb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nhn-8s-N4C"/>
+                <constraint firstItem="MIx-FN-3Vb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zfh-qx-APk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Gray110">
+            <color red="0.4309999942779541" green="0.4309999942779541" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBlue">
+            <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryVeryLightGray">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

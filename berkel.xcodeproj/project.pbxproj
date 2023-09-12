@@ -92,6 +92,14 @@
 		6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F05A2AA4976C00638C09 /* StorageReference+Combine.swift */; };
 		6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F05B2AA4976C00638C09 /* StorageObservabeTask+Combine.swift */; };
 		6797F05F2AA49BF100638C09 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6797F05E2AA49BF100638C09 /* README.md */; };
+		67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1A2AB0D4AC00756120 /* RegisterCoordinator.swift */; };
+		67A2EE232AB0D4AC00756120 /* RegisterUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1B2AB0D4AC00756120 /* RegisterUIModel.swift */; };
+		67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1C2AB0D4AC00756120 /* RegisterViewController.swift */; };
+		67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1D2AB0D4AC00756120 /* RegisterRepository.swift */; };
+		67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1E2AB0D4AC00756120 /* RegisterBuilder.swift */; };
+		67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */; };
+		67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */; };
+		67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */; };
 		67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B903EB2AA8F6A4005A980C /* DocumentServiceType.swift */; };
 		67B903F02AA928E4005A980C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67B903EF2AA928E4005A980C /* GoogleService-Info.plist */; };
 		67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CC75A52AA25A6F003206F0 /* Color.xcassets */; };
@@ -215,6 +223,14 @@
 		6797F05A2AA4976C00638C09 /* StorageReference+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StorageReference+Combine.swift"; sourceTree = "<group>"; };
 		6797F05B2AA4976C00638C09 /* StorageObservabeTask+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StorageObservabeTask+Combine.swift"; sourceTree = "<group>"; };
 		6797F05E2AA49BF100638C09 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		67A2EE1A2AB0D4AC00756120 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		67A2EE1B2AB0D4AC00756120 /* RegisterUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUIModel.swift; sourceTree = "<group>"; };
+		67A2EE1C2AB0D4AC00756120 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		67A2EE1D2AB0D4AC00756120 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
+		67A2EE1E2AB0D4AC00756120 /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
+		67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPassData.swift; sourceTree = "<group>"; };
+		67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		67B903EB2AA8F6A4005A980C /* DocumentServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServiceType.swift; sourceTree = "<group>"; };
 		67B903EF2AA928E4005A980C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67CC75A52AA25A6F003206F0 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
@@ -783,6 +799,61 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		67A2EE192AB0D48600756120 /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE2E2AB0D4C200756120 /* Builder */,
+				67A2EE2D2AB0D4BD00756120 /* Coordinator */,
+				67A2EE2C2AB0D4B900756120 /* Repository */,
+				67A2EE2B2AB0D4B600756120 /* ViewModel */,
+				67A2EE2A2AB0D4B100756120 /* ViewController */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
+		67A2EE2A2AB0D4B100756120 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE1C2AB0D4AC00756120 /* RegisterViewController.swift */,
+				67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67A2EE2B2AB0D4B600756120 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */,
+				67A2EE1B2AB0D4AC00756120 /* RegisterUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67A2EE2C2AB0D4B900756120 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE1D2AB0D4AC00756120 /* RegisterRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67A2EE2D2AB0D4BD00756120 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE1A2AB0D4AC00756120 /* RegisterCoordinator.swift */,
+				67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67A2EE2E2AB0D4C200756120 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67A2EE1E2AB0D4AC00756120 /* RegisterBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		67CC75A32AA25909003206F0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,6 +993,7 @@
 			isa = PBXGroup;
 			children = (
 				67EA5B742AAF8DD80086E20C /* LoginViewController */,
+				67A2EE192AB0D48600756120 /* RegisterViewController */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1092,6 +1164,7 @@
 				67B903F02AA928E4005A980C /* GoogleService-Info.plist in Resources */,
 				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
 				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
+				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1148,6 +1221,7 @@
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
+				67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */,
 				67EA5B6A2AAF86C70086E20C /* UIGestureRecognizer.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
@@ -1171,6 +1245,7 @@
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
 				67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */,
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
+				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
 				6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */,
@@ -1181,6 +1256,7 @@
 				6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */,
 				677E67A52AA353D2001775E2 /* BuyingUIModel.swift in Sources */,
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
+				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
@@ -1216,6 +1292,7 @@
 				6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */,
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
+				67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */,
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
 				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
@@ -1237,14 +1314,17 @@
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
 				6797F0512AA4975300638C09 /* FirestoreError.swift in Sources */,
 				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
+				67A2EE232AB0D4AC00756120 /* RegisterUIModel.swift in Sources */,
 				6797F0392AA4973600638C09 /* User+Combine.swift in Sources */,
 				677E67DD2AA35415001775E2 /* SettingsViewModel.swift in Sources */,
 				6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */,
 				6797F0362AA4973600638C09 /* PhoneAuthProvider+Combine.swift in Sources */,
+				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
+				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
