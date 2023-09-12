@@ -10,7 +10,7 @@ import UIKit
 
 protocol ISplashCoordinator: AnyObject {
     
-    func presentLoginViewController(didDismissCallback: DefaultDismissCallback?)
+    func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?)
 }
 
 final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
@@ -24,10 +24,12 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
          window?.makeKeyAndVisible()
      }
     
-    func presentLoginViewController(didDismissCallback: DefaultDismissCallback?) {
-        let coordinator = LoginCoordinator.getInstance(presenterViewController: self.window?.topViewControllerNew())
+    func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
+        let coordinator = LoginCoordinator(presenterViewController: self.window?.topViewControllerNew())
+            .with(authDismissCallBack: authDismissCallBack)
             .with(passData: LoginPassData())
-            .with(didDismissCallback: didDismissCallback)
-        coordinate(to: coordinator)
+        DispatchQueue.delay(25) { [unowned self] in
+            self.coordinate(to: coordinator)
+        }
     }
 }

@@ -9,6 +9,10 @@ import UIKit
 import Combine
 
 class BerkelBaseViewController: UIViewController {
+    
+    public var navigationTitle: String? {
+        return nil
+    }
 
     var cancelBag = Set<AnyCancellable>()
 
@@ -24,9 +28,18 @@ class BerkelBaseViewController: UIViewController {
 
     // just base sub class
     internal func initDidLoad() {
+        self.initNavigationBarBackButton()
         self.setupView()
         self.initialComponents()
         self.registerEvents()
+    }
+    
+    private func initNavigationBarBackButton() {
+        self.setBackButtonTitle(title: "Geri")
+        if #available(iOS 14.0, *) {
+            // closed long press context menu
+            navigationItem.backButtonDisplayMode = .minimal
+        }
     }
 
     // Sayfa kapanmalarını alt sayfaya bildirmek için kullanılıyor
@@ -41,6 +54,17 @@ class BerkelBaseViewController: UIViewController {
 
     // for all sub class
     func registerEvents() { }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.titleView = nil
+        if let navTitle = navigationTitle {
+            self.navigationItem.title = navTitle
+        }
+
+        hideAllToast()
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

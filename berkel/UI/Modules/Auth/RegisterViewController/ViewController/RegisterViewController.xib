@@ -20,6 +20,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogin" destination="CKM-zD-aF7" id="3fd-Hj-KPj"/>
+                <outlet property="btnRegister" destination="HvT-y4-W19" id="rUZ-rS-mzw"/>
+                <outlet property="tfEmail" destination="4XZ-s7-pEr" id="wYS-rL-fdf"/>
+                <outlet property="tfName" destination="MoF-zh-DwT" id="jdE-ft-lVL"/>
+                <outlet property="tfPassword" destination="iHO-rd-kTr" id="LyR-pi-XNL"/>
+                <outlet property="tfRePassword" destination="8Em-8c-Nq7" id="l9H-x0-Xcq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,7 +40,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKx-Xz-bbU" userLabel="bgView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="694"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üye Olun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htl-Ei-pir" userLabel="lblLogin">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üye Olun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htl-Ei-pir" userLabel="lblRegister">
                                     <rect key="frame" x="36" y="32" width="338" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="57Y-3H-B8S"/>
@@ -46,7 +52,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEh-VT-HZV" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
                                     <rect key="frame" x="36" y="92" width="360" height="508"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoF-zh-DwT" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoF-zh-DwT" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="36" width="344" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -63,7 +69,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XZ-s7-pEr" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XZ-s7-pEr" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="128" width="344" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -80,7 +86,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Email"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-rd-kTr" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-rd-kTr" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="220" width="344" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -97,7 +103,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-8c-Nq7" userLabel="tfPassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-8c-Nq7" userLabel="tfRePassword" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="312" width="344" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -114,7 +120,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Parola"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvT-y4-W19" userLabel="btnLogin">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvT-y4-W19" userLabel="btnRegister">
                                             <rect key="frame" x="32" y="420" width="332" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
@@ -171,13 +177,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-hy-5Sx" userLabel="stackViewRegister">
                                     <rect key="frame" x="36" y="628" width="318" height="38"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız var mı?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJv-ZU-gXA" userLabel="lblRegister">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız var mı?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJv-ZU-gXA" userLabel="lblLogin">
                                             <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="38"/>
                                             <fontDescription key="fontDescription" name="MavenProRegular" family="Maven Pro" pointSize="20"/>
                                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-zD-aF7" userLabel="btnRegister">
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-zD-aF7" userLabel="btnLogin">
                                             <rect key="frame" x="164.66666666666663" y="0.0" width="153.33333333333337" height="38"/>
                                             <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="22"/>
                                             <state key="normal" title="Giriş Yapın">
@@ -217,7 +223,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" name="PrimaryVeryLightGray"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MIx-FN-3Vb" secondAttribute="trailing" id="7Xb-Q8-X25"/>
                 <constraint firstAttribute="bottom" secondItem="MIx-FN-3Vb" secondAttribute="bottom" id="n5W-F2-dAB"/>

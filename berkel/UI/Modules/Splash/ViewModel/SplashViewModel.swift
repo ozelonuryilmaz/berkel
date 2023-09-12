@@ -43,8 +43,10 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
             if isLoggedIn {
                 self.viewStateStartFlowMain()
             } else {
-                self.presentLoginViewController(didDismissCallback: {
-                    self.startFlowMainAfterLogin()
+                self.presentLoginViewController(authDismissCallBack: { _isLoggedIn in
+                    if _isLoggedIn {
+                        self.viewStateStartFlowMain()
+                    }
                 })
             }
         })
@@ -72,8 +74,8 @@ internal extension SplashViewModel {
 // MARK: Coordinate
 internal extension SplashViewModel {
 
-    func presentLoginViewController(didDismissCallback: DefaultDismissCallback?) {
-        self.coordinator.presentLoginViewController(didDismissCallback: didDismissCallback)
+    func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
+        self.coordinator.presentLoginViewController(authDismissCallBack: authDismissCallBack)
     }
 }
 

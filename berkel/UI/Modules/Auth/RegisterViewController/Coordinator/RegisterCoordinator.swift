@@ -10,6 +10,7 @@ import UIKit
 
 protocol IRegisterCoordinator: AnyObject {
 
+    func popToRootViewController()
 }
 
 final class RegisterCoordinator: NavigationCoordinator, IRegisterCoordinator {
@@ -19,5 +20,9 @@ final class RegisterCoordinator: NavigationCoordinator, IRegisterCoordinator {
     override func start() {
         let controller = RegisterBuilder.generate(with: coordinatorData, coordinator: self)
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func popToRootViewController() {
+        self.navigationController.popToRootViewController(animated: true)
     }
 }

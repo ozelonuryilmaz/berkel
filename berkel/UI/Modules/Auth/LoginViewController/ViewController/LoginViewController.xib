@@ -20,6 +20,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnLogin" destination="DY5-rS-sXq" id="DXd-7m-BcP"/>
+                <outlet property="btnRegister" destination="cgu-QJ-GwY" id="LAV-cO-Q8p"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

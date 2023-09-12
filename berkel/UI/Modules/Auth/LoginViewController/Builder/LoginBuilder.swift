@@ -13,7 +13,8 @@ enum LoginBuilder {
     static func generate(with data: LoginPassData,
                          coordinator: ILoginCoordinator,
                          willDismissCallback: DefaultDismissCallback?,
-                         didDismissCallback: DefaultDismissCallback?) -> LoginViewController {
+                         didDismissCallback: DefaultDismissCallback?,
+                         authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil) -> LoginViewController {
 
         let authRepository = AuthenticationRepository()
 
@@ -26,6 +27,7 @@ enum LoginBuilder {
 
         return LoginViewController(viewModel: viewModel,
                                    willDismissCallback: willDismissCallback,
-                                   didDismissCallback: didDismissCallback)
+                                   didDismissCallback: didDismissCallback,
+                                   authDismissCallBack: authDismissCallBack)
     }
 }

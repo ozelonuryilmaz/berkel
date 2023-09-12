@@ -11,23 +11,29 @@ import UIKit
 final class LoginViewController: BerkelBaseViewController {
 
     // MARK: Constants
+    
+    var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
 
     // MARK: Inject
     private let viewModel: ILoginViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var btnLogin: UIButton!
+    @IBOutlet private weak var btnRegister: UIButton!
 
     // MARK: Constraints Outlets
     
     // MARK: Initializer
     init(viewModel: ILoginViewModel,
          willDismissCallback: DefaultDismissCallback? = nil,
-         didDismissCallback: DefaultDismissCallback? = nil) {
+         didDismissCallback: DefaultDismissCallback? = nil,
+         authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
         self.viewModel = viewModel
         super.init(nibName: "LoginViewController", bundle: nil)
         
         self.willDismissCallback = willDismissCallback
         self.didDismissCallback = didDismissCallback
+        self.authDismissCallBack = authDismissCallBack
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,7 +45,16 @@ final class LoginViewController: BerkelBaseViewController {
     }
 
     override func registerEvents() {
+        
+        btnLogin.onTap { [unowned self] _ in
+            self.viewModel.dismiss(completion: {
+                self.authDismissCallBack?(true)
+            })
+        }
 
+        btnRegister.onTap { [unowned self] _ in
+            self.viewModel.pushRegisterViewController()
+        }
     }
 
     private func observeReactiveDatas() {

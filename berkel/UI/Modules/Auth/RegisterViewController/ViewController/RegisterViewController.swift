@@ -16,6 +16,12 @@ final class RegisterViewController: BerkelBaseViewController {
     private let viewModel: IRegisterViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tfName: PrimaryTextField!
+    @IBOutlet private weak var tfEmail: PrimaryTextField!
+    @IBOutlet private weak var tfPassword: PrimaryTextField!
+    @IBOutlet private weak var tfRePassword: PrimaryTextField!
+    @IBOutlet private weak var btnRegister: UIButton!
+    @IBOutlet private weak var btnLogin: UIButton!
 
     // MARK: Constraints Outlets
     
@@ -34,7 +40,18 @@ final class RegisterViewController: BerkelBaseViewController {
     }
 
     override func registerEvents() {
-
+        listenNameTextFieldDidChange()
+        listenEmailTextFieldDidChange()
+        listenPasswordTextFieldDidChange()
+        listenRePasswordTextFieldDidChange()
+        
+        btnLogin.onTap { [unowned self] _ in
+            self.viewModel.popToRootViewController()
+        }
+        
+        btnRegister.onTap { [unowned self] _ in
+            self.viewModel.register()
+        }
     }
 
     private func observeReactiveDatas() {
@@ -65,4 +82,27 @@ final class RegisterViewController: BerkelBaseViewController {
 // MARK: Props
 private extension RegisterViewController {
     
+    func listenNameTextFieldDidChange() {
+        tfName.addListenDidChange { [unowned self] text in
+            self.viewModel.setName(text)
+        }
+    }
+    
+    func listenEmailTextFieldDidChange() {
+        tfEmail.addListenDidChange { [unowned self] text in
+            self.viewModel.setEmail(text)
+        }
+    }
+    
+    func listenPasswordTextFieldDidChange() {
+        tfPassword.addListenDidChange { [unowned self] text in
+            self.viewModel.setPassword(text)
+        }
+    }
+    
+    func listenRePasswordTextFieldDidChange() {
+        tfRePassword.addListenDidChange { [unowned self] text in
+            self.viewModel.setRePassword(text)
+        }
+    }
 }

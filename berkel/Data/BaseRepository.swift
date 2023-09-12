@@ -25,26 +25,54 @@ class BaseRepository: IBaseRepository {
     func getDocuments<T: Codable>(_ db: CollectionServiceType) -> FirestoreResponseType<[T]> {
         let subject = FirestoreResponseType<[T]>()
 
+        let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
+            switch completion {
+            case .failure(let error):
+                subject.send(completion: .failure(error))
+            case .finished:
+                subject.send(completion: .finished)
+            }
+        }
+
+        let onValue: (([T]) -> Void) = { snapshot in
+            subject.send(snapshot)
+        }
+
         // Source parametresini server olarak ayarla
         // Tek bir seferlik verileri çekmek için kullanıldı. Cache iptal edildi.
         let source = FirestoreSource.server
 
         db.collectionReference
             .getDocuments(source: source, as: T.self)
-            .sink(receiveCompletion: { result in
-            switch result {
-            case .failure(let error):
-                subject.send(completion: .failure(error))
-            case .finished:
-                subject.send(completion: .finished)
-            }
-        }, receiveValue: { snapshot in
-            subject.send(snapshot)
-        }).store(in: &cancelBag)
+            .sink(receiveCompletion: onErrorCompletion,
+                  receiveValue: onValue)
+            .store(in: &cancelBag)
 
         return subject
     }
 
+
+    func setData<T: Codable>(_ db: DocumentServiceType, data: T) -> FirestoreResponseType<T> {
+        let subject = FirestoreResponseType<T>()
+
+        let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
+            switch completion {
+            case .finished:
+                subject.send(completion: .finished)
+            case .failure(let error):
+                subject.send(completion: .failure(error))
+            }
+        }
+
+        let onValue: () -> Void = { }
+
+        db.documentReference.setData(from: data)
+            .sink(receiveCompletion: onErrorCompletion,
+                  receiveValue: onValue)
+            .store(in: &cancelBag)
+
+        return subject
+    }
 
 }
 

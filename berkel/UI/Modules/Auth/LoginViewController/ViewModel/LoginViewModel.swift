@@ -14,6 +14,13 @@ protocol ILoginViewModel: AnyObject {
          authRepository: AuthenticationRepository,
          coordinator: ILoginCoordinator,
          uiModel: ILoginUIModel)
+    
+    // View States
+    
+    
+    // Coordinate
+    func pushRegisterViewController()
+    func dismiss(completion: (() -> Void)?)
 }
 
 final class LoginViewModel: BaseViewModel, ILoginViewModel {
@@ -55,6 +62,13 @@ internal extension LoginViewModel {
 // MARK: Coordinate
 internal extension LoginViewModel {
 
+    func pushRegisterViewController() {
+        self.coordinator.pushRegisterViewController()
+    }
+    
+    func dismiss(completion: (() -> Void)?) {
+        self.coordinator.dismiss(completion: completion)
+    }
 }
 
 
