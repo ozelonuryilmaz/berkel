@@ -7,13 +7,13 @@
 //
 
 protocol ISplashViewModel: AnyObject {
-    
+
     var viewState: ScreenStateSubject<SplashViewState> { get }
 
     init(repository: ISplashRepository,
          coordinator: ISplashCoordinator,
          uiModel: ISplashUIModel)
-    
+
     func startFlowMainAfterLogin()
 }
 
@@ -23,7 +23,7 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
     private let repository: ISplashRepository
     private let coordinator: ISplashCoordinator
     private var uiModel: ISplashUIModel
-    
+
     var viewState = ScreenStateSubject<SplashViewState>(nil)
 
     // MARK: Initiliazer
@@ -35,11 +35,11 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
         self.uiModel = uiModel
     }
 
-    
+
     func startFlowMainAfterLogin() {
         self.uiModel.isUserAlreadyLogin(completion: { [weak self] isLoggedIn in
             guard let self = self else { return }
-            
+
             if isLoggedIn {
                 self.viewStateStartFlowMain()
             } else {
@@ -53,12 +53,6 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
     }
 }
 
-
-// MARK: Service
-internal extension SplashViewModel {
-
-}
-
 // MARK: States
 internal extension SplashViewModel {
 
@@ -66,8 +60,6 @@ internal extension SplashViewModel {
     func viewStateStartFlowMain() {
         viewState.value = .startFlowMain
     }
-
-    // MARK: Action State
 
 }
 
@@ -79,13 +71,6 @@ internal extension SplashViewModel {
     }
 }
 
-
 enum SplashViewState {
     case startFlowMain
 }
-
-enum SplashActionState {
-
-}
-
-

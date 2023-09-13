@@ -66,6 +66,10 @@ internal extension LoginViewModel {
         self.authRepository.login(
             email: self.uiModel.email,
             password: self.uiModel.password,
+            completionLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
             completionError: { [weak self] errorMessage in
                 guard let self = self else { return }
                 self.viewStateShowSystemAlert(message: errorMessage)
@@ -81,6 +85,10 @@ internal extension LoginViewModel {
     private func forgotPassword() {
         self.authRepository.sendResetLink(
             email: self.uiModel.email,
+            completionLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
             completionError: { [weak self] errorMessage in
                 guard let self = self else { return }
                 self.viewStateShowSystemAlert(message: errorMessage)
@@ -108,7 +116,7 @@ extension LoginViewModel {
             self.viewStateShowSystemAlert(message: "Lütfen email alanını doldurunuz")
             return
         }
-        
+
         self.forgotPassword()
     }
 }
@@ -117,6 +125,10 @@ extension LoginViewModel {
 internal extension LoginViewModel {
 
     // MARK: View State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+
     func viewStateShowSystemAlert(message: String) {
         viewState.value = .showSystemAlert(message: message)
     }
@@ -124,9 +136,6 @@ internal extension LoginViewModel {
     func viewStateLoggedIn(isLoggedIn: Bool) {
         viewState.value = .loggedIn(isLoggedIn: isLoggedIn)
     }
-
-    // MARK: Action State
-
 }
 
 // MARK: Coordinate
@@ -147,12 +156,7 @@ internal extension LoginViewModel {
 
 
 enum LoginViewState {
+    case showNativeProgress(isProgress: Bool)
     case showSystemAlert(message: String)
     case loggedIn(isLoggedIn: Bool)
 }
-
-enum LoginActionState {
-
-}
-
-

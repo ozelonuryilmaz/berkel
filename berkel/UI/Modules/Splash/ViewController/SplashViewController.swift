@@ -10,14 +10,8 @@ import UIKit
 
 final class SplashViewController: BerkelBaseViewController {
 
-    // MARK: Constants
-
     // MARK: Inject
     private let viewModel: ISplashViewModel
-
-    // MARK: IBOutlets
-
-    // MARK: Constraints Outlets
 
     // MARK: Initializer
     init(viewModel: ISplashViewModel) {
@@ -30,13 +24,9 @@ final class SplashViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
-        self.observeReactiveDatas()
+        self.observeViewState()
 
         self.viewModel.startFlowMainAfterLogin()
-    }
-
-    private func observeReactiveDatas() {
-        observeViewState()
     }
 
     private func observeViewState() {
@@ -50,13 +40,5 @@ final class SplashViewController: BerkelBaseViewController {
 
         }).store(in: &cancelBag)
     }
-
-    override func registerEvents() {
-
-    }
-}
-
-// MARK: Props
-private extension SplashViewController {
 
 }

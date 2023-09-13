@@ -10,8 +10,6 @@ import UIKit
 
 final class RegisterViewController: BerkelBaseViewController {
 
-    // MARK: Constants
-
     // MARK: Inject
     private let viewModel: IRegisterViewModel
 
@@ -22,8 +20,6 @@ final class RegisterViewController: BerkelBaseViewController {
     @IBOutlet private weak var tfRePassword: PrimaryTextField!
     @IBOutlet private weak var btnRegister: UIButton!
     @IBOutlet private weak var btnLogin: UIButton!
-
-    // MARK: Constraints Outlets
 
     // MARK: Initializer
     init(viewModel: IRegisterViewModel) {
@@ -36,7 +32,7 @@ final class RegisterViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
-        self.observeReactiveDatas()
+        self.observeViewState()
     }
 
     override func registerEvents() {
@@ -54,42 +50,20 @@ final class RegisterViewController: BerkelBaseViewController {
         }
     }
 
-    private func observeReactiveDatas() {
-        observeViewState()
-        observeActionState()
-        // listenErrorState()
-    }
-
     private func observeViewState() {
         viewModel.viewState.sink(receiveValue: { [weak self] states in
             guard let self = self, let states = states else { return }
 
             switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
             case .showSystemAlert(let message):
                 self.showSystemAlert(title: message, message: "")
             }
 
         }).store(in: &cancelBag)
     }
-
-    private func observeActionState() {
-        /* viewModel._actionState.observeNext { [unowned self] state in
-             switch state {
-            
-            } 
-        }.dispose(in: disposeBag) */
-    }
-
-    private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
-    }
-
-    // MARK: Define Components (if you have or delete this line)
-}
-
-// MARK: Props
-private extension RegisterViewController {
-
 }
 
 // MARK: TextField

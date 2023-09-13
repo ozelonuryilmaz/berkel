@@ -12,14 +12,17 @@ protocol IAuthenticationRepository: AnyObject {
 
     func login(email: String,
                password: String,
+               completionLoading: @escaping (Bool) -> Void,
                completionError: @escaping (String) -> Void,
                completionSuccess: @escaping () -> Void)
     func register(name: String,
                   email: String,
                   password: String,
+                  completionLoading: @escaping (Bool) -> Void,
                   completionError: @escaping (String) -> Void,
                   completionSuccess: @escaping () -> Void)
     func sendResetLink(email: String,
+                       completionLoading: @escaping (Bool) -> Void,
                        completionError: @escaping (String) -> Void,
                        completionSuccess: @escaping () -> Void)
     func logOut(completionError: @escaping (String) -> Void,
@@ -32,9 +35,14 @@ final class AuthenticationRepository: IAuthenticationRepository {
 
     func login(email: String,
                password: String,
+               completionLoading: @escaping (Bool) -> Void,
                completionError: @escaping (String) -> Void,
                completionSuccess: @escaping () -> Void) {
+        completionLoading(true)
+
         auth.signIn(withEmail: email, password: password) { authResult, error in
+            completionLoading(false)
+
             if let error = error {
                 completionError(error.localizedDescription)
             } else {
@@ -46,9 +54,15 @@ final class AuthenticationRepository: IAuthenticationRepository {
     func register(name: String,
                   email: String,
                   password: String,
+                  completionLoading: @escaping (Bool) -> Void,
                   completionError: @escaping (String) -> Void,
                   completionSuccess: @escaping () -> Void) {
+
+        completionLoading(true)
+
         auth.createUser(withEmail: email, password: password) { authResult, error in
+            completionLoading(false)
+
             if let error = error {
                 completionError(error.localizedDescription)
             } else {
@@ -65,9 +79,13 @@ final class AuthenticationRepository: IAuthenticationRepository {
     }
 
     func sendResetLink(email: String,
+                       completionLoading: @escaping (Bool) -> Void,
                        completionError: @escaping (String) -> Void,
                        completionSuccess: @escaping () -> Void) {
+        completionLoading(true)
         auth.sendPasswordReset(withEmail: email) { error in
+            completionLoading(false)
+
             if let error = error {
                 completionError(error.localizedDescription)
             } else {

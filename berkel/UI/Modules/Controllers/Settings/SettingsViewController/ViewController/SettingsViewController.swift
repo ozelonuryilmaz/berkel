@@ -38,7 +38,12 @@ final class SettingsViewController: MainBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        viewModel.getDocuments()
+       /* do {
+            try Auth.auth().signOut()
+            
+        } catch let error as NSError {
+            
+        }*/
     }
 
     override func registerEvents() {

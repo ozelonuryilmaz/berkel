@@ -15,6 +15,7 @@ class BerkelBaseViewController: UIViewController {
     }
 
     var cancelBag = Set<AnyCancellable>()
+    private var nativeProgressView: NativeProgressView?
 
     deinit {
         print("killed: \(type(of: self))")
@@ -28,6 +29,7 @@ class BerkelBaseViewController: UIViewController {
 
     // just base sub class
     internal func initDidLoad() {
+        self.nativeProgressView = NativeProgressView()
         self.initNavigationBarBackButton()
         self.setupView()
         self.initialComponents()
@@ -76,6 +78,26 @@ class BerkelBaseViewController: UIViewController {
         super.viewDidDisappear(animated)
 
         self.didDismissCallback?()
+    }
+}
+
+// MARK: Native Progress View
+extension BerkelBaseViewController {
+
+    func playNativeLoading(isLoading: Bool) {
+        if isLoading {
+            playNativeLoading()
+        } else {
+            stopNativeLoading()
+        }
+    }
+
+    func playNativeLoading() {
+        nativeProgressView?.playAnimation()
+    }
+
+    func stopNativeLoading() {
+        nativeProgressView?.stopAnimation()
     }
 }
 

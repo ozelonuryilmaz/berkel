@@ -10,10 +10,6 @@ import UIKit
 
 final class LoginViewController: BerkelBaseViewController {
 
-    // MARK: Constants
-
-    var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
-
     // MARK: Inject
     private let viewModel: ILoginViewModel
 
@@ -24,7 +20,7 @@ final class LoginViewController: BerkelBaseViewController {
     @IBOutlet private weak var btnRegister: UIButton!
     @IBOutlet private weak var btnForgotPassword: UIButton!
 
-    // MARK: Constraints Outlets
+    var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
 
     // MARK: Initializer
     init(viewModel: ILoginViewModel,
@@ -44,7 +40,7 @@ final class LoginViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
-        self.observeReactiveDatas()
+        self.observeViewState()
     }
 
     override func registerEvents() {
@@ -64,17 +60,14 @@ final class LoginViewController: BerkelBaseViewController {
         }
     }
 
-    private func observeReactiveDatas() {
-        observeViewState()
-        observeActionState()
-        // listenErrorState()
-    }
-
     private func observeViewState() {
         viewModel.viewState.sink(receiveValue: { [weak self] states in
             guard let self = self, let states = states else { return }
 
             switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+                
             case .showSystemAlert(let message):
                 self.showSystemAlert(title: message, message: "")
 
@@ -84,23 +77,6 @@ final class LoginViewController: BerkelBaseViewController {
 
         }).store(in: &cancelBag)
     }
-
-    private func observeActionState() {
-        /* viewModel._actionState.observeNext { [unowned self] state in
-             switch state {
-            
-            } 
-        }.dispose(in: disposeBag) */
-    }
-
-    private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
-    }
-
-}
-
-// MARK: Props
-private extension LoginViewController {
 
 }
 

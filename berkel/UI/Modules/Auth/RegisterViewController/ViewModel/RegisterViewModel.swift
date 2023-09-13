@@ -79,6 +79,10 @@ internal extension RegisterViewModel {
             name: self.uiModel.name,
             email: self.uiModel.email,
             password: self.uiModel.password,
+            completionLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
             completionError: { [weak self] errorMessage in
                 guard let self = self else { return }
                 self.viewStateShowSystemAlert(message: errorMessage)
@@ -119,12 +123,13 @@ internal extension RegisterViewModel {
 internal extension RegisterViewModel {
 
     // MARK: View State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+
     func viewStateShowSystemAlert(message: String) {
         viewState.value = .showSystemAlert(message: message)
     }
-
-    // MARK: Action State
-
 }
 
 // MARK: Coordinate
@@ -137,11 +142,6 @@ internal extension RegisterViewModel {
 
 
 enum RegisterViewState {
+    case showNativeProgress(isProgress: Bool)
     case showSystemAlert(message: String)
 }
-
-enum RegisterActionState {
-
-}
-
-
