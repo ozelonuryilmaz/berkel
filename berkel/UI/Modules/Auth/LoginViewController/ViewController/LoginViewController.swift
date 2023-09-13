@@ -9,6 +9,10 @@
 import UIKit
 
 final class LoginViewController: BerkelBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Giriş Yapın"
+    }
 
     // MARK: Inject
     private let viewModel: ILoginViewModel

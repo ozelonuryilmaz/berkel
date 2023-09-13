@@ -9,6 +9,10 @@
 import UIKit
 
 final class RegisterViewController: BerkelBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Kayıt Olun"
+    }
 
     // MARK: Inject
     private let viewModel: IRegisterViewModel

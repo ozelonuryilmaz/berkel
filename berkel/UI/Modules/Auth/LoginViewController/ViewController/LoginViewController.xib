@@ -37,19 +37,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="365" height="811"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnA-xV-hkK" userLabel="bgView">
-                            <rect key="frame" x="0.0" y="0.0" width="365" height="550"/>
+                            <rect key="frame" x="0.0" y="0.0" width="365" height="506"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giriş Yapın" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXb-jP-KH0" userLabel="lblLogin">
-                                    <rect key="frame" x="36" y="32" width="313" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="hvs-Tm-LhT"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="MavenProRegular" family="Maven Pro" pointSize="30"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLZ-0w-NG1" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="36" y="92" width="335" height="364"/>
+                                    <rect key="frame" x="36" y="48" width="335" height="364"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9s-p4-PBE" userLabel="tfEmail" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="32" width="319" height="76"/>
@@ -149,7 +140,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="07L-ec-APW" userLabel="stackViewRegister">
-                                    <rect key="frame" x="36" y="484" width="293" height="38"/>
+                                    <rect key="frame" x="36" y="440" width="293" height="38"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız yok mu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5T-35-1Ex" userLabel="lblRegister">
                                             <rect key="frame" x="0.0" y="0.0" width="169.66666666666666" height="38"/>
@@ -172,14 +163,11 @@
                             </subviews>
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
-                                <constraint firstItem="GXb-jP-KH0" firstAttribute="leading" secondItem="VnA-xV-hkK" secondAttribute="leading" constant="36" id="1PV-za-IXo"/>
-                                <constraint firstItem="GXb-jP-KH0" firstAttribute="top" secondItem="VnA-xV-hkK" secondAttribute="top" constant="32" id="4lA-cF-yL5"/>
                                 <constraint firstAttribute="trailing" secondItem="lLZ-0w-NG1" secondAttribute="trailing" constant="-6" id="EMd-iB-dpa"/>
                                 <constraint firstAttribute="trailing" secondItem="07L-ec-APW" secondAttribute="trailing" constant="36" id="ONs-3C-cwh"/>
                                 <constraint firstAttribute="bottom" secondItem="07L-ec-APW" secondAttribute="bottom" constant="28" id="OOm-wz-zQp"/>
-                                <constraint firstItem="lLZ-0w-NG1" firstAttribute="top" secondItem="GXb-jP-KH0" secondAttribute="bottom" constant="16" id="Qw1-t0-Fnw"/>
-                                <constraint firstAttribute="trailing" secondItem="GXb-jP-KH0" secondAttribute="trailing" constant="16" id="Zrd-p5-eVC"/>
                                 <constraint firstItem="07L-ec-APW" firstAttribute="leading" secondItem="VnA-xV-hkK" secondAttribute="leading" constant="36" id="gCC-xK-j1w"/>
+                                <constraint firstItem="lLZ-0w-NG1" firstAttribute="top" secondItem="VnA-xV-hkK" secondAttribute="top" constant="48" id="mC9-Yd-D8O"/>
                                 <constraint firstItem="07L-ec-APW" firstAttribute="top" secondItem="lLZ-0w-NG1" secondAttribute="bottom" constant="28" id="pwv-HK-K9w"/>
                                 <constraint firstItem="lLZ-0w-NG1" firstAttribute="leading" secondItem="VnA-xV-hkK" secondAttribute="leading" constant="36" id="vR4-mI-dxG"/>
                             </constraints>

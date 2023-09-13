@@ -38,19 +38,10 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKx-Xz-bbU" userLabel="bgView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="694"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="650"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Üye Olun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htl-Ei-pir" userLabel="lblRegister">
-                                    <rect key="frame" x="36" y="32" width="338" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="57Y-3H-B8S"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="MavenProRegular" family="Maven Pro" pointSize="30"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEh-VT-HZV" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="36" y="92" width="360" height="508"/>
+                                    <rect key="frame" x="36" y="48" width="360" height="508"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoF-zh-DwT" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="36" width="344" height="76"/>
@@ -127,7 +118,7 @@
                                                 <constraint firstAttribute="height" constant="56" id="qwA-E6-DRP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
-                                            <state key="normal" title="Üye Ol">
+                                            <state key="normal" title="Kayıt Ol">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -175,7 +166,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-hy-5Sx" userLabel="stackViewRegister">
-                                    <rect key="frame" x="36" y="628" width="318" height="38"/>
+                                    <rect key="frame" x="36" y="584" width="318" height="38"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabınız var mı?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJv-ZU-gXA" userLabel="lblLogin">
                                             <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="38"/>
@@ -199,15 +190,12 @@
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Wa3-hy-5Sx" secondAttribute="bottom" constant="28" id="1vC-8C-gux"/>
-                                <constraint firstItem="htl-Ei-pir" firstAttribute="top" secondItem="jKx-Xz-bbU" secondAttribute="top" constant="32" id="2Ma-5v-AEr"/>
                                 <constraint firstItem="Wa3-hy-5Sx" firstAttribute="top" secondItem="tEh-VT-HZV" secondAttribute="bottom" constant="28" id="EgI-ca-1zg"/>
-                                <constraint firstAttribute="trailing" secondItem="htl-Ei-pir" secondAttribute="trailing" constant="16" id="H5L-gQ-kgh"/>
+                                <constraint firstItem="tEh-VT-HZV" firstAttribute="top" secondItem="jKx-Xz-bbU" secondAttribute="top" constant="48" id="RyR-QY-yF5"/>
                                 <constraint firstAttribute="trailing" secondItem="tEh-VT-HZV" secondAttribute="trailing" constant="-6" id="Sqq-Xz-uVD"/>
                                 <constraint firstAttribute="trailing" secondItem="Wa3-hy-5Sx" secondAttribute="trailing" constant="36" id="aac-u5-xSQ"/>
                                 <constraint firstItem="Wa3-hy-5Sx" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="ebT-5y-pxE"/>
                                 <constraint firstItem="tEh-VT-HZV" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="f4w-uZ-ETg"/>
-                                <constraint firstItem="htl-Ei-pir" firstAttribute="leading" secondItem="jKx-Xz-bbU" secondAttribute="leading" constant="36" id="l9V-E4-UQf"/>
-                                <constraint firstItem="tEh-VT-HZV" firstAttribute="top" secondItem="htl-Ei-pir" secondAttribute="bottom" constant="16" id="tGr-kX-0L4"/>
                             </constraints>
                         </view>
                     </subviews>
