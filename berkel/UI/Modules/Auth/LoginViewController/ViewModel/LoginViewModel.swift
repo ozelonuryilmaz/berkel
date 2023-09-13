@@ -10,14 +10,19 @@ import Combine
 
 protocol ILoginViewModel: AnyObject {
 
+    var viewState: ScreenStateSubject<LoginViewState> { get }
+
     init(repository: ILoginRepository,
          authRepository: AuthenticationRepository,
          coordinator: ILoginCoordinator,
          uiModel: ILoginUIModel)
-    
-    // View States
-    
-    
+
+    func setEmail(_ email: String)
+    func setPassword(_ password: String)
+
+    func loginBeforeControl()
+    func forgotPasswordBeforeControl()
+
     // Coordinate
     func pushRegisterViewController()
     func dismiss(completion: (() -> Void)?)
@@ -31,6 +36,8 @@ final class LoginViewModel: BaseViewModel, ILoginViewModel {
     private let coordinator: ILoginCoordinator
     private var uiModel: ILoginUIModel
 
+    var viewState = ScreenStateSubject<LoginViewState>(nil)
+
     // MARK: Initiliazer
     required init(repository: ILoginRepository,
                   authRepository: AuthenticationRepository,
@@ -42,18 +49,81 @@ final class LoginViewModel: BaseViewModel, ILoginViewModel {
         self.uiModel = uiModel
     }
 
+    func setEmail(_ email: String) {
+        self.uiModel.setEmail(email)
+    }
+
+    func setPassword(_ password: String) {
+        self.uiModel.setPassword(password)
+    }
 }
 
 
 // MARK: Service
 internal extension LoginViewModel {
 
+    private func login() {
+        self.authRepository.login(
+            email: self.uiModel.email,
+            password: self.uiModel.password,
+            completionError: { [weak self] errorMessage in
+                guard let self = self else { return }
+                self.viewStateShowSystemAlert(message: errorMessage)
+            },
+            completionSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(completion: {
+                    self.viewStateLoggedIn(isLoggedIn: true)
+                })
+            })
+    }
+
+    private func forgotPassword() {
+        self.authRepository.sendResetLink(
+            email: self.uiModel.email,
+            completionError: { [weak self] errorMessage in
+                guard let self = self else { return }
+                self.viewStateShowSystemAlert(message: errorMessage)
+            },
+            completionSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowSystemAlert(message: "Şifre sıfırlama linki mail adresinize gönderildi.")
+            })
+    }
+}
+
+extension LoginViewModel {
+
+    func loginBeforeControl() {
+        if self.uiModel.email.isEmpty || self.uiModel.password.isEmpty {
+            self.viewStateShowSystemAlert(message: "Bilgilerinizi kontrol ediniz")
+            return
+        }
+
+        self.login()
+    }
+
+    func forgotPasswordBeforeControl() {
+        if self.uiModel.email.isEmpty {
+            self.viewStateShowSystemAlert(message: "Lütfen email alanını doldurunuz")
+            return
+        }
+        
+        self.forgotPassword()
+    }
 }
 
 // MARK: States
 internal extension LoginViewModel {
 
     // MARK: View State
+    func viewStateShowSystemAlert(message: String) {
+        viewState.value = .showSystemAlert(message: message)
+    }
+
+    func viewStateLoggedIn(isLoggedIn: Bool) {
+        viewState.value = .loggedIn(isLoggedIn: isLoggedIn)
+    }
 
     // MARK: Action State
 
@@ -63,9 +133,13 @@ internal extension LoginViewModel {
 internal extension LoginViewModel {
 
     func pushRegisterViewController() {
-        self.coordinator.pushRegisterViewController()
+        self.coordinator.pushRegisterViewController(authDismissCallBack: { [weak self] isLoggedIn in
+            self?.dismiss(completion: {
+                self?.viewStateLoggedIn(isLoggedIn: isLoggedIn)
+            })
+        })
     }
-    
+
     func dismiss(completion: (() -> Void)?) {
         self.coordinator.dismiss(completion: completion)
     }
@@ -73,7 +147,8 @@ internal extension LoginViewModel {
 
 
 enum LoginViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case showSystemAlert(message: String)
+    case loggedIn(isLoggedIn: Bool)
 }
 
 enum LoginActionState {

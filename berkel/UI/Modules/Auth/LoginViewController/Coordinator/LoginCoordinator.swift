@@ -11,11 +11,11 @@ import UIKit
 protocol ILoginCoordinator: AnyObject {
 
     func dismiss(completion: (() -> Void)?)
-    func pushRegisterViewController()
+    func pushRegisterViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?)
 }
 
 final class LoginCoordinator: PresentationCoordinator, ILoginCoordinator {
-    
+
     private var coordinatorData: LoginPassData { return castPassData(LoginPassData.self) }
 
     private weak var authNavigationController: MainNavigationController? = nil
@@ -40,9 +40,11 @@ final class LoginCoordinator: PresentationCoordinator, ILoginCoordinator {
         startPresent(targetVC: authNavigationController!)
     }
 
-    func pushRegisterViewController() {
+    func pushRegisterViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
         guard let navController = authNavigationController else { return }
-        let coordinator = RegisterCoordinator(navigationController: navController).with(passData: RegisterPassData())
+        let coordinator = RegisterCoordinator(navigationController: navController)
+            .with(authDismissCallBack: authDismissCallBack)
+            .with(passData: RegisterPassData())
         coordinate(to: coordinator)
     }
 

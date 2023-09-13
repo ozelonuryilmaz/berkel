@@ -24,13 +24,13 @@ final class RegisterViewController: BerkelBaseViewController {
     @IBOutlet private weak var btnLogin: UIButton!
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: IRegisterViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "RegisterViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
@@ -44,13 +44,13 @@ final class RegisterViewController: BerkelBaseViewController {
         listenEmailTextFieldDidChange()
         listenPasswordTextFieldDidChange()
         listenRePasswordTextFieldDidChange()
-        
+
         btnLogin.onTap { [unowned self] _ in
-            self.viewModel.popToRootViewController()
+            self.viewModel.popToRootViewController(animated: true)
         }
-        
+
         btnRegister.onTap { [unowned self] _ in
-            self.viewModel.register()
+            self.viewModel.registerBeforeControl()
         }
     }
 
@@ -61,7 +61,15 @@ final class RegisterViewController: BerkelBaseViewController {
     }
 
     private func observeViewState() {
-         
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
+
+            switch states {
+            case .showSystemAlert(let message):
+                self.showSystemAlert(title: message, message: "")
+            }
+
+        }).store(in: &cancelBag)
     }
 
     private func observeActionState() {
@@ -81,25 +89,30 @@ final class RegisterViewController: BerkelBaseViewController {
 
 // MARK: Props
 private extension RegisterViewController {
-    
+
+}
+
+// MARK: TextField
+private extension RegisterViewController {
+
     func listenNameTextFieldDidChange() {
         tfName.addListenDidChange { [unowned self] text in
             self.viewModel.setName(text)
         }
     }
-    
+
     func listenEmailTextFieldDidChange() {
         tfEmail.addListenDidChange { [unowned self] text in
             self.viewModel.setEmail(text)
         }
     }
-    
+
     func listenPasswordTextFieldDidChange() {
         tfPassword.addListenDidChange { [unowned self] text in
             self.viewModel.setPassword(text)
         }
     }
-    
+
     func listenRePasswordTextFieldDidChange() {
         tfRePassword.addListenDidChange { [unowned self] text in
             self.viewModel.setRePassword(text)

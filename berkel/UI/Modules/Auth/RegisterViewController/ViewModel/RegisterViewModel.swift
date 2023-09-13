@@ -8,21 +8,24 @@
 
 protocol IRegisterViewModel: AnyObject {
 
+    var viewState: ScreenStateSubject<RegisterViewState> { get }
+
     init(repository: IRegisterRepository,
          authRepository: AuthenticationRepository,
          coordinator: IRegisterCoordinator,
-         uiModel: IRegisterUIModel)
+         uiModel: IRegisterUIModel,
+         authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?)
 
     func setName(_ name: String)
     func setEmail(_ email: String)
     func setPassword(_ password: String)
     func setRePassword(_ rePassword: String)
 
-    // Service
-    func register()
+    // Props
+    func registerBeforeControl()
 
     // Coordinate
-    func popToRootViewController()
+    func popToRootViewController(animated: Bool)
 }
 
 final class RegisterViewModel: BaseViewModel, IRegisterViewModel {
@@ -33,17 +36,21 @@ final class RegisterViewModel: BaseViewModel, IRegisterViewModel {
     private let coordinator: IRegisterCoordinator
     private var uiModel: IRegisterUIModel
 
-    var saveUserErrorState = ErrorStateSubject(nil)
+    var viewState = ScreenStateSubject<RegisterViewState>(nil)
+
+    var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
 
     // MARK: Initiliazer
     required init(repository: IRegisterRepository,
                   authRepository: AuthenticationRepository,
                   coordinator: IRegisterCoordinator,
-                  uiModel: IRegisterUIModel) {
+                  uiModel: IRegisterUIModel,
+                  authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
         self.repository = repository
         self.authRepository = authRepository
         self.coordinator = coordinator
         self.uiModel = uiModel
+        self.authDismissCallBack = authDismissCallBack
     }
 
     func setName(_ name: String) {
@@ -67,27 +74,54 @@ final class RegisterViewModel: BaseViewModel, IRegisterViewModel {
 // MARK: Service
 internal extension RegisterViewModel {
 
-    func register() {
-        print("\(uiModel.name), \(uiModel.email), \(uiModel.password), \(uiModel.rePassword)")
-
-        let request = self.authRepository.saveUser(id: "ididid", data: SaveUserInput(name: "onur2", email: "mail"))
-        handleResourceSetDataState(
-            request: request,
-            errorState: saveUserErrorState,
-            callbackLoading: { [weak self] isProgress in
+    private func register() {
+        self.authRepository.register(
+            name: self.uiModel.name,
+            email: self.uiModel.email,
+            password: self.uiModel.password,
+            completionError: { [weak self] errorMessage in
                 guard let self = self else { return }
+                self.viewStateShowSystemAlert(message: errorMessage)
             },
-            callbackSuccess: { [weak self] in
+            completionSuccess: { [weak self] in
                 guard let self = self else { return }
-                print("******  Kaydedildi")
+                self.popToRootViewController(animated: false)
+                self.authDismissCallBack?(true)
             })
     }
+}
+
+// MARK: Props
+internal extension RegisterViewModel {
+
+    func registerBeforeControl() {
+        if self.uiModel.name.isEmpty || self.uiModel.email.isEmpty {
+            self.viewStateShowSystemAlert(message: "Lütfen boş alan bırakmayınız")
+            return
+        }
+
+        if self.uiModel.password.isEmpty || self.uiModel.rePassword.isEmpty {
+            self.viewStateShowSystemAlert(message: "Lütfen parola giriniz")
+            return
+        }
+
+        if self.uiModel.password != self.uiModel.rePassword {
+            self.viewStateShowSystemAlert(message: "Girdiğiniz şifreler eşleşmiyor")
+            return
+        }
+
+        self.register()
+    }
+
 }
 
 // MARK: States
 internal extension RegisterViewModel {
 
     // MARK: View State
+    func viewStateShowSystemAlert(message: String) {
+        viewState.value = .showSystemAlert(message: message)
+    }
 
     // MARK: Action State
 
@@ -96,14 +130,14 @@ internal extension RegisterViewModel {
 // MARK: Coordinate
 internal extension RegisterViewModel {
 
-    func popToRootViewController() {
-        self.coordinator.popToRootViewController()
+    func popToRootViewController(animated: Bool) {
+        self.coordinator.popToRootViewController(animated: animated)
     }
 }
 
 
 enum RegisterViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case showSystemAlert(message: String)
 }
 
 enum RegisterActionState {

@@ -9,13 +9,13 @@ import Foundation
 import FirebaseAuth
 
 protocol IAuthenticationRepository: AnyObject {
-    
-    func saveUser(id: String, data: SaveUserInput) -> FirestoreResponseType<SaveUserInput>
+
     func login(email: String,
                password: String,
                completionError: @escaping (String) -> Void,
                completionSuccess: @escaping () -> Void)
-    func register(email: String,
+    func register(name: String,
+                  email: String,
                   password: String,
                   completionError: @escaping (String) -> Void,
                   completionSuccess: @escaping () -> Void)
@@ -26,13 +26,9 @@ protocol IAuthenticationRepository: AnyObject {
                 completionSuccess: @escaping () -> Void)
 }
 
-final class AuthenticationRepository: BaseRepository, IAuthenticationRepository {
-    
+final class AuthenticationRepository: IAuthenticationRepository {
+
     private let auth = Auth.auth()
-    
-    func saveUser(id: String, data: SaveUserInput) -> FirestoreResponseType<SaveUserInput> {
-        return setData(AuthService.saveUser(id: id), data: data)
-    }
 
     func login(email: String,
                password: String,
@@ -47,7 +43,8 @@ final class AuthenticationRepository: BaseRepository, IAuthenticationRepository 
         }
     }
 
-    func register(email: String,
+    func register(name: String,
+                  email: String,
                   password: String,
                   completionError: @escaping (String) -> Void,
                   completionSuccess: @escaping () -> Void) {
@@ -55,7 +52,14 @@ final class AuthenticationRepository: BaseRepository, IAuthenticationRepository 
             if let error = error {
                 completionError(error.localizedDescription)
             } else {
-                completionSuccess()
+
+                // displayName'e kullanıcı ismi aktarıldı. Auth() içerisinden erişilebilecek
+                let changeRequest = authResult?.user.createProfileChangeRequest()
+                changeRequest?.displayName = name
+                changeRequest?.commitChanges { error in
+                    completionSuccess()
+                }
+
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class SettingsViewController: MainBaseViewController {
 

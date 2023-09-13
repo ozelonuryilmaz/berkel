@@ -10,15 +10,22 @@ import UIKit
 
 protocol ILoginUIModel {
 
-	 init(data: LoginPassData)
+    var email: String { get }
+    var password: String { get }
 
-} 
+    init(data: LoginPassData)
+
+    mutating func setEmail(_ email: String)
+    mutating func setPassword(_ password: String)
+}
 
 struct LoginUIModel: ILoginUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
+    var email: String = ""
+    var password: String = ""
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: LoginPassData) {
 
     }
@@ -29,4 +36,16 @@ struct LoginUIModel: ILoginUIModel {
 // MARK: Props
 extension LoginUIModel {
 
+}
+
+// MARK: Setter
+extension LoginUIModel {
+
+    mutating func setEmail(_ email: String) {
+        self.email = email
+    }
+
+    mutating func setPassword(_ password: String) {
+        self.password = password
+    }
 }

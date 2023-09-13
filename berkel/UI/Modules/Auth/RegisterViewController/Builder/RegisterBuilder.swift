@@ -11,7 +11,8 @@ import UIKit
 enum RegisterBuilder {
 
     static func generate(with data: RegisterPassData,
-                         coordinator: IRegisterCoordinator) -> RegisterViewController {
+                         coordinator: IRegisterCoordinator,
+                         authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil) -> RegisterViewController {
 
         let authRepository = AuthenticationRepository()
 
@@ -20,7 +21,9 @@ enum RegisterBuilder {
         let viewModel = RegisterViewModel(repository: repository,
                                           authRepository: authRepository,
                                           coordinator: coordinator,
-                                          uiModel: uiModel)
+                                          uiModel: uiModel,
+                                          authDismissCallBack: authDismissCallBack)
+
         return RegisterViewController(viewModel: viewModel)
     }
 }

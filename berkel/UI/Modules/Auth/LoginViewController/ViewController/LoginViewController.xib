@@ -20,8 +20,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnForgotPassword" destination="qcU-a2-bdo" id="DWg-hW-yMI"/>
                 <outlet property="btnLogin" destination="DY5-rS-sXq" id="DXd-7m-BcP"/>
                 <outlet property="btnRegister" destination="cgu-QJ-GwY" id="LAV-cO-Q8p"/>
+                <outlet property="tfEmail" destination="i9s-p4-PBE" id="jT8-Ut-jOl"/>
+                <outlet property="tfPassword" destination="ZUg-YV-b7H" id="UXA-Cy-Rzg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
