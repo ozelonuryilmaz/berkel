@@ -16,6 +16,8 @@ protocol IBuyingViewModel: AnyObject {
          coordinator: IBuyingCoordinator,
          uiModel: IBuyingUIModel)
 
+    // Coordinate
+    func pushAddBuyinItemViewController()
 }
 
 final class BuyingViewModel: BaseViewModel, IBuyingViewModel {
@@ -56,6 +58,9 @@ internal extension BuyingViewModel {
 // MARK: Coordinate
 internal extension BuyingViewModel {
 
+    func pushAddBuyinItemViewController() {
+        self.coordinator.pushAddBuyinItemViewController()
+    }
 }
 
 

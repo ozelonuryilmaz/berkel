@@ -13,7 +13,11 @@ class BerkelBaseViewController: UIViewController {
     public var navigationTitle: String? {
         return nil
     }
-
+    
+    public var navigationSubTitle: String? {
+        return nil
+    }
+    
     var cancelBag = Set<AnyCancellable>()
     private var nativeProgressView: NativeProgressView?
 
@@ -62,7 +66,11 @@ class BerkelBaseViewController: UIViewController {
         
         navigationItem.titleView = nil
         if let navTitle = navigationTitle {
-            self.navigationItem.title = navTitle
+            if let subNavTitle = navigationSubTitle {
+                self.navigationItem.setCustomTitle(navTitle, subtitle: subNavTitle)
+            }else {
+                self.navigationItem.title = navTitle
+            }
         }
 
         hideAllToast()

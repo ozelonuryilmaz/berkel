@@ -64,14 +64,14 @@ extension UINavigationItem {
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.textAlignment = .center
-        titleLabel.font = .boldSystemFont(ofSize: 19)
+        titleLabel.font = .boldSystemFont(ofSize: 20)
         titleLabel.textColor = .blackColor
         titleLabel.lineBreakMode = .byTruncatingHead
 
         let subtitleLabel = UILabel()
         subtitleLabel.text = subtitle
         subtitleLabel.textAlignment = .center
-        subtitleLabel.font = .systemFont(ofSize: 12)
+        subtitleLabel.font = .boldSystemFont(ofSize: 14)
         subtitleLabel.textColor = .primaryBlue
 
         let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])

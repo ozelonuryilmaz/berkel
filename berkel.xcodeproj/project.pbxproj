@@ -20,6 +20,7 @@
 		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
+		6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */; };
 		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
 		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
 		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
@@ -134,6 +135,15 @@
 		67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DF72AA110B400DBCD48 /* AppDelegate.swift */; };
 		67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E002AA110B500DBCD48 /* Assets.xcassets */; };
 		67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */; };
+		67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F052AB3A2B500FFC097 /* AppImages.swift */; };
+		67F87F092AB3A2E700FFC097 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F082AB3A2E700FFC097 /* AppColors.swift */; };
+		67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F0B2AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift */; };
+		67F87F142AB3A3A000FFC097 /* AddBuyingItemUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F0C2AB3A3A000FFC097 /* AddBuyingItemUIModel.swift */; };
+		67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F0D2AB3A3A000FFC097 /* AddBuyingItemViewController.swift */; };
+		67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F0E2AB3A3A000FFC097 /* AddBuyingItemRepository.swift */; };
+		67F87F172AB3A3A000FFC097 /* AddBuyingItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F0F2AB3A3A000FFC097 /* AddBuyingItemBuilder.swift */; };
+		67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F102AB3A3A000FFC097 /* AddBuyingItemViewModel.swift */; };
+		67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F87F112AB3A3A000FFC097 /* AddBuyingItemPassData.swift */; };
 		A1692EDDD077A12BAEB75303 /* Pods_berkel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +164,7 @@
 		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBuyingItemViewController.xib; sourceTree = "<group>"; };
 		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -270,6 +281,15 @@
 		67F03E002AA110B500DBCD48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67F03E032AA110B500DBCD48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67F03E052AA110B500DBCD48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67F87F052AB3A2B500FFC097 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		67F87F082AB3A2E700FFC097 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		67F87F0B2AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemCoordinator.swift; sourceTree = "<group>"; };
+		67F87F0C2AB3A3A000FFC097 /* AddBuyingItemUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemUIModel.swift; sourceTree = "<group>"; };
+		67F87F0D2AB3A3A000FFC097 /* AddBuyingItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemViewController.swift; sourceTree = "<group>"; };
+		67F87F0E2AB3A3A000FFC097 /* AddBuyingItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemRepository.swift; sourceTree = "<group>"; };
+		67F87F0F2AB3A3A000FFC097 /* AddBuyingItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemBuilder.swift; sourceTree = "<group>"; };
+		67F87F102AB3A3A000FFC097 /* AddBuyingItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemViewModel.swift; sourceTree = "<group>"; };
+		67F87F112AB3A3A000FFC097 /* AddBuyingItemPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemPassData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				677E67982AA35238001775E2 /* BuyingViewController */,
+				67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */,
 			);
 			path = Buying;
 			sourceTree = "<group>";
@@ -880,8 +901,8 @@
 		67CC75A32AA25909003206F0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				67F03E002AA110B500DBCD48 /* Assets.xcassets */,
-				67CC75A52AA25A6F003206F0 /* Color.xcassets */,
+				67F87F072AB3A2DE00FFC097 /* Colors */,
+				67F87F042AB3A2A400FFC097 /* Images */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1110,6 +1131,79 @@
 			path = berkel;
 			sourceTree = "<group>";
 		};
+		67F87F042AB3A2A400FFC097 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				67F03E002AA110B500DBCD48 /* Assets.xcassets */,
+				67F87F052AB3A2B500FFC097 /* AppImages.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		67F87F072AB3A2DE00FFC097 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				67CC75A52AA25A6F003206F0 /* Color.xcassets */,
+				67F87F082AB3A2E700FFC097 /* AppColors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F1F2AB3A3B500FFC097 /* Builder */,
+				67F87F1E2AB3A3B200FFC097 /* Response */,
+				67F87F1D2AB3A3AC00FFC097 /* Coordinator */,
+				67F87F1C2AB3A3A900FFC097 /* ViewModel */,
+				67F87F1B2AB3A3A500FFC097 /* ViewController */,
+			);
+			path = AddBuyingItemViewController;
+			sourceTree = "<group>";
+		};
+		67F87F1B2AB3A3A500FFC097 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F0D2AB3A3A000FFC097 /* AddBuyingItemViewController.swift */,
+				6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67F87F1C2AB3A3A900FFC097 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F102AB3A3A000FFC097 /* AddBuyingItemViewModel.swift */,
+				67F87F0C2AB3A3A000FFC097 /* AddBuyingItemUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67F87F1D2AB3A3AC00FFC097 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F0B2AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift */,
+				67F87F112AB3A3A000FFC097 /* AddBuyingItemPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67F87F1E2AB3A3B200FFC097 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F0E2AB3A3A000FFC097 /* AddBuyingItemRepository.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		67F87F1F2AB3A3B500FFC097 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F0F2AB3A3A000FFC097 /* AddBuyingItemBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		6D84388BF939FB120247B599 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1152,6 +1246,7 @@
 				TargetAttributes = {
 					67F03DF32AA110B400DBCD48 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -1184,6 +1279,7 @@
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
+				6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */,
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				67B903F02AA928E4005A980C /* GoogleService-Info.plist in Resources */,
@@ -1242,7 +1338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F87F172AB3A3A000FFC097 /* AddBuyingItemBuilder.swift in Sources */,
 				6797F0442AA4974000638C09 /* Auth.swift in Sources */,
+				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
@@ -1265,6 +1363,7 @@
 				6797F0542AA4975300638C09 /* DocumentReference+Combine.swift in Sources */,
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
 				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
+				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
@@ -1274,7 +1373,9 @@
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
 				6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */,
+				67F87F142AB3A3A000FFC097 /* AddBuyingItemUIModel.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
+				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
 				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
 				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
@@ -1283,6 +1384,7 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
+				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
@@ -1322,6 +1424,7 @@
 				67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */,
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
 				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
+				67F87F092AB3A2E700FFC097 /* AppColors.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
 				676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */,
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
@@ -1337,6 +1440,7 @@
 				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,
 				677F8DD72AB2126500DE5264 /* UserManager.swift in Sources */,
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
+				67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
@@ -1354,6 +1458,7 @@
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
+				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,
@@ -1494,6 +1599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQ9U34VGT6;
@@ -1515,6 +1621,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jobi.berkel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1526,6 +1633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WQ9U34VGT6;

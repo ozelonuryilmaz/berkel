@@ -9,6 +9,14 @@
 import UIKit
 
 final class BuyingViewController: MainBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Alım"
+    }
+    
+    override var navigationSubTitle: String? {
+        return nil
+    }
 
     // MARK: Constants
 
@@ -31,6 +39,7 @@ final class BuyingViewController: MainBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
 
     }
 
@@ -68,7 +77,12 @@ final class BuyingViewController: MainBaseViewController {
                           errorHandle: errorHandle)
     }
 
-    // MARK: Define Components (if you have or delete this line)
+    // MARK: Define Components
+    private lazy var addBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
+            self.viewModel.pushAddBuyinItemViewController()
+        }
+    }()
 }
 
 // MARK: Props
