@@ -11,6 +11,9 @@ protocol IAddBuyingItemViewModel: AnyObject {
     init(repository: IAddBuyingItemRepository,
          coordinator: IAddBuyingItemCoordinator,
          uiModel: IAddBuyingItemUIModel)
+    
+    // Coordinator
+    func presentAddSellerViewController()
 }
 
 final class AddBuyingItemViewModel: BaseViewModel, IAddBuyingItemViewModel {
@@ -56,6 +59,9 @@ internal extension AddBuyingItemViewModel {
 // MARK: Coordinate
 internal extension AddBuyingItemViewModel {
 
+    func presentAddSellerViewController() {
+        self.coordinator.presentAddSellerViewController()
+    }
 }
 
 

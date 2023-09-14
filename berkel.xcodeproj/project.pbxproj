@@ -21,6 +21,13 @@
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
 		6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */; };
+		6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D12AB3AF27006836CE /* AddSellerCoordinator.swift */; };
+		6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D22AB3AF27006836CE /* AddSellerUIModel.swift */; };
+		6776F4DB2AB3AF27006836CE /* AddSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D32AB3AF27006836CE /* AddSellerViewController.swift */; };
+		6776F4DC2AB3AF27006836CE /* AddSellerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D42AB3AF27006836CE /* AddSellerRepository.swift */; };
+		6776F4DD2AB3AF27006836CE /* AddSellerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D52AB3AF27006836CE /* AddSellerBuilder.swift */; };
+		6776F4DE2AB3AF27006836CE /* AddSellerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D62AB3AF27006836CE /* AddSellerViewModel.swift */; };
+		6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D72AB3AF27006836CE /* AddSellerPassData.swift */; };
 		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
 		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
 		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
@@ -114,6 +121,7 @@
 		67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */; };
 		67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */; };
 		67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B12AA25EF1003206F0 /* SplashPassData.swift */; };
+		67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */; };
 		67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B582AAF83890086E20C /* PrimaryTextField.swift */; };
 		67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */; };
 		67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */; };
@@ -165,6 +173,13 @@
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBuyingItemViewController.xib; sourceTree = "<group>"; };
+		6776F4D12AB3AF27006836CE /* AddSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerCoordinator.swift; sourceTree = "<group>"; };
+		6776F4D22AB3AF27006836CE /* AddSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerUIModel.swift; sourceTree = "<group>"; };
+		6776F4D32AB3AF27006836CE /* AddSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerViewController.swift; sourceTree = "<group>"; };
+		6776F4D42AB3AF27006836CE /* AddSellerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerRepository.swift; sourceTree = "<group>"; };
+		6776F4D52AB3AF27006836CE /* AddSellerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerBuilder.swift; sourceTree = "<group>"; };
+		6776F4D62AB3AF27006836CE /* AddSellerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerViewModel.swift; sourceTree = "<group>"; };
+		6776F4D72AB3AF27006836CE /* AddSellerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerPassData.swift; sourceTree = "<group>"; };
 		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -258,6 +273,7 @@
 		67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		67CC75B12AA25EF1003206F0 /* SplashPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPassData.swift; sourceTree = "<group>"; };
+		67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSellerViewController.xib; sourceTree = "<group>"; };
 		67EA5B582AAF83890086E20C /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReusableTextField.swift; sourceTree = "<group>"; };
 		67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -418,6 +434,61 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		6776F4D02AB3AEE7006836CE /* AddSellerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4E52AB3AF3D006836CE /* Builder */,
+				6776F4E42AB3AF39006836CE /* Response */,
+				6776F4E32AB3AF35006836CE /* Coordinator */,
+				6776F4E22AB3AF31006836CE /* ViewModel */,
+				6776F4E12AB3AF2C006836CE /* ViewController */,
+			);
+			path = AddSellerViewController;
+			sourceTree = "<group>";
+		};
+		6776F4E12AB3AF2C006836CE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4D32AB3AF27006836CE /* AddSellerViewController.swift */,
+				67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6776F4E22AB3AF31006836CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4D62AB3AF27006836CE /* AddSellerViewModel.swift */,
+				6776F4D22AB3AF27006836CE /* AddSellerUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6776F4E32AB3AF35006836CE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4D12AB3AF27006836CE /* AddSellerCoordinator.swift */,
+				6776F4D72AB3AF27006836CE /* AddSellerPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6776F4E42AB3AF39006836CE /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4D42AB3AF27006836CE /* AddSellerRepository.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		6776F4E52AB3AF3D006836CE /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6776F4D52AB3AF27006836CE /* AddSellerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		677E67932AA35213001775E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +505,7 @@
 			children = (
 				677E67982AA35238001775E2 /* BuyingViewController */,
 				67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */,
+				6776F4D02AB3AEE7006836CE /* AddSellerViewController */,
 			);
 			path = Buying;
 			sourceTree = "<group>";
@@ -1276,6 +1348,7 @@
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
+				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
@@ -1372,10 +1445,13 @@
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
+				6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */,
 				6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */,
+				6776F4DC2AB3AF27006836CE /* AddSellerRepository.swift in Sources */,
 				67F87F142AB3A3A000FFC097 /* AddBuyingItemUIModel.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
 				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
+				6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
 				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
 				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
@@ -1384,6 +1460,7 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
+				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
@@ -1396,6 +1473,7 @@
 				675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */,
 				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
 				677E67AA2AA353D2001775E2 /* BuyingPassData.swift in Sources */,
+				6776F4DE2AB3AF27006836CE /* AddSellerViewModel.swift in Sources */,
 				67EA5B6C2AAF86C70086E20C /* ClosureHandler.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
@@ -1449,12 +1527,14 @@
 				67A2EE232AB0D4AC00756120 /* RegisterUIModel.swift in Sources */,
 				6797F0392AA4973600638C09 /* User+Combine.swift in Sources */,
 				677E67DD2AA35415001775E2 /* SettingsViewModel.swift in Sources */,
+				6776F4DD2AB3AF27006836CE /* AddSellerBuilder.swift in Sources */,
 				6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */,
 				6797F0362AA4973600638C09 /* PhoneAuthProvider+Combine.swift in Sources */,
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
+				6776F4DB2AB3AF27006836CE /* AddSellerViewController.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,

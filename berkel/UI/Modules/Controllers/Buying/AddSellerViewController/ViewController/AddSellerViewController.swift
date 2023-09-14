@@ -1,36 +1,32 @@
 //
-//  AddBuyingItemViewController.swift
+//  AddSellerViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 14.09.2023.
+//  Created by Onur Yilmaz on 15.09.2023.
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
 import UIKit
 
-final class AddBuyingItemViewController: MainBaseViewController {
+final class AddSellerViewController: BerkelBaseViewController {
     
     override var navigationTitle: String? {
-        return "Alım Oluştur"
-    }
-    
-    override var isShowTabbar: Bool {
-        return false
+        return "Satıcı Ekle"
     }
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IAddBuyingItemViewModel
+    private let viewModel: IAddSellerViewModel
 
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IAddBuyingItemViewModel) {
+    init(viewModel: IAddSellerViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "AddBuyingItemViewController", bundle: nil)
+        super.init(nibName: "AddSellerViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,7 +34,7 @@ final class AddBuyingItemViewController: MainBaseViewController {
     }
 
     override func initialComponents() {
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeViewState()
         self.listenErrorState()
     }
@@ -47,25 +43,24 @@ final class AddBuyingItemViewController: MainBaseViewController {
 
     }
 
-
     private func observeViewState() {
 
-
     }
+
 
     private func listenErrorState() {
         // observeErrorState(errorState: viewModel._errorState)
     }
 
     // MARK: Define Components
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(image: .addPersonNav) { [unowned self] _ in
-            self.viewModel.presentAddSellerViewController()
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
         }
     }()
 }
 
 // MARK: Props
-private extension AddBuyingItemViewController {
+private extension AddSellerViewController {
 
 }

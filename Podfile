@@ -19,4 +19,7 @@ target 'berkel' do
   pod 'FirebaseFirestoreSwift'
   pod 'FirebaseStorage'
 
+  #BottomSheet(joomcode)
+  pod 'BottomSheet', '~> 2.0.4'
+
 end
