@@ -46,7 +46,7 @@ internal extension SettingsViewModel {
 
     func getDocuments() {
 
-        handleResourceGetDataState(
+        handleResourceFirestore(
             request: self.repository.getBuyingList(),
             response: self.response,
             errorState: self.errorState,

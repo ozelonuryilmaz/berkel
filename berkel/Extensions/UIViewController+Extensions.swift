@@ -142,13 +142,13 @@ extension UIViewController {
     }
 
     func showErrorAlert(
-        title: String? = "Bilgiler yeniden alınsın mı?",
+        title: String?,
         errorMessage: String,
         positiveButtonClickListener: (() -> Void)? = nil) {
 
-        showSystemAlert(title: title ?? "Hata",
+        showSystemAlert(title: title ?? "Tekrar Deneyiniz",
                         message: errorMessage,
-                        positiveButtonText: "Evet",
+                        positiveButtonText: "Tamam",
                         positiveButtonClickListener: positiveButtonClickListener,
                         negativeButtonText: "Vazgeç")
     }

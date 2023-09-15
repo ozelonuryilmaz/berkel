@@ -6,12 +6,16 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
-import Foundation
+import FirebaseFirestore
 
 protocol IAddSellerRepository: AnyObject {
 
+    func saveNewSeller(data: AddSellerModel) -> FirestoreResponseType<AddSellerModel>
 }
 
 final class AddSellerRepository: BaseRepository, IAddSellerRepository {
 
+    func saveNewSeller(data: AddSellerModel) -> FirestoreResponseType<AddSellerModel> {
+        return self.setData(SellerService.save, data: data)
+    }
 }

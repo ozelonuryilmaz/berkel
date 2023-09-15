@@ -126,7 +126,10 @@ extension BerkelBaseViewController {
         case .COMMON_ERROR(_),
              .UNDEFINED_RESPONSE_TYPE:
 
-            errorHandler.handleCommonError(errorMessage: errorType?.description ?? "Beklenmedik bir hata oluştu")
+            errorHandler.handleCommonError(title: nil,errorMessage: errorType?.description ?? "Beklenmedik bir hata oluştu")
+        case .ERROR_MESSAGE(let title, let msg):
+            errorHandler.handleCommonError(title: title, errorMessage: msg)
+            
         case .none:
             break
         }

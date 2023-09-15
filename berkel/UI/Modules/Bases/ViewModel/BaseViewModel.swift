@@ -16,7 +16,7 @@ class BaseViewModel {
         print("killed: \(type(of: self))")
     }
 
-    func handleResourceGetDataState<CONTENT: Codable, RESPONSE: Codable>(
+    func handleResourceFirestore<CONTENT: Codable, RESPONSE: Codable>(
         request: PassthroughSubject<CONTENT, Error>,
         response: CurrentValueSubject<RESPONSE?, Never>,
         errorState: ErrorStateSubject,
@@ -52,30 +52,4 @@ class BaseViewModel {
             }
         }).store(in: &cancelBag)
     }
-
-    func handleResourceSetDataState<CONTENT: Codable>(
-        request: PassthroughSubject<CONTENT, Error>,
-        errorState: ErrorStateSubject,
-        callbackLoading: ((Bool) -> Void)? = nil,
-        callbackSuccess: (() -> Void)? = nil
-    ) {
-
-        callbackLoading?(true)
-
-        request.sink(receiveCompletion: { result in
-
-            switch result {
-                // finished ve failure'dan sadece biri tetikleniyor
-            case .failure(let error):
-                errorState.value = .COMMON_ERROR(error: error)
-                callbackLoading?(false)
-            case .finished:
-                callbackSuccess?()
-                callbackLoading?(false)
-            }
-
-        }, receiveValue: { _ in } // SetData'da snapshot(value) dönmüyor
-        ).store(in: &cancelBag)
-    }
-
 }

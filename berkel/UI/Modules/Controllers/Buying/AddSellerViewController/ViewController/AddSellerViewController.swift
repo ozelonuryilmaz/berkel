@@ -9,12 +9,17 @@
 import UIKit
 
 final class AddSellerViewController: BerkelBaseViewController {
-    
+
     override var navigationTitle: String? {
-        return "Satıcı Ekle"
+        return "Yeni Satıcı Ekle"
     }
 
     // MARK: Constants
+    @IBOutlet private weak var tfName: PrimaryTextField!
+    @IBOutlet private weak var tfTC: PrimaryTextField!
+    @IBOutlet private weak var tfPhone: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Inject
     private let viewModel: IAddSellerViewModel
@@ -35,21 +40,41 @@ final class AddSellerViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
+        
+        self.listenNameTextFieldDidChange()
+        self.listenTCTextFieldDidChange()
+        self.listenPhoneTextFieldDidChange()
+        self.listenDescTextFieldDidChange()
         self.observeViewState()
         self.listenErrorState()
     }
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveNewSeller()
+        }
     }
 
     private func observeViewState() {
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
 
+            switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
+            }
+
+        }).store(in: &cancelBag)
     }
 
 
     private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
+        let errorHandle = FirestoreErrorHandle(viewController: self)
+
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components
@@ -63,4 +88,33 @@ final class AddSellerViewController: BerkelBaseViewController {
 // MARK: Props
 private extension AddSellerViewController {
 
+    
+}
+
+// MARK: TextField
+private extension AddSellerViewController {
+
+    func listenNameTextFieldDidChange() {
+        tfName.addListenDidChange { [unowned self] text in
+            self.viewModel.setName(text)
+        }
+    }
+
+    func listenTCTextFieldDidChange() {
+        tfTC.addListenDidChange { [unowned self] text in
+            self.viewModel.setTC(text)
+        }
+    }
+
+    func listenPhoneTextFieldDidChange() {
+        tfPhone.addListenDidChange { [unowned self] text in
+            self.viewModel.setPhone(text)
+        }
+    }
+
+    func listenDescTextFieldDidChange() {
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

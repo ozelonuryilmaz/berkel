@@ -12,6 +12,8 @@
 		6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3C2AA7AD48000034FD /* SettingsService.swift */; };
 		6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */; };
 		6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */; };
+		67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334E9F2AB4E0840072DBD6 /* SellerService.swift */; };
+		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
 		675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */; };
 		675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E42AAC686200429CB7 /* NetworkingError.swift */; };
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
@@ -164,6 +166,8 @@
 		6710BF3C2AA7AD48000034FD /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseModel.swift; sourceTree = "<group>"; };
 		6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
+		67334E9F2AB4E0840072DBD6 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
+		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
 		675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreErrorHandle.swift; sourceTree = "<group>"; };
 		675129E42AAC686200429CB7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			children = (
 				675129E62AAC7BD400429CB7 /* Types */,
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
+				67334E9F2AB4E0840072DBD6 /* SellerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -362,6 +367,14 @@
 				6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		67334EA12AB4E1150072DBD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		675129DE2AAC677B00429CB7 /* NetworkingError */ = {
@@ -438,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				6776F4E52AB3AF3D006836CE /* Builder */,
+				67334EA12AB4E1150072DBD6 /* Models */,
 				6776F4E42AB3AF39006836CE /* Response */,
 				6776F4E32AB3AF35006836CE /* Coordinator */,
 				6776F4E22AB3AF31006836CE /* ViewModel */,
@@ -1437,6 +1451,7 @@
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
 				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
 				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
+				67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
@@ -1542,6 +1557,7 @@
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,
+				67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

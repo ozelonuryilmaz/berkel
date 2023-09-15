@@ -18,23 +18,23 @@ class FirestoreErrorHandle {
     private var callbackAlertButtonAction: (() -> Void)? = nil
 
     init(viewController: UIViewController?,
-         callbackOverrideAlert: CallbackOverrideAlert?,
-         callbackAlertButtonAction: (() -> Void)?) {
+         callbackOverrideAlert: CallbackOverrideAlert? = nil,
+         callbackAlertButtonAction: (() -> Void)? = nil) {
         self.viewController = viewController
         self.callbackOverrideAlert = callbackOverrideAlert
         self.callbackAlertButtonAction = callbackAlertButtonAction
     }
 
-    func handleCommonError(errorMessage: String) {
+    func handleCommonError(title: String?, errorMessage: String) {
         if let callbackOverrideAlert = callbackOverrideAlert {
             callbackOverrideAlert(errorMessage)
         } else {
-            showDefaultAlert(errorMessage: errorMessage)
+            showDefaultAlert(title: title, errorMessage: errorMessage)
         }
     }
 
-    private func showDefaultAlert(errorMessage: String?) {
-        viewController?.showErrorAlert(errorMessage: errorMessage ?? "") { [weak self] in // positive button click
+    private func showDefaultAlert(title: String?, errorMessage: String?) {
+        viewController?.showErrorAlert(title: title, errorMessage: errorMessage ?? "") { [weak self] in // positive button click
             self?.callbackAlertButtonAction?()
         }
     }
