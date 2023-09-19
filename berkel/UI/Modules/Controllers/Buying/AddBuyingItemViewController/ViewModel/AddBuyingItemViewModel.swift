@@ -6,12 +6,14 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
-protocol IAddBuyingItemViewModel: AnyObject {
+protocol IAddBuyingItemViewModel: AddBuyingItemDataSourceFactoryOutputDelegate {
+
+    var viewState: ScreenStateSubject<AddBuyingItemViewState> { get }
 
     init(repository: IAddBuyingItemRepository,
          coordinator: IAddBuyingItemCoordinator,
          uiModel: IAddBuyingItemUIModel)
-    
+
     // Coordinator
     func presentAddSellerViewController()
 }
@@ -26,6 +28,7 @@ final class AddBuyingItemViewModel: BaseViewModel, IAddBuyingItemViewModel {
     // MARK: Private Props
 
     // MARK: Public Props
+    var viewState = ScreenStateSubject<AddBuyingItemViewState>(nil)
 
     // MARK: Initiliazer
     required init(repository: IAddBuyingItemRepository,
@@ -48,8 +51,12 @@ internal extension AddBuyingItemViewModel {
 internal extension AddBuyingItemViewModel {
 
     // MARK: View State
-    func viewStateShowProgressLoading(isProgress: Bool) {
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
 
+    func viewStateUpdateSnapshot() {
+        viewState.value = .updateSnapshot(snapshot: self.uiModel.buildSnapshot())
     }
 
     // MARK: Action State
@@ -64,7 +71,19 @@ internal extension AddBuyingItemViewModel {
     }
 }
 
+// MARK: AddBuyingItemDataSourceFactoryOutputDelegate
+extension AddBuyingItemViewModel {
+
+    func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel) {
+
+    }
+
+    func scrollDidScroll(isAvailablePagination: Bool) {
+
+    }
+}
 
 enum AddBuyingItemViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case showNativeProgress(isProgress: Bool)
+    case updateSnapshot(snapshot: AddBuyingItemSnapshot)
 }

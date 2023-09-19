@@ -12,6 +12,7 @@ protocol IAddBuyingItemUIModel {
 
 	 init(data: AddBuyingItemPassData)
 
+    func buildSnapshot() -> AddBuyingItemSnapshot
 } 
 
 struct AddBuyingItemUIModel: IAddBuyingItemUIModel {
@@ -24,9 +25,23 @@ struct AddBuyingItemUIModel: IAddBuyingItemUIModel {
     }
 
     // MARK: Computed Props
+    
+    
 }
 
-// MARK: Props
+// MARK: DataSource
 extension AddBuyingItemUIModel {
 
+    func buildSnapshot() -> AddBuyingItemSnapshot {
+        var snapshot = AddBuyingItemSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(prepareSnapshotRowModel(), toSection: .main)
+        return snapshot
+    }
+    
+    private func prepareSnapshotRowModel() -> [AddBuyingItemRowModel] {
+        var rowModels: [AddBuyingItemRowModel] = []
+
+        return rowModels
+    }
 }

@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		670B3C712ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C702ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift */; };
+		670B3C732ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C722ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift */; };
+		670B3C792ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C772ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift */; };
+		670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670B3C782ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib */; };
+		670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C7C2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift */; };
+		670B3C7F2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C7E2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift */; };
+		670B3C812ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C802ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift */; };
+		670B3C832ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C822ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift */; };
+		670B3C892ABA109500EE7CFB /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C862ABA109500EE7CFB /* UITableView+Extensions.swift */; };
+		670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C872ABA109500EE7CFB /* UITableViewCell+Extension.swift */; };
+		670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C882ABA109500EE7CFB /* UITableView+General.swift */; };
+		670B3C8E2ABA109F00EE7CFB /* UICollectionView+General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C8C2ABA109F00EE7CFB /* UICollectionView+General.swift */; };
+		670B3C8F2ABA109F00EE7CFB /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C8D2ABA109F00EE7CFB /* UICollectionView+Extensions.swift */; };
+		670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C922ABA130100EE7CFB /* BaseCollectionViewCell.swift */; };
+		670B3C952ABA130100EE7CFB /* HighlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C932ABA130100EE7CFB /* HighlightCollectionViewCell.swift */; };
+		670B3C982ABA130A00EE7CFB /* HighlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C962ABA130A00EE7CFB /* HighlightTableViewCell.swift */; };
+		670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C972ABA130A00EE7CFB /* BaseTableViewCell.swift */; };
+		670B3C9B2ABA19B700EE7CFB /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C9A2ABA19B700EE7CFB /* UIScrollView+Extension.swift */; };
 		670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C0B1D2AB0E39600B4C9A1 /* BackBarButtonIten.swift */; };
 		6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF382AA79B7B000034FD /* BaseRepository.swift */; };
 		6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3C2AA7AD48000034FD /* SettingsService.swift */; };
@@ -161,6 +179,24 @@
 		16F7E776642F8DE13FF34F1D /* Pods_berkel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_berkel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.release.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.release.xcconfig"; sourceTree = "<group>"; };
 		60657F612E104FB58D480D60 /* Pods-berkel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-berkel.debug.xcconfig"; path = "Target Support Files/Pods-berkel/Pods-berkel.debug.xcconfig"; sourceTree = "<group>"; };
+		670B3C702ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemDiffableTableView.swift; sourceTree = "<group>"; };
+		670B3C722ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemRowModel.swift; sourceTree = "<group>"; };
+		670B3C772ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemTableViewCell.swift; sourceTree = "<group>"; };
+		670B3C782ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBuyingItemTableViewCell.xib; sourceTree = "<group>"; };
+		670B3C7C2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		670B3C7E2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemSection.swift; sourceTree = "<group>"; };
+		670B3C802ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemDataSource.swift; sourceTree = "<group>"; };
+		670B3C822ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemDataSourceFactory.swift; sourceTree = "<group>"; };
+		670B3C862ABA109500EE7CFB /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		670B3C872ABA109500EE7CFB /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		670B3C882ABA109500EE7CFB /* UITableView+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+General.swift"; sourceTree = "<group>"; };
+		670B3C8C2ABA109F00EE7CFB /* UICollectionView+General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+General.swift"; sourceTree = "<group>"; };
+		670B3C8D2ABA109F00EE7CFB /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		670B3C922ABA130100EE7CFB /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		670B3C932ABA130100EE7CFB /* HighlightCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		670B3C962ABA130A00EE7CFB /* HighlightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightTableViewCell.swift; sourceTree = "<group>"; };
+		670B3C972ABA130A00EE7CFB /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		670B3C9A2ABA19B700EE7CFB /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		670C0B1D2AB0E39600B4C9A1 /* BackBarButtonIten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonIten.swift; sourceTree = "<group>"; };
 		6710BF382AA79B7B000034FD /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		6710BF3C2AA7AD48000034FD /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
@@ -331,6 +367,89 @@
 				56405BF4CD5A8FE4115246B1 /* Pods-berkel.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		670B3C6C2ABA0BB100EE7CFB /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C6D2ABA0BBB00EE7CFB /* View */,
+				670B3C6E2ABA0BBF00EE7CFB /* Model */,
+				670B3C6F2ABA0BC200EE7CFB /* DataSource */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		670B3C6D2ABA0BBB00EE7CFB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C702ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		670B3C6E2ABA0BBF00EE7CFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C722ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift */,
+				670B3C7E2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		670B3C6F2ABA0BC200EE7CFB /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C802ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift */,
+				670B3C822ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		670B3C742ABA0C7800EE7CFB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C7C2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift */,
+				670B3C772ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift */,
+				670B3C782ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		670B3C842ABA107F00EE7CFB /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C8D2ABA109F00EE7CFB /* UICollectionView+Extensions.swift */,
+				670B3C8C2ABA109F00EE7CFB /* UICollectionView+General.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		670B3C852ABA108600EE7CFB /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C862ABA109500EE7CFB /* UITableView+Extensions.swift */,
+				670B3C882ABA109500EE7CFB /* UITableView+General.swift */,
+				670B3C872ABA109500EE7CFB /* UITableViewCell+Extension.swift */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		670B3C902ABA12ED00EE7CFB /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C972ABA130A00EE7CFB /* BaseTableViewCell.swift */,
+				670B3C962ABA130A00EE7CFB /* HighlightTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		670B3C912ABA12F300EE7CFB /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				670B3C922ABA130100EE7CFB /* BaseCollectionViewCell.swift */,
+				670B3C932ABA130100EE7CFB /* HighlightCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		670C0B222AB10C8400B4C9A1 /* Models */ = {
@@ -780,6 +899,8 @@
 		678B537D2AA25F72003F4355 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
+				670B3C912ABA12F300EE7CFB /* CollectionViewCell */,
+				670B3C902ABA12ED00EE7CFB /* TableViewCell */,
 				676580AB2AA863E900A0549E /* ViewController */,
 				676580AD2AA863F700A0549E /* ViewModel */,
 				676580AC2AA863F000A0549E /* NavigationController */,
@@ -801,6 +922,8 @@
 		678B538B2AA26223003F4355 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				670B3C852ABA108600EE7CFB /* UITableView */,
+				670B3C842ABA107F00EE7CFB /* UICollectionView */,
 				678B53972AA263E9003F4355 /* UIColor+Extensions.swift */,
 				678B538C2AA26241003F4355 /* UIApplication+Extensions.swift */,
 				678B53912AA26303003F4355 /* UIViewController+Extensions.swift */,
@@ -812,6 +935,7 @@
 				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
 				676E72092AA3852D00010350 /* CGFloat+Extension.swift */,
 				67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */,
+				670B3C9A2ABA19B700EE7CFB /* UIScrollView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1250,6 +1374,8 @@
 		67F87F1B2AB3A3A500FFC097 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				670B3C742ABA0C7800EE7CFB /* Cells */,
+				670B3C6C2ABA0BB100EE7CFB /* DataSource */,
 				67F87F0D2AB3A3A000FFC097 /* AddBuyingItemViewController.swift */,
 				6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */,
 			);
@@ -1365,6 +1491,7 @@
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
+				670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
 				6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */,
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
@@ -1449,17 +1576,21 @@
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
 				6797F0542AA4975300638C09 /* DocumentReference+Combine.swift in Sources */,
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
+				670B3C792ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift in Sources */,
 				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
 				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
 				67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
+				670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
+				670B3C7F2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
 				67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */,
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
+				670B3C982ABA130A00EE7CFB /* HighlightTableViewCell.swift in Sources */,
 				6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */,
 				6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */,
 				6776F4DC2AB3AF27006836CE /* AddSellerRepository.swift in Sources */,
@@ -1468,14 +1599,17 @@
 				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
 				6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
+				670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */,
 				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
 				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
 				6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */,
 				677E67A52AA353D2001775E2 /* BuyingUIModel.swift in Sources */,
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
+				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
+				670B3C712ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift in Sources */,
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
@@ -1483,6 +1617,7 @@
 				6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */,
 				6797F0492AA4974800638C09 /* DatabaseReference+Combine.swift in Sources */,
 				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
+				670B3C8F2ABA109F00EE7CFB /* UICollectionView+Extensions.swift in Sources */,
 				67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */,
 				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
 				675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */,
@@ -1499,12 +1634,15 @@
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
 				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
+				670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
 				67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */,
 				677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */,
+				670B3C832ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift in Sources */,
 				6797F0422AA4974000638C09 /* Database.swift in Sources */,
 				677E67A82AA353D2001775E2 /* BuyingBuilder.swift in Sources */,
 				6797F0572AA4975C00638C09 /* HTTPSCallable+Combine.swift in Sources */,
+				670B3C732ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift in Sources */,
 				67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
@@ -1524,6 +1662,7 @@
 				6797F0592AA4976300638C09 /* RemoteConfig+Combine.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
 				67EA5B692AAF86C70086E20C /* UIView+Closures.swift in Sources */,
+				670B3C952ABA130100EE7CFB /* HighlightCollectionViewCell.swift in Sources */,
 				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
@@ -1548,12 +1687,17 @@
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
+				670B3C812ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
 				6776F4DB2AB3AF27006836CE /* AddSellerViewController.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
+				670B3C9B2ABA19B700EE7CFB /* UIScrollView+Extension.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
+				670B3C8E2ABA109F00EE7CFB /* UICollectionView+General.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,
+				670B3C892ABA109500EE7CFB /* UITableView+Extensions.swift in Sources */,
+				670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,

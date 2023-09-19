@@ -24,6 +24,7 @@ final class AddBuyingItemViewController: MainBaseViewController {
     private let viewModel: IAddBuyingItemViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: AddBuyingItemDiffableTableView!
 
     // MARK: Constraints Outlets
 
@@ -42,6 +43,10 @@ final class AddBuyingItemViewController: MainBaseViewController {
         self.observeViewState()
         self.listenErrorState()
     }
+    
+    override func setupView() {
+        initTableView()
+    }
 
     override func registerEvents() {
 
@@ -49,8 +54,19 @@ final class AddBuyingItemViewController: MainBaseViewController {
 
 
     private func observeViewState() {
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
 
+            switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+                
+            case .updateSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
 
+            }
+
+        }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
@@ -68,4 +84,7 @@ final class AddBuyingItemViewController: MainBaseViewController {
 // MARK: Props
 private extension AddBuyingItemViewController {
 
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }
