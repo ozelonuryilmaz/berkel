@@ -35,7 +35,7 @@ struct AddSellerUIModel: IAddSellerUIModel {
     }
 
     var data: AddSellerModel {
-        return AddSellerModel(name: self.name, tckn: self.tc, phoneNumber: self.phone, description: self.desc)
+        return AddSellerModel(name: self.name, tckn: self.tc, phoneNumber: self.phone, description: self.desc, date: Date().dateFormatterApiResponseType())
     }
 
     var errorMessage: String? {

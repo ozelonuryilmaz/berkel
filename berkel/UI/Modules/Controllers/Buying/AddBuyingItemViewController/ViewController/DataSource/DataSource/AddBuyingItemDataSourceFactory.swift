@@ -29,6 +29,7 @@ final class AddBuyingItemDataSourceFactory {
 
             let cell = tableView.generateReusableCell(AddBuyingItemTableViewCell.self, indexPath: indexPath)
             cell.configureCellWith(uiModel: itemIdentifier.uiModel)
+            cell.hideSeparator()
 
             return cell
         }

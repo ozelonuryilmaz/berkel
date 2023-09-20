@@ -42,6 +42,8 @@ final class AddBuyingItemViewController: MainBaseViewController {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeViewState()
         self.listenErrorState()
+        
+        self.viewModel.getBuyingItems()
     }
     
     override func setupView() {
@@ -70,7 +72,15 @@ final class AddBuyingItemViewController: MainBaseViewController {
     }
 
     private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getBuyingItems()
+            }
+        )
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components

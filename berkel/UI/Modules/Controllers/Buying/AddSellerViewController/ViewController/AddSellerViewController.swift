@@ -69,7 +69,6 @@ final class AddSellerViewController: BerkelBaseViewController {
         }).store(in: &cancelBag)
     }
 
-
     private func listenErrorState() {
         let errorHandle = FirestoreErrorHandle(viewController: self)
 

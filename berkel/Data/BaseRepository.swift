@@ -52,7 +52,7 @@ class BaseRepository: IBaseRepository {
     }
 
     // Documents'e veri ekler
-    func setData<T: Codable>(_ db: DocumentServiceType, data: T) -> FirestoreResponseType<T> {
+    func setData<T: Codable>(_ db: DocumentReference, data: T) -> FirestoreResponseType<T> {
         let subject = FirestoreResponseType<T>()
 
         let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
@@ -68,8 +68,7 @@ class BaseRepository: IBaseRepository {
             subject.send(data)
         }
 
-        db.documentReference
-            .setData(from: data)
+        db.setData(from: data)
             .sink(receiveCompletion: onErrorCompletion,
                   receiveValue: onValue)
             .store(in: &cancelBag)

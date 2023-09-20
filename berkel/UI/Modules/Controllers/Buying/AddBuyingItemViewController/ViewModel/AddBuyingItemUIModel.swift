@@ -10,23 +10,27 @@ import UIKit
 
 protocol IAddBuyingItemUIModel {
 
-	 init(data: AddBuyingItemPassData)
+    init(data: AddBuyingItemPassData)
 
+    mutating func setResponse(_ response: [AddBuyingItemResponseModel])
     func buildSnapshot() -> AddBuyingItemSnapshot
-} 
+}
 
 struct AddBuyingItemUIModel: IAddBuyingItemUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
+    var response: [AddBuyingItemResponseModel] = []
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: AddBuyingItemPassData) {
 
     }
 
     // MARK: Computed Props
-    
-    
+    mutating func setResponse(_ response: [AddBuyingItemResponseModel]) {
+        self.response = response
+    }
+
 }
 
 // MARK: DataSource
@@ -38,10 +42,11 @@ extension AddBuyingItemUIModel {
         snapshot.appendItems(prepareSnapshotRowModel(), toSection: .main)
         return snapshot
     }
-    
-    private func prepareSnapshotRowModel() -> [AddBuyingItemRowModel] {
-        var rowModels: [AddBuyingItemRowModel] = []
 
+    private func prepareSnapshotRowModel() -> [AddBuyingItemRowModel] {
+        let rowModels: [AddBuyingItemRowModel] = response.compactMap { responseModel in
+            return AddBuyingItemRowModel(uiModel: AddBuyingItemTableViewCellUIModel(name: responseModel.name))
+        }
         return rowModels
     }
 }

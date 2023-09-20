@@ -9,8 +9,10 @@ import UIKit
 
 protocol IAddBuyingItemTableViewCellUIModel {
 
+    var name: String { get }
 }
 
 struct AddBuyingItemTableViewCellUIModel: IAddBuyingItemTableViewCellUIModel {
 
+    let name: String
 }

@@ -1,22 +1,22 @@
 //
-//  SellerService.swift
+//  BuyingItemService.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 15.09.2023.
+//  Created by Onur Yilmaz on 19.09.2023.
 //
 
 import FirebaseFirestore
 
-enum SellerService {
+enum BuyingItemService {
 
-    case save
+    case list
 }
 
-extension SellerService: CollectionServiceType {
-    
+extension BuyingItemService: CollectionServiceType {
+
     var collectionReference: CollectionReference {
         switch self {
-        case .save:
+        case .list:
 
             return Firestore
                 .firestore()

@@ -16,6 +16,12 @@ protocol IAddSellerRepository: AnyObject {
 final class AddSellerRepository: BaseRepository, IAddSellerRepository {
 
     func saveNewSeller(data: AddSellerModel) -> FirestoreResponseType<AddSellerModel> {
-        return self.setData(SellerService.save, data: data)
+        let db: DocumentReference = SellerService.save.collectionReference.document()
+        let key = db.documentID
+        
+        var tempData = data
+        tempData.id = key
+        
+        return self.setData(db, data: tempData)
     }
 }

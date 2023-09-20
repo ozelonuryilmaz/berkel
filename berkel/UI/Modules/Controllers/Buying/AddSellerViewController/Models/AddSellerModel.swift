@@ -5,6 +5,8 @@
 //  Created by Onur Yilmaz on 15.09.2023.
 //
 
+import Foundation
+
 struct AddSellerModel: Codable {
     
     var id: String?
@@ -12,4 +14,5 @@ struct AddSellerModel: Codable {
     var tckn: String?
     var phoneNumber: String?
     var description: String?
+    var date: String?
 }
