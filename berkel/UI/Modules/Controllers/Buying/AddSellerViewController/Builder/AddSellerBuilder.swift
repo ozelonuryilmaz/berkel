@@ -11,7 +11,8 @@ import UIKit
 enum AddSellerBuilder {
 
     static func generate(with data: AddSellerPassData,
-                         coordinator: IAddSellerCoordinator) -> AddSellerViewController {
+                         coordinator: IAddSellerCoordinator,
+                         outputDelegate: AddSellerViewControllerOutputDelegate?) -> AddSellerViewController {
 
         let repository = AddSellerRepository()
         let uiModel = AddSellerUIModel(data: data)
@@ -19,6 +20,7 @@ enum AddSellerBuilder {
                                            coordinator: coordinator,
                                            uiModel: uiModel)
 
-        return AddSellerViewController(viewModel: viewModel)
+        return AddSellerViewController(viewModel: viewModel,
+                                       outputDelegate: outputDelegate)
     }
 }

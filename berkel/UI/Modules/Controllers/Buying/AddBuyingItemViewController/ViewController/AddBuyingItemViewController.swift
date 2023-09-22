@@ -9,11 +9,11 @@
 import UIKit
 
 final class AddBuyingItemViewController: MainBaseViewController {
-    
+
     override var navigationTitle: String? {
         return "Alım Oluştur"
     }
-    
+
     override var isShowTabbar: Bool {
         return false
     }
@@ -42,10 +42,10 @@ final class AddBuyingItemViewController: MainBaseViewController {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeViewState()
         self.listenErrorState()
-        
+
         self.viewModel.getBuyingItems()
     }
-    
+
     override func setupView() {
         initTableView()
     }
@@ -62,10 +62,14 @@ final class AddBuyingItemViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-                
-            case .updateSnapshot(let snapshot):
+
+            case .buildSnapshot(let snapshot):
                 self.tableView.applySnapshot(snapshot)
 
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
             }
 
         }).store(in: &cancelBag)

@@ -13,6 +13,13 @@ enum BuyingItemService {
 }
 
 extension BuyingItemService: CollectionServiceType {
+    
+    var order: String {
+        switch self {
+        case .list:
+            return "date"
+        }
+    }
 
     var collectionReference: CollectionReference {
         switch self {

@@ -22,7 +22,18 @@ class BaseRepository: IBaseRepository {
     }
 
     // Collection içerisinde verileri getirir.
-    func getDocuments<T: Codable>(_ db: CollectionServiceType) -> FirestoreResponseType<[T]> {
+    func getDocuments<T: Codable>(_ db: CollectionServiceType, order: String, cursor: [String]? = nil, limit: Int? = nil) -> FirestoreResponseType<[T]> {
+        
+        var ref = db.collectionReference.order(by: order, descending: true)
+        
+        if cursor != nil {
+            ref = ref.start(after: cursor!)
+        }
+        
+        if limit != nil {
+            ref = ref.limit(to: limit!)
+        }
+        
         let subject = FirestoreResponseType<[T]>()
 
         let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
@@ -42,8 +53,7 @@ class BaseRepository: IBaseRepository {
         // Tek bir seferlik verileri çekmek için kullanıldı. Cache iptal edildi.
         let source = FirestoreSource.server
 
-        db.collectionReference
-            .getDocuments(source: source, as: T.self)
+        ref.getDocuments(source: source, as: T.self)
             .sink(receiveCompletion: onErrorCompletion,
                   receiveValue: onValue)
             .store(in: &cancelBag)

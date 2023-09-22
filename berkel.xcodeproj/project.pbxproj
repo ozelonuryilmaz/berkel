@@ -29,6 +29,7 @@
 		670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670B3C9F2ABA219800EE7CFB /* AddBuyingItemResponseModel.swift */; };
 		670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C0B1D2AB0E39600B4C9A1 /* BackBarButtonIten.swift */; };
 		670FC3C62ABDBB55007F82D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC3C52ABDBB55007F82D9 /* String+Extension.swift */; };
+		670FC3C82ABDF676007F82D9 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC3C72ABDF676007F82D9 /* PhoneCallHelper.swift */; };
 		6710BF392AA79B7B000034FD /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF382AA79B7B000034FD /* BaseRepository.swift */; };
 		6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3C2AA7AD48000034FD /* SettingsService.swift */; };
 		6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */; };
@@ -208,6 +209,7 @@
 		670B3C9F2ABA219800EE7CFB /* AddBuyingItemResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBuyingItemResponseModel.swift; sourceTree = "<group>"; };
 		670C0B1D2AB0E39600B4C9A1 /* BackBarButtonIten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonIten.swift; sourceTree = "<group>"; };
 		670FC3C52ABDBB55007F82D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		670FC3C72ABDF676007F82D9 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6710BF382AA79B7B000034FD /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		6710BF3C2AA7AD48000034FD /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseModel.swift; sourceTree = "<group>"; };
@@ -980,6 +982,7 @@
 			children = (
 				678B538F2AA262BA003F4355 /* WindowHelper.swift */,
 				6774E2702ABAF188005FC78A /* DateFormatHelper.swift */,
+				670FC3C72ABDF676007F82D9 /* PhoneCallHelper.swift */,
 			);
 			path = Helpsers;
 			sourceTree = "<group>";
@@ -1591,6 +1594,7 @@
 			files = (
 				67F87F172AB3A3A000FFC097 /* AddBuyingItemBuilder.swift in Sources */,
 				6797F0442AA4974000638C09 /* Auth.swift in Sources */,
+				670FC3C82ABDF676007F82D9 /* PhoneCallHelper.swift in Sources */,
 				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,

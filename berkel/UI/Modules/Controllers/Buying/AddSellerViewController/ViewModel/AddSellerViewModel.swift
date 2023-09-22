@@ -87,7 +87,8 @@ internal extension AddSellerViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-                //self.dismiss()
+                self.viewStateShowSavedSeller()
+                self.dismiss()
             })
     }
 }
@@ -98,6 +99,11 @@ internal extension AddSellerViewModel {
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+    
+    func viewStateShowSavedSeller() {
+        guard let data = self.response.value else { return }
+        viewState.value = .showSavedSeller(data: data)
     }
 
     // MARK: Action State
@@ -115,6 +121,7 @@ internal extension AddSellerViewModel {
 
 enum AddSellerViewState {
     case showNativeProgress(isProgress: Bool)
+    case showSavedSeller(data: AddSellerModel)
 }
 
 

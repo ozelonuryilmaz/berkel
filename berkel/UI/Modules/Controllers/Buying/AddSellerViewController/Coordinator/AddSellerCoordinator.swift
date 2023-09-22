@@ -19,13 +19,25 @@ final class AddSellerCoordinator: PresentationCoordinator, IAddSellerCoordinator
 
     private unowned var navController: MainNavigationController
 
+    private weak var outputDelegate: AddSellerViewControllerOutputDelegate? = nil
+
+    @discardableResult
+    func with(outputDelegate: AddSellerViewControllerOutputDelegate) -> AddSellerCoordinator {
+        self.outputDelegate = outputDelegate
+        return self
+    }
+
     init(presenterViewController: UIViewController?, navController: MainNavigationController) {
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
     }
 
     override func start() {
-        let controller = AddSellerBuilder.generate(with: coordinatorData, coordinator: self)
+        guard let outputDelegate = outputDelegate else { return }
+
+        let controller = AddSellerBuilder.generate(with: coordinatorData,
+                                                   coordinator: self,
+                                                   outputDelegate: outputDelegate)
         //controller.modalPresentationStyle = .fullScreen
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)

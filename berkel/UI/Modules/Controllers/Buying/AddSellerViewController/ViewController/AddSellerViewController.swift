@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddSellerViewControllerOutputDelegate: AnyObject {
+    func newAddSellerData(_ data: AddSellerModel)
+}
+
 final class AddSellerViewController: BerkelBaseViewController {
 
     override var navigationTitle: String? {
@@ -23,14 +27,17 @@ final class AddSellerViewController: BerkelBaseViewController {
 
     // MARK: Inject
     private let viewModel: IAddSellerViewModel
+    private weak var outputDelegate: AddSellerViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IAddSellerViewModel) {
+    init(viewModel: IAddSellerViewModel,
+         outputDelegate: AddSellerViewControllerOutputDelegate?) {
         self.viewModel = viewModel
+        self.outputDelegate = outputDelegate
         super.init(nibName: "AddSellerViewController", bundle: nil)
     }
 
@@ -63,6 +70,9 @@ final class AddSellerViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+                
+            case .showSavedSeller(let data):
+                self.outputDelegate?.newAddSellerData(data)
 
             }
 

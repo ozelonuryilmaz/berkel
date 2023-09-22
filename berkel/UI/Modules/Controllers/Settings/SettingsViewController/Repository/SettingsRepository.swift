@@ -16,6 +16,6 @@ protocol ISettingsRepository: AnyObject {
 final class SettingsRepository: BaseRepository, ISettingsRepository {
 
     func getBuyingList() -> FirestoreResponseType<[SettingsResponseModel]> {
-        return getDocuments(SettingsService.list)
+        return getDocuments(SettingsService.list, order: "date")
     }
 }
