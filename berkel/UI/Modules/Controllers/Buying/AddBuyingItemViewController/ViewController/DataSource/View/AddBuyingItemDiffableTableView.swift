@@ -32,7 +32,7 @@ extension AddBuyingItemDiffableTableView {
     }
 
     func applySnapshot(_ snapshot: AddBuyingItemSnapshot,
-                       animated: Bool = true,
+                       animated: Bool = false,
                        completion: (() -> Void)? = nil) {
 
         self.addBuyingItemDataSource.applySnapshot(snapshot,
@@ -50,6 +50,7 @@ private extension AddBuyingItemDiffableTableView {
 
     func initializeTableView() {
         self.registerCell(AddBuyingItemTableViewCell.self)
+        self.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         self.delegate = self.addBuyingItemDataSource
         self.dataSource = self.addBuyingItemDataSource
         self.removeTableFooterView()

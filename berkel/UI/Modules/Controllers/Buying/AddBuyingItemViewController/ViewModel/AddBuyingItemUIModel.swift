@@ -45,7 +45,12 @@ extension AddBuyingItemUIModel {
 
     private func prepareSnapshotRowModel() -> [AddBuyingItemRowModel] {
         let rowModels: [AddBuyingItemRowModel] = response.compactMap { responseModel in
-            return AddBuyingItemRowModel(uiModel: AddBuyingItemTableViewCellUIModel(name: responseModel.name))
+            return AddBuyingItemRowModel(uiModel: AddBuyingItemTableViewCellUIModel(
+                name: responseModel.name,
+                tc: responseModel.tckn,
+                desc: responseModel.description ?? "",
+                phoneNumber: responseModel.phoneNumber)
+            )
         }
         return rowModels
     }

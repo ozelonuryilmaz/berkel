@@ -95,6 +95,10 @@ internal extension AddBuyingItemViewModel {
 
 // MARK: AddBuyingItemDataSourceFactoryOutputDelegate
 extension AddBuyingItemViewModel {
+    
+    func phoneNumberTapped(phoneNumber: String) {
+        print("**** \(phoneNumber)")
+    }
 
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel) {
         print("**** \(uiModel)")
