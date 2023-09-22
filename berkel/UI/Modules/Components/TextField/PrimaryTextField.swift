@@ -46,6 +46,9 @@ class PrimaryTextField: BaseReusableView {
             textField.isSecureTextEntry = isSecureTextEntry
         }
     }
+    
+    @IBInspectable
+    var isPhoneNumber: Bool = false
 
     @IBInspectable
     var maxCharacterLenght: Int = Int.max
@@ -233,6 +236,10 @@ extension PrimaryTextField: UITextFieldDelegate {
 
     @objc func textFieldDidChange(_ textField: UITextField) {
         handleVisibilityClearButton()
+        
+        if isPhoneNumber {
+            textField.text = textField.text?.applyPatternOnNumbers(pattern: "# (###) ### ## ##", replacementCharacter: "#")
+        }
 
         if let arrayListener = self.arrayListenDidChange {
             for listener in arrayListener {

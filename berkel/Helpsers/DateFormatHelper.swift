@@ -10,7 +10,7 @@ import Foundation
 struct DateFormatHelper {
 
     private init() { }
-
+    
     // Bu dateFormat'ı kesinlikle değiştirme! Veri tabanına sabit format kaydediliyor!!!!
     static func createFormatterApiResponseType() -> DateFormatter {
         let formatter = DateFormatter()

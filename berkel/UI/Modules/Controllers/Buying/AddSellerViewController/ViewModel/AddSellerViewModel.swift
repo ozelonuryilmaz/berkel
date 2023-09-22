@@ -87,7 +87,7 @@ internal extension AddSellerViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-                self.dismiss()
+                //self.dismiss()
             })
     }
 }
