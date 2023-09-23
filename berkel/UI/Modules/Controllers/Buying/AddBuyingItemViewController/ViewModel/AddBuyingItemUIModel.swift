@@ -95,7 +95,7 @@ extension AddBuyingItemUIModel {
             return AddBuyingItemRowModel(uiModel: AddBuyingItemTableViewCellUIModel(id: item.id, name: item.name, tc: item.tckn, desc: item.description ?? "", date: item.date, phoneNumber: item.phoneNumber))
         })
 
-        snapshot.appendItems(configuredItems)
+        snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır
 
         return snapshot
     }

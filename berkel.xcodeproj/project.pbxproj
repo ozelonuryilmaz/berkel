@@ -36,6 +36,7 @@
 		6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */; };
 		67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334E9F2AB4E0840072DBD6 /* SellerService.swift */; };
 		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
+		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
 		675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */; };
 		675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E42AAC686200429CB7 /* NetworkingError.swift */; };
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
@@ -149,6 +150,13 @@
 		67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */; };
 		67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */; };
 		67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B12AA25EF1003206F0 /* SplashPassData.swift */; };
+		67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */; };
+		67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */; };
+		67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */; };
+		67DB17242ABF155F00463CA9 /* NewBuyingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171C2ABF155F00463CA9 /* NewBuyingRepository.swift */; };
+		67DB17252ABF155F00463CA9 /* NewBuyingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171D2ABF155F00463CA9 /* NewBuyingBuilder.swift */; };
+		67DB17262ABF155F00463CA9 /* NewBuyingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171E2ABF155F00463CA9 /* NewBuyingViewModel.swift */; };
+		67DB17272ABF155F00463CA9 /* NewBuyingPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171F2ABF155F00463CA9 /* NewBuyingPassData.swift */; };
 		67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */; };
 		67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B582AAF83890086E20C /* PrimaryTextField.swift */; };
 		67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */; };
@@ -216,6 +224,7 @@
 		6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
 		67334E9F2AB4E0840072DBD6 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
+		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
 		675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreErrorHandle.swift; sourceTree = "<group>"; };
 		675129E42AAC686200429CB7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
@@ -329,6 +338,13 @@
 		67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		67CC75B12AA25EF1003206F0 /* SplashPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPassData.swift; sourceTree = "<group>"; };
+		67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingCoordinator.swift; sourceTree = "<group>"; };
+		67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingUIModel.swift; sourceTree = "<group>"; };
+		67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewController.swift; sourceTree = "<group>"; };
+		67DB171C2ABF155F00463CA9 /* NewBuyingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingRepository.swift; sourceTree = "<group>"; };
+		67DB171D2ABF155F00463CA9 /* NewBuyingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingBuilder.swift; sourceTree = "<group>"; };
+		67DB171E2ABF155F00463CA9 /* NewBuyingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewModel.swift; sourceTree = "<group>"; };
+		67DB171F2ABF155F00463CA9 /* NewBuyingPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingPassData.swift; sourceTree = "<group>"; };
 		67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSellerViewController.xib; sourceTree = "<group>"; };
 		67EA5B582AAF83890086E20C /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReusableTextField.swift; sourceTree = "<group>"; };
@@ -1251,6 +1267,77 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		67DB17162ABF145F00463CA9 /* SubViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				67DB17172ABF14AE00463CA9 /* NewBuyingViewController */,
+			);
+			path = SubViewControllers;
+			sourceTree = "<group>";
+		};
+		67DB17172ABF14AE00463CA9 /* NewBuyingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67DB172D2ABF157A00463CA9 /* Builder */,
+				67DB172C2ABF157700463CA9 /* Model */,
+				67DB172B2ABF157400463CA9 /* Coordinator */,
+				67DB172A2ABF157000463CA9 /* Repository */,
+				67DB17292ABF156A00463CA9 /* ViewModel */,
+				67DB17182ABF155200463CA9 /* ViewController */,
+			);
+			path = NewBuyingViewController;
+			sourceTree = "<group>";
+		};
+		67DB17182ABF155200463CA9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */,
+				673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67DB17292ABF156A00463CA9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67DB171E2ABF155F00463CA9 /* NewBuyingViewModel.swift */,
+				67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67DB172A2ABF157000463CA9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67DB171C2ABF155F00463CA9 /* NewBuyingRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67DB172B2ABF157400463CA9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */,
+				67DB171F2ABF155F00463CA9 /* NewBuyingPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67DB172C2ABF157700463CA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		67DB172D2ABF157A00463CA9 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67DB171D2ABF155F00463CA9 /* NewBuyingBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		67EA5B5A2AAF83AF0086E20C /* TextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -1407,6 +1494,7 @@
 				67F87F1E2AB3A3B200FFC097 /* Repository */,
 				67F87F1C2AB3A3A900FFC097 /* ViewModel */,
 				67F87F1B2AB3A3A500FFC097 /* ViewController */,
+				67DB17162ABF145F00463CA9 /* SubViewControllers */,
 			);
 			path = AddBuyingItemViewController;
 			sourceTree = "<group>";
@@ -1528,6 +1616,7 @@
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
+				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
@@ -1604,6 +1693,7 @@
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */,
+				67DB17242ABF155F00463CA9 /* NewBuyingRepository.swift in Sources */,
 				6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */,
 				678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */,
 				6797F0402AA4974000638C09 /* RemoteConfig.swift in Sources */,
@@ -1670,9 +1760,11 @@
 				677E67AA2AA353D2001775E2 /* BuyingPassData.swift in Sources */,
 				6776F4DE2AB3AF27006836CE /* AddSellerViewModel.swift in Sources */,
 				67EA5B6C2AAF86C70086E20C /* ClosureHandler.swift in Sources */,
+				67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
 				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
+				67DB17262ABF155F00463CA9 /* NewBuyingViewModel.swift in Sources */,
 				6797F0432AA4974000638C09 /* Firestore.swift in Sources */,
 				678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */,
 				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
@@ -1680,6 +1772,7 @@
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
 				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
 				670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */,
+				67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
 				67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */,
 				677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */,
@@ -1740,11 +1833,14 @@
 				6776F4DB2AB3AF27006836CE /* AddSellerViewController.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
 				670B3C9B2ABA19B700EE7CFB /* UIScrollView+Extension.swift in Sources */,
+				67DB17272ABF155F00463CA9 /* NewBuyingPassData.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
+				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
 				670B3C8E2ABA109F00EE7CFB /* UICollectionView+General.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,
 				670B3C892ABA109500EE7CFB /* UITableView+Extensions.swift in Sources */,
+				67DB17252ABF155F00463CA9 /* NewBuyingBuilder.swift in Sources */,
 				670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				678B53982AA263E9003F4355 /* UIColor+Extensions.swift in Sources */,

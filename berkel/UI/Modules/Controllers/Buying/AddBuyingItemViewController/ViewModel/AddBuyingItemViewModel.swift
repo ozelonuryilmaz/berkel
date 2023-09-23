@@ -113,6 +113,10 @@ internal extension AddBuyingItemViewModel {
     func presentAddSellerViewController() {
         self.coordinator.presentAddSellerViewController(outputDelegate: self)
     }
+    
+    func presentNewBuyingViewController(data: AddBuyingItemResponseModel) {
+        self.coordinator.presentNewBuyingViewController(passData: data)
+    }
 }
 
 // MARK: AddSellerViewControllerOutputDelegate
@@ -132,7 +136,8 @@ extension AddBuyingItemViewModel {
     }
 
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel) {
-        print("**** \(uiModel)")
+        let data = AddBuyingItemResponseModel(id: uiModel.id, name: uiModel.name, tckn: uiModel.tc, phoneNumber: uiModel.phoneNumber, description: uiModel.desc, date: uiModel.date)
+        self.presentNewBuyingViewController(data: data)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
