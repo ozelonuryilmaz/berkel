@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 
 protocol ISplashUIModel {
+    
+    var isHaveAnySeason: Bool { get }
 
     init()
 
@@ -19,6 +21,10 @@ protocol ISplashUIModel {
 struct SplashUIModel: ISplashUIModel {
 
     // MARK: Definitions
+    
+    var isHaveAnySeason: Bool {
+        return UserDefaultsManager.shared.getStringValue(key: .season) != nil
+    }
 
     // MARK: Initialize
     init() {

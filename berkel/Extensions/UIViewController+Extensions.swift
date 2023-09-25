@@ -100,8 +100,8 @@ extension UIViewController {
         self.navigationController?.pushViewController(viewControllerToPresent, animated: isAnimated)
     }
 
-    func selfDismiss() {
-        self.dismiss(animated: true, completion: nil)
+    func selfDismiss(completion: (() -> Void)? = nil) {
+        self.dismiss(animated: true, completion: completion)
     }
 
     func selfPopViewController(animated: Bool = true) {

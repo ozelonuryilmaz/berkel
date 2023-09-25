@@ -57,6 +57,13 @@
 		6776F4DD2AB3AF27006836CE /* AddSellerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D52AB3AF27006836CE /* AddSellerBuilder.swift */; };
 		6776F4DE2AB3AF27006836CE /* AddSellerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D62AB3AF27006836CE /* AddSellerViewModel.swift */; };
 		6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D72AB3AF27006836CE /* AddSellerPassData.swift */; };
+		677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677D62E92AC1ED1C004F3232 /* SeasonsViewController.xib */; };
+		677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D62EB2AC1F087004F3232 /* UserDefaultsManager.swift */; };
+		677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D62EE2AC1F410004F3232 /* SeasonsTableViewCell.swift */; };
+		677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677D62EF2AC1F410004F3232 /* SeasonsTableViewCell.xib */; };
+		677D62F32AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D62F22AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift */; };
+		677D62F52AC1FB3E004F3232 /* SeasonResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D62F42AC1FB3E004F3232 /* SeasonResponseModel.swift */; };
+		677D62F72AC1FC30004F3232 /* SeasonItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677D62F62AC1FC30004F3232 /* SeasonItemService.swift */; };
 		677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678B2AA34202001775E2 /* MainTabbarController.swift */; };
 		677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */; };
 		677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677E678F2AA34751001775E2 /* MainNavigationController.swift */; };
@@ -109,6 +116,13 @@
 		678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539B2AA2662F003F4355 /* Window+Extensions.swift */; };
 		678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539D2AA266FE003F4355 /* AppCoordinator.swift */; };
 		678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */; };
+		6797C49B2AC1ECD30049C8F7 /* SeasonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4932AC1ECD30049C8F7 /* SeasonsCoordinator.swift */; };
+		6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4942AC1ECD30049C8F7 /* SeasonsUIModel.swift */; };
+		6797C49D2AC1ECD30049C8F7 /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4952AC1ECD30049C8F7 /* SeasonsViewController.swift */; };
+		6797C49E2AC1ECD30049C8F7 /* SeasonsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4962AC1ECD30049C8F7 /* SeasonsRepository.swift */; };
+		6797C49F2AC1ECD30049C8F7 /* SeasonsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4972AC1ECD30049C8F7 /* SeasonsBuilder.swift */; };
+		6797C4A02AC1ECD30049C8F7 /* SeasonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4982AC1ECD30049C8F7 /* SeasonsViewModel.swift */; };
+		6797C4A12AC1ECD30049C8F7 /* SeasonsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4992AC1ECD30049C8F7 /* SeasonsPassData.swift */; };
 		6797F0362AA4973600638C09 /* PhoneAuthProvider+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F0322AA4973600638C09 /* PhoneAuthProvider+Combine.swift */; };
 		6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F0332AA4973600638C09 /* UserProfileChangeRequest+Combine.swift */; };
 		6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F0342AA4973600638C09 /* Auth+Combine.swift */; };
@@ -245,6 +259,13 @@
 		6776F4D52AB3AF27006836CE /* AddSellerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerBuilder.swift; sourceTree = "<group>"; };
 		6776F4D62AB3AF27006836CE /* AddSellerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerViewModel.swift; sourceTree = "<group>"; };
 		6776F4D72AB3AF27006836CE /* AddSellerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerPassData.swift; sourceTree = "<group>"; };
+		677D62E92AC1ED1C004F3232 /* SeasonsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeasonsViewController.xib; sourceTree = "<group>"; };
+		677D62EB2AC1F087004F3232 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		677D62EE2AC1F410004F3232 /* SeasonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsTableViewCell.swift; sourceTree = "<group>"; };
+		677D62EF2AC1F410004F3232 /* SeasonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonsTableViewCell.xib; sourceTree = "<group>"; };
+		677D62F22AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		677D62F42AC1FB3E004F3232 /* SeasonResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonResponseModel.swift; sourceTree = "<group>"; };
+		677D62F62AC1FC30004F3232 /* SeasonItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonItemService.swift; sourceTree = "<group>"; };
 		677E678B2AA34202001775E2 /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		677E678D2AA346EB001775E2 /* MainTabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarCoordinator.swift; sourceTree = "<group>"; };
 		677E678F2AA34751001775E2 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -297,6 +318,13 @@
 		678B539B2AA2662F003F4355 /* Window+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Window+Extensions.swift"; sourceTree = "<group>"; };
 		678B539D2AA266FE003F4355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		6797C4932AC1ECD30049C8F7 /* SeasonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsCoordinator.swift; sourceTree = "<group>"; };
+		6797C4942AC1ECD30049C8F7 /* SeasonsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsUIModel.swift; sourceTree = "<group>"; };
+		6797C4952AC1ECD30049C8F7 /* SeasonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewController.swift; sourceTree = "<group>"; };
+		6797C4962AC1ECD30049C8F7 /* SeasonsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsRepository.swift; sourceTree = "<group>"; };
+		6797C4972AC1ECD30049C8F7 /* SeasonsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsBuilder.swift; sourceTree = "<group>"; };
+		6797C4982AC1ECD30049C8F7 /* SeasonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewModel.swift; sourceTree = "<group>"; };
+		6797C4992AC1ECD30049C8F7 /* SeasonsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsPassData.swift; sourceTree = "<group>"; };
 		6797F0322AA4973600638C09 /* PhoneAuthProvider+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PhoneAuthProvider+Combine.swift"; sourceTree = "<group>"; };
 		6797F0332AA4973600638C09 /* UserProfileChangeRequest+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserProfileChangeRequest+Combine.swift"; sourceTree = "<group>"; };
 		6797F0342AA4973600638C09 /* Auth+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Auth+Combine.swift"; sourceTree = "<group>"; };
@@ -517,6 +545,7 @@
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
 				67334E9F2AB4E0840072DBD6 /* SellerService.swift */,
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
+				677D62F62AC1FC30004F3232 /* SeasonItemService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -673,6 +702,16 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		677D62ED2AC1F3FD004F3232 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				677D62F22AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift */,
+				677D62EE2AC1F410004F3232 /* SeasonsTableViewCell.swift */,
+				677D62EF2AC1F410004F3232 /* SeasonsTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		677E67932AA35213001775E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +753,7 @@
 			isa = PBXGroup;
 			children = (
 				677E679B2AA3524D001775E2 /* SettingsViewController */,
+				6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -943,6 +983,7 @@
 			isa = PBXGroup;
 			children = (
 				677F8DD62AB2126500DE5264 /* UserManager.swift */,
+				677D62EB2AC1F087004F3232 /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1019,6 +1060,71 @@
 				678B53952AA263AF003F4355 /* Toast.swift */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6797C4A82AC1ECEA0049C8F7 /* Builder */,
+				6797C4A72AC1ECE70049C8F7 /* Models */,
+				6797C4A62AC1ECE30049C8F7 /* Coordinator */,
+				6797C4A52AC1ECDF0049C8F7 /* Repository */,
+				6797C4A42AC1ECDC0049C8F7 /* ViewModel */,
+				6797C4A32AC1ECD50049C8F7 /* ViewController */,
+			);
+			path = SeasonsViewController;
+			sourceTree = "<group>";
+		};
+		6797C4A32AC1ECD50049C8F7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				677D62ED2AC1F3FD004F3232 /* Cells */,
+				6797C4952AC1ECD30049C8F7 /* SeasonsViewController.swift */,
+				677D62E92AC1ED1C004F3232 /* SeasonsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6797C4A42AC1ECDC0049C8F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6797C4982AC1ECD30049C8F7 /* SeasonsViewModel.swift */,
+				6797C4942AC1ECD30049C8F7 /* SeasonsUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6797C4A52AC1ECDF0049C8F7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6797C4962AC1ECD30049C8F7 /* SeasonsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6797C4A62AC1ECE30049C8F7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6797C4932AC1ECD30049C8F7 /* SeasonsCoordinator.swift */,
+				6797C4992AC1ECD30049C8F7 /* SeasonsPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6797C4A72AC1ECE70049C8F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				677D62F42AC1FB3E004F3232 /* SeasonResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6797C4A82AC1ECEA0049C8F7 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6797C4972AC1ECD30049C8F7 /* SeasonsBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		6797F01C2AA4968500638C09 /* CombineFirebae */ = {
@@ -1616,6 +1722,7 @@
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
+				677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */,
 				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
@@ -1624,6 +1731,7 @@
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
 				6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */,
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
+				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				67B903F02AA928E4005A980C /* GoogleService-Info.plist in Resources */,
 				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
@@ -1686,11 +1794,14 @@
 				670FC3C82ABDF676007F82D9 /* PhoneCallHelper.swift in Sources */,
 				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
+				6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
 				67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */,
+				6797C49E2AC1ECD30049C8F7 /* SeasonsRepository.swift in Sources */,
 				67EA5B6A2AAF86C70086E20C /* UIGestureRecognizer.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
+				677D62F32AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */,
 				67DB17242ABF155F00463CA9 /* NewBuyingRepository.swift in Sources */,
@@ -1699,6 +1810,8 @@
 				6797F0402AA4974000638C09 /* RemoteConfig.swift in Sources */,
 				676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */,
 				677E67CB2AA35403001775E2 /* SellerRepository.swift in Sources */,
+				6797C49F2AC1ECD30049C8F7 /* SeasonsBuilder.swift in Sources */,
+				6797C4A02AC1ECD30049C8F7 /* SeasonsViewModel.swift in Sources */,
 				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
 				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
 				677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */,
@@ -1733,6 +1846,7 @@
 				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
 				6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
+				677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */,
 				670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */,
 				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
 				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
@@ -1754,6 +1868,8 @@
 				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
 				670B3C8F2ABA109F00EE7CFB /* UICollectionView+Extensions.swift in Sources */,
 				67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */,
+				677D62F72AC1FC30004F3232 /* SeasonItemService.swift in Sources */,
+				6797C4A12AC1ECD30049C8F7 /* SeasonsPassData.swift in Sources */,
 				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
 				675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */,
 				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
@@ -1767,6 +1883,7 @@
 				67DB17262ABF155F00463CA9 /* NewBuyingViewModel.swift in Sources */,
 				6797F0432AA4974000638C09 /* Firestore.swift in Sources */,
 				678B53812AA25FC3003F4355 /* BerkelBaseViewController.swift in Sources */,
+				677D62F52AC1FB3E004F3232 /* SeasonResponseModel.swift in Sources */,
 				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
@@ -1793,11 +1910,13 @@
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
 				67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */,
+				6797C49D2AC1ECD30049C8F7 /* SeasonsViewController.swift in Sources */,
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
 				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
 				67F87F092AB3A2E700FFC097 /* AppColors.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
 				676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */,
+				6797C49B2AC1ECD30049C8F7 /* SeasonsCoordinator.swift in Sources */,
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
 				6797F0592AA4976300638C09 /* RemoteConfig+Combine.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
@@ -1836,6 +1955,7 @@
 				67DB17272ABF155F00463CA9 /* NewBuyingPassData.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
+				677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */,
 				670B3C8E2ABA109F00EE7CFB /* UICollectionView+General.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,

@@ -16,6 +16,9 @@ protocol INewBuyingViewModel: AnyObject {
          uiModel: INewBuyingUIModel)
     
     func initComponents()
+    
+    // Coordinator
+    func dismiss()
 }
 
 final class NewBuyingViewModel: BaseViewModel, INewBuyingViewModel {
@@ -71,6 +74,9 @@ internal extension NewBuyingViewModel {
 // MARK: Coordinate
 internal extension NewBuyingViewModel {
 
+    func dismiss() {
+        self.coordinator.dismiss()
+    }
 }
 
 

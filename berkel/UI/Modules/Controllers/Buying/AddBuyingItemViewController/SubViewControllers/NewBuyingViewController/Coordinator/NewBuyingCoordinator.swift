@@ -9,10 +9,11 @@
 import UIKit
 
 protocol INewBuyingCoordinator: AnyObject {
-    
+
+    func dismiss()
 }
 
-final class NewBuyingCoordinator: PresentationCoordinator , INewBuyingCoordinator {
+final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator {
 
     private var coordinatorData: NewBuyingPassData { return castPassData(NewBuyingPassData.self) }
 
@@ -22,13 +23,17 @@ final class NewBuyingCoordinator: PresentationCoordinator , INewBuyingCoordinato
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
     }
-    
-     override func start() {
+
+    override func start() {
         let controller = NewBuyingBuilder.generate(with: coordinatorData,
                                                    coordinator: self)
-         navController.setRootViewController(viewController: controller)
-         startPresent(targetVC: navController)
-     }
+        navController.setRootViewController(viewController: controller)
+        startPresent(targetVC: navController)
+    }
+
+    func dismiss() {
+        navController.dismiss(animated: true)
+    }
 }
 
 

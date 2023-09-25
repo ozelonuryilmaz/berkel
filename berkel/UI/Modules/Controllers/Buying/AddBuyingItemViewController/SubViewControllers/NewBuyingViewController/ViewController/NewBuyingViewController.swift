@@ -9,7 +9,7 @@
 import UIKit
 
 final class NewBuyingViewController: BerkelBaseViewController {
-    
+
     override var navigationTitle: String? {
         return "Yeni Alım Oluştur"
     }
@@ -24,18 +24,20 @@ final class NewBuyingViewController: BerkelBaseViewController {
     @IBOutlet private weak var lblSellerTCKN: UILabel!
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: INewBuyingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "NewBuyingViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
+
         self.observeReactiveDatas()
         self.viewModel.initComponents()
     }
@@ -66,9 +68,16 @@ final class NewBuyingViewController: BerkelBaseViewController {
     private func listenErrorState() {
         // observeErrorState(errorState: viewModel._errorState)
     }
+
+    // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
+        }
+    }()
 }
 
 // MARK: Props
 private extension NewBuyingViewController {
-    
+
 }

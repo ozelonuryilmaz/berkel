@@ -41,15 +41,34 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
             guard let self = self else { return }
 
             if isLoggedIn {
-                self.viewStateStartFlowMain()
+                self.decideToScreen()
             } else {
-                self.presentLoginViewController(authDismissCallBack: { _isLoggedIn in
+                self.presentLoginViewController(authDismissCallBack: { [unowned self] _isLoggedIn in
                     if _isLoggedIn {
-                        self.viewStateStartFlowMain()
+                        self.decideToScreen()
                     }
                 })
             }
         })
+    }
+}
+
+// MARK: Props
+internal extension SplashViewModel {
+    
+    func decideToScreen() {
+        if self.uiModel.isHaveAnySeason {
+            self.viewStateStartFlowMain()
+        } else {
+            // Eğer sezon hiç seçilmemişse sezon seçildikten sonra FlowMain akışına geçilir.
+            self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
+                if isSelected {
+                    self.viewStateStartFlowMain()
+                } else {
+                    self.decideToScreen()
+                }
+            })
+        }
     }
 }
 
@@ -68,6 +87,10 @@ internal extension SplashViewModel {
 
     func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
         self.coordinator.presentLoginViewController(authDismissCallBack: authDismissCallBack)
+    }
+
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+        self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
     }
 }
 
