@@ -13,9 +13,9 @@ final class BuyingViewController: MainBaseViewController {
     override var navigationTitle: String? {
         return "Alım"
     }
-    
+
     override var navigationSubTitle: String? {
-        return nil
+        return UserDefaultsManager.shared.getStringValue(key: .season)
     }
 
     // MARK: Constants

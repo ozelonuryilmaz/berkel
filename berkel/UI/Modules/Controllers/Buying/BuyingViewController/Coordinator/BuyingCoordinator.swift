@@ -10,7 +10,7 @@ import UIKit
 
 protocol IBuyingCoordinator: AnyObject {
 
-    func pushAddBuyinItemViewController()
+    func pushAddBuyinItemViewController(outputDelegate: AddBuyingItemViewControllerOutputDelegate?)
 }
 
 final class BuyingCoordinator: NavigationCoordinator, IBuyingCoordinator {
@@ -22,8 +22,9 @@ final class BuyingCoordinator: NavigationCoordinator, IBuyingCoordinator {
         navigationController.viewControllers = [controller]
     }
 
-    func pushAddBuyinItemViewController() {
+    func pushAddBuyinItemViewController(outputDelegate: AddBuyingItemViewControllerOutputDelegate?) {
         let coordinator = AddBuyingItemCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
             .with(passData: AddBuyingItemPassData())
         coordinate(to: coordinator)
     }

@@ -17,8 +17,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewBuyingViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnSave" destination="IWw-NQ-dKJ" id="Am3-G6-syk"/>
                 <outlet property="lblSellerName" destination="4JV-Da-7bD" id="LaO-XY-m2M"/>
                 <outlet property="lblSellerTCKN" destination="UD3-p6-c7L" id="Aci-GW-d11"/>
+                <outlet property="tfDesc" destination="zIW-sH-aQj" id="D7X-Qs-taR"/>
+                <outlet property="tfPayment" destination="DIC-au-aEG" id="saH-3D-fZv"/>
+                <outlet property="tfPrice" destination="yQq-i7-8nf" id="tmK-2g-va8"/>
+                <outlet property="tfProduct" destination="oSE-Ke-hOf" id="agH-qG-eGw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

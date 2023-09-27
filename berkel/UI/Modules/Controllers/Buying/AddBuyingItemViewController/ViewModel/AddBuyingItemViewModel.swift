@@ -105,6 +105,10 @@ internal extension AddBuyingItemViewModel {
     func viewStateUpdateSnapshot(data: [AddBuyingItemResponseModel]) {
         viewState.value = .updateSnapshot(data: data)
     }
+
+    func viewStateOutput(newBuyingData: NewBuyingModel) {
+        viewState.value = .output(data: newBuyingData)
+    }
 }
 
 // MARK: Coordinate
@@ -114,8 +118,18 @@ internal extension AddBuyingItemViewModel {
         self.coordinator.presentAddSellerViewController(outputDelegate: self)
     }
     
+    func selfPopViewController() {
+        self.coordinator.selfPopViewController()
+    }
+
     func presentNewBuyingViewController(data: AddBuyingItemResponseModel) {
-        self.coordinator.presentNewBuyingViewController(passData: data)
+        self.coordinator.presentNewBuyingViewController(
+            passData: data,
+            successDismissCallBack: { [weak self] newBuyingModel in
+                self?.viewStateOutput(newBuyingData: newBuyingModel)
+                self?.selfPopViewController()
+            }
+        )
     }
 }
 
@@ -151,4 +165,5 @@ enum AddBuyingItemViewState {
     case showNativeProgress(isProgress: Bool)
     case buildSnapshot(snapshot: AddBuyingItemSnapshot)
     case updateSnapshot(data: [AddBuyingItemResponseModel])
+    case output(data: NewBuyingModel)
 }

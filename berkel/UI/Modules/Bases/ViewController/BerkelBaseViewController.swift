@@ -113,8 +113,8 @@ extension BerkelBaseViewController {
 
     func observeErrorState(errorState: ErrorStateSubject,
                            errorHandle: FirestoreErrorHandle) {
-        errorState.sink(receiveValue: { errorType in
-            self.handleApiError(errorType: errorType,
+        errorState.sink(receiveValue: { [weak self] errorType in
+            self?.handleApiError(errorType: errorType,
                                 errorHandler: errorHandle)
         }).store(in: &cancelBag)
     }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddBuyingItemViewControllerOutputDelegate: AnyObject {
+    func newAddBuyingData(_ data: NewBuyingModel)
+}
+
 final class AddBuyingItemViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
@@ -22,6 +26,7 @@ final class AddBuyingItemViewController: MainBaseViewController {
 
     // MARK: Inject
     private let viewModel: IAddBuyingItemViewModel
+    private weak var outputDelegate: AddBuyingItemViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
     @IBOutlet private weak var tableView: AddBuyingItemDiffableTableView!
@@ -29,8 +34,10 @@ final class AddBuyingItemViewController: MainBaseViewController {
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IAddBuyingItemViewModel) {
+    init(viewModel: IAddBuyingItemViewModel,
+         outputDelegate: AddBuyingItemViewControllerOutputDelegate?) {
         self.viewModel = viewModel
+        self.outputDelegate = outputDelegate
         super.init(nibName: "AddBuyingItemViewController", bundle: nil)
     }
 
@@ -70,6 +77,9 @@ final class AddBuyingItemViewController: MainBaseViewController {
                 let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
                                                              newDatas: data)
                 self.tableView.applySnapshot(snapsoht)
+
+            case .output(let data):
+                self.outputDelegate?.newAddBuyingData(data)
             }
 
         }).store(in: &cancelBag)

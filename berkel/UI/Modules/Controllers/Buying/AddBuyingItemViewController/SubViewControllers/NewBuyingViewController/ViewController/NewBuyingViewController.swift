@@ -22,6 +22,11 @@ final class NewBuyingViewController: BerkelBaseViewController {
     // MARK: IBOutlets
     @IBOutlet private weak var lblSellerName: UILabel!
     @IBOutlet private weak var lblSellerTCKN: UILabel!
+    @IBOutlet private weak var tfProduct: PrimaryTextField!
+    @IBOutlet private weak var tfPrice: PrimaryTextField!
+    @IBOutlet private weak var tfPayment: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -44,11 +49,19 @@ final class NewBuyingViewController: BerkelBaseViewController {
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveNewBuying()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+
+        listenProductTextFieldDidChange()
+        listenPriceTextFieldDidChange()
+        listenPaymentTextFieldDidChange()
+        listenDescTextFieldDidChange()
     }
 
     private func observeViewState() {
@@ -56,6 +69,9 @@ final class NewBuyingViewController: BerkelBaseViewController {
             guard let self = self, let states = states else { return }
 
             switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
             case .setSellerName(let name):
                 self.lblSellerName.text = name
             case .setSellerTCKN(let tckn):
@@ -66,7 +82,10 @@ final class NewBuyingViewController: BerkelBaseViewController {
     }
 
     private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
+        let errorHandle = FirestoreErrorHandle(viewController: self)
+
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components
@@ -80,4 +99,32 @@ final class NewBuyingViewController: BerkelBaseViewController {
 // MARK: Props
 private extension NewBuyingViewController {
 
+}
+
+// MARK: TextField
+private extension NewBuyingViewController {
+
+    func listenProductTextFieldDidChange() {
+        tfProduct.addListenDidChange { [unowned self] text in
+            self.viewModel.setProduct(text)
+        }
+    }
+
+    func listenPriceTextFieldDidChange() {
+        tfPrice.addListenDidChange { [unowned self] text in
+            self.viewModel.setPrice(text)
+        }
+    }
+
+    func listenPaymentTextFieldDidChange() {
+        tfPayment.addListenDidChange { [unowned self] text in
+            self.viewModel.setPayment(text)
+        }
+    }
+
+    func listenDescTextFieldDidChange() {
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

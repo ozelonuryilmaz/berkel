@@ -10,7 +10,7 @@ import UIKit
 
 protocol INewBuyingCoordinator: AnyObject {
 
-    func dismiss()
+    func dismiss(completion: (() -> Void)?)
 }
 
 final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator {
@@ -19,6 +19,14 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
 
     private unowned var navController: MainNavigationController
 
+    private var successDismissCallBack: ((_ data: NewBuyingModel) -> Void)? = nil
+
+    @discardableResult
+    func with(successDismissCallBack: ((_ data: NewBuyingModel) -> Void)?) -> NewBuyingCoordinator {
+        self.successDismissCallBack = successDismissCallBack
+        return self
+    }
+
     init(presenterViewController: UIViewController?, navController: MainNavigationController) {
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
@@ -26,13 +34,14 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
 
     override func start() {
         let controller = NewBuyingBuilder.generate(with: coordinatorData,
-                                                   coordinator: self)
+                                                   coordinator: self,
+                                                   successDismissCallBack: self.successDismissCallBack)
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
-    func dismiss() {
-        navController.dismiss(animated: true)
+    func dismiss(completion: (() -> Void)? = nil) {
+        navController.dismiss(animated: true, completion: completion)
     }
 }
 

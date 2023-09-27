@@ -11,7 +11,8 @@ import UIKit
 enum AddBuyingItemBuilder {
 
     static func generate(with data: AddBuyingItemPassData,
-                         coordinator: IAddBuyingItemCoordinator) -> AddBuyingItemViewController {
+                         coordinator: IAddBuyingItemCoordinator,
+                         outputDelegate: AddBuyingItemViewControllerOutputDelegate?) -> AddBuyingItemViewController {
 
         let repository = AddBuyingItemRepository()
         let uiModel = AddBuyingItemUIModel(data: data)
@@ -19,6 +20,7 @@ enum AddBuyingItemBuilder {
                                                coordinator: coordinator,
                                                uiModel: uiModel)
 
-        return AddBuyingItemViewController(viewModel: viewModel)
+        return AddBuyingItemViewController(viewModel: viewModel,
+                                           outputDelegate: outputDelegate)
     }
 }

@@ -39,6 +39,8 @@
 		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
 		675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */; };
 		675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E42AAC686200429CB7 /* NetworkingError.swift */; };
+		675F5C262AC4C09000DC863F /* NewBuyingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C252AC4C09000DC863F /* NewBuyingModel.swift */; };
+		675F5C292AC4C25F00DC863F /* NewBuyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C282AC4C25F00DC863F /* NewBuyingService.swift */; };
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
 		676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72092AA3852D00010350 /* CGFloat+Extension.swift */; };
 		676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E720B2AA3855E00010350 /* UIScreen+Extension.swift */; };
@@ -241,6 +243,8 @@
 		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
 		675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreErrorHandle.swift; sourceTree = "<group>"; };
 		675129E42AAC686200429CB7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		675F5C252AC4C09000DC863F /* NewBuyingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingModel.swift; sourceTree = "<group>"; };
+		675F5C282AC4C25F00DC863F /* NewBuyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingService.swift; sourceTree = "<group>"; };
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
 		676E72092AA3852D00010350 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		676E720B2AA3855E00010350 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
 				67334E9F2AB4E0840072DBD6 /* SellerService.swift */,
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
+				675F5C282AC4C25F00DC863F /* NewBuyingService.swift */,
 				677D62F62AC1FC30004F3232 /* SeasonItemService.swift */,
 			);
 			path = Services;
@@ -1432,6 +1437,7 @@
 		67DB172C2ABF157700463CA9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				675F5C252AC4C09000DC863F /* NewBuyingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1812,6 +1818,7 @@
 				677E67CB2AA35403001775E2 /* SellerRepository.swift in Sources */,
 				6797C49F2AC1ECD30049C8F7 /* SeasonsBuilder.swift in Sources */,
 				6797C4A02AC1ECD30049C8F7 /* SeasonsViewModel.swift in Sources */,
+				675F5C292AC4C25F00DC863F /* NewBuyingService.swift in Sources */,
 				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
 				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
 				677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */,
@@ -1907,6 +1914,7 @@
 				678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */,
 				677E67BA2AA353EA001775E2 /* WorkerBuilder.swift in Sources */,
 				6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */,
+				675F5C262AC4C09000DC863F /* NewBuyingModel.swift in Sources */,
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
 				67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */,

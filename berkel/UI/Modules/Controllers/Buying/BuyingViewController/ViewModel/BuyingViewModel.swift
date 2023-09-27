@@ -59,10 +59,17 @@ internal extension BuyingViewModel {
 internal extension BuyingViewModel {
 
     func pushAddBuyinItemViewController() {
-        self.coordinator.pushAddBuyinItemViewController()
+        self.coordinator.pushAddBuyinItemViewController(outputDelegate: self)
     }
 }
 
+// MARK: AddBuyingItemViewControllerOutputDelegate
+extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
+    
+    func newAddBuyingData(_ data: NewBuyingModel) {
+        print("***!!!111 \(data)")
+    }
+}
 
 enum BuyingViewState {
     case showLoadingProgress(isProgress: Bool)

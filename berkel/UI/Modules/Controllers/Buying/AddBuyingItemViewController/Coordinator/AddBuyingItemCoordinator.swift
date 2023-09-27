@@ -12,15 +12,30 @@ protocol IAddBuyingItemCoordinator: AnyObject {
 
     func presentAddSellerViewController(outputDelegate: AddSellerViewControllerOutputDelegate)
 
-    func presentNewBuyingViewController(passData: AddBuyingItemResponseModel)
+    func presentNewBuyingViewController(passData: AddBuyingItemResponseModel,
+                                        successDismissCallBack: ((_ data: NewBuyingModel) -> Void)?)
+    
+    func selfPopViewController()
 }
 
 final class AddBuyingItemCoordinator: NavigationCoordinator, IAddBuyingItemCoordinator {
 
     private var coordinatorData: AddBuyingItemPassData { return castPassData(AddBuyingItemPassData.self) }
 
+    private weak var outputDelegate: AddBuyingItemViewControllerOutputDelegate? = nil
+
+    @discardableResult
+    func with(outputDelegate: AddBuyingItemViewControllerOutputDelegate?) -> AddBuyingItemCoordinator {
+        self.outputDelegate = outputDelegate
+        return self
+    }
+
     override func start() {
-        let controller = AddBuyingItemBuilder.generate(with: coordinatorData, coordinator: self)
+        guard let outputDelegate = outputDelegate else { return }
+
+        let controller = AddBuyingItemBuilder.generate(with: coordinatorData,
+                                                       coordinator: self,
+                                                       outputDelegate: outputDelegate)
         navigationController.pushViewController(controller, animated: true)
     }
 
@@ -31,9 +46,15 @@ final class AddBuyingItemCoordinator: NavigationCoordinator, IAddBuyingItemCoord
         coordinate(to: controller)
     }
 
-    func presentNewBuyingViewController(passData: AddBuyingItemResponseModel) {
+    func presentNewBuyingViewController(passData: AddBuyingItemResponseModel,
+                                        successDismissCallBack: ((_ data: NewBuyingModel) -> Void)?) {
         let controller = NewBuyingCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(successDismissCallBack: successDismissCallBack)
             .with(passData: NewBuyingPassData(seller: passData))
         coordinate(to: controller)
+    }
+    
+    func selfPopViewController() {
+        self.navigationController.popToRootViewController(animated: true)
     }
 }

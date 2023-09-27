@@ -180,6 +180,6 @@ extension SeasonsViewController: UITextFieldDelegate {
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
-        textField.text = textField.text?.applyPatternOnNumbers(pattern: "####/####", replacementCharacter: "#")
+        textField.text = textField.text?.applyPatternOnNumbers(pattern: "####-####", replacementCharacter: "#")
     }
 }
