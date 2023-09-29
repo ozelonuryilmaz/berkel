@@ -118,6 +118,14 @@
 		678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539B2AA2662F003F4355 /* Window+Extensions.swift */; };
 		678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539D2AA266FE003F4355 /* AppCoordinator.swift */; };
 		678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */; };
+		678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */; };
+		678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */; };
+		678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */; };
+		678DDFFE2AC7488C00AA8D46 /* BuyingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFFD2AC7488C00AA8D46 /* BuyingDataSource.swift */; };
+		678DE0002AC7489900AA8D46 /* BuyingDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFFF2AC7489900AA8D46 /* BuyingDataSourceFactory.swift */; };
+		678DE0042AC74A9000AA8D46 /* BuyingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DE0022AC74A9000AA8D46 /* BuyingTableViewCell.swift */; };
+		678DE0052AC74A9000AA8D46 /* BuyingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678DE0032AC74A9000AA8D46 /* BuyingTableViewCell.xib */; };
+		678DE0072AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DE0062AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift */; };
 		6797C49B2AC1ECD30049C8F7 /* SeasonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4932AC1ECD30049C8F7 /* SeasonsCoordinator.swift */; };
 		6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4942AC1ECD30049C8F7 /* SeasonsUIModel.swift */; };
 		6797C49D2AC1ECD30049C8F7 /* SeasonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797C4952AC1ECD30049C8F7 /* SeasonsViewController.swift */; };
@@ -322,6 +330,14 @@
 		678B539B2AA2662F003F4355 /* Window+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Window+Extensions.swift"; sourceTree = "<group>"; };
 		678B539D2AA266FE003F4355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDiffableTableView.swift; sourceTree = "<group>"; };
+		678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingRowModel.swift; sourceTree = "<group>"; };
+		678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingSection.swift; sourceTree = "<group>"; };
+		678DDFFD2AC7488C00AA8D46 /* BuyingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDataSource.swift; sourceTree = "<group>"; };
+		678DDFFF2AC7489900AA8D46 /* BuyingDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDataSourceFactory.swift; sourceTree = "<group>"; };
+		678DE0022AC74A9000AA8D46 /* BuyingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingTableViewCell.swift; sourceTree = "<group>"; };
+		678DE0032AC74A9000AA8D46 /* BuyingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingTableViewCell.xib; sourceTree = "<group>"; };
+		678DE0062AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		6797C4932AC1ECD30049C8F7 /* SeasonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsCoordinator.swift; sourceTree = "<group>"; };
 		6797C4942AC1ECD30049C8F7 /* SeasonsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsUIModel.swift; sourceTree = "<group>"; };
 		6797C4952AC1ECD30049C8F7 /* SeasonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsViewController.swift; sourceTree = "<group>"; };
@@ -978,6 +994,8 @@
 		677E67F32AA354A5001775E2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				678DE0012AC749A400AA8D46 /* Cells */,
+				678DDFF32AC7455500AA8D46 /* DataSource */,
 				677E679E2AA353D2001775E2 /* BuyingViewController.swift */,
 				677E67A32AA353D2001775E2 /* BuyingViewController.xib */,
 			);
@@ -1065,6 +1083,52 @@
 				678B53952AA263AF003F4355 /* Toast.swift */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		678DDFF32AC7455500AA8D46 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				678DDFF62AC7456700AA8D46 /* View */,
+				678DDFF52AC7456500AA8D46 /* Model */,
+				678DDFF42AC7456100AA8D46 /* DataSource */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		678DDFF42AC7456100AA8D46 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				678DDFFD2AC7488C00AA8D46 /* BuyingDataSource.swift */,
+				678DDFFF2AC7489900AA8D46 /* BuyingDataSourceFactory.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		678DDFF52AC7456500AA8D46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */,
+				678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		678DDFF62AC7456700AA8D46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		678DE0012AC749A400AA8D46 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				678DE0062AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift */,
+				678DE0022AC74A9000AA8D46 /* BuyingTableViewCell.swift */,
+				678DE0032AC74A9000AA8D46 /* BuyingTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */ = {
@@ -1725,6 +1789,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678DE0052AC74A9000AA8D46 /* BuyingTableViewCell.xib in Resources */,
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
@@ -1819,6 +1884,7 @@
 				6797C49F2AC1ECD30049C8F7 /* SeasonsBuilder.swift in Sources */,
 				6797C4A02AC1ECD30049C8F7 /* SeasonsViewModel.swift in Sources */,
 				675F5C292AC4C25F00DC863F /* NewBuyingService.swift in Sources */,
+				678DDFFE2AC7488C00AA8D46 /* BuyingDataSource.swift in Sources */,
 				678B53842AA260E9003F4355 /* BaseViewModel.swift in Sources */,
 				677E67A42AA353D2001775E2 /* BuyingCoordinator.swift in Sources */,
 				677E67C82AA35403001775E2 /* SellerCoordinator.swift in Sources */,
@@ -1834,6 +1900,7 @@
 				67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
 				670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */,
+				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				670B3C7F2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
@@ -1841,6 +1908,7 @@
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
+				678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
 				670B3C982ABA130A00EE7CFB /* HighlightTableViewCell.swift in Sources */,
@@ -1868,6 +1936,7 @@
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
+				678DE0072AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift in Sources */,
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
 				6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */,
 				6797F0492AA4974800638C09 /* DatabaseReference+Combine.swift in Sources */,
@@ -1908,6 +1977,7 @@
 				670B3C732ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift in Sources */,
 				67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */,
 				6774E2732ABAF1D4005FC78A /* String+Date+Extension.swift in Sources */,
+				678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
 				67EA5B612AAF865E0086E20C /* BaseReusableView.swift in Sources */,
@@ -1952,6 +2022,7 @@
 				6776F4DD2AB3AF27006836CE /* AddSellerBuilder.swift in Sources */,
 				6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */,
 				6797F0362AA4973600638C09 /* PhoneAuthProvider+Combine.swift in Sources */,
+				678DE0002AC7489900AA8D46 /* BuyingDataSourceFactory.swift in Sources */,
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
@@ -1965,6 +2036,7 @@
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
 				677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */,
 				670B3C8E2ABA109F00EE7CFB /* UICollectionView+General.swift in Sources */,
+				678DE0042AC74A9000AA8D46 /* BuyingTableViewCell.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,
 				670B3C892ABA109500EE7CFB /* UITableView+Extensions.swift in Sources */,

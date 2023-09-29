@@ -9,13 +9,13 @@
 import UIKit
 
 final class BuyingViewController: MainBaseViewController {
-    
+
     override var navigationTitle: String? {
         return "Alım"
     }
 
     override var navigationSubTitle: String? {
-        return UserDefaultsManager.shared.getStringValue(key: .season)
+        return self.viewModel.season
     }
 
     // MARK: Constants
@@ -24,6 +24,7 @@ final class BuyingViewController: MainBaseViewController {
     private let viewModel: IBuyingViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: BuyingDiffableTableView!
 
     // MARK: Constraints Outlets
 
@@ -38,9 +39,11 @@ final class BuyingViewController: MainBaseViewController {
     }
 
     override func initialComponents() {
-        self.observeReactiveDatas()
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+        self.observeReactiveDatas()
+        self.initTableView()
 
+        self.viewModel.getBuying()
     }
 
     override func registerEvents() {
@@ -49,28 +52,36 @@ final class BuyingViewController: MainBaseViewController {
 
     private func observeReactiveDatas() {
         observeViewState()
-        observeActionState()
         listenErrorState()
     }
 
     private func observeViewState() {
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
 
-    }
+            switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
 
-    private func observeActionState() {
-        /* viewModel._actionState.observeNext { [unowned self] state in
-             switch state {
-            
-            } 
-        }.dispose(in: disposeBag) */
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
+
+            }
+
+        }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
         let errorHandle = FirestoreErrorHandle(
             viewController: self,
             callbackOverrideAlert: nil,
-            callbackAlertButtonAction: {
-                print("Tıklandı")
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getBuying()
             }
         )
         observeErrorState(errorState: viewModel.errorState,
@@ -88,4 +99,7 @@ final class BuyingViewController: MainBaseViewController {
 // MARK: Props
 private extension BuyingViewController {
 
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

@@ -14,11 +14,13 @@ enum SeasonItemService {
 }
 
 extension SeasonItemService: CollectionServiceType {
-    
+
     var order: String {
         switch self {
-        case .list, .save:
+        case .list:
             return "date"
+        default:
+            return ""
         }
     }
 

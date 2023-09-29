@@ -10,17 +10,44 @@ import UIKit
 
 protocol IBuyingUIModel {
 
-	 init()
+    var limit: Int { get }
+    var season: String { get }
+    var isHaveBuildData: Bool { get }
 
-} 
+    init()
+
+    func getLastCursor() -> [String]?
+    mutating func setResponse(_ response: [NewBuyingModel])
+    
+    // DataSource
+    mutating func buildSnapshot() -> BuyingSnapshot
+    func updateSnapshot(currentSnapshot: BuyingSnapshot,
+                        newDatas: [NewBuyingModel]) -> BuyingSnapshot
+}
 
 struct BuyingUIModel: IBuyingUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
+    var response: [NewBuyingModel] = []
+    let limit = 20
+    var isHaveBuildData: Bool = false
 
-	// MARK: Initialize
-    init() {
+    // MARK: Initialize
+    init() { }
 
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
+    func getLastCursor() -> [String]? {
+        if response.isEmpty {
+            return nil
+        }
+        return [self.response.last?.date ?? ""] // order date olmalı
+    }
+
+    mutating func setResponse(_ response: [NewBuyingModel]) {
+        self.response.append(contentsOf: response)
     }
 
     // MARK: Computed Props
@@ -29,4 +56,42 @@ struct BuyingUIModel: IBuyingUIModel {
 // MARK: Props
 extension BuyingUIModel {
 
+}
+
+
+// MARK: DataSource
+extension BuyingUIModel {
+
+    mutating func buildSnapshot() -> BuyingSnapshot {
+        self.isHaveBuildData = true
+        var snapshot = BuyingSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(prepareSnapshotRowModel(), toSection: .main)
+        return snapshot
+    }
+
+    private func prepareSnapshotRowModel() -> [BuyingRowModel] {
+        let rowModels: [BuyingRowModel] = response.compactMap { responseModel in
+            return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(
+                id: responseModel.id ?? ""
+            )
+            )
+        }
+        return rowModels
+    }
+
+    func updateSnapshot(currentSnapshot: BuyingSnapshot,
+                        newDatas: [NewBuyingModel]) -> BuyingSnapshot {
+
+        var snapshot = currentSnapshot
+        var configuredItems: [BuyingRowModel] = []
+
+        configuredItems = newDatas.compactMap({ item in
+            return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(id: item.id ?? ""))
+        })
+
+        snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır
+
+        return snapshot
+    }
 }
