@@ -112,9 +112,6 @@ internal extension BuyingViewModel {
     func viewStateUpdateSnapshot(data: [NewBuyingModel]) {
         viewState.value = .updateSnapshot(data: data)
     }
-
-    // MARK: Action State
-
 }
 
 // MARK: Coordinate
@@ -128,9 +125,9 @@ internal extension BuyingViewModel {
 // MARK: AddBuyingItemViewControllerOutputDelegate
 extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
 
-    // TODO: yeni item eklendiğinde viewstate ile snapshot'ı alıp ilk elemanına ekle. selled id'den çek.
     func newAddBuyingData(_ data: NewBuyingModel) {
-        print("***!!!111 \(data)")
+        self.uiModel.appendFirstItem(data: data)
+        self.viewStateBuildSnapshot()
     }
 }
 
@@ -150,7 +147,9 @@ extension BuyingViewModel {
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
-
+        if self.isAvailablePagination && isAvailablePagination && !isLastPage {
+            self.getBuying()
+        }
     }
 }
 
@@ -159,9 +158,3 @@ enum BuyingViewState {
     case buildSnapshot(snapshot: BuyingSnapshot)
     case updateSnapshot(data: [NewBuyingModel])
 }
-
-enum BuyingActionState {
-
-}
-
-

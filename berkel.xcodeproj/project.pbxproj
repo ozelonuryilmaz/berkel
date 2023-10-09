@@ -47,6 +47,7 @@
 		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
+		6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772EBC02AD46E8000AA547D /* Int+Extension.swift */; };
 		6774E26E2ABAF153005FC78A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E26D2ABAF153005FC78A /* Date+Extension.swift */; };
 		6774E2712ABAF188005FC78A /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E2702ABAF188005FC78A /* DateFormatHelper.swift */; };
 		6774E2732ABAF1D4005FC78A /* String+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E2722ABAF1D4005FC78A /* String+Date+Extension.swift */; };
@@ -259,6 +260,7 @@
 		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		6772EBC02AD46E8000AA547D /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		6774E26D2ABAF153005FC78A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		6774E2702ABAF188005FC78A /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		6774E2722ABAF1D4005FC78A /* String+Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date+Extension.swift"; sourceTree = "<group>"; };
@@ -1050,6 +1052,7 @@
 				678B539B2AA2662F003F4355 /* Window+Extensions.swift */,
 				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
 				676E72092AA3852D00010350 /* CGFloat+Extension.swift */,
+				6772EBC02AD46E8000AA547D /* Int+Extension.swift */,
 				67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */,
 				670B3C9A2ABA19B700EE7CFB /* UIScrollView+Extension.swift */,
 				6774E26D2ABAF153005FC78A /* Date+Extension.swift */,
@@ -1931,6 +1934,7 @@
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
+				6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */,
 				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
 				670B3C712ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift in Sources */,
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,

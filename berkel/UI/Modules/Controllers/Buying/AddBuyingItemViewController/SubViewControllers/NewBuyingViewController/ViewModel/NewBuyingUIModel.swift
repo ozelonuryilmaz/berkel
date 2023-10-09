@@ -52,7 +52,7 @@ struct NewBuyingUIModel: INewBuyingUIModel {
     }
 
     private var product: String = ""
-    private var price: Float = 0.0
+    private var price: Double = 0.0
     private var payment: Int = 0
     private var desc: String = ""
 }
@@ -69,11 +69,13 @@ extension NewBuyingUIModel {
         let paymentModel = [NewBuyingPaymentModel(date: date, price: self.payment)]
         return NewBuyingModel(date: date,
                               sellerId: self.sellerId,
+                              sellerName: self.sellerName,
                               productName: self.product,
                               productKGPrice: self.price,
                               desc: self.desc,
                               isActive: true,
-                              payment: paymentModel)
+                              payment: paymentModel,
+                              collection: nil)
     }
 
     var errorMessage: String? {
@@ -101,7 +103,7 @@ internal extension NewBuyingUIModel {
     }
 
     mutating func setPrice(_ price: String) {
-        self.price = Float(price) ?? 0.0
+        self.price = Double(price) ?? 0.0
     }
 
     mutating func setPayment(_ payment: String) {

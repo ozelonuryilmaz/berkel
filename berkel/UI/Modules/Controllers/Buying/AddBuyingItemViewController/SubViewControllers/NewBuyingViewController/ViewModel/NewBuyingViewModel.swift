@@ -86,7 +86,7 @@ internal extension NewBuyingViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.response.value else { return }
-                self.successDismiss(data: data)
+                //self.successDismiss(data: data)
             })
     }
 }

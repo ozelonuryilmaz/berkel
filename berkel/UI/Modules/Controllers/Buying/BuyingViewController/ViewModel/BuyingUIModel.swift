@@ -18,7 +18,8 @@ protocol IBuyingUIModel {
 
     func getLastCursor() -> [String]?
     mutating func setResponse(_ response: [NewBuyingModel])
-    
+    mutating func appendFirstItem(data: NewBuyingModel)
+
     // DataSource
     mutating func buildSnapshot() -> BuyingSnapshot
     func updateSnapshot(currentSnapshot: BuyingSnapshot,
@@ -56,6 +57,9 @@ struct BuyingUIModel: IBuyingUIModel {
 // MARK: Props
 extension BuyingUIModel {
 
+    mutating func appendFirstItem(data: NewBuyingModel) {
+        self.response.insert(data, at: 0)
+    }
 }
 
 
@@ -72,9 +76,17 @@ extension BuyingUIModel {
 
     private func prepareSnapshotRowModel() -> [BuyingRowModel] {
         let rowModels: [BuyingRowModel] = response.compactMap { responseModel in
-            return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(
-                id: responseModel.id ?? ""
-            )
+            let price = responseModel.payment.compactMap { newBuyingPaymentModel in
+                newBuyingPaymentModel.price
+            }.reduce(0, +).priceString()
+
+            return BuyingRowModel(
+                uiModel: BuyingTableViewCellUIModel(id: responseModel.id ?? "",
+                                                    isActive: responseModel.isActive,
+                                                    sellerName: responseModel.sellerName,
+                                                    productName: responseModel.productName,
+                                                    kg: "",
+                                                    price: "\(price) TL")
             )
         }
         return rowModels
@@ -87,7 +99,17 @@ extension BuyingUIModel {
         var configuredItems: [BuyingRowModel] = []
 
         configuredItems = newDatas.compactMap({ item in
-            return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(id: item.id ?? ""))
+
+            let price = item.payment.compactMap { newBuyingPaymentModel in
+                newBuyingPaymentModel.price
+            }.reduce(0, +).priceString()
+
+            return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(id: item.id ?? "",
+                                                                      isActive: item.isActive,
+                                                                      sellerName: item.sellerName,
+                                                                      productName: item.productName,
+                                                                      kg: "",
+                                                                      price: "\(price) TL"))
         })
 
         snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır
