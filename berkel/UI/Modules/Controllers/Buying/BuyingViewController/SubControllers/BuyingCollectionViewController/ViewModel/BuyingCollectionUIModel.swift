@@ -10,7 +10,8 @@ import UIKit
 
 protocol IBuyingCollectionUIModel {
 
-    var navTitle: String { get }
+    var sellerName: String { get }
+    var productName: String { get }
 
     init(data: BuyingCollectionPassData)
 
@@ -21,10 +22,6 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     // MARK: Definitions
     let sellerName: String
     let productName: String
-
-    var navTitle: String {
-        return "\(sellerName) - \(productName)"
-    }
 
     // MARK: Initialize
     init(data: BuyingCollectionPassData) {
