@@ -50,11 +50,11 @@ extension BuyingDataSourceFactory: BuyingTableViewCellOutputDelegate {
     }
     
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
-        self.outputDelegate?.cellTapped(uiModel: uiModel)
+        self.outputDelegate?.addCollectionTapped(uiModel: uiModel)
     }
     
     func addPaymentTapped(uiModel: IBuyingTableViewCellUIModel) {
-        self.outputDelegate?.cellTapped(uiModel: uiModel)
+        self.outputDelegate?.addPaymentTapped(uiModel: uiModel)
     }
 }
 

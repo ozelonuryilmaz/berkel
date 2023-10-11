@@ -120,6 +120,13 @@ internal extension BuyingViewModel {
     func pushAddBuyinItemViewController() {
         self.coordinator.pushAddBuyinItemViewController(outputDelegate: self)
     }
+
+
+    func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
+                                               successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?) {
+        self.coordinator.presentBuyingCollectionViewController(passData: passData,
+                                                               successDismissCallBack: successDismissCallBack)
+    }
 }
 
 // MARK: AddBuyingItemViewControllerOutputDelegate
@@ -129,6 +136,7 @@ extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
         self.uiModel.appendFirstItem(data: data)
         self.viewStateBuildSnapshot()
     }
+
 }
 
 // MARK: BuyingDataSourceFactory
@@ -139,7 +147,13 @@ extension BuyingViewModel {
     }
 
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
-
+        let passData = BuyingCollectionPassData(sellerName: uiModel.sellerName,
+                                                productName: uiModel.productName,
+                                                model: nil)
+        self.presentBuyingCollectionViewController(passData: passData,
+                                                   successDismissCallBack: { [unowned self] data in
+            
+        })
     }
 
     func addPaymentTapped(uiModel: IBuyingTableViewCellUIModel) {
