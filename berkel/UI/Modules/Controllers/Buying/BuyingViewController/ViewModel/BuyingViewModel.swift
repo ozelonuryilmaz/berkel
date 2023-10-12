@@ -147,7 +147,8 @@ extension BuyingViewModel {
     }
 
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
-        let passData = BuyingCollectionPassData(sellerName: uiModel.sellerName,
+        let passData = BuyingCollectionPassData(kgPrice: uiModel.kg,
+                                                sellerName: uiModel.sellerName,
                                                 productName: uiModel.productName,
                                                 model: nil)
         self.presentBuyingCollectionViewController(passData: passData,

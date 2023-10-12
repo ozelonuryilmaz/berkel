@@ -17,16 +17,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyingCollectionViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnSave" destination="tc7-qy-hgr" id="goC-kc-Bar"/>
+                <outlet property="datePicker" destination="x1y-fn-oK4" id="VhB-4w-5kT"/>
+                <outlet property="lblProductName" destination="nIf-F8-gls" id="sRF-wM-2hb"/>
+                <outlet property="lblSellerName" destination="7Mj-BF-Pxj" id="pOA-4x-Dqk"/>
+                <outlet property="lblTotalKG" destination="I2n-8g-ESX" id="j4k-Dn-Uag"/>
+                <outlet property="lblTotalPrice" destination="VcD-Hh-Aft" id="Acq-rg-zZr"/>
+                <outlet property="tf22BlackDari" destination="FxY-0Y-K08" id="I3J-pH-alr"/>
+                <outlet property="tf22BlackFoodCase" destination="lmt-TD-1hv" id="6H1-Os-unh"/>
+                <outlet property="tfBigBlackCase" destination="D2C-6A-3CS" id="OTd-Kc-cU5"/>
+                <outlet property="tfBigBlackDari" destination="yvj-tN-g0N" id="6ER-aW-Hrt"/>
+                <outlet property="tfGreenCase" destination="gxk-vC-TPy" id="D4T-yb-8Vo"/>
+                <outlet property="tfGreenDari" destination="1wF-aP-xie" id="ca3-pG-vQK"/>
+                <outlet property="tfKantarFisi" destination="1xk-eI-r9b" id="lm4-pY-wrN"/>
+                <outlet property="tfKgPrice" destination="c5O-hN-x2W" id="lxL-OJ-cFq"/>
+                <outlet property="tfPalet" destination="hGq-Mp-sUc" id="REy-aJ-i8d"/>
+                <outlet property="tfPaletDari" destination="4oS-i6-Ufi" id="lwO-j0-pmI"/>
+                <outlet property="tfPercentFire" destination="9EX-r3-CLl" id="4Ig-S8-NtB"/>
+                <outlet property="tfRedCase" destination="OW3-8a-1q5" id="vH1-My-3yf"/>
+                <outlet property="tfRedDari" destination="aOn-Ra-tmf" id="tc2-Rh-Oqi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="1669"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="1932"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccb-kU-6jd">
-                    <rect key="frame" x="0.0" y="47" width="390" height="1622"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="1885"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40T-NE-b7n" userLabel="mContentView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="1598"/>
@@ -41,7 +60,6 @@
                                                 <constraint firstAttribute="height" constant="28" id="zAX-Cc-OGr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                            <color key="textColor" name="Gray110"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIf-F8-gls" userLabel="lblProduct">
@@ -51,17 +69,16 @@
                                                 <constraint firstAttribute="height" constant="28" id="o17-32-h4x"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                            <color key="textColor" name="Gray110"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRN-5o-jv4">
-                                            <rect key="frame" x="16" y="60" width="364" height="44"/>
+                                        <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="x1y-fn-oK4">
+                                            <rect key="frame" x="16" y="60" width="348" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="f7L-Vt-wt3"/>
+                                                <constraint firstAttribute="height" constant="44" id="vt8-OV-i0T"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        </button>
+                                            <locale key="locale" localeIdentifier="tr"/>
+                                        </datePicker>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xk-eI-r9b" userLabel="tfKantarFisi" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="120" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,6 +113,7 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
                                                     <integer key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-8a-1q5" userLabel="tfKirmiziKasa" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -114,6 +132,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Kırmızı Kasa Adeti"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-vC-TPy" userLabel="tfYesiKasa" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -132,6 +151,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Yeşil Kasa Adeti"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmt-TD-1hv" userLabel="tf22SiyahAyakKasa" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -150,6 +170,7 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
                                                     <integer key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2C-6A-3CS" userLabel="tfBuyukSiyahKasa" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -168,6 +189,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Büyük Siyah Kasa Adeti"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EX-r3-CLl" userLabel="tfFireYüzdesi" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -181,7 +203,7 @@
                                                     <integer key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Fire Yüzdesi"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
@@ -297,7 +319,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Palet Darısı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
@@ -318,7 +340,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="2"/>
                                             </userDefinedRuntimeAttributes>
@@ -334,7 +356,7 @@
                                                     <integer key="value" value="100"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Yeşil Kasa Darısı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
@@ -354,7 +376,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="22 Ayak Siyah Kasa Darısı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
@@ -373,7 +395,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Büyük Siyah Kasa Darısı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
@@ -393,6 +415,7 @@
                                         <constraint firstItem="4oS-i6-Ufi" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="8ye-ES-hf7"/>
                                         <constraint firstAttribute="trailing" secondItem="D2C-6A-3CS" secondAttribute="trailing" id="9eB-0R-fEv"/>
                                         <constraint firstItem="aOn-Ra-tmf" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="AOm-dR-kAK"/>
+                                        <constraint firstItem="x1y-fn-oK4" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="B3f-nZ-uhj"/>
                                         <constraint firstItem="hGq-Mp-sUc" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="B4w-hs-I4u"/>
                                         <constraint firstItem="OW3-8a-1q5" firstAttribute="top" secondItem="hGq-Mp-sUc" secondAttribute="bottom" constant="16" id="C8e-vV-EUE"/>
                                         <constraint firstAttribute="trailing" secondItem="tc7-qy-hgr" secondAttribute="trailing" constant="-4" id="Cer-Ln-Qlr"/>
@@ -402,6 +425,7 @@
                                         <constraint firstItem="1xk-eI-r9b" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="EPx-kI-J4O"/>
                                         <constraint firstItem="9EX-r3-CLl" firstAttribute="top" secondItem="D2C-6A-3CS" secondAttribute="bottom" constant="16" id="Eok-OV-huW"/>
                                         <constraint firstItem="gxk-vC-TPy" firstAttribute="top" secondItem="OW3-8a-1q5" secondAttribute="bottom" constant="16" id="FDt-Yg-tuv"/>
+                                        <constraint firstItem="1xk-eI-r9b" firstAttribute="top" secondItem="x1y-fn-oK4" secondAttribute="bottom" constant="16" id="GEL-ST-YKh"/>
                                         <constraint firstItem="nIf-F8-gls" firstAttribute="leading" secondItem="7Mj-BF-Pxj" secondAttribute="trailing" constant="8" id="Gxv-IO-yIH"/>
                                         <constraint firstItem="FxY-0Y-K08" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="IWy-cD-fBw"/>
                                         <constraint firstItem="tc7-qy-hgr" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="32" id="IZo-I5-mWY"/>
@@ -413,19 +437,19 @@
                                         <constraint firstItem="D2C-6A-3CS" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="LqF-ua-s7d"/>
                                         <constraint firstItem="OW3-8a-1q5" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="M56-3h-iQp"/>
                                         <constraint firstItem="1wF-aP-xie" firstAttribute="top" secondItem="aOn-Ra-tmf" secondAttribute="bottom" constant="16" id="PRk-TT-fvR"/>
+                                        <constraint firstAttribute="trailing" secondItem="x1y-fn-oK4" secondAttribute="trailing" constant="16" id="QAJ-oX-lfp"/>
                                         <constraint firstItem="hhv-U9-XAs" firstAttribute="top" secondItem="c5O-hN-x2W" secondAttribute="bottom" constant="32" id="Rlm-Uf-g96"/>
                                         <constraint firstItem="lmt-TD-1hv" firstAttribute="top" secondItem="gxk-vC-TPy" secondAttribute="bottom" constant="16" id="V01-7j-mQZ"/>
                                         <constraint firstAttribute="bottom" secondItem="yvj-tN-g0N" secondAttribute="bottom" constant="32" id="VHI-HO-eD4"/>
                                         <constraint firstAttribute="trailing" secondItem="aOn-Ra-tmf" secondAttribute="trailing" id="VVU-SZ-MuS"/>
                                         <constraint firstItem="c5O-hN-x2W" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="WEy-hW-oNZ"/>
                                         <constraint firstAttribute="trailing" secondItem="gxk-vC-TPy" secondAttribute="trailing" id="aTw-uF-5oi"/>
+                                        <constraint firstItem="x1y-fn-oK4" firstAttribute="top" secondItem="7Mj-BF-Pxj" secondAttribute="bottom" constant="16" id="aUR-zw-s8a"/>
                                         <constraint firstItem="4oS-i6-Ufi" firstAttribute="top" secondItem="tc7-qy-hgr" secondAttribute="bottom" constant="32" id="bxN-JM-ACZ"/>
-                                        <constraint firstItem="1xk-eI-r9b" firstAttribute="top" secondItem="jRN-5o-jv4" secondAttribute="bottom" constant="16" id="cCI-b8-kOq"/>
                                         <constraint firstAttribute="trailing" secondItem="hGq-Mp-sUc" secondAttribute="trailing" id="eHN-2N-0a5"/>
                                         <constraint firstAttribute="trailing" secondItem="nIf-F8-gls" secondAttribute="trailing" constant="16" id="gM1-cK-fEX"/>
                                         <constraint firstItem="yvj-tN-g0N" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="gQd-Py-Ns8"/>
                                         <constraint firstAttribute="trailing" secondItem="9EX-r3-CLl" secondAttribute="trailing" id="j74-bY-NXv"/>
-                                        <constraint firstItem="jRN-5o-jv4" firstAttribute="top" secondItem="7Mj-BF-Pxj" secondAttribute="bottom" constant="16" id="jOL-BB-YWX"/>
                                         <constraint firstItem="tc7-qy-hgr" firstAttribute="top" secondItem="hhv-U9-XAs" secondAttribute="bottom" constant="32" id="lRZ-w0-pIG"/>
                                         <constraint firstItem="7Mj-BF-Pxj" firstAttribute="top" secondItem="ikc-r8-8tZ" secondAttribute="top" constant="16" id="lW7-9S-zzl"/>
                                         <constraint firstAttribute="trailing" secondItem="1xk-eI-r9b" secondAttribute="trailing" id="mmw-PH-f4R"/>
@@ -433,10 +457,8 @@
                                         <constraint firstItem="7Mj-BF-Pxj" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="oPW-4j-b5r"/>
                                         <constraint firstAttribute="trailing" secondItem="c5O-hN-x2W" secondAttribute="trailing" id="rG6-mh-IEk"/>
                                         <constraint firstItem="1wF-aP-xie" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="rJc-MU-AYf"/>
-                                        <constraint firstItem="jRN-5o-jv4" firstAttribute="leading" secondItem="ikc-r8-8tZ" secondAttribute="leading" constant="16" id="raa-Ma-2tw"/>
                                         <constraint firstAttribute="trailing" secondItem="hhv-U9-XAs" secondAttribute="trailing" id="ter-Ac-6jF"/>
                                         <constraint firstAttribute="trailing" secondItem="4oS-i6-Ufi" secondAttribute="trailing" id="yU4-Kj-Fv2"/>
-                                        <constraint firstAttribute="trailing" secondItem="jRN-5o-jv4" secondAttribute="trailing" id="yq2-1X-IZP"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -486,13 +508,10 @@
                 <constraint firstItem="ccb-kU-6jd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oL2-dm-2ua"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="4.615384615384615" y="332.34597156398104"/>
+            <point key="canvasLocation" x="4.615384615384615" y="425.82938388625593"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="Gray110">
-            <color red="0.4309999942779541" green="0.4309999942779541" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PrimaryBlue">
             <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

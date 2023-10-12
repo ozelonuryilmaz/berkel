@@ -85,7 +85,7 @@ extension BuyingUIModel {
                                                     isActive: responseModel.isActive,
                                                     sellerName: responseModel.sellerName,
                                                     productName: responseModel.productName,
-                                                    kg: "",
+                                                    kg: responseModel.productKGPrice,
                                                     price: "\(price) TL")
             )
         }
@@ -108,7 +108,7 @@ extension BuyingUIModel {
                                                                       isActive: item.isActive,
                                                                       sellerName: item.sellerName,
                                                                       productName: item.productName,
-                                                                      kg: "",
+                                                                      kg: item.productKGPrice,
                                                                       price: "\(price) TL"))
         })
 
