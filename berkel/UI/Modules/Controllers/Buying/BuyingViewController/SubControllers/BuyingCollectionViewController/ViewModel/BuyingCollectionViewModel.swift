@@ -7,7 +7,7 @@
 //
 
 protocol IBuyingCollectionViewModel: AnyObject {
-    
+
     var viewState: ScreenStateSubject<BuyingCollectionViewState> { get }
     var errorState: ErrorStateSubject { get }
 
@@ -17,7 +17,9 @@ protocol IBuyingCollectionViewModel: AnyObject {
          successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?)
     func initComponents()
     func dismiss()
-    
+
+    func updateResults()
+
     // Setter
     func setDate(date: String?)
     func setKantarFisi(_ text: String)
@@ -61,15 +63,50 @@ final class BuyingCollectionViewModel: BaseViewModel, IBuyingCollectionViewModel
         self.uiModel = uiModel
         self.successDismissCallBack = successDismissCallBack
     }
-    
+
     func initComponents() {
         self.viewStateSellerName()
     }
 
+    func updateResults() {
+        self.viewStateSetTotalKg()
+        self.viewStateSetTotalPrice()
+    }
 }
 
 
 // MARK: Service
+internal extension BuyingCollectionViewModel {
+
+    func saveCollection() {
+        guard self.uiModel.getTotalPrice() != "0" else { return }
+
+
+    }
+
+}
+
+// MARK: States
+internal extension BuyingCollectionViewModel {
+
+    // MARK: View State
+    func viewStateSellerName() {
+        self.viewState.value = .setSellerAndProductNameAndKg(seller: self.uiModel.sellerName,
+                                                             product: self.uiModel.productName,
+                                                             kgPrice: self.uiModel.kgPrice)
+    }
+
+    func viewStateSetTotalKg() {
+        self.viewState.value = .setTotalKg(kg: self.uiModel.getTotalKg())
+    }
+
+    func viewStateSetTotalPrice() {
+        self.viewState.value = .setTotalPrice(price: self.uiModel.getTotalPrice())
+    }
+
+}
+
+// MARK: Coordinate
 internal extension BuyingCollectionViewModel {
 
     func dismiss() {
@@ -83,23 +120,6 @@ internal extension BuyingCollectionViewModel {
     }
 }
 
-// MARK: States
-internal extension BuyingCollectionViewModel {
-
-    // MARK: View State
-    func viewStateSellerName() {
-        self.viewState.value = .setSellerAndProductNameAndKg(seller: self.uiModel.sellerName,
-                                                        product: self.uiModel.productName,
-                                                        kgPrice: self.uiModel.kgPrice)
-    }
-
-}
-
-// MARK: Coordinate
-internal extension BuyingCollectionViewModel {
-
-}
-
 
 // MARK: Setter
 internal extension BuyingCollectionViewModel {
@@ -107,62 +127,64 @@ internal extension BuyingCollectionViewModel {
     func setDate(date: String?) {
         self.uiModel.setDate(date: date)
     }
-    
+
     func setKantarFisi(_ text: String) {
         self.uiModel.setKantarFisi(text)
     }
-    
+
     func setPalet(_ text: String) {
         self.uiModel.setPalet(text)
     }
-    
+
     func setRedCase(_ text: String) {
         self.uiModel.setRedCase(text)
     }
-    
+
     func setGreenCase(_ text: String) {
         self.uiModel.setGreenCase(text)
     }
-    
+
     func set22BlackFoodCase(_ text: String) {
         self.uiModel.set22BlackFoodCase(text)
     }
-    
+
     func setBigBlackCase(_ text: String) {
         self.uiModel.setBigBlackCase(text)
     }
-    
+
     func setPercentFire(_ text: String) {
         self.uiModel.setPercentFire(text)
     }
-    
+
     func setKgPrice(_ text: String) {
         self.uiModel.setKgPrice(text)
     }
-    
+
     func setPaletDari(_ text: String) {
         self.uiModel.setPaletDari(text)
     }
-    
+
     func setRedDari(_ text: String) {
         self.uiModel.setRedDari(text)
     }
-    
+
     func setGreenDari(_ text: String) {
         self.uiModel.setGreenDari(text)
     }
-    
+
     func set22BlackDari(_ text: String) {
         self.uiModel.set22BlackDari(text)
     }
-    
+
     func setBigBlackDari(_ text: String) {
         self.uiModel.setBigBlackDari(text)
     }
-    
+
 }
 
 
 enum BuyingCollectionViewState {
     case setSellerAndProductNameAndKg(seller: String, product: String, kgPrice: Double)
+    case setTotalKg(kg: String)
+    case setTotalPrice(price: String)
 }

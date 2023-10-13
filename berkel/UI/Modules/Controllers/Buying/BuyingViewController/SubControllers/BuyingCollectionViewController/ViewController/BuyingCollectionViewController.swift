@@ -85,6 +85,12 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
                 self.lblSellerName.text = seller
                 self.lblProductName.text = "(\(product))"
                 self.tfKgPrice.placeholder = String(kgPrice)
+
+            case .setTotalKg(let kg):
+                self.lblTotalKG.text = kg + " Kg"
+
+            case .setTotalPrice(let price):
+                self.lblTotalPrice.text = price + " TL"
             }
 
         }).store(in: &cancelBag)
@@ -124,54 +130,67 @@ private extension BuyingCollectionViewController {
     func listenTextFieldsDidChange() {
         tfKantarFisi.addListenDidChange { [unowned self] text in
             self.viewModel.setKantarFisi(text)
+            self.viewModel.updateResults()
         }
 
         tfPalet.addListenDidChange { [unowned self] text in
             self.viewModel.setPalet(text)
+            self.viewModel.updateResults()
         }
 
         tfRedCase.addListenDidChange { [unowned self] text in
             self.viewModel.setRedCase(text)
+            self.viewModel.updateResults()
         }
 
         tfGreenCase.addListenDidChange { [unowned self] text in
             self.viewModel.setGreenCase(text)
+            self.viewModel.updateResults()
         }
 
         tf22BlackFoodCase.addListenDidChange { [unowned self] text in
             self.viewModel.set22BlackFoodCase(text)
+            self.viewModel.updateResults()
         }
 
         tfBigBlackCase.addListenDidChange { [unowned self] text in
             self.viewModel.setBigBlackCase(text)
+            self.viewModel.updateResults()
         }
 
         tfPercentFire.addListenDidChange { [unowned self] text in
             self.viewModel.setPercentFire(text)
+            self.viewModel.updateResults()
         }
 
         tfKgPrice.addListenDidChange { [unowned self] text in
             self.viewModel.setKgPrice(text)
+            self.viewModel.updateResults()
         }
 
         tfPaletDari.addListenDidChange { [unowned self] text in
             self.viewModel.setPaletDari(text)
+            self.viewModel.updateResults()
         }
 
         tfRedDari.addListenDidChange { [unowned self] text in
             self.viewModel.setRedDari(text)
+            self.viewModel.updateResults()
         }
 
         tfGreenDari.addListenDidChange { [unowned self] text in
             self.viewModel.setGreenDari(text)
+            self.viewModel.updateResults()
         }
 
         tf22BlackDari.addListenDidChange { [unowned self] text in
             self.viewModel.set22BlackDari(text)
+            self.viewModel.updateResults()
         }
 
         tfBigBlackDari.addListenDidChange { [unowned self] text in
             self.viewModel.setBigBlackDari(text)
+            self.viewModel.updateResults()
         }
     }
 }

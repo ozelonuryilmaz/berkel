@@ -44,6 +44,7 @@
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
 		676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72092AA3852D00010350 /* CGFloat+Extension.swift */; };
 		676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E720B2AA3855E00010350 /* UIScreen+Extension.swift */; };
+		676F532B2AD9AEBE001F06DF /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F532A2AD9AEBE001F06DF /* Double+Extension.swift */; };
 		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
@@ -266,6 +267,7 @@
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
 		676E72092AA3852D00010350 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		676E720B2AA3855E00010350 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		676F532A2AD9AEBE001F06DF /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -1072,6 +1074,7 @@
 				677E67912AA3506A001775E2 /* DispatchQueue+Extensions.swift */,
 				676E72092AA3852D00010350 /* CGFloat+Extension.swift */,
 				6772EBC02AD46E8000AA547D /* Int+Extension.swift */,
+				676F532A2AD9AEBE001F06DF /* Double+Extension.swift */,
 				67EA5B702AAF877B0086E20C /* UIImage+Extension.swift */,
 				670B3C9A2ABA19B700EE7CFB /* UIScrollView+Extension.swift */,
 				6774E26D2ABAF153005FC78A /* Date+Extension.swift */,
@@ -1999,6 +2002,7 @@
 				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
 				67B9EE502AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
+				676F532B2AD9AEBE001F06DF /* Double+Extension.swift in Sources */,
 				670B3C7F2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
 				67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */,

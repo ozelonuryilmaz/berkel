@@ -31,6 +31,8 @@ protocol IBuyingCollectionUIModel {
     mutating func set22BlackDari(_ text: String)
     mutating func setBigBlackDari(_ text: String)
 
+    func getTotalKg() -> String
+    func getTotalPrice() -> String
 }
 
 struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
@@ -63,8 +65,8 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     var greenCase: Int = 0
     var black22FoodCase: Int = 0
     var bigBlackCase: Int = 0
-
     var percentFire: Double = 5.0
+
     var paletDari: Double = 22.0
     var redDari: Double = 2.0
     var greenDari: Double = 1.5
@@ -72,6 +74,26 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     var bigBlackDari: Double = 1.0
 
     // MARK: Computed Props
+    private var isHaveAnyCase: Bool {
+        return redCase > 0 || greenCase > 0 || black22FoodCase > 0 || bigBlackCase > 0
+    }
+
+    private func totalKg() -> Double {
+        let kg: Double = Double(kantarFisi) - Double(((Double(palet) * paletDari) + (Double(redCase) * redDari) + (Double(greenCase) * greenDari) + (Double(black22FoodCase) * black22FoodDari) + (Double(bigBlackCase) * bigBlackDari)))
+
+        return percentFire > 0 ? kg - (kg * percentFire / 100): kg
+    }
+
+    func getTotalKg() -> String {
+        let kg = totalKg()
+        return isHaveAnyCase && Double(kantarFisi) > kg && kg > 0 ? "\(kg.decimalString())" : "0"
+    }
+
+    func getTotalPrice() -> String {
+        let kg = totalKg()
+        let price = kg * kgPrice
+        return isHaveAnyCase && Double(kantarFisi) > kg && price > 0 ? "\(price.decimalString())" : "0"
+    }
 }
 
 // MARK: Setter
@@ -106,30 +128,30 @@ extension BuyingCollectionUIModel {
     }
 
     mutating func setPercentFire(_ text: String) {
-        self.percentFire = text.isEmpty ? self.let_percentFire : Double(text) ?? self.let_percentFire
+        self.percentFire = text.isEmpty ? self.let_percentFire: Double(text) ?? self.let_percentFire
     }
 
     mutating func setKgPrice(_ text: String) {
-        self.kgPrice = text.isEmpty ? self.let_kgPrice : Double(text) ?? self.let_kgPrice
+        self.kgPrice = text.isEmpty ? self.let_kgPrice: Double(text) ?? self.let_kgPrice
     }
 
     mutating func setPaletDari(_ text: String) {
-        self.paletDari = text.isEmpty ? self.let_paletDari : Double(text) ?? self.let_paletDari
+        self.paletDari = text.isEmpty ? self.let_paletDari: Double(text) ?? self.let_paletDari
     }
 
     mutating func setRedDari(_ text: String) {
-        self.redDari = text.isEmpty ? self.let_redDari : Double(text) ?? self.let_redDari
+        self.redDari = text.isEmpty ? self.let_redDari: Double(text) ?? self.let_redDari
     }
 
     mutating func setGreenDari(_ text: String) {
-        self.greenDari = text.isEmpty ? self.let_greenDari : Double(text) ?? self.let_greenDari
+        self.greenDari = text.isEmpty ? self.let_greenDari: Double(text) ?? self.let_greenDari
     }
 
     mutating func set22BlackDari(_ text: String) {
-        self.black22FoodDari = text.isEmpty ? self.let_black22FoodDari : Double(text) ?? self.let_black22FoodDari
+        self.black22FoodDari = text.isEmpty ? self.let_black22FoodDari: Double(text) ?? self.let_black22FoodDari
     }
 
     mutating func setBigBlackDari(_ text: String) {
-        self.bigBlackDari = text.isEmpty ? self.let_bigBlackDari : Double(text) ?? self.let_bigBlackDari
+        self.bigBlackDari = text.isEmpty ? self.let_bigBlackDari: Double(text) ?? self.let_bigBlackDari
     }
 }
