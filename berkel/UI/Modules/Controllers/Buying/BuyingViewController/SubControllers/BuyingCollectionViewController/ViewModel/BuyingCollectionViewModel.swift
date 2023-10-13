@@ -6,6 +6,8 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
+import Combine
+
 protocol IBuyingCollectionViewModel: AnyObject {
 
     var viewState: ScreenStateSubject<BuyingCollectionViewState> { get }
@@ -35,6 +37,9 @@ protocol IBuyingCollectionViewModel: AnyObject {
     func setGreenDari(_ text: String)
     func set22BlackDari(_ text: String)
     func setBigBlackDari(_ text: String)
+    
+    // Service
+    func saveCollection()
 }
 
 final class BuyingCollectionViewModel: BaseViewModel, IBuyingCollectionViewModel {
@@ -51,7 +56,7 @@ final class BuyingCollectionViewModel: BaseViewModel, IBuyingCollectionViewModel
     // MARK: Public Props
     var viewState = ScreenStateSubject<BuyingCollectionViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-
+    let response = CurrentValueSubject<BuyingCollectionModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingCollectionRepository,
@@ -81,7 +86,20 @@ internal extension BuyingCollectionViewModel {
     func saveCollection() {
         guard self.uiModel.getTotalPrice() != "0" else { return }
 
-
+        handleResourceFirestore(
+            request: self.repository.saveNewCollection(season: self.uiModel.season,
+                                                       buyingId: self.uiModel.buyingId,
+                                                       data: self.uiModel.data),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let response = self.response.value else { return }
+                self.successDismiss(data: response)
+            })
     }
 
 }
@@ -90,6 +108,10 @@ internal extension BuyingCollectionViewModel {
 internal extension BuyingCollectionViewModel {
 
     // MARK: View State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+
     func viewStateSellerName() {
         self.viewState.value = .setSellerAndProductNameAndKg(seller: self.uiModel.sellerName,
                                                              product: self.uiModel.productName,
@@ -184,6 +206,7 @@ internal extension BuyingCollectionViewModel {
 
 
 enum BuyingCollectionViewState {
+    case showNativeProgress(isProgress: Bool)
     case setSellerAndProductNameAndKg(seller: String, product: String, kgPrice: Double)
     case setTotalKg(kg: String)
     case setTotalPrice(price: String)

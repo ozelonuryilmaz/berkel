@@ -11,6 +11,7 @@ import UIKit
 protocol INewBuyingUIModel {
 
     var newBuyingData: NewBuyingModel { get }
+    var firstPayment: NewBuyingPaymentModel { get }
 
     var sellerName: String { get }
     var sellerTCKN: String { get }
@@ -60,22 +61,31 @@ struct NewBuyingUIModel: INewBuyingUIModel {
 // MARK: Props
 extension NewBuyingUIModel {
 
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
     var newBuyingData: NewBuyingModel {
         let date = Date().dateFormatterApiResponseType()
-        let paymentModel = [NewBuyingPaymentModel(date: date, price: self.payment)]
-        return NewBuyingModel(date: date,
-                              sellerId: self.sellerId,
-                              sellerName: self.sellerName,
-                              productName: self.product,
-                              productKGPrice: self.price,
-                              desc: self.desc,
-                              isActive: true,
-                              payment: paymentModel,
-                              collection: nil)
+        return NewBuyingModel(
+            userId: self.userId,
+            date: date,
+            sellerId: self.sellerId,
+            sellerName: self.sellerName,
+            productName: self.product,
+            productKGPrice: self.price,
+            desc: self.desc,
+            isActive: true
+        )
+    }
+
+    var firstPayment: NewBuyingPaymentModel {
+        let date = Date().dateFormatterApiResponseType()
+        return NewBuyingPaymentModel(id: nil, userId: userId, date: date, payment: self.payment)
     }
 
     var errorMessage: String? {

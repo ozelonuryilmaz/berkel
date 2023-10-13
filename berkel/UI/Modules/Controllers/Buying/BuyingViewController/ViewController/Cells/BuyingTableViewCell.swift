@@ -62,7 +62,7 @@ class BuyingTableViewCell: BaseTableViewCell {
 
         self.lblName.text = uiModel.sellerName
         self.lblProduct.text = uiModel.productName
-        self.lblKg.text = "0 Kg"
+        self.lblKg.text = "- Kg"
         self.lblPrice.text = uiModel.price
 
         if uiModel.isActive {

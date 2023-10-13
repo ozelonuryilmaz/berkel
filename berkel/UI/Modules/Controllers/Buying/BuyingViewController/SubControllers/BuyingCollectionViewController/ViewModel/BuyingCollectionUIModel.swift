@@ -10,9 +10,13 @@ import UIKit
 
 protocol IBuyingCollectionUIModel {
 
+    var buyingId: String { get }
+    var season: String { get }
     var kgPrice: Double { get }
     var sellerName: String { get }
     var productName: String { get }
+    
+    var data: BuyingCollectionModel { get }
 
     init(data: BuyingCollectionPassData)
 
@@ -38,6 +42,7 @@ protocol IBuyingCollectionUIModel {
 struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
 
     // MARK: Definitions
+    let buyingId: String
     let sellerName: String
     let productName: String
     let let_kgPrice: Double
@@ -52,6 +57,7 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     init(data: BuyingCollectionPassData) {
         self.kgPrice = data.kgPrice
         self.let_kgPrice = data.kgPrice
+        self.buyingId = data.buyingId
         self.sellerName = data.sellerName
         self.productName = data.productName
     }
@@ -72,6 +78,36 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     var greenDari: Double = 1.5
     var black22FoodDari: Double = 0.5
     var bigBlackDari: Double = 1.0
+
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+    
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
+    var data: BuyingCollectionModel {
+        return BuyingCollectionModel(
+            id: nil,
+            userId: userId,
+            isCalc: false,
+            date: date,
+            kgPrice: kgPrice,
+            kantarFisi: kantarFisi,
+            palet: palet,
+            redCase: redCase,
+            greenCase: greenCase,
+            black22FoodCase: black22FoodCase,
+            bigBlackCase: bigBlackCase,
+            percentFire: percentFire,
+            paletDari: paletDari,
+            redDari: redDari,
+            greenDari: greenDari,
+            black22FoodDari: black22FoodDari,
+            bigBlackDari: bigBlackDari
+        )
+    }
 
     // MARK: Computed Props
     private var isHaveAnyCase: Bool {

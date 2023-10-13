@@ -10,6 +10,7 @@ import Foundation
 struct NewBuyingModel: Codable {
 
     var id: String? = nil
+    let userId: String?
     let date: String
     let sellerId: String
     let sellerName: String
@@ -17,17 +18,12 @@ struct NewBuyingModel: Codable {
     let productKGPrice: Double
     let desc: String
     let isActive: Bool
-    let payment: [NewBuyingPaymentModel]
-    var collection: [NewBuyingCollectionModel]?
 }
 
 struct NewBuyingPaymentModel: Codable {
 
+    var id: String?
+    let userId: String?
     let date: String
-    let price: Int
-}
-
-struct NewBuyingCollectionModel: Codable {
-
-    let date: String
+    let payment: Int
 }

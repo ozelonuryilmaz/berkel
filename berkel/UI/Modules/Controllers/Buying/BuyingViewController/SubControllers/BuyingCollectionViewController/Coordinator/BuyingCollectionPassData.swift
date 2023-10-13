@@ -10,6 +10,8 @@ import Foundation
 
 struct BuyingCollectionPassData: ICoordinatorPassData {
     
+    let buyingId: String
+    
     let kgPrice: Double
     let sellerName: String
     let productName: String

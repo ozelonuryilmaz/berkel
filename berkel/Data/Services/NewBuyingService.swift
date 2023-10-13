@@ -11,10 +11,11 @@ enum NewBuyingService {
 
     case list(season: String)
     case save(season: String)
+    case saveFirstPayment(season: String, buyingId: String)
 }
 
 extension NewBuyingService: CollectionServiceType {
-    
+
     var order: String {
         switch self {
         case .list(_):
@@ -33,6 +34,15 @@ extension NewBuyingService: CollectionServiceType {
                 .collection("data")
                 .document(season)
                 .collection("buying")
+
+        case .saveFirstPayment(let season, let buyingId):
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("buying")
+                .document(buyingId)
+                .collection("payments")
         }
     }
 }

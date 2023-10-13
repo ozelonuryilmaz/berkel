@@ -68,6 +68,9 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveCollection()
+        }
     }
 
     private func observeReactiveDatas() {
@@ -81,6 +84,9 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
             guard let self = self, let states = states else { return }
 
             switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
             case .setSellerAndProductNameAndKg(let seller, let product, let kgPrice):
                 self.lblSellerName.text = seller
                 self.lblProductName.text = "(\(product))"

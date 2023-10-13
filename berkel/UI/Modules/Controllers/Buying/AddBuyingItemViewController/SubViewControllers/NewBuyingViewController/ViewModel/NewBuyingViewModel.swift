@@ -46,7 +46,8 @@ final class NewBuyingViewModel: BaseViewModel, INewBuyingViewModel {
     // MARK: Public Props
     var viewState = ScreenStateSubject<NewBuyingViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    let response = CurrentValueSubject<NewBuyingModel?, Never>(nil)
+    let responseBuying = CurrentValueSubject<NewBuyingModel?, Never>(nil)
+    let responsePayment = CurrentValueSubject<NewBuyingPaymentModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewBuyingRepository,
@@ -78,15 +79,34 @@ internal extension NewBuyingViewModel {
         handleResourceFirestore(
             request: self.repository.saveNewBuying(data: self.uiModel.newBuyingData,
                                                    season: self.uiModel.season),
-            response: self.response,
+            response: self.responseBuying,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
-                    let data = self.response.value else { return }
-                self.successDismiss(data: data)
+                    let buyingId = self.responseBuying.value?.id else { return }
+
+                self.saveFirstPayment(buyingId: buyingId)
+            })
+    }
+
+    private func saveFirstPayment(buyingId: String) {
+        handleResourceFirestore(
+            request: self.repository.savePayment(data: self.uiModel.firstPayment,
+                                                 season: self.uiModel.season,
+                                                 buyingId: buyingId),
+            response: self.responsePayment,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let buyingData = self.responseBuying.value else { return }
+
+                self.successDismiss(data: buyingData)
             })
     }
 }

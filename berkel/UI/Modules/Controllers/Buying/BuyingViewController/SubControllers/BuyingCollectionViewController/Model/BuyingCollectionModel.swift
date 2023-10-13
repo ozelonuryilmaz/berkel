@@ -9,10 +9,8 @@ import Foundation
 
 struct BuyingCollectionModel: Codable {
 
-    let id: String
-    let userId: String
-    let sellerId: String
-    let collectionId: String
+    var id: String?
+    let userId: String?
     
     let isCalc: Bool
 

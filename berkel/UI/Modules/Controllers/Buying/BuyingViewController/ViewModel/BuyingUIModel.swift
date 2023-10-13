@@ -76,9 +76,6 @@ extension BuyingUIModel {
 
     private func prepareSnapshotRowModel() -> [BuyingRowModel] {
         let rowModels: [BuyingRowModel] = response.compactMap { responseModel in
-            let price = responseModel.payment.compactMap { newBuyingPaymentModel in
-                newBuyingPaymentModel.price
-            }.reduce(0, +).priceString()
 
             return BuyingRowModel(
                 uiModel: BuyingTableViewCellUIModel(id: responseModel.id ?? "",
@@ -86,7 +83,7 @@ extension BuyingUIModel {
                                                     sellerName: responseModel.sellerName,
                                                     productName: responseModel.productName,
                                                     kg: responseModel.productKGPrice,
-                                                    price: "\(price) TL")
+                                                    price: "- TL")
             )
         }
         return rowModels
@@ -100,16 +97,12 @@ extension BuyingUIModel {
 
         configuredItems = newDatas.compactMap({ item in
 
-            let price = item.payment.compactMap { newBuyingPaymentModel in
-                newBuyingPaymentModel.price
-            }.reduce(0, +).priceString()
-
             return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(id: item.id ?? "",
                                                                       isActive: item.isActive,
                                                                       sellerName: item.sellerName,
                                                                       productName: item.productName,
                                                                       kg: item.productKGPrice,
-                                                                      price: "\(price) TL"))
+                                                                      price: "- TL"))
         })
 
         snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır

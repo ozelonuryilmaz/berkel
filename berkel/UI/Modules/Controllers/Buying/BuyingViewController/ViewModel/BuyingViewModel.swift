@@ -147,14 +147,13 @@ extension BuyingViewModel {
     }
 
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
-        let passData = BuyingCollectionPassData(kgPrice: uiModel.kg,
+        let passData = BuyingCollectionPassData(buyingId: uiModel.id,
+                                                kgPrice: uiModel.kg,
                                                 sellerName: uiModel.sellerName,
                                                 productName: uiModel.productName,
                                                 model: nil)
         self.presentBuyingCollectionViewController(passData: passData,
-                                                   successDismissCallBack: { [unowned self] data in
-            
-        })
+                                                   successDismissCallBack: { _ in })
     }
 
     func addPaymentTapped(uiModel: IBuyingTableViewCellUIModel) {
