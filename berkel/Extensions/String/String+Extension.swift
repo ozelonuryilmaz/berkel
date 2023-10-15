@@ -39,6 +39,4 @@ extension String {
         }
         return pureNumber
     }
-
-
 }

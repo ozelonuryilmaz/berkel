@@ -14,6 +14,7 @@ extension Double {
             return String(Int(self))
         } else {
             let numberFormatter = NumberFormatter()
+            numberFormatter.locale = Locale(identifier: "tr_TR")
             numberFormatter.maximumFractionDigits = 2
             numberFormatter.minimumFractionDigits = 2
             guard let s = numberFormatter.string(for: self) else {

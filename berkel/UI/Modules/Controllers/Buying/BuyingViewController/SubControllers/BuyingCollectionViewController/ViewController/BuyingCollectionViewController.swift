@@ -63,7 +63,7 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
 
     override func setupView() {
         self.viewModel.initComponents()
-        initDatePickerView()
+        self.initDatePickerView()
     }
 
     override func registerEvents() {

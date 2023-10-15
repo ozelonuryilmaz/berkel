@@ -11,8 +11,10 @@ import UIKit
 protocol IBuyingCoordinator: AnyObject {
 
     func pushAddBuyinItemViewController(outputDelegate: AddBuyingItemViewControllerOutputDelegate?)
+    func pushBuyingDetailViewController()
     func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
                                                successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?)
+    func presentBuyingPaymentViewController(passData: BuyingPaymentPassData)
 }
 
 final class BuyingCoordinator: NavigationCoordinator, IBuyingCoordinator {
@@ -31,10 +33,22 @@ final class BuyingCoordinator: NavigationCoordinator, IBuyingCoordinator {
         coordinate(to: coordinator)
     }
 
+    func pushBuyingDetailViewController() {
+        let coordinator = BuyingDetailCoordinator(navigationController: self.navigationController)
+            .with(passData: BuyingDetailPassData())
+        coordinate(to: coordinator)
+    }
+
     func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
                                                successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?) {
         let controller = BuyingCollectionCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(successDismissCallBack: successDismissCallBack)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+    
+    func presentBuyingPaymentViewController(passData: BuyingPaymentPassData) {
+        let controller = BuyingPaymentCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(passData: passData)
         coordinate(to: controller)
     }

@@ -121,11 +121,18 @@ internal extension BuyingViewModel {
         self.coordinator.pushAddBuyinItemViewController(outputDelegate: self)
     }
 
+    func pushBuyingDetailViewController() {
+        self.coordinator.pushBuyingDetailViewController()
+    }
 
     func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
                                                successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?) {
         self.coordinator.presentBuyingCollectionViewController(passData: passData,
                                                                successDismissCallBack: successDismissCallBack)
+    }
+
+    func presentBuyingPaymentViewController(passData: BuyingPaymentPassData) {
+        self.coordinator.presentBuyingPaymentViewController(passData: passData)
     }
 }
 
@@ -143,7 +150,9 @@ extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
 extension BuyingViewModel {
 
     func cellTapped(uiModel: IBuyingTableViewCellUIModel) {
-
+        if uiModel.isActive {
+            self.pushBuyingDetailViewController()
+        }
     }
 
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
@@ -157,7 +166,11 @@ extension BuyingViewModel {
     }
 
     func addPaymentTapped(uiModel: IBuyingTableViewCellUIModel) {
+        let passData = BuyingPaymentPassData(buyingId: uiModel.id,
+                                             sellerName: uiModel.sellerName,
+                                             productName: uiModel.productName)
 
+        self.presentBuyingPaymentViewController(passData: passData)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {

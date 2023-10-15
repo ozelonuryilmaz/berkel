@@ -18,7 +18,7 @@ class PrimaryTextField: BaseReusableView {
 
     private var clickListener: PrimaryTextFieldListener? = nil
     private var arrayListenDidChange: [PrimaryTextFieldListener]? = nil
-    
+
     @IBInspectable
     var title: String = "" {
         didSet {
@@ -46,7 +46,7 @@ class PrimaryTextField: BaseReusableView {
             textField.isSecureTextEntry = isSecureTextEntry
         }
     }
-    
+
     @IBInspectable
     var isPhoneNumber: Bool = false
 
@@ -89,17 +89,17 @@ class PrimaryTextField: BaseReusableView {
     }
 
     // MARK: Definitions
-    
+
     private lazy var lblTitle: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(cgColor: defaultBorderColor)
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 20)
-        
+
         addSubview(label)
         return label
     }()
-    
+
     private lazy var tfBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -168,7 +168,7 @@ private extension PrimaryTextField {
         setupClearButtonCons()
         setupTextFieldCons()
     }
-    
+
     func setuplblTitle() {
         lblTitle.snp.makeConstraints { maker in
             maker.top.equalToSuperview()
@@ -176,7 +176,7 @@ private extension PrimaryTextField {
             maker.height.equalTo(28)
         }
     }
-    
+
     func setupTFBackgroundViewCons() {
         tfBackgroundView.snp.makeConstraints { maker in
             maker.leading.trailing.bottom.equalToSuperview()
@@ -236,11 +236,11 @@ extension PrimaryTextField: UITextFieldDelegate {
 
     @objc func textFieldDidChange(_ textField: UITextField) {
         handleVisibilityClearButton()
-        
+
         if isPhoneNumber {
             textField.text = textField.text?.applyPatternOnNumbers(pattern: "# (###) ### ## ##", replacementCharacter: "#")
         }
-
+        
         if let arrayListener = self.arrayListenDidChange {
             for listener in arrayListener {
                 listener(textField.text ?? "")
