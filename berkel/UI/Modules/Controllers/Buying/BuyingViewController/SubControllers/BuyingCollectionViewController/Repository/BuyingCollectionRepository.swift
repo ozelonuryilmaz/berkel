@@ -21,7 +21,7 @@ final class BuyingCollectionRepository: BaseRepository, IBuyingCollectionReposit
                            buyingId: String,
                            data: BuyingCollectionModel) -> FirestoreResponseType<BuyingCollectionModel> {
 
-        let db: DocumentReference = BuyingCollectionService.saveCollection(season: season, buyingId: buyingId).collectionReference.document()
+        let db: DocumentReference = BuyingDataService.collection(season: season, buyingId: buyingId).collectionReference.document()
         let key = db.documentID
 
         var tempData = data

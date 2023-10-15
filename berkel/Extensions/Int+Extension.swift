@@ -9,7 +9,7 @@ import Foundation
 
 extension Int {
 
-    func priceString() -> String {
+    func decimalString() -> String {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "tr_TR")
         formatter.numberStyle = .decimal // Noktalı biçim

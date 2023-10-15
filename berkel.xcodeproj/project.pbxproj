@@ -45,7 +45,7 @@
 		676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72092AA3852D00010350 /* CGFloat+Extension.swift */; };
 		676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E720B2AA3855E00010350 /* UIScreen+Extension.swift */; };
 		676F532B2AD9AEBE001F06DF /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F532A2AD9AEBE001F06DF /* Double+Extension.swift */; };
-		676F532D2AD9BEB8001F06DF /* BuyingCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F532C2AD9BEB8001F06DF /* BuyingCollectionService.swift */; };
+		676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F532C2AD9BEB8001F06DF /* BuyingDataService.swift */; };
 		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
@@ -285,7 +285,7 @@
 		676E72092AA3852D00010350 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		676E720B2AA3855E00010350 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		676F532A2AD9AEBE001F06DF /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		676F532C2AD9BEB8001F06DF /* BuyingCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCollectionService.swift; sourceTree = "<group>"; };
+		676F532C2AD9BEB8001F06DF /* BuyingDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDataService.swift; sourceTree = "<group>"; };
 		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -618,12 +618,12 @@
 			isa = PBXGroup;
 			children = (
 				675129E62AAC7BD400429CB7 /* Types */,
+				676F532C2AD9BEB8001F06DF /* BuyingDataService.swift */,
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
 				67334E9F2AB4E0840072DBD6 /* SellerService.swift */,
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
 				675F5C282AC4C25F00DC863F /* NewBuyingService.swift */,
 				677D62F62AC1FC30004F3232 /* SeasonItemService.swift */,
-				676F532C2AD9BEB8001F06DF /* BuyingCollectionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2276,7 +2276,7 @@
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
 				67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
-				676F532D2AD9BEB8001F06DF /* BuyingCollectionService.swift in Sources */,
+				676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
 				67B98D092ADBEB3700CD4B15 /* BuyingPaymentUIModel.swift in Sources */,
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,

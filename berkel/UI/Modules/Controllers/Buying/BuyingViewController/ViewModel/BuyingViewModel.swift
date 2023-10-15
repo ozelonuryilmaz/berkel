@@ -121,8 +121,8 @@ internal extension BuyingViewModel {
         self.coordinator.pushAddBuyinItemViewController(outputDelegate: self)
     }
 
-    func pushBuyingDetailViewController() {
-        self.coordinator.pushBuyingDetailViewController()
+    func pushBuyingDetailViewController(passData: BuyingDetailPassData) {
+        self.coordinator.pushBuyingDetailViewController(passData: passData)
     }
 
     func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
@@ -151,7 +151,10 @@ extension BuyingViewModel {
 
     func cellTapped(uiModel: IBuyingTableViewCellUIModel) {
         if uiModel.isActive {
-            self.pushBuyingDetailViewController()
+            let data = BuyingDetailPassData(buyingId: uiModel.id,
+                                            sellerName: uiModel.sellerName,
+                                            productName: uiModel.productName)
+            self.pushBuyingDetailViewController(passData: data)
         }
     }
 

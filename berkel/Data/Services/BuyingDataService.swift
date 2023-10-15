@@ -1,5 +1,5 @@
 //
-//  BuyingCollectionService.swift
+//  BuyingDataService.swift
 //  berkel
 //
 //  Created by Onur Yilmaz on 13.10.2023.
@@ -7,17 +7,26 @@
 
 import FirebaseFirestore
 
-enum BuyingCollectionService {
+enum BuyingDataService {
 
-    case saveCollection(season: String, buyingId: String)
-    case savePayment(season: String, buyingId: String)
+    case collection(season: String, buyingId: String)
+    case payment(season: String, buyingId: String)
 }
 
-extension BuyingCollectionService: CollectionServiceType {
+extension BuyingDataService: CollectionServiceType {
+    
+    var order: String {
+        switch self {
+        case .collection(_, _), .payment(_, _):
+            return "date"
+        default:
+            return ""
+        }
+    }
 
     var collectionReference: CollectionReference {
         switch self {
-        case .saveCollection(let season, let buyingId):
+        case .collection(let season, let buyingId):
 
             return Firestore
                 .firestore()
@@ -27,7 +36,7 @@ extension BuyingCollectionService: CollectionServiceType {
                 .document(buyingId)
                 .collection("collections")
             
-        case .savePayment(let season, let buyingId):
+        case .payment(let season, let buyingId):
 
             return Firestore
                 .firestore()

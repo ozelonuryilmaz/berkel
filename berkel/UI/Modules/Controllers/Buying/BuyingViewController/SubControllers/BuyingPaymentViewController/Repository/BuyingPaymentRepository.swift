@@ -21,7 +21,7 @@ final class BuyingPaymentRepository: BaseRepository, IBuyingPaymentRepository {
                         buyingId: String,
                         data: NewBuyingPaymentModel) -> FirestoreResponseType<NewBuyingPaymentModel> {
 
-        let db: DocumentReference = BuyingCollectionService.savePayment(season: season, buyingId: buyingId).collectionReference.document()
+        let db: DocumentReference = BuyingDataService.payment(season: season, buyingId: buyingId).collectionReference.document()
         let key = db.documentID
 
         var tempData = data

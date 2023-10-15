@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 final class BuyingDetailViewController: MainBaseViewController {
-    
+
     override var isShowTabbar: Bool {
         return false
     }
@@ -21,6 +21,8 @@ final class BuyingDetailViewController: MainBaseViewController {
     private let viewModel: IBuyingDetailViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblOldDoubt: UILabel!
+    @IBOutlet private weak var lblNowDoubt: UILabel!
 
     // MARK: Constraints Outlets
 
@@ -36,6 +38,7 @@ final class BuyingDetailViewController: MainBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+        self.viewModel.initComponents()
     }
 
     override func registerEvents() {
@@ -48,11 +51,32 @@ final class BuyingDetailViewController: MainBaseViewController {
     }
 
     private func observeViewState() {
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
 
+            switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
+            case .setNavigationTitle(let title, let subTitle):
+                DispatchQueue.delay(300) { [weak self] in // Base viewWillApeer'da sıfırlanıyordu
+                    self?.navigationItem.setCustomTitle(title, subtitle: subTitle)
+                }
+                
+            case .oldDoubt(let text):
+                self.lblOldDoubt.text = text
+            case .nowDoubt(let text):
+                self.lblNowDoubt.text = text
+                
+            }
+        }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
+        let errorHandle = FirestoreErrorHandle(viewController: self)
 
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components

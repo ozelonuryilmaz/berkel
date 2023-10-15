@@ -10,9 +10,14 @@ import Combine
 
 protocol IBuyingDetailViewModel: AnyObject {
 
+    var viewState: ScreenStateSubject<BuyingDetailViewState> { get }
+    var errorState: ErrorStateSubject { get }
+
     init(repository: IBuyingDetailRepository,
          coordinator: IBuyingDetailCoordinator,
          uiModel: IBuyingDetailUIModel)
+
+    func initComponents()
 }
 
 final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
@@ -25,6 +30,10 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     // MARK: Private Props
 
     // MARK: Public Props
+    var viewState = ScreenStateSubject<BuyingDetailViewState>(nil)
+    var errorState = ErrorStateSubject(nil)
+    let responsePayment = CurrentValueSubject<[NewBuyingPaymentModel]?, Never>(nil)
+    let responseCollection = CurrentValueSubject<[BuyingCollectionModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -35,19 +44,77 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
         self.uiModel = uiModel
     }
 
+    func initComponents() {
+        self.viewStateSetNavigationTitle()
+        getBuyingCollection(completion: { [weak self] in
+            guard let self = self else { return }
+            self.getBuyingPayment()
+        })
+    }
 }
 
 
 // MARK: Service
 internal extension BuyingDetailViewModel {
 
+    private func getBuyingCollection(completion: @escaping () -> Void) {
+        handleResourceFirestore(
+            request: self.repository.getCollection(season: self.uiModel.season,
+                                                   buyingId: self.uiModel.buyingId),
+            response: self.responseCollection,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseCollection.value else { return }
+                self.uiModel.setCollectionResponse(data: data)
+
+            }, callbackComplete: {
+                completion()
+            })
+    }
+
+    private func getBuyingPayment() {
+        handleResourceFirestore(
+            request: self.repository.getPayment(season: self.uiModel.season,
+                                                buyingId: self.uiModel.buyingId),
+            response: self.responsePayment,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responsePayment.value else { return }
+                self.uiModel.setPaymentResponse(data: data)
+                self.viewStateOldDoubt()
+                self.viewStateNowDoubt()
+            })
+    }
 }
 
 // MARK: States
 internal extension BuyingDetailViewModel {
 
     // MARK: View State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
 
+    func viewStateSetNavigationTitle() {
+        self.viewState.value = .setNavigationTitle(title: self.uiModel.sellerName,
+                                                   subTitle: self.uiModel.productName)
+    }
+    
+    func viewStateOldDoubt() {
+        self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt)
+    }
+    
+    func viewStateNowDoubt() {
+        self.viewState.value = .nowDoubt(text: self.uiModel.nowDoubt)
+    }
 }
 
 // MARK: Coordinate
@@ -57,6 +124,9 @@ internal extension BuyingDetailViewModel {
 
 
 enum BuyingDetailViewState {
-    
+    case showNativeProgress(isProgress: Bool)
+    case setNavigationTitle(title: String, subTitle: String)
+    case oldDoubt(text: String)
+    case nowDoubt(text: String)
 }
 

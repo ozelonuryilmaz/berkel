@@ -31,6 +31,12 @@ class ShadowView: UIView {
         }
     }
     
+    @IBInspectable var cornerRadius: CGFloat = 8 {
+        didSet {
+            self.roundCornersEachCorner(.allCorners, radius: cornerRadius)
+        }
+    }
+    
     //Apply params
     func updateView() {
         self.layer.shadowColor = self.shadowColor.cgColor

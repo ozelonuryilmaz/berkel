@@ -10,5 +10,8 @@ import Foundation
 
 struct BuyingDetailPassData: ICoordinatorPassData {
 
+    let buyingId: String
+    let sellerName: String
+    let productName: String
 }
 
