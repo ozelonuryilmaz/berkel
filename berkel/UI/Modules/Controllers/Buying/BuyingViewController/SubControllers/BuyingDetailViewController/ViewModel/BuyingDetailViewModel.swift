@@ -8,7 +8,7 @@
 
 import Combine
 
-protocol IBuyingDetailViewModel: AnyObject {
+protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate {
 
     var viewState: ScreenStateSubject<BuyingDetailViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -16,6 +16,9 @@ protocol IBuyingDetailViewModel: AnyObject {
     init(repository: IBuyingDetailRepository,
          coordinator: IBuyingDetailCoordinator,
          uiModel: IBuyingDetailUIModel)
+
+    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
+                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
 
     func initComponents()
 }
@@ -51,6 +54,11 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
             self.getBuyingPayment()
         })
     }
+
+    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
+                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot {
+        self.uiModel.updateCollectionSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
+    }
 }
 
 
@@ -70,7 +78,7 @@ internal extension BuyingDetailViewModel {
                 guard let self = self,
                     let data = self.responseCollection.value else { return }
                 self.uiModel.setCollectionResponse(data: data)
-
+                self.viewStateBuildCollectionSnapshot()
             }, callbackComplete: {
                 completion()
             })
@@ -107,13 +115,21 @@ internal extension BuyingDetailViewModel {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.sellerName,
                                                    subTitle: self.uiModel.productName)
     }
-    
+
     func viewStateOldDoubt() {
         self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt)
     }
-    
+
     func viewStateNowDoubt() {
         self.viewState.value = .nowDoubt(text: self.uiModel.nowDoubt)
+    }
+
+    func viewStateBuildCollectionSnapshot() {
+        viewState.value = .buildCollectionSnapshot(snapshot: self.uiModel.buildCollectionSnapshot())
+    }
+
+    func viewStateUpdateCollectionSnapshot(data: [BuyingCollectionModel]) {
+        viewState.value = .updateCollectionSnapshot(data: data)
     }
 }
 
@@ -122,11 +138,32 @@ internal extension BuyingDetailViewModel {
 
 }
 
+// MARK: BuyingCollectionDataSourceFactoryOutputDelegate
+internal extension BuyingDetailViewModel {
+
+    func cellTapped(uiModel: IBuyingCollectionTableViewCellUIModel) {
+
+    }
+
+    func warehouseTapped(id: String?) {
+
+    }
+
+    func calcActivateTapped(id: String?) {
+
+    }
+    
+    func scrollDidScroll(isAvailablePagination: Bool) {
+        
+    }
+}
 
 enum BuyingDetailViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String, subTitle: String)
     case oldDoubt(text: String)
     case nowDoubt(text: String)
+    case buildCollectionSnapshot(snapshot: BuyingCollectionSnapshot)
+    case updateCollectionSnapshot(data: [BuyingCollectionModel])
 }
 

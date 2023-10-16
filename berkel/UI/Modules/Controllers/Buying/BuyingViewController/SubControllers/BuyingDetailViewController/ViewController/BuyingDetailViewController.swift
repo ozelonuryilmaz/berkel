@@ -23,6 +23,9 @@ final class BuyingDetailViewController: MainBaseViewController {
     // MARK: IBOutlets
     @IBOutlet private weak var lblOldDoubt: UILabel!
     @IBOutlet private weak var lblNowDoubt: UILabel!
+    @IBOutlet private weak var segmentedController: UISegmentedControl!
+    @IBOutlet private weak var tableViewCollection: BuyingCollectionDiffableTableView!
+    @IBOutlet private weak var tableViewPayment: UITableView!
 
     // MARK: Constraints Outlets
 
@@ -41,8 +44,17 @@ final class BuyingDetailViewController: MainBaseViewController {
         self.viewModel.initComponents()
     }
 
-    override func registerEvents() {
+    override func setupView() {
+        initTableViewCollection()
+    }
 
+    override func registerEvents() {
+        segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+    }
+
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        self.tableViewCollection.isHidden = sender.selectedSegmentIndex == 1
+        self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
     }
 
     private func observeReactiveDatas() {
@@ -59,15 +71,23 @@ final class BuyingDetailViewController: MainBaseViewController {
                 self.playNativeLoading(isLoading: isProgress)
 
             case .setNavigationTitle(let title, let subTitle):
-                DispatchQueue.delay(300) { [weak self] in // Base viewWillApeer'da sıfırlanıyordu
+                DispatchQueue.delay(100) { [weak self] in // Base viewWillApeer'da sıfırlanıyordu
                     self?.navigationItem.setCustomTitle(title, subtitle: subTitle)
                 }
-                
+
             case .oldDoubt(let text):
                 self.lblOldDoubt.text = text
             case .nowDoubt(let text):
                 self.lblNowDoubt.text = text
-                
+
+            case .buildCollectionSnapshot(let snapshot):
+                self.tableViewCollection.applySnapshot(snapshot)
+
+            case .updateCollectionSnapshot(let data):
+                let snapsoht = self.viewModel.updateCollectionSnapshot(currentSnapshot: self.tableViewCollection.getSnapshot(),
+                                                                       newDatas: data)
+                self.tableViewCollection.applySnapshot(snapsoht)
+
             }
         }).store(in: &cancelBag)
     }
@@ -85,4 +105,12 @@ final class BuyingDetailViewController: MainBaseViewController {
 // MARK: Props
 private extension BuyingDetailViewController {
 
+}
+
+// MARK: Props
+private extension BuyingDetailViewController {
+
+    func initTableViewCollection() {
+        self.tableViewCollection.configureView(delegateManager: self.viewModel)
+    }
 }

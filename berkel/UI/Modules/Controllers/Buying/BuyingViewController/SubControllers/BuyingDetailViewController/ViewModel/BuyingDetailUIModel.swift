@@ -15,7 +15,7 @@ protocol IBuyingDetailUIModel {
     var buyingId: String { get }
     var sellerName: String { get }
     var productName: String { get }
-    
+
     var oldDoubt: String { get }
     var nowDoubt: String { get }
 
@@ -23,6 +23,11 @@ protocol IBuyingDetailUIModel {
 
     mutating func setCollectionResponse(data: [BuyingCollectionModel])
     mutating func setPaymentResponse(data: [NewBuyingPaymentModel])
+
+    // Collection
+    mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
+    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
+                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
 }
 
 struct BuyingDetailUIModel: IBuyingDetailUIModel {
@@ -31,12 +36,14 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     let buyingId: String
     let sellerName: String
     let productName: String
+    let isActive: Bool
 
     // MARK: Initialize
     init(data: BuyingDetailPassData) {
         self.buyingId = data.buyingId
         self.sellerName = data.sellerName
         self.productName = data.productName
+        self.isActive = data.isActive
     }
 
     var collections: [BuyingCollectionModel] = []
@@ -45,11 +52,11 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
-    
+
     var oldDoubt: String {
         return "Toplam: \(totalKg.decimalString()) Kg, \(totalPrice.decimalString()) TL"
     }
-    
+
     var nowDoubt: String {
         return "\(paidPrice.decimalString()) TL Ödendi, \(remaining.decimalString()) TL Kaldı"
     }
@@ -63,6 +70,8 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         }
         return total
     }
+
+    // TODO: Depo Çıkması fiyatını eklemeyi unutma !!!!
 
     var totalPrice: Double {
         var total: Double = 0
@@ -78,7 +87,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         let price = payments.map({ $0.payment }).reduce(0, +)
         return Double(price)
     }
-    
+
     var remaining: Double {
         return totalPrice - paidPrice
     }
@@ -98,3 +107,50 @@ extension BuyingDetailUIModel {
         self.payments = data
     }
 }
+
+// MARK: Collection
+extension BuyingDetailUIModel {
+
+    mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot {
+        var snapshot = BuyingCollectionSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(prepareCollectionSnapshotRowModel(), toSection: .main)
+        return snapshot
+    }
+
+    private func prepareCollectionSnapshotRowModel() -> [BuyingCollectionRowModel] {
+        let rowModels: [BuyingCollectionRowModel] = collections.compactMap { responseModel in
+            return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
+                id: responseModel.id,
+                isCalc: responseModel.isCalc,
+                isActive: self.isActive,
+                date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
+                totalKg: "--",
+                warehouseKg: "--")
+            )
+        }
+        return rowModels
+    }
+
+    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
+                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot {
+        var snapshot = currentSnapshot
+        var configuredItems: [BuyingCollectionRowModel] = []
+
+        configuredItems = newDatas.compactMap({ responseModel in
+            return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
+                id: responseModel.id,
+                isCalc: responseModel.isCalc,
+                isActive: self.isActive,
+                date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
+                totalKg: "--",
+                warehouseKg: "--")
+            )
+        })
+
+        snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır
+
+        return snapshot
+    }
+}
+

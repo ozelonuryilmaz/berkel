@@ -13,6 +13,9 @@
             <connections>
                 <outlet property="lblNowDoubt" destination="bX3-Ai-8ZO" id="xW8-xk-UQg"/>
                 <outlet property="lblOldDoubt" destination="4d8-bc-kBn" id="m0m-Gm-bfc"/>
+                <outlet property="segmentedController" destination="dii-xe-zSr" id="l9N-db-zEC"/>
+                <outlet property="tableViewCollection" destination="aoG-dl-9oS" id="hLf-jK-Yfz"/>
+                <outlet property="tableViewPayment" destination="Gyq-4b-KhB" id="Lof-MM-HHM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -76,12 +79,12 @@
                         <segment title="Ödeme"/>
                     </segments>
                 </segmentedControl>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aoG-dl-9oS" userLabel="tableViewCollection">
-                    <rect key="frame" x="0.0" y="198" width="390" height="646"/>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyq-4b-KhB" userLabel="tableViewPayment">
+                    <rect key="frame" x="0.0" y="190" width="390" height="654"/>
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gyq-4b-KhB" userLabel="tableViewPayment">
-                    <rect key="frame" x="0.0" y="190" width="390" height="654"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aoG-dl-9oS" userLabel="tableViewCollection" customClass="BuyingCollectionDiffableTableView" customModule="berkel" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="198" width="390" height="646"/>
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                 </tableView>
             </subviews>

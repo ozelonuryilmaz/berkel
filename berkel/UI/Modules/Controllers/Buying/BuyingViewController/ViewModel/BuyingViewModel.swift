@@ -150,12 +150,11 @@ extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
 extension BuyingViewModel {
 
     func cellTapped(uiModel: IBuyingTableViewCellUIModel) {
-        if uiModel.isActive {
-            let data = BuyingDetailPassData(buyingId: uiModel.id,
-                                            sellerName: uiModel.sellerName,
-                                            productName: uiModel.productName)
-            self.pushBuyingDetailViewController(passData: data)
-        }
+        let data = BuyingDetailPassData(buyingId: uiModel.id,
+                                        sellerName: uiModel.sellerName,
+                                        productName: uiModel.productName,
+                                        isActive: uiModel.isActive)
+        self.pushBuyingDetailViewController(passData: data)
     }
 
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
