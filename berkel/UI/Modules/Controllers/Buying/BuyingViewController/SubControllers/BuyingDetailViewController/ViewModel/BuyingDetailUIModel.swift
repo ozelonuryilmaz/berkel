@@ -121,7 +121,8 @@ extension BuyingDetailUIModel {
     private func prepareCollectionSnapshotRowModel() -> [BuyingCollectionRowModel] {
         let rowModels: [BuyingCollectionRowModel] = collections.compactMap { responseModel in
             return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
-                id: responseModel.id,
+                buyingId: self.buyingId,
+                collectionId: responseModel.id,
                 isCalc: responseModel.isCalc,
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
@@ -139,7 +140,8 @@ extension BuyingDetailUIModel {
 
         configuredItems = newDatas.compactMap({ responseModel in
             return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
-                id: responseModel.id,
+                buyingId: self.buyingId,
+                collectionId: responseModel.id,
                 isCalc: responseModel.isCalc,
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",

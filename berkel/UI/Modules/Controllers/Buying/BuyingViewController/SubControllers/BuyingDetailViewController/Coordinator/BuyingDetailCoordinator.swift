@@ -10,6 +10,8 @@ import UIKit
 
 protocol IBuyingDetailCoordinator: AnyObject {
 
+    func presentWarehouseListViewController(passData: WarehouseListPassData,
+                                            successDismissCallBack: ((_ data: WarehouseModel) -> Void)?)
 }
 
 final class BuyingDetailCoordinator: NavigationCoordinator, IBuyingDetailCoordinator {
@@ -19,5 +21,13 @@ final class BuyingDetailCoordinator: NavigationCoordinator, IBuyingDetailCoordin
     override func start() {
         let controller = BuyingDetailBuilder.generate(with: coordinatorData, coordinator: self)
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func presentWarehouseListViewController(passData: WarehouseListPassData,
+                                            successDismissCallBack: ((_ data: WarehouseModel) -> Void)?) {
+        let controller = WarehouseListCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(successDismissCallBack: successDismissCallBack)
+            .with(passData: passData)
+        coordinate(to: controller)
     }
 }

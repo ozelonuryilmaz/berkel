@@ -9,7 +9,7 @@ import UIKit
 
 protocol BuyingCollectionTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
-    func warehouseTapped(id: String?)
+    func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
     func calcActivateTapped(id: String?)
 }
 
@@ -44,11 +44,11 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         }
 
         btnWarehouse.onTap { [unowned self] _ in
-            self.outputDelegate?.warehouseTapped(id: uiModel.id)
+            self.outputDelegate?.warehouseTapped(uiModel: uiModel)
         }
         
         btnCalcActivate.onTap { [unowned self] _ in
-            self.outputDelegate?.calcActivateTapped(id: uiModel.id)
+            self.outputDelegate?.calcActivateTapped(id: uiModel.buyingId)
         }
     }
 

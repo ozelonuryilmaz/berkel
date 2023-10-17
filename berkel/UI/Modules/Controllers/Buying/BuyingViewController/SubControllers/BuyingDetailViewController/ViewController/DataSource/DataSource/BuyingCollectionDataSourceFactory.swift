@@ -9,7 +9,7 @@ import UIKit
 
 protocol BuyingCollectionDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
-    func warehouseTapped(id: String?)
+    func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
     func calcActivateTapped(id: String?)
     func scrollDidScroll(isAvailablePagination: Bool)
 }
@@ -49,12 +49,12 @@ extension BuyingCollectionDataSourceFactory: BuyingCollectionTableViewCellOutput
         self.outputDelegate?.cellTapped(uiModel: uiModel)
     }
 
-    func warehouseTapped(id: String?) {
-        self.outputDelegate?.warehouseTapped(id: id)
+    func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel) {
+        self.outputDelegate?.warehouseTapped(uiModel: uiModel)
     }
 
     func calcActivateTapped(id: String?) {
-        self.outputDelegate?.warehouseTapped(id: id)
+        self.outputDelegate?.calcActivateTapped(id: id)
     }
 }
 

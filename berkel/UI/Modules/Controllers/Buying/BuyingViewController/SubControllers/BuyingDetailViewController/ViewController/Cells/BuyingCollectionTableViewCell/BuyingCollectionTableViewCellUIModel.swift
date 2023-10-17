@@ -9,7 +9,8 @@ import Foundation
 
 protocol IBuyingCollectionTableViewCellUIModel {
     
-    var id: String? { get }
+    var buyingId: String? { get }
+    var collectionId: String? { get }
     var isCalc: Bool { get }
     var isActive: Bool { get }
     
@@ -20,7 +21,8 @@ protocol IBuyingCollectionTableViewCellUIModel {
 
 struct BuyingCollectionTableViewCellUIModel: IBuyingCollectionTableViewCellUIModel {
     
-    let id: String?
+    let buyingId: String?
+    let collectionId: String?
     var isCalc: Bool
     let isActive: Bool
     let date: String

@@ -21,6 +21,8 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
                                   newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
 
     func initComponents()
+
+    func viewStateSetNavigationTitle()
 }
 
 final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
@@ -48,7 +50,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func initComponents() {
-        self.viewStateSetNavigationTitle()
+
         getBuyingCollection(completion: { [weak self] in
             guard let self = self else { return }
             self.getBuyingPayment()
@@ -136,6 +138,13 @@ internal extension BuyingDetailViewModel {
 // MARK: Coordinate
 internal extension BuyingDetailViewModel {
 
+    func presentWarehouseListViewController(uiModel: IBuyingCollectionTableViewCellUIModel) {
+        self.coordinator.presentWarehouseListViewController(passData: WarehouseListPassData(buyingId: uiModel.buyingId,
+                                                                                            collectionId: uiModel.collectionId,
+                                                                                            date: uiModel.date), successDismissCallBack: { data in
+
+        })
+    }
 }
 
 // MARK: BuyingCollectionDataSourceFactoryOutputDelegate
@@ -145,16 +154,16 @@ internal extension BuyingDetailViewModel {
 
     }
 
-    func warehouseTapped(id: String?) {
-
+    func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel) {
+        self.presentWarehouseListViewController(uiModel: uiModel)
     }
 
     func calcActivateTapped(id: String?) {
 
     }
-    
+
     func scrollDidScroll(isAvailablePagination: Bool) {
-        
+
     }
 }
 

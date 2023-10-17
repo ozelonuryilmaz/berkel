@@ -43,6 +43,11 @@ final class BuyingDetailViewController: MainBaseViewController {
         self.observeReactiveDatas()
         self.viewModel.initComponents()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.viewStateSetNavigationTitle()
+    }
 
     override func setupView() {
         initTableViewCollection()
@@ -71,9 +76,7 @@ final class BuyingDetailViewController: MainBaseViewController {
                 self.playNativeLoading(isLoading: isProgress)
 
             case .setNavigationTitle(let title, let subTitle):
-                DispatchQueue.delay(100) { [weak self] in // Base viewWillApeer'da sıfırlanıyordu
-                    self?.navigationItem.setCustomTitle(title, subtitle: subTitle)
-                }
+                self.navigationItem.setCustomTitle(title, subtitle: subTitle)
 
             case .oldDoubt(let text):
                 self.lblOldDoubt.text = text
