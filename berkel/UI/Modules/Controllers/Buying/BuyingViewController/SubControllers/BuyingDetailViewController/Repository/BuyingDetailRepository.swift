@@ -11,6 +11,8 @@ import Foundation
 protocol IBuyingDetailRepository: AnyObject {
     func getCollection(season: String, buyingId: String) -> FirestoreResponseType<[BuyingCollectionModel]>
     func getPayment(season: String, buyingId: String) -> FirestoreResponseType<[NewBuyingPaymentModel]>
+    
+    func getWarehouseList(season: String, buyingId: String, collectionId: String) -> FirestoreResponseType<[WarehouseModel]>
 }
 
 final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
@@ -22,6 +24,11 @@ final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
 
     func getPayment(season: String, buyingId: String) -> FirestoreResponseType<[NewBuyingPaymentModel]> {
         let db = BuyingDataService.payment(season: season, buyingId: buyingId)
+        return getDocuments(db, order: db.order)
+    }
+    
+    func getWarehouseList(season: String, buyingId: String, collectionId: String) -> FirestoreResponseType<[WarehouseModel]> {
+        let db = BuyingDataService.wavehouse(season: season, buyingId: buyingId, collectionId: collectionId)
         return getDocuments(db, order: db.order)
     }
 }

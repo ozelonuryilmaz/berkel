@@ -6,6 +6,7 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
+import Foundation
 import Combine
 
 protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate {
@@ -39,6 +40,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     var errorState = ErrorStateSubject(nil)
     let responsePayment = CurrentValueSubject<[NewBuyingPaymentModel]?, Never>(nil)
     let responseCollection = CurrentValueSubject<[BuyingCollectionModel]?, Never>(nil)
+    let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -80,7 +82,10 @@ internal extension BuyingDetailViewModel {
                 guard let self = self,
                     let data = self.responseCollection.value else { return }
                 self.uiModel.setCollectionResponse(data: data)
-                self.viewStateBuildCollectionSnapshot()
+
+                // Her Cell için ayrı ayrı depo çıktısı bilgisi toplanıyor.
+                self.getWarehouses()
+
             }, callbackComplete: {
                 completion()
             })
@@ -101,6 +106,43 @@ internal extension BuyingDetailViewModel {
                 self.uiModel.setPaymentResponse(data: data)
                 self.viewStateOldDoubt()
                 self.viewStateNowDoubt()
+            })
+    }
+
+    // Depo çıkması bilgileri Toplama(collections) altında collection olarak saklanıyor
+    // Her toplama(collections) için warehouses(depo çıktısı) çağırılıp UIModel'deki collection güncellenmeli
+    private func getWarehouses(index: Int = 0) {
+        let collections = self.uiModel.collections
+        guard collections.count > index else { return }
+        guard let collectionId = collections[index].id else { return }
+
+        handleResourceFirestore(
+            request: self.repository.getWarehouseList(season: self.uiModel.season,
+                                                      buyingId: self.uiModel.buyingId,
+                                                      collectionId: collectionId),
+            response: self.responseWarehouse,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: (collections.count == index + 1) ? false : true)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseWarehouse.value else { return }
+                self.uiModel.appendWarehouseInsideCollection(collectionId: collectionId, warehouses: data)
+
+                if collections.count == index + 1 {
+                    self.viewStateBuildCollectionSnapshot()
+                }
+            }, callbackComplete: { [weak self] in
+                guard let self = self else { return }
+                let limit = collections.count
+                let count = index + 1
+                if limit > count {
+                    DispatchQueue.delay(25) {[weak self] in
+                        guard let self = self else { return }
+                        self.getWarehouses(index: count)
+                    }
+                }
             })
     }
 }
@@ -139,10 +181,18 @@ internal extension BuyingDetailViewModel {
 internal extension BuyingDetailViewModel {
 
     func presentWarehouseListViewController(uiModel: IBuyingCollectionTableViewCellUIModel) {
-        self.coordinator.presentWarehouseListViewController(passData: WarehouseListPassData(buyingId: uiModel.buyingId,
-                                                                                            collectionId: uiModel.collectionId,
-                                                                                            date: uiModel.date), successDismissCallBack: { data in
+        let warehouses = self.uiModel.getWarehouses(collectionId: uiModel.collectionId)
 
+        self.coordinator.presentWarehouseListViewController(
+            passData: WarehouseListPassData(buyingId: uiModel.buyingId,
+                                            collectionId: uiModel.collectionId,
+                                            date: uiModel.date,
+                                            sellerName: self.uiModel.sellerName,
+                                            productName: self.uiModel.productName,
+                                            warehouses: warehouses
+        ), successDismissCallBack: { data in
+            // TODO: yeni depo çıkması eklendiğinde cell ve üstteki toplam label'ları güncelle
+            
         })
     }
 }

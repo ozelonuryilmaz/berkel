@@ -28,4 +28,8 @@ struct BuyingCollectionModel: Codable {
     let greenDari: Double
     let black22FoodDari: Double
     let bigBlackDari: Double
+    
+    // Depo çıkması bilgileri Toplama(collections) altında collection olarak saklanıyor
+    // Her toplama(collections) için warehouses(depo çıktısı) çağırılıp UIModel'deki collection güncellenmeli
+    var warehouses: [WarehouseModel]? = nil
 }

@@ -17,6 +17,15 @@ final class NewWarehouseViewController: BerkelBaseViewController {
     private let viewModel: INewWarehouseViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblSellerName: UILabel!
+    @IBOutlet private weak var lblProductName: UILabel!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+
+    @IBOutlet private weak var tfKg: PrimaryTextField!
+    @IBOutlet private weak var tfPrice: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -32,21 +41,29 @@ final class NewWarehouseViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
-        self.viewModel.initComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.viewStateSetNavigationTitle()
     }
 
+    override func setupView() {
+        self.viewModel.initComponents()
+        self.initDatePickerView()
+    }
+
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveWarehouse()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -56,9 +73,13 @@ final class NewWarehouseViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+
             case .setNavigationTitle(let title, let subTitle):
                 self.navigationItem.setCustomTitle(title, subtitle: subTitle)
 
+            case .setSellerAndProductName(let seller, let product):
+                self.lblSellerName.text = seller
+                self.lblProductName.text = "(\(product))"
             }
 
         }).store(in: &cancelBag)
@@ -77,4 +98,30 @@ final class NewWarehouseViewController: BerkelBaseViewController {
 // MARK: Props
 private extension NewWarehouseViewController {
 
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
+}
+
+// MARK: TextField
+private extension NewWarehouseViewController {
+
+    func listenTextFieldsDidChange() {
+        tfKg.addListenDidChange { [unowned self] text in
+            self.viewModel.setKg(text)
+        }
+
+        tfPrice.addListenDidChange { [unowned self] text in
+            self.viewModel.setPrice(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

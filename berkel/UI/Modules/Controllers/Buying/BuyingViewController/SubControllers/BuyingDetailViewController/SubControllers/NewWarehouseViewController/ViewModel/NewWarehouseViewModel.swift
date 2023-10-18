@@ -19,11 +19,19 @@ protocol INewWarehouseViewModel: AnyObject {
          uiModel: INewWarehouseUIModel,
          successDismissCallBack: ((_ data: WarehouseModel) -> Void)?)
 
-    
-    func viewStateSetNavigationTitle()
-    
     func initComponents()
 
+    // Setter
+    func setDate(date: String?)
+    func setKg(_ text: String)
+    func setPrice(_ text: String)
+    func setDesc(_ text: String)
+
+    // ViewState
+    func viewStateSetNavigationTitle()
+
+    // Service
+    func saveWarehouse()
 }
 
 final class NewWarehouseViewModel: BaseViewModel, INewWarehouseViewModel {
@@ -40,6 +48,7 @@ final class NewWarehouseViewModel: BaseViewModel, INewWarehouseViewModel {
 
     var viewState = ScreenStateSubject<NewWarehouseViewState>(nil)
     var errorState = ErrorStateSubject(nil)
+    let response = CurrentValueSubject<WarehouseModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewWarehouseRepository,
@@ -53,7 +62,7 @@ final class NewWarehouseViewModel: BaseViewModel, INewWarehouseViewModel {
     }
 
     func initComponents() {
-        
+        self.viewStateSellerName()
     }
 }
 
@@ -61,6 +70,25 @@ final class NewWarehouseViewModel: BaseViewModel, INewWarehouseViewModel {
 // MARK: Service
 internal extension NewWarehouseViewModel {
 
+    func saveWarehouse() {
+        guard self.uiModel.isHaveAnyResults else { return }
+        guard let buyingId = self.uiModel.buyingId, let collectionId = self.uiModel.collectionId else { return }
+
+        handleResourceFirestore(
+            request: self.repository.saveNewWarehouse(season: self.uiModel.season,
+                                                      buyingId: buyingId,
+                                                      collectionId: collectionId,
+                                                      data: self.uiModel.data),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self, let data = self.response.value else { return }
+                self.successDismiss(data: data)
+            })
+    }
 }
 
 // MARK: States
@@ -70,12 +98,16 @@ internal extension NewWarehouseViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateSetNavigationTitle() {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.date ?? "",
                                                    subTitle: "Depo Çıkması Ekle")
     }
 
+    func viewStateSellerName() {
+        self.viewState.value = .setSellerAndProductName(seller: self.uiModel.sellerName,
+                                                        product: self.uiModel.productName)
+    }
 }
 
 // MARK: Coordinate
@@ -87,8 +119,29 @@ internal extension NewWarehouseViewModel {
     }
 }
 
+// MARK: Setter
+internal extension NewWarehouseViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setKg(_ text: String) {
+        self.uiModel.setKg(text)
+    }
+
+    func setPrice(_ text: String) {
+        self.uiModel.setPrice(text)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
+    }
+
+}
 
 enum NewWarehouseViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String, subTitle: String)
+    case setSellerAndProductName(seller: String, product: String)
 }

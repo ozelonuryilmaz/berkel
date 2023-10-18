@@ -27,7 +27,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeR-AY-QMt" userLabel="viewResults" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
                     <rect key="frame" x="8" y="55" width="374" height="96"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4d8-bc-kBn" userLabel="oldDoubt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4d8-bc-kBn" userLabel="oldDoubt">
                             <rect key="frame" x="8" y="8" width="358" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="wSM-pg-8oV"/>
@@ -36,7 +36,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX3-Ai-8ZO" userLabel="nowDoubt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX3-Ai-8ZO" userLabel="nowDoubt">
                             <rect key="frame" x="8" y="48" width="358" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="IIL-kd-fLT"/>

@@ -26,10 +26,10 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var btnCalcActivate: UIButton!
     @IBOutlet private weak var viewButtons: UIView!
 
-    
+
     // MARK: Constraints Outlets
     @IBOutlet private weak var constraintViewButtonsHeight: NSLayoutConstraint!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -37,7 +37,7 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
     }
 
     func registerEvents(uiModel: IBuyingCollectionTableViewCellUIModel) {
-        
+
         // Events
         mContentView.onTap { [unowned self] _ in
             self.outputDelegate?.cellTapped(uiModel: uiModel)
@@ -46,7 +46,7 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         btnWarehouse.onTap { [unowned self] _ in
             self.outputDelegate?.warehouseTapped(uiModel: uiModel)
         }
-        
+
         btnCalcActivate.onTap { [unowned self] _ in
             self.outputDelegate?.calcActivateTapped(id: uiModel.buyingId)
         }
@@ -55,16 +55,16 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
     func configureCellWith(uiModel: IBuyingCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
         self.visibilityButtons(isVisible: uiModel.isActive)
-        
+
         btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : .redColor
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
         btnCalcActivate.setTitle(uiModel.isCalc ? "Aktif" : "Aktifleştir", for: .normal)
         btnCalcActivate.isEnabled = !uiModel.isCalc
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
-        
+
         lblDate.text = uiModel.date
-        lblTotalKg.text = "Net Toplam: \(uiModel.totalKg) Kg"
-        lblWarehouse.text = "Depo Çıkması: \(uiModel.warehouseKg) Kg"
+        lblWarehouse.text = "Depo Çıkması: \(uiModel.warehouseKg) Kg, \(uiModel.warehouseKgPrice) TL"
+        lblTotalKg.text = "Toplam: \(uiModel.totalKg) Kg, \(uiModel.totalKgPrice) TL"
     }
 
     private func visibilityButtons(isVisible: Bool) {

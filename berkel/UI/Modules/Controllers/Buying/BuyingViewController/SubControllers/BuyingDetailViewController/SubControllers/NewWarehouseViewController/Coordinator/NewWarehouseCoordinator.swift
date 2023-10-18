@@ -16,7 +16,7 @@ protocol INewWarehouseCoordinator: AnyObject {
 final class NewWarehouseCoordinator: NavigationCoordinator, INewWarehouseCoordinator {
 
     private var coordinatorData: NewWarehousePassData { return castPassData(NewWarehousePassData.self) }
-    
+
     private var successDismissCallBack: ((_ data: WarehouseModel) -> Void)? = nil
 
     @discardableResult
@@ -31,7 +31,7 @@ final class NewWarehouseCoordinator: NavigationCoordinator, INewWarehouseCoordin
                                                       successDismissCallBack: self.successDismissCallBack)
         navigationController.pushViewController(controller, animated: true)
     }
-    
+
     func selfPopViewController() {
         self.navigationController.popToRootViewController(animated: true)
     }

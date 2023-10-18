@@ -13,5 +13,7 @@ struct NewWarehousePassData: ICoordinatorPassData {
     let buyingId: String?
     let collectionId: String?
     let date: String?
+    let sellerName: String
+    let productName: String
 }
 

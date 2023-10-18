@@ -16,7 +16,9 @@ protocol IBuyingCollectionTableViewCellUIModel {
     
     var date: String { get }
     var totalKg: String { get }
+    var totalKgPrice: String { get }
     var warehouseKg: String { get }
+    var warehouseKgPrice: String { get }
 }
 
 struct BuyingCollectionTableViewCellUIModel: IBuyingCollectionTableViewCellUIModel {
@@ -27,5 +29,7 @@ struct BuyingCollectionTableViewCellUIModel: IBuyingCollectionTableViewCellUIMod
     let isActive: Bool
     let date: String
     let totalKg: String
+    let totalKgPrice: String
     let warehouseKg: String
+    let warehouseKgPrice: String
 }

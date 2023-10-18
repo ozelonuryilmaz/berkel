@@ -11,5 +11,9 @@ struct WarehouseModel: Codable {
 
     var id: String? = nil
     let userId: String?
-    let date: String
+    let date: String?
+
+    let wavehouseKg: Int
+    let wavehousePrice: Double
+    let description: String?
 }

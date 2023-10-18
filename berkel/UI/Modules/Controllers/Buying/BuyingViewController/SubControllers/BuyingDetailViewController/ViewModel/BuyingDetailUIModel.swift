@@ -21,8 +21,13 @@ protocol IBuyingDetailUIModel {
 
     init(data: BuyingDetailPassData)
 
+    var collections: [BuyingCollectionModel] { get }
+
     mutating func setCollectionResponse(data: [BuyingCollectionModel])
     mutating func setPaymentResponse(data: [NewBuyingPaymentModel])
+    mutating func appendWarehouseInsideCollection(collectionId: String, warehouses: [WarehouseModel])
+
+    func getWarehouses(collectionId: String?) -> [WarehouseModel]
 
     // Collection
     mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
@@ -103,8 +108,24 @@ extension BuyingDetailUIModel {
         self.collections = data
     }
 
+    mutating func appendWarehouseInsideCollection(collectionId: String, warehouses: [WarehouseModel]) {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            var tempData: [WarehouseModel] = self.collections[index].warehouses ?? []
+            tempData.append(contentsOf: warehouses)
+            self.collections[index].warehouses = tempData
+        }
+    }
+
     mutating func setPaymentResponse(data: [NewBuyingPaymentModel]) {
         self.payments = data
+    }
+
+    func getWarehouses(collectionId: String?) -> [WarehouseModel] {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            return self.collections[index].warehouses ?? []
+        } else {
+            return []
+        }
     }
 }
 
@@ -127,7 +148,9 @@ extension BuyingDetailUIModel {
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
                 totalKg: "--",
-                warehouseKg: "--")
+                totalKgPrice: "..",
+                warehouseKg: "--",
+                warehouseKgPrice: "..")
             )
         }
         return rowModels
@@ -146,7 +169,9 @@ extension BuyingDetailUIModel {
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
                 totalKg: "--",
-                warehouseKg: "--")
+                totalKgPrice: "..",
+                warehouseKg: "--",
+                warehouseKgPrice: "..")
             )
         })
 

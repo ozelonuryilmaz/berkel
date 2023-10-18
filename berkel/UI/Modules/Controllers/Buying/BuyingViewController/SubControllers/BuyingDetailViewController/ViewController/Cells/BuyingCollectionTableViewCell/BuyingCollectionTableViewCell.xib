@@ -31,16 +31,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbO-qj-rN4" userLabel="lblTotalKg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbO-qj-rN4" userLabel="lblWavehouse">
                                 <rect key="frame" x="16" y="54" width="319" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="4bl-HF-aKt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="4bl-HF-aKt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZh-yH-Dtc" userLabel="lblWavehouse">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZh-yH-Dtc" userLabel="lblTotalKg">
                                 <rect key="frame" x="16" y="88" width="319" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="NHn-Nt-9zk"/>
@@ -129,8 +129,8 @@
                 <outlet property="btnWarehouse" destination="JiM-Oe-q75" id="erv-gF-DmT"/>
                 <outlet property="constraintViewButtonsHeight" destination="kXD-eS-pX5" id="waK-c8-PGL"/>
                 <outlet property="lblDate" destination="SQ4-Jl-4Nz" id="GDE-Dk-Wae"/>
-                <outlet property="lblTotalKg" destination="LbO-qj-rN4" id="j3n-Sg-Zx1"/>
-                <outlet property="lblWarehouse" destination="gZh-yH-Dtc" id="fVe-D5-vVM"/>
+                <outlet property="lblTotalKg" destination="gZh-yH-Dtc" id="tO0-KR-a7U"/>
+                <outlet property="lblWarehouse" destination="LbO-qj-rN4" id="AWo-mG-QrW"/>
                 <outlet property="mContentView" destination="fzU-Y9-Tje" id="wAs-Pv-cRb"/>
                 <outlet property="viewButtons" destination="rFE-v7-ZlV" id="vSR-4H-bau"/>
             </connections>

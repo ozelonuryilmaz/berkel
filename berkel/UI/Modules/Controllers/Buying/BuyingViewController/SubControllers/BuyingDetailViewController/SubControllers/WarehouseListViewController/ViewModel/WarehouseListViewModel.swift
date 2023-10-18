@@ -19,7 +19,7 @@ protocol IWarehouseListViewModel: AnyObject {
          successDismissCallBack: ((_ data: WarehouseModel) -> Void)?)
 
     func initComponents()
-    
+
     // ViewState
     func viewStateSetNavigationTitle()
 
@@ -52,7 +52,6 @@ final class WarehouseListViewModel: BaseViewModel, IWarehouseListViewModel {
     }
 
     func initComponents() {
-        
     }
 }
 
@@ -60,6 +59,7 @@ final class WarehouseListViewModel: BaseViewModel, IWarehouseListViewModel {
 // MARK: Service
 internal extension WarehouseListViewModel {
 
+    
 }
 
 // MARK: States
@@ -69,7 +69,7 @@ internal extension WarehouseListViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateSetNavigationTitle() {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.date ?? "",
                                                    subTitle: "Depo Çıkması")
@@ -96,7 +96,9 @@ internal extension WarehouseListViewModel {
         self.coordinator.pushNewWarehouseViewController(
             passData: NewWarehousePassData(buyingId: self.uiModel.buyingId,
                                            collectionId: self.uiModel.collectionId,
-                                           date: self.uiModel.date),
+                                           date: self.uiModel.date,
+                                           sellerName: self.uiModel.sellerName,
+                                           productName: self.uiModel.productName),
             successDismissCallBack: { data in
                 self.successDismiss(data: data)
             }
@@ -104,9 +106,7 @@ internal extension WarehouseListViewModel {
     }
 }
 
-
 enum WarehouseListViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String, subTitle: String)
 }
-

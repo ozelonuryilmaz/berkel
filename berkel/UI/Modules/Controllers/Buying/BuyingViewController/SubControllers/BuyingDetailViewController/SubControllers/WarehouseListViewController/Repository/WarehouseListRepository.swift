@@ -14,4 +14,5 @@ protocol IWarehouseListRepository: AnyObject {
 
 final class WarehouseListRepository: BaseRepository, IWarehouseListRepository {
 
+    
 }
