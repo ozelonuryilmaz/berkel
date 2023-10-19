@@ -217,6 +217,7 @@ internal extension BuyingDetailViewModel {
 
         self.coordinator.presentWarehouseListViewController(
             passData: WarehouseListPassData(buyingId: uiModel.buyingId,
+                                            isActive: uiModel.isActive,
                                             collectionId: uiModel.collectionId,
                                             date: uiModel.date,
                                             sellerName: self.uiModel.sellerName,

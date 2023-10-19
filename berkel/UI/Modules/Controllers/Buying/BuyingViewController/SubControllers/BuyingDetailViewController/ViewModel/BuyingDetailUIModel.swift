@@ -15,6 +15,7 @@ protocol IBuyingDetailUIModel {
     var buyingId: String { get }
     var sellerName: String { get }
     var productName: String { get }
+    var isActive: Bool { get }
 
     var collections: [BuyingCollectionModel] { get }
 
@@ -71,7 +72,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     }
 
     func nowDoubt() -> String {
-        return "\(paidPrice().decimalString()) TL Ödendi, \(remaining().decimalString()) TL Kaldı"
+        return "\(paidPrice().decimalString()) TL Ödendi, \(remaining().decimalString()) TL Bekliyor"
     }
 
     func paidPrice() -> Double {

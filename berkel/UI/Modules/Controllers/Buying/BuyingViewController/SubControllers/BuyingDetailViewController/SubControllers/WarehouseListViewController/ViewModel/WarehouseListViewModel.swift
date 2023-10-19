@@ -26,7 +26,7 @@ protocol IWarehouseListViewModel: AnyObject {
     // Coordinate
     func pushNewWarehouseViewController()
     func dismiss()
-    
+
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel
@@ -56,6 +56,10 @@ final class WarehouseListViewModel: BaseViewModel, IWarehouseListViewModel {
     }
 
     func initComponents() {
+
+        if self.uiModel.isActive {
+            viewStateAddNewWavehouseButton()
+        }
     }
 }
 
@@ -63,7 +67,7 @@ final class WarehouseListViewModel: BaseViewModel, IWarehouseListViewModel {
 // MARK: Service
 internal extension WarehouseListViewModel {
 
-    
+
 }
 
 // MARK: States
@@ -77,6 +81,10 @@ internal extension WarehouseListViewModel {
     func viewStateSetNavigationTitle() {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.date ?? "",
                                                    subTitle: "Depo Çıkması")
+    }
+
+    func viewStateAddNewWavehouseButton() {
+        self.viewState.value = .addNewWavehouseButton
     }
 
     // MARK: Action State
@@ -125,5 +133,6 @@ internal extension WarehouseListViewModel {
 
 enum WarehouseListViewState {
     case showNativeProgress(isProgress: Bool)
+    case addNewWavehouseButton
     case setNavigationTitle(title: String, subTitle: String)
 }

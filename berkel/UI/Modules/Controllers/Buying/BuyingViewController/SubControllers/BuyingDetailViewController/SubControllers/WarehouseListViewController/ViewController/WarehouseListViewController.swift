@@ -33,7 +33,6 @@ final class WarehouseListViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
 
         self.observeReactiveDatas()
         self.initTableView()
@@ -62,6 +61,9 @@ final class WarehouseListViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+                
+            case .addNewWavehouseButton:
+                self.navigationItem.rightBarButtonItems = [self.addBarButtonItem]
                 
             case .setNavigationTitle(let title, let subTitle):
                 self.navigationItem.setCustomTitle(title, subtitle: subTitle)

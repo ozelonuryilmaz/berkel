@@ -11,6 +11,7 @@ import Foundation
 struct WarehouseListPassData: ICoordinatorPassData {
 
     let buyingId: String?
+    let isActive: Bool
     let collectionId: String?
     let date: String?
     let sellerName: String
