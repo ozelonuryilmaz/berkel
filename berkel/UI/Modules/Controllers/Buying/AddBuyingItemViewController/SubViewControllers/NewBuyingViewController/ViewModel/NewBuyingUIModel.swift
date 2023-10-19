@@ -85,7 +85,7 @@ extension NewBuyingUIModel {
 
     var firstPayment: NewBuyingPaymentModel {
         let date = Date().dateFormatterApiResponseType()
-        return NewBuyingPaymentModel(id: nil, userId: userId, date: date, payment: self.payment, description: nil)
+        return NewBuyingPaymentModel(id: nil, userId: userId, date: date, payment: self.payment, description: "Peşinat")
     }
 
     var errorMessage: String? {
