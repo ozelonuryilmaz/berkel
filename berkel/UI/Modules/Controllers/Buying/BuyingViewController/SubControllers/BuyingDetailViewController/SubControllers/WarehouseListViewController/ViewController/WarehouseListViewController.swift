@@ -17,6 +17,7 @@ final class WarehouseListViewController: BerkelBaseViewController {
     private let viewModel: IWarehouseListViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Constraints Outlets
 
@@ -35,6 +36,7 @@ final class WarehouseListViewController: BerkelBaseViewController {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
 
         self.observeReactiveDatas()
+        self.initTableView()
         self.viewModel.initComponents()
     }
 
@@ -50,6 +52,7 @@ final class WarehouseListViewController: BerkelBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.viewStateSetNavigationTitle()
+        self.tableView.reloadData()
     }
 
     private func observeViewState() {
@@ -91,5 +94,29 @@ final class WarehouseListViewController: BerkelBaseViewController {
 
 // MARK: Props
 private extension WarehouseListViewController {
+
+    func initTableView() {
+        self.tableView.registerCell(WarehouseListTableViewCell.self)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
+        self.tableView.removeTableHeaderView()
+        self.tableView.removeTableFooterView()
+    }
+}
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+extension WarehouseListViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.getNumberOfItemsInSection()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.generateReusableCell(WarehouseListTableViewCell.self, indexPath: indexPath)
+        cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
+        cell.visibleSeperator(isVisible: false)
+        return cell
+    }
 
 }

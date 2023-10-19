@@ -34,6 +34,12 @@
 		6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3C2AA7AD48000034FD /* SettingsService.swift */; };
 		6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */; };
 		6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */; };
+		671AC43C2AE18F0E00915113 /* WarehouseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC43A2AE18F0E00915113 /* WarehouseListTableViewCell.swift */; };
+		671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC43B2AE18F0E00915113 /* WarehouseListTableViewCell.xib */; };
+		671AC43F2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC43E2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift */; };
+		671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */; };
+		671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */; };
+		671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */; };
 		67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334E9F2AB4E0840072DBD6 /* SellerService.swift */; };
 		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
 		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
@@ -299,6 +305,12 @@
 		6710BF3C2AA7AD48000034FD /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseModel.swift; sourceTree = "<group>"; };
 		6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
+		671AC43A2AE18F0E00915113 /* WarehouseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListTableViewCell.swift; sourceTree = "<group>"; };
+		671AC43B2AE18F0E00915113 /* WarehouseListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WarehouseListTableViewCell.xib; sourceTree = "<group>"; };
+		671AC43E2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCell.swift; sourceTree = "<group>"; };
+		671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingPaymentTableViewCell.xib; sourceTree = "<group>"; };
+		671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		67334E9F2AB4E0840072DBD6 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
 		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
@@ -686,6 +698,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		671AC4392AE18EFB00915113 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				671AC43E2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift */,
+				671AC43A2AE18F0E00915113 /* WarehouseListTableViewCell.swift */,
+				671AC43B2AE18F0E00915113 /* WarehouseListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		671AC4402AE1964900915113 /* BuyingPaymentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */,
+				671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */,
+				671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */,
+			);
+			path = BuyingPaymentTableViewCell;
+			sourceTree = "<group>";
+		};
 		67334EA12AB4E1150072DBD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +763,7 @@
 		674CC6CD2ADEE80C0026A9D2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				671AC4392AE18EFB00915113 /* Cells */,
 				674CC6BF2ADEE7FD0026A9D2 /* WarehouseListViewController.swift */,
 				67FC97202ADEE83900FC53AE /* WarehouseListViewController.xib */,
 			);
@@ -740,6 +773,7 @@
 		674D105F2ADD9710002CFFE8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				671AC4402AE1964900915113 /* BuyingPaymentTableViewCell */,
 				674D10692ADD9943002CFFE8 /* BuyingCollectionTableViewCell */,
 			);
 			path = Cells;
@@ -2270,6 +2304,7 @@
 			files = (
 				67B9EE512AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib in Resources */,
 				678DE0052AC74A9000AA8D46 /* BuyingTableViewCell.xib in Resources */,
+				671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */,
 				678610982ADEEC6F00031FF5 /* NewWarehouseViewController.xib in Resources */,
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				674D106D2ADD9964002CFFE8 /* BuyingCollectionTableViewCell.xib in Resources */,
@@ -2281,6 +2316,7 @@
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */,
+				671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */,
 				67995ACB2ADBEB8200D8EA12 /* BuyingPaymentViewController.xib in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
 				6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */,
@@ -2425,6 +2461,7 @@
 				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
 				6776F4DF2AB3AF27006836CE /* AddSellerPassData.swift in Sources */,
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
+				671AC43C2AE18F0E00915113 /* WarehouseListTableViewCell.swift in Sources */,
 				677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */,
 				670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */,
 				67FC97332ADEEC4600FC53AE /* NewWarehouseUIModel.swift in Sources */,
@@ -2450,6 +2487,7 @@
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
 				6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */,
 				674CC6C62ADEE7FD0026A9D2 /* WarehouseListUIModel.swift in Sources */,
+				671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */,
 				6797F0492AA4974800638C09 /* DatabaseReference+Combine.swift in Sources */,
 				670B3C9D2ABA20F000EE7CFB /* BuyingItemService.swift in Sources */,
 				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
@@ -2480,9 +2518,11 @@
 				67B9EE592AD5B0A6003E6BA3 /* BuyingCollectionModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
 				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
+				671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */,
 				670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */,
 				67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
+				671AC43F2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift in Sources */,
 				67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */,
 				677E678E2AA346EB001775E2 /* MainTabbarCoordinator.swift in Sources */,
 				670B3C832ABA0E9900EE7CFB /* AddBuyingItemDataSourceFactory.swift in Sources */,

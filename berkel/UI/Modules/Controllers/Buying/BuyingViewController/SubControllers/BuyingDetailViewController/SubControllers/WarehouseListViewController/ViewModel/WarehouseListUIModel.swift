@@ -16,10 +16,11 @@ protocol IWarehouseListUIModel {
     var sellerName: String { get }
     var productName: String { get }
 
-    var season: String { get }
-
     init(data: WarehouseListPassData)
 
+    // for Table View
+    func getNumberOfItemsInSection() -> Int
+    func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel
 }
 
 struct WarehouseListUIModel: IWarehouseListUIModel {
@@ -42,12 +43,6 @@ struct WarehouseListUIModel: IWarehouseListUIModel {
         self.date = data.date
         self.sellerName = data.sellerName
         self.productName = data.productName
-        
-        print("** \(warehouses)")
-    }
-
-    var season: String {
-        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
     // MARK: Computed Props
@@ -55,5 +50,18 @@ struct WarehouseListUIModel: IWarehouseListUIModel {
 
 // MARK: Props
 extension WarehouseListUIModel {
+
+}
+
+// MARK: TableView Helper
+extension WarehouseListUIModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.warehouses.count
+    }
+
+    func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel {
+        return WarehouseListTableViewCellUIModelUIModel(warehouses: self.warehouses[index])
+    }
 
 }

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="KGk-i7-Jjw" customClass="BuyingPaymentTableViewCell" customModule="berkel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viG-QP-sIf" userLabel="mContentView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
+                        <rect key="frame" x="16" y="8" width="288" height="129"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwF-x9-RXU" userLabel="lblDate">
+                                <rect key="frame" x="16" y="16" width="256" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dQn-aC-gaQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aY5-G5-AKE" userLabel="lblPrice">
+                                <rect key="frame" x="16" y="54" width="256" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="bvV-s9-esq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-DZ-mfr" userLabel="lblDesc">
+                                <rect key="frame" x="16" y="88" width="256" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Q15-DZ-mfr" secondAttribute="bottom" constant="16" id="4uG-Wz-70D"/>
+                            <constraint firstItem="aY5-G5-AKE" firstAttribute="top" secondItem="DwF-x9-RXU" secondAttribute="bottom" constant="8" id="CvF-vm-NAz"/>
+                            <constraint firstAttribute="trailing" secondItem="Q15-DZ-mfr" secondAttribute="trailing" constant="16" id="I6P-yN-qer"/>
+                            <constraint firstItem="aY5-G5-AKE" firstAttribute="leading" secondItem="viG-QP-sIf" secondAttribute="leading" constant="16" id="Lz1-kj-gXY"/>
+                            <constraint firstItem="DwF-x9-RXU" firstAttribute="leading" secondItem="viG-QP-sIf" secondAttribute="leading" constant="16" id="MOQ-hd-0sB"/>
+                            <constraint firstAttribute="trailing" secondItem="aY5-G5-AKE" secondAttribute="trailing" constant="16" id="Sb9-lH-VKR"/>
+                            <constraint firstItem="Q15-DZ-mfr" firstAttribute="leading" secondItem="viG-QP-sIf" secondAttribute="leading" constant="16" id="ZTL-ky-Ib8"/>
+                            <constraint firstItem="Q15-DZ-mfr" firstAttribute="top" secondItem="aY5-G5-AKE" secondAttribute="bottom" constant="8" id="ecN-LY-aUv"/>
+                            <constraint firstAttribute="trailing" secondItem="DwF-x9-RXU" secondAttribute="trailing" constant="16" id="ll4-KO-7Ov"/>
+                            <constraint firstItem="DwF-x9-RXU" firstAttribute="top" secondItem="viG-QP-sIf" secondAttribute="top" constant="16" id="v8d-ry-kTS"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" name="Gray110"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                <constraints>
+                    <constraint firstItem="viG-QP-sIf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZZW-K6-Ptq"/>
+                    <constraint firstAttribute="bottom" secondItem="viG-QP-sIf" secondAttribute="bottom" constant="8" id="ccy-dk-WOc"/>
+                    <constraint firstItem="viG-QP-sIf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nQU-gj-mDL"/>
+                    <constraint firstAttribute="trailing" secondItem="viG-QP-sIf" secondAttribute="trailing" constant="16" id="opX-Yh-K3q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblDate" destination="DwF-x9-RXU" id="uhP-It-xjQ"/>
+                <outlet property="lblDesc" destination="Q15-DZ-mfr" id="kkx-U8-nBF"/>
+                <outlet property="lblPrice" destination="aY5-G5-AKE" id="uO3-qr-tUe"/>
+                <outlet property="mContentView" destination="viG-QP-sIf" id="7wc-nt-9yX"/>
+            </connections>
+            <point key="canvasLocation" x="135.87786259541986" y="134.1549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Gray110">
+            <color red="0.4309999942779541" green="0.4309999942779541" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryVeryLightGray">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

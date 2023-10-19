@@ -24,6 +24,11 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
     func initComponents()
 
     func viewStateSetNavigationTitle()
+    
+    
+    // for Table View
+    func getNumberOfItemsInSection() -> Int
+    func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
 }
 
 final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
@@ -106,6 +111,7 @@ internal extension BuyingDetailViewModel {
                 self.uiModel.setPaymentResponse(data: data)
                 self.viewStateOldDoubt()
                 self.viewStateNowDoubt()
+                self.viewStateReloadPaymentTableView()
             })
     }
 
@@ -175,6 +181,10 @@ internal extension BuyingDetailViewModel {
     func viewStateUpdateCollectionSnapshot(data: [BuyingCollectionModel]) {
         viewState.value = .updateCollectionSnapshot(data: data)
     }
+    
+    func viewStateReloadPaymentTableView() {
+        viewState.value = .reloadPaymentTableView
+    }
 }
 
 // MARK: Coordinate
@@ -217,6 +227,18 @@ internal extension BuyingDetailViewModel {
     }
 }
 
+// MARK: TableView
+internal extension BuyingDetailViewModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.uiModel.getNumberOfItemsInSection()
+    }
+
+    func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel {
+        return self.uiModel.getCellUIModel(at: index)
+    }
+}
+
 enum BuyingDetailViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String, subTitle: String)
@@ -224,5 +246,6 @@ enum BuyingDetailViewState {
     case nowDoubt(text: String)
     case buildCollectionSnapshot(snapshot: BuyingCollectionSnapshot)
     case updateCollectionSnapshot(data: [BuyingCollectionModel])
+    case reloadPaymentTableView
 }
 

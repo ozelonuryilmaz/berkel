@@ -43,13 +43,14 @@ final class BuyingDetailViewController: MainBaseViewController {
         self.observeReactiveDatas()
         self.viewModel.initComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.viewStateSetNavigationTitle()
     }
 
     override func setupView() {
+        initTableViewPayment()
         initTableViewCollection()
     }
 
@@ -91,6 +92,9 @@ final class BuyingDetailViewController: MainBaseViewController {
                                                                        newDatas: data)
                 self.tableViewCollection.applySnapshot(snapsoht)
 
+            case .reloadPaymentTableView:
+                self.tableViewPayment.reloadData()
+
             }
         }).store(in: &cancelBag)
     }
@@ -108,12 +112,32 @@ final class BuyingDetailViewController: MainBaseViewController {
 // MARK: Props
 private extension BuyingDetailViewController {
 
-}
-
-// MARK: Props
-private extension BuyingDetailViewController {
-
     func initTableViewCollection() {
         self.tableViewCollection.configureView(delegateManager: self.viewModel)
     }
+
+    func initTableViewPayment() {
+        self.tableViewPayment.registerCell(BuyingPaymentTableViewCell.self)
+        self.tableViewPayment.delegate = self
+        self.tableViewPayment.dataSource = self
+        self.tableViewPayment.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
+        self.tableViewPayment.removeTableHeaderView()
+        self.tableViewPayment.removeTableFooterView()
+    }
+}
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+extension BuyingDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.getNumberOfItemsInSection()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.generateReusableCell(BuyingPaymentTableViewCell.self, indexPath: indexPath)
+        cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
+        cell.visibleSeperator(isVisible: false)
+        return cell
+    }
+
 }

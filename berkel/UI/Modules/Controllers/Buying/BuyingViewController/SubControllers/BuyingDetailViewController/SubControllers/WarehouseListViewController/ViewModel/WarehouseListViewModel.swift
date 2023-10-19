@@ -26,6 +26,10 @@ protocol IWarehouseListViewModel: AnyObject {
     // Coordinate
     func pushNewWarehouseViewController()
     func dismiss()
+    
+    // for Table View
+    func getNumberOfItemsInSection() -> Int
+    func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel
 }
 
 final class WarehouseListViewModel: BaseViewModel, IWarehouseListViewModel {
@@ -103,6 +107,18 @@ internal extension WarehouseListViewModel {
                 self.successDismiss(data: data)
             }
         )
+    }
+}
+
+// MARK: TableView
+internal extension WarehouseListViewModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.uiModel.getNumberOfItemsInSection()
+    }
+
+    func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel {
+        return self.uiModel.getCellUIModel(at: index)
     }
 }
 

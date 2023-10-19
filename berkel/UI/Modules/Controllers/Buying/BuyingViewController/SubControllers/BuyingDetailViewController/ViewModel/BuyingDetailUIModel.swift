@@ -33,6 +33,11 @@ protocol IBuyingDetailUIModel {
     mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
     func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
                                   newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
+    
+    
+    // for Table View
+    func getNumberOfItemsInSection() -> Int
+    func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
 }
 
 struct BuyingDetailUIModel: IBuyingDetailUIModel {
@@ -181,3 +186,15 @@ extension BuyingDetailUIModel {
     }
 }
 
+
+// MARK: TableView Helper
+extension BuyingDetailUIModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.payments.count
+    }
+
+    func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel {
+        return BuyingPaymentTableViewCellUIModel(payment: self.payments[index])
+    }
+}
