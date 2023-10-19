@@ -10,7 +10,7 @@ import UIKit
 protocol BuyingCollectionTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
     func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel)
-    func calcActivateTapped(id: String?)
+    func calcActivateTapped(id: String, date: String, isCalc: Bool)
 }
 
 class BuyingCollectionTableViewCell: BaseTableViewCell {
@@ -48,7 +48,9 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         }
 
         btnCalcActivate.onTap { [unowned self] _ in
-            self.outputDelegate?.calcActivateTapped(id: uiModel.buyingId)
+            self.outputDelegate?.calcActivateTapped(id: uiModel.collectionId ?? "",
+                                                    date: uiModel.date,
+                                                    isCalc: !uiModel.isCalc)
         }
     }
 

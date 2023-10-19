@@ -22,6 +22,8 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
 
     func viewStateSetNavigationTitle()
 
+    // Service
+    func updateCalcForCollection(collectionId: String, isCalc: Bool)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -43,6 +45,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     let responsePayment = CurrentValueSubject<[NewBuyingPaymentModel]?, Never>(nil)
     let responseCollection = CurrentValueSubject<[BuyingCollectionModel]?, Never>(nil)
     let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
+    let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -147,6 +150,24 @@ internal extension BuyingDetailViewModel {
                 }
             })
     }
+
+    func updateCalcForCollection(collectionId: String, isCalc: Bool) {
+        handleResourceFirestore(
+            request: self.repository.updateCollectionCalc(season: self.uiModel.season,
+                                                          buyingId: self.uiModel.buyingId,
+                                                          collectionId: collectionId,
+                                                          isCalc: isCalc),
+            response: self.responseUpdateCalc,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.updateCalcForCollection(collectionId: collectionId, isCalc: isCalc)
+                self.reloadPage()
+            })
+    }
 }
 
 // MARK: States
@@ -180,6 +201,10 @@ internal extension BuyingDetailViewModel {
 
     func viewStateReloadPaymentTableView() {
         viewState.value = .reloadPaymentTableView
+    }
+    
+    func viewStateShowUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool) {
+        viewState.value = .showUpdateCalcAlertMessage(collectionId: collectionId, date: date, isCalc: isCalc)
     }
 }
 
@@ -219,8 +244,8 @@ internal extension BuyingDetailViewModel {
         self.presentWarehouseListViewController(uiModel: uiModel)
     }
 
-    func calcActivateTapped(id: String?) {
-
+    func calcActivateTapped(id: String, date: String, isCalc: Bool) {
+        self.viewStateShowUpdateCalcAlertMessage(collectionId: id, date: date, isCalc: isCalc)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
@@ -248,5 +273,6 @@ enum BuyingDetailViewState {
     case buildCollectionSnapshot(snapshot: BuyingCollectionSnapshot)
     case updateCollectionSnapshot(data: [BuyingCollectionModel])
     case reloadPaymentTableView
+    case showUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool)
 }
 

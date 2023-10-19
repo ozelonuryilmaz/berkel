@@ -12,7 +12,7 @@ struct BuyingCollectionModel: Codable {
     var id: String?
     let userId: String?
     
-    let isCalc: Bool
+    var isCalc: Bool
 
     let date: String?
     let kgPrice: Double

@@ -30,6 +30,7 @@ protocol IBuyingDetailUIModel {
     func getWarehouses(collectionId: String?) -> [WarehouseModel]
     func getMaxWarehousesKg(collectionId: String?) -> Int
     mutating func appendWarehousesIntoCollection(collectionId: String?, warehouse: WarehouseModel)
+    mutating func updateCalcForCollection(collectionId: String, isCalc: Bool)
 
     // Collection
     mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
@@ -167,6 +168,13 @@ extension BuyingDetailUIModel {
             var tempData: [WarehouseModel] = self.collections[index].warehouses ?? []
             tempData.insert(warehouse, at: 0)
             self.collections[index].warehouses = tempData
+        }
+    }
+    
+    // Calc aktifleştir
+    mutating func updateCalcForCollection(collectionId: String, isCalc: Bool) {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            self.collections[index].isCalc = isCalc
         }
     }
 }

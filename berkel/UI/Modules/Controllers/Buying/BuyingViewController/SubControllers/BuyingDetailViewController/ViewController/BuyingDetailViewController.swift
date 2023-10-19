@@ -93,6 +93,16 @@ final class BuyingDetailViewController: MainBaseViewController {
             case .reloadPaymentTableView:
                 self.tableViewPayment.reloadData()
 
+            case .showUpdateCalcAlertMessage(let collectionId, let date, let isCalc):
+                self.showSystemAlert(
+                    title: date,
+                    message: "Aktifleştirilsin mi?\nHesaplamalara dahil edilecek.",
+                    positiveButtonText: "Evet",
+                    positiveButtonClickListener: {
+                        self.viewModel.updateCalcForCollection(collectionId: collectionId, isCalc: isCalc)
+                    },
+                    negativeButtonText: "İptal"
+                )
             }
         }).store(in: &cancelBag)
     }
