@@ -87,10 +87,8 @@ final class BuyingDetailViewController: MainBaseViewController {
             case .buildCollectionSnapshot(let snapshot):
                 self.tableViewCollection.applySnapshot(snapshot)
 
-            case .updateCollectionSnapshot(let data):
-                let snapsoht = self.viewModel.updateCollectionSnapshot(currentSnapshot: self.tableViewCollection.getSnapshot(),
-                                                                       newDatas: data)
-                self.tableViewCollection.applySnapshot(snapsoht)
+            case .updateCollectionSnapshot(_):
+                break
 
             case .reloadPaymentTableView:
                 self.tableViewPayment.reloadData()

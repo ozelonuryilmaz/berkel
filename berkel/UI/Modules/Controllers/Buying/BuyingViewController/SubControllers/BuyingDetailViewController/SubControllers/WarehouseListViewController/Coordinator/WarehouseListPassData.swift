@@ -16,6 +16,7 @@ struct WarehouseListPassData: ICoordinatorPassData {
     let sellerName: String
     let productName: String
     
+    let maxKg: Int // Girilebilecek max depo çıktısı. Toplam KG büyük olamaz
     let warehouses: [WarehouseModel]
 }
 

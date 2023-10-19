@@ -15,6 +15,7 @@ protocol IWarehouseListUIModel {
     var date: String? { get }
     var sellerName: String { get }
     var productName: String { get }
+    var maxKg: Int { get }
 
     init(data: WarehouseListPassData)
 
@@ -33,6 +34,7 @@ struct WarehouseListUIModel: IWarehouseListUIModel {
     let date: String?
     let sellerName: String
     let productName: String
+    let maxKg: Int
 
     // MARK: Initialize
     init(data: WarehouseListPassData) {
@@ -43,6 +45,7 @@ struct WarehouseListUIModel: IWarehouseListUIModel {
         self.date = data.date
         self.sellerName = data.sellerName
         self.productName = data.productName
+        self.maxKg = data.maxKg
     }
 
     // MARK: Computed Props

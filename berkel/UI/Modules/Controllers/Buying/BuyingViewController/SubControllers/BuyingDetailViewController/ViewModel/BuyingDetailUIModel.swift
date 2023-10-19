@@ -16,25 +16,24 @@ protocol IBuyingDetailUIModel {
     var sellerName: String { get }
     var productName: String { get }
 
-    var oldDoubt: String { get }
-    var nowDoubt: String { get }
+    var collections: [BuyingCollectionModel] { get }
 
     init(data: BuyingDetailPassData)
 
-    var collections: [BuyingCollectionModel] { get }
+    func oldDoubt() -> String
+    func nowDoubt() -> String
 
     mutating func setCollectionResponse(data: [BuyingCollectionModel])
     mutating func setPaymentResponse(data: [NewBuyingPaymentModel])
     mutating func appendWarehouseInsideCollection(collectionId: String, warehouses: [WarehouseModel])
 
     func getWarehouses(collectionId: String?) -> [WarehouseModel]
+    func getMaxWarehousesKg(collectionId: String?) -> Int
+    mutating func appendWarehousesIntoCollection(collectionId: String?, warehouse: WarehouseModel)
 
     // Collection
     mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
-    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
-                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
-    
-    
+
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
@@ -63,15 +62,27 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
-    var oldDoubt: String {
-        return "Toplam: \(totalKg.decimalString()) Kg, \(totalPrice.decimalString()) TL"
+
+    // MARK: Computed Props
+
+    func oldDoubt() -> String {
+        return "Toplam: \(self.totalKg().decimalString()) Kg, \(self.totalPrice().decimalString()) TL"
     }
 
-    var nowDoubt: String {
-        return "\(paidPrice.decimalString()) TL Ödendi, \(remaining.decimalString()) TL Kaldı"
+    func nowDoubt() -> String {
+        return "\(paidPrice().decimalString()) TL Ödendi, \(remaining().decimalString()) TL Kaldı"
     }
 
-    var totalKg: Double {
+    func paidPrice() -> Double {
+        let price = payments.map({ $0.payment }).reduce(0, +)
+        return Double(price)
+    }
+
+    func remaining() -> Double {
+        return self.totalPrice() - paidPrice()
+    }
+
+    func totalKg() -> Double {
         var total: Double = 0
         collections.filter { f in f.isCalc }.forEach { c in
             let kg: Double = Double(c.kantarFisi) - Double(((Double(c.palet) * c.paletDari) + (Double(c.redCase) * c.redDari) + (Double(c.greenCase) * c.greenDari) + (Double(c.black22FoodCase) * c.black22FoodDari) + (Double(c.bigBlackCase) * c.bigBlackDari)))
@@ -81,29 +92,27 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         return total
     }
 
-    // TODO: Depo Çıkması fiyatını eklemeyi unutma !!!!
-
-    var totalPrice: Double {
+    func totalPrice() -> Double {
         var total: Double = 0
-        collections.filter { f in f.isCalc }.forEach { c in
-            let kg: Double = Double(c.kantarFisi) - Double(((Double(c.palet) * c.paletDari) + (Double(c.redCase) * c.redDari) + (Double(c.greenCase) * c.greenDari) + (Double(c.black22FoodCase) * c.black22FoodDari) + (Double(c.bigBlackCase) * c.bigBlackDari)))
+        let collections = collections.filter { f in f.isCalc }
+        for c in collections {
+            var warehouseTotalPrice: Double = 0
+            var warehouseKgs: Double = 0
 
-            total = total + ((c.percentFire > 0 ? kg - (kg * c.percentFire / 100): kg) * c.kgPrice)
+            for w in c.warehouses ?? [] {
+                warehouseKgs = warehouseKgs + Double(w.wavehouseKg)
+                warehouseTotalPrice = warehouseTotalPrice + (Double(w.wavehouseKg) * w.wavehousePrice)
+            }
+
+            let kg: Double = Double(c.kantarFisi) - Double(((Double(c.palet) * c.paletDari) + (Double(c.redCase) * c.redDari) + (Double(c.greenCase) * c.greenDari) + (Double(c.black22FoodCase) * c.black22FoodDari) + (Double(c.bigBlackCase) * c.bigBlackDari)))
+            let totalKg: Double = Double(c.percentFire > 0 ? kg - (kg * c.percentFire / 100): kg)
+
+            let totalPrice: Double = ((totalKg - warehouseKgs) * c.kgPrice) + warehouseTotalPrice
+
+            total = total + totalPrice
         }
         return total
     }
-
-    var paidPrice: Double {
-        let price = payments.map({ $0.payment }).reduce(0, +)
-        return Double(price)
-    }
-
-    var remaining: Double {
-        return totalPrice - paidPrice
-    }
-
-    // MARK: Computed Props
-
 }
 
 // MARK: Props
@@ -132,6 +141,34 @@ extension BuyingDetailUIModel {
             return []
         }
     }
+
+    func getCollectionKg(collectionId: String?) -> Double {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            let c = self.collections[index]
+            let kg: Double = Double(c.kantarFisi) - Double(((Double(c.palet) * c.paletDari) + (Double(c.redCase) * c.redDari) + (Double(c.greenCase) * c.greenDari) + (Double(c.black22FoodCase) * c.black22FoodDari) + (Double(c.bigBlackCase) * c.bigBlackDari)))
+            return (c.percentFire > 0 ? kg - (kg * c.percentFire / 100): kg)
+        } else {
+            return 0
+        }
+    }
+
+    // Yeni Depo çıktısı kalan Toplam Kg'den büyük girilmemeli
+    func getMaxWarehousesKg(collectionId: String?) -> Int {
+        let warehousesKg: Int = self.getWarehouses(collectionId: collectionId)
+            .compactMap { $0.wavehouseKg }
+            .reduce(0, +)
+        let collectionKg = self.getCollectionKg(collectionId: collectionId)
+        return Int(collectionKg) - warehousesKg
+    }
+
+    // Depo çıktısı eklendiğinde collection güncelleniyor
+    mutating func appendWarehousesIntoCollection(collectionId: String?, warehouse: WarehouseModel) {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            var tempData: [WarehouseModel] = self.collections[index].warehouses ?? []
+            tempData.insert(warehouse, at: 0)
+            self.collections[index].warehouses = tempData
+        }
+    }
 }
 
 // MARK: Collection
@@ -146,44 +183,34 @@ extension BuyingDetailUIModel {
 
     private func prepareCollectionSnapshotRowModel() -> [BuyingCollectionRowModel] {
         let rowModels: [BuyingCollectionRowModel] = collections.compactMap { responseModel in
+
+            var warehouseTotalPrice: Double = 0
+            var warehouseKgs: Double = 0
+            responseModel.warehouses?.forEach({ w in
+                warehouseKgs = warehouseKgs + Double(w.wavehouseKg)
+                warehouseTotalPrice = warehouseTotalPrice + (Double(w.wavehouseKg) * w.wavehousePrice)
+            })
+
+            let kg: Double = Double(responseModel.kantarFisi) - Double(((Double(responseModel.palet) * responseModel.paletDari) + (Double(responseModel.redCase) * responseModel.redDari) + (Double(responseModel.greenCase) * responseModel.greenDari) + (Double(responseModel.black22FoodCase) * responseModel.black22FoodDari) + (Double(responseModel.bigBlackCase) * responseModel.bigBlackDari)))
+            let totalKg: Double = Double(responseModel.percentFire > 0 ? kg - (kg * responseModel.percentFire / 100): kg)
+
+            let totalPrice: Double = ((totalKg - warehouseKgs) * responseModel.kgPrice) + warehouseTotalPrice
+
             return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
                 buyingId: self.buyingId,
                 collectionId: responseModel.id,
                 isCalc: responseModel.isCalc,
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                totalKg: "--",
-                totalKgPrice: "..",
-                warehouseKg: "--",
-                warehouseKgPrice: "..")
+                totalKg: totalKg.decimalString(),
+                totalKgPrice: totalPrice.decimalString(),
+                warehouseKg: warehouseKgs.decimalString(),
+                warehouseKgPrice: warehouseTotalPrice.decimalString())
             )
         }
         return rowModels
     }
 
-    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
-                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot {
-        var snapshot = currentSnapshot
-        var configuredItems: [BuyingCollectionRowModel] = []
-
-        configuredItems = newDatas.compactMap({ responseModel in
-            return BuyingCollectionRowModel(uiModel: BuyingCollectionTableViewCellUIModel(
-                buyingId: self.buyingId,
-                collectionId: responseModel.id,
-                isCalc: responseModel.isCalc,
-                isActive: self.isActive,
-                date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                totalKg: "--",
-                totalKgPrice: "..",
-                warehouseKg: "--",
-                warehouseKgPrice: "..")
-            )
-        })
-
-        snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır
-
-        return snapshot
-    }
 }
 
 

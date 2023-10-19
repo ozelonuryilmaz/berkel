@@ -102,7 +102,8 @@ internal extension WarehouseListViewModel {
                                            collectionId: self.uiModel.collectionId,
                                            date: self.uiModel.date,
                                            sellerName: self.uiModel.sellerName,
-                                           productName: self.uiModel.productName),
+                                           productName: self.uiModel.productName,
+                                           maxKg: self.uiModel.maxKg),
             successDismissCallBack: { data in
                 self.successDismiss(data: data)
             }

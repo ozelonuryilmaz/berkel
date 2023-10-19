@@ -15,5 +15,6 @@ struct NewWarehousePassData: ICoordinatorPassData {
     let date: String?
     let sellerName: String
     let productName: String
+    let maxKg: Int
 }
 

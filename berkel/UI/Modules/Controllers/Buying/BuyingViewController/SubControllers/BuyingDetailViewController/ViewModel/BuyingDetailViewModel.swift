@@ -18,14 +18,11 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
          coordinator: IBuyingDetailCoordinator,
          uiModel: IBuyingDetailUIModel)
 
-    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
-                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot
-
     func initComponents()
 
     func viewStateSetNavigationTitle()
-    
-    
+
+
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
@@ -64,9 +61,10 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
         })
     }
 
-    func updateCollectionSnapshot(currentSnapshot: BuyingCollectionSnapshot,
-                                  newDatas: [BuyingCollectionModel]) -> BuyingCollectionSnapshot {
-        self.uiModel.updateCollectionSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
+    func reloadPage() {
+        self.viewStateOldDoubt()
+        self.viewStateNowDoubt()
+        self.viewStateBuildCollectionSnapshot()
     }
 }
 
@@ -109,8 +107,6 @@ internal extension BuyingDetailViewModel {
                 guard let self = self,
                     let data = self.responsePayment.value else { return }
                 self.uiModel.setPaymentResponse(data: data)
-                self.viewStateOldDoubt()
-                self.viewStateNowDoubt()
                 self.viewStateReloadPaymentTableView()
             })
     }
@@ -137,14 +133,14 @@ internal extension BuyingDetailViewModel {
                 self.uiModel.appendWarehouseInsideCollection(collectionId: collectionId, warehouses: data)
 
                 if collections.count == index + 1 {
-                    self.viewStateBuildCollectionSnapshot()
+                    self.reloadPage() // En son depo çıkmaları set edildikten sonra sonuçları güncelle
                 }
             }, callbackComplete: { [weak self] in
                 guard let self = self else { return }
                 let limit = collections.count
                 let count = index + 1
                 if limit > count {
-                    DispatchQueue.delay(25) {[weak self] in
+                    DispatchQueue.delay(25) { [weak self] in
                         guard let self = self else { return }
                         self.getWarehouses(index: count)
                     }
@@ -167,11 +163,11 @@ internal extension BuyingDetailViewModel {
     }
 
     func viewStateOldDoubt() {
-        self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt)
+        self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt())
     }
 
     func viewStateNowDoubt() {
-        self.viewState.value = .nowDoubt(text: self.uiModel.nowDoubt)
+        self.viewState.value = .nowDoubt(text: self.uiModel.nowDoubt())
     }
 
     func viewStateBuildCollectionSnapshot() {
@@ -181,7 +177,7 @@ internal extension BuyingDetailViewModel {
     func viewStateUpdateCollectionSnapshot(data: [BuyingCollectionModel]) {
         viewState.value = .updateCollectionSnapshot(data: data)
     }
-    
+
     func viewStateReloadPaymentTableView() {
         viewState.value = .reloadPaymentTableView
     }
@@ -192,6 +188,7 @@ internal extension BuyingDetailViewModel {
 
     func presentWarehouseListViewController(uiModel: IBuyingCollectionTableViewCellUIModel) {
         let warehouses = self.uiModel.getWarehouses(collectionId: uiModel.collectionId)
+        let maxWarehousesKg = self.uiModel.getMaxWarehousesKg(collectionId: uiModel.collectionId)
 
         self.coordinator.presentWarehouseListViewController(
             passData: WarehouseListPassData(buyingId: uiModel.buyingId,
@@ -199,11 +196,15 @@ internal extension BuyingDetailViewModel {
                                             date: uiModel.date,
                                             sellerName: self.uiModel.sellerName,
                                             productName: self.uiModel.productName,
+                                            maxKg: maxWarehousesKg,
                                             warehouses: warehouses
-        ), successDismissCallBack: { data in
-            // TODO: yeni depo çıkması eklendiğinde cell ve üstteki toplam label'ları güncelle
-            
-        })
+            ), successDismissCallBack: { data in
+                self.uiModel.appendWarehousesIntoCollection(collectionId: uiModel.collectionId, warehouse: data)
+                DispatchQueue.delay(250) { [weak self] in
+                    guard let self = self else { return }
+                    self.reloadPage()
+                }
+            })
     }
 }
 

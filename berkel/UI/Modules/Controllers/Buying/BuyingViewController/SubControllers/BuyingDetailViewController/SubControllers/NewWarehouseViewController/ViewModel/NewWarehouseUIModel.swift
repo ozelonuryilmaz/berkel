@@ -37,6 +37,7 @@ struct NewWarehouseUIModel: INewWarehouseUIModel {
     let date: String?
     let sellerName: String
     let productName: String
+    let maxKg: Int
 
     // MARK: Initialize
     init(data: NewWarehousePassData) {
@@ -45,10 +46,11 @@ struct NewWarehouseUIModel: INewWarehouseUIModel {
         self.date = data.date
         self.sellerName = data.sellerName
         self.productName = data.productName
+        self.maxKg = data.maxKg
     }
 
     var isHaveAnyResults: Bool {
-        return kg > 0 && price > 0
+        return kg > 0 && price > 0 && kg <= maxKg
     }
 
     var warehouseDate: String? = Date().dateFormatterApiResponseType()
