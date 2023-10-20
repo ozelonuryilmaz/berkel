@@ -74,9 +74,12 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func reloadPage() {
-        self.viewStateOldDoubt()
-        self.viewStateNowDoubt()
-        self.viewStateBuildCollectionSnapshot()
+        DispatchQueue.delay(150) {[weak self] in
+            guard let self = self else { return }
+            self.viewStateBuildCollectionSnapshot()
+            self.viewStateOldDoubt()
+            self.viewStateNowDoubt()
+        }
     }
 }
 
