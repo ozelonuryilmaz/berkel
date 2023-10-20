@@ -18,8 +18,7 @@ class BuyingTableViewCell: BaseTableViewCell {
 
     // MARK: IBOutlets
     @IBOutlet private weak var lblName: UILabel!
-    @IBOutlet private weak var lblPrice: UILabel!
-    @IBOutlet private weak var lblKg: UILabel!
+    @IBOutlet private weak var lblDesc: UILabel!
     @IBOutlet private weak var lblProduct: UILabel!
     @IBOutlet private weak var lblActive: UILabel!
     @IBOutlet private weak var viewButtons: UIView!
@@ -62,20 +61,17 @@ class BuyingTableViewCell: BaseTableViewCell {
 
         self.lblName.text = uiModel.sellerName
         self.lblProduct.text = uiModel.productName
-        self.lblKg.text = "- Kg"
-        self.lblPrice.text = uiModel.price
+        self.lblDesc.text = uiModel.desc
 
         if uiModel.isActive {
             self.lblName.textColor = .blackColor
             self.lblProduct.textColor = .blackColor
-            self.lblKg.textColor = .blackColor
-            self.lblPrice.textColor = .blackColor
+            self.lblDesc.textColor = .blackColor
             self.lblActive.backgroundColor = .systemGreen
         } else {
             self.lblName.textColor = .gray
             self.lblProduct.textColor = .gray
-            self.lblKg.textColor = .gray
-            self.lblPrice.textColor = .gray
+            self.lblDesc.textColor = .gray
             self.lblActive.backgroundColor = .darkGray
         }
     }

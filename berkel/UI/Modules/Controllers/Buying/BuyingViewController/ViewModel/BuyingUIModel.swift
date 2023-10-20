@@ -20,6 +20,8 @@ protocol IBuyingUIModel {
     mutating func setResponse(_ response: [NewBuyingModel])
     mutating func appendFirstItem(data: NewBuyingModel)
 
+    mutating func updateIsActive(buyingId: String?, isActive: Bool)
+
     // DataSource
     mutating func buildSnapshot() -> BuyingSnapshot
     func updateSnapshot(currentSnapshot: BuyingSnapshot,
@@ -60,6 +62,12 @@ extension BuyingUIModel {
     mutating func appendFirstItem(data: NewBuyingModel) {
         self.response.insert(data, at: 0)
     }
+
+    mutating func updateIsActive(buyingId: String?, isActive: Bool) {
+        if let index = self.response.firstIndex(where: { $0.id == buyingId }) {
+            self.response[index].isActive = isActive
+        }
+    }
 }
 
 
@@ -83,7 +91,7 @@ extension BuyingUIModel {
                                                     sellerName: responseModel.sellerName,
                                                     productName: responseModel.productName,
                                                     kg: responseModel.productKGPrice,
-                                                    price: "- TL")
+                                                    desc: responseModel.desc)
             )
         }
         return rowModels
@@ -102,7 +110,7 @@ extension BuyingUIModel {
                                                                       sellerName: item.sellerName,
                                                                       productName: item.productName,
                                                                       kg: item.productKGPrice,
-                                                                      price: "- TL"))
+                                                                      desc: item.desc))
         })
 
         snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır

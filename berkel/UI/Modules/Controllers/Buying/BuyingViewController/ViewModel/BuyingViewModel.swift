@@ -122,7 +122,11 @@ internal extension BuyingViewModel {
     }
 
     func pushBuyingDetailViewController(passData: BuyingDetailPassData) {
-        self.coordinator.pushBuyingDetailViewController(passData: passData)
+        self.coordinator.pushBuyingDetailViewController(passData: passData,
+                                                        successDismissCallBack: { isActive in
+            self.uiModel.updateIsActive(buyingId: passData.buyingId, isActive: isActive)
+            self.viewStateBuildSnapshot()
+        })
     }
 
     func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,

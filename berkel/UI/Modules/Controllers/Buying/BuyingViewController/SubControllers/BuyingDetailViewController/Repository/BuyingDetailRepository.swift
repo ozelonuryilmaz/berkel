@@ -14,6 +14,7 @@ protocol IBuyingDetailRepository: AnyObject {
     func getWarehouseList(season: String, buyingId: String, collectionId: String) -> FirestoreResponseType<[WarehouseModel]>
     
     func updateCollectionCalc(season: String, buyingId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
+    func updateBuyingActive(season: String, buyingId: String, isActive: Bool) -> FirestoreResponseType<Bool>
 }
 
 final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
@@ -36,5 +37,10 @@ final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
     func updateCollectionCalc(season: String, buyingId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool> {
         let db = BuyingDataService.wavehouse(season: season, buyingId: buyingId, collectionId: collectionId).documentReference
         return updateData(db, data: ["isCalc": isCalc])
+    }
+    
+    func updateBuyingActive(season: String, buyingId: String, isActive: Bool) -> FirestoreResponseType<Bool> {
+        let db = BuyingDataService.collection(season: season, buyingId: buyingId).documentReference
+        return updateData(db, data: ["isActive": isActive])
     }
 }

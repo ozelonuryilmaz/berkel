@@ -17,7 +17,7 @@ struct NewBuyingModel: Codable {
     let productName: String
     let productKGPrice: Double
     let desc: String
-    let isActive: Bool
+    var isActive: Bool
 }
 
 struct NewBuyingPaymentModel: Codable {

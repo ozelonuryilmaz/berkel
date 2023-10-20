@@ -16,7 +16,8 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
 
     init(repository: IBuyingDetailRepository,
          coordinator: IBuyingDetailCoordinator,
-         uiModel: IBuyingDetailUIModel)
+         uiModel: IBuyingDetailUIModel,
+         successDismissCallBack: ((_ isActive: Bool) -> Void)?)
 
     func initComponents()
 
@@ -24,7 +25,8 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
 
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
-
+    func updateBuyingActive()
+    
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
@@ -36,6 +38,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     private let repository: IBuyingDetailRepository
     private let coordinator: IBuyingDetailCoordinator
     private var uiModel: IBuyingDetailUIModel
+    var successDismissCallBack: ((_ isActive: Bool) -> Void)? = nil
 
     // MARK: Private Props
 
@@ -46,17 +49,23 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     let responseCollection = CurrentValueSubject<[BuyingCollectionModel]?, Never>(nil)
     let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
+    let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
                   coordinator: IBuyingDetailCoordinator,
-                  uiModel: IBuyingDetailUIModel) {
+                  uiModel: IBuyingDetailUIModel,
+                  successDismissCallBack: ((_ isActive: Bool) -> Void)?) {
         self.repository = repository
         self.coordinator = coordinator
         self.uiModel = uiModel
+        self.successDismissCallBack = successDismissCallBack
     }
 
     func initComponents() {
+        if self.uiModel.isActive {
+            self.viewStateShowBuyingActiveButton()
+        }
 
         getBuyingCollection(completion: { [weak self] in
             guard let self = self else { return }
@@ -168,6 +177,24 @@ internal extension BuyingDetailViewModel {
                 self.reloadPage()
             })
     }
+
+    func updateBuyingActive() {
+        handleResourceFirestore(
+            request: self.repository.updateBuyingActive(season: self.uiModel.season,
+                                                        buyingId: self.uiModel.buyingId,
+                                                        isActive: false),
+            response: self.responseUpdateActive,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.setActive(isActive: false)
+                self.successDismissCallBack?(false)
+                self.reloadPage()
+            })
+    }
 }
 
 // MARK: States
@@ -202,14 +229,22 @@ internal extension BuyingDetailViewModel {
     func viewStateReloadPaymentTableView() {
         viewState.value = .reloadPaymentTableView
     }
-    
+
     func viewStateShowUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool) {
         viewState.value = .showUpdateCalcAlertMessage(collectionId: collectionId, date: date, isCalc: isCalc)
+    }
+
+    func viewStateShowBuyingActiveButton() {
+        viewState.value = .showBuyingActiveButton
     }
 }
 
 // MARK: Coordinate
 internal extension BuyingDetailViewModel {
+
+    func selfPopViewController() {
+        self.coordinator.selfPopViewController()
+    }
 
     func presentWarehouseListViewController(uiModel: IBuyingCollectionTableViewCellUIModel) {
         let warehouses = self.uiModel.getWarehouses(collectionId: uiModel.collectionId)
@@ -217,7 +252,7 @@ internal extension BuyingDetailViewModel {
 
         self.coordinator.presentWarehouseListViewController(
             passData: WarehouseListPassData(buyingId: uiModel.buyingId,
-                                            isActive: uiModel.isActive,
+                                            isActive: self.uiModel.isActive,
                                             collectionId: uiModel.collectionId,
                                             date: uiModel.date,
                                             sellerName: self.uiModel.sellerName,
@@ -275,5 +310,6 @@ enum BuyingDetailViewState {
     case updateCollectionSnapshot(data: [BuyingCollectionModel])
     case reloadPaymentTableView
     case showUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool)
+    case showBuyingActiveButton
 }
 

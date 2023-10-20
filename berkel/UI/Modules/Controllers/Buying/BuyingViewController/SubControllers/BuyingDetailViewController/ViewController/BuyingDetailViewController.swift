@@ -75,6 +75,9 @@ final class BuyingDetailViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+                
+            case .showBuyingActiveButton:
+                self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
 
             case .setNavigationTitle(let title, let subTitle):
                 self.navigationItem.setCustomTitle(title, subtitle: subTitle)
@@ -115,6 +118,20 @@ final class BuyingDetailViewController: MainBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var discardBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "KAPAT", style: .plain, handler: { [unowned self] _ in
+            self.showSystemAlert(
+                title: "Ödeme ve ürün toplama tamamlandı mı?",
+                message: "Devre dışı bırakılmasını istediğinize emin misiniz?",
+                positiveButtonText: "Evet",
+                positiveButtonClickListener: {
+                    self.navigationItem.rightBarButtonItems = []
+                    self.viewModel.updateBuyingActive()
+                },
+                negativeButtonText: "İptal"
+            )
+        })
+    }()
 }
 
 // MARK: Props

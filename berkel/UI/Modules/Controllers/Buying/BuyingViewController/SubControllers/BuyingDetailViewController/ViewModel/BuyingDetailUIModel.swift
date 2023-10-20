@@ -23,6 +23,8 @@ protocol IBuyingDetailUIModel {
 
     func oldDoubt() -> String
     func nowDoubt() -> String
+    
+    mutating func setActive(isActive: Bool)
 
     mutating func setCollectionResponse(data: [BuyingCollectionModel])
     mutating func setPaymentResponse(data: [NewBuyingPaymentModel])
@@ -47,7 +49,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     let buyingId: String
     let sellerName: String
     let productName: String
-    let isActive: Bool
+    var isActive: Bool
 
     // MARK: Initialize
     init(data: BuyingDetailPassData) {
@@ -64,7 +66,10 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
-
+    mutating func setActive(isActive: Bool) {
+        self.isActive = isActive
+    }
+    
     // MARK: Computed Props
 
     func oldDoubt() -> String {
@@ -171,7 +176,7 @@ extension BuyingDetailUIModel {
             self.collections[index].warehouses = tempData
         }
     }
-    
+
     // Calc aktifleştir
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool) {
         if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {

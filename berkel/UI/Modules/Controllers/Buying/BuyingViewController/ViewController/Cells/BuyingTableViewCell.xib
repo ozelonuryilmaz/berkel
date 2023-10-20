@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVh-Yk-VoE" userLabel="mContentView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                        <rect key="frame" x="16" y="8" width="288" height="172"/>
+                        <rect key="frame" x="16" y="8" width="288" height="178"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnM-7w-Oog" userLabel="lblName">
                                 <rect key="frame" x="16" y="16" width="236" height="24"/>
@@ -50,28 +50,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiU-52-Ppb" userLabel="lblKg">
-                                <rect key="frame" x="16" y="80" width="44" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiU-52-Ppb" userLabel="lblKg">
+                                <rect key="frame" x="16" y="80" width="256" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="gWc-hD-D6Y"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="44" id="lwA-U7-m5h"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="gWc-hD-D6Y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbj-Qw-ul0" userLabel="lblPrice">
-                                <rect key="frame" x="68" y="80" width="204" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" priority="250" constant="250" id="DuN-B1-Iid"/>
-                                    <constraint firstAttribute="height" constant="24" id="JKt-hx-h8c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPt-o8-hP8" userLabel="viewButtons">
-                                <rect key="frame" x="16" y="120" width="256" height="52"/>
+                                <rect key="frame" x="16" y="126" width="256" height="52"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kta-3Q-5ww" userLabel="btnBuy">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
@@ -116,7 +105,6 @@
                             <constraint firstAttribute="trailing" secondItem="2o6-gB-xX6" secondAttribute="trailing" constant="16" id="2bm-aW-Zgl"/>
                             <constraint firstItem="pPt-o8-hP8" firstAttribute="top" secondItem="UiU-52-Ppb" secondAttribute="bottom" constant="16" id="AM2-VF-W8U"/>
                             <constraint firstItem="2o6-gB-xX6" firstAttribute="top" secondItem="pnM-7w-Oog" secondAttribute="bottom" constant="8" id="FUE-DM-yjS"/>
-                            <constraint firstItem="vbj-Qw-ul0" firstAttribute="leading" secondItem="UiU-52-Ppb" secondAttribute="trailing" constant="8" id="GkD-i7-1lN"/>
                             <constraint firstItem="UiU-52-Ppb" firstAttribute="top" secondItem="2o6-gB-xX6" secondAttribute="bottom" constant="8" id="MqE-UR-PyF"/>
                             <constraint firstItem="pnM-7w-Oog" firstAttribute="leading" secondItem="tVh-Yk-VoE" secondAttribute="leading" constant="16" id="Nit-BS-Mnp"/>
                             <constraint firstItem="pPt-o8-hP8" firstAttribute="leading" secondItem="tVh-Yk-VoE" secondAttribute="leading" constant="16" id="UDH-VN-NG4"/>
@@ -124,9 +112,8 @@
                             <constraint firstItem="eZX-fa-Qa7" firstAttribute="centerY" secondItem="pnM-7w-Oog" secondAttribute="centerY" id="ZnO-cl-x6S"/>
                             <constraint firstItem="2o6-gB-xX6" firstAttribute="leading" secondItem="tVh-Yk-VoE" secondAttribute="leading" constant="16" id="csY-Uc-xsp"/>
                             <constraint firstItem="eZX-fa-Qa7" firstAttribute="leading" secondItem="pnM-7w-Oog" secondAttribute="trailing" constant="8" id="e0W-UD-I9H"/>
-                            <constraint firstAttribute="trailing" secondItem="vbj-Qw-ul0" secondAttribute="trailing" constant="16" id="hHi-Sx-ssH"/>
-                            <constraint firstItem="vbj-Qw-ul0" firstAttribute="top" secondItem="2o6-gB-xX6" secondAttribute="bottom" constant="8" id="hXd-8z-CYi"/>
                             <constraint firstAttribute="trailing" secondItem="pPt-o8-hP8" secondAttribute="trailing" constant="16" id="hw0-aG-hf9"/>
+                            <constraint firstAttribute="trailing" secondItem="UiU-52-Ppb" secondAttribute="trailing" constant="16" id="qyd-68-ox2"/>
                             <constraint firstItem="UiU-52-Ppb" firstAttribute="leading" secondItem="tVh-Yk-VoE" secondAttribute="leading" constant="16" id="spQ-Ns-Pcb"/>
                             <constraint firstAttribute="bottom" secondItem="pPt-o8-hP8" secondAttribute="bottom" id="vsD-9Y-5o0"/>
                             <constraint firstItem="pnM-7w-Oog" firstAttribute="top" secondItem="tVh-Yk-VoE" secondAttribute="top" constant="16" id="xYf-Oi-Xrf"/>
@@ -161,9 +148,8 @@
                 <outlet property="btnPay" destination="FYn-0A-P0P" id="guw-h1-gm8"/>
                 <outlet property="constraintViewButtonsHeight" destination="Mg4-29-pTx" id="9ig-lx-u5d"/>
                 <outlet property="lblActive" destination="eZX-fa-Qa7" id="yub-R8-MEP"/>
-                <outlet property="lblKg" destination="UiU-52-Ppb" id="G4Q-bp-uFm"/>
+                <outlet property="lblDesc" destination="UiU-52-Ppb" id="DO9-va-FOx"/>
                 <outlet property="lblName" destination="pnM-7w-Oog" id="Svx-55-zRj"/>
-                <outlet property="lblPrice" destination="vbj-Qw-ul0" id="J8H-YR-hdE"/>
                 <outlet property="lblProduct" destination="2o6-gB-xX6" id="0mI-mt-k8u"/>
                 <outlet property="mContentView" destination="tVh-Yk-VoE" id="wAg-CK-UEw"/>
                 <outlet property="viewButtons" destination="pPt-o8-hP8" id="c9U-mB-Noz"/>

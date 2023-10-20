@@ -58,9 +58,9 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         self.registerEvents(uiModel: uiModel)
         //self.visibilityButtons(isVisible: uiModel.isActive)
 
-        btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : .redColor
+        btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : uiModel.isActive ? .redColor : .orangeColor
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
-        btnCalcActivate.setTitle(uiModel.isCalc ? "Aktif" : "Aktifleştir", for: .normal)
+        btnCalcActivate.setTitle(uiModel.isCalc ? "Aktif" : uiModel.isActive ? "Aktifleştir" : "Aktifleşmedi", for: .normal)
         btnCalcActivate.isEnabled = !uiModel.isCalc && uiModel.isActive
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
 

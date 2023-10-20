@@ -10,6 +10,8 @@ import UIKit
 
 protocol IBuyingDetailCoordinator: AnyObject {
 
+    func selfPopViewController()
+
     func presentWarehouseListViewController(passData: WarehouseListPassData,
                                             successDismissCallBack: ((_ data: WarehouseModel) -> Void)?)
 }
@@ -18,16 +20,30 @@ final class BuyingDetailCoordinator: NavigationCoordinator, IBuyingDetailCoordin
 
     private var coordinatorData: BuyingDetailPassData { return castPassData(BuyingDetailPassData.self) }
 
+    private var successDismissCallBack: ((_ isActive: Bool) -> Void)? = nil
+
+    @discardableResult
+    func with(successDismissCallBack: ((_ isActive: Bool) -> Void)?) -> BuyingDetailCoordinator {
+        self.successDismissCallBack = successDismissCallBack
+        return self
+    }
+
     override func start() {
-        let controller = BuyingDetailBuilder.generate(with: coordinatorData, coordinator: self)
+        let controller = BuyingDetailBuilder.generate(with: coordinatorData,
+                                                      coordinator: self,
+                                                      successDismissCallBack: self.successDismissCallBack)
         navigationController.pushViewController(controller, animated: true)
     }
-    
+
     func presentWarehouseListViewController(passData: WarehouseListPassData,
                                             successDismissCallBack: ((_ data: WarehouseModel) -> Void)?) {
         let controller = WarehouseListCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(successDismissCallBack: successDismissCallBack)
             .with(passData: passData)
         coordinate(to: controller)
+    }
+
+    func selfPopViewController() {
+        self.navigationController.popToRootViewController(animated: true)
     }
 }

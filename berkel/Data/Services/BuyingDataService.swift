@@ -15,11 +15,11 @@ enum BuyingDataService {
 }
 
 extension BuyingDataService: DocumentServiceType {
-    
+
     var documentReference: DocumentReference {
         switch self {
         case .wavehouse(let season, let buyingId, let collectionId):
-            
+
             return Firestore
                 .firestore()
                 .collection("data")
@@ -28,14 +28,23 @@ extension BuyingDataService: DocumentServiceType {
                 .document(buyingId)
                 .collection("collections")
                 .document(collectionId)
+
+        case .collection(let season, let buyingId):
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("buying")
+                .document(buyingId)
+
         default:
             return Firestore
                 .firestore()
                 .document("")
         }
     }
-    
-    
+
+
 }
 
 extension BuyingDataService: CollectionServiceType {
