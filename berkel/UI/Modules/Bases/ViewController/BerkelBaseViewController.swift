@@ -35,8 +35,8 @@ class BerkelBaseViewController: UIViewController {
     internal func initDidLoad() {
         self.nativeProgressView = NativeProgressView()
         self.initNavigationBarBackButton()
-        self.setupView()
         self.initialComponents()
+        self.setupView()
         self.registerEvents()
     }
     

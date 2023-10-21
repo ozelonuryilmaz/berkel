@@ -59,9 +59,7 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
-    }
 
-    override func setupView() {
         self.initDatePickerView()
         self.viewModel.initComponents()
     }
