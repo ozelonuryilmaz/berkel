@@ -6,6 +6,7 @@
 //  Copyright (c) 2023 Emlakjet IOS Development Team. All rights reserved.[EC-2021]
 //
 
+import Foundation
 import Combine
 
 protocol IBuyingCollectionViewModel: AnyObject {
@@ -37,7 +38,7 @@ protocol IBuyingCollectionViewModel: AnyObject {
     func setGreenDari(_ text: String)
     func set22BlackDari(_ text: String)
     func setBigBlackDari(_ text: String)
-    
+
     // Service
     func saveCollection()
 }
@@ -71,6 +72,15 @@ final class BuyingCollectionViewModel: BaseViewModel, IBuyingCollectionViewModel
 
     func initComponents() {
         self.viewStateSellerName()
+
+        // Sayfada veri görüntülenmesi yapılıyor. GÜncelleştir vs.
+        if self.uiModel.isViewedPage {
+            DispatchQueue.delay(150) { [weak self] in
+                guard let self = self else { return }
+                self.viewStateGetViewedPageData()
+                self.updateResults()
+            }
+        }
     }
 
     func updateResults() {
@@ -126,6 +136,10 @@ internal extension BuyingCollectionViewModel {
         self.viewState.value = .setTotalPrice(price: self.uiModel.getTotalPrice())
     }
 
+    func viewStateGetViewedPageData() {
+        guard let data = self.uiModel.viewedData else { return }
+        self.viewState.value = .getViewedPageData(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -210,4 +224,5 @@ enum BuyingCollectionViewState {
     case setSellerAndProductNameAndKg(seller: String, product: String, kgPrice: Double)
     case setTotalKg(kg: String)
     case setTotalPrice(price: String)
+    case getViewedPageData(data: BuyingCollectionModel)
 }

@@ -14,6 +14,9 @@ protocol IBuyingDetailCoordinator: AnyObject {
 
     func presentWarehouseListViewController(passData: WarehouseListPassData,
                                             successDismissCallBack: ((_ data: WarehouseModel) -> Void)?)
+
+    func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
+                                               successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?)
 }
 
 final class BuyingDetailCoordinator: NavigationCoordinator, IBuyingDetailCoordinator {
@@ -38,6 +41,14 @@ final class BuyingDetailCoordinator: NavigationCoordinator, IBuyingDetailCoordin
     func presentWarehouseListViewController(passData: WarehouseListPassData,
                                             successDismissCallBack: ((_ data: WarehouseModel) -> Void)?) {
         let controller = WarehouseListCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(successDismissCallBack: successDismissCallBack)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+
+    func presentBuyingCollectionViewController(passData: BuyingCollectionPassData,
+                                               successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)?) {
+        let controller = BuyingCollectionCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(successDismissCallBack: successDismissCallBack)
             .with(passData: passData)
         coordinate(to: controller)

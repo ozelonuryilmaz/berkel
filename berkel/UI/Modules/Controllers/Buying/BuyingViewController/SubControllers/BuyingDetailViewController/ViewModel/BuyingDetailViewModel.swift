@@ -26,7 +26,7 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateBuyingActive()
-    
+
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel
@@ -74,7 +74,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func reloadPage() {
-        DispatchQueue.delay(150) {[weak self] in
+        DispatchQueue.delay(150) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()
@@ -270,13 +270,26 @@ internal extension BuyingDetailViewModel {
                 }
             })
     }
+
+    func presentBuyingCollectionViewController(collectionId: String?) {
+        let data = self.uiModel.getCollection(collectionId: collectionId)
+
+        self.coordinator.presentBuyingCollectionViewController(
+            passData: BuyingCollectionPassData(buyingId: self.uiModel.buyingId,
+                                               kgPrice: data?.kgPrice ?? 0,
+                                               sellerName: self.uiModel.sellerName,
+                                               productName: self.uiModel.productName,
+                                               model: data),
+            successDismissCallBack: { _ in }
+        )
+    }
 }
 
 // MARK: BuyingCollectionDataSourceFactoryOutputDelegate
 internal extension BuyingDetailViewModel {
 
     func cellTapped(uiModel: IBuyingCollectionTableViewCellUIModel) {
-
+        self.presentBuyingCollectionViewController(collectionId: uiModel.collectionId)
     }
 
     func warehouseTapped(uiModel: IBuyingCollectionTableViewCellUIModel) {

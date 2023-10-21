@@ -34,6 +34,8 @@ protocol IBuyingDetailUIModel {
     func getMaxWarehousesKg(collectionId: String?) -> Int
     mutating func appendWarehousesIntoCollection(collectionId: String?, warehouse: WarehouseModel)
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool)
+    
+    func getCollection(collectionId: String?) -> BuyingCollectionModel?
 
     // Collection
     mutating func buildCollectionSnapshot() -> BuyingCollectionSnapshot
@@ -119,6 +121,14 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
             total = total + totalPrice
         }
         return total
+    }
+    
+    func getCollection(collectionId: String?) -> BuyingCollectionModel? {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            return self.collections[index]
+        } else {
+            return nil
+        }
     }
 }
 

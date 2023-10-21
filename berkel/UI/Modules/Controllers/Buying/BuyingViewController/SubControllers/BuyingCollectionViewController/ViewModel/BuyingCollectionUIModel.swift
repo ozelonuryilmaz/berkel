@@ -15,10 +15,13 @@ protocol IBuyingCollectionUIModel {
     var kgPrice: Double { get }
     var sellerName: String { get }
     var productName: String { get }
-    
+
     var data: BuyingCollectionModel { get }
+    var viewedData: BuyingCollectionModel? { get }
+    var isViewedPage: Bool { get }
 
     init(data: BuyingCollectionPassData)
+
 
     mutating func setDate(date: String?)
     mutating func setKantarFisi(_ text: String)
@@ -42,6 +45,8 @@ protocol IBuyingCollectionUIModel {
 struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
 
     // MARK: Definitions
+    let viewedData: BuyingCollectionModel?
+
     let buyingId: String
     let sellerName: String
     let productName: String
@@ -60,6 +65,9 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
         self.buyingId = data.buyingId
         self.sellerName = data.sellerName
         self.productName = data.productName
+        self.viewedData = data.model
+
+        self.mappedToTextFields(model: data.model)
     }
 
     var date: String? = Date().dateFormatterApiResponseType()
@@ -82,7 +90,7 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     var userId: String? {
         return UserManager.shared.userId
     }
-    
+
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
@@ -110,6 +118,13 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     }
 
     // MARK: Computed Props
+
+    // Sadece  veri mi gösterilecek
+    var isViewedPage: Bool {
+        return self.viewedData != nil
+    }
+
+
     private var isHaveAnyCase: Bool {
         return redCase > 0 || greenCase > 0 || black22FoodCase > 0 || bigBlackCase > 0
     }
@@ -129,6 +144,28 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
         let kg = totalKg()
         let price = kg * kgPrice
         return isHaveAnyCase && Double(kantarFisi) > kg && price > 0 ? "\(price.decimalString())" : "0"
+    }
+}
+
+// MARK: Viewed Page
+extension BuyingCollectionUIModel {
+
+    mutating func mappedToTextFields(model: BuyingCollectionModel?) {
+        guard let model = model else { return }
+        self.setDate(date: model.date)
+        self.setKantarFisi(String(model.kantarFisi))
+        self.setPalet(String(model.palet))
+        self.setRedCase(String(model.redCase))
+        self.setGreenCase(String(model.greenCase))
+        self.set22BlackFoodCase(String(model.black22FoodCase))
+        self.setBigBlackCase(String(model.bigBlackCase))
+        self.setPercentFire(String(model.percentFire))
+        self.setKgPrice(String(model.kgPrice))
+        self.setPaletDari(String(model.paletDari))
+        self.setRedDari(String(model.redDari))
+        self.setGreenDari(String(model.greenDari))
+        self.set22BlackDari(String(model.black22FoodDari))
+        self.setBigBlackDari(String(model.bigBlackDari))
     }
 }
 

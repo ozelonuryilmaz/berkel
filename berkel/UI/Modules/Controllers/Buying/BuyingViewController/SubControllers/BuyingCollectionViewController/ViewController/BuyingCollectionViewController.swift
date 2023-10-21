@@ -62,8 +62,8 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
     }
 
     override func setupView() {
-        self.viewModel.initComponents()
         self.initDatePickerView()
+        self.viewModel.initComponents()
     }
 
     override func registerEvents() {
@@ -97,6 +97,42 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
 
             case .setTotalPrice(let price):
                 self.lblTotalPrice.text = price + " TL"
+
+
+            case .getViewedPageData(let data):
+
+                self.datePicker.date = data.date?.getApiResponseTypeDate() ?? Date()
+                self.tfKantarFisi.textField.text = String(data.kantarFisi)
+                self.tfPalet.textField.text = String(data.palet)
+                self.tfRedCase.textField.text = String(data.redCase)
+                self.tfGreenCase.textField.text = String(data.greenCase)
+                self.tf22BlackFoodCase.textField.text = String(data.black22FoodCase)
+                self.tfBigBlackCase.textField.text = String(data.bigBlackCase)
+                self.tfPercentFire.textField.text = data.percentFire.decimalString()
+                self.tfKgPrice.textField.text = String(data.kgPrice.decimalString())
+                self.tfPaletDari.textField.text = data.paletDari.decimalString()
+                self.tfRedDari.textField.text = data.redDari.decimalString()
+                self.tfGreenDari.textField.text = data.greenDari.decimalString()
+                self.tf22BlackDari.textField.text = data.black22FoodDari.decimalString()
+                self.tfBigBlackDari.textField.text = data.bigBlackDari.decimalString()
+
+                self.datePicker.isEnabled = false
+                self.tfKantarFisi.textField.isEnabled = false
+                self.tfPalet.textField.isEnabled = false
+                self.tfRedCase.textField.isEnabled = false
+                self.tfGreenCase.textField.isEnabled = false
+                self.tf22BlackFoodCase.textField.isEnabled = false
+                self.tfBigBlackCase.textField.isEnabled = false
+                self.tfPercentFire.textField.isEnabled = false
+                self.tfKgPrice.textField.isEnabled = false
+                self.tfPaletDari.textField.isEnabled = false
+                self.tfRedDari.textField.isEnabled = false
+                self.tfGreenDari.textField.isEnabled = false
+                self.tf22BlackDari.textField.isEnabled = false
+                self.tfBigBlackDari.textField.isEnabled = false
+
+                self.btnSave.isHidden = true
+
             }
 
         }).store(in: &cancelBag)
