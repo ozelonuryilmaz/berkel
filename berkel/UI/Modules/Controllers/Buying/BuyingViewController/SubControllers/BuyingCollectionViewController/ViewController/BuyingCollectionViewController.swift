@@ -106,13 +106,13 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
                 self.tfGreenCase.textField.text = String(data.greenCase)
                 self.tf22BlackFoodCase.textField.text = String(data.black22FoodCase)
                 self.tfBigBlackCase.textField.text = String(data.bigBlackCase)
-                self.tfPercentFire.textField.text = data.percentFire.decimalString()
-                self.tfKgPrice.textField.text = String(data.kgPrice.decimalString())
-                self.tfPaletDari.textField.text = data.paletDari.decimalString()
-                self.tfRedDari.textField.text = data.redDari.decimalString()
-                self.tfGreenDari.textField.text = data.greenDari.decimalString()
-                self.tf22BlackDari.textField.text = data.black22FoodDari.decimalString()
-                self.tfBigBlackDari.textField.text = data.bigBlackDari.decimalString()
+                self.tfPercentFire.textField.text = String(data.percentFire)
+                self.tfKgPrice.textField.text = String(data.kgPrice)
+                self.tfPaletDari.textField.text = String(data.paletDari)
+                self.tfRedDari.textField.text = String(data.redDari)
+                self.tfGreenDari.textField.text = String(data.greenDari)
+                self.tf22BlackDari.textField.text = String(data.black22FoodDari)
+                self.tfBigBlackDari.textField.text = String(data.bigBlackDari)
 
                 self.datePicker.isEnabled = false
                 self.tfKantarFisi.textField.isEnabled = false
