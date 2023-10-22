@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import FirebaseFirestore
+import FirebaseStorage
 
 typealias FirestoreResponseType<ResultData: Codable> = PassthroughSubject<ResultData, Error>
 
@@ -87,7 +88,7 @@ class BaseRepository: IBaseRepository {
     }
 
     // update data
-    func updateData(_ db: DocumentReference, data: [AnyHashable : Any]) -> FirestoreResponseType<Bool> {
+    func updateData(_ db: DocumentReference, data: [AnyHashable: Any]) -> FirestoreResponseType<Bool> {
         let subject = FirestoreResponseType<Bool>()
 
         let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
@@ -111,4 +112,32 @@ class BaseRepository: IBaseRepository {
         return subject
     }
 
+    // save image and return image url
+    func putData(_ db: StorageReference, data: Data) -> FirestoreResponseType<String> {
+        
+        //let storage = Storage.storage()
+        //let storageRef = storage.reference()
+        //let db = storageRef.child("images/myImage.jpg")
+
+        let subject = FirestoreResponseType<String>()
+
+        db.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                subject.send(completion: .failure(error))
+            } else {
+                db.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        subject.send(completion: .failure(error))
+                    } else if let imageUrl = url?.absoluteString {
+                        subject.send(imageUrl)
+                        subject.send(completion: .finished)
+                    } else {
+                        subject.send(completion: .failure(NSError(domain: "Image Url'e Ulaşılamadı", code: 50)))
+                    }
+                })
+            }
+        }
+
+        return subject
+    }
 }

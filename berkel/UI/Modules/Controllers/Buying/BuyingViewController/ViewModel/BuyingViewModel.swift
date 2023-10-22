@@ -155,6 +155,7 @@ extension BuyingViewModel {
 
     func cellTapped(uiModel: IBuyingTableViewCellUIModel) {
         let data = BuyingDetailPassData(buyingId: uiModel.id,
+                                        sellerId: uiModel.sellerId,
                                         sellerName: uiModel.sellerName,
                                         productName: uiModel.productName,
                                         isActive: uiModel.isActive)

@@ -50,6 +50,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
+    let responseImageUrl = CurrentValueSubject<String?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -196,6 +197,27 @@ internal extension BuyingDetailViewModel {
                 self.uiModel.setActive(isActive: false)
                 self.successDismissCallBack?(false)
                 self.reloadPage()
+            })
+    }
+
+    // TODO: UIIMage'i Data'yı çevir jpg formatında boyutu düşür.
+    // TODO: Firestore'a kaydetme akışını ayarla.
+
+    func saveImage(imagePathType: ImagePathType, imageData: Data, handleImageUrl: @escaping (String) -> Void) {
+        handleResourceFirestore(
+            request: self.repository.saveImage(sellerId: self.uiModel.sellerId,
+                                               season: self.uiModel.season,
+                                               imagePathType: imagePathType,
+                                               imageData: imageData),
+            response: self.responseImageUrl,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let imageUrl = self.responseImageUrl.value else { return }
+                handleImageUrl(imageUrl)
             })
     }
 }

@@ -92,6 +92,7 @@ extension BuyingDataService: CollectionServiceType {
                 .collection("collections")
                 .document(collectionId)
                 .collection("wavehouses")
+
         }
     }
 }

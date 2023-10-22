@@ -88,6 +88,7 @@ extension BuyingUIModel {
             return BuyingRowModel(
                 uiModel: BuyingTableViewCellUIModel(id: responseModel.id ?? "",
                                                     isActive: responseModel.isActive,
+                                                    sellerId: responseModel.sellerId,
                                                     sellerName: responseModel.sellerName,
                                                     productName: responseModel.productName,
                                                     kg: responseModel.productKGPrice,
@@ -107,6 +108,7 @@ extension BuyingUIModel {
 
             return BuyingRowModel(uiModel: BuyingTableViewCellUIModel(id: item.id ?? "",
                                                                       isActive: item.isActive,
+                                                                      sellerId: item.sellerId,
                                                                       sellerName: item.sellerName,
                                                                       productName: item.productName,
                                                                       kg: item.productKGPrice,

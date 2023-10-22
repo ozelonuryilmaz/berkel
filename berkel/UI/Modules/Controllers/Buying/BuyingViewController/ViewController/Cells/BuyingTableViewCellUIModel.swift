@@ -12,6 +12,7 @@ protocol IBuyingTableViewCellUIModel {
 
     var id: String { get }
     var isActive: Bool { get }
+    var sellerId: String { get }
     var sellerName: String { get }
     var productName: String { get }
     var kg: Double { get } // kgPrice
@@ -22,6 +23,7 @@ struct BuyingTableViewCellUIModel: IBuyingTableViewCellUIModel {
 
     let id: String
     let isActive: Bool
+    let sellerId: String
     let sellerName: String
     let productName: String
     let kg: Double // kgPrice

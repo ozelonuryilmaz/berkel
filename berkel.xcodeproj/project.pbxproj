@@ -34,6 +34,7 @@
 		6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3C2AA7AD48000034FD /* SettingsService.swift */; };
 		6710BF402AA7C526000034FD /* SettingsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */; };
 		6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */; };
+		67186A482AE51C4400B9E3D5 /* SellerImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67186A472AE51C4400B9E3D5 /* SellerImageService.swift */; };
 		671AC43C2AE18F0E00915113 /* WarehouseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC43A2AE18F0E00915113 /* WarehouseListTableViewCell.swift */; };
 		671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC43B2AE18F0E00915113 /* WarehouseListTableViewCell.xib */; };
 		671AC43F2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC43E2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift */; };
@@ -305,6 +306,7 @@
 		6710BF3C2AA7AD48000034FD /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		6710BF3F2AA7C526000034FD /* SettingsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsResponseModel.swift; sourceTree = "<group>"; };
 		6710BF412AA7C7AB000034FD /* CollectionServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionServiceType.swift; sourceTree = "<group>"; };
+		67186A472AE51C4400B9E3D5 /* SellerImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerImageService.swift; sourceTree = "<group>"; };
 		671AC43A2AE18F0E00915113 /* WarehouseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListTableViewCell.swift; sourceTree = "<group>"; };
 		671AC43B2AE18F0E00915113 /* WarehouseListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WarehouseListTableViewCell.xib; sourceTree = "<group>"; };
 		671AC43E2AE18F1900915113 /* WarehouseListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListTableViewCellUIModel.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			children = (
 				675129E62AAC7BD400429CB7 /* Types */,
 				676F532C2AD9BEB8001F06DF /* BuyingDataService.swift */,
+				67186A472AE51C4400B9E3D5 /* SellerImageService.swift */,
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
 				67334E9F2AB4E0840072DBD6 /* SellerService.swift */,
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
@@ -2427,6 +2430,7 @@
 				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
 				67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
+				67186A482AE51C4400B9E3D5 /* SellerImageService.swift in Sources */,
 				670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */,
 				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
 				67B9EE502AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift in Sources */,

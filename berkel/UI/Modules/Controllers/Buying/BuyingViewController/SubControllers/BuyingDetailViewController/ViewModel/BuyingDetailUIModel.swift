@@ -14,6 +14,7 @@ protocol IBuyingDetailUIModel {
 
     var buyingId: String { get }
     var sellerName: String { get }
+    var sellerId: String { get }
     var productName: String { get }
     var isActive: Bool { get }
 
@@ -50,6 +51,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     // MARK: Definitions
     let buyingId: String
     let sellerName: String
+    let sellerId: String
     let productName: String
     var isActive: Bool
 
@@ -57,6 +59,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     init(data: BuyingDetailPassData) {
         self.buyingId = data.buyingId
         self.sellerName = data.sellerName
+        self.sellerId = data.sellerId
         self.productName = data.productName
         self.isActive = data.isActive
     }
