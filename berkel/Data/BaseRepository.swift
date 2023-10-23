@@ -114,11 +114,6 @@ class BaseRepository: IBaseRepository {
 
     // save image and return image url
     func putData(_ db: StorageReference, data: Data) -> FirestoreResponseType<String> {
-        
-        //let storage = Storage.storage()
-        //let storageRef = storage.reference()
-        //let db = storageRef.child("images/myImage.jpg")
-
         let subject = FirestoreResponseType<String>()
 
         db.putData(data, metadata: nil) { (metadata, error) in

@@ -41,39 +41,47 @@ class NativeProgressView: BaseReusableView {
     }
 
     func playAnimation() {
-        if let window = WindowHelper.getWindow() {
+        if !activityIndicator.isAnimating,
+            let window = WindowHelper.getWindow() {
             window.addSubview(self)
             self.snp.makeConstraints { maker in
                 maker.edges.equalToSuperview()
             }
             window.bringSubviewToFront(self)
             UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.alpha = 1.0
+                guard let self = self else { return }
+                self.alpha = 1.0
             }
             activityIndicator.startAnimating()
         }
     }
 
     func playAnimation(parentView: UIView?) {
-        if let parentView = parentView {
+        if !activityIndicator.isAnimating,
+            let parentView = parentView {
             parentView.addSubview(self)
             self.snp.makeConstraints { maker in
                 maker.edges.equalToSuperview()
             }
             parentView.bringSubviewToFront(self)
             UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.alpha = 1.0
+                guard let self = self else { return }
+                self.alpha = 1.0
             }
             activityIndicator.startAnimating()
         }
     }
 
     func stopAnimation() {
-        UIView.animate(withDuration: 0.1) { [weak self] in
-            self?.alpha = 0
-        } completion: { [weak self] completed in
-            self?.removeFromSuperview()
-            self?.activityIndicator.stopAnimating()
+        if self.activityIndicator.isAnimating {
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                guard let self = self else { return }
+                self.alpha = 0
+            } completion: { [weak self] completed in
+                guard let self = self else { return }
+                self.removeFromSuperview()
+                self.activityIndicator.stopAnimating()
+            }
         }
     }
 }

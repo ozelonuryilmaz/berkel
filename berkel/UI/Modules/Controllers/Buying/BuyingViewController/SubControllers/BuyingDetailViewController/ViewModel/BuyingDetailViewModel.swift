@@ -21,7 +21,11 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
 
     func initComponents()
 
+    // View State
     func viewStateSetNavigationTitle()
+
+    // Coordinate
+    func presentNewSellerImageViewController(imagePathType: ImagePathType)
 
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
@@ -50,7 +54,6 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
-    let responseImageUrl = CurrentValueSubject<String?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -64,6 +67,8 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func initComponents() {
+        self.viewStateShowNativeProgress(isProgress: true)
+
         if self.uiModel.isActive {
             self.viewStateShowBuyingActiveButton()
         }
@@ -75,11 +80,17 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func reloadPage() {
-        DispatchQueue.delay(150) { [weak self] in
+
+        DispatchQueue.delay(250) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()
             self.viewStateNowDoubt()
+
+            DispatchQueue.delay(75) { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: false)
+            }
         }
     }
 }
@@ -95,8 +106,8 @@ internal extension BuyingDetailViewModel {
             response: self.responseCollection,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
-                guard let self = self else { return }
-                self.viewStateShowNativeProgress(isProgress: isProgress)
+                guard let _ = self else { return }
+                //self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responseCollection.value else { return }
@@ -117,8 +128,8 @@ internal extension BuyingDetailViewModel {
             response: self.responsePayment,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
-                guard let self = self else { return }
-                self.viewStateShowNativeProgress(isProgress: isProgress)
+                guard let _ = self else { return }
+                //self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responsePayment.value else { return }
@@ -141,8 +152,8 @@ internal extension BuyingDetailViewModel {
             response: self.responseWarehouse,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
-                guard let self = self else { return }
-                self.viewStateShowNativeProgress(isProgress: (collections.count == index + 1) ? false : true)
+                guard let _ = self else { return }
+                //self.viewStateShowNativeProgress(isProgress: (collections.count == index + 1) ? false : true)
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responseWarehouse.value else { return }
@@ -197,27 +208,6 @@ internal extension BuyingDetailViewModel {
                 self.uiModel.setActive(isActive: false)
                 self.successDismissCallBack?(false)
                 self.reloadPage()
-            })
-    }
-
-    // TODO: UIIMage'i Data'yı çevir jpg formatında boyutu düşür.
-    // TODO: Firestore'a kaydetme akışını ayarla.
-
-    func saveImage(imagePathType: ImagePathType, imageData: Data, handleImageUrl: @escaping (String) -> Void) {
-        handleResourceFirestore(
-            request: self.repository.saveImage(sellerId: self.uiModel.sellerId,
-                                               season: self.uiModel.season,
-                                               imagePathType: imagePathType,
-                                               imageData: imageData),
-            response: self.responseImageUrl,
-            errorState: self.errorState,
-            callbackLoading: { [weak self] isProgress in
-                guard let self = self else { return }
-                self.viewStateShowNativeProgress(isProgress: isProgress)
-            }, callbackSuccess: { [weak self] in
-                guard let self = self,
-                    let imageUrl = self.responseImageUrl.value else { return }
-                handleImageUrl(imageUrl)
             })
     }
 }
@@ -286,10 +276,7 @@ internal extension BuyingDetailViewModel {
                                             warehouses: warehouses
             ), successDismissCallBack: { data in
                 self.uiModel.appendWarehousesIntoCollection(collectionId: uiModel.collectionId, warehouse: data)
-                DispatchQueue.delay(250) { [weak self] in
-                    guard let self = self else { return }
-                    self.reloadPage()
-                }
+                self.reloadPage()
             })
     }
 
@@ -304,6 +291,15 @@ internal extension BuyingDetailViewModel {
                                                model: data),
             successDismissCallBack: { _ in }
         )
+    }
+
+    func presentNewSellerImageViewController(imagePathType: ImagePathType) {
+        let data = NewSellerImagePassData(imagePathType: imagePathType,
+                                          sellerId: self.uiModel.sellerId,
+                                          buyingId: self.uiModel.buyingId,
+                                          buyingProductName: self.uiModel.productName)
+
+        self.coordinator.presentNewSellerImageViewController(passData: data)
     }
 }
 

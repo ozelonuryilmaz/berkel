@@ -9,15 +9,15 @@ import UIKit
 import Combine
 
 class BerkelBaseViewController: UIViewController {
-    
+
     public var navigationTitle: String? {
         return nil
     }
-    
+
     public var navigationSubTitle: String? {
         return nil
     }
-    
+
     var cancelBag = Set<AnyCancellable>()
     private var nativeProgressView: NativeProgressView?
 
@@ -39,7 +39,7 @@ class BerkelBaseViewController: UIViewController {
         self.setupView()
         self.registerEvents()
     }
-    
+
     private func initNavigationBarBackButton() {
         self.setBackButtonTitle(title: "Geri")
         if #available(iOS 14.0, *) {
@@ -60,15 +60,15 @@ class BerkelBaseViewController: UIViewController {
 
     // for all sub class
     func registerEvents() { }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         navigationItem.titleView = nil
         if let navTitle = navigationTitle {
             if let subNavTitle = navigationSubTitle {
                 self.navigationItem.setCustomTitle(navTitle, subtitle: subNavTitle)
-            }else {
+            } else {
                 self.navigationItem.title = navTitle
             }
         }
@@ -93,10 +93,13 @@ class BerkelBaseViewController: UIViewController {
 extension BerkelBaseViewController {
 
     func playNativeLoading(isLoading: Bool) {
-        if isLoading {
-            playNativeLoading()
-        } else {
-            stopNativeLoading()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            if isLoading {
+                self.playNativeLoading()
+            } else {
+                self.stopNativeLoading()
+            }
         }
     }
 
@@ -115,7 +118,7 @@ extension BerkelBaseViewController {
                            errorHandle: FirestoreErrorHandle) {
         errorState.sink(receiveValue: { [weak self] errorType in
             self?.handleApiError(errorType: errorType,
-                                errorHandler: errorHandle)
+                                 errorHandler: errorHandle)
         }).store(in: &cancelBag)
     }
 
@@ -126,10 +129,10 @@ extension BerkelBaseViewController {
         case .COMMON_ERROR(_),
              .UNDEFINED_RESPONSE_TYPE:
 
-            errorHandler.handleCommonError(title: nil,errorMessage: errorType?.description ?? "Beklenmedik bir hata oluştu")
+            errorHandler.handleCommonError(title: nil, errorMessage: errorType?.description ?? "Beklenmedik bir hata oluştu")
         case .ERROR_MESSAGE(let title, let msg):
             errorHandler.handleCommonError(title: title, errorMessage: msg)
-            
+
         case .none:
             break
         }

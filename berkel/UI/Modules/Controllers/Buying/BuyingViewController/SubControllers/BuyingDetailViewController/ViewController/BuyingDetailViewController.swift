@@ -26,6 +26,12 @@ final class BuyingDetailViewController: MainBaseViewController {
     @IBOutlet private weak var segmentedController: UISegmentedControl!
     @IBOutlet private weak var tableViewCollection: BuyingCollectionDiffableTableView!
     @IBOutlet private weak var tableViewPayment: UITableView!
+    @IBOutlet private weak var viewImage: UIView!
+
+    @IBOutlet private weak var btnKantarFisi: UIButton!
+    @IBOutlet private weak var btnCek: UIButton!
+    @IBOutlet private weak var btnDekont: UIButton!
+    @IBOutlet private weak var btnDiger: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -56,11 +62,29 @@ final class BuyingDetailViewController: MainBaseViewController {
 
     override func registerEvents() {
         segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+
+        btnKantarFisi.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .kantarFisi)
+        }
+
+        btnCek.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .cek)
+        }
+
+        btnDekont.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .dekont)
+        }
+
+        btnDiger.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .diger)
+        }
+
     }
 
     @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableViewCollection.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
+        self.viewImage.isHidden = sender.selectedSegmentIndex == 1 || sender.selectedSegmentIndex == 0
     }
 
     private func observeReactiveDatas() {
@@ -75,7 +99,7 @@ final class BuyingDetailViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-                
+
             case .showBuyingActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
 
