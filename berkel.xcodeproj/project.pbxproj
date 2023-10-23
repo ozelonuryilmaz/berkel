@@ -85,6 +85,7 @@
 		6774FB192AE6DFC900F1F692 /* NewSellerImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774FB112AE6DFC900F1F692 /* NewSellerImageViewModel.swift */; };
 		6774FB1A2AE6DFC900F1F692 /* NewSellerImagePassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774FB122AE6DFC900F1F692 /* NewSellerImagePassData.swift */; };
 		6774FB1B2AE6DFC900F1F692 /* NewSellerImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6774FB132AE6DFC900F1F692 /* NewSellerImageViewController.xib */; };
+		6774FB232AE6FA3D00F1F692 /* DGZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774FB222AE6FA3D00F1F692 /* DGZoomableImageView.swift */; };
 		6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */; };
 		6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D12AB3AF27006836CE /* AddSellerCoordinator.swift */; };
 		6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776F4D22AB3AF27006836CE /* AddSellerUIModel.swift */; };
@@ -366,6 +367,7 @@
 		6774FB112AE6DFC900F1F692 /* NewSellerImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerImageViewModel.swift; sourceTree = "<group>"; };
 		6774FB122AE6DFC900F1F692 /* NewSellerImagePassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerImagePassData.swift; sourceTree = "<group>"; };
 		6774FB132AE6DFC900F1F692 /* NewSellerImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSellerImageViewController.xib; sourceTree = "<group>"; };
+		6774FB222AE6FA3D00F1F692 /* DGZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGZoomableImageView.swift; sourceTree = "<group>"; };
 		6776F4992AB3A403006836CE /* AddBuyingItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBuyingItemViewController.xib; sourceTree = "<group>"; };
 		6776F4D12AB3AF27006836CE /* AddSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerCoordinator.swift; sourceTree = "<group>"; };
 		6776F4D22AB3AF27006836CE /* AddSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerUIModel.swift; sourceTree = "<group>"; };
@@ -940,6 +942,7 @@
 			children = (
 				6774FB202AE6DFFC00F1F692 /* Builder */,
 				6774FB1F2AE6DFF800F1F692 /* Coordinator */,
+				6774FB082AE6D85900F1F692 /* Models */,
 				6774FB1E2AE6DFF300F1F692 /* Repository */,
 				6774FB1D2AE6DFEE00F1F692 /* ViewModel */,
 				6774FB1C2AE6DFD200F1F692 /* ViewController */,
@@ -988,6 +991,14 @@
 				6774FB102AE6DFC900F1F692 /* NewSellerImageBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		6774FB212AE6FA3000F1F692 /* DGZoomableImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6774FB222AE6FA3D00F1F692 /* DGZoomableImageView.swift */,
+			);
+			path = DGZoomableImageView;
 			sourceTree = "<group>";
 		};
 		6776F4D02AB3AEE7006836CE /* AddSellerViewController */ = {
@@ -1430,6 +1441,7 @@
 		678B53932AA2639E003F4355 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				6774FB212AE6FA3000F1F692 /* DGZoomableImageView */,
 				67EA5B622AAF86BA0086E20C /* GestureRecognizerClosures */,
 				6797F01C2AA4968500638C09 /* CombineFirebae */,
 				678B53942AA263A3003F4355 /* Toast */,
@@ -1736,7 +1748,6 @@
 			isa = PBXGroup;
 			children = (
 				67B98CFE2ADBE79800CD4B15 /* Builder */,
-				6774FB082AE6D85900F1F692 /* Models */,
 				67B98CFD2ADBE79300CD4B15 /* Coordinator */,
 				67B98CFC2ADBE76F00CD4B15 /* Repository */,
 				67B98CFB2ADBE76400CD4B15 /* ViewModel */,
@@ -2487,6 +2498,7 @@
 				677D62F32AC1F422004F3232 /* SeasonsTableViewCellUIModel.swift in Sources */,
 				67B98D082ADBEB3700CD4B15 /* BuyingPaymentCoordinator.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
+				6774FB232AE6FA3D00F1F692 /* DGZoomableImageView.swift in Sources */,
 				67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */,
 				67DB17242ABF155F00463CA9 /* NewBuyingRepository.swift in Sources */,
 				6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */,

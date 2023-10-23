@@ -17,10 +17,16 @@ protocol INewSellerImageUIModel {
     var season: String { get }
     var userId: String? { get }
 
+    var date: String? { get }
+    var imageData: Data? { get }
+
     var navTitle: String { get }
 
     init(data: NewSellerImagePassData)
 
+    // Setter
+    mutating func setDate(date: String?)
+    mutating func setImageData(_ data: Data?)
 }
 
 struct NewSellerImageUIModel: INewSellerImageUIModel {
@@ -39,6 +45,9 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
         self.buyingId = data.buyingId
         self.buyingProductName = data.buyingProductName
     }
+
+    var date: String? = Date().dateFormatterApiResponseType()
+    var imageData: Data? = nil
 
     var userId: String? {
         return UserManager.shared.userId
@@ -67,4 +76,16 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
 // MARK: Props
 extension NewSellerImageUIModel {
 
+}
+
+// MARK: Setter
+extension NewSellerImageUIModel {
+
+    mutating func setDate(date: String?) {
+        self.date = date
+    }
+
+    mutating func setImageData(_ data: Data?) {
+        self.imageData = data
+    }
 }

@@ -4,12 +4,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MavenPro-Bold.ttf">
+            <string>MavenProBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewSellerImageViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnAddImage" destination="A5M-Aq-gr2" id="VJ1-Er-lXV"/>
+                <outlet property="btnSave" destination="HbS-jQ-arH" id="8eE-8j-Xfa"/>
+                <outlet property="datePicker" destination="6Nl-tj-ud2" id="ML4-nI-AgQ"/>
+                <outlet property="imageView" destination="Lry-sn-mzM" id="ldd-2e-MdR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,10 +27,67 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="6Nl-tj-ud2">
+                    <rect key="frame" x="16" y="63" width="358" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="TyJ-Yv-sEi"/>
+                    </constraints>
+                    <locale key="locale" localeIdentifier="tr"/>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-Aq-gr2">
+                    <rect key="frame" x="32" y="107" width="326" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="dgQ-l4-r0i"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Resim Ekle"/>
+                </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lry-sn-mzM" customClass="DGZoomableImageView" customModule="berkel" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="171" width="390" height="551"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-jQ-arH" userLabel="btnKantarFisi">
+                    <rect key="frame" x="32" y="738" width="326" height="56"/>
+                    <color key="backgroundColor" name="PrimaryBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="4Gq-8P-izr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                    <state key="normal" title="Kaydet">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="6Nl-tj-ud2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="062-jL-0cn"/>
+                <constraint firstItem="HbS-jQ-arH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="1bE-wd-sK2"/>
+                <constraint firstItem="Lry-sn-mzM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8Yq-0Z-Nl9"/>
+                <constraint firstAttribute="trailing" secondItem="6Nl-tj-ud2" secondAttribute="trailing" constant="16" id="Bjj-HP-h1K"/>
+                <constraint firstItem="6Nl-tj-ud2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="G4w-KV-hOL"/>
+                <constraint firstItem="A5M-Aq-gr2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="HqL-F7-6M6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HbS-jQ-arH" secondAttribute="trailing" constant="32" id="NUh-SY-nQb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="A5M-Aq-gr2" secondAttribute="trailing" constant="32" id="PSw-bb-6pL"/>
+                <constraint firstItem="A5M-Aq-gr2" firstAttribute="top" secondItem="6Nl-tj-ud2" secondAttribute="bottom" id="aFB-6o-3v4"/>
+                <constraint firstItem="Lry-sn-mzM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hiU-Qf-XMY"/>
+                <constraint firstItem="HbS-jQ-arH" firstAttribute="top" secondItem="Lry-sn-mzM" secondAttribute="bottom" constant="16" id="huM-nd-hOd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HbS-jQ-arH" secondAttribute="bottom" constant="16" id="oyC-a8-c09"/>
+                <constraint firstItem="Lry-sn-mzM" firstAttribute="top" secondItem="A5M-Aq-gr2" secondAttribute="bottom" constant="8" id="rCv-Z9-Ucp"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="PrimaryBlue">
+            <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

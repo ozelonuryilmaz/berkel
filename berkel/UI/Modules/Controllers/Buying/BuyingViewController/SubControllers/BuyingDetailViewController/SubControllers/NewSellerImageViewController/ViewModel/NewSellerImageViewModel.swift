@@ -18,12 +18,20 @@ protocol INewSellerImageViewModel: AnyObject {
          coordinator: INewSellerImageCoordinator,
          uiModel: INewSellerImageUIModel)
 
+    func initComponents()
+
+    // Service
+    func saveImage()
+
     // View State
     func viewStateSetNavigationTitle()
-    
+
     // Coordinate
     func dismiss()
 
+    // Setter
+    func setDate(date: String?)
+    func setImageData(_ data: Data?)
 }
 
 final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
@@ -49,7 +57,7 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
     }
 
     func initComponents() {
-        self.viewStateSetNavigationTitle()
+
     }
 
 }
@@ -58,14 +66,13 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
 // MARK: Service
 internal extension NewSellerImageViewModel {
 
-    // TODO: UIIMage'i Data'yı çevir jpg formatında boyutu düşür.
-    // TODO: Firestore'a kaydetme akışını ayarla.
+    func saveImage() {
+        guard let imageData = self.uiModel.imageData else { return }
 
-    func saveImage(imagePathType: ImagePathType, imageData: Data, date: String) {
         handleResourceFirestore(
             request: self.repository.saveImage(sellerId: self.uiModel.sellerId,
                                                season: self.uiModel.season,
-                                               imagePathType: imagePathType,
+                                               imagePathType: self.uiModel.imagePathType,
                                                imageData: imageData),
             response: self.responseImageUrl,
             errorState: self.errorState,
@@ -80,18 +87,18 @@ internal extension NewSellerImageViewModel {
                                             userId: self.uiModel.userId,
                                             buyingId: self.uiModel.buyingId,
                                             buyingProductName: self.uiModel.buyingProductName,
-                                            date: date,
+                                            date: self.uiModel.date,
                                             imageUrl: imageUrl)
 
-                self.saveSellerImageData(imagePathType: imagePathType, data: data)
+                self.saveSellerImageData(data: data)
             })
     }
 
-    private func saveSellerImageData(imagePathType: ImagePathType, data: SellerImageModel) {
+    private func saveSellerImageData(data: SellerImageModel) {
         handleResourceFirestore(
             request: self.repository.saveSellerImage(sellerId: self.uiModel.sellerId,
                                                      season: self.uiModel.season,
-                                                     imagePathType: imagePathType,
+                                                     imagePathType: self.uiModel.imagePathType,
                                                      data: data),
             response: self.responseSellerImage,
             errorState: self.errorState,
@@ -100,7 +107,7 @@ internal extension NewSellerImageViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-
+                self.viewStateShowSuccessAlertMessage()
             })
     }
 }
@@ -117,6 +124,10 @@ internal extension NewSellerImageViewModel {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.navTitle)
     }
 
+    func viewStateShowSuccessAlertMessage() {
+        self.viewState.value = .showSuccessAlertMessage
+    }
+
     // MARK: Action State
 
 }
@@ -129,8 +140,20 @@ internal extension NewSellerImageViewModel {
     }
 }
 
+// MARK: Setter
+internal extension NewSellerImageViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setImageData(_ data: Data?) {
+        self.uiModel.setImageData(data)
+    }
+}
 
 enum NewSellerImageViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String)
+    case showSuccessAlertMessage
 }

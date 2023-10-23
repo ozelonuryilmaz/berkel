@@ -102,6 +102,10 @@ final class BuyingDetailViewController: MainBaseViewController {
 
             case .showBuyingActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
+                self.btnKantarFisi.isHidden = false
+                self.btnCek.isHidden = false
+                self.btnDekont.isHidden = false
+                self.btnDiger.isHidden = false
 
             case .setNavigationTitle(let title, let subTitle):
                 self.navigationItem.setCustomTitle(title, subtitle: subTitle)
@@ -150,6 +154,10 @@ final class BuyingDetailViewController: MainBaseViewController {
                 positiveButtonText: "Evet",
                 positiveButtonClickListener: {
                     self.navigationItem.rightBarButtonItems = []
+                    self.btnKantarFisi.isHidden = true
+                    self.btnCek.isHidden = true
+                    self.btnDekont.isHidden = true
+                    self.btnDiger.isHidden = true
                     self.viewModel.updateBuyingActive()
                 },
                 negativeButtonText: "İptal"
