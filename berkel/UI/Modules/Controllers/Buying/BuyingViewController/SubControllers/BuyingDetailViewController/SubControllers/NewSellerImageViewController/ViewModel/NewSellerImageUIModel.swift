@@ -18,6 +18,7 @@ protocol INewSellerImageUIModel {
     var userId: String? { get }
 
     var date: String? { get }
+    var desc: String? { get }
     var imageData: Data? { get }
 
     var navTitle: String { get }
@@ -27,6 +28,7 @@ protocol INewSellerImageUIModel {
     // Setter
     mutating func setDate(date: String?)
     mutating func setImageData(_ data: Data?)
+    mutating func setDesc(_ text: String)
 }
 
 struct NewSellerImageUIModel: INewSellerImageUIModel {
@@ -47,6 +49,7 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
     }
 
     var date: String? = Date().dateFormatterApiResponseType()
+    var desc: String? = nil
     var imageData: Data? = nil
 
     var userId: String? {
@@ -66,7 +69,7 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
         case .dekont:
             return "Dekont Resmi Ekle"
         case .diger:
-            return "Diger Resim Ekle"
+            return "Diğer Resim Ekle"
         }
     }
 
@@ -87,5 +90,9 @@ extension NewSellerImageUIModel {
 
     mutating func setImageData(_ data: Data?) {
         self.imageData = data
+    }
+
+    mutating func setDesc(_ text: String) {
+        self.desc = text
     }
 }

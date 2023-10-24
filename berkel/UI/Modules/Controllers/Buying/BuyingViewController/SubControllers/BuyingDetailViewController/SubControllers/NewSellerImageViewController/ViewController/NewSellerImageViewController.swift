@@ -19,6 +19,7 @@ final class NewSellerImageViewController: BerkelBaseViewController {
 
     // MARK: IBOutlets
     @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
     @IBOutlet private weak var btnAddImage: UIButton!
     @IBOutlet private weak var imageView: DGZoomableImageView!
 
@@ -55,6 +56,7 @@ final class NewSellerImageViewController: BerkelBaseViewController {
     override func registerEvents() {
 
         btnAddImage.onTap { [unowned self] _ in
+            self.tfDesc.textField.resignFirstResponder()
             self.present(self.imagePicker, animated: true, completion: nil)
         }
 
@@ -66,6 +68,7 @@ final class NewSellerImageViewController: BerkelBaseViewController {
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -129,13 +132,27 @@ private extension NewSellerImageViewController {
     }
 }
 
+
+// MARK: TextField
+private extension NewSellerImageViewController {
+
+    func listenTextFieldsDidChange() {
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
+}
+
+
 extension NewSellerImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // Kullanıcı resim seçtikten sonra çağrılacak olan metod
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.imageView.image = image
-            self.viewModel.setImageData(image.jpegData(compressionQuality: 0.9))
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+            let imageData = image.jpegData(compressionQuality: 0.8) {
+            self.imageView.image = UIImage(data: imageData)
+            self.viewModel.setImageData(imageData)
         }
         picker.dismiss(animated: true, completion: nil)
     }

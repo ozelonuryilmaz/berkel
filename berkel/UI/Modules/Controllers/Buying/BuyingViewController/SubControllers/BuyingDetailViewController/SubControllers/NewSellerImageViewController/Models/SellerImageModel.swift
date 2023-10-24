@@ -16,5 +16,6 @@ struct SellerImageModel: Codable {
     let buyingProductName: String
 
     let date: String?
+    let description: String?
     let imageUrl: String
 }

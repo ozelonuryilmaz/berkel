@@ -31,6 +31,7 @@ protocol INewSellerImageViewModel: AnyObject {
 
     // Setter
     func setDate(date: String?)
+    func setDesc(_ text: String)
     func setImageData(_ data: Data?)
 }
 
@@ -88,6 +89,7 @@ internal extension NewSellerImageViewModel {
                                             buyingId: self.uiModel.buyingId,
                                             buyingProductName: self.uiModel.buyingProductName,
                                             date: self.uiModel.date,
+                                            description: self.uiModel.desc,
                                             imageUrl: imageUrl)
 
                 self.saveSellerImageData(data: data)
@@ -149,6 +151,10 @@ internal extension NewSellerImageViewModel {
 
     func setImageData(_ data: Data?) {
         self.uiModel.setImageData(data)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
     }
 }
 
