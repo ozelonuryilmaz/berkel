@@ -59,7 +59,7 @@ final class SellerViewController: MainBaseViewController {
         // observeErrorState(errorState: viewModel._errorState)
     }
 
-    // MARK: Define Components (if you have or delete this line)
+    // MARK: Define Components
 }
 
 // MARK: Props

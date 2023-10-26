@@ -41,46 +41,58 @@ class NativeProgressView: BaseReusableView {
     }
 
     func playAnimation() {
-        if !activityIndicator.isAnimating,
-            let window = WindowHelper.getWindow() {
-            window.addSubview(self)
-            self.snp.makeConstraints { maker in
-                maker.edges.equalToSuperview()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if !self.activityIndicator.isAnimating,
+                let window = WindowHelper.getWindow() {
+                window.addSubview(self)
+                self.snp.makeConstraints { maker in
+                    maker.edges.equalToSuperview()
+                }
+                window.bringSubviewToFront(self)
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    guard let self = self else { return }
+                    self.alpha = 1.0
+                }
+                self.activityIndicator.startAnimating()
             }
-            window.bringSubviewToFront(self)
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                guard let self = self else { return }
-                self.alpha = 1.0
-            }
-            activityIndicator.startAnimating()
         }
     }
 
     func playAnimation(parentView: UIView?) {
-        if !activityIndicator.isAnimating,
-            let parentView = parentView {
-            parentView.addSubview(self)
-            self.snp.makeConstraints { maker in
-                maker.edges.equalToSuperview()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if !self.activityIndicator.isAnimating,
+                let parentView = parentView {
+                parentView.addSubview(self)
+                self.snp.makeConstraints { maker in
+                    maker.edges.equalToSuperview()
+                }
+                parentView.bringSubviewToFront(self)
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    guard let self = self else { return }
+                    self.alpha = 1.0
+                }
+                self.activityIndicator.startAnimating()
             }
-            parentView.bringSubviewToFront(self)
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                guard let self = self else { return }
-                self.alpha = 1.0
-            }
-            activityIndicator.startAnimating()
         }
     }
 
     func stopAnimation() {
-        if self.activityIndicator.isAnimating {
-            UIView.animate(withDuration: 0.1) { [weak self] in
-                guard let self = self else { return }
-                self.alpha = 0
-            } completion: { [weak self] completed in
-                guard let self = self else { return }
-                self.removeFromSuperview()
-                self.activityIndicator.stopAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if self.activityIndicator.isAnimating {
+                UIView.animate(withDuration: 0.1) { [weak self] in
+                    guard let self = self else { return }
+                    self.alpha = 0
+                } completion: { [weak self] completed in
+                    guard let self = self else { return }
+                    self.removeFromSuperview()
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
     }

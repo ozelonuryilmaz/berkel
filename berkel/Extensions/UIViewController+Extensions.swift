@@ -29,7 +29,7 @@ extension UIViewController {
     func hideKeyboard() {
         self.view.hideKeyboard()
     }
-    
+
     func setBackButtonTitle(title: String) {
         let backButton = BackBarButtonItem(title: title, style: .plain)
         backButton.tintColor = navigationController?.navigationBar.tintColor
@@ -37,7 +37,9 @@ extension UIViewController {
     }
 
     func visibleTabBar(isVisible: Bool) {
-        self.tabBarController?.tabBar.isHidden = !isVisible
+        DispatchQueue.main.async { [weak self] in
+            self?.tabBarController?.tabBar.isHidden = !isVisible
+        }
     }
 
     func visibleNavigationBar(isVisible: Bool, animated: Bool = true) {

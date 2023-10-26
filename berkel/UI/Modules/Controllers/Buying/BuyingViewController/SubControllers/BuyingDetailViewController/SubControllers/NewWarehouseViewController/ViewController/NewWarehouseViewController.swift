@@ -92,7 +92,7 @@ final class NewWarehouseViewController: BerkelBaseViewController {
                           errorHandle: errorHandle)
     }
 
-    // MARK: Define Components (if you have or delete this line)
+    // MARK: Define Components
 }
 
 // MARK: Props

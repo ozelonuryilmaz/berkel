@@ -80,7 +80,7 @@ final class SettingsViewController: MainBaseViewController {
                           errorHandle: errorHandle)
     }
 
-    // MARK: Define Components (if you have or delete this line)
+    // MARK: Define Components
 }
 
 // MARK: Props

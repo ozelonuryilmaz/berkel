@@ -93,13 +93,10 @@ class BerkelBaseViewController: UIViewController {
 extension BerkelBaseViewController {
 
     func playNativeLoading(isLoading: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            if isLoading {
-                self.playNativeLoading()
-            } else {
-                self.stopNativeLoading()
-            }
+        if isLoading {
+            self.playNativeLoading()
+        } else {
+            self.stopNativeLoading()
         }
     }
 

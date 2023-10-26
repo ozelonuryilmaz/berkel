@@ -58,7 +58,7 @@ final class WorkerViewController: MainBaseViewController {
     private func listenErrorState() {
     }
 
-    // MARK: Define Components (if you have or delete this line)
+    // MARK: Define Components
 }
 
 // MARK: Props
