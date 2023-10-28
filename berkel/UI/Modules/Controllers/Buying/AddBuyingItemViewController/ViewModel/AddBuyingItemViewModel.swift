@@ -117,7 +117,7 @@ internal extension AddBuyingItemViewModel {
     func presentAddSellerViewController() {
         self.coordinator.presentAddSellerViewController(outputDelegate: self)
     }
-    
+
     func selfPopViewController() {
         self.coordinator.selfPopViewController()
     }
@@ -130,6 +130,11 @@ internal extension AddBuyingItemViewModel {
                 self?.selfPopViewController()
             }
         )
+    }
+
+    func pushArchiveListViewController(sellerId: String) {
+        let data = ArchiveListPassData(sellerId: sellerId)
+        self.coordinator.pushArchiveListViewController(passData: data)
     }
 }
 
@@ -147,6 +152,10 @@ extension AddBuyingItemViewModel {
 
     func phoneNumberTapped(phoneNumber: String) {
         PhoneCallHelper.shared.makeACall(phoneNumber: phoneNumber)
+    }
+    
+    func archiveTapped(sellerId: String) {
+        self.pushArchiveListViewController(sellerId: sellerId)
     }
 
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel) {

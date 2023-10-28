@@ -10,6 +10,7 @@ import UIKit
 protocol AddBuyingItemDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(sellerId: String)
     func scrollDidScroll(isAvailablePagination: Bool)
 }
 
@@ -43,6 +44,10 @@ final class AddBuyingItemDataSourceFactory {
 
 // MARK: - PhotoSelectionCollectionViewCellOutputDelegate
 extension AddBuyingItemDataSourceFactory: AddBuyingItemTableViewCellOutputDelegate {
+
+    func archiveTapped(sellerId: String) {
+        self.outputDelegate?.archiveTapped(sellerId: sellerId)
+    }
 
     func phoneNumberTapped(phoneNumber: String) {
         self.outputDelegate?.phoneNumberTapped(phoneNumber: phoneNumber)

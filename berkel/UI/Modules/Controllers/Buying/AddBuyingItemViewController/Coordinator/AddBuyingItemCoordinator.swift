@@ -14,7 +14,8 @@ protocol IAddBuyingItemCoordinator: AnyObject {
 
     func presentNewBuyingViewController(passData: AddBuyingItemResponseModel,
                                         successDismissCallBack: ((_ data: NewBuyingModel) -> Void)?)
-    
+
+    func pushArchiveListViewController(passData: ArchiveListPassData)
     func selfPopViewController()
 }
 
@@ -53,7 +54,13 @@ final class AddBuyingItemCoordinator: NavigationCoordinator, IAddBuyingItemCoord
             .with(passData: NewBuyingPassData(seller: passData))
         coordinate(to: controller)
     }
-    
+
+    func pushArchiveListViewController(passData: ArchiveListPassData) {
+        let coordinator = ArchiveListCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
     func selfPopViewController() {
         self.navigationController.popToRootViewController(animated: true)
     }

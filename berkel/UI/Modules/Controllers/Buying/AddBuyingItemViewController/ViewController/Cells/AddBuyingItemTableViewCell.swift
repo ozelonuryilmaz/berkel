@@ -10,21 +10,23 @@ import UIKit
 protocol AddBuyingItemTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(sellerId: String)
 }
 
 class AddBuyingItemTableViewCell: BaseTableViewCell {
 
     weak var outputDelegate: AddBuyingItemTableViewCellOutputDelegate? = nil
-    
+
     @IBOutlet private weak var mContentView: ShadowView!
     @IBOutlet private weak var lblName: UILabel!
     @IBOutlet private weak var lblTC: UILabel!
     @IBOutlet private weak var lblDesc: UILabel!
     @IBOutlet private weak var btnCall: UIButton!
+    @IBOutlet private weak var btnArshive: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         mContentView.roundCornersEachCorner(.allCorners, radius: 8)
     }
 
@@ -37,6 +39,10 @@ class AddBuyingItemTableViewCell: BaseTableViewCell {
 
         btnCall.onTap { [unowned self] _ in
             self.outputDelegate?.phoneNumberTapped(phoneNumber: uiModel.phoneNumber)
+        }
+
+        btnArshive.onTap { [unowned self] _ in
+            self.outputDelegate?.archiveTapped(sellerId: uiModel.id)
         }
     }
 

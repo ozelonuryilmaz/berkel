@@ -57,6 +57,9 @@
 		672398162AEACFD1001538C1 /* ArchiveDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723980E2AEACFD1001538C1 /* ArchiveDetailViewModel.swift */; };
 		672398172AEACFD1001538C1 /* ArchiveDetailPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723980F2AEACFD1001538C1 /* ArchiveDetailPassData.swift */; };
 		672E0A8E2AEACFF30065C36B /* ArchiveDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672E0A8D2AEACFF30065C36B /* ArchiveDetailViewController.xib */; };
+		672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */; };
+		672E0A982AEAE8430065C36B /* ArchiveListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */; };
+		672E0A9A2AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */; };
 		67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334E9F2AB4E0840072DBD6 /* SellerService.swift */; };
 		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
 		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
@@ -355,6 +358,9 @@
 		6723980E2AEACFD1001538C1 /* ArchiveDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailViewModel.swift; sourceTree = "<group>"; };
 		6723980F2AEACFD1001538C1 /* ArchiveDetailPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailPassData.swift; sourceTree = "<group>"; };
 		672E0A8D2AEACFF30065C36B /* ArchiveDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveDetailViewController.xib; sourceTree = "<group>"; };
+		672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCell.swift; sourceTree = "<group>"; };
+		672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveListTableViewCell.xib; sourceTree = "<group>"; };
+		672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		67334E9F2AB4E0840072DBD6 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
 		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
@@ -800,6 +806,7 @@
 		672397F32AEACB12001538C1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				672E0A932AEAE81B0065C36B /* Cells */,
 				672397F62AEACB25001538C1 /* ArchiveListViewController.swift */,
 				672397FB2AEACB25001538C1 /* ArchiveListViewController.xib */,
 			);
@@ -881,6 +888,24 @@
 				6723980D2AEACFD1001538C1 /* ArchiveDetailBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		672E0A932AEAE81B0065C36B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				672E0A942AEAE82A0065C36B /* ArchiveListTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		672E0A942AEAE82A0065C36B /* ArchiveListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */,
+				672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */,
+				672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */,
+			);
+			path = ArchiveListTableViewCell;
 			sourceTree = "<group>";
 		};
 		67334EA12AB4E1150072DBD6 /* Models */ = {
@@ -2555,6 +2580,7 @@
 				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
+				672E0A982AEAE8430065C36B /* ArchiveListTableViewCell.xib in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */,
 				671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */,
@@ -2800,6 +2826,7 @@
 				672398142AEACFD1001538C1 /* ArchiveDetailRepository.swift in Sources */,
 				677E67BC2AA353EA001775E2 /* WorkerPassData.swift in Sources */,
 				677E67CA2AA35403001775E2 /* SellerViewController.swift in Sources */,
+				672E0A9A2AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift in Sources */,
 				67A2EE252AB0D4AC00756120 /* RegisterRepository.swift in Sources */,
 				672397FC2AEACB25001538C1 /* ArchiveListCoordinator.swift in Sources */,
 				6797C49D2AC1ECD30049C8F7 /* SeasonsViewController.swift in Sources */,
@@ -2821,6 +2848,7 @@
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
 				6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
+				672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */,
 				67FC97282ADEE94A00FC53AE /* WarehoseModel.swift in Sources */,
 				67B98CF22ADBE74500CD4B15 /* BuyingDetailCoordinator.swift in Sources */,
 				677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */,

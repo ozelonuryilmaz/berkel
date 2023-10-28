@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArchiveListViewController" customModule="EmlakjetIndividual" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArchiveListViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="segmentedController" destination="ZwC-LI-qJN" id="Rr9-uY-SFl"/>
+                <outlet property="tableView" destination="922-uz-T1H" id="jPC-cS-7yN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,9 +20,38 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="0" y="0"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZwC-LI-qJN">
+                    <rect key="frame" x="16" y="55" width="358" height="32"/>
+                    <segments>
+                        <segment title="Kantar Fişi"/>
+                        <segment title="Çek"/>
+                        <segment title="Dekont"/>
+                        <segment title="Diğer"/>
+                    </segments>
+                </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="922-uz-T1H">
+                    <rect key="frame" x="0.0" y="94" width="390" height="750"/>
+                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+            <constraints>
+                <constraint firstItem="922-uz-T1H" firstAttribute="top" secondItem="ZwC-LI-qJN" secondAttribute="bottom" constant="8" id="7Pj-XB-8oX"/>
+                <constraint firstAttribute="bottom" secondItem="922-uz-T1H" secondAttribute="bottom" id="Ema-2h-pmO"/>
+                <constraint firstItem="922-uz-T1H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Xdz-87-UHF"/>
+                <constraint firstItem="ZwC-LI-qJN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="cOQ-qH-nE5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="922-uz-T1H" secondAttribute="trailing" id="t8i-YR-1pq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZwC-LI-qJN" secondAttribute="trailing" constant="16" id="tJX-gX-eiX"/>
+                <constraint firstItem="ZwC-LI-qJN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ujj-lx-rVG"/>
+            </constraints>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="PrimaryVeryLightGray">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

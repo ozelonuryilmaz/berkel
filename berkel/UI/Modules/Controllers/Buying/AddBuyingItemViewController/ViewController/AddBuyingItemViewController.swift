@@ -19,7 +19,7 @@ final class AddBuyingItemViewController: MainBaseViewController {
     }
 
     override var isShowTabbar: Bool {
-        return false
+        return true
     }
 
     // MARK: Constants

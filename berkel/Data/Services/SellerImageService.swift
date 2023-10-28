@@ -16,6 +16,14 @@ enum SellerImageService {
 
 extension SellerImageService: CollectionServiceType {
     
+    var order: String {
+        switch self {
+        case .image(_, _, _):
+
+            return "date"
+        }
+    }
+    
     var storageReference: StorageReference {
         switch self {
         case .image(let sellerId, let season, let imagePathType):

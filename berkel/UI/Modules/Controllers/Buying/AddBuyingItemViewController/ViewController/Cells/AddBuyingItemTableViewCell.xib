@@ -42,32 +42,48 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpE-tK-b0z">
-                                <rect key="frame" x="16" y="56" width="257" height="57"/>
+                                <rect key="frame" x="16" y="56" width="257" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVG-yQ-mBK">
-                                <rect key="frame" x="222.66666666666666" y="121" width="50.333333333333343" height="40"/>
+                                <rect key="frame" x="143.66666666666663" y="121" width="145.33333333333337" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xcY-A4-0MB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Ara"/>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhm-sG-REv" userLabel="btnBuy">
+                                <rect key="frame" x="16.000000000000007" y="121" width="127.66666666666669" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="rAN-6G-Hyx"/>
+                                </constraints>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Toplama"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Arşiv">
+                                    <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IpY-Bq-klv" secondAttribute="trailing" constant="8" id="EGi-j0-qpE"/>
                             <constraint firstItem="IpY-Bq-klv" firstAttribute="top" secondItem="THb-gd-cVS" secondAttribute="top" constant="16" id="Eu1-xV-bQe"/>
+                            <constraint firstItem="Fhm-sG-REv" firstAttribute="width" secondItem="QVG-yQ-mBK" secondAttribute="width" multiplier="0.88" id="GN9-RQ-ziG"/>
                             <constraint firstItem="GpE-tK-b0z" firstAttribute="top" secondItem="ae7-j1-3bP" secondAttribute="bottom" constant="8" id="Mrq-UX-w2k"/>
                             <constraint firstItem="GpE-tK-b0z" firstAttribute="leading" secondItem="THb-gd-cVS" secondAttribute="leading" constant="16" id="PWt-MT-NqQ"/>
-                            <constraint firstItem="QVG-yQ-mBK" firstAttribute="top" secondItem="GpE-tK-b0z" secondAttribute="bottom" constant="8" id="ScY-Uf-FN8"/>
+                            <constraint firstItem="QVG-yQ-mBK" firstAttribute="top" secondItem="GpE-tK-b0z" secondAttribute="bottom" constant="16" id="ScY-Uf-FN8"/>
                             <constraint firstItem="IpY-Bq-klv" firstAttribute="leading" secondItem="ae7-j1-3bP" secondAttribute="trailing" constant="16" id="TXL-FL-L95"/>
+                            <constraint firstItem="Fhm-sG-REv" firstAttribute="leading" secondItem="THb-gd-cVS" secondAttribute="leading" constant="16" id="Vs9-Vk-A3H"/>
                             <constraint firstItem="ae7-j1-3bP" firstAttribute="leading" secondItem="THb-gd-cVS" secondAttribute="leading" constant="16" id="XRU-oF-4mI"/>
                             <constraint firstAttribute="trailing" secondItem="GpE-tK-b0z" secondAttribute="trailing" constant="16" id="dAH-uq-ChM"/>
-                            <constraint firstAttribute="trailing" secondItem="QVG-yQ-mBK" secondAttribute="trailing" constant="16" id="mYc-Qr-2z8"/>
+                            <constraint firstAttribute="trailing" secondItem="QVG-yQ-mBK" secondAttribute="trailing" id="mYc-Qr-2z8"/>
                             <constraint firstAttribute="bottom" secondItem="QVG-yQ-mBK" secondAttribute="bottom" constant="16" id="qB9-R7-zgo"/>
+                            <constraint firstItem="Fhm-sG-REv" firstAttribute="top" secondItem="GpE-tK-b0z" secondAttribute="bottom" constant="16" id="uso-sA-Z4V"/>
+                            <constraint firstItem="QVG-yQ-mBK" firstAttribute="leading" secondItem="Fhm-sG-REv" secondAttribute="trailing" id="xY0-Cv-tbx"/>
                             <constraint firstItem="ae7-j1-3bP" firstAttribute="top" secondItem="THb-gd-cVS" secondAttribute="top" constant="16" id="xwc-Im-lvI"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -93,6 +109,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnArshive" destination="Fhm-sG-REv" id="jQu-VX-yLJ"/>
                 <outlet property="btnCall" destination="QVG-yQ-mBK" id="GVs-vZ-czR"/>
                 <outlet property="lblDesc" destination="GpE-tK-b0z" id="fzw-Wg-uWI"/>
                 <outlet property="lblName" destination="ae7-j1-3bP" id="1Di-Sv-dsP"/>
@@ -103,6 +120,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="PrimaryBlue">
+            <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryVeryLightGray">
             <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
