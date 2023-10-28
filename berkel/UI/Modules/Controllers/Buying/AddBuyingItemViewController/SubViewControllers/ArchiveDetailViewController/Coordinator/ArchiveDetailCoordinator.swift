@@ -9,6 +9,7 @@ import UIKit
 
 protocol IArchiveDetailCoordinator: AnyObject {
 
+    func dismiss()
 }
 
 final class ArchiveDetailCoordinator: PresentationCoordinator, IArchiveDetailCoordinator {
@@ -26,6 +27,10 @@ final class ArchiveDetailCoordinator: PresentationCoordinator, IArchiveDetailCoo
         let controller = ArchiveDetailBuilder.generate(with: coordinatorData, coordinator: self)
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
+    }
+
+    func dismiss() {
+        navController.dismiss(animated: true, completion: nil)
     }
 }
 

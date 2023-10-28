@@ -17,6 +17,9 @@ protocol IArchiveDetailViewModel: AnyObject {
          uiModel: IArchiveDetailUIModel)
 
     func initComponents()
+    func viewStateSetNavigationTitle()
+
+    func dismiss()
 }
 
 final class ArchiveDetailViewModel: BaseViewModel, IArchiveDetailViewModel {
@@ -40,7 +43,7 @@ final class ArchiveDetailViewModel: BaseViewModel, IArchiveDetailViewModel {
     }
 
     func initComponents() {
-        self.viewStateSetNavigationTitle()
+        self.viewStateSetImage()
     }
 }
 
@@ -62,15 +65,23 @@ internal extension ArchiveDetailViewModel {
         self.viewState.value = .setNavigationTitle(title: self.uiModel.date,
                                                    subtitle: self.uiModel.productName)
     }
+
+    func viewStateSetImage() {
+        self.viewState.value = .setImage(imageUrl: self.uiModel.imageUrl)
+    }
 }
 
 // MARK: Coordinate
 internal extension ArchiveDetailViewModel {
 
+    func dismiss() {
+        self.coordinator.dismiss()
+    }
 }
 
 
 enum ArchiveDetailViewState {
     case showNativeProgress(isProgress: Bool)
     case setNavigationTitle(title: String, subtitle: String)
+    case setImage(imageUrl: String)
 }

@@ -16,6 +16,7 @@ final class ArchiveDetailViewController: BerkelBaseViewController {
     private let viewModel: IArchiveDetailViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var imageView: DGZoomableImageView!
 
     // MARK: Constraints Outlets
 
@@ -30,9 +31,17 @@ final class ArchiveDetailViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        self.imageView.configureUI()
 
         self.viewModel.initComponents()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.viewModel.viewStateSetNavigationTitle()
     }
 
     override func registerEvents() {
@@ -55,6 +64,9 @@ final class ArchiveDetailViewController: BerkelBaseViewController {
             case .setNavigationTitle(let title, let subtitle):
                 self.navigationItem.setCustomTitle(title, subtitle: subtitle)
 
+            case .setImage(let imageUrl):
+                self.imageView.urlString = imageUrl
+
             }
 
         }).store(in: &cancelBag)
@@ -68,6 +80,11 @@ final class ArchiveDetailViewController: BerkelBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
+        }
+    }()
 }
 
 // MARK: Props
