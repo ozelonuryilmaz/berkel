@@ -17,15 +17,27 @@ final class NewCavusCoordinator: PresentationCoordinator, INewCavusCoordinator {
     private var coordinatorData: NewCavusPassData { return castPassData(NewCavusPassData.self) }
 
     private unowned var navController: MainNavigationController
-    
+
+    private weak var outputDelegate: NewCavusViewControllerOutputDelegate? = nil
+
     init(presenterViewController: UIViewController?, navController: MainNavigationController) {
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
     }
 
+    @discardableResult
+    func with(outputDelegate: NewCavusViewControllerOutputDelegate) -> NewCavusCoordinator {
+        self.outputDelegate = outputDelegate
+        return self
+    }
+
     override func start() {
+        guard let outputDelegate = outputDelegate else { return }
+
         let controller = NewCavusBuilder.generate(with: coordinatorData,
-                                                  coordinator: self)
+                                                  coordinator: self,
+                                                  outputDelegate: outputDelegate)
+
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }

@@ -81,7 +81,7 @@ internal extension NewCavusViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-                //self.viewStateShowNewCavus()
+                self.viewStateShowSavedCavus()
                 self.dismiss()
             })
     }
@@ -95,6 +95,10 @@ internal extension NewCavusViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateShowSavedCavus() {
+        guard let data = self.response.value else { return }
+        viewState.value = .showSavedCavus(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -108,4 +112,5 @@ internal extension NewCavusViewModel {
 
 enum NewCavusViewState {
     case showNativeProgress(isProgress: Bool)
+    case showSavedCavus(data: CavusModel)
 }

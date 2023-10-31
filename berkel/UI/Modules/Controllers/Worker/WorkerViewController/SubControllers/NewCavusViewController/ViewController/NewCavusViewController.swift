@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol NewCavusViewControllerOutputDelegate: AnyObject {
+    func newCavusData(_ data: CavusModel)
+}
+
 final class NewCavusViewController: BerkelBaseViewController {
     
     override var navigationTitle: String? {
@@ -18,6 +22,7 @@ final class NewCavusViewController: BerkelBaseViewController {
 
     // MARK: Inject
     private let viewModel: INewCavusViewModel
+    private weak var outputDelegate: NewCavusViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
     @IBOutlet private weak var tfName: PrimaryTextField!
@@ -28,8 +33,10 @@ final class NewCavusViewController: BerkelBaseViewController {
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: INewCavusViewModel) {
+    init(viewModel: INewCavusViewModel,
+         outputDelegate: NewCavusViewControllerOutputDelegate?) {
         self.viewModel = viewModel
+        self.outputDelegate = outputDelegate
         super.init(nibName: "NewCavusViewController", bundle: nil)
     }
 
@@ -62,7 +69,9 @@ final class NewCavusViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-
+                
+            case .showSavedCavus(let data):
+                self.outputDelegate?.newCavusData(data)
             }
 
         }).store(in: &cancelBag)

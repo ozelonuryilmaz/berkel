@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol ICavusListViewModel: AnyObject {
+protocol ICavusListViewModel: NewCavusViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<CavusListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -15,7 +15,7 @@ protocol ICavusListViewModel: AnyObject {
     init(repository: ICavusListRepository,
          coordinator: ICavusListCoordinator,
          uiModel: ICavusListUIModel)
-    
+
     // Coordinate
     func presentNewCavusViewController()
 }
@@ -63,10 +63,18 @@ internal extension CavusListViewModel {
 internal extension CavusListViewModel {
 
     func presentNewCavusViewController() {
-        self.coordinator.presentNewCavusViewController(passData: NewCavusPassData())
+        self.coordinator.presentNewCavusViewController(passData: NewCavusPassData(),
+                                                       outputDelegate: self)
     }
 }
 
+// MARK: NewCavusViewControllerOutputDelegate
+internal extension CavusListViewModel {
+
+    func newCavusData(_ data: CavusModel) {
+        print("*** newCavusData: \(data)")
+    }
+}
 
 enum CavusListViewState {
     case showNativeProgress(isProgress: Bool)

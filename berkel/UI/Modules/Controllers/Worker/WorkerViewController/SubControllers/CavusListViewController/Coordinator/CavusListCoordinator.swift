@@ -9,7 +9,7 @@ import UIKit
 
 protocol ICavusListCoordinator: AnyObject {
 
-    func presentNewCavusViewController(passData: NewCavusPassData)
+    func presentNewCavusViewController(passData: NewCavusPassData, outputDelegate: NewCavusViewControllerOutputDelegate)
 }
 
 final class CavusListCoordinator: NavigationCoordinator, ICavusListCoordinator {
@@ -22,8 +22,9 @@ final class CavusListCoordinator: NavigationCoordinator, ICavusListCoordinator {
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func presentNewCavusViewController(passData: NewCavusPassData) {
+    func presentNewCavusViewController(passData: NewCavusPassData, outputDelegate: NewCavusViewControllerOutputDelegate) {
         let controller = NewCavusCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)
     }

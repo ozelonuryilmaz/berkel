@@ -10,7 +10,8 @@ import UIKit
 enum NewCavusBuilder {
 
     static func generate(with data: NewCavusPassData,
-                         coordinator: INewCavusCoordinator) -> NewCavusViewController {
+                         coordinator: INewCavusCoordinator,
+                         outputDelegate: NewCavusViewControllerOutputDelegate?) -> NewCavusViewController {
 
         let repository = NewCavusRepository()
         let uiModel = NewCavusUIModel(data: data)
@@ -18,6 +19,7 @@ enum NewCavusBuilder {
                                           coordinator: coordinator,
                                           uiModel: uiModel)
 
-        return NewCavusViewController(viewModel: viewModel)
+        return NewCavusViewController(viewModel: viewModel,
+                                      outputDelegate: outputDelegate)
     }
 }
