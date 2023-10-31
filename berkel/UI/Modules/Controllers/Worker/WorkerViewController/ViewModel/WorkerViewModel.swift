@@ -5,11 +5,20 @@
 //  Created by Onur Yilmaz on 2.09.2023.
 //
 
+import Combine
+
 protocol IWorkerViewModel: AnyObject {
+
+    var viewState: ScreenStateSubject<WorkerViewState> { get }
+    var errorState: ErrorStateSubject { get }
+
+    var season: String { get }
 
     init(repository: IWorkerRepository,
          coordinator: IWorkerCoordinator,
          uiModel: IWorkerUIModel)
+    
+    func pushCavusListViewController()
 }
 
 final class WorkerViewModel: BaseViewModel, IWorkerViewModel {
@@ -18,6 +27,14 @@ final class WorkerViewModel: BaseViewModel, IWorkerViewModel {
     private let repository: IWorkerRepository
     private let coordinator: IWorkerCoordinator
     private var uiModel: IWorkerUIModel
+
+    var viewState = ScreenStateSubject<WorkerViewState>(nil)
+    var errorState = ErrorStateSubject(nil)
+    //let response = CurrentValueSubject<[NewBuyingModel]?, Never>(nil)
+
+    var season: String {
+        return uiModel.season
+    }
 
     // MARK: Initiliazer
     required init(repository: IWorkerRepository,
@@ -47,6 +64,9 @@ internal extension WorkerViewModel {
 // MARK: Coordinate
 internal extension WorkerViewModel {
 
+    func pushCavusListViewController() {
+        self.coordinator.pushCavusListViewController(passData: CavusListPassData())
+    }
 }
 
 

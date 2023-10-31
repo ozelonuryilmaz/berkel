@@ -9,17 +9,22 @@ import UIKit
 
 protocol IWorkerUIModel {
 
-	 init()
+    var season: String { get }
 
-} 
+    init()
+}
 
 struct WorkerUIModel: IWorkerUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
 
-	// MARK: Initialize
+    // MARK: Initialize
     init() {
 
+    }
+
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
     // MARK: Computed Props

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MavenPro-Bold.ttf">
+            <string>MavenProBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewCavusViewController" customModule="berkel" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSave" destination="Q7w-ll-eSa" id="4dy-3C-dPe"/>
+                <outlet property="tfDesc" destination="eUq-d6-0kt" id="2sl-Me-BWx"/>
+                <outlet property="tfName" destination="VNT-y5-She" id="Q6l-b5-R6G"/>
+                <outlet property="tfPhone" destination="PjA-45-Rkb" id="dMZ-Z3-YHN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-nm-BXK">
+                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wax-9L-gd9" userLabel="mContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="476"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naa-bp-pMX" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="32" width="380" height="412"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNT-y5-She" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="32" width="364" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="TFl-iP-zfM"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Çavuş Adı Soyadı"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-45-Rkb" userLabel="tfNumber" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="124" width="364" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="ZOd-Pg-UI9"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="17"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Telefon Numarası"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUq-d6-0kt" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="216" width="364" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="ysR-DJ-Cui"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="500"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Not"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7w-ll-eSa" userLabel="btnSave">
+                                            <rect key="frame" x="32" y="324" width="352" height="56"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="4ks-Xa-3TL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Ekle">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="VNT-y5-She" secondAttribute="trailing" id="0QP-xp-zH4"/>
+                                        <constraint firstItem="VNT-y5-She" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="6Fr-RR-7CA"/>
+                                        <constraint firstItem="PjA-45-Rkb" firstAttribute="top" secondItem="VNT-y5-She" secondAttribute="bottom" constant="16" id="7kF-QM-zMB"/>
+                                        <constraint firstAttribute="trailing" secondItem="Q7w-ll-eSa" secondAttribute="trailing" constant="-4" id="DmP-wa-qeQ"/>
+                                        <constraint firstItem="PjA-45-Rkb" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="HmT-s1-w2j"/>
+                                        <constraint firstAttribute="trailing" secondItem="PjA-45-Rkb" secondAttribute="trailing" id="TFC-HL-kSD"/>
+                                        <constraint firstItem="Q7w-ll-eSa" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="32" id="XIB-n5-1SW"/>
+                                        <constraint firstItem="eUq-d6-0kt" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="d1B-O6-ExZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="eUq-d6-0kt" secondAttribute="trailing" id="ghp-3d-Ko5"/>
+                                        <constraint firstItem="VNT-y5-She" firstAttribute="top" secondItem="naa-bp-pMX" secondAttribute="top" constant="32" id="hWK-4g-l7e"/>
+                                        <constraint firstAttribute="bottom" secondItem="Q7w-ll-eSa" secondAttribute="bottom" constant="32" id="o3g-Bz-y21"/>
+                                        <constraint firstItem="Q7w-ll-eSa" firstAttribute="top" secondItem="eUq-d6-0kt" secondAttribute="bottom" constant="32" id="qPB-MM-fwt"/>
+                                        <constraint firstItem="eUq-d6-0kt" firstAttribute="top" secondItem="PjA-45-Rkb" secondAttribute="bottom" constant="16" id="yWd-HX-5Fo"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="0.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="5" height="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="naa-bp-pMX" secondAttribute="bottom" constant="32" id="0JY-go-lfR"/>
+                                <constraint firstAttribute="trailing" secondItem="naa-bp-pMX" secondAttribute="trailing" constant="-6" id="9xl-W5-azY"/>
+                                <constraint firstItem="naa-bp-pMX" firstAttribute="leading" secondItem="Wax-9L-gd9" secondAttribute="leading" constant="16" id="g54-jy-LFw"/>
+                                <constraint firstItem="naa-bp-pMX" firstAttribute="top" secondItem="Wax-9L-gd9" secondAttribute="top" constant="32" id="gfQ-Kp-Lfm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                    <constraints>
+                        <constraint firstItem="Wax-9L-gd9" firstAttribute="height" secondItem="m5i-nm-BXK" secondAttribute="height" multiplier="0.95" priority="250" id="Fgt-Xt-p0G"/>
+                        <constraint firstAttribute="bottom" secondItem="Wax-9L-gd9" secondAttribute="bottom" id="GG5-lY-Beh"/>
+                        <constraint firstAttribute="trailing" secondItem="Wax-9L-gd9" secondAttribute="trailing" id="b8o-sm-kkz"/>
+                        <constraint firstItem="Wax-9L-gd9" firstAttribute="width" secondItem="m5i-nm-BXK" secondAttribute="width" id="jFP-Z5-6Zo"/>
+                        <constraint firstItem="Wax-9L-gd9" firstAttribute="leading" secondItem="m5i-nm-BXK" secondAttribute="leading" id="mU1-zZ-0Si"/>
+                        <constraint firstItem="Wax-9L-gd9" firstAttribute="top" secondItem="m5i-nm-BXK" secondAttribute="top" id="ycU-d3-D6Y"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="m5i-nm-BXK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Wv-8f-Nti"/>
+                <constraint firstAttribute="bottom" secondItem="m5i-nm-BXK" secondAttribute="bottom" id="Jv8-x3-Ita"/>
+                <constraint firstItem="m5i-nm-BXK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RtF-bz-QRh"/>
+                <constraint firstItem="m5i-nm-BXK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tLV-8c-Iqc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryBlue">
+            <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryVeryLightGray">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -116,7 +116,6 @@ extension WarehouseListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.generateReusableCell(WarehouseListTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
-        cell.visibleSeperator(isVisible: false)
         return cell
     }
 

@@ -31,7 +31,6 @@ final class BuyingCollectionDataSourceFactory {
 
             let cell = tableView.generateReusableCell(BuyingCollectionTableViewCell.self, indexPath: indexPath)
             cell.configureCellWith(uiModel: itemIdentifier.uiModel)
-            cell.hideSeparator()
             cell.outputDelegate = self
 
             return cell
