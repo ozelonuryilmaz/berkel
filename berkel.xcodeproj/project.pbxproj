@@ -169,6 +169,14 @@
 		677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 677E67D72AA35415001775E2 /* SettingsViewController.xib */; };
 		677F8DD72AB2126500DE5264 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677F8DD62AB2126500DE5264 /* UserManager.swift */; };
 		677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677F8DD82AB2333400DE5264 /* NativeProgressView.swift */; };
+		6780BDA42AF40366007B131C /* CavusListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDA22AF40366007B131C /* CavusListTableViewCell.swift */; };
+		6780BDA52AF40366007B131C /* CavusListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6780BDA32AF40366007B131C /* CavusListTableViewCell.xib */; };
+		6780BDA72AF40375007B131C /* CavusListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDA62AF40375007B131C /* CavusListTableViewCellUIModel.swift */; };
+		6780BDAD2AF40529007B131C /* CavusListDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDAC2AF40529007B131C /* CavusListDiffableTableView.swift */; };
+		6780BDAF2AF4053A007B131C /* CavusListRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDAE2AF4053A007B131C /* CavusListRowModel.swift */; };
+		6780BDB12AF40547007B131C /* CavusListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDB02AF40547007B131C /* CavusListSection.swift */; };
+		6780BDB32AF4055B007B131C /* CavustListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDB22AF4055B007B131C /* CavustListDataSource.swift */; };
+		6780BDB52AF4056E007B131C /* CavusListDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780BDB42AF4056E007B131C /* CavusListDataSourceFactory.swift */; };
 		678610982ADEEC6F00031FF5 /* NewWarehouseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678610972ADEEC6F00031FF5 /* NewWarehouseViewController.xib */; };
 		678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678B537B2AA25F61003F4355 /* SplashViewController.xib */; };
 		678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B537E2AA25F88003F4355 /* MainBaseViewController.swift */; };
@@ -496,6 +504,14 @@
 		677E67D72AA35415001775E2 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		677F8DD62AB2126500DE5264 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		677F8DD82AB2333400DE5264 /* NativeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeProgressView.swift; sourceTree = "<group>"; };
+		6780BDA22AF40366007B131C /* CavusListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListTableViewCell.swift; sourceTree = "<group>"; };
+		6780BDA32AF40366007B131C /* CavusListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CavusListTableViewCell.xib; sourceTree = "<group>"; };
+		6780BDA62AF40375007B131C /* CavusListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		6780BDAC2AF40529007B131C /* CavusListDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListDiffableTableView.swift; sourceTree = "<group>"; };
+		6780BDAE2AF4053A007B131C /* CavusListRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListRowModel.swift; sourceTree = "<group>"; };
+		6780BDB02AF40547007B131C /* CavusListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListSection.swift; sourceTree = "<group>"; };
+		6780BDB22AF4055B007B131C /* CavustListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavustListDataSource.swift; sourceTree = "<group>"; };
+		6780BDB42AF4056E007B131C /* CavusListDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListDataSourceFactory.swift; sourceTree = "<group>"; };
 		678610972ADEEC6F00031FF5 /* NewWarehouseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewWarehouseViewController.xib; sourceTree = "<group>"; };
 		678B537B2AA25F61003F4355 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		678B537E2AA25F88003F4355 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
@@ -1652,6 +1668,60 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		6780BDA02AF40349007B131C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDA12AF4034C007B131C /* CavusListTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6780BDA12AF4034C007B131C /* CavusListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDA62AF40375007B131C /* CavusListTableViewCellUIModel.swift */,
+				6780BDA22AF40366007B131C /* CavusListTableViewCell.swift */,
+				6780BDA32AF40366007B131C /* CavusListTableViewCell.xib */,
+			);
+			path = CavusListTableViewCell;
+			sourceTree = "<group>";
+		};
+		6780BDA82AF40500007B131C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDAB2AF40510007B131C /* View */,
+				6780BDAA2AF4050D007B131C /* Model */,
+				6780BDA92AF40507007B131C /* DataSource */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		6780BDA92AF40507007B131C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDB22AF4055B007B131C /* CavustListDataSource.swift */,
+				6780BDB42AF4056E007B131C /* CavusListDataSourceFactory.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		6780BDAA2AF4050D007B131C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDAE2AF4053A007B131C /* CavusListRowModel.swift */,
+				6780BDB02AF40547007B131C /* CavusListSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6780BDAB2AF40510007B131C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6780BDAC2AF40529007B131C /* CavusListDiffableTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		678610992ADEEC7D00031FF5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2044,6 +2114,8 @@
 		67A1EE7D2AF1690600126E44 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6780BDA02AF40349007B131C /* Cells */,
+				6780BDA82AF40500007B131C /* DataSource */,
 				67A1EE802AF1691700126E44 /* CavusListViewController.swift */,
 				67A1EE852AF1691700126E44 /* CavusListViewController.xib */,
 			);
@@ -2813,6 +2885,7 @@
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
 				674D106D2ADD9964002CFFE8 /* BuyingCollectionTableViewCell.xib in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
+				6780BDA52AF40366007B131C /* CavusListTableViewCell.xib in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
 				677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */,
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
@@ -2902,6 +2975,7 @@
 				6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				67B9EE4B2AD5AF9F003E6BA3 /* BuyingCollectionUIModel.swift in Sources */,
+				6780BDA42AF40366007B131C /* CavusListTableViewCell.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
 				67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */,
 				6797C49E2AC1ECD30049C8F7 /* SeasonsRepository.swift in Sources */,
@@ -2972,6 +3046,7 @@
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
+				6780BDAF2AF4053A007B131C /* CavusListRowModel.swift in Sources */,
 				678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				674CC6C92ADEE7FD0026A9D2 /* WarehouseListBuilder.swift in Sources */,
@@ -3007,6 +3082,7 @@
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */,
+				6780BDB52AF4056E007B131C /* CavusListDataSourceFactory.swift in Sources */,
 				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
 				670B3C712ABA0BF900EE7CFB /* AddBuyingItemDiffableTableView.swift in Sources */,
 				67B98CF42ADBE74500CD4B15 /* BuyingDetailViewController.swift in Sources */,
@@ -3025,10 +3101,12 @@
 				677E67DC2AA35415001775E2 /* SettingsBuilder.swift in Sources */,
 				670B3C8F2ABA109F00EE7CFB /* UICollectionView+Extensions.swift in Sources */,
 				67B98D0D2ADBEB3700CD4B15 /* BuyingPaymentViewModel.swift in Sources */,
+				6780BDAD2AF40529007B131C /* CavusListDiffableTableView.swift in Sources */,
 				67A1EE8C2AF1691700126E44 /* CavusListPassData.swift in Sources */,
 				67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */,
 				677D62F72AC1FC30004F3232 /* SeasonItemService.swift in Sources */,
 				6797C4A12AC1ECD30049C8F7 /* SeasonsPassData.swift in Sources */,
+				6780BDB12AF40547007B131C /* CavusListSection.swift in Sources */,
 				67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */,
 				675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */,
 				678B53922AA26303003F4355 /* UIViewController+Extensions.swift in Sources */,
@@ -3098,6 +3176,7 @@
 				674D106F2ADD9974002CFFE8 /* BuyingCollectionTableViewCellUIModel.swift in Sources */,
 				6718843F2AF16ABE00D76672 /* NewWorkerPassData.swift in Sources */,
 				678B537F2AA25F88003F4355 /* MainBaseViewController.swift in Sources */,
+				6780BDB32AF4055B007B131C /* CavustListDataSource.swift in Sources */,
 				67EA5B692AAF86C70086E20C /* UIView+Closures.swift in Sources */,
 				670B3C952ABA130100EE7CFB /* HighlightCollectionViewCell.swift in Sources */,
 				674D10722ADDAC85002CFFE8 /* BuyingCollectionSection.swift in Sources */,
@@ -3113,6 +3192,7 @@
 				67B98CF22ADBE74500CD4B15 /* BuyingDetailCoordinator.swift in Sources */,
 				677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */,
 				6774E2712ABAF188005FC78A /* DateFormatHelper.swift in Sources */,
+				6780BDA72AF40375007B131C /* CavusListTableViewCellUIModel.swift in Sources */,
 				67EA5B832AAF8DFA0086E20C /* LoginPassData.swift in Sources */,
 				6797F0522AA4975300638C09 /* WriteBatch+Combine.swift in Sources */,
 				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,

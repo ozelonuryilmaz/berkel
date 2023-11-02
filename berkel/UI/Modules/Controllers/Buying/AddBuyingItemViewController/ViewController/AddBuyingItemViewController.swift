@@ -14,7 +14,7 @@ protocol AddBuyingItemViewControllerOutputDelegate: AnyObject {
 final class AddBuyingItemViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
-        return "Alım Oluştur"
+        return "Satıcı Listesi"
     }
 
     override var isShowTabbar: Bool {

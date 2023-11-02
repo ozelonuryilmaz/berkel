@@ -235,12 +235,14 @@ extension PrimaryTextField: UITextFieldDelegate {
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
+        textField.text = textField.text?.replacingOccurrences(of: ",", with: ".")
+
         handleVisibilityClearButton()
 
         if isPhoneNumber {
             textField.text = textField.text?.applyPatternOnNumbers(pattern: "# (###) ### ## ##", replacementCharacter: "#")
         }
-        
+
         if let arrayListener = self.arrayListenDidChange {
             for listener in arrayListener {
                 listener(textField.text ?? "")
