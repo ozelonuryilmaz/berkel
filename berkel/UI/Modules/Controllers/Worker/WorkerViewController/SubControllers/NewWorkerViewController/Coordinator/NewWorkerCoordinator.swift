@@ -16,15 +16,26 @@ final class NewWorkerCoordinator: PresentationCoordinator, INewWorkerCoordinator
     private var coordinatorData: NewWorkerPassData { return castPassData(NewWorkerPassData.self) }
 
     private unowned var navController: MainNavigationController
-    
+
     init(presenterViewController: UIViewController?, navController: MainNavigationController) {
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
     }
 
+    private weak var outputDelegate: NewWorkerViewControllerOutputDelegate? = nil
+
+    @discardableResult
+    func with(outputDelegate: NewWorkerViewControllerOutputDelegate) -> NewWorkerCoordinator {
+        self.outputDelegate = outputDelegate
+        return self
+    }
+
     override func start() {
+        guard let outputDelegate = outputDelegate else { return }
+
         let controller = NewWorkerBuilder.generate(with: coordinatorData,
-                                                   coordinator: self)
+                                                   coordinator: self,
+                                                   outputDelegate: outputDelegate)
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }

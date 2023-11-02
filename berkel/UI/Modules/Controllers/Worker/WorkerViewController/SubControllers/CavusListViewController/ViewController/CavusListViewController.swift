@@ -18,6 +18,7 @@ final class CavusListViewController: MainBaseViewController {
 
     // MARK: Inject
     private let viewModel: ICavusListViewModel
+    private weak var outputDelegate: NewWorkerViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
     @IBOutlet private weak var tableView: CavusListDiffableTableView!
@@ -25,8 +26,10 @@ final class CavusListViewController: MainBaseViewController {
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: ICavusListViewModel) {
+    init(viewModel: ICavusListViewModel,
+         outputDelegate: NewWorkerViewControllerOutputDelegate?) {
         self.viewModel = viewModel
+        self.outputDelegate = outputDelegate
         super.init(nibName: "CavusListViewController", bundle: nil)
     }
 
@@ -69,7 +72,9 @@ final class CavusListViewController: MainBaseViewController {
                 let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
                                                              newDatas: data)
                 self.tableView.applySnapshot(snapsoht)
-
+                
+            case .outputDelegate(let workerModel):
+                self.outputDelegate?.newWorkerData(workerModel)
             }
 
         }).store(in: &cancelBag)

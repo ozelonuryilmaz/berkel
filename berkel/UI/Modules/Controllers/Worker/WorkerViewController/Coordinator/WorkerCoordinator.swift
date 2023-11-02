@@ -9,7 +9,8 @@ import UIKit
 
 protocol IWorkerCoordinator: AnyObject {
 
-    func pushCavusListViewController(passData: CavusListPassData)
+    func pushCavusListViewController(passData: CavusListPassData,
+                                     outputDelegate: NewWorkerViewControllerOutputDelegate)
 }
 
 final class WorkerCoordinator: NavigationCoordinator, IWorkerCoordinator {
@@ -21,8 +22,10 @@ final class WorkerCoordinator: NavigationCoordinator, IWorkerCoordinator {
         navigationController.viewControllers = [controller]
     }
 
-    func pushCavusListViewController(passData: CavusListPassData) {
+    func pushCavusListViewController(passData: CavusListPassData,
+                                     outputDelegate: NewWorkerViewControllerOutputDelegate) {
         let coordinator = CavusListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: coordinator)
     }

@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol ICavusListViewModel: NewCavusViewControllerOutputDelegate, CavusListDataSourceFactoryOutputDelegate {
+protocol ICavusListViewModel: NewCavusViewControllerOutputDelegate, CavusListDataSourceFactoryOutputDelegate, NewWorkerViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<CavusListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -104,6 +104,10 @@ internal extension CavusListViewModel {
     func viewStateUpdateSnapshot(data: [CavusModel]) {
         viewState.value = .updateSnapshot(data: data)
     }
+    
+    func viewStateOutputDelegate(workerModel: WorkerModel) {
+        self.viewState.value = .outputDelegate(workerModel: workerModel)
+    }
 }
 
 // MARK: Coordinate
@@ -114,8 +118,13 @@ internal extension CavusListViewModel {
                                                        outputDelegate: self)
     }
 
-    func presentNewWorkerViewController() {
-        self.coordinator.presentNewWorkerViewController(passData: NewWorkerPassData())
+    func presentNewWorkerViewController(cavusId: String, cavusName: String) {
+        self.coordinator.presentNewWorkerViewController(passData: NewWorkerPassData(cavusId: cavusId, cavusName: cavusName),
+                                                        outputDelegate: self)
+    }
+    
+    func popToRootViewController(animated: Bool) {
+        self.coordinator.popToRootViewController(animated: animated)
     }
 }
 
@@ -136,7 +145,7 @@ extension CavusListViewModel {
     }
 
     func cellTapped(uiModel: ICavusListTableViewCellUIModel) {
-        self.presentNewWorkerViewController()
+        self.presentNewWorkerViewController(cavusId: uiModel.id ?? "", cavusName: uiModel.name)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
@@ -146,9 +155,18 @@ extension CavusListViewModel {
     }
 }
 
+// MARK: NewWorkerViewControllerOutputDelegate
+extension CavusListViewModel {
+    
+    func newWorkerData(_ data: WorkerModel) {
+        self.viewStateOutputDelegate(workerModel: data)
+        self.popToRootViewController(animated: true)
+    }
+}
 
 enum CavusListViewState {
     case showNativeProgress(isProgress: Bool)
     case buildSnapshot(snapshot: CavusListSnapshot)
     case updateSnapshot(data: [CavusModel])
+    case outputDelegate(workerModel: WorkerModel)
 }

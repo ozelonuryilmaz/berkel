@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol IWorkerViewModel: AnyObject {
+protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<WorkerViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -65,10 +65,18 @@ internal extension WorkerViewModel {
 internal extension WorkerViewModel {
 
     func pushCavusListViewController() {
-        self.coordinator.pushCavusListViewController(passData: CavusListPassData())
+        self.coordinator.pushCavusListViewController(passData: CavusListPassData(),
+                                                     outputDelegate: self)
     }
 }
 
+// MARK: NewWorkerViewControllerOutputDelegate
+internal extension WorkerViewModel {
+    
+    func newWorkerData(_ data: WorkerModel) {
+        print("**** \(data)")
+    }
+}
 
 enum WorkerViewState {
     case showLoadingProgress(isProgress: Bool)

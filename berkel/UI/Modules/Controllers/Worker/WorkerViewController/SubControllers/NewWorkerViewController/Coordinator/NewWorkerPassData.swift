@@ -9,4 +9,6 @@ import Foundation
 
 struct NewWorkerPassData: ICoordinatorPassData {
 
+    let cavusId: String
+    let cavusName: String
 }

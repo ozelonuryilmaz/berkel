@@ -10,7 +10,8 @@ import UIKit
 enum NewWorkerBuilder {
 
     static func generate(with data: NewWorkerPassData,
-                         coordinator: INewWorkerCoordinator) -> NewWorkerViewController {
+                         coordinator: INewWorkerCoordinator,
+                         outputDelegate: NewWorkerViewControllerOutputDelegate?) -> NewWorkerViewController {
 
         let repository = NewWorkerRepository()
         let uiModel = NewWorkerUIModel(data: data)
@@ -18,6 +19,7 @@ enum NewWorkerBuilder {
                                            coordinator: coordinator,
                                            uiModel: uiModel)
 
-        return NewWorkerViewController(viewModel: viewModel)
+        return NewWorkerViewController(viewModel: viewModel,
+                                       outputDelegate: outputDelegate)
     }
 }

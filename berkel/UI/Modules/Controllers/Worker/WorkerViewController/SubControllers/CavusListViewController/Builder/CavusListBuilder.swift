@@ -10,7 +10,8 @@ import UIKit
 enum CavusListBuilder {
 
     static func generate(with data: CavusListPassData,
-                         coordinator: ICavusListCoordinator) -> CavusListViewController {
+                         coordinator: ICavusListCoordinator,
+                         outputDelegate: NewWorkerViewControllerOutputDelegate?) -> CavusListViewController {
 
         let repository = CavusListRepository()
         let uiModel = CavusListUIModel(data: data)
@@ -18,6 +19,7 @@ enum CavusListBuilder {
                                            coordinator: coordinator,
                                            uiModel: uiModel)
 
-        return CavusListViewController(viewModel: viewModel)
+        return CavusListViewController(viewModel: viewModel,
+                                       outputDelegate: outputDelegate)
     }
 }
