@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol IBuyingViewModel: BuyingDataSourceFactoryOutputDelegate {
+protocol IBuyingViewModel: AddBuyingItemViewControllerOutputDelegate, BuyingDataSourceFactoryOutputDelegate {
 
     var viewState: ScreenStateSubject<BuyingViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -140,7 +140,7 @@ internal extension BuyingViewModel {
 }
 
 // MARK: AddBuyingItemViewControllerOutputDelegate
-extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
+extension BuyingViewModel {
 
     func newAddBuyingData(_ data: NewBuyingModel) {
         self.uiModel.appendFirstItem(data: data)
@@ -149,7 +149,7 @@ extension BuyingViewModel: AddBuyingItemViewControllerOutputDelegate {
 
 }
 
-// MARK: BuyingDataSourceFactory
+// MARK: BuyingDataSourceFactoryOutputDelegate
 extension BuyingViewModel {
 
     func cellTapped(uiModel: IBuyingTableViewCellUIModel) {

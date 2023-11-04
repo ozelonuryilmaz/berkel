@@ -11,6 +11,10 @@ protocol IWorkerCoordinator: AnyObject {
 
     func pushCavusListViewController(passData: CavusListPassData,
                                      outputDelegate: NewWorkerViewControllerOutputDelegate)
+    
+    func pushWorkerDetailViewController(passData: WorkerDetailPassData)
+    func presentWorkerCollectionViewController(passData: WorkerCollectionPassData)
+    func presentWorkerPaymentViewController(passData: WorkerPaymentPassData)
 }
 
 final class WorkerCoordinator: NavigationCoordinator, IWorkerCoordinator {
@@ -28,5 +32,23 @@ final class WorkerCoordinator: NavigationCoordinator, IWorkerCoordinator {
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: coordinator)
+    }
+    
+    func pushWorkerDetailViewController(passData: WorkerDetailPassData) {
+        let coordinator = WorkerDetailCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
+    func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
+        let controller = WorkerCollectionCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+
+    func presentWorkerPaymentViewController(passData: WorkerPaymentPassData) {
+        let controller = WorkerPaymentCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(passData: passData)
+        coordinate(to: controller)
     }
 }

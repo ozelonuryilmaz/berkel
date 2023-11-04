@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate {
+protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate, WorkerDataSourceFactoryOutputDelegate {
 
     var viewState: ScreenStateSubject<WorkerViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -17,8 +17,16 @@ protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate {
     init(repository: IWorkerRepository,
          coordinator: IWorkerCoordinator,
          uiModel: IWorkerUIModel)
-    
+
+    // Service
+    func getWorker()
+
+    // Coordinate
     func pushCavusListViewController()
+
+    // DataSource
+    func updateSnapshot(currentSnapshot: WorkerSnapshot,
+                        newDatas: [WorkerModel]) -> WorkerSnapshot
 }
 
 final class WorkerViewModel: BaseViewModel, IWorkerViewModel {
@@ -30,7 +38,10 @@ final class WorkerViewModel: BaseViewModel, IWorkerViewModel {
 
     var viewState = ScreenStateSubject<WorkerViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<[NewBuyingModel]?, Never>(nil)
+    let response = CurrentValueSubject<[WorkerModel]?, Never>(nil)
+
+    private var isLastPage: Bool = false
+    private var isAvailablePagination: Bool = false
 
     var season: String {
         return uiModel.season
@@ -45,20 +56,61 @@ final class WorkerViewModel: BaseViewModel, IWorkerViewModel {
         self.uiModel = uiModel
     }
 
+    func updateSnapshot(currentSnapshot: WorkerSnapshot,
+                        newDatas: [WorkerModel]) -> WorkerSnapshot {
+        return self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
+    }
 }
 
 
 // MARK: Service
 internal extension WorkerViewModel {
 
+    func getWorker() {
+
+        handleResourceFirestore(
+            request: self.repository.getWorkerList(season: self.uiModel.season,
+                                                   cursor: self.uiModel.getLastCursor(),
+                                                   limit: self.uiModel.limit),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { isProgress in
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+                self.isAvailablePagination = !isProgress
+            },
+            callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.setResponse(self.response.value ?? [])
+
+                if !self.uiModel.isHaveBuildData {
+                    self.viewStateBuildSnapshot()
+                } else {
+                    self.viewStateUpdateSnapshot(data: self.response.value ?? [])
+                }
+
+                if true == self.response.value?.isEmpty {
+                    self.isLastPage = true
+                }
+            }
+        )
+    }
 }
 
 // MARK: States
 internal extension WorkerViewModel {
 
     // MARK: View State
-    // MARK: Action State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
 
+    func viewStateBuildSnapshot() {
+        viewState.value = .buildSnapshot(snapshot: self.uiModel.buildSnapshot())
+    }
+
+    func viewStateUpdateSnapshot(data: [WorkerModel]) {
+        viewState.value = .updateSnapshot(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -68,22 +120,56 @@ internal extension WorkerViewModel {
         self.coordinator.pushCavusListViewController(passData: CavusListPassData(),
                                                      outputDelegate: self)
     }
+
+    func pushWorkerDetailViewController(passData: WorkerDetailPassData) {
+        self.coordinator.pushWorkerDetailViewController(passData: passData)
+    }
+
+    func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
+        self.coordinator.presentWorkerCollectionViewController(passData: passData)
+    }
+
+    func presentWorkerPaymentViewController(passData: WorkerPaymentPassData) {
+        self.coordinator.presentWorkerPaymentViewController(passData: passData)
+    }
 }
 
 // MARK: NewWorkerViewControllerOutputDelegate
 internal extension WorkerViewModel {
-    
+
     func newWorkerData(_ data: WorkerModel) {
-        print("**** \(data)")
+        self.uiModel.appendFirstItem(data: data)
+        self.viewStateBuildSnapshot()
+    }
+}
+
+// MARK: WorkerDataSourceFactoryOutputDelegate
+extension WorkerViewModel {
+
+    func cellTapped(uiModel: IWorkerTableViewCellUIModel) {
+        let data = WorkerDetailPassData()
+        self.pushWorkerDetailViewController(passData: data)
+    }
+
+    func addCollectionTapped(uiModel: IWorkerTableViewCellUIModel) {
+        let passData = WorkerCollectionPassData()
+        self.presentWorkerCollectionViewController(passData: passData)
+    }
+
+    func addPaymentTapped(uiModel: IWorkerTableViewCellUIModel) {
+        let passData = WorkerPaymentPassData()
+        self.presentWorkerPaymentViewController(passData: passData)
+    }
+
+    func scrollDidScroll(isAvailablePagination: Bool) {
+        if self.isAvailablePagination && isAvailablePagination && !isLastPage {
+            self.getWorker()
+        }
     }
 }
 
 enum WorkerViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case showNativeProgress(isProgress: Bool)
+    case buildSnapshot(snapshot: WorkerSnapshot)
+    case updateSnapshot(data: [WorkerModel])
 }
-
-enum WorkerActionState {
-
-}
-
-
