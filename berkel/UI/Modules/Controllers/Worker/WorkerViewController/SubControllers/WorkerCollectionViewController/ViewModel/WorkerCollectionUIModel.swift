@@ -11,6 +11,9 @@ protocol IWorkerCollectionUIModel {
 
     var workerModel: WorkerModel { get }
     var cavusName: String { get }
+    var season: String { get }
+    
+    var data: WorkerCollectionModel { get }
 
     init(data: WorkerCollectionPassData)
 
@@ -90,6 +93,24 @@ struct WorkerCollectionUIModel: IWorkerCollectionUIModel {
     var kesiciPrice: Double = 0.0
     var servisPrice: Double = 0.0
     var otherPrice: Double = 0.0
+
+    var data: WorkerCollectionModel {
+        return WorkerCollectionModel(
+            userId: nil,
+            cavusId: workerModel.cavusId,
+            isCalc: false,
+            date: date,
+            cavusName: cavusName,
+            gardenOwner: gardenOwner,
+            kesiciCount: kesiciCount,
+            ayakciCount: ayakciCount,
+            cavusPrice: cavusPrice,
+            kesiciPrice: kesiciPrice,
+            ayakciPrice: ayakciPrice,
+            servisPrice: servisPrice,
+            otherPrice: otherPrice
+        )
+    }
 }
 
 // MARK: Props
@@ -145,6 +166,4 @@ internal extension WorkerCollectionUIModel {
     mutating func setOtherPrice(_ text: String) {
         self.otherPrice = Double(text) ?? 0
     }
-
-
 }

@@ -46,7 +46,7 @@ final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel
     // MARK: Public Props
     var viewState = ScreenStateSubject<WorkerCollectionViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<WorkerCollectionModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IWorkerCollectionRepository,
@@ -72,7 +72,21 @@ final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel
 internal extension WorkerCollectionViewModel {
 
     func saveCollection() {
-        
+        guard self.uiModel.getTotalPrice() != "0" else { return }
+
+        handleResourceFirestore(
+            request: self.repository.saveNewCollection(season: self.uiModel.season,
+                                                       workerId: self.uiModel.workerModel.id ?? "",
+                                                       data: self.uiModel.data),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.dismiss()
+            })
     }
 }
 

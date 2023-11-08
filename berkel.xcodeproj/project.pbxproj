@@ -73,6 +73,7 @@
 		672E0A9A2AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */; };
 		67334EA02AB4E0840072DBD6 /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334E9F2AB4E0840072DBD6 /* SellerService.swift */; };
 		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
+		673929E22AFC08DE0079A520 /* WorkerCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673929E12AFC08DE0079A520 /* WorkerCollectionModel.swift */; };
 		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
 		674CC6C52ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674CC6BD2ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift */; };
 		674CC6C62ADEE7FD0026A9D2 /* WarehouseListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674CC6BE2ADEE7FD0026A9D2 /* WarehouseListUIModel.swift */; };
@@ -442,6 +443,7 @@
 		672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		67334E9F2AB4E0840072DBD6 /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
+		673929E12AFC08DE0079A520 /* WorkerCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCollectionModel.swift; sourceTree = "<group>"; };
 		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
 		674CC6BD2ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListCoordinator.swift; sourceTree = "<group>"; };
 		674CC6BE2ADEE7FD0026A9D2 /* WarehouseListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseListUIModel.swift; sourceTree = "<group>"; };
@@ -1137,6 +1139,14 @@
 				67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		673929E02AFC08C70079A520 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				673929E12AFC08DE0079A520 /* WorkerCollectionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		674CC6BA2ADEE79F0026A9D2 /* SubControllers */ = {
@@ -2513,6 +2523,7 @@
 			children = (
 				67FA8B492AF66B5800C09B09 /* Builder */,
 				67FA8B482AF66B5300C09B09 /* Coordinator */,
+				673929E02AFC08C70079A520 /* Model */,
 				67FA8B472AF66B4F00C09B09 /* Repository */,
 				67FA8B462AF66B4B00C09B09 /* ViewModel */,
 				67BE9D6B2AF66B1400D07DA7 /* ViewController */,
@@ -3272,6 +3283,7 @@
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
 				6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
+				673929E22AFC08DE0079A520 /* WorkerCollectionModel.swift in Sources */,
 				67B9EE4B2AD5AF9F003E6BA3 /* BuyingCollectionUIModel.swift in Sources */,
 				6780BDA42AF40366007B131C /* CavusListTableViewCell.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
