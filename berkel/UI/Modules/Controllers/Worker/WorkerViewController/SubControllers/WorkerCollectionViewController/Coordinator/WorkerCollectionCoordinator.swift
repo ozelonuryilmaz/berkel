@@ -17,7 +17,7 @@ final class WorkerCollectionCoordinator: PresentationCoordinator, IWorkerCollect
     private var coordinatorData: WorkerCollectionPassData { return castPassData(WorkerCollectionPassData.self) }
 
     private unowned var navController: MainNavigationController
-    
+
     init(presenterViewController: UIViewController?, navController: MainNavigationController) {
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
@@ -25,7 +25,7 @@ final class WorkerCollectionCoordinator: PresentationCoordinator, IWorkerCollect
 
     override func start() {
         let controller = WorkerCollectionBuilder.generate(with: coordinatorData,
-                                                                   coordinator: self)
+                                                          coordinator: self)
 
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
@@ -41,6 +41,6 @@ extension WorkerCollectionCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> WorkerCollectionCoordinator {
         return WorkerCollectionCoordinator(presenterViewController: presenterViewController,
-                                                    navController: MainNavigationController())
+                                           navController: MainNavigationController())
     }
 }

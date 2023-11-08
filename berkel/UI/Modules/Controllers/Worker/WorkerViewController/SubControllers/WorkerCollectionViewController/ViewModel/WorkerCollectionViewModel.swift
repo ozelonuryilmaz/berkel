@@ -31,7 +31,7 @@ protocol IWorkerCollectionViewModel: AnyObject {
     func setAyakciPrice(_ text: String)
     func setServicePrice(_ text: String)
     func setOtherPrice(_ text: String)
-    
+
     // Service
     func saveCollection()
 }
@@ -122,39 +122,39 @@ internal extension WorkerCollectionViewModel {
 
 // MARK: Setter
 internal extension WorkerCollectionViewModel {
-    
+
     func setDate(date: String?) {
         self.uiModel.setDate(date: date)
     }
-    
+
     func setGardenOwner(_ text: String) {
         self.uiModel.setGardenOwner(text)
     }
-    
+
     func setKesiciCount(_ text: String) {
         self.uiModel.setKesiciCount(text)
     }
-    
+
     func setAyakciCount(_ text: String) {
         self.uiModel.setAyakciCount(text)
     }
-    
+
     func setCavusPrice(_ text: String) {
         self.uiModel.setCavusPrice(text)
     }
-    
+
     func setKesiciPrice(_ text: String) {
         self.uiModel.setKesiciPrice(text)
     }
-    
+
     func setAyakciPrice(_ text: String) {
         self.uiModel.setAyakciPrice(text)
     }
-    
+
     func setServicePrice(_ text: String) {
         self.uiModel.setServicePrice(text)
     }
-    
+
     func setOtherPrice(_ text: String) {
         self.uiModel.setOtherPrice(text)
     }

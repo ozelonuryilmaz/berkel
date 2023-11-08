@@ -8,14 +8,14 @@
 import Foundation
 
 struct WorkerCollectionModel: Codable {
-    
+
     var id: String?
     let userId: String?
     let cavusId: String?
-    
+
     var isCalc: Bool
     let date: String?
-    
+
     let cavusName: String
     let gardenOwner: String
     let kesiciCount: Int

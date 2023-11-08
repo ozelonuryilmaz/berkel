@@ -12,7 +12,7 @@ protocol IWorkerCollectionUIModel {
     var workerModel: WorkerModel { get }
     var cavusName: String { get }
     var season: String { get }
-    
+
     var data: WorkerCollectionModel { get }
 
     init(data: WorkerCollectionPassData)
