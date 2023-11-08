@@ -9,6 +9,7 @@ import Foundation
 
 protocol IWorkerTableViewCellUIModel {
 
+    var workerModel: WorkerModel { get }
     var workerId: String { get }
     var cavusName: String { get }
     var desc: String { get }
@@ -17,7 +18,7 @@ protocol IWorkerTableViewCellUIModel {
 
 struct WorkerTableViewCellUIModel: IWorkerTableViewCellUIModel {
 
-    private let workerModel: WorkerModel
+    let workerModel: WorkerModel
 
     init(workerModel: WorkerModel) {
         self.workerModel = workerModel

@@ -9,4 +9,5 @@ import Foundation
 
 struct WorkerCollectionPassData: ICoordinatorPassData {
 
+    let workerModel: WorkerModel
 }

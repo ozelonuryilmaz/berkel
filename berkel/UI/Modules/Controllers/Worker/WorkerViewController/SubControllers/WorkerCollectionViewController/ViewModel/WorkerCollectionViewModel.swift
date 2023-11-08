@@ -16,7 +16,24 @@ protocol IWorkerCollectionViewModel: AnyObject {
          coordinator: IWorkerCollectionCoordinator,
          uiModel: IWorkerCollectionUIModel)
 
+    func initComponents()
     func dismiss()
+
+    func updateResults()
+
+    // Setter
+    func setDate(date: String?)
+    func setGardenOwner(_ text: String)
+    func setKesiciCount(_ text: String)
+    func setAyakciCount(_ text: String)
+    func setCavusPrice(_ text: String)
+    func setKesiciPrice(_ text: String)
+    func setAyakciPrice(_ text: String)
+    func setServicePrice(_ text: String)
+    func setOtherPrice(_ text: String)
+    
+    // Service
+    func saveCollection()
 }
 
 final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel {
@@ -40,12 +57,23 @@ final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel
         self.uiModel = uiModel
     }
 
+    func initComponents() {
+        self.viewStateCavusName()
+        self.viewStateInitData()
+    }
+
+    func updateResults() {
+        self.viewStateSetTotalPrice()
+    }
 }
 
 
 // MARK: Service
 internal extension WorkerCollectionViewModel {
 
+    func saveCollection() {
+        
+    }
 }
 
 // MARK: States
@@ -54,6 +82,18 @@ internal extension WorkerCollectionViewModel {
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+
+    func viewStateCavusName() {
+        self.viewState.value = .setCavusName(name: self.uiModel.cavusName)
+    }
+
+    func viewStateSetTotalPrice() {
+        self.viewState.value = .setTotalPrice(price: self.uiModel.getTotalPrice())
+    }
+
+    func viewStateInitData() {
+        self.viewState.value = .initData(data: self.uiModel.workerModel)
     }
 
 }
@@ -66,7 +106,49 @@ internal extension WorkerCollectionViewModel {
     }
 }
 
+// MARK: Setter
+internal extension WorkerCollectionViewModel {
+    
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+    
+    func setGardenOwner(_ text: String) {
+        self.uiModel.setGardenOwner(text)
+    }
+    
+    func setKesiciCount(_ text: String) {
+        self.uiModel.setKesiciCount(text)
+    }
+    
+    func setAyakciCount(_ text: String) {
+        self.uiModel.setAyakciCount(text)
+    }
+    
+    func setCavusPrice(_ text: String) {
+        self.uiModel.setCavusPrice(text)
+    }
+    
+    func setKesiciPrice(_ text: String) {
+        self.uiModel.setKesiciPrice(text)
+    }
+    
+    func setAyakciPrice(_ text: String) {
+        self.uiModel.setAyakciPrice(text)
+    }
+    
+    func setServicePrice(_ text: String) {
+        self.uiModel.setServicePrice(text)
+    }
+    
+    func setOtherPrice(_ text: String) {
+        self.uiModel.setOtherPrice(text)
+    }
+}
 
 enum WorkerCollectionViewState {
     case showNativeProgress(isProgress: Bool)
+    case setCavusName(name: String)
+    case setTotalPrice(price: String)
+    case initData(data: WorkerModel)
 }

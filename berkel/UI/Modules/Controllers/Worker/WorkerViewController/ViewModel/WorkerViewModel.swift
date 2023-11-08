@@ -152,7 +152,7 @@ extension WorkerViewModel {
     }
 
     func addCollectionTapped(uiModel: IWorkerTableViewCellUIModel) {
-        let passData = WorkerCollectionPassData()
+        let passData = WorkerCollectionPassData(workerModel: uiModel.workerModel)
         self.presentWorkerCollectionViewController(passData: passData)
     }
 
