@@ -12,6 +12,7 @@ enum WorkerService {
     case list(season: String)
     case save(season: String)
     case collection(season: String, workerId: String)
+    case payment(season: String, workerId: String)
 }
 
 extension WorkerService: CollectionServiceType {
@@ -45,6 +46,16 @@ extension WorkerService: CollectionServiceType {
                 .collection("worker")
                 .document(workerId)
                 .collection("collections")
+            
+        case .payment(let season, let workerId):
+
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("worker")
+                .document(workerId)
+                .collection("payments")
         }
     }
 }

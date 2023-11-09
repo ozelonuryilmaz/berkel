@@ -67,6 +67,7 @@
 		672398152AEACFD1001538C1 /* ArchiveDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723980D2AEACFD1001538C1 /* ArchiveDetailBuilder.swift */; };
 		672398162AEACFD1001538C1 /* ArchiveDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723980E2AEACFD1001538C1 /* ArchiveDetailViewModel.swift */; };
 		672398172AEACFD1001538C1 /* ArchiveDetailPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6723980F2AEACFD1001538C1 /* ArchiveDetailPassData.swift */; };
+		6729D5692AFD593300DA5F48 /* WorkerPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729D5682AFD593300DA5F48 /* WorkerPaymentModel.swift */; };
 		672E0A8E2AEACFF30065C36B /* ArchiveDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672E0A8D2AEACFF30065C36B /* ArchiveDetailViewController.xib */; };
 		672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */; };
 		672E0A982AEAE8430065C36B /* ArchiveListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */; };
@@ -437,6 +438,7 @@
 		6723980D2AEACFD1001538C1 /* ArchiveDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailBuilder.swift; sourceTree = "<group>"; };
 		6723980E2AEACFD1001538C1 /* ArchiveDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailViewModel.swift; sourceTree = "<group>"; };
 		6723980F2AEACFD1001538C1 /* ArchiveDetailPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailPassData.swift; sourceTree = "<group>"; };
+		6729D5682AFD593300DA5F48 /* WorkerPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPaymentModel.swift; sourceTree = "<group>"; };
 		672E0A8D2AEACFF30065C36B /* ArchiveDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchiveDetailViewController.xib; sourceTree = "<group>"; };
 		672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCell.swift; sourceTree = "<group>"; };
 		672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveListTableViewCell.xib; sourceTree = "<group>"; };
@@ -1079,6 +1081,14 @@
 				672E0A8D2AEACFF30065C36B /* ArchiveDetailViewController.xib */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6729D5672AFD592500DA5F48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6729D5682AFD593300DA5F48 /* WorkerPaymentModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		672E0A8F2AEAD0020065C36B /* ViewModel */ = {
@@ -2536,6 +2546,7 @@
 			children = (
 				67FA8B5E2AF66C6600C09B09 /* Builder */,
 				67FA8B5D2AF66C6200C09B09 /* Coordinator */,
+				6729D5672AFD592500DA5F48 /* Models */,
 				67FA8B5C2AF66C5E00C09B09 /* Repository */,
 				67FA8B5B2AF66C5900C09B09 /* ViewModel */,
 				67FA8B4A2AF66C3700C09B09 /* ViewController */,
@@ -3360,6 +3371,7 @@
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
 				67BE9D3C2AF6439900D07DA7 /* WorkerRowModel.swift in Sources */,
 				67B98CF52ADBE74500CD4B15 /* BuyingDetailRepository.swift in Sources */,
+				6729D5692AFD593300DA5F48 /* WorkerPaymentModel.swift in Sources */,
 				67BE9D4F2AF66A6200D07DA7 /* WorkerDetailUIModel.swift in Sources */,
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,

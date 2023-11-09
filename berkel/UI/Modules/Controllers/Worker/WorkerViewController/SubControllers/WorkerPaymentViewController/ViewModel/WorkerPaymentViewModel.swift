@@ -15,8 +15,17 @@ protocol IWorkerPaymentViewModel: AnyObject {
     init(repository: IWorkerPaymentRepository,
          coordinator: IWorkerPaymentCoordinator,
          uiModel: IWorkerPaymentUIModel)
-    
+
+    func initComponents()
     func dismiss()
+
+    // Setter
+    func setDate(date: String?)
+    func setPayment(_ text: String)
+    func setDesc(_ text: String)
+
+    // Service
+    func savePayment()
 }
 
 final class WorkerPaymentViewModel: BaseViewModel, IWorkerPaymentViewModel {
@@ -29,7 +38,7 @@ final class WorkerPaymentViewModel: BaseViewModel, IWorkerPaymentViewModel {
     // MARK: Public Props
     var viewState = ScreenStateSubject<WorkerPaymentViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<WorkerPaymentModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IWorkerPaymentRepository,
@@ -40,12 +49,32 @@ final class WorkerPaymentViewModel: BaseViewModel, IWorkerPaymentViewModel {
         self.uiModel = uiModel
     }
 
+    func initComponents() {
+        self.viewStateCavusName()
+    }
 }
 
 
 // MARK: Service
 internal extension WorkerPaymentViewModel {
 
+    func savePayment() {
+        guard self.uiModel.payment > 0 else { return }
+
+        handleResourceFirestore(
+            request: self.repository.saveNewPayment(season: self.uiModel.season,
+                                                    workerId: self.uiModel.workerId,
+                                                    data: self.uiModel.data),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.dismiss()
+            })
+    }
 }
 
 // MARK: States
@@ -54,6 +83,10 @@ internal extension WorkerPaymentViewModel {
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+
+    func viewStateCavusName() {
+        self.viewState.value = .setCavusName(name: self.uiModel.cavusName)
     }
 
 }
@@ -66,7 +99,23 @@ internal extension WorkerPaymentViewModel {
     }
 }
 
+// MARK: Setter
+internal extension WorkerPaymentViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setPayment(_ text: String) {
+        self.uiModel.setPayment(text)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
+    }
+}
 
 enum WorkerPaymentViewState {
     case showNativeProgress(isProgress: Bool)
+    case setCavusName(name: String)
 }

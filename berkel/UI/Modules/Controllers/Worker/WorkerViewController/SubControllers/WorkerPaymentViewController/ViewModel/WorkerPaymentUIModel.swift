@@ -9,17 +9,52 @@ import UIKit
 
 protocol IWorkerPaymentUIModel {
 
-	 init(data: WorkerPaymentPassData)
+    var workerId: String { get }
+    var season: String { get }
+    var cavusName: String { get }
+    
+    var payment: Int { get }
+    var data: WorkerPaymentModel { get }
 
-} 
+    init(data: WorkerPaymentPassData)
+
+    mutating func setDate(date: String?)
+    mutating func setPayment(_ text: String)
+    mutating func setDesc(_ text: String)
+}
 
 struct WorkerPaymentUIModel: IWorkerPaymentUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
+    let workerId: String
+    let cavusName: String
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: WorkerPaymentPassData) {
+        self.workerId = data.workerId
+        self.cavusName = data.cavusName
+    }
 
+    var date: String? = Date().dateFormatterApiResponseType()
+    var payment: Int = 0
+    var desc: String? = nil
+
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
+    var data: WorkerPaymentModel {
+        return WorkerPaymentModel(
+            id: nil,
+            userId: userId,
+            date: date,
+            payment: payment,
+            description: desc
+        )
     }
 
     // MARK: Computed Props
@@ -28,4 +63,20 @@ struct WorkerPaymentUIModel: IWorkerPaymentUIModel {
 // MARK: Props
 extension WorkerPaymentUIModel {
 
+}
+
+// MARK: Setter
+extension WorkerPaymentUIModel {
+
+    mutating func setDate(date: String?) {
+        self.date = date
+    }
+
+    mutating func setPayment(_ text: String) {
+        self.payment = Int(text) ?? 0
+    }
+
+    mutating func setDesc(_ text: String) {
+        self.desc = text
+    }
 }

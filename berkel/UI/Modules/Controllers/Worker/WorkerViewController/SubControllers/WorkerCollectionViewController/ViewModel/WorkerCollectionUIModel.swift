@@ -15,6 +15,9 @@ protocol IWorkerCollectionUIModel {
 
     var data: WorkerCollectionModel { get }
 
+    var kesiciCount: Int { get }
+    var ayakciCount: Int { get }
+
     init(data: WorkerCollectionPassData)
 
     func getTotalPrice() -> String
