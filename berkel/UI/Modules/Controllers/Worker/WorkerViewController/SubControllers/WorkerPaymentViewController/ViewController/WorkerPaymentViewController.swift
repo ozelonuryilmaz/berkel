@@ -9,6 +9,10 @@ import UIKit
 import Combine
 
 final class WorkerPaymentViewController: BerkelBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Ödeme"
+    }
 
     // MARK: Constants
 
