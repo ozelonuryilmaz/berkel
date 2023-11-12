@@ -12,6 +12,7 @@ protocol IWorkerTableViewCellUIModel {
     var workerModel: WorkerModel { get }
     var workerId: String { get }
     var cavusName: String { get }
+    var cavusId: String { get }
     var desc: String { get }
     var isActive: Bool { get }
 }
@@ -26,6 +27,10 @@ struct WorkerTableViewCellUIModel: IWorkerTableViewCellUIModel {
     
     var workerId: String {
         return workerModel.id ?? ""
+    }
+    
+    var cavusId: String {
+        return workerModel.cavusId ?? ""
     }
 
     var cavusName: String {

@@ -147,7 +147,10 @@ internal extension WorkerViewModel {
 extension WorkerViewModel {
 
     func cellTapped(uiModel: IWorkerTableViewCellUIModel) {
-        let data = WorkerDetailPassData()
+        let data = WorkerDetailPassData(workerId: uiModel.workerId,
+                                        cavusName: uiModel.cavusName,
+                                        cavusId: uiModel.cavusId,
+                                        isActive: uiModel.isActive)
         self.pushWorkerDetailViewController(passData: data)
     }
 

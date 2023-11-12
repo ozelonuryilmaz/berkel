@@ -95,7 +95,7 @@
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aoG-dl-9oS" userLabel="tableViewCollection" customClass="BuyingCollectionDiffableTableView" customModule="berkel" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="198" width="390" height="646"/>
+                    <rect key="frame" x="0.0" y="190" width="390" height="654"/>
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                 </tableView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1IA-Fu-MU9" userLabel="viewImage">
@@ -216,7 +216,7 @@
                 <constraint firstAttribute="bottom" secondItem="aoG-dl-9oS" secondAttribute="bottom" id="6tC-61-SdF"/>
                 <constraint firstItem="dii-xe-zSr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="6uL-5B-N1J"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CeR-AY-QMt" secondAttribute="trailing" constant="8" id="FFf-Qo-jDf"/>
-                <constraint firstItem="aoG-dl-9oS" firstAttribute="top" secondItem="dii-xe-zSr" secondAttribute="bottom" constant="8" id="IA6-9M-VWw"/>
+                <constraint firstItem="aoG-dl-9oS" firstAttribute="top" secondItem="dii-xe-zSr" secondAttribute="bottom" id="IA6-9M-VWw"/>
                 <constraint firstItem="1IA-Fu-MU9" firstAttribute="top" secondItem="dii-xe-zSr" secondAttribute="bottom" id="PVt-4h-peT"/>
                 <constraint firstItem="1IA-Fu-MU9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SbQ-CS-PGZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aoG-dl-9oS" secondAttribute="trailing" id="V9p-D1-k2H"/>

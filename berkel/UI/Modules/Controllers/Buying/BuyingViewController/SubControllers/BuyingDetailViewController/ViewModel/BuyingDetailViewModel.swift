@@ -27,7 +27,7 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
 
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
-    func updateBuyingActive()
+    func updateBuyingActive(completion: @escaping () -> Void)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -191,7 +191,7 @@ internal extension BuyingDetailViewModel {
             })
     }
 
-    func updateBuyingActive() {
+    func updateBuyingActive(completion: @escaping () -> Void) {
         handleResourceFirestore(
             request: self.repository.updateBuyingActive(season: self.uiModel.season,
                                                         buyingId: self.uiModel.buyingId,
@@ -205,6 +205,7 @@ internal extension BuyingDetailViewModel {
                 guard let self = self else { return }
                 self.uiModel.setActive(isActive: false)
                 self.successDismissCallBack?(false)
+                completion()
                 self.reloadPage()
             })
     }

@@ -80,7 +80,7 @@ final class BuyingDetailViewController: MainBaseViewController {
 
     }
 
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableViewCollection.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
         self.viewImage.isHidden = sender.selectedSegmentIndex == 1 || sender.selectedSegmentIndex == 0
@@ -152,12 +152,13 @@ final class BuyingDetailViewController: MainBaseViewController {
                 message: "Devre dışı bırakılmasını istediğinize emin misiniz?",
                 positiveButtonText: "Evet",
                 positiveButtonClickListener: {
-                    self.navigationItem.rightBarButtonItems = []
-                    self.btnKantarFisi.isHidden = true
-                    self.btnCek.isHidden = true
-                    self.btnDekont.isHidden = true
-                    self.btnDiger.isHidden = true
-                    self.viewModel.updateBuyingActive()
+                    self.viewModel.updateBuyingActive(completion: { [weak self] in
+                        self?.navigationItem.rightBarButtonItems = []
+                        self?.btnKantarFisi.isHidden = true
+                        self?.btnCek.isHidden = true
+                        self?.btnDekont.isHidden = true
+                        self?.btnDiger.isHidden = true
+                    })
                 },
                 negativeButtonText: "İptal"
             )
@@ -194,5 +195,4 @@ extension BuyingDetailViewController: UITableViewDelegate, UITableViewDataSource
         cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
         return cell
     }
-
 }

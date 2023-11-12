@@ -13,13 +13,14 @@ enum WorkerService {
     case save(season: String)
     case collection(season: String, workerId: String)
     case payment(season: String, workerId: String)
+    case worker(season: String, workerId: String, collectionId: String)
 }
 
 extension WorkerService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .list(_):
+        case .list(_), .collection(_,_), .payment(_,_):
             return "date"
         default:
             return ""
@@ -56,6 +57,46 @@ extension WorkerService: CollectionServiceType {
                 .collection("worker")
                 .document(workerId)
                 .collection("payments")
+            
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+                .collection("")
         }
     }
+}
+
+
+extension WorkerService: DocumentServiceType {
+
+    var documentReference: DocumentReference {
+        switch self {
+        case .worker(let season, let workerId, let collectionId):
+
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("worker")
+                .document(workerId)
+                .collection("collections")
+                .document(collectionId)
+            
+        case .collection(let season, let workerId):
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("worker")
+                .document(workerId)
+
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+        }
+    }
+
+
 }
