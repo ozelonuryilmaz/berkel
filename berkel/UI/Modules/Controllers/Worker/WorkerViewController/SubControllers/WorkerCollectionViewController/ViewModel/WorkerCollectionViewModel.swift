@@ -60,6 +60,12 @@ final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel
     func initComponents() {
         self.viewStateCavusName()
         self.viewStateInitData()
+        self.viewStateInitCount()
+        self.viewStateViewedData()
+
+        if !self.uiModel.viewedData {
+            self.updateResults()
+        }
     }
 
     func updateResults() {
@@ -108,6 +114,16 @@ internal extension WorkerCollectionViewModel {
 
     func viewStateInitData() {
         self.viewState.value = .initData(data: self.uiModel.workerModel)
+    }
+
+    func viewStateInitCount() {
+        self.viewState.value = .initCounts(kesici: self.uiModel.kesiciCount,
+                                           ayakci: self.uiModel.ayakciCount,
+                                           other: self.uiModel.otherPrice)
+    }
+
+    func viewStateViewedData() {
+        self.viewState.value = .viewedData(isVisible: self.uiModel.viewedData)
     }
 
 }
@@ -165,4 +181,6 @@ enum WorkerCollectionViewState {
     case setCavusName(name: String)
     case setTotalPrice(price: String)
     case initData(data: WorkerModel)
+    case initCounts(kesici: Int, ayakci: Int, other: Double)
+    case viewedData(isVisible: Bool)
 }

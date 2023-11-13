@@ -8,6 +8,8 @@
 import UIKit
 
 protocol IWorkerCollectionUIModel {
+    
+    var viewedData: Bool { get }
 
     var workerModel: WorkerModel { get }
     var cavusName: String { get }
@@ -17,6 +19,7 @@ protocol IWorkerCollectionUIModel {
 
     var kesiciCount: Int { get }
     var ayakciCount: Int { get }
+    var otherPrice: Double { get }
 
     init(data: WorkerCollectionPassData)
 
@@ -37,10 +40,15 @@ protocol IWorkerCollectionUIModel {
 struct WorkerCollectionUIModel: IWorkerCollectionUIModel {
 
     // MARK: Definitions
+    let viewedData: Bool
     let workerModel: WorkerModel
 
     // MARK: Initialize
     init(data: WorkerCollectionPassData) {
+        self.viewedData = data.viewedData
+        self.kesiciCount = data.kesiciCount
+        self.ayakciCount = data.ayakciCount
+        self.otherPrice = data.otherPrice
         self.workerModel = data.workerModel
 
         // Sabit fiyatlar UIModel'daki değişkene aktarılıyor.

@@ -56,7 +56,7 @@ class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
 
         lblDate.text = uiModel.date
-        lblWorker.text = "\(uiModel.kesiciCount) Kesici, \(uiModel.ayakciCount) Ayakçı, ..."
+        lblWorker.text = uiModel.gardenOwner
         lblTotalPrice.text = "Toplam: \(uiModel.totalPrice) TL"
     }
 }

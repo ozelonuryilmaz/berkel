@@ -70,11 +70,22 @@ struct WorkerDetailUIModel: IWorkerDetailUIModel {
     // MARK: Computed Props
 
     func oldDoubt() -> String {
-        return "***"
+        let _collections = self.collections.filter({ true == $0.isCalc })
+        let totalKesiciCount = _collections.map({ $0.kesiciCount }).reduce(0, +).decimalString()
+        let totalAyakciCount = _collections.map({ $0.ayakciCount }).reduce(0, +).decimalString()
+        return "\(_collections.count) Gün, \(totalKesiciCount) Kesici, \(totalAyakciCount) Ayakçı, ..."
     }
 
     func nowDoubt() -> String {
-        return "***"
+        let payments = self.payments.map({ $0.payment }).reduce(0, +)
+        let _collections = self.collections.filter({ true == $0.isCalc })
+        var totalPrice: Int = 0
+        for c in _collections {
+            totalPrice += self.getTotalPrice(data: c)
+        }
+        let waitingPrice = totalPrice - payments
+
+        return "\(payments.decimalString()) TL Ödendi, \(waitingPrice.decimalString()) TL Bekliyor"
     }
 
     func getCollection(workerId: String?) -> WorkerCollectionModel? {
@@ -103,6 +114,17 @@ extension WorkerDetailUIModel {
             self.collections[index].isCalc = isCalc
         }
     }
+
+    func getTotalPrice(data: WorkerCollectionModel) -> Int {
+        let cavus: Int = Int(data.cavusPrice) * 1
+        let kesici: Int = Int(data.kesiciPrice) * data.kesiciCount
+        let ayakci: Int = Int(data.ayakciPrice) * data.ayakciCount
+        let servis: Int = Int(data.servisPrice)
+        let other: Int = Int(data.otherPrice)
+        let total: Int = cavus + kesici + ayakci + servis + other
+
+        return total
+    }
 }
 
 // MARK: Collection
@@ -117,18 +139,32 @@ extension WorkerDetailUIModel {
 
     private func prepareCollectionSnapshotRowModel() -> [WorkerDetailCollectionRowModel] {
         let rowModels: [WorkerDetailCollectionRowModel] = collections.compactMap { responseModel in
-            let totalPrice: String = ""
-            
+
+            let workerModel = WorkerModel(userId: responseModel.userId,
+                                          cavusId: responseModel.cavusId,
+                                          date: responseModel.date ?? "",
+                                          cavusName: responseModel.cavusName,
+                                          gardenOwner: responseModel.gardenOwner,
+                                          desc: "nil",
+                                          isActive: self.isActive,
+                                          cavusPrice: responseModel.cavusPrice,
+                                          kesiciPrice: responseModel.kesiciPrice,
+                                          ayakciPrice: responseModel.ayakciPrice,
+                                          servisPrice: responseModel.servisPrice)
+
             return WorkerDetailCollectionRowModel(uiModel:
                 WorkerDetailCollectionTableViewCellUIModel(
+                workerModel: workerModel,
                 workerId: self.workerId,
                 collectionId: responseModel.id,
                 isCalc: responseModel.isCalc,
                 isActive: self.isActive,
                 date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                totalPrice: totalPrice,
-                ayakciCount: responseModel.ayakciCount.decimalString(),
-                kesiciCount: responseModel.kesiciCount.decimalString())
+                totalPrice: self.getTotalPrice(data: responseModel).decimalString(),
+                gardenOwner: responseModel.gardenOwner,
+                kesiciCount: responseModel.kesiciCount,
+                ayakciCount: responseModel.ayakciCount,
+                otherPrice: responseModel.otherPrice)
             )
         }
         return rowModels

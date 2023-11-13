@@ -9,6 +9,8 @@ import Foundation
 
 protocol IWorkerDetailCollectionTableViewCellUIModel {
 
+    var workerModel: WorkerModel { get }
+    
     var workerId: String? { get }
     var collectionId: String? { get }
     var isCalc: Bool { get }
@@ -16,12 +18,16 @@ protocol IWorkerDetailCollectionTableViewCellUIModel {
     
     var date: String { get }
     var totalPrice: String { get }
-    var ayakciCount: String { get }
-    var kesiciCount: String { get }
+    var gardenOwner: String { get }
+    var kesiciCount: Int { get }
+    var ayakciCount: Int { get }
+    var otherPrice: Double { get }
 }
 
 struct WorkerDetailCollectionTableViewCellUIModel: IWorkerDetailCollectionTableViewCellUIModel {
 
+    let workerModel: WorkerModel
+    
     let workerId: String?
     let collectionId: String?
     var isCalc: Bool
@@ -29,6 +35,8 @@ struct WorkerDetailCollectionTableViewCellUIModel: IWorkerDetailCollectionTableV
     
     let date: String
     let totalPrice: String
-    let ayakciCount: String
-    let kesiciCount: String
+    let gardenOwner: String
+    let kesiciCount: Int
+    let ayakciCount: Int
+    let otherPrice: Double
 }

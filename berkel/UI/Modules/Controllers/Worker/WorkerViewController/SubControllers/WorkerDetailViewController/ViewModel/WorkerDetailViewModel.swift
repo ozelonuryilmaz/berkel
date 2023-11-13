@@ -16,12 +16,14 @@ protocol IWorkerDetailViewModel: WorkerDetailCollectionDataSourceFactoryOutputDe
     init(repository: IWorkerDetailRepository,
          coordinator: IWorkerDetailCoordinator,
          uiModel: IWorkerDetailUIModel)
-    
+
+    var workerId: String { get }
+
     func initComponents()
 
     // View State
     func viewStateSetNavigationTitle()
-    
+
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateWorkerActive(completion: @escaping () -> Void)
@@ -45,7 +47,11 @@ final class WorkerDetailViewModel: BaseViewModel, IWorkerDetailViewModel {
     let responseCollection = CurrentValueSubject<[WorkerCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
-    
+
+    var workerId: String {
+        return self.uiModel.workerId
+    }
+
     // MARK: Initiliazer
     required init(repository: IWorkerDetailRepository,
                   coordinator: IWorkerDetailCoordinator,
@@ -65,7 +71,7 @@ final class WorkerDetailViewModel: BaseViewModel, IWorkerDetailViewModel {
             self.getWorkerPayment()
         })
     }
-    
+
     func reloadPage() {
         self.viewStateSetNavigationTitle()
         DispatchQueue.delay(250) { [weak self] in
@@ -82,7 +88,7 @@ final class WorkerDetailViewModel: BaseViewModel, IWorkerDetailViewModel {
 internal extension WorkerDetailViewModel {
 
     private func getWorkerCollection(completion: @escaping () -> Void) {
-        
+
         handleResourceFirestore(
             request: self.repository.getCollection(season: self.uiModel.season,
                                                    workerId: self.uiModel.workerId),
@@ -117,7 +123,7 @@ internal extension WorkerDetailViewModel {
                 self.viewStateReloadPaymentTableView()
             })
     }
-    
+
     func updateCalcForCollection(collectionId: String, isCalc: Bool) {
         handleResourceFirestore(
             request: self.repository.updateCollectionCalc(season: self.uiModel.season,
@@ -149,11 +155,11 @@ internal extension WorkerDetailViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.setActive(isActive: false)
-                
-                
+
+
                 // TODO: outputDelegate eklenecek
                 //self.successDismissCallBack?(false)
-                
+
                 completion()
                 self.reloadPage()
             })
@@ -204,6 +210,9 @@ internal extension WorkerDetailViewModel {
 // MARK: Coordinate
 internal extension WorkerDetailViewModel {
 
+    func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
+        self.coordinator.presentWorkerCollectionViewController(passData: passData)
+    }
 }
 
 // MARK: TableView
@@ -222,7 +231,11 @@ internal extension WorkerDetailViewModel {
 internal extension WorkerDetailViewModel {
 
     func cellTapped(uiModel: IWorkerDetailCollectionTableViewCellUIModel) {
-        //self.presentBuyingCollectionViewController(collectionId: uiModel.collectionId)
+        self.presentWorkerCollectionViewController(passData: WorkerCollectionPassData(viewedData: false,
+                                                                                      kesiciCount: uiModel.kesiciCount,
+                                                                                      ayakciCount: uiModel.ayakciCount,
+                                                                                      otherPrice: uiModel.otherPrice,
+                                                                                      workerModel: uiModel.workerModel))
     }
 
     func calcActivateTapped(id: String, date: String, isCalc: Bool) {

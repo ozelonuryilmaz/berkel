@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate, WorkerDataSourceFactoryOutputDelegate {
+protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate, WorkerDataSourceFactoryOutputDelegate, WorkerDetailViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<WorkerViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -122,7 +122,8 @@ internal extension WorkerViewModel {
     }
 
     func pushWorkerDetailViewController(passData: WorkerDetailPassData) {
-        self.coordinator.pushWorkerDetailViewController(passData: passData)
+        self.coordinator.pushWorkerDetailViewController(passData: passData,
+                                                        outputDelegate: self)
     }
 
     func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
@@ -168,6 +169,15 @@ extension WorkerViewModel {
         if self.isAvailablePagination && isAvailablePagination && !isLastPage {
             self.getWorker()
         }
+    }
+}
+
+// MARK: NewWorkerViewControllerOutputDelegate
+internal extension WorkerViewModel {
+
+    func closeButtonTapped(workerId: String, isActive: Bool) {
+        self.uiModel.updateIsActive(workerId: workerId, isActive: isActive)
+        self.viewStateBuildSnapshot()
     }
 }
 

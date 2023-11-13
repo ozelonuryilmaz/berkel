@@ -8,12 +8,17 @@
 import UIKit
 import Combine
 
+protocol WorkerDetailViewControllerOutputDelegate: AnyObject {
+
+    func closeButtonTapped(workerId: String, isActive: Bool)
+}
+
 final class WorkerDetailViewController: MainBaseViewController {
-    
+
     override var isShowTabbar: Bool {
         return false
     }
-    
+
     // MARK: Constants
     @IBOutlet private weak var lblOldDoubt: UILabel!
     @IBOutlet private weak var lblNowDoubt: UILabel!
@@ -24,13 +29,17 @@ final class WorkerDetailViewController: MainBaseViewController {
     // MARK: Inject
     private let viewModel: IWorkerDetailViewModel
 
+    private weak var outputDelegate: WorkerDetailViewControllerOutputDelegate? = nil
+
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IWorkerDetailViewModel) {
+    init(viewModel: IWorkerDetailViewModel,
+         outputDelegate: WorkerDetailViewControllerOutputDelegate?) {
         self.viewModel = viewModel
+        self.outputDelegate = outputDelegate
         super.init(nibName: "WorkerDetailViewController", bundle: nil)
     }
 
@@ -42,12 +51,12 @@ final class WorkerDetailViewController: MainBaseViewController {
         self.observeReactiveDatas()
         self.viewModel.initComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.viewStateSetNavigationTitle()
     }
-    
+
     override func setupView() {
         initTableViewPayment()
         initTableViewWorkerDetail()
@@ -56,7 +65,7 @@ final class WorkerDetailViewController: MainBaseViewController {
     override func registerEvents() {
         segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
     }
-    
+
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableViewWorkerDetail.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
@@ -74,7 +83,7 @@ final class WorkerDetailViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-                
+
             case .showWorkerActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
 
@@ -105,7 +114,7 @@ final class WorkerDetailViewController: MainBaseViewController {
                     },
                     negativeButtonText: "İptal"
                 )
-                
+
             }
 
         }).store(in: &cancelBag)
@@ -126,7 +135,9 @@ final class WorkerDetailViewController: MainBaseViewController {
                 positiveButtonText: "Evet",
                 positiveButtonClickListener: {
                     self.viewModel.updateWorkerActive(completion: { [weak self] in
-                        self?.navigationItem.rightBarButtonItems = []
+                        guard let self = self else { return }
+                        self.outputDelegate?.closeButtonTapped(workerId: self.viewModel.workerId, isActive: false)
+                        self.navigationItem.rightBarButtonItems = []
                     })
                 },
                 negativeButtonText: "İptal"
