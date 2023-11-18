@@ -14,6 +14,7 @@ struct NewBuyingModel: Codable {
     let date: String
     let sellerId: String
     let sellerName: String
+    let productId: String?
     let productName: String
     let productKGPrice: Double
     let desc: String

@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol INewBuyingViewModel: AnyObject {
+protocol INewBuyingViewModel: ProductListViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<NewBuyingViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -20,7 +20,6 @@ protocol INewBuyingViewModel: AnyObject {
     func initComponents()
 
     // Setter
-    func setProduct(_ product: String)
     func setPrice(_ price: String)
     func setPayment(_ payment: String)
     func setDesc(_ desc: String)
@@ -30,6 +29,7 @@ protocol INewBuyingViewModel: AnyObject {
 
     // Coordinator
     func dismiss()
+    func presentProductListViewController()
 }
 
 final class NewBuyingViewModel: BaseViewModel, INewBuyingViewModel {
@@ -126,6 +126,10 @@ internal extension NewBuyingViewModel {
         self.viewState.value = .setSellerTCKN(tckn: self.uiModel.sellerTCKN)
     }
 
+    func viewStateProductName(name: String) {
+        self.viewState.value = .setProductName(name: name)
+    }
+
     // MARK: Action State
 
 }
@@ -142,13 +146,17 @@ internal extension NewBuyingViewModel {
             self?.successDismissCallBack?(data)
         })
     }
+
+    func presentProductListViewController() {
+        self.coordinator.presentProductListViewController(outputDelegate: self)
+    }
 }
 
 // MARK: Setter
 internal extension NewBuyingViewModel {
 
-    func setProduct(_ product: String) {
-        self.uiModel.setProduct(product)
+    func setProduct(id: String, name: String) {
+        self.uiModel.setProduct(id: id, name: name)
     }
 
     func setPrice(_ price: String) {
@@ -164,10 +172,19 @@ internal extension NewBuyingViewModel {
     }
 }
 
+// MARK: ProductListViewControllerOutputDelegate
+internal extension NewBuyingViewModel {
+
+    func getSelectionProduct(id: String, name: String) {
+        self.setProduct(id: id, name: name)
+        self.viewStateProductName(name: name)
+    }
+}
 
 enum NewBuyingViewState {
 
     case showNativeProgress(isProgress: Bool)
     case setSellerName(name: String)
     case setSellerTCKN(tckn: String)
+    case setProductName(name: String)
 }

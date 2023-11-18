@@ -22,7 +22,7 @@ protocol INewBuyingUIModel {
     init(data: NewBuyingPassData)
 
     // Setter
-    mutating func setProduct(_ product: String)
+    mutating func setProduct(id: String, name: String)
     mutating func setPrice(_ price: String)
     mutating func setPayment(_ payment: String)
     mutating func setDesc(_ desc: String)
@@ -51,7 +51,8 @@ struct NewBuyingUIModel: INewBuyingUIModel {
         return seller.id
     }
 
-    private var product: String = ""
+    private var productId: String? = nil
+    private var productName: String = ""
     private var price: Double = 0.0
     private var payment: Int = 0
     private var desc: String = ""
@@ -75,7 +76,8 @@ extension NewBuyingUIModel {
             date: date,
             sellerId: self.sellerId,
             sellerName: self.sellerName,
-            productName: self.product,
+            productId: self.productId,
+            productName: self.productName,
             productKGPrice: self.price,
             desc: self.desc,
             isActive: true
@@ -88,8 +90,8 @@ extension NewBuyingUIModel {
     }
 
     var errorMessage: String? {
-        if product.count < 1 {
-            return "Lütfen ürün adını giriniz"
+        if productName.isEmpty || productId == nil {
+            return "Lütfen ürün seçiniz"
         }
 
         if price == 0.0 {
@@ -107,8 +109,9 @@ extension NewBuyingUIModel {
 // MARK: Setter
 internal extension NewBuyingUIModel {
 
-    mutating func setProduct(_ product: String) {
-        self.product = product
+    mutating func setProduct(id: String, name: String) {
+        self.productId = id
+        self.productName = name
     }
 
     mutating func setPrice(_ price: String) {

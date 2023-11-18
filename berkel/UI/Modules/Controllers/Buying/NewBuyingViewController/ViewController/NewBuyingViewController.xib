@@ -17,13 +17,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewBuyingViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnProductList" destination="U9d-FN-P0q" id="vkE-bu-j3i"/>
                 <outlet property="btnSave" destination="IWw-NQ-dKJ" id="Am3-G6-syk"/>
                 <outlet property="lblSellerName" destination="4JV-Da-7bD" id="LaO-XY-m2M"/>
                 <outlet property="lblSellerTCKN" destination="UD3-p6-c7L" id="Aci-GW-d11"/>
                 <outlet property="tfDesc" destination="zIW-sH-aQj" id="D7X-Qs-taR"/>
                 <outlet property="tfPayment" destination="DIC-au-aEG" id="saH-3D-fZv"/>
                 <outlet property="tfPrice" destination="yQq-i7-8nf" id="tmK-2g-va8"/>
-                <outlet property="tfProduct" destination="oSE-Ke-hOf" id="agH-qG-eGw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,10 +36,10 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osz-pm-KEI" userLabel="mContenView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="596"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="564"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evp-ed-04N" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="532"/>
+                                    <rect key="frame" x="16" y="32" width="380" height="500"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JV-Da-7bD" userLabel="lblName">
                                             <rect key="frame" x="16" y="16" width="42" height="28"/>
@@ -61,26 +61,8 @@
                                             <color key="textColor" name="Gray110"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSE-Ke-hOf" userLabel="tfProduct" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="60" width="364" height="76"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="ExK-rD-P3d"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
-                                                    <integer key="value" value="100"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ürün"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQq-i7-8nf" userLabel="tfKgPrice" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="152" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="120" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="2W0-Cs-qfL"/>
@@ -98,7 +80,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIC-au-aEG" userLabel="tfPayment" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="244" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="212" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="McG-c7-Hi5"/>
@@ -117,7 +99,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIW-sH-aQj" userLabel="tfDesc" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="336" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="304" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="qF5-Rr-o65"/>
@@ -135,7 +117,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWw-NQ-dKJ" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="444" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="412" width="352" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="mE2-NO-NMF"/>
@@ -150,30 +132,43 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-FN-P0q">
+                                            <rect key="frame" x="16" y="60" width="364" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="nQa-cO-I85"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Ürünü Seç"/>
+                                            <buttonConfiguration key="configuration" style="gray" title="Ürünü Seç">
+                                                <fontDescription key="titleFontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                                <color key="baseForegroundColor" name="PrimaryBlue"/>
+                                                <color key="baseBackgroundColor" name="LightGray234"/>
+                                            </buttonConfiguration>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="oSE-Ke-hOf" firstAttribute="top" secondItem="4JV-Da-7bD" secondAttribute="bottom" constant="16" id="BGH-oD-t3q"/>
+                                        <constraint firstItem="U9d-FN-P0q" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="Caa-8E-AGZ"/>
                                         <constraint firstItem="zIW-sH-aQj" firstAttribute="top" secondItem="DIC-au-aEG" secondAttribute="bottom" constant="16" id="Eju-Yi-UaS"/>
                                         <constraint firstAttribute="trailing" secondItem="IWw-NQ-dKJ" secondAttribute="trailing" constant="-4" id="FxD-Sr-nTL"/>
                                         <constraint firstAttribute="trailing" secondItem="DIC-au-aEG" secondAttribute="trailing" id="LMh-1V-SKa"/>
                                         <constraint firstItem="4JV-Da-7bD" firstAttribute="top" secondItem="Evp-ed-04N" secondAttribute="top" constant="16" id="Lgh-rK-0be"/>
                                         <constraint firstAttribute="bottom" secondItem="IWw-NQ-dKJ" secondAttribute="bottom" constant="32" id="PgK-sB-xzc"/>
                                         <constraint firstItem="DIC-au-aEG" firstAttribute="top" secondItem="yQq-i7-8nf" secondAttribute="bottom" constant="16" id="Q7g-UJ-54l"/>
-                                        <constraint firstItem="oSE-Ke-hOf" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="Ub0-K9-j8z"/>
+                                        <constraint firstAttribute="trailing" secondItem="U9d-FN-P0q" secondAttribute="trailing" id="SR3-Tb-eEc"/>
                                         <constraint firstAttribute="trailing" secondItem="zIW-sH-aQj" secondAttribute="trailing" id="bWB-AH-hat"/>
                                         <constraint firstAttribute="trailing" secondItem="UD3-p6-c7L" secondAttribute="trailing" constant="16" id="c9N-UG-aSR"/>
                                         <constraint firstAttribute="trailing" secondItem="yQq-i7-8nf" secondAttribute="trailing" id="cCG-Tu-O7V"/>
                                         <constraint firstItem="DIC-au-aEG" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="eC1-Z7-wrm"/>
                                         <constraint firstItem="IWw-NQ-dKJ" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="32" id="faz-yG-8XK"/>
-                                        <constraint firstItem="yQq-i7-8nf" firstAttribute="top" secondItem="oSE-Ke-hOf" secondAttribute="bottom" constant="16" id="fjp-Fo-fDP"/>
                                         <constraint firstItem="IWw-NQ-dKJ" firstAttribute="top" secondItem="zIW-sH-aQj" secondAttribute="bottom" constant="32" id="jUh-tj-oN4"/>
-                                        <constraint firstAttribute="trailing" secondItem="oSE-Ke-hOf" secondAttribute="trailing" id="ljH-rj-PYD"/>
+                                        <constraint firstItem="yQq-i7-8nf" firstAttribute="top" secondItem="U9d-FN-P0q" secondAttribute="bottom" constant="16" id="ovc-ve-3E9"/>
                                         <constraint firstItem="UD3-p6-c7L" firstAttribute="leading" secondItem="4JV-Da-7bD" secondAttribute="trailing" constant="8" id="qC5-3C-b7p"/>
                                         <constraint firstItem="zIW-sH-aQj" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="rmT-bz-hOl"/>
                                         <constraint firstItem="yQq-i7-8nf" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="we2-E9-lsX"/>
                                         <constraint firstItem="4JV-Da-7bD" firstAttribute="leading" secondItem="Evp-ed-04N" secondAttribute="leading" constant="16" id="we5-Gj-vkc"/>
                                         <constraint firstItem="UD3-p6-c7L" firstAttribute="top" secondItem="Evp-ed-04N" secondAttribute="top" constant="16" id="yeK-4C-rfM"/>
+                                        <constraint firstItem="U9d-FN-P0q" firstAttribute="top" secondItem="UD3-p6-c7L" secondAttribute="bottom" constant="16" id="zCM-sQ-MTT"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -229,6 +224,9 @@
     <resources>
         <namedColor name="Gray110">
             <color red="0.4309999942779541" green="0.4309999942779541" blue="0.4309999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightGray234">
+            <color red="0.9179999828338623" green="0.92500001192092896" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryBlue">
             <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

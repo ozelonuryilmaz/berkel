@@ -10,6 +10,7 @@ import UIKit
 protocol INewBuyingCoordinator: AnyObject {
 
     func dismiss(completion: (() -> Void)?)
+    func presentProductListViewController(outputDelegate: ProductListViewControllerOutputDelegate)
 }
 
 final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator {
@@ -41,6 +42,13 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
 
     func dismiss(completion: (() -> Void)? = nil) {
         navController.dismiss(animated: true, completion: completion)
+    }
+    
+    func presentProductListViewController(outputDelegate: ProductListViewControllerOutputDelegate) {
+        let controller =  ProductListCoordinator.getInstance(presenterViewController: self.navController.lastViewController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData:  ProductListPassData())
+        coordinate(to: controller)
     }
 }
 

@@ -21,7 +21,7 @@ final class NewBuyingViewController: BerkelBaseViewController {
     // MARK: IBOutlets
     @IBOutlet private weak var lblSellerName: UILabel!
     @IBOutlet private weak var lblSellerTCKN: UILabel!
-    @IBOutlet private weak var tfProduct: PrimaryTextField!
+    @IBOutlet private weak var btnProductList: UIButton!
     @IBOutlet private weak var tfPrice: PrimaryTextField!
     @IBOutlet private weak var tfPayment: PrimaryTextField!
     @IBOutlet private weak var tfDesc: PrimaryTextField!
@@ -48,6 +48,10 @@ final class NewBuyingViewController: BerkelBaseViewController {
 
     override func registerEvents() {
 
+        btnProductList.onTap { [unowned self] _ in
+            self.viewModel.presentProductListViewController()
+        }
+
         btnSave.onTap { [unowned self] _ in
             self.viewModel.saveNewBuying()
         }
@@ -57,7 +61,6 @@ final class NewBuyingViewController: BerkelBaseViewController {
         observeViewState()
         listenErrorState()
 
-        listenProductTextFieldDidChange()
         listenPriceTextFieldDidChange()
         listenPaymentTextFieldDidChange()
         listenDescTextFieldDidChange()
@@ -75,6 +78,9 @@ final class NewBuyingViewController: BerkelBaseViewController {
                 self.lblSellerName.text = name
             case .setSellerTCKN(let tckn):
                 self.lblSellerTCKN.text = tckn
+            case .setProductName(let name):
+                self.btnProductList.setTitle(name, for: .normal)
+
             }
 
         }).store(in: &cancelBag)
@@ -102,12 +108,6 @@ private extension NewBuyingViewController {
 
 // MARK: TextField
 private extension NewBuyingViewController {
-
-    func listenProductTextFieldDidChange() {
-        tfProduct.addListenDidChange { [unowned self] text in
-            self.viewModel.setProduct(text)
-        }
-    }
 
     func listenPriceTextFieldDidChange() {
         tfPrice.addListenDidChange { [unowned self] text in

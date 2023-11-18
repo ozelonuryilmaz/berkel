@@ -93,6 +93,19 @@
 		674D10742ADDAC8B002CFFE8 /* BuyingCollectionDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674D10682ADD9874002CFFE8 /* BuyingCollectionDataSourceFactory.swift */; };
 		675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */; };
 		675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E42AAC686200429CB7 /* NetworkingError.swift */; };
+		6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984172B08E1F400F0DAD0 /* ProductListCoordinator.swift */; };
+		675984202B08E1F400F0DAD0 /* ProductListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984182B08E1F400F0DAD0 /* ProductListUIModel.swift */; };
+		675984212B08E1F400F0DAD0 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984192B08E1F400F0DAD0 /* ProductListViewController.swift */; };
+		675984222B08E1F400F0DAD0 /* ProductListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759841A2B08E1F400F0DAD0 /* ProductListRepository.swift */; };
+		675984232B08E1F400F0DAD0 /* ProductListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759841B2B08E1F400F0DAD0 /* ProductListBuilder.swift */; };
+		675984242B08E1F400F0DAD0 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759841C2B08E1F400F0DAD0 /* ProductListViewModel.swift */; };
+		675984252B08E1F400F0DAD0 /* ProductListPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759841D2B08E1F400F0DAD0 /* ProductListPassData.swift */; };
+		675984262B08E1F400F0DAD0 /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6759841E2B08E1F400F0DAD0 /* ProductListViewController.xib */; };
+		6759842D2B08EB8400F0DAD0 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759842C2B08EB8400F0DAD0 /* ProductListModel.swift */; };
+		675984312B08ECF500F0DAD0 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759842F2B08ECF500F0DAD0 /* ProductListTableViewCell.swift */; };
+		675984322B08ECF500F0DAD0 /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 675984302B08ECF500F0DAD0 /* ProductListTableViewCell.xib */; };
+		675984342B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984332B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift */; };
+		675984362B08EFA500F0DAD0 /* ProductItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984352B08EFA500F0DAD0 /* ProductItemService.swift */; };
 		675F5C262AC4C09000DC863F /* NewBuyingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C252AC4C09000DC863F /* NewBuyingModel.swift */; };
 		675F5C292AC4C25F00DC863F /* NewBuyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C282AC4C25F00DC863F /* NewBuyingService.swift */; };
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
@@ -475,6 +488,19 @@
 		674D106E2ADD9974002CFFE8 /* BuyingCollectionTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCollectionTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreErrorHandle.swift; sourceTree = "<group>"; };
 		675129E42AAC686200429CB7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		675984172B08E1F400F0DAD0 /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
+		675984182B08E1F400F0DAD0 /* ProductListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListUIModel.swift; sourceTree = "<group>"; };
+		675984192B08E1F400F0DAD0 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		6759841A2B08E1F400F0DAD0 /* ProductListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRepository.swift; sourceTree = "<group>"; };
+		6759841B2B08E1F400F0DAD0 /* ProductListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListBuilder.swift; sourceTree = "<group>"; };
+		6759841C2B08E1F400F0DAD0 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		6759841D2B08E1F400F0DAD0 /* ProductListPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPassData.swift; sourceTree = "<group>"; };
+		6759841E2B08E1F400F0DAD0 /* ProductListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
+		6759842C2B08EB8400F0DAD0 /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
+		6759842F2B08ECF500F0DAD0 /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
+		675984302B08ECF500F0DAD0 /* ProductListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListTableViewCell.xib; sourceTree = "<group>"; };
+		675984332B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		675984352B08EFA500F0DAD0 /* ProductItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemService.swift; sourceTree = "<group>"; };
 		675F5C252AC4C09000DC863F /* NewBuyingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingModel.swift; sourceTree = "<group>"; };
 		675F5C282AC4C25F00DC863F /* NewBuyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingService.swift; sourceTree = "<group>"; };
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
@@ -911,6 +937,7 @@
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
 				675F5C282AC4C25F00DC863F /* NewBuyingService.swift */,
 				677D62F62AC1FC30004F3232 /* SeasonItemService.swift */,
+				675984352B08EFA500F0DAD0 /* ProductItemService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1299,6 +1326,81 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		675984152B08DF2800F0DAD0 /* ProductListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6759842A2B08E21000F0DAD0 /* Builder */,
+				675984282B08E1FC00F0DAD0 /* Coordinator */,
+				6759842B2B08EB6F00F0DAD0 /* Models */,
+				675984292B08E20900F0DAD0 /* Repository */,
+				675984272B08E1F800F0DAD0 /* ViewModel */,
+				675984162B08E1E400F0DAD0 /* ViewController */,
+			);
+			path = ProductListViewController;
+			sourceTree = "<group>";
+		};
+		675984162B08E1E400F0DAD0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6759842E2B08ECE200F0DAD0 /* Cells */,
+				675984192B08E1F400F0DAD0 /* ProductListViewController.swift */,
+				6759841E2B08E1F400F0DAD0 /* ProductListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		675984272B08E1F800F0DAD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6759841C2B08E1F400F0DAD0 /* ProductListViewModel.swift */,
+				675984182B08E1F400F0DAD0 /* ProductListUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		675984282B08E1FC00F0DAD0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				675984172B08E1F400F0DAD0 /* ProductListCoordinator.swift */,
+				6759841D2B08E1F400F0DAD0 /* ProductListPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		675984292B08E20900F0DAD0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6759841A2B08E1F400F0DAD0 /* ProductListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6759842A2B08E21000F0DAD0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6759841B2B08E1F400F0DAD0 /* ProductListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		6759842B2B08EB6F00F0DAD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6759842C2B08EB8400F0DAD0 /* ProductListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6759842E2B08ECE200F0DAD0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				675984332B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift */,
+				6759842F2B08ECF500F0DAD0 /* ProductListTableViewCell.swift */,
+				675984302B08ECF500F0DAD0 /* ProductListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		676580AB2AA863E900A0549E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1545,6 +1647,7 @@
 			children = (
 				677E679B2AA3524D001775E2 /* SettingsViewController */,
 				6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */,
+				675984152B08DF2800F0DAD0 /* ProductListViewController */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3293,6 +3396,7 @@
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6780BDA52AF40366007B131C /* CavusListTableViewCell.xib in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
+				675984262B08E1F400F0DAD0 /* ProductListViewController.xib in Resources */,
 				677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */,
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
 				67A1EE8D2AF1691700126E44 /* CavusListViewController.xib in Resources */,
@@ -3300,6 +3404,7 @@
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
 				672E0A982AEAE8430065C36B /* ArchiveListTableViewCell.xib in Resources */,
+				675984322B08ECF500F0DAD0 /* ProductListTableViewCell.xib in Resources */,
 				677E67DF2AA35415001775E2 /* SettingsViewController.xib in Resources */,
 				670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */,
 				671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */,
@@ -3383,7 +3488,9 @@
 				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				67B98D0B2ADBEB3700CD4B15 /* BuyingPaymentRepository.swift in Sources */,
 				6797F05C2AA4976C00638C09 /* StorageReference+Combine.swift in Sources */,
+				675984342B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift in Sources */,
 				67C1EC5A2AFFC128005DDA22 /* WorkerDetailPaymentTableViewCellUIModel.swift in Sources */,
+				675984312B08ECF500F0DAD0 /* ProductListTableViewCell.swift in Sources */,
 				6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				673929E22AFC08DE0079A520 /* WorkerCollectionModel.swift in Sources */,
@@ -3442,8 +3549,10 @@
 				6718843D2AF16ABE00D76672 /* NewWorkerBuilder.swift in Sources */,
 				670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */,
 				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
+				675984242B08E1F400F0DAD0 /* ProductListViewModel.swift in Sources */,
 				67B9EE502AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift in Sources */,
 				672398022AEACB25001538C1 /* ArchiveListPassData.swift in Sources */,
+				6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */,
 				67A1EE9F2AF169B000126E44 /* NewCavusViewModel.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				674CC6C82ADEE7FD0026A9D2 /* WarehouseListRepository.swift in Sources */,
@@ -3469,8 +3578,10 @@
 				67C1EC642AFFC402005DDA22 /* WorkerDetailCollectionSection.swift in Sources */,
 				67B98CF52ADBE74500CD4B15 /* BuyingDetailRepository.swift in Sources */,
 				6729D5692AFD593300DA5F48 /* WorkerPaymentModel.swift in Sources */,
+				675984252B08E1F400F0DAD0 /* ProductListPassData.swift in Sources */,
 				67BE9D4F2AF66A6200D07DA7 /* WorkerDetailUIModel.swift in Sources */,
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
+				675984212B08E1F400F0DAD0 /* ProductListViewController.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
 				6780BDAF2AF4053A007B131C /* CavusListRowModel.swift in Sources */,
@@ -3566,6 +3677,7 @@
 				677D62F52AC1FB3E004F3232 /* SeasonResponseModel.swift in Sources */,
 				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
+				675984202B08E1F400F0DAD0 /* ProductListUIModel.swift in Sources */,
 				67B9EE592AD5B0A6003E6BA3 /* BuyingCollectionModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
 				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
@@ -3581,6 +3693,7 @@
 				67FAA6372AF41CC200BB400A /* WorkerService.swift in Sources */,
 				6797F0422AA4974000638C09 /* Database.swift in Sources */,
 				677E67A82AA353D2001775E2 /* BuyingBuilder.swift in Sources */,
+				675984232B08E1F400F0DAD0 /* ProductListBuilder.swift in Sources */,
 				670FC3C62ABDBB55007F82D9 /* String+Extension.swift in Sources */,
 				6797F0572AA4975C00638C09 /* HTTPSCallable+Combine.swift in Sources */,
 				67C1EC602AFFC3E3005DDA22 /* WorkerDetailCollectionDiffableTableView.swift in Sources */,
@@ -3625,6 +3738,7 @@
 				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
 				67A1EE892AF1691700126E44 /* CavusListRepository.swift in Sources */,
+				675984362B08EFA500F0DAD0 /* ProductItemService.swift in Sources */,
 				6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
 				672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */,
@@ -3644,6 +3758,7 @@
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
 				67A1EE9D2AF169B000126E44 /* NewCavusRepository.swift in Sources */,
 				67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */,
+				675984222B08E1F400F0DAD0 /* ProductListRepository.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */,
 				672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */,
@@ -3684,6 +3799,7 @@
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				671884472AF1769D00D76672 /* CavusModel.swift in Sources */,
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
+				6759842D2B08EB8400F0DAD0 /* ProductListModel.swift in Sources */,
 				67BE9D672AF66B1000D07DA7 /* WorkerCollectionBuilder.swift in Sources */,
 				6774FB0A2AE6D86A00F1F692 /* SellerImageModel.swift in Sources */,
 				677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */,

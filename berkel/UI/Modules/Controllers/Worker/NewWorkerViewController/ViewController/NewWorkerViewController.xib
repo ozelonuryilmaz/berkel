@@ -144,9 +144,6 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
                                                     <integer key="value" value="500"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="0"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bahçe Sahibi"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>

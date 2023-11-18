@@ -107,13 +107,17 @@ internal extension BuyingDetailViewModel {
                 guard let _ = self else { return }
                 //self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
-                guard let self = self,
-                    let data = self.responseCollection.value else { return }
-                self.uiModel.setCollectionResponse(data: data)
+                guard let self = self else { return }
 
-                // Her Cell için ayrı ayrı depo çıktısı bilgisi toplanıyor.
-                self.getWarehouses()
-
+                if let data = self.responseCollection.value, !data.isEmpty {
+                    self.uiModel.setCollectionResponse(data: data)
+                    // Her Cell için ayrı ayrı depo çıktısı bilgisi toplanıyor.
+                    self.getWarehouses()
+                } else {
+                    self.viewStateShowNativeProgress(isProgress: false)
+                    self.reloadPage()
+                }
+                
             }, callbackComplete: {
                 completion()
             })

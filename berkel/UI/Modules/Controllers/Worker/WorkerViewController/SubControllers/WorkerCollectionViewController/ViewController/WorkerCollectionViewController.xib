@@ -83,9 +83,6 @@
                                                     <integer key="value" value="150"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bahçe Sahibi"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
                                             </userDefinedRuntimeAttributes>
