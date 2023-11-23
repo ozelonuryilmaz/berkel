@@ -18,6 +18,7 @@ final class SellerViewController: MainBaseViewController {
     }
 
     // MARK: Constants
+    @IBOutlet private weak var tableView: SellerDiffableTableView!
 
     // MARK: Inject
     private let viewModel: ISellerViewModel
@@ -39,6 +40,9 @@ final class SellerViewController: MainBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+        self.initTableView()
+
+        self.viewModel.getSeller()
     }
 
     override func registerEvents() {
@@ -47,24 +51,40 @@ final class SellerViewController: MainBaseViewController {
 
     private func observeReactiveDatas() {
         observeViewState()
-        observeActionState()
         listenErrorState()
     }
 
     private func observeViewState() {
-        
-    }
+        viewModel.viewState.sink(receiveValue: { [weak self] states in
+            guard let self = self, let states = states else { return }
 
-    private func observeActionState() {
-        /* viewModel._actionState.observeNext { [unowned self] state in
-             switch state {
-            
-            } 
-        }.dispose(in: disposeBag) */
+            switch states {
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
+
+            }
+
+        }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
-        // observeErrorState(errorState: viewModel._errorState)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getSeller()
+            }
+        )
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 
     // MARK: Define Components
@@ -78,4 +98,7 @@ final class SellerViewController: MainBaseViewController {
 // MARK: Props
 private extension SellerViewController {
     
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

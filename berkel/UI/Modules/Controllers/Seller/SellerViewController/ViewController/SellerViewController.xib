@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SellerViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="3Xr-WB-Noe" id="tHZ-UL-QJK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Xr-WB-Noe" userLabel="Seller Diffable Table View" customClass="SellerDiffableTableView" customModule="berkel" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
+                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+            <constraints>
+                <constraint firstItem="3Xr-WB-Noe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gsp-ZI-jiM"/>
+                <constraint firstItem="3Xr-WB-Noe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WRK-8g-f3c"/>
+                <constraint firstAttribute="bottom" secondItem="3Xr-WB-Noe" secondAttribute="bottom" id="aks-cm-0Jw"/>
+                <constraint firstItem="3Xr-WB-Noe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fYQ-tz-OBm"/>
+            </constraints>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </view>
     </objects>

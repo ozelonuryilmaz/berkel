@@ -130,8 +130,8 @@ internal extension CustomerListViewModel {
 internal extension CustomerListViewModel {
 
     func newCustomerData(_ data: CustomerModel) {
-        //self.uiModel.appendFirstItem(data: data)
-        //self.viewStateBuildSnapshot()
+        self.uiModel.appendFirstItem(data: data)
+        self.viewStateBuildSnapshot()
     }
 }
 
@@ -157,8 +157,8 @@ extension CustomerListViewModel {
 internal extension CustomerListViewModel {
 
     func newSellerData(_ data: SellerModel) {
-        //self.uiModel.appendFirstItem(data: data)
-        //self.viewStateBuildSnapshot()
+        self.viewStateOutputDelegate(sellerModel: data)
+        self.popToRootViewController(animated: true)
     }
 }
 
