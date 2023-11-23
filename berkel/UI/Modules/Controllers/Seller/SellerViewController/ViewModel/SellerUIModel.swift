@@ -9,17 +9,23 @@ import UIKit
 
 protocol ISellerUIModel {
 
-	 init()
+    var season: String { get }
 
-} 
+    init()
+
+}
 
 struct SellerUIModel: ISellerUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
 
-	// MARK: Initialize
+    // MARK: Initialize
     init() {
 
+    }
+
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
     // MARK: Computed Props

@@ -8,6 +8,14 @@
 import UIKit
 
 final class SellerViewController: MainBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Satış"
+    }
+    
+    override var navigationSubTitle: String? {
+        return self.viewModel.season
+    }
 
     // MARK: Constants
 
@@ -29,6 +37,7 @@ final class SellerViewController: MainBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
     }
 
@@ -59,6 +68,11 @@ final class SellerViewController: MainBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var addBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
+            self.viewModel.pushCustomerListViewController()
+        }
+    }()
 }
 
 // MARK: Props

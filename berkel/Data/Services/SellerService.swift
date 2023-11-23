@@ -2,25 +2,35 @@
 //  SellerService.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 15.09.2023.
+//  Created by Onur Yilmaz on 23.11.2023.
 //
 
 import FirebaseFirestore
 
 enum SellerService {
 
-    case save
+    case save(season: String)
 }
 
 extension SellerService: CollectionServiceType {
     
+    var order: String {
+        switch self {
+        case .save(_):
+            return "date"
+        }
+    }
+    
     var collectionReference: CollectionReference {
         switch self {
-        case .save:
+        case .save(let season):
 
             return Firestore
                 .firestore()
+                .collection("data")
+                .document(season)
                 .collection("seller")
+
         }
     }
 }

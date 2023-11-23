@@ -5,13 +5,15 @@
 //  Created by Onur Yilmaz on 2.09.2023.
 //
 
+protocol ISellerViewModel: NewSellerViewControllerOutputDelegate {
 
-
-protocol ISellerViewModel: AnyObject {
-
+    var season: String { get }
+    
     init(repository: ISellerRepository,
          coordinator: ISellerCoordinator,
          uiModel: ISellerUIModel)
+    
+    func pushCustomerListViewController()
 }
 
 final class SellerViewModel: BaseViewModel, ISellerViewModel {
@@ -20,6 +22,10 @@ final class SellerViewModel: BaseViewModel, ISellerViewModel {
     private let repository: ISellerRepository
     private let coordinator: ISellerCoordinator
     private var uiModel: ISellerUIModel
+    
+    var season: String {
+        return uiModel.season
+    }
 
     // MARK: Initiliazer
     required init(repository: ISellerRepository,
@@ -49,8 +55,20 @@ internal extension SellerViewModel {
 // MARK: Coordinate
 internal extension SellerViewModel {
 
+    func pushCustomerListViewController() {
+        
+        self.coordinator.pushCustomerListViewController(passData: CustomerListPassData(),
+                                                        outputDelegate: self)
+    }
 }
 
+// MARK: NewSellerViewControllerOutputDelegate
+internal extension SellerViewModel {
+    
+    func newSellerData(_ data: SellerModel) {
+        
+    }
+}
 
 enum SellerViewState {
     case showLoadingProgress(isProgress: Bool)

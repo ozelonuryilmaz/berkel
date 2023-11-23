@@ -87,9 +87,9 @@ extension MainTabbarCoordinator: UITabBarControllerDelegate {
 
 // Titles For Tab
 fileprivate extension String {
-    static var tab_title_buying = "Alım"
+    static var tab_title_buying = "Alış"
     static var tab_title_worker = "İşçi"
-    static var tab_title_seller = "Satım"
+    static var tab_title_seller = "Satış"
     static var tab_title_settings = "Diğer"
 }
 

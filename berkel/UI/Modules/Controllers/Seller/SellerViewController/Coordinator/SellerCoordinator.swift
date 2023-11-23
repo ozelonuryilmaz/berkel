@@ -9,6 +9,8 @@ import UIKit
 
 protocol ISellerCoordinator: AnyObject {
 
+    func pushCustomerListViewController(passData: CustomerListPassData,
+                                        outputDelegate: NewSellerViewControllerOutputDelegate)
 }
 
 final class SellerCoordinator: NavigationCoordinator, ISellerCoordinator {
@@ -18,5 +20,13 @@ final class SellerCoordinator: NavigationCoordinator, ISellerCoordinator {
     override func start() {
         let controller = SellerBuilder.generate(coordinator: self)
         navigationController.viewControllers = [controller]
+    }
+    
+    func pushCustomerListViewController(passData: CustomerListPassData,
+                                        outputDelegate: NewSellerViewControllerOutputDelegate) {
+        let coordinator = CustomerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
     }
 }

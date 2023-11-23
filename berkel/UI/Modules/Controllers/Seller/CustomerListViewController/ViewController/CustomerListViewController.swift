@@ -1,36 +1,36 @@
 //
-//  BuyingViewController.swift
+//  CustomerListViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 2.09.2023.
+//  Created by Onur Yilmaz on 19.11.2023.
 //
 
 import UIKit
+import Combine
 
-final class BuyingViewController: MainBaseViewController {
-
+final class CustomerListViewController: MainBaseViewController {
+    
     override var navigationTitle: String? {
-        return "Alış"
-    }
-
-    override var navigationSubTitle: String? {
-        return self.viewModel.season
+        return "Müşteri Listesi"
     }
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IBuyingViewModel
+    private let viewModel: ICustomerListViewModel
+    private weak var outputDelegate: NewSellerViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
-    @IBOutlet private weak var tableView: BuyingDiffableTableView!
+    @IBOutlet private weak var tableView: CustomerListDiffableTableView!
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IBuyingViewModel) {
+    init(viewModel: ICustomerListViewModel,
+         outputDelegate: NewSellerViewControllerOutputDelegate? ) {
         self.viewModel = viewModel
-        super.init(nibName: "BuyingViewController", bundle: nil)
+        self.outputDelegate = outputDelegate
+        super.init(nibName: "CustomerListViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -40,9 +40,12 @@ final class BuyingViewController: MainBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
-        self.initTableView()
-
-        self.viewModel.getBuying()
+        
+        self.viewModel.getCustomerList()
+    }
+    
+    override func setupView() {
+        initTableView()
     }
 
     override func registerEvents() {
@@ -69,7 +72,10 @@ final class BuyingViewController: MainBaseViewController {
                 let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
                                                              newDatas: data)
                 self.tableView.applySnapshot(snapsoht)
-
+                
+            case .outputDelegate(let sellerModel):
+                self.outputDelegate?.newSellerData(sellerModel)
+                
             }
 
         }).store(in: &cancelBag)
@@ -80,7 +86,7 @@ final class BuyingViewController: MainBaseViewController {
             viewController: self,
             callbackOverrideAlert: nil,
             callbackAlertButtonAction: { [unowned self] in
-                self.viewModel.getBuying()
+                self.viewModel.getCustomerList()
             }
         )
         observeErrorState(errorState: viewModel.errorState,
@@ -89,14 +95,14 @@ final class BuyingViewController: MainBaseViewController {
 
     // MARK: Define Components
     private lazy var addBarButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
-            self.viewModel.pushAddBuyinItemViewController()
+        return UIBarButtonItem(image: .addPersonNav) { [unowned self] _ in
+            self.viewModel.presentNewCustomerViewController()
         }
     }()
 }
 
 // MARK: Props
-private extension BuyingViewController {
+private extension CustomerListViewController {
 
     func initTableView() {
         self.tableView.configureView(delegateManager: self.viewModel)
