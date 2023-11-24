@@ -7,7 +7,9 @@
 
 import Combine
 
-protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate, WorkerDataSourceFactoryOutputDelegate, WorkerDetailViewControllerOutputDelegate {
+protocol IWorkerViewModel: NewWorkerViewControllerOutputDelegate,
+                            WorkerDataSourceFactoryOutputDelegate,
+                            WorkerDetailViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<WorkerViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -172,7 +174,7 @@ extension WorkerViewModel {
     }
 }
 
-// MARK: NewWorkerViewControllerOutputDelegate
+// MARK: WorkerDetailViewControllerOutputDelegate
 internal extension WorkerViewModel {
 
     func closeButtonTapped(workerId: String, isActive: Bool) {

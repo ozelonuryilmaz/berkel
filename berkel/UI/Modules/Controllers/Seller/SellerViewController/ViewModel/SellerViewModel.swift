@@ -7,23 +7,25 @@
 
 import Combine
 
-protocol ISellerViewModel: NewSellerViewControllerOutputDelegate, SellerDataSourceFactoryOutputDelegate{
-    
+protocol ISellerViewModel: NewSellerViewControllerOutputDelegate,
+    SellerDataSourceFactoryOutputDelegate,
+    SellerDetailViewControllerOutputDelegate {
+
     var viewState: ScreenStateSubject<SellerViewState> { get }
     var errorState: ErrorStateSubject { get }
 
     var season: String { get }
-    
+
     init(repository: ISellerRepository,
          coordinator: ISellerCoordinator,
          uiModel: ISellerUIModel)
-    
+
     // Coordinate
     func pushCustomerListViewController()
-    
+
     // Service
     func getSeller()
-    
+
     // DataSource
     func updateSnapshot(currentSnapshot: SellerSnapshot,
                         newDatas: [SellerModel]) -> SellerSnapshot
@@ -35,14 +37,14 @@ final class SellerViewModel: BaseViewModel, ISellerViewModel {
     private let repository: ISellerRepository
     private let coordinator: ISellerCoordinator
     private var uiModel: ISellerUIModel
-    
+
     var viewState = ScreenStateSubject<SellerViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let response = CurrentValueSubject<[SellerModel]?, Never>(nil)
-    
+
     private var isLastPage: Bool = false
     private var isAvailablePagination: Bool = false
-    
+
     var season: String {
         return uiModel.season
     }
@@ -117,15 +119,28 @@ internal extension SellerViewModel {
 internal extension SellerViewModel {
 
     func pushCustomerListViewController() {
-        
+
         self.coordinator.pushCustomerListViewController(passData: CustomerListPassData(),
                                                         outputDelegate: self)
+    }
+
+    func pushSellerDetailViewController(passData: SellerDetailPassData) {
+        self.coordinator.pushSellerDetailViewController(passData: passData,
+                                                        outputDelegate: self)
+    }
+
+    func presentSellerCollectionViewController(passData: SellerCollectionPassData) {
+        self.coordinator.presentSellerCollectionViewController(passData: passData)
+    }
+
+    func presentSellerPaymentViewController(passData: SellerPaymentPassData) {
+        self.coordinator.presentSellerPaymentViewController(passData: passData)
     }
 }
 
 // MARK: NewSellerViewControllerOutputDelegate
 internal extension SellerViewModel {
-    
+
     func newSellerData(_ data: SellerModel) {
         self.uiModel.appendFirstItem(data: data)
         self.viewStateBuildSnapshot()
@@ -136,21 +151,36 @@ internal extension SellerViewModel {
 extension SellerViewModel {
 
     func cellTapped(uiModel: ISellerTableViewCellUIModel) {
-        
+        let data = SellerDetailPassData(sellerId: uiModel.sellerId,
+                                        customerName: uiModel.customerName,
+                                        customerId: uiModel.customerId,
+                                        isActive: uiModel.isActive)
+        self.pushSellerDetailViewController(passData: data)
     }
 
     func addCollectionTapped(uiModel: ISellerTableViewCellUIModel) {
-        
+        let passData = SellerCollectionPassData(sellerModel: uiModel.sellerModel)
+        self.presentSellerCollectionViewController(passData: passData)
     }
 
     func addPaymentTapped(uiModel: ISellerTableViewCellUIModel) {
-        
+        let passData = SellerPaymentPassData(sellerId: uiModel.sellerId, customerName: uiModel.customerName)
+        self.presentSellerPaymentViewController(passData: passData)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
         if self.isAvailablePagination && isAvailablePagination && !isLastPage {
             self.getSeller()
         }
+    }
+}
+
+// MARK: SellerDetailViewControllerOutputDelegate
+internal extension SellerViewModel {
+
+    func closeButtonTapped(sellerId: String, isActive: Bool) {
+        //self.uiModel.updateIsActive(sellerId: sellerId, isActive: isActive)
+        //self.viewStateBuildSnapshot()
     }
 }
 
