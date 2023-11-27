@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class SellerCollectionViewController: BerkelBaseViewController {
-    
+
     override var navigationTitle: String? {
         return "Ürün Ekle"
     }
@@ -53,7 +53,7 @@ final class SellerCollectionViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
-        
+
         self.initDatePickerView()
         self.viewModel.initComponents()
     }
@@ -81,13 +81,13 @@ final class SellerCollectionViewController: BerkelBaseViewController {
 
             case .setCustomerName(let name):
                 self.lblCustomerName.text = name
-                
+
             case .setProductName(let name):
                 self.lblProductName.text = "(\(name))"
-                
+
             case .setPrice(let price):
                 self.tfPrice.textField.text = price
-                
+
             case .setKDV(let kdv):
                 self.tfKDV.textField.text = kdv
 
@@ -96,7 +96,7 @@ final class SellerCollectionViewController: BerkelBaseViewController {
 
             case .setTotalPrice(let price):
                 self.lblTotalPrice.text = price + " TL"
-                
+
             }
 
         }).store(in: &cancelBag)
@@ -132,7 +132,7 @@ private extension SellerCollectionViewController {
 
 // MARK: TextField
 private extension SellerCollectionViewController {
-    
+
     func listenTextFieldsDidChange() {
         tfDaraliKG.addListenDidChange { [unowned self] text in
             self.viewModel.setDaraliKG(text)
