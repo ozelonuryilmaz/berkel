@@ -15,6 +15,23 @@ final class SellerCollectionViewController: BerkelBaseViewController {
     }
 
     // MARK: Constants
+    @IBOutlet private weak var lblCustomerName: UILabel!
+    @IBOutlet private weak var lblProductName: UILabel!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+
+    @IBOutlet private weak var lblTotalKG: UILabel!
+    @IBOutlet private weak var lblTotalPrice: UILabel!
+
+    @IBOutlet private weak var btnSave: UIButton!
+
+    @IBOutlet private weak var tfDaraliKG: PrimaryTextField!
+    @IBOutlet private weak var tfDara: PrimaryTextField!
+    @IBOutlet private weak var tfPrice: PrimaryTextField!
+    @IBOutlet private weak var tfKDV: PrimaryTextField!
+    @IBOutlet private weak var tfFaturaNo: PrimaryTextField!
+    @IBOutlet private weak var tfPalet: PrimaryTextField!
+    @IBOutlet private weak var tfKasa: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
 
     // MARK: Inject
     private let viewModel: ISellerCollectionViewModel
@@ -36,15 +53,22 @@ final class SellerCollectionViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        
+        self.initDatePickerView()
+        self.viewModel.initComponents()
     }
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveCollection()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -55,6 +79,24 @@ final class SellerCollectionViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .setCustomerName(let name):
+                self.lblCustomerName.text = name
+                
+            case .setProductName(let name):
+                self.lblProductName.text = "(\(name))"
+                
+            case .setPrice(let price):
+                self.tfPrice.textField.text = price
+                
+            case .setKDV(let kdv):
+                self.tfKDV.textField.text = kdv
+
+            case .setTotalKg(let kg):
+                self.lblTotalKG.text = kg + " Kg"
+
+            case .setTotalPrice(let price):
+                self.lblTotalPrice.text = price + " TL"
+                
             }
 
         }).store(in: &cancelBag)
@@ -77,4 +119,55 @@ final class SellerCollectionViewController: BerkelBaseViewController {
 // MARK: Props
 private extension SellerCollectionViewController {
 
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
+}
+
+
+// MARK: TextField
+private extension SellerCollectionViewController {
+    
+    func listenTextFieldsDidChange() {
+        tfDaraliKG.addListenDidChange { [unowned self] text in
+            self.viewModel.setDaraliKG(text)
+            self.viewModel.updateResults()
+        }
+
+        tfDara.addListenDidChange { [unowned self] text in
+            self.viewModel.setDara(text)
+            self.viewModel.updateResults()
+        }
+
+        tfPrice.addListenDidChange { [unowned self] text in
+            self.viewModel.setPrice(text)
+            self.viewModel.updateResults()
+        }
+
+        tfKDV.addListenDidChange { [unowned self] text in
+            self.viewModel.setKDV(text)
+            self.viewModel.updateResults()
+        }
+
+        tfFaturaNo.addListenDidChange { [unowned self] text in
+            self.viewModel.setFaturaNo(text)
+        }
+
+        tfPalet.addListenDidChange { [unowned self] text in
+            self.viewModel.setPalet(text)
+        }
+
+        tfKasa.addListenDidChange { [unowned self] text in
+            self.viewModel.setKasa(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

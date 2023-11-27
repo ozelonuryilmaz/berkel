@@ -57,7 +57,12 @@ class SellerTableViewCell: BaseTableViewCell {
         self.lblActive.roundCornersEachCorner(.allCorners, radius: 6)
 
         self.lblName.text = uiModel.customerName
-        self.lblDesc.text = uiModel.desc
+        
+        if uiModel.desc.isEmpty{
+            self.lblDesc.text = "\(uiModel.productName)"
+        } else {
+            self.lblDesc.text = "\(uiModel.productName)\n\(uiModel.desc)"
+        }
 
         if uiModel.isActive {
             self.mContentView.alpha = 1

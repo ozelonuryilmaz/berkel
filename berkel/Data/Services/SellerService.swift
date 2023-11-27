@@ -11,13 +11,14 @@ enum SellerService {
 
     case save(season: String)
     case list(season: String)
+    case collection(season: String, sellerId: String)
 }
 
 extension SellerService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .save(_), .list(_):
+        case .save(_), .list(_), .collection(_, _):
             return "date"
         }
     }
@@ -31,6 +32,16 @@ extension SellerService: CollectionServiceType {
                 .collection("data")
                 .document(season)
                 .collection("seller")
+            
+        case .collection(let season, let sellerId):
+
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("seller")
+                .document(sellerId)
+                .collection("collections")
 
         }
     }

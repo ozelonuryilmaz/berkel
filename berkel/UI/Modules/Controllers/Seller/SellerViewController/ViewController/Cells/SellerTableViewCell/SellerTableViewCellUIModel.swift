@@ -14,6 +14,7 @@ protocol ISellerTableViewCellUIModel {
     var customerName: String { get }
     var customerId: String { get }
     var desc: String { get }
+    var productName: String { get }
     var isActive: Bool { get }
 }
 
@@ -39,6 +40,10 @@ struct SellerTableViewCellUIModel: ISellerTableViewCellUIModel {
 
     var desc: String {
         return sellerModel.desc
+    }
+    
+    var productName: String {
+        return sellerModel.productName
     }
     
     var isActive: Bool {
