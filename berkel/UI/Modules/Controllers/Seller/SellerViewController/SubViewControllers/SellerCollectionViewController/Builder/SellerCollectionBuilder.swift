@@ -15,8 +15,8 @@ enum SellerCollectionBuilder {
         let repository = SellerCollectionRepository()
         let uiModel = SellerCollectionUIModel(data: data)
         let viewModel = SellerCollectionViewModel(repository: repository,
-                                                           coordinator: coordinator,
-                                                           uiModel: uiModel)
+                                                  coordinator: coordinator,
+                                                  uiModel: uiModel)
 
         return SellerCollectionViewController(viewModel: viewModel)
     }

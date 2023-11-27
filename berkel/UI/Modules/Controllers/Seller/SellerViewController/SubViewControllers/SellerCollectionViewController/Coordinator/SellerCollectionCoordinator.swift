@@ -9,7 +9,7 @@ import UIKit
 
 protocol ISellerCollectionCoordinator: AnyObject {
 
-    func dismiss(completion: (() -> Void)?) 
+    func dismiss(completion: (() -> Void)?)
 }
 
 final class SellerCollectionCoordinator: PresentationCoordinator, ISellerCollectionCoordinator {
@@ -22,10 +22,10 @@ final class SellerCollectionCoordinator: PresentationCoordinator, ISellerCollect
         self.navController = navController
         super.init(presenterViewController: presenterViewController)
     }
-    
+
     override func start() {
         let controller = SellerCollectionBuilder.generate(with: coordinatorData,
-                                                                   coordinator: self)
+                                                          coordinator: self)
 
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
@@ -42,6 +42,6 @@ extension SellerCollectionCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> SellerCollectionCoordinator {
         return SellerCollectionCoordinator(presenterViewController: presenterViewController,
-                                                    navController: MainNavigationController())
+                                           navController: MainNavigationController())
     }
 }

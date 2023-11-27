@@ -18,7 +18,7 @@ protocol ISellerCollectionViewModel: AnyObject {
 
     func initComponents()
     func updateResults()
-    
+
     // Coordiante
     func dismiss()
 
@@ -64,7 +64,7 @@ final class SellerCollectionViewModel: BaseViewModel, ISellerCollectionViewModel
         self.viewStateSetPrice()
         self.viewStateSetKDV()
     }
-    
+
     func updateResults() {
         self.viewStateSetTotalKg()
         self.viewStateSetTotalPrice()
@@ -75,7 +75,7 @@ final class SellerCollectionViewModel: BaseViewModel, ISellerCollectionViewModel
 // MARK: Service
 internal extension SellerCollectionViewModel {
 
-    
+
     func saveCollection() {
         if let errorMessage = self.uiModel.errorMessage {
             errorState.value = .ERROR_MESSAGE(title: "Uyarı", msg: errorMessage)
@@ -105,23 +105,23 @@ internal extension SellerCollectionViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateSetCustomerName() {
         self.viewState.value = .setCustomerName(name: self.uiModel.customerName)
     }
-    
+
     func viewStateSetProductName() {
         self.viewState.value = .setProductName(name: self.uiModel.productName)
     }
-    
+
     func viewStateSetPrice() {
         self.viewState.value = .setPrice(name: self.uiModel.price.format())
     }
-    
+
     func viewStateSetKDV() {
         self.viewState.value = .setKDV(name: self.uiModel.kdv.format())
     }
-    
+
     func viewStateSetTotalKg() {
         self.viewState.value = .setTotalKg(kg: self.uiModel.getTotalKg())
     }

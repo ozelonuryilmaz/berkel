@@ -8,12 +8,12 @@
 import Foundation
 
 struct SellerCollectionModel: Codable {
-    
+
     var id: String?
     let userId: String?
 
     var isCalc: Bool
-    
+
     let date: String?
     let price: Double
     let kdv: Double

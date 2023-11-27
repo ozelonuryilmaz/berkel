@@ -17,7 +17,7 @@ protocol ISellerCollectionUIModel {
     var season: String { get }
 
     init(data: SellerCollectionPassData)
-    
+
     var errorMessage: String? { get }
     var data: SellerCollectionModel { get }
 
@@ -80,7 +80,7 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
     private func totalKg() -> Int {
         return daraliKg - dara
     }
-    
+
     var userId: String? {
         return UserManager.shared.userId
     }
@@ -116,7 +116,7 @@ extension SellerCollectionUIModel {
 
         return nil
     }
-    
+
     var data: SellerCollectionModel {
         return SellerCollectionModel(userId: userId,
                                      isCalc: false,
