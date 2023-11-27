@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGm-OR-2Ij">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gd5-df-gQA" userLabel="mContentView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="472"/>
@@ -181,7 +181,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="OGm-OR-2Ij" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MlC-qB-0Xl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OGm-OR-2Ij" secondAttribute="bottom" id="h94-v6-3lS"/>
+                <constraint firstAttribute="bottom" secondItem="OGm-OR-2Ij" secondAttribute="bottom" id="h94-v6-3lS"/>
                 <constraint firstAttribute="trailing" secondItem="OGm-OR-2Ij" secondAttribute="trailing" id="k1M-lH-KMW"/>
                 <constraint firstItem="OGm-OR-2Ij" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sV7-et-YEr"/>
             </constraints>

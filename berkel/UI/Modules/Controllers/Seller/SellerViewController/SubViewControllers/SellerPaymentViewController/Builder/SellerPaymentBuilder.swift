@@ -15,8 +15,8 @@ enum SellerPaymentBuilder {
         let repository = SellerPaymentRepository()
         let uiModel = SellerPaymentUIModel(data: data)
         let viewModel = SellerPaymentViewModel(repository: repository,
-                                                           coordinator: coordinator,
-                                                           uiModel: uiModel)
+                                               coordinator: coordinator,
+                                               uiModel: uiModel)
 
         return SellerPaymentViewController(viewModel: viewModel)
     }

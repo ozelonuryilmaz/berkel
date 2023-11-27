@@ -120,6 +120,7 @@
 		675129E12AAC679500429CB7 /* FirestoreErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */; };
 		675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675129E42AAC686200429CB7 /* NetworkingError.swift */; };
 		675755E42B15216C00BDA8C2 /* SellerCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675755E32B15216C00BDA8C2 /* SellerCollectionModel.swift */; };
+		675755E72B152B1F00BDA8C2 /* SellerPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675755E62B152B1F00BDA8C2 /* SellerPaymentModel.swift */; };
 		6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984172B08E1F400F0DAD0 /* ProductListCoordinator.swift */; };
 		675984202B08E1F400F0DAD0 /* ProductListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984182B08E1F400F0DAD0 /* ProductListUIModel.swift */; };
 		675984212B08E1F400F0DAD0 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984192B08E1F400F0DAD0 /* ProductListViewController.swift */; };
@@ -584,6 +585,7 @@
 		675129E02AAC679500429CB7 /* FirestoreErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreErrorHandle.swift; sourceTree = "<group>"; };
 		675129E42AAC686200429CB7 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		675755E32B15216C00BDA8C2 /* SellerCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerCollectionModel.swift; sourceTree = "<group>"; };
+		675755E62B152B1F00BDA8C2 /* SellerPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerPaymentModel.swift; sourceTree = "<group>"; };
 		675984172B08E1F400F0DAD0 /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
 		675984182B08E1F400F0DAD0 /* ProductListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListUIModel.swift; sourceTree = "<group>"; };
 		675984192B08E1F400F0DAD0 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -1550,6 +1552,7 @@
 			children = (
 				67C0197C2B110B5D0094D023 /* Builder */,
 				67C0197B2B110B580094D023 /* Coordinator */,
+				675755E52B152B0F00BDA8C2 /* Model */,
 				67C0197A2B110B530094D023 /* Repository */,
 				67C019792B110B500094D023 /* ViewModel */,
 				674C263A2B0FCED600B9A32A /* ViewController */,
@@ -1719,6 +1722,14 @@
 			isa = PBXGroup;
 			children = (
 				675755E32B15216C00BDA8C2 /* SellerCollectionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		675755E52B152B0F00BDA8C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				675755E62B152B1F00BDA8C2 /* SellerPaymentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4218,6 +4229,7 @@
 				67A1EE882AF1691700126E44 /* CavusListViewController.swift in Sources */,
 				67C1EC662AFFC410005DDA22 /* WorkerDetailCollectionDataSource.swift in Sources */,
 				674705FF2B0A7D61006F1639 /* NewCustomerBuilder.swift in Sources */,
+				675755E72B152B1F00BDA8C2 /* SellerPaymentModel.swift in Sources */,
 				67A1EE9E2AF169B000126E44 /* NewCavusBuilder.swift in Sources */,
 				67DDE88F2B0E778E00E24949 /* CustomerListDataSource.swift in Sources */,
 				67FA8B562AF66C4A00C09B09 /* WorkerPaymentRepository.swift in Sources */,
