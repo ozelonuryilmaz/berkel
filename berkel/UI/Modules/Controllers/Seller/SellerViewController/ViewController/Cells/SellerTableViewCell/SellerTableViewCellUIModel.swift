@@ -14,6 +14,7 @@ protocol ISellerTableViewCellUIModel {
     var customerName: String { get }
     var customerId: String { get }
     var desc: String { get }
+    var productId: String { get }
     var productName: String { get }
     var isActive: Bool { get }
 }
@@ -25,11 +26,11 @@ struct SellerTableViewCellUIModel: ISellerTableViewCellUIModel {
     init(sellerModel: SellerModel) {
         self.sellerModel = sellerModel
     }
-    
+
     var sellerId: String {
         return sellerModel.id ?? ""
     }
-    
+
     var customerId: String {
         return sellerModel.customerId ?? ""
     }
@@ -41,11 +42,15 @@ struct SellerTableViewCellUIModel: ISellerTableViewCellUIModel {
     var desc: String {
         return sellerModel.desc
     }
-    
+
+    var productId: String {
+        return sellerModel.productId ?? ""
+    }
+
     var productName: String {
         return sellerModel.productName
     }
-    
+
     var isActive: Bool {
         return sellerModel.isActive
     }

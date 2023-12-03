@@ -13,4 +13,7 @@ struct SellerDetailPassData: ICoordinatorPassData {
     let customerName: String
     let customerId: String
     var isActive: Bool
+    
+    let productName: String
+    let productId: String
 }

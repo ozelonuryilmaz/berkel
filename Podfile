@@ -20,6 +20,6 @@ target 'berkel' do
   pod 'FirebaseStorage'
 
   #BottomSheet(joomcode)
-  pod 'BottomSheet', '~> 2.0.4'
+  #pod 'BottomSheet', '~> 2.0.4'
 
 end

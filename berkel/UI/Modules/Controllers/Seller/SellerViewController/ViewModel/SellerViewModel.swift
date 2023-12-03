@@ -154,7 +154,9 @@ extension SellerViewModel {
         let data = SellerDetailPassData(sellerId: uiModel.sellerId,
                                         customerName: uiModel.customerName,
                                         customerId: uiModel.customerId,
-                                        isActive: uiModel.isActive)
+                                        isActive: uiModel.isActive,
+                                        productName: uiModel.productName,
+                                        productId: uiModel.productId)
         self.pushSellerDetailViewController(passData: data)
     }
 

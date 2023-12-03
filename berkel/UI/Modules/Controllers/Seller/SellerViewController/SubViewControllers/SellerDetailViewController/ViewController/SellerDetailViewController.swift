@@ -22,6 +22,11 @@ final class SellerDetailViewController: MainBaseViewController {
     private weak var outputDelegate: SellerDetailViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblOldDoubt: UILabel!
+    @IBOutlet private weak var lblNowDoubt: UILabel!
+    @IBOutlet private weak var segmentedController: UISegmentedControl!
+    @IBOutlet private weak var tableViewSellerDetail: SellerDetailCollectionDiffableTableView!
+    @IBOutlet private weak var tableViewPayment: UITableView!
 
     // MARK: Constraints Outlets
 
@@ -39,10 +44,26 @@ final class SellerDetailViewController: MainBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+        self.viewModel.initComponents()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.viewStateSetNavigationTitle()
+    }
+
+    override func setupView() {
+        initTableViewPayment()
+        initTableViewSellerDetail()
     }
 
     override func registerEvents() {
+        segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+    }
 
+    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        self.tableViewSellerDetail.isHidden = sender.selectedSegmentIndex == 1
+        self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
     }
 
     private func observeReactiveDatas() {
@@ -58,6 +79,37 @@ final class SellerDetailViewController: MainBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .showSellerActiveButton:
+                self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
+
+            case .setNavigationTitle(let title):
+                self.navigationItem.title = title
+
+            case .oldDoubt(let text):
+                self.lblOldDoubt.text = text
+            case .nowDoubt(let text):
+                self.lblNowDoubt.text = text
+
+            case .buildCollectionSnapshot(let snapshot):
+                self.tableViewSellerDetail.applySnapshot(snapshot)
+
+            case .updateCollectionSnapshot(_):
+                break
+
+            case .reloadPaymentTableView:
+                self.tableViewPayment.reloadData()
+
+            case .showUpdateCalcAlertMessage(let collectionId, let date, let isCalc):
+                self.showSystemAlert(
+                    title: date,
+                    message: "Aktifleştirilsin mi?\nHesaplamalara dahil edilecek.",
+                    positiveButtonText: "Evet",
+                    positiveButtonClickListener: {
+                        self.viewModel.updateCalcForCollection(collectionId: collectionId, isCalc: isCalc)
+                    },
+                    negativeButtonText: "İptal"
+                )
+
             }
 
         }).store(in: &cancelBag)
@@ -70,9 +122,52 @@ final class SellerDetailViewController: MainBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var discardBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "KAPAT", style: .plain, handler: { [unowned self] _ in
+            self.showSystemAlert(
+                title: "Tahsilatınız tamamlandı mı?",
+                message: "Ticaretiniz sonlandıysa h",
+                positiveButtonText: "Evet",
+                positiveButtonClickListener: {
+                    self.viewModel.updateSellerActive(completion: { [weak self] in
+                        guard let self = self else { return }
+                        self.outputDelegate?.closeButtonTapped(sellerId: self.viewModel.sellerId, isActive: false)
+                        self.navigationItem.rightBarButtonItems = []
+                    })
+                },
+                negativeButtonText: "İptal"
+            )
+        })
+    }()
 }
 
 // MARK: Props
 private extension SellerDetailViewController {
 
+    func initTableViewSellerDetail() {
+        self.tableViewSellerDetail.configureView(delegateManager: self.viewModel)
+    }
+
+    func initTableViewPayment() {
+        self.tableViewPayment.registerCell(SellerDetailPaymentTableViewCell.self)
+        self.tableViewPayment.delegate = self
+        self.tableViewPayment.dataSource = self
+        self.tableViewPayment.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
+        self.tableViewPayment.removeTableHeaderView()
+        self.tableViewPayment.removeTableFooterView()
+    }
+}
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+extension SellerDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.getNumberOfItemsInSection()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.generateReusableCell(SellerDetailPaymentTableViewCell.self, indexPath: indexPath)
+        cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
+        return cell
+    }
 }

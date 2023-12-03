@@ -9,6 +9,9 @@ import UIKit
 
 protocol ISellerDetailCoordinator: AnyObject {
 
+    func selfPopViewController()
+    
+    func presentNewSellerImageViewController(passData: NewSellerImagePassData)
 }
 
 final class SellerDetailCoordinator: NavigationCoordinator, ISellerDetailCoordinator {
@@ -31,5 +34,15 @@ final class SellerDetailCoordinator: NavigationCoordinator, ISellerDetailCoordin
                                                       outputDelegate: outputDelegate)
 
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func presentNewSellerImageViewController(passData: NewSellerImagePassData) {
+        let controller = NewSellerImageCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+
+    func selfPopViewController() {
+        self.navigationController.popToRootViewController(animated: true)
     }
 }
