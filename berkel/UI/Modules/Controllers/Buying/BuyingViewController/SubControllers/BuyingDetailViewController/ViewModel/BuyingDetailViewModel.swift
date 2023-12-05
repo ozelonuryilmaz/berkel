@@ -117,7 +117,7 @@ internal extension BuyingDetailViewModel {
                     self.viewStateShowNativeProgress(isProgress: false)
                     self.reloadPage()
                 }
-                
+
             }, callbackComplete: {
                 completion()
             })
@@ -297,10 +297,10 @@ internal extension BuyingDetailViewModel {
     }
 
     func presentNewSellerImageViewController(imagePathType: ImagePathType) {
-        let data = NewSellerImagePassData(imagePathType: imagePathType,
-                                          sellerId: self.uiModel.sellerId,
-                                          buyingId: self.uiModel.buyingId,
-                                          buyingProductName: self.uiModel.productName)
+        let data = NewSellerImagePassData(imagePageType: .buying(sellerId: self.uiModel.sellerId,
+                                                                 buyingId: self.uiModel.buyingId,
+                                                                 buyingProductName: self.uiModel.productName),
+                                          imagePathType: imagePathType)
 
         self.coordinator.presentNewSellerImageViewController(passData: data)
     }

@@ -7,11 +7,14 @@
 
 import Foundation
 
+enum ImagePageType {
+    case buying(sellerId: String, buyingId: String, buyingProductName: String)
+    case seller(customerId: String, sellerId: String, sellerProductName: String)
+}
+
 struct NewSellerImagePassData: ICoordinatorPassData {
 
+    let imagePageType: ImagePageType
     let imagePathType: ImagePathType
-    let sellerId: String
-    let buyingId: String
-    let buyingProductName: String
 }
 

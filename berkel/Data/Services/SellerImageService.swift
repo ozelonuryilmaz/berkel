@@ -11,23 +11,24 @@ import FirebaseStorage
 
 enum SellerImageService {
 
-    case image(sellerId: String, season: String, imagePathType: ImagePathType)
+    case buyingImage(sellerId: String, season: String, imagePathType: ImagePathType)
+    case sellerImage(customerId: String, season: String, imagePathType: ImagePathType)
 }
 
 extension SellerImageService: CollectionServiceType {
-    
+
     var order: String {
         switch self {
-        case .image(_, _, _):
+        case .buyingImage(_, _, _), .sellerImage(_, _, _):
 
             return "date"
         }
     }
-    
+
     var storageReference: StorageReference {
         switch self {
-        case .image(let sellerId, let season, let imagePathType):
-            
+        case .buyingImage(let sellerId, let season, let imagePathType):
+
             return Storage
                 .storage()
                 .reference()
@@ -35,18 +36,37 @@ extension SellerImageService: CollectionServiceType {
                 .child(sellerId)
                 .child(season)
                 .child("\(imagePathType.rawValue)/\(Date().dateFormatterApiResponseType()).jpg")
-                
+
+        case .sellerImage(let customerId, let season, let imagePathType):
+
+            return Storage
+                .storage()
+                .reference()
+                .child("customer")
+                .child(customerId)
+                .child(season)
+                .child("\(imagePathType.rawValue)/\(Date().dateFormatterApiResponseType()).jpg")
         }
     }
 
     var collectionReference: CollectionReference {
         switch self {
-        case .image(let sellerId, let season, let imagePathType):
+        case .buyingImage(let sellerId, let season, let imagePathType):
 
             return Firestore
                 .firestore()
                 .collection("seller")
                 .document(sellerId)
+                .collection(season)
+                .document("images")
+                .collection(imagePathType.rawValue)
+
+        case .sellerImage(let customerId, let season, let imagePathType):
+
+            return Firestore
+                .firestore()
+                .collection("customer")
+                .document(customerId)
                 .collection(season)
                 .document("images")
                 .collection(imagePathType.rawValue)

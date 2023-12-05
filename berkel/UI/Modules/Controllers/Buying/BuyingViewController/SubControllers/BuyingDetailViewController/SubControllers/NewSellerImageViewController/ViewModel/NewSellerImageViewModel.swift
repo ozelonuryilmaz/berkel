@@ -46,6 +46,7 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
     var errorState = ErrorStateSubject(nil)
     let responseImageUrl = CurrentValueSubject<String?, Never>(nil)
     let responseSellerImage = CurrentValueSubject<SellerImageModel?, Never>(nil)
+    let responseCustomerImage = CurrentValueSubject<CustomerImageModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewSellerImageRepository,
@@ -70,8 +71,8 @@ internal extension NewSellerImageViewModel {
         guard let imageData = self.uiModel.imageData else { return }
 
         handleResourceFirestore(
-            request: self.repository.saveImage(sellerId: self.uiModel.sellerId,
-                                               season: self.uiModel.season,
+            request: self.repository.saveImage(season: self.uiModel.season,
+                                               imagePageType: self.uiModel.imagePageType,
                                                imagePathType: self.uiModel.imagePathType,
                                                imageData: imageData),
             response: self.responseImageUrl,
@@ -83,25 +84,56 @@ internal extension NewSellerImageViewModel {
                 guard let self = self,
                     let imageUrl = self.responseImageUrl.value else { return }
 
-                let data = SellerImageModel(sellerId: self.uiModel.sellerId,
-                                            userId: self.uiModel.userId,
-                                            buyingId: self.uiModel.buyingId,
-                                            buyingProductName: self.uiModel.buyingProductName,
-                                            date: self.uiModel.date,
-                                            description: self.uiModel.desc,
-                                            imageUrl: imageUrl)
+                switch self.uiModel.imagePageType {
+                case .buying(let sellerId, let buyingId, let buyingProductName):
+                    let data = SellerImageModel(sellerId: sellerId,
+                                                userId: self.uiModel.userId,
+                                                buyingId: buyingId,
+                                                buyingProductName: buyingProductName,
+                                                date: self.uiModel.date,
+                                                description: self.uiModel.desc,
+                                                imageUrl: imageUrl)
 
-                self.saveSellerImageData(data: data)
+                    self.saveSellerImageData(data: data)
+                case .seller(let customerId, let sellerId, let sellerProductName):
+                    let data = CustomerImageModel(customerId: customerId,
+                                                  userId: self.uiModel.userId,
+                                                  sellerId: sellerId,
+                                                  sellerProductName: sellerProductName,
+                                                  date: self.uiModel.date,
+                                                  description: self.uiModel.desc,
+                                                  imageUrl: imageUrl)
+
+                    self.saveSellerImageData(data: data)
+                }
+
             })
     }
 
     private func saveSellerImageData(data: SellerImageModel) {
         handleResourceFirestore(
-            request: self.repository.saveSellerImage(sellerId: self.uiModel.sellerId,
+            request: self.repository.saveSellerImage(sellerId: data.sellerId,
                                                      season: self.uiModel.season,
                                                      imagePathType: self.uiModel.imagePathType,
                                                      data: data),
             response: self.responseSellerImage,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowSuccessAlertMessage()
+            })
+    }
+    
+    private func saveSellerImageData(data: CustomerImageModel) {
+        handleResourceFirestore(
+            request: self.repository.saveSellerImage(customerId: data.customerId,
+                                                     season: self.uiModel.season,
+                                                     imagePathType: self.uiModel.imagePathType,
+                                                     data: data),
+            response: self.responseCustomerImage,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }

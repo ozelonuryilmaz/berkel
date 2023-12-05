@@ -20,6 +20,9 @@ protocol ISellerDetailViewModel: SellerDetailCollectionDataSourceFactoryOutputDe
     var sellerId: String { get }
 
     func initComponents()
+    
+    // Coordinate
+    func presentNewSellerImageViewController(imagePathType: ImagePathType)
 
     // View State
     func viewStateSetNavigationTitle()
@@ -155,10 +158,7 @@ internal extension SellerDetailViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.setActive(isActive: false)
-
-
-                // TODO: outputDelegate eklenecek
-                //self.successDismissCallBack?(false)
+                self.viewStateCloseButtonTapped()
 
                 completion()
                 self.reloadPage()
@@ -175,7 +175,8 @@ internal extension SellerDetailViewModel {
     }
 
     func viewStateSetNavigationTitle() {
-        self.viewState.value = .setNavigationTitle(title: self.uiModel.customerName)
+        self.viewState.value = .setNavigationTitle(title: self.uiModel.customerName,
+                                                   subTitle: self.uiModel.productName)
     }
 
     func viewStateOldDoubt() {
@@ -206,6 +207,9 @@ internal extension SellerDetailViewModel {
         viewState.value = .showSellerActiveButton
     }
 
+    func viewStateCloseButtonTapped() {
+        viewState.value = .closeButtonTapped
+    }
 }
 
 // MARK: Coordinate
@@ -213,6 +217,15 @@ internal extension SellerDetailViewModel {
 
     func presentSellerCollectionViewController(passData: SellerCollectionPassData) {
         
+    }
+    
+    func presentNewSellerImageViewController(imagePathType: ImagePathType) {
+        let data = NewSellerImagePassData(imagePageType: .seller(customerId: self.uiModel.customerId,
+                                                                 sellerId: self.uiModel.sellerId,
+                                                                 sellerProductName: self.uiModel.productName),
+                                          imagePathType: imagePathType)
+
+        self.coordinator.presentNewSellerImageViewController(passData: data)
     }
 }
 
@@ -242,7 +255,7 @@ internal extension SellerDetailViewModel {
 
 enum SellerDetailViewState {
     case showNativeProgress(isProgress: Bool)
-    case setNavigationTitle(title: String)
+    case setNavigationTitle(title: String, subTitle: String)
     case oldDoubt(text: String)
     case nowDoubt(text: String)
     case buildCollectionSnapshot(snapshot: SellerDetailCollectionSnapshot)
@@ -250,4 +263,5 @@ enum SellerDetailViewState {
     case reloadPaymentTableView
     case showUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool)
     case showSellerActiveButton
+    case closeButtonTapped
 }

@@ -183,8 +183,8 @@ extension SellerViewModel {
 internal extension SellerViewModel {
 
     func closeButtonTapped(sellerId: String, isActive: Bool) {
-        //self.uiModel.updateIsActive(sellerId: sellerId, isActive: isActive)
-        //self.viewStateBuildSnapshot()
+        self.uiModel.updateIsActive(sellerId: sellerId, isActive: isActive)
+        self.viewStateBuildSnapshot()
     }
 }
 

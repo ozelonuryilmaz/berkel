@@ -10,9 +10,7 @@ import UIKit
 protocol INewSellerImageUIModel {
 
     var imagePathType: ImagePathType { get }
-    var sellerId: String { get }
-    var buyingId: String { get }
-    var buyingProductName: String { get }
+    var imagePageType: ImagePageType { get }
     var season: String { get }
     var userId: String? { get }
 
@@ -34,17 +32,12 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
 
     // MARK: Definitions
     let imagePathType: ImagePathType
-    let sellerId: String
-    let buyingId: String
-    let buyingProductName: String
+    let imagePageType: ImagePageType
 
     // MARK: Initialize
     init(data: NewSellerImagePassData) {
-
         self.imagePathType = data.imagePathType
-        self.sellerId = data.sellerId
-        self.buyingId = data.buyingId
-        self.buyingProductName = data.buyingProductName
+        self.imagePageType = data.imagePageType
     }
 
     var date: String? = Date().dateFormatterApiResponseType()

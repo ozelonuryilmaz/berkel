@@ -56,7 +56,7 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
 
         lblDate.text = uiModel.date
-        lblFaturaNo.text = uiModel.faturaNo
-        lblTotalPrice.text = "Toplam: \(uiModel.totalPrice) TL"
+        lblFaturaNo.text = "Fatura No: \(uiModel.faturaNo)"
+        lblTotalPrice.text = "Tutar: \(uiModel.totalPrice) TL"
     }
 }

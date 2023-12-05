@@ -8,15 +8,25 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MavenPro-Bold.ttf">
+            <string>MavenProBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SellerDetailViewController" customModule="berkel" customModuleProvider="target">
             <connections>
+                <outlet property="btnCek" destination="mdJ-lb-Nv9" id="MuQ-oL-5J2"/>
+                <outlet property="btnDekont" destination="qmI-7U-b2L" id="l4e-zr-4Ub"/>
+                <outlet property="btnDiger" destination="oHz-XA-z85" id="YAd-Xt-j0M"/>
+                <outlet property="btnKantarFisi" destination="WgX-Yw-faq" id="oW8-Jc-xgh"/>
                 <outlet property="lblNowDoubt" destination="RFG-Wa-fpx" id="XLx-Ui-2kf"/>
                 <outlet property="lblOldDoubt" destination="d2S-ot-XXr" id="voZ-hY-9hk"/>
                 <outlet property="segmentedController" destination="2IN-QW-FsO" id="6xb-wv-OLT"/>
                 <outlet property="tableViewPayment" destination="Hi0-BG-Yf9" id="j0l-cq-04f"/>
                 <outlet property="tableViewSellerDetail" destination="0bC-ch-FKP" id="cx2-Up-V6l"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewImage" destination="8Jw-wM-hWt" id="n1I-lq-xXy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -75,8 +85,9 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2IN-QW-FsO" userLabel="sgWorker">
                     <rect key="frame" x="16" y="159" width="358" height="32"/>
                     <segments>
-                        <segment title="İşçi"/>
-                        <segment title="Ödeme"/>
+                        <segment title="Sipariş"/>
+                        <segment title="Tahsilat"/>
+                        <segment title="Arşiv"/>
                     </segments>
                 </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0bC-ch-FKP" userLabel="tableViewCollection" customClass="SellerDetailCollectionDiffableTableView" customModule="berkel" customModuleProvider="target">
@@ -87,10 +98,121 @@
                     <rect key="frame" x="0.0" y="190" width="390" height="654"/>
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Jw-wM-hWt" userLabel="viewImage">
+                    <rect key="frame" x="0.0" y="190" width="390" height="654"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHd-QG-Xda">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="654"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEs-ZD-t8b" userLabel="mContentView">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="304"/>
+                                    <subviews>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgX-Yw-faq" userLabel="btnKantarFisi">
+                                            <rect key="frame" x="32" y="32" width="326" height="48"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="CRV-p7-IJM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Kantar Fişi">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdJ-lb-Nv9" userLabel="btnCek">
+                                            <rect key="frame" x="32" y="96" width="326" height="48"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="qhZ-8M-SCb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Çek">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmI-7U-b2L" userLabel="btnDekont">
+                                            <rect key="frame" x="32" y="160" width="326" height="48"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="9Xn-zg-t2d"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Dekont">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHz-XA-z85" userLabel="btnDiger">
+                                            <rect key="frame" x="32" y="224" width="326" height="48"/>
+                                            <color key="backgroundColor" name="PrimaryBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="b2h-k7-eEW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
+                                            <state key="normal" title="Diğer">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                                    <constraints>
+                                        <constraint firstItem="WgX-Yw-faq" firstAttribute="leading" secondItem="GEs-ZD-t8b" secondAttribute="leading" constant="32" id="2BN-dl-P0J"/>
+                                        <constraint firstItem="qmI-7U-b2L" firstAttribute="leading" secondItem="GEs-ZD-t8b" secondAttribute="leading" constant="32" id="8pF-kA-Abc"/>
+                                        <constraint firstItem="WgX-Yw-faq" firstAttribute="top" secondItem="GEs-ZD-t8b" secondAttribute="top" constant="32" id="AIz-Ne-zHb"/>
+                                        <constraint firstAttribute="trailing" secondItem="WgX-Yw-faq" secondAttribute="trailing" constant="32" id="GAM-uu-fmb"/>
+                                        <constraint firstAttribute="trailing" secondItem="qmI-7U-b2L" secondAttribute="trailing" constant="32" id="GTA-0P-CSZ"/>
+                                        <constraint firstItem="oHz-XA-z85" firstAttribute="leading" secondItem="GEs-ZD-t8b" secondAttribute="leading" constant="32" id="QMc-9y-gaz"/>
+                                        <constraint firstItem="qmI-7U-b2L" firstAttribute="top" secondItem="mdJ-lb-Nv9" secondAttribute="bottom" constant="16" id="VWc-sH-sxF"/>
+                                        <constraint firstItem="mdJ-lb-Nv9" firstAttribute="top" secondItem="WgX-Yw-faq" secondAttribute="bottom" constant="16" id="dfi-oU-Gbh"/>
+                                        <constraint firstAttribute="trailing" secondItem="mdJ-lb-Nv9" secondAttribute="trailing" constant="32" id="nEU-2g-0LS"/>
+                                        <constraint firstAttribute="trailing" secondItem="oHz-XA-z85" secondAttribute="trailing" constant="32" id="s6Q-23-zXN"/>
+                                        <constraint firstItem="mdJ-lb-Nv9" firstAttribute="leading" secondItem="GEs-ZD-t8b" secondAttribute="leading" constant="32" id="sho-0h-2QN"/>
+                                        <constraint firstItem="oHz-XA-z85" firstAttribute="top" secondItem="qmI-7U-b2L" secondAttribute="bottom" constant="16" id="wsR-W1-TF3"/>
+                                        <constraint firstAttribute="bottom" secondItem="oHz-XA-z85" secondAttribute="bottom" constant="32" id="yC7-Pt-P3z"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="GEs-ZD-t8b" firstAttribute="width" secondItem="jHd-QG-Xda" secondAttribute="width" id="0Z0-MU-Cpm"/>
+                                <constraint firstItem="GEs-ZD-t8b" firstAttribute="leading" secondItem="jHd-QG-Xda" secondAttribute="leading" id="8xy-qD-HGB"/>
+                                <constraint firstItem="GEs-ZD-t8b" firstAttribute="top" secondItem="jHd-QG-Xda" secondAttribute="top" id="Aif-oC-4F7"/>
+                                <constraint firstAttribute="trailing" secondItem="GEs-ZD-t8b" secondAttribute="trailing" id="N6m-xc-aS2"/>
+                                <constraint firstAttribute="bottom" secondItem="GEs-ZD-t8b" secondAttribute="bottom" id="rTW-sl-eSE"/>
+                                <constraint firstItem="GEs-ZD-t8b" firstAttribute="height" secondItem="jHd-QG-Xda" secondAttribute="height" multiplier="0.6" priority="250" id="y1B-mm-bRj"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+                    <constraints>
+                        <constraint firstItem="jHd-QG-Xda" firstAttribute="leading" secondItem="8Jw-wM-hWt" secondAttribute="leading" id="0ve-Bo-f4u"/>
+                        <constraint firstAttribute="trailing" secondItem="jHd-QG-Xda" secondAttribute="trailing" id="283-tv-JB9"/>
+                        <constraint firstItem="jHd-QG-Xda" firstAttribute="top" secondItem="8Jw-wM-hWt" secondAttribute="top" id="Ac4-hA-eTn"/>
+                        <constraint firstAttribute="bottom" secondItem="jHd-QG-Xda" secondAttribute="bottom" id="zrp-lH-Gtg"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
             <constraints>
+                <constraint firstItem="8Jw-wM-hWt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3OU-5C-uy0"/>
                 <constraint firstItem="Hi0-BG-Yf9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3dM-RD-olF"/>
                 <constraint firstAttribute="bottom" secondItem="0bC-ch-FKP" secondAttribute="bottom" id="5H2-pa-olz"/>
                 <constraint firstItem="hVN-08-KCs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="5Un-m1-Aer"/>
@@ -98,8 +220,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hVN-08-KCs" secondAttribute="trailing" constant="8" id="8Q9-zB-qUK"/>
                 <constraint firstItem="2IN-QW-FsO" firstAttribute="top" secondItem="hVN-08-KCs" secondAttribute="bottom" constant="8" symbolic="YES" id="LA4-nd-TGj"/>
                 <constraint firstItem="hVN-08-KCs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Nbm-pl-aq4"/>
+                <constraint firstItem="8Jw-wM-hWt" firstAttribute="top" secondItem="2IN-QW-FsO" secondAttribute="bottom" id="V9q-Gb-Ku7"/>
                 <constraint firstItem="2IN-QW-FsO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="XBY-Xj-ERT"/>
+                <constraint firstItem="8Jw-wM-hWt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yph-aT-8ba"/>
                 <constraint firstItem="0bC-ch-FKP" firstAttribute="top" secondItem="2IN-QW-FsO" secondAttribute="bottom" id="b2G-zS-zQU"/>
+                <constraint firstAttribute="bottom" secondItem="8Jw-wM-hWt" secondAttribute="bottom" id="bLr-3B-Ba3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2IN-QW-FsO" secondAttribute="trailing" constant="16" id="cuJ-1x-9fG"/>
                 <constraint firstAttribute="bottom" secondItem="Hi0-BG-Yf9" secondAttribute="bottom" id="mfr-M2-R10"/>
                 <constraint firstItem="0bC-ch-FKP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sMR-Xg-b8M"/>
@@ -110,6 +235,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="PrimaryBlue">
+            <color red="0.27500000596046448" green="0.63499999046325684" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryVeryLightGray">
             <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

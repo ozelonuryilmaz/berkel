@@ -8,17 +8,18 @@
 import UIKit
 
 protocol ISellerDetailUIModel {
-    
+
     var season: String { get }
 
     var sellerId: String { get }
     var customerName: String { get }
     var customerId: String { get }
     var isActive: Bool { get }
+    var productName: String { get }
 
     var collections: [SellerCollectionModel] { get }
 
-	 init(data: SellerDetailPassData)
+    init(data: SellerDetailPassData)
 
     func oldDoubt() -> String
     func nowDoubt() -> String
@@ -38,20 +39,20 @@ protocol ISellerDetailUIModel {
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> SellerDetailPaymentTableViewCellUIModel
-} 
+}
 
 struct SellerDetailUIModel: ISellerDetailUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
     let sellerId: String
     let customerName: String
     let customerId: String
     var isActive: Bool
-    
+
     let productName: String
     let productId: String
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: SellerDetailPassData) {
         self.sellerId = data.sellerId
         self.customerName = data.customerName
@@ -62,7 +63,7 @@ struct SellerDetailUIModel: ISellerDetailUIModel {
     }
 
     // MARK: Computed Props
-    
+
     var collections: [SellerCollectionModel] = []
     var payments: [SellerPaymentModel] = []
 
@@ -73,13 +74,28 @@ struct SellerDetailUIModel: ISellerDetailUIModel {
     mutating func setActive(isActive: Bool) {
         self.isActive = isActive
     }
-    
+
     func oldDoubt() -> String {
-        return "-1"
+        let _collections = self.collections.filter({ true == $0.isCalc })
+        let totalKG = _collections.map({ $0.daraliKg - $0.dara }).reduce(0, +)
+        var totalPrice: Int = 0
+        for c in _collections {
+            totalPrice += self.getTotalPrice(data: c)
+        }
+        
+        return "Toplam: \(totalKG.decimalString()) Kg, \(totalPrice.decimalString()) TL"
     }
 
     func nowDoubt() -> String {
-        return "-2"
+        let payments = self.payments.map({ $0.payment }).reduce(0, +)
+        let _collections = self.collections.filter({ true == $0.isCalc })
+        var totalPrice: Int = 0
+        for c in _collections {
+            totalPrice += self.getTotalPrice(data: c)
+        }
+        let waitingPrice = totalPrice - payments
+        
+        return "\(payments.decimalString()) TL Tahsilat, \(waitingPrice.decimalString()) TL Bekliyor"
     }
 
     func getCollection(sellerId: String?) -> SellerCollectionModel? {
@@ -108,9 +124,12 @@ extension SellerDetailUIModel {
             self.collections[index].isCalc = isCalc
         }
     }
-    
+
     private func getTotalPrice(data: SellerCollectionModel) -> Int {
-        return -1
+        let result = Double(data.daraliKg - data.dara)
+        let price = result * data.price
+        let kdv = result > 0 ? (data.kdv > 0 ? price * (1 + (data.kdv / 100)) : price) : 0
+        return Int(kdv)
     }
 }
 
