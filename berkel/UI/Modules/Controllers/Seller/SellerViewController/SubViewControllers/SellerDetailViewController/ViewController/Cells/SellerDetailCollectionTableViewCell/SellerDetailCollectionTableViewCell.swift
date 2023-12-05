@@ -57,6 +57,6 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
 
         lblDate.text = uiModel.date
         lblFaturaNo.text = "Fatura No: \(uiModel.faturaNo)"
-        lblTotalPrice.text = "Tutar: \(uiModel.totalPrice) TL"
+        lblTotalPrice.text = "\(uiModel.totalKg) Kg, \(uiModel.totalPrice) TL"
     }
 }

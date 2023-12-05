@@ -18,6 +18,7 @@ protocol ISellerDetailCollectionTableViewCellUIModel {
     
     var date: String { get }
     var faturaNo: String { get }
+    var totalKg: String { get }
     var totalPrice: String { get }
 }
 
@@ -32,6 +33,7 @@ struct SellerDetailCollectionTableViewCellUIModel: ISellerDetailCollectionTableV
     
     let date: String
     let faturaNo: String
+    let totalKg: String
     let totalPrice: String
 
 }

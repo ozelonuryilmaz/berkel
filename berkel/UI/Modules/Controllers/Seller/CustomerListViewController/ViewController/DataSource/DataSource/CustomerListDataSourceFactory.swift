@@ -10,6 +10,7 @@ import UIKit
 protocol CustomerListDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: ICustomerListTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(customerId: String)
     func scrollDidScroll(isAvailablePagination: Bool)
 }
 
@@ -40,7 +41,7 @@ final class CustomerListDataSourceFactory {
     }
 }
 
-// MARK: - PhotoSelectionCollectionViewCellOutputDelegate
+// MARK: - CustomerListTableViewCellOutputDelegate
 extension CustomerListDataSourceFactory: CustomerListTableViewCellOutputDelegate {
 
     func phoneNumberTapped(phoneNumber: String) {
@@ -49,6 +50,10 @@ extension CustomerListDataSourceFactory: CustomerListTableViewCellOutputDelegate
 
     func cellTapped(uiModel: ICustomerListTableViewCellUIModel) {
         self.outputDelegate?.cellTapped(uiModel: uiModel)
+    }
+    
+    func archiveTapped(customerId: String) {
+        self.outputDelegate?.archiveTapped(customerId: customerId)
     }
 }
 

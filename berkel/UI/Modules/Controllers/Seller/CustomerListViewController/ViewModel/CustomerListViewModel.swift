@@ -124,6 +124,14 @@ internal extension CustomerListViewModel {
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
+    
+    func pushArchiveListViewController(customerId: String) {
+        // MARK: sellerId kullanılmıyor
+        let data = ArchiveListPassData(imagePageType: .seller(customerId: customerId,
+                                                              sellerId: "",
+                                                              sellerProductName: ""))
+        self.coordinator.pushArchiveListViewController(passData: data)
+    }
 }
 
 // MARK: NewCustomerViewControllerOutputDelegate
@@ -144,6 +152,10 @@ extension CustomerListViewModel {
 
     func cellTapped(uiModel: ICustomerListTableViewCellUIModel) {
         self.presentNewSellerViewController(customerId: uiModel.id ?? "", customerName: uiModel.name)
+    }
+    
+    func archiveTapped(customerId: String) {
+        self.pushArchiveListViewController(customerId: customerId)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {

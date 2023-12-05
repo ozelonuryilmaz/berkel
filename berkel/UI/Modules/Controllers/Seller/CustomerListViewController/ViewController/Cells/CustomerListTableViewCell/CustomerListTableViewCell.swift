@@ -10,6 +10,7 @@ import UIKit
 protocol CustomerListTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: ICustomerListTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(customerId: String)
 }
 
 
@@ -21,6 +22,7 @@ class CustomerListTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var lblName: UILabel!
     @IBOutlet private weak var lblDesc: UILabel!
     @IBOutlet private weak var btnCall: UIButton!
+    @IBOutlet private weak var btnArshive: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,10 @@ class CustomerListTableViewCell: BaseTableViewCell {
 
         btnCall.onTap { [unowned self] _ in
             self.outputDelegate?.phoneNumberTapped(phoneNumber: uiModel.phoneNumber)
+        }
+        
+        btnArshive.onTap { [unowned self] _ in
+            self.outputDelegate?.archiveTapped(customerId: uiModel.id ?? "")
         }
     }
 

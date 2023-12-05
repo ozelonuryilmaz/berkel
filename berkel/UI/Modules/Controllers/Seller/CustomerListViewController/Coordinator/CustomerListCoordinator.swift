@@ -12,6 +12,7 @@ protocol ICustomerListCoordinator: AnyObject {
     func presentNewCustomerViewController(passData: NewCustomerPassData, outputDelegate: NewCustomerViewControllerOutputDelegate)
     func presentNewSellerViewController(passData: NewSellerPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
+    func pushArchiveListViewController(passData: ArchiveListPassData)
     func popToRootViewController(animated: Bool)
 }
 
@@ -49,6 +50,12 @@ final class CustomerListCoordinator: NavigationCoordinator, ICustomerListCoordin
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)
+    }
+    
+    func pushArchiveListViewController(passData: ArchiveListPassData) {
+        let coordinator = ArchiveListCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
     }
     
     func popToRootViewController(animated: Bool) {

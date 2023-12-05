@@ -132,7 +132,10 @@ internal extension AddBuyingItemViewModel {
     }
 
     func pushArchiveListViewController(sellerId: String) {
-        let data = ArchiveListPassData(sellerId: sellerId)
+        // MARK: buyingId kullanılmıyor
+        let data = ArchiveListPassData(imagePageType: .buying(sellerId: sellerId,
+                                                              buyingId: "",
+                                                              buyingProductName: ""))
         self.coordinator.pushArchiveListViewController(passData: data)
     }
 }

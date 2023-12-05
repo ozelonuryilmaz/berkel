@@ -9,7 +9,7 @@ import UIKit
 
 protocol IArchiveListUIModel {
 
-    var sellerId: String { get }
+    var imagePageType: ImagePageType { get }
     var season: String { get }
 
     var archiveSegmentType: ArchiveSegmentType { get }
@@ -22,6 +22,7 @@ protocol IArchiveListUIModel {
     init(data: ArchiveListPassData)
 
     mutating func setArchive(imagePathType: ImagePathType, data: [SellerImageModel])
+    mutating func setArchive(imagePathType: ImagePathType, data: [CustomerImageModel])
     mutating func setArchiveType(index: Int)
 
     // for Table View
@@ -32,11 +33,11 @@ protocol IArchiveListUIModel {
 struct ArchiveListUIModel: IArchiveListUIModel {
 
     // MARK: Definitions
-    let sellerId: String
+    let imagePageType: ImagePageType
 
     // MARK: Initialize
     init(data: ArchiveListPassData) {
-        self.sellerId = data.sellerId
+        self.imagePageType = data.imagePageType
     }
 
     var archiveSegmentType: ArchiveSegmentType = .kantarFisi
@@ -81,6 +82,26 @@ extension ArchiveListUIModel {
                                                    date: sellerImageModel.date?.dateTimeFormatFull() ?? "",
                                                    productName: sellerImageModel.buyingProductName,
                                                    desc: sellerImageModel.description ?? "")
+        })
+
+        switch imagePathType {
+        case .kantarFisi:
+            self.kantarFisi = archiveListTableViewCellUIModel
+        case .cek:
+            self.cek = archiveListTableViewCellUIModel
+        case .dekont:
+            self.dekont = archiveListTableViewCellUIModel
+        case .diger:
+            self.diger = archiveListTableViewCellUIModel
+        }
+    }
+    
+    mutating func setArchive(imagePathType: ImagePathType, data: [CustomerImageModel]) {
+        let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ customerImageModel in
+            return ArchiveListTableViewCellUIModel(imageUrl: customerImageModel.imageUrl,
+                                                   date: customerImageModel.date?.dateTimeFormatFull() ?? "",
+                                                   productName: customerImageModel.sellerProductName,
+                                                   desc: customerImageModel.description ?? "")
         })
 
         switch imagePathType {

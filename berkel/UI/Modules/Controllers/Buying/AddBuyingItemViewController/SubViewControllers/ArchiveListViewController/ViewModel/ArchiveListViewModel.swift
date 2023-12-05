@@ -38,6 +38,7 @@ final class ArchiveListViewModel: BaseViewModel, IArchiveListViewModel {
     var viewState = ScreenStateSubject<ArchiveListViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let responseArchive = CurrentValueSubject<[SellerImageModel]?, Never>(nil)
+    let responseCustomerArchive = CurrentValueSubject<[CustomerImageModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IArchiveListRepository,
@@ -88,9 +89,18 @@ internal extension ArchiveListViewModel {
     }
 
     private func getArchive(imagePathType: ImagePathType) {
+        switch self.uiModel.imagePageType {
+        case .buying(let sellerId, _,_):
+            self.getBuyingArchives(sellerId: sellerId, imagePathType: imagePathType)
+        case .seller(let customerId, _,_):
+            self.getSellerArchives(customerId: customerId, imagePathType: imagePathType)
+        }
+    }
+    
+    private func getBuyingArchives(sellerId: String, imagePathType: ImagePathType){
         handleResourceFirestore(
             request: self.repository.getArchiveList(season: self.uiModel.season,
-                                                    sellerId: self.uiModel.sellerId,
+                                                    sellerId: sellerId,
                                                     imagePathType: imagePathType),
             response: self.responseArchive,
             errorState: self.errorState,
@@ -100,6 +110,25 @@ internal extension ArchiveListViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responseArchive.value else { return }
+
+                self.uiModel.setArchive(imagePathType: imagePathType, data: data)
+                self.viewStateReloadTableView()
+            })
+    }
+    
+    private func getSellerArchives(customerId: String, imagePathType: ImagePathType){
+        handleResourceFirestore(
+            request: self.repository.getArchiveList(season: self.uiModel.season,
+                                                    customerId: customerId,
+                                                    imagePathType: imagePathType),
+            response: self.responseCustomerArchive,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseCustomerArchive.value else { return }
 
                 self.uiModel.setArchive(imagePathType: imagePathType, data: data)
                 self.viewStateReloadTableView()

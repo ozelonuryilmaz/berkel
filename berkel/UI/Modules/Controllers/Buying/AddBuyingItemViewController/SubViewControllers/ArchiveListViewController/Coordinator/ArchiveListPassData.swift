@@ -9,6 +9,6 @@ import Foundation
 
 struct ArchiveListPassData: ICoordinatorPassData {
 
-    let sellerId: String
+    let imagePageType: ImagePageType
 }
 
