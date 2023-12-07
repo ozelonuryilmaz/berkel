@@ -11,7 +11,7 @@ import Combine
 final class SellerCollectionViewController: BerkelBaseViewController {
 
     override var navigationTitle: String? {
-        return "Ürün Ekle"
+        return "Sipariş Ekle"
     }
 
     // MARK: Constants
@@ -96,7 +96,26 @@ final class SellerCollectionViewController: BerkelBaseViewController {
 
             case .setTotalPrice(let price):
                 self.lblTotalPrice.text = price + " TL"
+                
+            case .initCounts(let daraliKG, let dara, let faturaNo, let palet, let kasa, let desc):
+                self.tfDaraliKG.textField.text = daraliKG.decimalString()
+                self.tfDara.textField.text = dara.decimalString()
+                self.tfFaturaNo.textField.text = faturaNo
+                self.tfPalet.textField.text = palet.decimalString()
+                self.tfKasa.textField.text = kasa.decimalString()
+                self.tfDesc.textField.text = desc
 
+            case .viewedData(let isVisible):
+                self.btnSave.isHidden = !isVisible
+                self.datePicker.isEnabled = isVisible
+                self.tfDaraliKG.textField.isEnabled = isVisible
+                self.tfDara.textField.isEnabled = isVisible
+                self.tfPrice.textField.isEnabled = isVisible
+                self.tfKDV.textField.isEnabled = isVisible
+                self.tfFaturaNo.textField.isEnabled = isVisible
+                self.tfPalet.textField.isEnabled = isVisible
+                self.tfKasa.textField.isEnabled = isVisible
+                self.tfDesc.textField.isEnabled = isVisible
             }
 
         }).store(in: &cancelBag)

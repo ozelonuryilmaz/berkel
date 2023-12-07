@@ -10,6 +10,7 @@ import Foundation
 protocol ISellerDetailCollectionTableViewCellUIModel {
 
     var sellerModel: SellerModel { get }
+    var sellerCollectionModel: SellerCollectionModel { get }
     
     var sellerId: String? { get }
     var collectionId: String? { get }
@@ -25,6 +26,7 @@ protocol ISellerDetailCollectionTableViewCellUIModel {
 struct SellerDetailCollectionTableViewCellUIModel: ISellerDetailCollectionTableViewCellUIModel {
 
     let sellerModel: SellerModel
+    let sellerCollectionModel: SellerCollectionModel
     
     let sellerId: String?
     let collectionId: String?

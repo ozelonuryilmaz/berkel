@@ -63,6 +63,13 @@ final class SellerCollectionViewModel: BaseViewModel, ISellerCollectionViewModel
         self.viewStateSetProductName()
         self.viewStateSetPrice()
         self.viewStateSetKDV()
+
+        self.viewStateViewedData()
+        self.viewStateInitCount()
+
+        if !self.uiModel.viewedData {
+            self.updateResults()
+        }
     }
 
     func updateResults() {
@@ -129,6 +136,20 @@ internal extension SellerCollectionViewModel {
     func viewStateSetTotalPrice() {
         self.viewState.value = .setTotalPrice(price: self.uiModel.getTotalPrice())
     }
+    
+    func viewStateInitCount() {
+        guard let data = self.uiModel.sellerCollectionModel else { return }
+        self.viewState.value = .initCounts(daraliKG: data.daraliKg,
+                                           dara: data.dara,
+                                           faturaNo: data.faturaNo,
+                                           palet: data.palet,
+                                           kasa: data.kasa,
+                                           desc: data.desc)
+    }
+
+    func viewStateViewedData() {
+        self.viewState.value = .viewedData(isVisible: self.uiModel.viewedData)
+    }
 }
 
 // MARK: Coordinate
@@ -188,4 +209,6 @@ enum SellerCollectionViewState {
     case setKDV(name: String)
     case setTotalKg(kg: String)
     case setTotalPrice(price: String)
+    case initCounts(daraliKG: Int, dara: Int, faturaNo: String, palet: Int, kasa: Int, desc: String)
+    case viewedData(isVisible: Bool)
 }

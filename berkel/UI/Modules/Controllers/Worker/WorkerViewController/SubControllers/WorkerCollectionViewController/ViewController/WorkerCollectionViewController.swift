@@ -92,9 +92,9 @@ final class WorkerCollectionViewController: BerkelBaseViewController {
                 self.tfServicePrice.textField.placeholder = data.servisPrice.decimalString() + " TL"
                 
             case .initCounts(let kesici, let ayakci, let other):
-                self.tfKesiciCount.textField.placeholder = kesici.decimalString()
-                self.tfAyakciCount.textField.placeholder = ayakci.decimalString()
-                self.tfOtherPrice.textField.placeholder = other.decimalString() + " TL"
+                self.tfKesiciCount.textField.text = kesici.decimalString()
+                self.tfAyakciCount.textField.text = ayakci.decimalString()
+                self.tfOtherPrice.textField.text = other.decimalString() + " TL"
                 
             case .viewedData(let isVisible):
                 self.btnSave.isHidden = !isVisible

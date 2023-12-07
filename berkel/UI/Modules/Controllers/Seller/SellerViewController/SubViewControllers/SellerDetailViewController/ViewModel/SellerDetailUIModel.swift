@@ -160,6 +160,7 @@ extension SellerDetailUIModel {
 
             return SellerDetailCollectionRowModel(uiModel:
                 SellerDetailCollectionTableViewCellUIModel(sellerModel: sellerModel,
+                                                           sellerCollectionModel: responseModel,
                                                            sellerId: self.sellerId,
                                                            collectionId: responseModel.id,
                                                            isCalc: responseModel.isCalc,

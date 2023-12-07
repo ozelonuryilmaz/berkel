@@ -225,9 +225,6 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Fatura Numarası"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQ0-lP-fdp" userLabel="tfPalet" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">

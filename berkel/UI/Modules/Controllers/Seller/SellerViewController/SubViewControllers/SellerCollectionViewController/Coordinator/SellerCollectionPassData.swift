@@ -10,4 +10,5 @@ import Foundation
 struct SellerCollectionPassData: ICoordinatorPassData {
 
     let sellerModel: SellerModel
+    var sellerCollectionModel: SellerCollectionModel? = nil
 }

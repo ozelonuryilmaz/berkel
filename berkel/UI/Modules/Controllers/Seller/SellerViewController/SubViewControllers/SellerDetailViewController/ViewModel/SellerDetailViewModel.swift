@@ -16,11 +16,11 @@ protocol ISellerDetailViewModel: SellerDetailCollectionDataSourceFactoryOutputDe
     init(repository: ISellerDetailRepository,
          coordinator: ISellerDetailCoordinator,
          uiModel: ISellerDetailUIModel)
-    
+
     var sellerId: String { get }
 
     func initComponents()
-    
+
     // Coordinate
     func presentNewSellerImageViewController(imagePathType: ImagePathType)
 
@@ -50,7 +50,7 @@ final class SellerDetailViewModel: BaseViewModel, ISellerDetailViewModel {
     let responseCollection = CurrentValueSubject<[SellerCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
-    
+
     var sellerId: String {
         return self.uiModel.sellerId
     }
@@ -216,9 +216,9 @@ internal extension SellerDetailViewModel {
 internal extension SellerDetailViewModel {
 
     func presentSellerCollectionViewController(passData: SellerCollectionPassData) {
-        
+        self.coordinator.presentSellerCollectionViewController(passData: passData)
     }
-    
+
     func presentNewSellerImageViewController(imagePathType: ImagePathType) {
         let data = NewSellerImagePassData(imagePageType: .seller(customerId: self.uiModel.customerId,
                                                                  sellerId: self.uiModel.sellerId,
@@ -245,7 +245,10 @@ internal extension SellerDetailViewModel {
 internal extension SellerDetailViewModel {
 
     func cellTapped(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
-        //self.presentSellerCollectionViewController(passData: SellerCollectionPassData(sellerModel: uiModel.))
+        self.presentSellerCollectionViewController(passData:
+            SellerCollectionPassData(sellerModel: uiModel.sellerModel,
+                                     sellerCollectionModel: uiModel.sellerCollectionModel)
+        )
     }
 
     func calcActivateTapped(id: String, date: String, isCalc: Bool) {

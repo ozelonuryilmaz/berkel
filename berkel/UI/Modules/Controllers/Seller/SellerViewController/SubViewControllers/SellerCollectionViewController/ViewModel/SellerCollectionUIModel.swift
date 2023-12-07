@@ -20,6 +20,9 @@ protocol ISellerCollectionUIModel {
 
     var errorMessage: String? { get }
     var data: SellerCollectionModel { get }
+    var sellerCollectionModel: SellerCollectionModel? { get }
+    
+    var viewedData: Bool { get }
 
     func getTotalKg() -> String
     func getTotalPrice() -> String
@@ -42,6 +45,8 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
     let sellerId: String?
     let customerName: String
     let productName: String
+    
+    var sellerCollectionModel: SellerCollectionModel? = nil
 
     // MARK: Initialize
     init(data: SellerCollectionPassData) {
@@ -50,6 +55,17 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
         self.productName = data.sellerModel.productName
         self.price = data.sellerModel.kgPrice
         self.kdv = data.sellerModel.kdv
+        
+        self.sellerCollectionModel = data.sellerCollectionModel
+        
+        if let sellerCollection = data.sellerCollectionModel {
+            self.daraliKg = sellerCollection.daraliKg
+            self.dara = sellerCollection.dara
+            self.palet = sellerCollection.palet
+            self.kasa = sellerCollection.kasa
+            self.faturaNo = sellerCollection.faturaNo
+            self.desc = sellerCollection.desc
+        }
     }
 
     // MARK: Computed Props
@@ -87,6 +103,10 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
 
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+    
+    var viewedData: Bool {
+        return self.sellerCollectionModel == nil
     }
 }
 

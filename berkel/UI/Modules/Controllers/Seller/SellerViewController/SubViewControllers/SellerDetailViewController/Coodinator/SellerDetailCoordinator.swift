@@ -12,6 +12,7 @@ protocol ISellerDetailCoordinator: AnyObject {
     func selfPopViewController()
     
     func presentNewSellerImageViewController(passData: NewSellerImagePassData)
+    func presentSellerCollectionViewController(passData: SellerCollectionPassData)
 }
 
 final class SellerDetailCoordinator: NavigationCoordinator, ISellerDetailCoordinator {
@@ -38,6 +39,12 @@ final class SellerDetailCoordinator: NavigationCoordinator, ISellerDetailCoordin
     
     func presentNewSellerImageViewController(passData: NewSellerImagePassData) {
         let controller = NewSellerImageCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+    
+    func presentSellerCollectionViewController(passData: SellerCollectionPassData) {
+        let controller = SellerCollectionCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(passData: passData)
         coordinate(to: controller)
     }
