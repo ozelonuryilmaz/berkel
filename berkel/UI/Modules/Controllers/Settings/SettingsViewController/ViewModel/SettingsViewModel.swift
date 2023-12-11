@@ -5,17 +5,28 @@
 //  Created by Onur Yilmaz on 2.09.2023.
 //
 
+import Foundation
 import Combine
+import FirebaseAuth
 
-protocol ISettingsViewModel: AnyObject {
+protocol ISettingsViewModel: SettingsItemCellOutputDelegate {
 
+    var viewState: ScreenStateSubject<SettingsViewState> { get }
     var errorState: ErrorStateSubject { get }
+    
+    var season: String { get }
 
     init(repository: ISettingsRepository,
          coordinator: ISettingsCoordinator,
          uiModel: ISettingsUIModel)
 
-    func getDocuments()
+    func getNumberOfItemsInSection() -> Int
+    func getNumberOfItemsInRow(section: Int) -> Int
+
+    func getSectionUIModel(section: Int) -> SettingsSectionUIModel
+    func getItemCellUIModel(indexPath: IndexPath) -> ISettingsRowModel
+    func isVisibleSeperatorRow(indexPath: IndexPath) -> Bool
+    func isLastSection(section: Int) -> Bool
 }
 
 final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
@@ -25,7 +36,7 @@ final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
     private let coordinator: ISettingsCoordinator
     private var uiModel: ISettingsUIModel
 
-    let response = CurrentValueSubject<[SettingsResponseModel]?, Never>(nil)
+    var viewState = ScreenStateSubject<SettingsViewState>(nil)
     var errorState = ErrorStateSubject(nil)
 
     // MARK: Initiliazer
@@ -37,32 +48,22 @@ final class SettingsViewModel: BaseViewModel, ISettingsViewModel {
         self.uiModel = uiModel
     }
 
+    var season: String {
+        return uiModel.season
+    }
 }
 
 
 // MARK: Service
 internal extension SettingsViewModel {
 
-    func getDocuments() {
-
-        handleResourceFirestore(
-            request: self.repository.getBuyingList(),
-            response: self.response,
-            errorState: self.errorState,
-            callbackLoading: { isProgress in
-                print("***isProgress: \(isProgress ? "Yükleniyor" : "Yüklendi")")
-            },
-            callbackSuccess: { [weak self] in
-                guard let self = self else { return }
-
-                self.response.value?.forEach { item in
-                    print(item.test ?? "")
-                }
-            }, callbackComplete: {
-
-            }
-        )
-
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+            self.viewStateStartFlowSplash()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -70,9 +71,71 @@ internal extension SettingsViewModel {
 internal extension SettingsViewModel {
 
     // MARK: View State
+    func viewStateShowNativeProgress(isProgress: Bool) {
+        viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+    
+    func viewStateStartFlowSplash() {
+        viewState.value = .startFlowSplash
+    }
 
     // MARK: Action State
 
+}
+
+// MARK: TableView
+internal extension SettingsViewModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.uiModel.getNumberOfItemsInSection()
+    }
+
+    func getNumberOfItemsInRow(section: Int) -> Int {
+        self.uiModel.getNumberOfItemsInRow(section: section)
+    }
+
+    func getSectionUIModel(section: Int) -> SettingsSectionUIModel {
+        return self.uiModel.getSectionUIModel(section: section)
+    }
+
+    func getItemCellUIModel(indexPath: IndexPath) -> ISettingsRowModel {
+        return self.uiModel.getItemCellUIModel(indexPath: indexPath)
+    }
+
+    func isVisibleSeperatorRow(indexPath: IndexPath) -> Bool {
+        return self.uiModel.isVisibleSeperatorRow(indexPath: indexPath)
+    }
+
+    func isLastSection(section: Int) -> Bool {
+        return self.uiModel.isLastSection(section: section)
+    }
+}
+
+// MARK: SettingsItemCellOutputDelegate
+extension SettingsViewModel {
+
+    func settingsCellTap(uiModel: SettingsItemCellUIModel) {
+
+        let cellType = uiModel.cellType
+        switch cellType {
+        case .saticiList:
+            break
+        case .cavusList:
+            break
+        case .musteriList:
+            break
+        case .alisGelirGiderCizergesi:
+            break
+        case .isciGelirGiderCizergesi:
+            break
+        case .satisGelirGiderCizergesi:
+            break
+        case .sezonlar:
+            break
+        case .cikisYap:
+            self.logOut()
+        }
+    }
 }
 
 // MARK: Coordinate
@@ -80,13 +143,7 @@ internal extension SettingsViewModel {
 
 }
 
-
 enum SettingsViewState {
-    case showLoadingProgress(isProgress: Bool)
+    case showNativeProgress(isProgress: Bool)
+    case startFlowSplash
 }
-
-enum SettingsActionState {
-
-}
-
-

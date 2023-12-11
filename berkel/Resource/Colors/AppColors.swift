@@ -30,7 +30,6 @@ extension UIColor {
 
     // MARK: Gray Colors
     static var primaryDarkGray: UIColor { .init(named: "PrimaryDarkGray")! }
-    static var primaryNevada: UIColor { .init(named: "PrimaryNevada")! }
     static var primaryLightGray: UIColor { .init(named: "PrimaryLightGray")! }
     static var primaryVeryLightGray: UIColor { .init(named: "PrimaryVeryLightGray")! }
     static var separatorGray: UIColor { .init(named: "SeparatorGray")! }

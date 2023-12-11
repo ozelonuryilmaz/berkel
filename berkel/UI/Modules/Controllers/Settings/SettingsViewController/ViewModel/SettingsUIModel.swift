@@ -9,23 +9,121 @@ import UIKit
 
 protocol ISettingsUIModel {
 
+    var season: String { get }
+    
     init()
 
+    func getNumberOfItemsInSection() -> Int
+    func getNumberOfItemsInRow(section: Int) -> Int
+    func getSectionUIModel(section: Int) -> SettingsSectionUIModel
+    func getItemCellUIModel(indexPath: IndexPath) -> ISettingsRowModel
+    func isLastSection(section: Int) -> Bool
+    func isVisibleSeperatorRow(indexPath: IndexPath) -> Bool
 }
 
 struct SettingsUIModel: ISettingsUIModel {
+
+    private var sectionUIModels = [SettingsSectionUIModel]()
 
     // MARK: Definitions
 
     // MARK: Initialize
     init() {
-
+        self.syncronizedSectionUIModels()
+    }
+    
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
     // MARK: Computed Props
+    mutating func syncronizedSectionUIModels() {
+        self.mappedSectionUIModels()
+    }
 }
 
 // MARK: Props
 extension SettingsUIModel {
 
+    mutating func mappedSectionUIModels() {
+        self.sectionUIModels = [
+            SettingsSectionUIModel.init(sectionType: .list,
+                                        rowUIModels: generateListRowUIModels(),
+                                        isVisibleSection: true),
+            SettingsSectionUIModel.init(sectionType: .gelirGider,
+                                        rowUIModels: generateGelirGiderCizelgesiRowUIModels(),
+                                        isVisibleSection: true),
+            SettingsSectionUIModel.init(sectionType: .ayarlar,
+                                        rowUIModels: generateAyarlarRowUIModels(),
+                                        isVisibleSection: true),
+            SettingsSectionUIModel.init(sectionType: .hesap,
+                                        rowUIModels: generateHesapRowUIModels(),
+                                        isVisibleSection: false)
+        ]
+    }
+
+    // Liste
+    func generateListRowUIModels() -> [ISettingsRowModel] {
+        var tempArray = [ISettingsRowModel]()
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .saticiList)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cavusList)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .musteriList)))
+        return tempArray
+    }
+    
+    // Gelir Gider Çizelgesi
+    func generateGelirGiderCizelgesiRowUIModels() -> [ISettingsRowModel] {
+        var tempArray = [ISettingsRowModel]()
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .alisGelirGiderCizergesi)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .isciGelirGiderCizergesi)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .satisGelirGiderCizergesi)))
+        return tempArray
+    }
+    
+    // Ayarlar
+    func generateAyarlarRowUIModels() -> [ISettingsRowModel] {
+        var tempArray = [ISettingsRowModel]()
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
+        return tempArray
+    }
+    
+    // Ayarlar
+    func generateHesapRowUIModels() -> [ISettingsRowModel] {
+        var tempArray = [ISettingsRowModel]()
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cikisYap)))
+        return tempArray
+    }
+}
+
+// MARK: Table View
+extension SettingsUIModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return sectionUIModels.count
+    }
+
+    func getNumberOfItemsInRow(section: Int) -> Int {
+        return getSectionUIModel(section: section).numberOfRows()
+    }
+
+    func getSectionUIModel(section: Int) -> SettingsSectionUIModel {
+        return self.sectionUIModels[section]
+    }
+
+    func getItemCellUIModel(indexPath: IndexPath) -> ISettingsRowModel {
+        return getSectionUIModel(section: indexPath.section).getItemCellUIModel(index: indexPath.row)
+    }
+
+
+    func isLastSection(section: Int) -> Bool {
+        return section == getNumberOfItemsInSection() - 1
+    }
+}
+
+// MARK: Visibility
+extension SettingsUIModel {
+
+    func isVisibleSeperatorRow(indexPath: IndexPath) -> Bool {
+        return indexPath.row != getSectionUIModel(section: indexPath.section).numberOfRows() - 1
+    }
 }
