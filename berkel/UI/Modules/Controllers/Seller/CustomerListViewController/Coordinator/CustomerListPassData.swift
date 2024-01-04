@@ -8,5 +8,5 @@
 import Foundation
 
 struct CustomerListPassData: ICoordinatorPassData {
-
+    var isCancellableCellTabbed: Bool = false
 }

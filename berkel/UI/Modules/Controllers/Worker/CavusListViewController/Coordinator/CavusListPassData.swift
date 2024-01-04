@@ -8,5 +8,5 @@
 import Foundation
 
 struct CavusListPassData: ICoordinatorPassData {
-
+    var isCancellableCellTabbed: Bool = false
 }

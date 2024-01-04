@@ -43,27 +43,16 @@ final class SettingsViewController: MainBaseViewController {
         self.initTableView()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-
-    }
-
     override func registerEvents() {
 
     }
 
     private func observeReactiveDatas() {
         observeViewState()
-        observeActionState()
         listenErrorState()
     }
 
     private func observeViewState() {
-
-    }
-
-    private func observeActionState() {
         viewModel.viewState.sink(receiveValue: { [weak self] states in
             guard let self = self, let states = states else { return }
 

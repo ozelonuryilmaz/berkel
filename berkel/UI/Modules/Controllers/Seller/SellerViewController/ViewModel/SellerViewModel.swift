@@ -168,6 +168,7 @@ extension SellerViewModel {
     func addPaymentTapped(uiModel: ISellerTableViewCellUIModel) {
         let passData = SellerPaymentPassData(sellerId: uiModel.sellerId,
                                              customerName: uiModel.customerName,
+                                             customerId: uiModel.customerId,
                                              productName: uiModel.productName)
         self.presentSellerPaymentViewController(passData: passData)
     }

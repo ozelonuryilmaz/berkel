@@ -11,6 +11,7 @@ protocol ICustomerListUIModel {
 
     var limit: Int { get }
     var isHaveBuildData: Bool { get }
+    var isCancellableCellTabbed: Bool { get }
 
     init(data: CustomerListPassData)
 
@@ -26,13 +27,14 @@ protocol ICustomerListUIModel {
 struct CustomerListUIModel: ICustomerListUIModel {
 
     // MARK: Definitions
+    let isCancellableCellTabbed: Bool
     var response: [CustomerModel] = []
     let limit = 20
     var isHaveBuildData: Bool = false
 
     // MARK: Initialize
     init(data: CustomerListPassData) {
-
+        self.isCancellableCellTabbed = data.isCancellableCellTabbed
     }
 
     // MARK: Computed Props

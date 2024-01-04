@@ -9,9 +9,9 @@ import UIKit
 
 protocol ICavusListUIModel {
 
-
     var limit: Int { get }
     var isHaveBuildData: Bool { get }
+    var isCancellableCellTabbed: Bool { get }
 
     init(data: CavusListPassData)
 
@@ -30,10 +30,11 @@ struct CavusListUIModel: ICavusListUIModel {
     var response: [CavusModel] = []
     let limit = 20
     var isHaveBuildData: Bool = false
+    let isCancellableCellTabbed: Bool
 
     // MARK: Initialize
     init(data: CavusListPassData) {
-
+        self.isCancellableCellTabbed = data.isCancellableCellTabbed
     }
 
     // MARK: Computed Props

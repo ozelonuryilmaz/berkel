@@ -48,6 +48,7 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
     
     func configureCellWith(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
+        self.visibilityButtons(isVisible: uiModel.isVisibleButtons)
 
         btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : uiModel.isActive ? .redColor : .orangeColor
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
@@ -56,7 +57,13 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
 
         lblDate.text = uiModel.date
-        lblFaturaNo.text = "Fatura No: \(uiModel.faturaNo)"
-        lblTotalPrice.text = "\(uiModel.totalKg) Kg, \(uiModel.totalPrice) TL"
+        lblFaturaNo.text = uiModel.chartTotalKg == nil ? "Fatura No: \(uiModel.faturaNo)" : uiModel.chartTotalKg ?? ""
+        lblTotalPrice.text = uiModel.chartTotalPrice == nil ? "\(uiModel.totalKg) Kg, \(uiModel.totalPrice) TL" : uiModel.chartTotalPrice ?? ""
+    }
+    
+    private func visibilityButtons(isVisible: Bool) {
+        constraintViewButtonsHeight.constant = isVisible ? 52 : 0
+        constraintViewButtonsHeight.priority = isVisible ? .defaultHigh : .required
+        viewButtons.isHidden = !isVisible
     }
 }

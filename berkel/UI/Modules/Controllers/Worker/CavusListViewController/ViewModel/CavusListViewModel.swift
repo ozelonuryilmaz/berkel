@@ -104,7 +104,7 @@ internal extension CavusListViewModel {
     func viewStateUpdateSnapshot(data: [CavusModel]) {
         viewState.value = .updateSnapshot(data: data)
     }
-    
+
     func viewStateOutputDelegate(workerModel: WorkerModel) {
         self.viewState.value = .outputDelegate(workerModel: workerModel)
     }
@@ -122,7 +122,7 @@ internal extension CavusListViewModel {
         self.coordinator.presentNewWorkerViewController(passData: NewWorkerPassData(cavusId: cavusId, cavusName: cavusName),
                                                         outputDelegate: self)
     }
-    
+
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
@@ -145,7 +145,9 @@ extension CavusListViewModel {
     }
 
     func cellTapped(uiModel: ICavusListTableViewCellUIModel) {
-        self.presentNewWorkerViewController(cavusId: uiModel.id ?? "", cavusName: uiModel.name)
+        if !self.uiModel.isCancellableCellTabbed {
+            self.presentNewWorkerViewController(cavusId: uiModel.id ?? "", cavusName: uiModel.name)
+        }
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
@@ -157,7 +159,7 @@ extension CavusListViewModel {
 
 // MARK: NewWorkerViewControllerOutputDelegate
 extension CavusListViewModel {
-    
+
     func newWorkerData(_ data: WorkerModel) {
         self.viewStateOutputDelegate(workerModel: data)
         self.popToRootViewController(animated: true)

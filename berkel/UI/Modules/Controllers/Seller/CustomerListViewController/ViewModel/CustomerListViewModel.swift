@@ -151,7 +151,9 @@ extension CustomerListViewModel {
     }
 
     func cellTapped(uiModel: ICustomerListTableViewCellUIModel) {
-        self.presentNewSellerViewController(customerId: uiModel.id ?? "", customerName: uiModel.name)
+        if !self.uiModel.isCancellableCellTabbed {
+            self.presentNewSellerViewController(customerId: uiModel.id ?? "", customerName: uiModel.name)
+        }
     }
     
     func archiveTapped(customerId: String) {

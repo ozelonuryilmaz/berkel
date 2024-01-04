@@ -9,11 +9,14 @@ import Foundation
 import Combine
 import FirebaseAuth
 
-protocol ISettingsViewModel: SettingsItemCellOutputDelegate {
+protocol ISettingsViewModel: SettingsItemCellOutputDelegate,
+    AddBuyingItemViewControllerOutputDelegate,
+    NewWorkerViewControllerOutputDelegate,
+    NewSellerViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<SettingsViewState> { get }
     var errorState: ErrorStateSubject { get }
-    
+
     var season: String { get }
 
     init(repository: ISettingsRepository,
@@ -74,7 +77,7 @@ internal extension SettingsViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateStartFlowSplash() {
         viewState.value = .startFlowSplash
     }
@@ -119,19 +122,23 @@ extension SettingsViewModel {
         let cellType = uiModel.cellType
         switch cellType {
         case .saticiList:
-            break
+            self.pushAddBuyinItemViewController()
         case .cavusList:
-            break
+            self.pushCavusListViewController()
         case .musteriList:
-            break
+            self.pushCustomerListViewController()
         case .alisGelirGiderCizergesi:
             break
         case .isciGelirGiderCizergesi:
             break
         case .satisGelirGiderCizergesi:
-            break
+            self.pushSellerChartsViewController()
         case .sezonlar:
-            break
+            self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
+                if isSelected {
+                    self.viewStateStartFlowSplash()
+                }
+            })
         case .cikisYap:
             self.logOut()
         }
@@ -141,6 +148,35 @@ extension SettingsViewModel {
 // MARK: Coordinate
 internal extension SettingsViewModel {
 
+    func pushAddBuyinItemViewController() {
+        self.coordinator.pushAddBuyinItemViewController(passData: AddBuyingItemPassData(isCancellableCellTabbed: true),
+                                                        outputDelegate: self)
+    }
+
+    func pushCavusListViewController() {
+        self.coordinator.pushCavusListViewController(passData: CavusListPassData(isCancellableCellTabbed: true),
+                                                     outputDelegate: self)
+    }
+
+    func pushCustomerListViewController() {
+        self.coordinator.pushCustomerListViewController(passData: CustomerListPassData(isCancellableCellTabbed: true),
+                                                        outputDelegate: self)
+    }
+
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+        self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
+    }
+
+    func pushSellerChartsViewController() {
+        self.coordinator.pushSellerChartsViewController(passData: SellerChartsPassData())
+    }
+}
+
+// MARK: AddBuyingItemViewControllerOutputDelegate, NewWorkerViewControllerOutputDelegate, NewSellerViewControllerOutputDelegate
+internal extension SettingsViewModel {
+    func newAddBuyingData(_ data: NewBuyingModel) { }
+    func newWorkerData(_ data: WorkerModel) { }
+    func newSellerData(_ data: SellerModel) { }
 }
 
 enum SettingsViewState {

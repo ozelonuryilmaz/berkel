@@ -10,7 +10,7 @@ import UIKit
 protocol ISettingsUIModel {
 
     var season: String { get }
-    
+
     init()
 
     func getNumberOfItemsInSection() -> Int
@@ -31,7 +31,7 @@ struct SettingsUIModel: ISettingsUIModel {
     init() {
         self.syncronizedSectionUIModels()
     }
-    
+
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
@@ -70,7 +70,7 @@ extension SettingsUIModel {
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .musteriList)))
         return tempArray
     }
-    
+
     // Gelir Gider Çizelgesi
     func generateGelirGiderCizelgesiRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
@@ -79,14 +79,14 @@ extension SettingsUIModel {
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .satisGelirGiderCizergesi)))
         return tempArray
     }
-    
+
     // Ayarlar
     func generateAyarlarRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
         return tempArray
     }
-    
+
     // Ayarlar
     func generateHesapRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
@@ -113,7 +113,6 @@ extension SettingsUIModel {
     func getItemCellUIModel(indexPath: IndexPath) -> ISettingsRowModel {
         return getSectionUIModel(section: indexPath.section).getItemCellUIModel(index: indexPath.row)
     }
-
 
     func isLastSection(section: Int) -> Bool {
         return section == getNumberOfItemsInSection() - 1

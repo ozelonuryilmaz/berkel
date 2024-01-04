@@ -9,4 +9,5 @@ import Foundation
 
 struct AddBuyingItemPassData: ICoordinatorPassData {
 
+    var isCancellableCellTabbed: Bool = false
 }

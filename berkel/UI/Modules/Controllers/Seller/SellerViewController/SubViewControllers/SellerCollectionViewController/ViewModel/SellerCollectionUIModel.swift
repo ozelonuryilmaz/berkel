@@ -44,6 +44,7 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
     // MARK: Definitions
     let sellerId: String?
     let customerName: String
+    let customerId: String?
     let productName: String
     
     var sellerCollectionModel: SellerCollectionModel? = nil
@@ -52,6 +53,7 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
     init(data: SellerCollectionPassData) {
         self.sellerId = data.sellerModel.id
         self.customerName = data.sellerModel.customerName
+        self.customerId = data.sellerModel.customerId
         self.productName = data.sellerModel.productName
         self.price = data.sellerModel.kgPrice
         self.kdv = data.sellerModel.kdv
@@ -139,6 +141,8 @@ extension SellerCollectionUIModel {
 
     var data: SellerCollectionModel {
         return SellerCollectionModel(userId: userId,
+                                     customerId: customerId,
+                                     customerName: customerName,
                                      isCalc: false,
                                      date: date,
                                      price: price,

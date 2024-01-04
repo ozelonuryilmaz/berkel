@@ -248,6 +248,14 @@
 		678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539B2AA2662F003F4355 /* Window+Extensions.swift */; };
 		678B539E2AA266FE003F4355 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539D2AA266FE003F4355 /* AppCoordinator.swift */; };
 		678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */; };
+		678BACDC2B2A2D5000EF7050 /* SellerChartsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD42B2A2D5000EF7050 /* SellerChartsCoordinator.swift */; };
+		678BACDD2B2A2D5000EF7050 /* SellerChartsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD52B2A2D5000EF7050 /* SellerChartsUIModel.swift */; };
+		678BACDE2B2A2D5000EF7050 /* SellerChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD62B2A2D5000EF7050 /* SellerChartsViewController.swift */; };
+		678BACDF2B2A2D5000EF7050 /* SellerChartsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD72B2A2D5000EF7050 /* SellerChartsRepository.swift */; };
+		678BACE02B2A2D5000EF7050 /* SellerChartsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD82B2A2D5000EF7050 /* SellerChartsBuilder.swift */; };
+		678BACE12B2A2D5000EF7050 /* SellerChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD92B2A2D5000EF7050 /* SellerChartsViewModel.swift */; };
+		678BACE22B2A2D5000EF7050 /* SellerChartsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACDA2B2A2D5000EF7050 /* SellerChartsPassData.swift */; };
+		678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678BACDB2B2A2D5000EF7050 /* SellerChartsViewController.xib */; };
 		678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */; };
 		678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */; };
 		678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */; };
@@ -733,6 +741,14 @@
 		678B539B2AA2662F003F4355 /* Window+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Window+Extensions.swift"; sourceTree = "<group>"; };
 		678B539D2AA266FE003F4355 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		678B539F2AA268E5003F4355 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		678BACD42B2A2D5000EF7050 /* SellerChartsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsCoordinator.swift; sourceTree = "<group>"; };
+		678BACD52B2A2D5000EF7050 /* SellerChartsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsUIModel.swift; sourceTree = "<group>"; };
+		678BACD62B2A2D5000EF7050 /* SellerChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsViewController.swift; sourceTree = "<group>"; };
+		678BACD72B2A2D5000EF7050 /* SellerChartsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsRepository.swift; sourceTree = "<group>"; };
+		678BACD82B2A2D5000EF7050 /* SellerChartsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsBuilder.swift; sourceTree = "<group>"; };
+		678BACD92B2A2D5000EF7050 /* SellerChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsViewModel.swift; sourceTree = "<group>"; };
+		678BACDA2B2A2D5000EF7050 /* SellerChartsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsPassData.swift; sourceTree = "<group>"; };
+		678BACDB2B2A2D5000EF7050 /* SellerChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerChartsViewController.xib; sourceTree = "<group>"; };
 		678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDiffableTableView.swift; sourceTree = "<group>"; };
 		678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingRowModel.swift; sourceTree = "<group>"; };
 		678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingSection.swift; sourceTree = "<group>"; };
@@ -2168,6 +2184,7 @@
 				677E679B2AA3524D001775E2 /* SettingsViewController */,
 				6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */,
 				675984152B08DF2800F0DAD0 /* ProductListViewController */,
+				678BACCD2B2A2D1A00EF7050 /* Charts */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2575,6 +2592,69 @@
 				678B53952AA263AF003F4355 /* Toast.swift */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		678BACCD2B2A2D1A00EF7050 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				678BACCE2B2A2D2200EF7050 /* SellerChartsViewController */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		678BACCE2B2A2D2200EF7050 /* SellerChartsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD32B2A2D3D00EF7050 /* Builder */,
+				678BACD22B2A2D3900EF7050 /* Coordinator */,
+				678BACD12B2A2D3500EF7050 /* Repository */,
+				678BACD02B2A2D3100EF7050 /* ViewModel */,
+				678BACCF2B2A2D2D00EF7050 /* ViewController */,
+			);
+			path = SellerChartsViewController;
+			sourceTree = "<group>";
+		};
+		678BACCF2B2A2D2D00EF7050 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD62B2A2D5000EF7050 /* SellerChartsViewController.swift */,
+				678BACDB2B2A2D5000EF7050 /* SellerChartsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		678BACD02B2A2D3100EF7050 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD92B2A2D5000EF7050 /* SellerChartsViewModel.swift */,
+				678BACD52B2A2D5000EF7050 /* SellerChartsUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		678BACD12B2A2D3500EF7050 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD72B2A2D5000EF7050 /* SellerChartsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		678BACD22B2A2D3900EF7050 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD42B2A2D5000EF7050 /* SellerChartsCoordinator.swift */,
+				678BACDA2B2A2D5000EF7050 /* SellerChartsPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		678BACD32B2A2D3D00EF7050 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				678BACD82B2A2D5000EF7050 /* SellerChartsBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		678DDFF32AC7455500AA8D46 /* DataSource */ = {
@@ -4210,6 +4290,7 @@
 				6774FB1B2AE6DFC900F1F692 /* NewSellerImageViewController.xib in Resources */,
 				67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */,
 				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
+				678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				67B903F02AA928E4005A980C /* GoogleService-Info.plist in Resources */,
 				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
@@ -4285,6 +4366,7 @@
 				675984342B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift in Sources */,
 				67C1EC5A2AFFC128005DDA22 /* WorkerDetailPaymentTableViewCellUIModel.swift in Sources */,
 				675984312B08ECF500F0DAD0 /* ProductListTableViewCell.swift in Sources */,
+				678BACDF2B2A2D5000EF7050 /* SellerChartsRepository.swift in Sources */,
 				6797C49C2AC1ECD30049C8F7 /* SeasonsUIModel.swift in Sources */,
 				6730ED692B1CA96200111826 /* SellerDetailPaymentTableViewCellUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
@@ -4398,9 +4480,11 @@
 				675984252B08E1F400F0DAD0 /* ProductListPassData.swift in Sources */,
 				67BE9D4F2AF66A6200D07DA7 /* WorkerDetailUIModel.swift in Sources */,
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
+				678BACE22B2A2D5000EF7050 /* SellerChartsPassData.swift in Sources */,
 				675984212B08E1F400F0DAD0 /* ProductListViewController.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
+				678BACDE2B2A2D5000EF7050 /* SellerChartsViewController.swift in Sources */,
 				67DDE8742B0E5F6700E24949 /* NewSellerViewModel.swift in Sources */,
 				6780BDAF2AF4053A007B131C /* CavusListRowModel.swift in Sources */,
 				67B6CF8E2B25EA8400E066D6 /* SettingsSectionUIModel.swift in Sources */,
@@ -4447,6 +4531,7 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67BE9D692AF66B1000D07DA7 /* WorkerCollectionPassData.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
+				678BACE02B2A2D5000EF7050 /* SellerChartsBuilder.swift in Sources */,
 				67C0195F2B1109EA0094D023 /* SellerCollectionViewController.swift in Sources */,
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
@@ -4603,6 +4688,7 @@
 				6718843E2AF16ABE00D76672 /* NewWorkerViewModel.swift in Sources */,
 				67FC97282ADEE94A00FC53AE /* WarehoseModel.swift in Sources */,
 				674706012B0A7D61006F1639 /* NewCustomerPassData.swift in Sources */,
+				678BACE12B2A2D5000EF7050 /* SellerChartsViewModel.swift in Sources */,
 				67B98CF22ADBE74500CD4B15 /* BuyingDetailCoordinator.swift in Sources */,
 				677E67B62AA353EA001775E2 /* WorkerCoordinator.swift in Sources */,
 				674705E62B0A7A1C006F1639 /* CustomerListCoordinator.swift in Sources */,
@@ -4667,6 +4753,7 @@
 				671884472AF1769D00D76672 /* CavusModel.swift in Sources */,
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
 				6759842D2B08EB8400F0DAD0 /* ProductListModel.swift in Sources */,
+				678BACDD2B2A2D5000EF7050 /* SellerChartsUIModel.swift in Sources */,
 				67BE9D672AF66B1000D07DA7 /* WorkerCollectionBuilder.swift in Sources */,
 				6774FB0A2AE6D86A00F1F692 /* SellerImageModel.swift in Sources */,
 				677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */,
@@ -4675,6 +4762,7 @@
 				67B98CF82ADBE74500CD4B15 /* BuyingDetailPassData.swift in Sources */,
 				672398112AEACFD1001538C1 /* ArchiveDetailCoordinator.swift in Sources */,
 				672398162AEACFD1001538C1 /* ArchiveDetailViewModel.swift in Sources */,
+				678BACDC2B2A2D5000EF7050 /* SellerChartsCoordinator.swift in Sources */,
 				672398152AEACFD1001538C1 /* ArchiveDetailBuilder.swift in Sources */,
 				6730ED7B2B1CB9D700111826 /* SellerDetailCollectionDataSourceFactory.swift in Sources */,
 				672398132AEACFD1001538C1 /* ArchiveDetailViewController.swift in Sources */,

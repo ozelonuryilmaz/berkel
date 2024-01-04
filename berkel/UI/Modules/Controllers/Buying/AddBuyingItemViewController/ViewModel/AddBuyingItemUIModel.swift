@@ -12,6 +12,7 @@ protocol IAddBuyingItemUIModel {
 
     var limit: Int { get }
     var isHaveBuildData: Bool { get }
+    var isCancellableCellTabbed: Bool { get }
 
     init(data: AddBuyingItemPassData)
 
@@ -30,10 +31,11 @@ struct AddBuyingItemUIModel: IAddBuyingItemUIModel {
     var response: [AddBuyingItemResponseModel] = []
     let limit = 20
     var isHaveBuildData: Bool = false
+    let isCancellableCellTabbed: Bool
 
     // MARK: Initialize
     init(data: AddBuyingItemPassData) {
-
+        self.isCancellableCellTabbed = data.isCancellableCellTabbed
     }
 
     // MARK: Computed Props

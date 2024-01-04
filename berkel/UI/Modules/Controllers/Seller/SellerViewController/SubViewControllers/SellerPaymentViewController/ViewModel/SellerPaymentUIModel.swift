@@ -29,12 +29,14 @@ struct SellerPaymentUIModel: ISellerPaymentUIModel {
     // MARK: Definitions
     let sellerId: String
     let customerName: String
+    let customerId: String?
     let productName: String
 
     // MARK: Initialize
     init(data: SellerPaymentPassData) {
         self.sellerId = data.sellerId
         self.customerName = data.customerName
+        self.customerId = data.customerId
         self.productName = data.productName
     }
 
@@ -54,6 +56,8 @@ struct SellerPaymentUIModel: ISellerPaymentUIModel {
         return SellerPaymentModel(
             id: nil,
             userId: userId,
+            customerId: customerId,
+            customerName: customerName,
             date: date,
             payment: payment,
             description: desc

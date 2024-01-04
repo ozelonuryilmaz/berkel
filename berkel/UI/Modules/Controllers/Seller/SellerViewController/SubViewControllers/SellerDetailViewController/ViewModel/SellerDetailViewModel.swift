@@ -245,8 +245,9 @@ internal extension SellerDetailViewModel {
 internal extension SellerDetailViewModel {
 
     func cellTapped(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
+        guard let sellerModel = uiModel.sellerModel else { return }
         self.presentSellerCollectionViewController(passData:
-            SellerCollectionPassData(sellerModel: uiModel.sellerModel,
+            SellerCollectionPassData(sellerModel: sellerModel,
                                      sellerCollectionModel: uiModel.sellerCollectionModel)
         )
     }

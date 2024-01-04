@@ -55,7 +55,7 @@ private extension SectionTitleView {
         labelTitle.snp.makeConstraints { maker in
             maker.top.equalToSuperview().offset(24)
             maker.bottom.equalToSuperview().inset(8)
-            maker.leading.trailing.equalToSuperview().offset(16)
+            maker.leading.trailing.equalToSuperview().offset(32)
         }
     }
 }

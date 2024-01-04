@@ -9,8 +9,8 @@ import Foundation
 
 protocol ISellerDetailCollectionTableViewCellUIModel {
 
-    var sellerModel: SellerModel { get }
-    var sellerCollectionModel: SellerCollectionModel { get }
+    var sellerModel: SellerModel? { get }
+    var sellerCollectionModel: SellerCollectionModel? { get }
     
     var sellerId: String? { get }
     var collectionId: String? { get }
@@ -21,12 +21,16 @@ protocol ISellerDetailCollectionTableViewCellUIModel {
     var faturaNo: String { get }
     var totalKg: String { get }
     var totalPrice: String { get }
+    
+    var isVisibleButtons: Bool { get }
+    var chartTotalKg: String? { get }
+    var chartTotalPrice: String? { get }
 }
 
 struct SellerDetailCollectionTableViewCellUIModel: ISellerDetailCollectionTableViewCellUIModel {
 
-    let sellerModel: SellerModel
-    let sellerCollectionModel: SellerCollectionModel
+    let sellerModel: SellerModel?
+    let sellerCollectionModel: SellerCollectionModel?
     
     let sellerId: String?
     let collectionId: String?
@@ -38,4 +42,8 @@ struct SellerDetailCollectionTableViewCellUIModel: ISellerDetailCollectionTableV
     let totalKg: String
     let totalPrice: String
 
+    // Seller Charts için eklendi
+    let isVisibleButtons: Bool
+    let chartTotalKg: String?
+    let chartTotalPrice: String?
 }

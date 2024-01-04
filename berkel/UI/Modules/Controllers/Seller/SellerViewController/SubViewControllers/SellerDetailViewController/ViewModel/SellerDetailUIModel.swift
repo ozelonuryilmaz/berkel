@@ -82,7 +82,7 @@ struct SellerDetailUIModel: ISellerDetailUIModel {
         for c in _collections {
             totalPrice += self.getTotalPrice(data: c)
         }
-        
+
         return "Toplam: \(totalKG.decimalString()) Kg, \(totalPrice.decimalString()) TL"
     }
 
@@ -94,7 +94,7 @@ struct SellerDetailUIModel: ISellerDetailUIModel {
             totalPrice += self.getTotalPrice(data: c)
         }
         let waitingPrice = totalPrice - payments
-        
+
         return "\(payments.decimalString()) TL Tahsilat, \(waitingPrice.decimalString()) TL Bekliyor"
     }
 
@@ -168,7 +168,10 @@ extension SellerDetailUIModel {
                                                            date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
                                                            faturaNo: responseModel.faturaNo,
                                                            totalKg: "\(responseModel.daraliKg - responseModel.dara)",
-                                                           totalPrice: self.getTotalPrice(data: responseModel).decimalString())
+                                                           totalPrice: self.getTotalPrice(data: responseModel).decimalString(),
+                                                           isVisibleButtons: true,
+                                                           chartTotalKg: nil,
+                                                           chartTotalPrice: nil)
             )
         }
         return rowModels

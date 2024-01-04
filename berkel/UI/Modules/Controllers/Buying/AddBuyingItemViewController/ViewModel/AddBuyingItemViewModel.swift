@@ -161,8 +161,10 @@ extension AddBuyingItemViewModel {
     }
 
     func cellTapped(uiModel: IAddBuyingItemTableViewCellUIModel) {
-        let data = AddBuyingItemResponseModel(id: uiModel.id, name: uiModel.name, tckn: uiModel.tc, phoneNumber: uiModel.phoneNumber, description: uiModel.desc, date: uiModel.date)
-        self.presentNewBuyingViewController(data: data)
+        if !self.uiModel.isCancellableCellTabbed {
+            let data = AddBuyingItemResponseModel(id: uiModel.id, name: uiModel.name, tckn: uiModel.tc, phoneNumber: uiModel.phoneNumber, description: uiModel.desc, date: uiModel.date)
+            self.presentNewBuyingViewController(data: data)
+        }
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
