@@ -27,6 +27,9 @@ protocol IWorkerDetailViewModel: WorkerDetailCollectionDataSourceFactoryOutputDe
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateWorkerActive(completion: @escaping () -> Void)
+    
+    // Coordinate
+    func presentNewSellerImageViewController(imagePathType: ImagePathType)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -212,6 +215,15 @@ internal extension WorkerDetailViewModel {
 
     func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
         self.coordinator.presentWorkerCollectionViewController(passData: passData)
+    }
+    
+    func presentNewSellerImageViewController(imagePathType: ImagePathType) {
+        let data = NewSellerImagePassData(imagePageType: .worker(cavusId: self.uiModel.cavusId,
+                                                                 workerId: self.uiModel.workerId,
+                                                                 workerProductName: ""),
+                                          imagePathType: imagePathType)
+
+        self.coordinator.presentNewSellerImageViewController(passData: data)
     }
 }
 

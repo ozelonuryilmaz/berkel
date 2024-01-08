@@ -25,6 +25,12 @@ final class WorkerDetailViewController: MainBaseViewController {
     @IBOutlet private weak var segmentedController: UISegmentedControl!
     @IBOutlet private weak var tableViewWorkerDetail: WorkerDetailCollectionDiffableTableView!
     @IBOutlet private weak var tableViewPayment: UITableView!
+    @IBOutlet private weak var viewImage: UIView!
+
+    @IBOutlet private weak var btnKantarFisi: UIButton!
+    @IBOutlet private weak var btnCek: UIButton!
+    @IBOutlet private weak var btnDekont: UIButton!
+    @IBOutlet private weak var btnDiger: UIButton!
 
     // MARK: Inject
     private let viewModel: IWorkerDetailViewModel
@@ -64,11 +70,28 @@ final class WorkerDetailViewController: MainBaseViewController {
 
     override func registerEvents() {
         segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        
+        btnKantarFisi.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .kantarFisi)
+        }
+
+        btnCek.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .cek)
+        }
+
+        btnDekont.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .dekont)
+        }
+
+        btnDiger.onTap { [unowned self] _ in
+            self.viewModel.presentNewSellerImageViewController(imagePathType: .diger)
+        }
     }
 
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableViewWorkerDetail.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
+        self.viewImage.isHidden = sender.selectedSegmentIndex == 1 || sender.selectedSegmentIndex == 0
     }
 
     private func observeReactiveDatas() {
@@ -86,6 +109,10 @@ final class WorkerDetailViewController: MainBaseViewController {
 
             case .showWorkerActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
+                self.btnKantarFisi.isHidden = false
+                self.btnCek.isHidden = false
+                self.btnDekont.isHidden = false
+                self.btnDiger.isHidden = false
 
             case .setNavigationTitle(let title):
                 self.navigationItem.title = title
@@ -138,6 +165,10 @@ final class WorkerDetailViewController: MainBaseViewController {
                         guard let self = self else { return }
                         self.outputDelegate?.closeButtonTapped(workerId: self.viewModel.workerId, isActive: false)
                         self.navigationItem.rightBarButtonItems = []
+                        self.btnKantarFisi.isHidden = true
+                        self.btnCek.isHidden = true
+                        self.btnDekont.isHidden = true
+                        self.btnDiger.isHidden = true
                     })
                 },
                 negativeButtonText: "İptal"

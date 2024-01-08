@@ -10,6 +10,7 @@ import UIKit
 protocol CavusListDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: ICavusListTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(cavusId: String)
     func scrollDidScroll(isAvailablePagination: Bool)
 }
 
@@ -49,6 +50,10 @@ extension CavusListDataSourceFactory: CavusListTableViewCellOutputDelegate {
 
     func cellTapped(uiModel: ICavusListTableViewCellUIModel) {
         self.outputDelegate?.cellTapped(uiModel: uiModel)
+    }
+    
+    func archiveTapped(cavusId: String) {
+        self.outputDelegate?.archiveTapped(cavusId: cavusId)
     }
 }
 

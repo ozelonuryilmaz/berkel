@@ -122,6 +122,14 @@ internal extension CavusListViewModel {
         self.coordinator.presentNewWorkerViewController(passData: NewWorkerPassData(cavusId: cavusId, cavusName: cavusName),
                                                         outputDelegate: self)
     }
+    
+    func pushArchiveListViewController(cavusId: String) {
+        // MARK: workerId kullanılmıyor
+        let data = ArchiveListPassData(imagePageType: .worker(cavusId: cavusId,
+                                                              workerId: "",
+                                                              workerProductName: ""))
+        self.coordinator.pushArchiveListViewController(passData: data)
+    }
 
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
@@ -148,6 +156,10 @@ extension CavusListViewModel {
         if !self.uiModel.isCancellableCellTabbed {
             self.presentNewWorkerViewController(cavusId: uiModel.id ?? "", cavusName: uiModel.name)
         }
+    }
+    
+    func archiveTapped(cavusId: String) {
+        self.pushArchiveListViewController(cavusId: cavusId)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {

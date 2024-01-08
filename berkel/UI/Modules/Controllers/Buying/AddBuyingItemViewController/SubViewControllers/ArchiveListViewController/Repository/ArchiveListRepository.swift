@@ -13,6 +13,8 @@ protocol IArchiveListRepository: AnyObject {
     func getArchiveList(season: String, sellerId: String, imagePathType: ImagePathType) -> FirestoreResponseType<[SellerImageModel]>
     
     func getArchiveList(season: String, customerId: String, imagePathType: ImagePathType) -> FirestoreResponseType<[CustomerImageModel]>
+    
+    func getArchiveList(season: String, cavusId: String, imagePathType: ImagePathType) -> FirestoreResponseType<[WorkerImageModel]>
 }
 
 final class ArchiveListRepository: BaseRepository, IArchiveListRepository {
@@ -24,6 +26,11 @@ final class ArchiveListRepository: BaseRepository, IArchiveListRepository {
     
     func getArchiveList(season: String, customerId: String, imagePathType: ImagePathType) -> FirestoreResponseType<[CustomerImageModel]> {
         let db = SellerImageService.sellerImage(customerId: customerId, season: season, imagePathType: imagePathType)
+        return getDocuments(db, order: db.order)
+    }
+    
+    func getArchiveList(season: String, cavusId: String, imagePathType: ImagePathType) -> FirestoreResponseType<[WorkerImageModel]> {
+        let db = SellerImageService.workerImage(cavusId: cavusId, season: season, imagePathType: imagePathType)
         return getDocuments(db, order: db.order)
     }
 }

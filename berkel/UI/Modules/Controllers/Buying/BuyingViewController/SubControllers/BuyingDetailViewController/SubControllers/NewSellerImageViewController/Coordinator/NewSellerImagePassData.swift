@@ -9,7 +9,15 @@ import Foundation
 
 enum ImagePageType {
     case buying(sellerId: String, buyingId: String, buyingProductName: String)
+    case worker(cavusId: String, workerId: String, workerProductName: String)
     case seller(customerId: String, sellerId: String, sellerProductName: String)
+}
+
+enum ImagePathType: String {
+    case kantarFisi = "kantarFisi"
+    case cek = "cek"
+    case dekont = "dekont"
+    case diger = "diger"
 }
 
 struct NewSellerImagePassData: ICoordinatorPassData {

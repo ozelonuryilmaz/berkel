@@ -47,6 +47,7 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
     let responseImageUrl = CurrentValueSubject<String?, Never>(nil)
     let responseSellerImage = CurrentValueSubject<SellerImageModel?, Never>(nil)
     let responseCustomerImage = CurrentValueSubject<CustomerImageModel?, Never>(nil)
+    let responseWorkerImage = CurrentValueSubject<WorkerImageModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewSellerImageRepository,
@@ -105,6 +106,18 @@ internal extension NewSellerImageViewModel {
                                                   imageUrl: imageUrl)
 
                     self.saveSellerImageData(data: data)
+                    
+                case .worker(let cavusId, let workerId, let workerProductName):
+                    let data = WorkerImageModel(cavusId: cavusId,
+                                                userId: self.uiModel.userId,
+                                                workerId: workerId,
+                                                workerProductName: workerProductName,
+                                                date: self.uiModel.date,
+                                                description: self.uiModel.desc,
+                                                imageUrl: imageUrl)
+
+                    self.saveSellerImageData(data: data)
+                    
                 }
 
             })
@@ -134,6 +147,23 @@ internal extension NewSellerImageViewModel {
                                                      imagePathType: self.uiModel.imagePathType,
                                                      data: data),
             response: self.responseCustomerImage,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowSuccessAlertMessage()
+            })
+    }
+    
+    private func saveSellerImageData(data: WorkerImageModel) {
+        handleResourceFirestore(
+            request: self.repository.saveSellerImage(cavusId: data.cavusId,
+                                                     season: self.uiModel.season,
+                                                     imagePathType: self.uiModel.imagePathType,
+                                                     data: data),
+            response: self.responseWorkerImage,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }

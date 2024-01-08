@@ -39,6 +39,7 @@ final class ArchiveListViewModel: BaseViewModel, IArchiveListViewModel {
     var errorState = ErrorStateSubject(nil)
     let responseArchive = CurrentValueSubject<[SellerImageModel]?, Never>(nil)
     let responseCustomerArchive = CurrentValueSubject<[CustomerImageModel]?, Never>(nil)
+    let responseWorkerArchive = CurrentValueSubject<[WorkerImageModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IArchiveListRepository,
@@ -94,6 +95,8 @@ internal extension ArchiveListViewModel {
             self.getBuyingArchives(sellerId: sellerId, imagePathType: imagePathType)
         case .seller(let customerId, _,_):
             self.getSellerArchives(customerId: customerId, imagePathType: imagePathType)
+        case .worker(let cavusId, _, _):
+            self.getWorkerArchives(cavusId: cavusId, imagePathType: imagePathType)
         }
     }
     
@@ -134,7 +137,25 @@ internal extension ArchiveListViewModel {
                 self.viewStateReloadTableView()
             })
     }
+    
+    private func getWorkerArchives(cavusId: String, imagePathType: ImagePathType){
+        handleResourceFirestore(
+            request: self.repository.getArchiveList(season: self.uiModel.season,
+                                                    cavusId: cavusId,
+                                                    imagePathType: imagePathType),
+            response: self.responseWorkerArchive,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseWorkerArchive.value else { return }
 
+                self.uiModel.setArchive(imagePathType: imagePathType, data: data)
+                self.viewStateReloadTableView()
+            })
+    }
 }
 
 // MARK: States

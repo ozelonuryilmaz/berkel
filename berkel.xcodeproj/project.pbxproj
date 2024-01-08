@@ -319,6 +319,7 @@
 		67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */; };
 		67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */; };
 		67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */; };
+		67A65E212B4C47E3003EACA0 /* WorkerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */; };
 		67B6CF872B25E63B00E066D6 /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6CF852B25E63B00E066D6 /* SettingsItemCell.swift */; };
 		67B6CF882B25E63B00E066D6 /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B6CF862B25E63B00E066D6 /* SettingsItemCell.xib */; };
 		67B6CF8A2B25E69F00E066D6 /* SettingsItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6CF892B25E69F00E066D6 /* SettingsItemCellUIModel.swift */; };
@@ -812,6 +813,7 @@
 		67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPassData.swift; sourceTree = "<group>"; };
 		67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerImageModel.swift; sourceTree = "<group>"; };
 		67B6CF852B25E63B00E066D6 /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
 		67B6CF862B25E63B00E066D6 /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		67B6CF892B25E69F00E066D6 /* SettingsItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCellUIModel.swift; sourceTree = "<group>"; };
@@ -2000,6 +2002,7 @@
 			children = (
 				6774FB092AE6D86A00F1F692 /* SellerImageModel.swift */,
 				678E0D2A2B1FB3E800C4FCC9 /* CustomerImageModel.swift */,
+				67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -4738,6 +4741,7 @@
 				67C019752B110B4C0094D023 /* SellerPaymentBuilder.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
 				67BE9D502AF66A6200D07DA7 /* WorkerDetailViewController.swift in Sources */,
+				67A65E212B4C47E3003EACA0 /* WorkerImageModel.swift in Sources */,
 				670B3C812ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift in Sources */,
 				67BE9D352AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift in Sources */,
 				674CC6C52ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift in Sources */,

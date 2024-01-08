@@ -10,6 +10,8 @@ import UIKit
 protocol IWorkerDetailCoordinator: AnyObject {
 
     func presentWorkerCollectionViewController(passData: WorkerCollectionPassData)
+    
+    func presentNewSellerImageViewController(passData: NewSellerImagePassData)
 }
 
 final class WorkerDetailCoordinator: NavigationCoordinator, IWorkerDetailCoordinator {
@@ -36,6 +38,12 @@ final class WorkerDetailCoordinator: NavigationCoordinator, IWorkerDetailCoordin
 
     func presentWorkerCollectionViewController(passData: WorkerCollectionPassData) {
         let controller = WorkerCollectionCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+    
+    func presentNewSellerImageViewController(passData: NewSellerImagePassData) {
+        let controller = NewSellerImageCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(passData: passData)
         coordinate(to: controller)
     }

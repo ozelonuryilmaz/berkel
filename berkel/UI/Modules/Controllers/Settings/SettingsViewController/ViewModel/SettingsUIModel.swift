@@ -87,7 +87,7 @@ extension SettingsUIModel {
         return tempArray
     }
 
-    // Ayarlar
+    // Hesap
     func generateHesapRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cikisYap)))

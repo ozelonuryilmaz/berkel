@@ -45,7 +45,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Ara"/>
                             </button>
-                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-FM-GcO" userLabel="btnBuy">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-FM-GcO" userLabel="btnBuy">
                                 <rect key="frame" x="15.999999999999993" y="100" width="127.33333333333331" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="jm3-HA-3HD"/>
@@ -97,6 +97,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnArshive" destination="W4F-FM-GcO" id="iV7-4R-hgn"/>
                 <outlet property="btnCall" destination="gfb-Ie-8L1" id="Ba5-uD-nkM"/>
                 <outlet property="lblDesc" destination="H8c-nr-AoK" id="v8C-vN-rN3"/>
                 <outlet property="lblName" destination="NbM-PX-lxz" id="tq8-kr-RYv"/>

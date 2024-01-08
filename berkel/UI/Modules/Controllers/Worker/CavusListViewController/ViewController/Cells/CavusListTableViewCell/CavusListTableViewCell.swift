@@ -10,6 +10,7 @@ import UIKit
 protocol CavusListTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: ICavusListTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
+    func archiveTapped(cavusId: String)
 }
 
 class CavusListTableViewCell: BaseTableViewCell {
@@ -20,7 +21,7 @@ class CavusListTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var lblName: UILabel!
     @IBOutlet private weak var lblDesc: UILabel!
     @IBOutlet private weak var btnCall: UIButton!
-
+    @IBOutlet private weak var btnArshive: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,10 @@ class CavusListTableViewCell: BaseTableViewCell {
 
         btnCall.onTap { [unowned self] _ in
             self.outputDelegate?.phoneNumberTapped(phoneNumber: uiModel.phoneNumber)
+        }
+        
+        btnArshive.onTap { [unowned self] _ in
+            self.outputDelegate?.archiveTapped(cavusId: uiModel.id ?? "")
         }
     }
 
