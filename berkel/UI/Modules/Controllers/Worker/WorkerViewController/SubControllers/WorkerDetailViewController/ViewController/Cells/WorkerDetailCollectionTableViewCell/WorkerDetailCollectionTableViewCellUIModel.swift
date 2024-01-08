@@ -9,7 +9,7 @@ import Foundation
 
 protocol IWorkerDetailCollectionTableViewCellUIModel {
 
-    var workerModel: WorkerModel { get }
+    var workerModel: WorkerModel? { get }
     
     var workerId: String? { get }
     var collectionId: String? { get }
@@ -22,11 +22,13 @@ protocol IWorkerDetailCollectionTableViewCellUIModel {
     var kesiciCount: Int { get }
     var ayakciCount: Int { get }
     var otherPrice: Double { get }
+    
+    var isCharts: Bool { get }
 }
 
 struct WorkerDetailCollectionTableViewCellUIModel: IWorkerDetailCollectionTableViewCellUIModel {
 
-    let workerModel: WorkerModel
+    let workerModel: WorkerModel?
     
     let workerId: String?
     let collectionId: String?
@@ -39,4 +41,7 @@ struct WorkerDetailCollectionTableViewCellUIModel: IWorkerDetailCollectionTableV
     let kesiciCount: Int
     let ayakciCount: Int
     let otherPrice: Double
+    
+    // WorkerChart için eklendi
+    let isCharts: Bool
 }

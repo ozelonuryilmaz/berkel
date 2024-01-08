@@ -243,11 +243,12 @@ internal extension WorkerDetailViewModel {
 internal extension WorkerDetailViewModel {
 
     func cellTapped(uiModel: IWorkerDetailCollectionTableViewCellUIModel) {
+        guard let workerModel = uiModel.workerModel else { return }
         self.presentWorkerCollectionViewController(passData: WorkerCollectionPassData(viewedData: false,
                                                                                       kesiciCount: uiModel.kesiciCount,
                                                                                       ayakciCount: uiModel.ayakciCount,
                                                                                       otherPrice: uiModel.otherPrice,
-                                                                                      workerModel: uiModel.workerModel))
+                                                                                      workerModel: workerModel))
     }
 
     func calcActivateTapped(id: String, date: String, isCalc: Bool) {

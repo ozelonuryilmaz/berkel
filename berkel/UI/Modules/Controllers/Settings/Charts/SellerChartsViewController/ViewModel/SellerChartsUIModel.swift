@@ -128,7 +128,7 @@ extension SellerChartsUIModel {
             let payments = self.sellerPaymentResponse.filter({ $0.customerId == key }).map({ $0.payment }).reduce(0, +)
             let waitingPrice = totalPrice - payments
 
-            let chartTotalKg = "Toplam: \(totalPrice) TL"
+            let chartTotalKg = "Toplam: \(totalPrice.decimalString()) TL"
             let chartTotalPrice = "\(payments.decimalString()) TL Tahsilat, \(waitingPrice.decimalString()) TL Bekliyor"
 
             let data = SellerDetailCollectionTableViewCellUIModel(sellerModel: nil,

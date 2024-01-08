@@ -1,50 +1,50 @@
 //
-//  SellerChartsViewModel.swift
+//  WorkerChartsViewModel.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 13.12.2023.
+//  Created by Onur Yilmaz on 8.01.2024.
 //
 
 import Foundation
 import Combine
 
-protocol ISellerChartsViewModel: SellerDetailCollectionDataSourceFactoryOutputDelegate {
+protocol IWorkerChartsViewModel: WorkerDetailCollectionDataSourceFactoryOutputDelegate {
 
-    var viewState: ScreenStateSubject<SellerChartsViewState> { get }
+    var viewState: ScreenStateSubject<WorkerChartsViewState> { get }
     var errorState: ErrorStateSubject { get }
-
+    
     var season: String { get }
 
-    init(repository: ISellerChartsRepository,
-         coordinator: ISellerChartsCoordinator,
-         uiModel: ISellerChartsUIModel)
-
+    init(repository: IWorkerChartsRepository,
+         coordinator: IWorkerChartsCoordinator,
+         uiModel: IWorkerChartsUIModel)
+    
     // Service
     func getList()
 }
 
-final class SellerChartsViewModel: BaseViewModel, ISellerChartsViewModel {
+final class WorkerChartsViewModel: BaseViewModel, IWorkerChartsViewModel {
 
     // MARK: Definitions
-    private let repository: ISellerChartsRepository
-    private let coordinator: ISellerChartsCoordinator
-    private var uiModel: ISellerChartsUIModel
+    private let repository: IWorkerChartsRepository
+    private let coordinator: IWorkerChartsCoordinator
+    private var uiModel: IWorkerChartsUIModel
 
     // MARK: Public Props
-    var viewState = ScreenStateSubject<SellerChartsViewState>(nil)
+    var viewState = ScreenStateSubject<WorkerChartsViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    let responseList = CurrentValueSubject<[SellerModel]?, Never>(nil)
-    let responsePayment = CurrentValueSubject<[SellerPaymentModel]?, Never>(nil)
-    let responseCollection = CurrentValueSubject<[SellerCollectionModel]?, Never>(nil)
-
+    let responseList = CurrentValueSubject<[WorkerModel]?, Never>(nil)
+    let responsePayment = CurrentValueSubject<[WorkerPaymentModel]?, Never>(nil)
+    let responseCollection = CurrentValueSubject<[WorkerCollectionModel]?, Never>(nil)
+    
     var season: String {
         return uiModel.season
     }
 
     // MARK: Initiliazer
-    required init(repository: ISellerChartsRepository,
-                  coordinator: ISellerChartsCoordinator,
-                  uiModel: ISellerChartsUIModel) {
+    required init(repository: IWorkerChartsRepository,
+                  coordinator: IWorkerChartsCoordinator,
+                  uiModel: IWorkerChartsUIModel) {
         self.repository = repository
         self.coordinator = coordinator
         self.uiModel = uiModel
@@ -63,7 +63,7 @@ final class SellerChartsViewModel: BaseViewModel, ISellerChartsViewModel {
 
 
 // MARK: Service
-internal extension SellerChartsViewModel {
+internal extension WorkerChartsViewModel {
 
     func getList() {
         viewStateShowNativeProgress(isProgress: true)
@@ -84,14 +84,14 @@ internal extension SellerChartsViewModel {
                 }
             })
     }
-
+    
     private func getSellerCollection(index: Int = 0) {
-        let sellerResponse = self.uiModel.sellerResponse
-        guard sellerResponse.count > index else { return }
+        let workerResponse = self.uiModel.workerResponse
+        guard workerResponse.count > index else { return }
 
         handleResourceFirestore(
             request: self.repository.getCollection(season: self.uiModel.season,
-                                                   sellerId: sellerResponse[index].id ?? "-1"),
+                                                   workerId: workerResponse[index].id ?? "-1"),
             response: self.responseCollection,
             errorState: self.errorState,
             callbackSuccess: { [weak self] in
@@ -100,7 +100,7 @@ internal extension SellerChartsViewModel {
                 self.uiModel.setCollectionResponse(data)
             }, callbackComplete: { [weak self] in
                 guard let self = self else { return }
-                if sellerResponse.count <= (index + 1) {
+                if workerResponse.count <= (index + 1) {
                     self.getSellerPayment()
                 } else {
                     DispatchQueue.delay(15) { [weak self] in
@@ -111,12 +111,12 @@ internal extension SellerChartsViewModel {
     }
 
     private func getSellerPayment(index: Int = 0) {
-        let sellerResponse = self.uiModel.sellerResponse
-        guard sellerResponse.count > index else { return }
+        let workerResponse = self.uiModel.workerResponse
+        guard workerResponse.count > index else { return }
 
         handleResourceFirestore(
             request: self.repository.getPayment(season: self.uiModel.season,
-                                                sellerId: sellerResponse[index].id ?? "-1"),
+                                                workerId: workerResponse[index].id ?? "-1"),
             response: self.responsePayment,
             errorState: self.errorState,
             callbackSuccess: { [weak self] in
@@ -125,7 +125,7 @@ internal extension SellerChartsViewModel {
                 self.uiModel.setPaymentResponse(data)
             }, callbackComplete: { [weak self] in
                 guard let self = self else { return }
-                if sellerResponse.count <= (index + 1) {
+                if workerResponse.count <= (index + 1) {
                     self.updateView()
                 } else {
                     DispatchQueue.delay(15) { [weak self] in
@@ -137,13 +137,13 @@ internal extension SellerChartsViewModel {
 }
 
 // MARK: States
-internal extension SellerChartsViewModel {
+internal extension WorkerChartsViewModel {
 
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-
+    
     func viewStateOldDoubt() {
         self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt())
     }
@@ -155,28 +155,23 @@ internal extension SellerChartsViewModel {
     func viewStateBuildCollectionSnapshot() {
         viewState.value = .buildCollectionSnapshot(snapshot: self.uiModel.buildCollectionSnapshot())
     }
+
 }
 
 // MARK: Coordinate
-internal extension SellerChartsViewModel {
+internal extension WorkerChartsViewModel {
 
 }
 
-// MARK: SellerDetailCollectionDataSourceFactoryOutputDelegate
-internal extension SellerChartsViewModel {
-
-    func cellTapped(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
-
-    }
-
-    func calcActivateTapped(id: String, date: String, isCalc: Bool) {
-
-    }
+// MARK: WorkerDetailCollectionDataSourceFactoryOutputDelegate
+internal extension WorkerChartsViewModel {
+    func cellTapped(uiModel: IWorkerDetailCollectionTableViewCellUIModel) { }
+    func calcActivateTapped(id: String, date: String, isCalc: Bool) { }
 }
 
-enum SellerChartsViewState {
+enum WorkerChartsViewState {
     case showNativeProgress(isProgress: Bool)
     case oldDoubt(text: String)
     case nowDoubt(text: String)
-    case buildCollectionSnapshot(snapshot: SellerDetailCollectionSnapshot)
+    case buildCollectionSnapshot(snapshot: WorkerDetailCollectionSnapshot)
 }

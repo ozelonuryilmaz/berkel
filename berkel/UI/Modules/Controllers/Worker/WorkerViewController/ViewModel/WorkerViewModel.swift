@@ -163,7 +163,9 @@ extension WorkerViewModel {
     }
 
     func addPaymentTapped(uiModel: IWorkerTableViewCellUIModel) {
-        let passData = WorkerPaymentPassData(workerId: uiModel.workerId, cavusName: uiModel.cavusName)
+        let passData = WorkerPaymentPassData(workerId: uiModel.workerId,
+                                             cavusName: uiModel.cavusName,
+                                             cavusId: uiModel.cavusId)
         self.presentWorkerPaymentViewController(passData: passData)
     }
 

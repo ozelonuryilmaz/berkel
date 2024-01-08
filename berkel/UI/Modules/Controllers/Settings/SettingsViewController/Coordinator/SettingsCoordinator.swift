@@ -17,10 +17,12 @@ protocol ISettingsCoordinator: AnyObject {
     func pushCustomerListViewController(passData: CustomerListPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
 
+    // Charts
+    func pushSellerChartsViewController(passData: SellerChartsPassData)
+    func pushWorkerChartsViewController(passData: WorkerChartsPassData)
+
     // Season
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
-    
-    func pushSellerChartsViewController(passData: SellerChartsPassData) 
 }
 
 final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
@@ -31,6 +33,8 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         let controller = SettingsBuilder.generate(coordinator: self)
         navigationController.viewControllers = [controller]
     }
+
+    // List
 
     func pushAddBuyinItemViewController(passData: AddBuyingItemPassData,
                                         outputDelegate: AddBuyingItemViewControllerOutputDelegate?) {
@@ -56,6 +60,22 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         coordinate(to: coordinator)
     }
 
+    // Charts
+
+    func pushSellerChartsViewController(passData: SellerChartsPassData) {
+        let coordinator = SellerChartsCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
+    func pushWorkerChartsViewController(passData: WorkerChartsPassData) {
+        let coordinator = WorkerChartsCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
+    // Season
+
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
         let coordinator = SeasonsCoordinator(presenterViewController: self.navigationController.lastViewController)
             .with(seasonDismissCallback: seasonDismissCallback)
@@ -63,11 +83,5 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         DispatchQueue.delay(25) { [unowned self] in
             self.coordinate(to: coordinator)
         }
-    }
-
-    func pushSellerChartsViewController(passData: SellerChartsPassData) {
-        let coordinator = SellerChartsCoordinator(navigationController: self.navigationController)
-            .with(passData: passData)
-        coordinate(to: coordinator)
     }
 }

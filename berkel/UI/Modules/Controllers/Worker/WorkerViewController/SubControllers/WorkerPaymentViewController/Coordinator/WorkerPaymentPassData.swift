@@ -11,4 +11,5 @@ struct WorkerPaymentPassData: ICoordinatorPassData {
 
     let workerId: String
     let cavusName: String
+    let cavusId: String?
 }

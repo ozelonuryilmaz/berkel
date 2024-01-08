@@ -164,7 +164,8 @@ extension WorkerDetailUIModel {
                 gardenOwner: responseModel.gardenOwner,
                 kesiciCount: responseModel.kesiciCount,
                 ayakciCount: responseModel.ayakciCount,
-                otherPrice: responseModel.otherPrice)
+                otherPrice: responseModel.otherPrice,
+                isCharts: false)
             )
         }
         return rowModels

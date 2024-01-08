@@ -28,11 +28,13 @@ struct WorkerPaymentUIModel: IWorkerPaymentUIModel {
     // MARK: Definitions
     let workerId: String
     let cavusName: String
+    let cavusId: String?
 
     // MARK: Initialize
     init(data: WorkerPaymentPassData) {
         self.workerId = data.workerId
         self.cavusName = data.cavusName
+        self.cavusId = data.cavusId
     }
 
     var date: String? = Date().dateFormatterApiResponseType()
@@ -51,6 +53,8 @@ struct WorkerPaymentUIModel: IWorkerPaymentUIModel {
         return WorkerPaymentModel(
             id: nil,
             userId: userId,
+            cavusId: cavusId,
+            cavusName: cavusName,
             date: date,
             payment: payment,
             description: desc

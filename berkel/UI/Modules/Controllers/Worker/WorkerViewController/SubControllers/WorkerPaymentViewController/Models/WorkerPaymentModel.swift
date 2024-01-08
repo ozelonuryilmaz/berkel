@@ -11,6 +11,8 @@ struct WorkerPaymentModel: Codable {
 
     var id: String?
     let userId: String?
+    let cavusId: String?
+    let cavusName: String?
     let date: String?
     let payment: Int
     let description: String?

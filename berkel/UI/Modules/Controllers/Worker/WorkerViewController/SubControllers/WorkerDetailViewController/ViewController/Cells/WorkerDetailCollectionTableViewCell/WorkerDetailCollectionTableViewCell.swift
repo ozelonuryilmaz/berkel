@@ -48,6 +48,7 @@ class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
     
     func configureCellWith(uiModel: IWorkerDetailCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
+        self.visibilityButtons(isVisible: !uiModel.isCharts)
 
         btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : uiModel.isActive ? .redColor : .orangeColor
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
@@ -57,6 +58,12 @@ class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
 
         lblDate.text = uiModel.date
         lblWorker.text = uiModel.gardenOwner
-        lblTotalPrice.text = "Toplam: \(uiModel.totalPrice) TL"
+        lblTotalPrice.text = uiModel.isCharts ? "\(uiModel.totalPrice)" : "Toplam: \(uiModel.totalPrice) TL"
+    }
+    
+    private func visibilityButtons(isVisible: Bool) {
+        constraintViewButtonsHeight.constant = isVisible ? 52 : 0
+        constraintViewButtonsHeight.priority = isVisible ? .defaultHigh : .required
+        viewButtons.isHidden = !isVisible
     }
 }
