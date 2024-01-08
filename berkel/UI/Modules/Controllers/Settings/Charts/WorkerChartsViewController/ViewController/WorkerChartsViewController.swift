@@ -9,11 +9,11 @@ import UIKit
 import Combine
 
 final class WorkerChartsViewController: MainBaseViewController {
-    
+
     override var navigationTitle: String? {
         return "İşçi Çizelgesi"
     }
-    
+
     override var navigationSubTitle: String? {
         return self.viewModel.season
     }

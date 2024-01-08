@@ -12,13 +12,13 @@ protocol IWorkerChartsViewModel: WorkerDetailCollectionDataSourceFactoryOutputDe
 
     var viewState: ScreenStateSubject<WorkerChartsViewState> { get }
     var errorState: ErrorStateSubject { get }
-    
+
     var season: String { get }
 
     init(repository: IWorkerChartsRepository,
          coordinator: IWorkerChartsCoordinator,
          uiModel: IWorkerChartsUIModel)
-    
+
     // Service
     func getList()
 }
@@ -36,7 +36,7 @@ final class WorkerChartsViewModel: BaseViewModel, IWorkerChartsViewModel {
     let responseList = CurrentValueSubject<[WorkerModel]?, Never>(nil)
     let responsePayment = CurrentValueSubject<[WorkerPaymentModel]?, Never>(nil)
     let responseCollection = CurrentValueSubject<[WorkerCollectionModel]?, Never>(nil)
-    
+
     var season: String {
         return uiModel.season
     }
@@ -84,7 +84,7 @@ internal extension WorkerChartsViewModel {
                 }
             })
     }
-    
+
     private func getSellerCollection(index: Int = 0) {
         let workerResponse = self.uiModel.workerResponse
         guard workerResponse.count > index else { return }
@@ -143,7 +143,7 @@ internal extension WorkerChartsViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateOldDoubt() {
         self.viewState.value = .oldDoubt(text: self.uiModel.oldDoubt())
     }

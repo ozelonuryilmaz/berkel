@@ -13,9 +13,9 @@ protocol WorkerDetailCollectionTableViewCellOutputDelegate: AnyObject {
 }
 
 class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
-    
+
     weak var outputDelegate: WorkerDetailCollectionTableViewCellOutputDelegate? = nil
-    
+
     // MARK: Outlets
     @IBOutlet private weak var mContentView: ShadowView!
     @IBOutlet private weak var lblDate: UILabel!
@@ -45,7 +45,7 @@ class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
                                                     isCalc: !uiModel.isCalc)
         }
     }
-    
+
     func configureCellWith(uiModel: IWorkerDetailCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
         self.visibilityButtons(isVisible: !uiModel.isCharts)
@@ -60,7 +60,7 @@ class WorkerDetailCollectionTableViewCell: BaseTableViewCell {
         lblWorker.text = uiModel.gardenOwner
         lblTotalPrice.text = uiModel.isCharts ? "\(uiModel.totalPrice)" : "Toplam: \(uiModel.totalPrice) TL"
     }
-    
+
     private func visibilityButtons(isVisible: Bool) {
         constraintViewButtonsHeight.constant = isVisible ? 52 : 0
         constraintViewButtonsHeight.priority = isVisible ? .defaultHigh : .required

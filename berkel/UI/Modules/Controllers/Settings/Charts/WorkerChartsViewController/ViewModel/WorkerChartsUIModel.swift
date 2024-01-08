@@ -8,12 +8,12 @@
 import UIKit
 
 protocol IWorkerChartsUIModel {
-    
+
     var season: String { get }
     var workerResponse: [WorkerModel] { get }
     var workerCollectionResponse: [WorkerCollectionModel] { get }
 
-	 init(data: WorkerChartsPassData)
+    init(data: WorkerChartsPassData)
 
     func oldDoubt() -> String
     func nowDoubt() -> String
@@ -23,25 +23,21 @@ protocol IWorkerChartsUIModel {
     mutating func setPaymentResponse(_ response: [WorkerPaymentModel])
 
     mutating func buildCollectionSnapshot() -> WorkerDetailCollectionSnapshot
-} 
+}
 
 struct WorkerChartsUIModel: IWorkerChartsUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
     var workerResponse: [WorkerModel] = []
     var workerCollectionResponse: [WorkerCollectionModel] = []
     var workerPaymentResponse: [WorkerPaymentModel] = []
 
-	// MARK: Initialize
-    init(data: WorkerChartsPassData) {
+    // MARK: Initialize
+    init(data: WorkerChartsPassData) { }
 
-    }
-    
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
-
-    // MARK: Computed Props
 }
 
 // MARK: Logic
@@ -106,8 +102,8 @@ extension WorkerChartsUIModel {
         return snapshot
     }
 
-    // CollecitonModel içerisinde rastgele birden fazla müşteri siparişleri bulunuyor.
-    // Aynı müşterilerin toplam siparişleri toplanıyor.
+    // CollecitonModel içerisinde rastgele birden fazla çavuş bulunuyor.
+    // Aynı çavuşların çalışan ücretleri bir hücrede toplanıyor
     private func prepareCollectionSnapshotRowModel() -> [WorkerDetailCollectionRowModel] {
         let data = workerCollectionResponse.filter({ true == $0.isCalc })
         let collections: [String: [WorkerCollectionModel]] = Dictionary(grouping: data, by: { $0.cavusId ?? "-1" })

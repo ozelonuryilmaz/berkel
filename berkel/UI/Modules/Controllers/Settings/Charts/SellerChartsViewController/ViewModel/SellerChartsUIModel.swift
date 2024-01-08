@@ -33,11 +33,7 @@ struct SellerChartsUIModel: ISellerChartsUIModel {
     var sellerPaymentResponse: [SellerPaymentModel] = []
 
     // MARK: Initialize
-    init(data: SellerChartsPassData) {
-
-    }
-
-    // MARK: Computed Props
+    init(data: SellerChartsPassData) { }
 
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
