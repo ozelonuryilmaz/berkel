@@ -11,6 +11,7 @@ struct BuyingPaymentPassData: ICoordinatorPassData {
 
     let buyingId: String
 
+    let sellerId: String?
     let sellerName: String
     let productName: String
 }

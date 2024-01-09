@@ -19,6 +19,8 @@ protocol IBuyingCollectionTableViewCellUIModel {
     var totalKgPrice: String { get }
     var warehouseKg: String { get }
     var warehouseKgPrice: String { get }
+    
+    var isCharts: Bool { get }
 }
 
 struct BuyingCollectionTableViewCellUIModel: IBuyingCollectionTableViewCellUIModel {
@@ -32,4 +34,7 @@ struct BuyingCollectionTableViewCellUIModel: IBuyingCollectionTableViewCellUIMod
     let totalKgPrice: String
     let warehouseKg: String
     let warehouseKgPrice: String
+    
+    // Charts için
+    let isCharts: Bool
 }

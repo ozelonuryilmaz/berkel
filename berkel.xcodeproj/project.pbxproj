@@ -426,6 +426,14 @@
 		67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */; };
 		67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */; };
 		67CC75B92AA25EF1003206F0 /* SplashPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75B12AA25EF1003206F0 /* SplashPassData.swift */; };
+		67D7703F2B4D49760034A867 /* BuyingChartsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D770372B4D49760034A867 /* BuyingChartsCoordinator.swift */; };
+		67D770402B4D49760034A867 /* BuyingChartsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D770382B4D49760034A867 /* BuyingChartsUIModel.swift */; };
+		67D770412B4D49760034A867 /* BuyingChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D770392B4D49760034A867 /* BuyingChartsViewController.swift */; };
+		67D770422B4D49760034A867 /* BuyingChartsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703A2B4D49760034A867 /* BuyingChartsRepository.swift */; };
+		67D770432B4D49760034A867 /* BuyingChartsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703B2B4D49760034A867 /* BuyingChartsBuilder.swift */; };
+		67D770442B4D49760034A867 /* BuyingChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703C2B4D49760034A867 /* BuyingChartsViewModel.swift */; };
+		67D770452B4D49760034A867 /* BuyingChartsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703D2B4D49760034A867 /* BuyingChartsPassData.swift */; };
+		67D770462B4D49760034A867 /* BuyingChartsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */; };
 		67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */; };
 		67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */; };
 		67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */; };
@@ -928,6 +936,14 @@
 		67CC75AF2AA25EF1003206F0 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
 		67CC75B02AA25EF1003206F0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		67CC75B12AA25EF1003206F0 /* SplashPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPassData.swift; sourceTree = "<group>"; };
+		67D770372B4D49760034A867 /* BuyingChartsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsCoordinator.swift; sourceTree = "<group>"; };
+		67D770382B4D49760034A867 /* BuyingChartsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsUIModel.swift; sourceTree = "<group>"; };
+		67D770392B4D49760034A867 /* BuyingChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsViewController.swift; sourceTree = "<group>"; };
+		67D7703A2B4D49760034A867 /* BuyingChartsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsRepository.swift; sourceTree = "<group>"; };
+		67D7703B2B4D49760034A867 /* BuyingChartsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsBuilder.swift; sourceTree = "<group>"; };
+		67D7703C2B4D49760034A867 /* BuyingChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsViewModel.swift; sourceTree = "<group>"; };
+		67D7703D2B4D49760034A867 /* BuyingChartsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsPassData.swift; sourceTree = "<group>"; };
+		67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingChartsViewController.xib; sourceTree = "<group>"; };
 		67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingCoordinator.swift; sourceTree = "<group>"; };
 		67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingUIModel.swift; sourceTree = "<group>"; };
 		67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewController.swift; sourceTree = "<group>"; };
@@ -2616,6 +2632,7 @@
 		678BACCD2B2A2D1A00EF7050 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				67D770302B4D49280034A867 /* BuyingChartsViewController */,
 				67A65E222B4C6292003EACA0 /* WorkerChartsViewController */,
 				678BACCE2B2A2D2200EF7050 /* SellerChartsViewController */,
 			);
@@ -3767,6 +3784,61 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		67D770302B4D49280034A867 /* BuyingChartsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67D770352B4D49430034A867 /* Builder */,
+				67D770342B4D493E0034A867 /* Coordinator */,
+				67D770332B4D493A0034A867 /* Repository */,
+				67D770322B4D49370034A867 /* ViewModel */,
+				67D770312B4D49320034A867 /* ViewController */,
+			);
+			path = BuyingChartsViewController;
+			sourceTree = "<group>";
+		};
+		67D770312B4D49320034A867 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67D770392B4D49760034A867 /* BuyingChartsViewController.swift */,
+				67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67D770322B4D49370034A867 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67D7703C2B4D49760034A867 /* BuyingChartsViewModel.swift */,
+				67D770382B4D49760034A867 /* BuyingChartsUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67D770332B4D493A0034A867 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67D7703A2B4D49760034A867 /* BuyingChartsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67D770342B4D493E0034A867 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67D770372B4D49760034A867 /* BuyingChartsCoordinator.swift */,
+				67D7703D2B4D49760034A867 /* BuyingChartsPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67D770352B4D49430034A867 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67D7703B2B4D49760034A867 /* BuyingChartsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		67DB17162ABF145F00463CA9 /* SubViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -4378,6 +4450,7 @@
 				67FA8B5A2AF66C4A00C09B09 /* WorkerPaymentViewController.xib in Resources */,
 				67BE9D332AF63FF700D07DA7 /* WorkerTableViewCell.xib in Resources */,
 				67FC97212ADEE83900FC53AE /* WarehouseListViewController.xib in Resources */,
+				67D770462B4D49760034A867 /* BuyingChartsViewController.xib in Resources */,
 				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4454,6 +4527,7 @@
 				674705E82B0A7A1C006F1639 /* CustomerListViewController.swift in Sources */,
 				67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */,
 				6797C49E2AC1ECD30049C8F7 /* SeasonsRepository.swift in Sources */,
+				67D770422B4D49760034A867 /* BuyingChartsRepository.swift in Sources */,
 				67EA5B6A2AAF86C70086E20C /* UIGestureRecognizer.swift in Sources */,
 				674705EC2B0A7A1C006F1639 /* CustomerListPassData.swift in Sources */,
 				674D10732ADDAC88002CFFE8 /* BuyingCollectionDataSource.swift in Sources */,
@@ -4535,6 +4609,7 @@
 				674D10742ADDAC8B002CFFE8 /* BuyingCollectionDataSourceFactory.swift in Sources */,
 				676F532B2AD9AEBE001F06DF /* Double+Extension.swift in Sources */,
 				67B98CF72ADBE74500CD4B15 /* BuyingDetailViewModel.swift in Sources */,
+				67D770412B4D49760034A867 /* BuyingChartsViewController.swift in Sources */,
 				670B3C7F2ABA0DEB00EE7CFB /* AddBuyingItemSection.swift in Sources */,
 				6774FB192AE6DFC900F1F692 /* NewSellerImageViewModel.swift in Sources */,
 				672398172AEACFD1001538C1 /* ArchiveDetailPassData.swift in Sources */,
@@ -4594,6 +4669,7 @@
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
 				671AC43C2AE18F0E00915113 /* WarehouseListTableViewCell.swift in Sources */,
 				677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */,
+				67D770452B4D49760034A867 /* BuyingChartsPassData.swift in Sources */,
 				67DDE8722B0E5F6700E24949 /* NewSellerRepository.swift in Sources */,
 				670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */,
 				676F78992B27734F00CCB926 /* SettingsCellTypes.swift in Sources */,
@@ -4615,6 +4691,7 @@
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				67DDE8892B0E775C00E24949 /* CustomerListDiffableTableView.swift in Sources */,
+				67D770432B4D49760034A867 /* BuyingChartsBuilder.swift in Sources */,
 				67C0194B2B1108640094D023 /* SellerDetailViewController.swift in Sources */,
 				6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */,
 				674C26332B0FCAF600B9A32A /* SellerDataSourceFactory.swift in Sources */,
@@ -4686,6 +4763,7 @@
 				677E67CD2AA35403001775E2 /* SellerViewModel.swift in Sources */,
 				67CC75B82AA25EF1003206F0 /* SplashViewModel.swift in Sources */,
 				675984202B08E1F400F0DAD0 /* ProductListUIModel.swift in Sources */,
+				67D7703F2B4D49760034A867 /* BuyingChartsCoordinator.swift in Sources */,
 				6730ED662B1CA95400111826 /* SellerDetailPaymentTableViewCell.swift in Sources */,
 				67B9EE592AD5B0A6003E6BA3 /* BuyingCollectionModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
@@ -4758,6 +4836,7 @@
 				67C019612B1109EA0094D023 /* SellerCollectionBuilder.swift in Sources */,
 				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
+				67D770402B4D49760034A867 /* BuyingChartsUIModel.swift in Sources */,
 				674C26232B0FC84100B9A32A /* SellerTableViewCell.swift in Sources */,
 				67A1EE892AF1691700126E44 /* CavusListRepository.swift in Sources */,
 				675984362B08EFA500F0DAD0 /* ProductItemService.swift in Sources */,
@@ -4784,6 +4863,7 @@
 				67B9EE4A2AD5AF9F003E6BA3 /* BuyingCollectionCoordinator.swift in Sources */,
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
 				67A1EE9D2AF169B000126E44 /* NewCavusRepository.swift in Sources */,
+				67D770442B4D49760034A867 /* BuyingChartsViewModel.swift in Sources */,
 				67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */,
 				675984222B08E1F400F0DAD0 /* ProductListRepository.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,

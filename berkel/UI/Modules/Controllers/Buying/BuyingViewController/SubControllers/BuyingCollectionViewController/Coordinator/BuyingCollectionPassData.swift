@@ -12,6 +12,7 @@ struct BuyingCollectionPassData: ICoordinatorPassData {
     let buyingId: String
     
     let kgPrice: Double
+    let sellerId: String?
     let sellerName: String
     let productName: String
     let model: BuyingCollectionModel?

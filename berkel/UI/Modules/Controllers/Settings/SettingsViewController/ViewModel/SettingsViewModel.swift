@@ -128,7 +128,7 @@ extension SettingsViewModel {
         case .musteriList:
             self.pushCustomerListViewController()
         case .alisGelirGiderCizergesi:
-            break
+            self.pushBuyingChartsViewController()
         case .isciGelirGiderCizergesi:
             self.pushWorkerChartsViewController()
         case .satisGelirGiderCizergesi:
@@ -163,16 +163,20 @@ internal extension SettingsViewModel {
                                                         outputDelegate: self)
     }
 
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
-        self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
+    func pushBuyingChartsViewController() {
+        self.coordinator.pushBuyingChartsViewController(passData: BuyingChartsPassData())
+    }
+
+    func pushWorkerChartsViewController() {
+        self.coordinator.pushWorkerChartsViewController(passData: WorkerChartsPassData())
     }
 
     func pushSellerChartsViewController() {
         self.coordinator.pushSellerChartsViewController(passData: SellerChartsPassData())
     }
 
-    func pushWorkerChartsViewController() {
-        self.coordinator.pushWorkerChartsViewController(passData: WorkerChartsPassData())
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+        self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
     }
 }
 

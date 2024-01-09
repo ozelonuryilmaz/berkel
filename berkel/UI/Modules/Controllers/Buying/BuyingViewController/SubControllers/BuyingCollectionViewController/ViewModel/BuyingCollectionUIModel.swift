@@ -47,6 +47,7 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
     let viewedData: BuyingCollectionModel?
 
     let buyingId: String
+    let sellerId: String?
     let sellerName: String
     let productName: String
     let let_kgPrice: Double
@@ -62,6 +63,7 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
         self.kgPrice = data.kgPrice
         self.let_kgPrice = data.kgPrice
         self.buyingId = data.buyingId
+        self.sellerId = data.sellerId
         self.sellerName = data.sellerName
         self.productName = data.productName
         self.viewedData = data.model
@@ -98,6 +100,9 @@ struct BuyingCollectionUIModel: IBuyingCollectionUIModel {
         return BuyingCollectionModel(
             id: nil,
             userId: userId,
+            buyingId: buyingId,
+            sellerId: sellerId,
+            sellerName: sellerName,
             isCalc: false,
             date: date,
             kgPrice: kgPrice,

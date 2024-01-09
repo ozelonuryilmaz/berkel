@@ -23,7 +23,7 @@ protocol IBuyingDetailUIModel {
 
     func oldDoubt() -> String
     func nowDoubt() -> String
-    
+
     mutating func setActive(isActive: Bool)
 
     mutating func setCollectionResponse(data: [BuyingCollectionModel])
@@ -34,7 +34,7 @@ protocol IBuyingDetailUIModel {
     func getMaxWarehousesKg(collectionId: String?) -> Int
     mutating func appendWarehousesIntoCollection(collectionId: String?, warehouse: WarehouseModel)
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool)
-    
+
     func getCollection(collectionId: String?) -> BuyingCollectionModel?
 
     // Collection
@@ -73,7 +73,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
     mutating func setActive(isActive: Bool) {
         self.isActive = isActive
     }
-    
+
     // MARK: Computed Props
 
     func oldDoubt() -> String {
@@ -124,7 +124,7 @@ struct BuyingDetailUIModel: IBuyingDetailUIModel {
         }
         return total
     }
-    
+
     func getCollection(collectionId: String?) -> BuyingCollectionModel? {
         if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
             return self.collections[index]
@@ -231,7 +231,8 @@ extension BuyingDetailUIModel {
                 totalKg: totalKg.decimalString(),
                 totalKgPrice: totalPrice.decimalString(),
                 warehouseKg: warehouseKgs.decimalString(),
-                warehouseKgPrice: warehouseTotalPrice.decimalString())
+                warehouseKgPrice: warehouseTotalPrice.decimalString(),
+                isCharts: false)
             )
         }
         return rowModels

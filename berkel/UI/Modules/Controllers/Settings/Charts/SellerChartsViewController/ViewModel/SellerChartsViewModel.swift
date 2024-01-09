@@ -165,13 +165,8 @@ internal extension SellerChartsViewModel {
 // MARK: SellerDetailCollectionDataSourceFactoryOutputDelegate
 internal extension SellerChartsViewModel {
 
-    func cellTapped(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
-
-    }
-
-    func calcActivateTapped(id: String, date: String, isCalc: Bool) {
-
-    }
+    func cellTapped(uiModel: ISellerDetailCollectionTableViewCellUIModel) { }
+    func calcActivateTapped(id: String, date: String, isCalc: Bool) { }
 }
 
 enum SellerChartsViewState {

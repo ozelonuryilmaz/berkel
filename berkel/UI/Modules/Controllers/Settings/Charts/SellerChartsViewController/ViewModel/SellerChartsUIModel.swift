@@ -11,7 +11,6 @@ protocol ISellerChartsUIModel {
 
     var season: String { get }
     var sellerResponse: [SellerModel] { get }
-    var sellerCollectionResponse: [SellerCollectionModel] { get }
 
     init(data: SellerChartsPassData)
 

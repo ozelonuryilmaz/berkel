@@ -86,7 +86,13 @@ extension NewBuyingUIModel {
 
     var firstPayment: NewBuyingPaymentModel {
         let date = Date().dateFormatterApiResponseType()
-        return NewBuyingPaymentModel(id: nil, userId: userId, date: date, payment: self.payment, description: "Peşinat")
+        return NewBuyingPaymentModel(id: nil,
+                                     userId: self.userId,
+                                     sellerId: self.sellerId,
+                                     sellerName: self.sellerName,
+                                     date: date,
+                                     payment: self.payment,
+                                     description: "Peşinat")
     }
 
     var errorMessage: String? {
@@ -98,7 +104,7 @@ extension NewBuyingUIModel {
             return "Lütfen ortalama kg fiyatını giriniz"
         }
 
-        if desc.count < 10 {
+        if desc.count < 3 {
             return "Lütfen açıklama yazınız"
         }
 

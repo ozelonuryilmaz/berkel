@@ -25,6 +25,8 @@ struct NewBuyingPaymentModel: Codable {
 
     var id: String?
     let userId: String?
+    let sellerId: String?
+    let sellerName: String?
     let date: String?
     let payment: Int
     let description: String?

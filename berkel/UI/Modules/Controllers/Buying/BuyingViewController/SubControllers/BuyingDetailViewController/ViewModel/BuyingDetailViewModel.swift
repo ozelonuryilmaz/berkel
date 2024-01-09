@@ -289,6 +289,7 @@ internal extension BuyingDetailViewModel {
         self.coordinator.presentBuyingCollectionViewController(
             passData: BuyingCollectionPassData(buyingId: self.uiModel.buyingId,
                                                kgPrice: data?.kgPrice ?? 0,
+                                               sellerId: self.uiModel.sellerId,
                                                sellerName: self.uiModel.sellerName,
                                                productName: self.uiModel.productName,
                                                model: data),

@@ -164,6 +164,7 @@ extension BuyingViewModel {
     func addCollectionTapped(uiModel: IBuyingTableViewCellUIModel) {
         let passData = BuyingCollectionPassData(buyingId: uiModel.id,
                                                 kgPrice: uiModel.kg,
+                                                sellerId: uiModel.sellerId,
                                                 sellerName: uiModel.sellerName,
                                                 productName: uiModel.productName,
                                                 model: nil)
@@ -173,6 +174,7 @@ extension BuyingViewModel {
 
     func addPaymentTapped(uiModel: IBuyingTableViewCellUIModel) {
         let passData = BuyingPaymentPassData(buyingId: uiModel.id,
+                                             sellerId: uiModel.sellerId,
                                              sellerName: uiModel.sellerName,
                                              productName: uiModel.productName)
 

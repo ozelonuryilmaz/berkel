@@ -11,6 +11,9 @@ struct BuyingCollectionModel: Codable {
 
     var id: String?
     let userId: String?
+    let buyingId: String?
+    let sellerId: String?
+    let sellerName: String?
     
     var isCalc: Bool
 

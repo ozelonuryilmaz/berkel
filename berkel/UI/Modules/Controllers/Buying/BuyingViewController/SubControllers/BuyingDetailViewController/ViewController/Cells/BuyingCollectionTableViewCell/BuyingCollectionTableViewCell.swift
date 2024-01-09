@@ -56,7 +56,7 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
 
     func configureCellWith(uiModel: IBuyingCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
-        //self.visibilityButtons(isVisible: uiModel.isActive)
+        self.visibilityButtons(isVisible: !uiModel.isCharts)
 
         btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : uiModel.isActive ? .redColor : .orangeColor
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
@@ -65,13 +65,13 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
 
         lblDate.text = uiModel.date
-        lblWarehouse.text = "Depo Çıkması: \(uiModel.warehouseKg) Kg, \(uiModel.warehouseKgPrice) TL"
-        lblTotalKg.text = "Toplam: \(uiModel.totalKg) Kg, \(uiModel.totalKgPrice) TL"
+        lblWarehouse.text = uiModel.isCharts ? uiModel.totalKg : "Depo Çıkması: \(uiModel.warehouseKg) Kg, \(uiModel.warehouseKgPrice) TL"
+        lblTotalKg.text = uiModel.isCharts ? uiModel.totalKgPrice : "Toplam: \(uiModel.totalKg) Kg, \(uiModel.totalKgPrice) TL"
     }
-/*
+
     private func visibilityButtons(isVisible: Bool) {
         constraintViewButtonsHeight.constant = isVisible ? 52 : 0
         constraintViewButtonsHeight.priority = isVisible ? .defaultHigh : .required
         viewButtons.isHidden = !isVisible
-    }*/
+    }
 }
