@@ -3,12 +3,16 @@
 //  berkel
 //
 //  Created by Onur Yilmaz on 12.09.2023.
-//  
 //
+//
+
+import Foundation
+import Combine
 
 protocol IRegisterViewModel: AnyObject {
 
     var viewState: ScreenStateSubject<RegisterViewState> { get }
+    var errorState: ErrorStateSubject { get }
 
     init(repository: IRegisterRepository,
          authRepository: AuthenticationRepository,
@@ -37,6 +41,8 @@ final class RegisterViewModel: BaseViewModel, IRegisterViewModel {
     private var uiModel: IRegisterUIModel
 
     var viewState = ScreenStateSubject<RegisterViewState>(nil)
+    var errorState = ErrorStateSubject(nil)
+    let userResponse = CurrentValueSubject<UserModel?, Never>(nil)
 
     var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
 
@@ -88,6 +94,28 @@ internal extension RegisterViewModel {
                 self.viewStateShowSystemAlert(message: errorMessage)
             },
             completionSuccess: { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.delay(500) { [weak self] in
+                    self?.setTempUserData()
+                }
+            })
+    }
+
+    private func setTempUserData() {
+        guard let userId = UserManager.shared.userId else { return }
+        let userModel = UserModel(id: userId,
+                                  isAdmin: false,
+                                  name: self.uiModel.name,
+                                  email: self.uiModel.email)
+        handleResourceFirestore(
+            request: self.repository.saveNewUser(userModel: userModel),
+            response: self.userResponse,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
+            callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.popToRootViewController(animated: false)
                 self.authDismissCallBack?(true)

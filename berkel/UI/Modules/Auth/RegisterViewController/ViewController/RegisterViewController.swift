@@ -36,6 +36,7 @@ final class RegisterViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.observeViewState()
+        self.listenErrorState()
     }
 
     override func registerEvents() {
@@ -66,6 +67,12 @@ final class RegisterViewController: BerkelBaseViewController {
             }
 
         }).store(in: &cancelBag)
+    }
+    
+    private func listenErrorState() {
+        let errorHandle = FirestoreErrorHandle(viewController: self)
+        observeErrorState(errorState: viewModel.errorState,
+                          errorHandle: errorHandle)
     }
 }
 

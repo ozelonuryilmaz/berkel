@@ -42,7 +42,8 @@ final class SplashViewModel: BaseViewModel, ISplashViewModel {
             if isLoggedIn {
                 self.decideToScreen()
             } else {
-                self.presentLoginViewController(authDismissCallBack: { [unowned self] _isLoggedIn in
+                self.presentLoginViewController(authDismissCallBack: { [weak self] _isLoggedIn in
+                    guard let self = self else { return }
                     if _isLoggedIn {
                         self.decideToScreen()
                     }
