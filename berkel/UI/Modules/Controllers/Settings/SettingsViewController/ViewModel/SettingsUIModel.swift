@@ -83,6 +83,7 @@ extension SettingsUIModel {
     // Ayarlar
     func generateAyarlarRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
         return tempArray
     }

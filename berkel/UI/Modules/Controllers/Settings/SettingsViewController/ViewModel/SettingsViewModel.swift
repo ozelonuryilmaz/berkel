@@ -133,6 +133,8 @@ extension SettingsViewModel {
             self.pushWorkerChartsViewController()
         case .satisGelirGiderCizergesi:
             self.pushSellerChartsViewController()
+        case .userAuths:
+            self.pushUserAuthsViewController()
         case .sezonlar:
             self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
                 if isSelected {
@@ -173,6 +175,10 @@ internal extension SettingsViewModel {
 
     func pushSellerChartsViewController() {
         self.coordinator.pushSellerChartsViewController(passData: SellerChartsPassData())
+    }
+    
+    func pushUserAuthsViewController() {
+        self.coordinator.pushUserAuthsViewController()
     }
 
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {

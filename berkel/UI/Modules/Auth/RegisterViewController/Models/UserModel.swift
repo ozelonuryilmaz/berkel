@@ -10,7 +10,8 @@ import Foundation
 struct UserModel: Codable {
     
     var id: String
-    let isAdmin: Bool
+    var isAdmin: Bool
     let name: String
     let email: String
+    let date: String
 }

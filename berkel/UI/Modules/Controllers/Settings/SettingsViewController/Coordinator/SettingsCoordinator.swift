@@ -22,8 +22,9 @@ protocol ISettingsCoordinator: AnyObject {
     func pushWorkerChartsViewController(passData: WorkerChartsPassData)
     func pushSellerChartsViewController(passData: SellerChartsPassData)
 
-    // Season
+    // Settings
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
+    func pushUserAuthsViewController()
 }
 
 final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
@@ -81,7 +82,13 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         coordinate(to: coordinator)
     }
 
-    // Season
+    // Settings
+    
+    func pushUserAuthsViewController() {
+        let coordinator = UserAuthsCoordinator(navigationController: self.navigationController)
+            .with(passData: UserAuthsPassData())
+        coordinate(to: coordinator)
+    }
 
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
         let coordinator = SeasonsCoordinator(presenterViewController: self.navigationController.lastViewController)

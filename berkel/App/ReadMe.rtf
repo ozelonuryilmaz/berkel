@@ -7,7 +7,9 @@
 
 \f0\fs24 \cf0 //Firestore Database Rules\
 \
-rules_version = '2';\
+// mevcuttaki "rules_version = '2';" silme\
+\
+// Kurallardaki users ve isAdmin alt\uc0\u305 ndaki id'yi admin hesab\u305 n\u305 n id'si ile g\'fcncellemeyi unutma. \
 \
 // Kullan\uc0\u305 c\u305  kay\u305 t oldu\u287 unda tempUsers'a kayd\u305  d\'fc\u351 er.\
 // Admin olarak belirlenen hesap(rules'da) tempUsers'a yetki verdi\uc0\u287 inde users'a admin olarak kaydedilir.\
@@ -16,14 +18,9 @@ rules_version = '2';\
 service cloud.firestore \{\
   match /databases/\{database\}/documents \{\
   \
-   function isAdmin() \{\
-   		return request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true\
-   \}\
-  \
-    // 'data' koleksiyonu i\'e7in izinler\
-    match /data/\{documentId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
-    \}\
+   	function isAdmin() \{\
+  	 	return request.auth != null && (request.auth.uid == "6sngATMGmPcxiaDuopCjBYS9cv13" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true);\
+  	\}\
   \
     // 'users' koleksiyonundaki herhangi bir belgeye e\uc0\u351 le\u351 tir\
     match /users/\{userId=**\} \{\
@@ -33,17 +30,22 @@ service cloud.firestore \{\
     \
     // 'tempUsers' koleksiyonu i\'e7in izinler\
     match /tempUsers/\{tempUserId\} \{\
-      // Bu belgeleri sadece belge sahibi olan kullan\uc0\u305 c\u305 lar yazabilir ve okuyabilir\
+      // Bu belgeleri sadece oturum a\'e7an kullan\uc0\u305 c\u305 lar yazabilir ve okuyabilir\
       allow write, update, read, delete: if request.auth != null;\
     \}\
 \
+    // 'data' koleksiyonu i\'e7in izinler\
+    match /data/\{documentId=**\} \{\
+      allow write, update, read: if isAdmin() == true;\
+    \}\
+    \
     // 'seller' koleksiyonu i\'e7in izinler\
     match /seller/\{sellerId=**\} \{\
       allow write, update, read: if isAdmin() == true;\
     \}\
     \
     // 'cavus' koleksiyonu i\'e7in izinler\
-    match /cavus/\{productId=**\} \{\
+    match /cavus/\{cavusId=**\} \{\
       allow write, update, read: if isAdmin() == true;\
     \}\
     \
@@ -65,8 +67,6 @@ service cloud.firestore \{\
 \}\
 \
 //Stogare Rules\
-\
-rules_version = '2';\
 \
 // Craft rules based on data in your Firestore database\
 service firebase.storage \{\

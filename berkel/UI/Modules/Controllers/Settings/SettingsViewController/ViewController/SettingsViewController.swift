@@ -105,7 +105,7 @@ private extension SettingsViewController {
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.getNumberOfItemsInSection()
+        return viewModel.getNumberOfItemsInSection()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,9 +142,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         if self.viewModel.isLastSection(section: section) {
             let footerView = self.tableView.generateReusableHeaderFooterView(SettingsFooterCell.self)
             return footerView
-        } else {
-            return nil
         }
+        return nil
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

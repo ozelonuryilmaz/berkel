@@ -135,4 +135,29 @@ class BaseRepository: IBaseRepository {
 
         return subject
     }
+
+    // delete document
+    func deleteData(_ db: DocumentReference) -> FirestoreResponseType<Bool> {
+        let subject = FirestoreResponseType<Bool>()
+
+        let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
+            switch completion {
+            case .finished:
+                subject.send(completion: .finished)
+            case .failure(let error):
+                subject.send(completion: .failure(error))
+            }
+        }
+
+        let onValue: () -> Void = {
+            subject.send(true)
+        }
+
+        db.delete()
+            .sink(receiveCompletion: onErrorCompletion,
+                  receiveValue: onValue)
+            .store(in: &cancelBag)
+
+        return subject
+    }
 }

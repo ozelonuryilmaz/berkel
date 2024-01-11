@@ -106,7 +106,8 @@ internal extension RegisterViewModel {
         let userModel = UserModel(id: userId,
                                   isAdmin: false,
                                   name: self.uiModel.name,
-                                  email: self.uiModel.email)
+                                  email: self.uiModel.email,
+                                  date: Date().dateFormatterApiResponseType())
         handleResourceFirestore(
             request: self.repository.saveNewUser(userModel: userModel),
             response: self.userResponse,
