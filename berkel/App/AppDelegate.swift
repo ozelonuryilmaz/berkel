@@ -9,6 +9,12 @@ import UIKit
 import IQKeyboardManagerSwift
 import FirebaseCore
 
+// En son Build aldığımda versiyonlar;
+// macOS Ventura v13.3
+// xCode v14.2
+// Swift v5.7.2
+// Cocoapods v1.14.3
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
