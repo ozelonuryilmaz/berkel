@@ -35,7 +35,6 @@ final class UserAuthsViewModel: BaseViewModel, IUserAuthsViewModel {
     // MARK: Public Props
     var viewState = ScreenStateSubject<UserAuthsViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    var tempErrorState = ErrorStateSubject(nil)
     let userResponse = CurrentValueSubject<[UserModel]?, Never>(nil)
     let userTempResponse = CurrentValueSubject<[UserModel]?, Never>(nil)
     let deleteTempUserResponse = CurrentValueSubject<Bool?, Never>(nil)
@@ -54,9 +53,8 @@ final class UserAuthsViewModel: BaseViewModel, IUserAuthsViewModel {
     }
 
     func updateView() {
-        self.uiModel.createTableViewDatas()
-        DispatchQueue.delay(250) { [weak self] in
-            self?.viewStateReloadData()
+        DispatchQueue.delay(25) { [weak self] in
+            self?.getUsers()
         }
     }
 
@@ -85,6 +83,9 @@ internal extension UserAuthsViewModel {
             callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.setUsers(users: self.userResponse.value ?? [])
+            },
+            callbackComplete: { [weak self] in
+                guard let self = self else { return }
                 self.getTempUsers()
             })
     }
@@ -101,15 +102,19 @@ internal extension UserAuthsViewModel {
             callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.setTempUsers(tempUsers: self.userTempResponse.value ?? [])
-                self.updateView()
+            },
+            callbackComplete: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.createTableViewDatas()
+                self.viewStateReloadData()
             })
     }
 
     private func saveUser(userModel: UserModel) {
         handleResourceFirestore(
             request: self.repository.saveUser(userModel: userModel),
-            response: self.deleteTempUserResponse,
-            errorState: self.tempErrorState,
+            response: self.saveUserResponse,
+            errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
@@ -124,15 +129,15 @@ internal extension UserAuthsViewModel {
         handleResourceFirestore(
             request: self.repository.deleteTempUser(userId: userModel.id),
             response: self.deleteTempUserResponse,
-            errorState: self.tempErrorState,
+            errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             },
             callbackComplete: { [weak self] in
                 guard let self = self else { return }
-                self.uiModel.addToUser(userModel: userModel)
-                self.uiModel.deleteFromTempUser(userModel: userModel)
+                //self.uiModel.addToUser(userModel: userModel)
+                //self.uiModel.deleteFromTempUser(userModel: userModel)
                 self.updateView()
             })
     }
@@ -141,13 +146,14 @@ internal extension UserAuthsViewModel {
         handleResourceFirestore(
             request: self.repository.updateUser(userId: userModel.id, isAdmin: userModel.isAdmin),
             response: self.updateUserResponse,
-            errorState: self.tempErrorState,
+            errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
-            }, callbackComplete: { [weak self] in
+            },
+            callbackComplete: { [weak self] in
                 guard let self = self else { return }
-                self.uiModel.updateUser(userModel: userModel)
+                //self.uiModel.updateUser(userModel: userModel)
                 self.updateView()
             })
     }

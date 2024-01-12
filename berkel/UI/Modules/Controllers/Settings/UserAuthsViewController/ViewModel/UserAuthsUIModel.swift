@@ -20,9 +20,9 @@ protocol IUserAuthsUIModel {
 
     // Props
     func isExitTempUser(userId: String) -> Bool
-    mutating func updateUser(userModel: UserModel)
-    mutating func addToUser(userModel: UserModel)
-    mutating func deleteFromTempUser(userModel: UserModel)
+    //mutating func updateUser(userModel: UserModel)
+    //mutating func addToUser(userModel: UserModel)
+    //mutating func deleteFromTempUser(userModel: UserModel)
 
     // Setter
     mutating func setUsers(users: [UserModel])
@@ -43,12 +43,6 @@ struct UserAuthsUIModel: IUserAuthsUIModel {
     // MARK: Initialize
     init(data: UserAuthsPassData) { }
 
-    // Güncel users ve tempUsers verilerini birleştirip TableView'de gösteriliyor.
-    mutating func createTableViewDatas() {
-        datas.removeAll()
-        datas.append(contentsOf: tempUsers)
-        datas.append(contentsOf: users)
-    }
 }
 
 // MARK: Setter
@@ -66,11 +60,20 @@ extension UserAuthsUIModel {
 // MARK: Props
 extension UserAuthsUIModel {
 
+    // Güncel users ve tempUsers verilerini birleştirip TableView'de gösteriliyor.
+    mutating func createTableViewDatas() {
+        var datas: [UserModel] = []
+        datas.append(contentsOf: tempUsers)
+        datas.append(contentsOf: users)
+        self.datas = datas.sorted(by: { $0.date > $1.date })
+    }
+
     // TempUser'a yetki verildiğinde User'a aktarılması için kontrol sağlanıyor
     func isExitTempUser(userId: String) -> Bool {
         return tempUsers.contains(where: { $0.id == userId })
     }
 
+    /*
     // Yetki verildiğinde Hücre yenilenmesi için User'ı güncelle
     mutating func updateUser(userModel: UserModel) {
         if let index = users.firstIndex(where: { $0.id == userModel.id }) {
@@ -89,6 +92,7 @@ extension UserAuthsUIModel {
             self.tempUsers.remove(at: index)
         }
     }
+    */
 }
 
 // MARK: Props

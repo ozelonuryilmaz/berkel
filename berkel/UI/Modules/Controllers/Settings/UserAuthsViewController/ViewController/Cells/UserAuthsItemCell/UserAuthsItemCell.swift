@@ -25,9 +25,10 @@ class UserAuthsItemCell: BaseTableViewCell {
     func configureCell(with uiModel: UserAuthsRowModel) {
         registerEvents(uiModel: uiModel)
 
-        labelName.text = uiModel.userModel.name
+        labelName.text = uiModel.userModel.name + " \(uiModel.userModel.isAdmin ? "✓" : "")"
         labelEmail.text = uiModel.userModel.email
         switchRole.setTitle(uiModel.userModel.isAdmin ? "-" : "+", for: .normal)
+        mContentView.alpha = uiModel.userModel.isAdmin ? 1 : 0.6
     }
 
     private func registerEvents(uiModel: UserAuthsRowModel) {
