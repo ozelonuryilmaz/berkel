@@ -127,9 +127,10 @@ final class SellerDetailViewController: MainBaseViewController {
                 self.tableViewPayment.reloadData()
 
             case .showUpdateCalcAlertMessage(let collectionId, let date, let isCalc):
+                let message = isCalc ? "Aktifleştirilsin mi?\nHesaplamaya Dahil Edilecek" : "Pasifleştirilsin mi?\nHesaplamadan Çıkarılacak"
                 self.showSystemAlert(
-                    title: date,
-                    message: "Aktifleştirilsin mi?\nHesaplamalara dahil edilecek.",
+                    title: message,
+                    message: "* \(date) *",
                     positiveButtonText: "Evet",
                     positiveButtonClickListener: {
                         self.viewModel.updateCalcForCollection(collectionId: collectionId, isCalc: isCalc)

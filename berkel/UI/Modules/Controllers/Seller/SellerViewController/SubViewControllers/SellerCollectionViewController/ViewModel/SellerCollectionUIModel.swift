@@ -128,14 +128,6 @@ extension SellerCollectionUIModel {
             return "Fatura numarasını giriniz"
         }
 
-        if palet <= 0 {
-            return "Palet sayısını giriniz"
-        }
-
-        if kasa <= 0 {
-            return "Kasa sayısını giriniz"
-        }
-
         return nil
     }
 

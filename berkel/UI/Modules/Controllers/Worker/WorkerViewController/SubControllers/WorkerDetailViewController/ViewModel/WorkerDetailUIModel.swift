@@ -73,7 +73,7 @@ struct WorkerDetailUIModel: IWorkerDetailUIModel {
         let _collections = self.collections.filter({ true == $0.isCalc })
         let totalKesiciCount = _collections.map({ $0.kesiciCount }).reduce(0, +).decimalString()
         let totalAyakciCount = _collections.map({ $0.ayakciCount }).reduce(0, +).decimalString()
-        return "\(_collections.count) Gün, \(totalKesiciCount) Kesici, \(totalAyakciCount) Ayakçı, ..."
+        return "\(_collections.count) Gün, \(totalKesiciCount) Kesici, \(totalAyakciCount) Ayakçı"
     }
 
     func nowDoubt() -> String {

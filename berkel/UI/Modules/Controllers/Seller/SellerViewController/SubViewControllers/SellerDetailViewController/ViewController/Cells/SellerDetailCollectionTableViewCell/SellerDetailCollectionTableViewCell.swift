@@ -49,12 +49,17 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
     func configureCellWith(uiModel: ISellerDetailCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
         self.visibilityButtons(isVisible: uiModel.isVisibleButtons)
+        
+        let isCalc = !uiModel.isActive && uiModel.isCalc
+        let isntCalc = !uiModel.isActive && !uiModel.isCalc
+        let btnTitle: String = isCalc ? "Aktif" : isntCalc ? "Pasif" : (uiModel.isCalc ? "Pasifleştir" : "Aktifleştir")
+        let bgColor: UIColor = (isCalc || isntCalc) ? .lightGray : (uiModel.isCalc ? .redColor : .orangeColor)
 
-        btnCalcActivate.backgroundColor = uiModel.isCalc ? .lightGray : uiModel.isActive ? .redColor : .orangeColor
-        btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
-        btnCalcActivate.setTitle(uiModel.isCalc ? "Aktif" : uiModel.isActive ? "Aktifleştir" : "Aktifleşmedi", for: .normal)
-        btnCalcActivate.isEnabled = !uiModel.isCalc && uiModel.isActive
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
+        btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
+        btnCalcActivate.setTitle(btnTitle, for: .normal)
+        btnCalcActivate.isEnabled = uiModel.isActive
+        btnCalcActivate.backgroundColor = bgColor
 
         lblDate.text = uiModel.date
         lblFaturaNo.text = uiModel.chartTotalKg == nil ? "Fatura No: \(uiModel.faturaNo)" : uiModel.chartTotalKg ?? ""

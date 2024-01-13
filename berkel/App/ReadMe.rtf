@@ -56,6 +56,11 @@ service cloud.firestore \{\
     match /customer/\{customerId=**\} \{\
       allow write, update, read: if isAdmin() == true;\
     \}\
+\
+ // 'cariye' koleksiyonu i\'e7in izinler\
+    match /cariye/\{cariyeId=**\} \{\
+      allow write, update, read: if isAdmin() == true;\
+    \}\
   \
     // 'products' koleksiyonu i\'e7in izinler\
     match /products/\{productId=**\} \{\
