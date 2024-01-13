@@ -23,14 +23,10 @@ class WarehouseListTableViewCell: BaseTableViewCell {
     }
 
     func configureCell(with uiModel: IWarehouseListTableViewCellUIModelUIModel) {
-        let kg = uiModel.warehouses.wavehouseKg
-        let price = uiModel.warehouses.wavehousePrice
-        let result = (Double(kg) * Double(price))
-
         lblDate.text = uiModel.warehouses.date?.dateFormatToAppDisplayType() ?? ""
-        lblKg.text = "Depo çıkması: \(kg.decimalString()) Kg"
-        lblPrice.text = "Kg fiyatı: \(price.decimalString()) TL"
-        lblResult.text = "Tutar: \(result.decimalString()) TL"
+        lblKg.text = "Depo çıkması: \(uiModel.warehouses.wavehouseKg.decimalString()) Kg"
+        lblPrice.text = "Kg fiyatı: \(uiModel.warehouses.wavehousePrice.decimalString()) TL"
+        lblResult.text = "Tutar: \(uiModel.result.decimalString()) TL"
         lblDesc.text = uiModel.warehouses.description ?? ""
     }
 }

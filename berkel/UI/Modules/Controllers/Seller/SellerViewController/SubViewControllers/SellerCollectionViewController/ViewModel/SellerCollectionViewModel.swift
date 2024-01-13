@@ -122,11 +122,11 @@ internal extension SellerCollectionViewModel {
     }
 
     func viewStateSetPrice() {
-        self.viewState.value = .setPrice(name: self.uiModel.price.format())
+        self.viewState.value = .setPrice(name: self.uiModel.price.decimalString())
     }
 
     func viewStateSetKDV() {
-        self.viewState.value = .setKDV(name: self.uiModel.kdv.format())
+        self.viewState.value = .setKDV(name: self.uiModel.kdv.decimalString())
     }
 
     func viewStateSetTotalKg() {

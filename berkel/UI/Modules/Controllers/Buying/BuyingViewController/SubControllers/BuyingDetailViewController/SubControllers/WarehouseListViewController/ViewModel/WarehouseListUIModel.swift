@@ -66,7 +66,11 @@ extension WarehouseListUIModel {
     }
 
     func getCellUIModel(at index: Int) -> WarehouseListTableViewCellUIModelUIModel {
-        return WarehouseListTableViewCellUIModelUIModel(warehouses: self.warehouses[index])
+        let warehouses = self.warehouses[index]
+        let kg = warehouses.wavehouseKg
+        let price = warehouses.wavehousePrice
+        let result = (Double(kg) * Double(price))
+        return WarehouseListTableViewCellUIModelUIModel(warehouses: warehouses, result: result)
     }
 
 }

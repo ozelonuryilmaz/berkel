@@ -78,7 +78,7 @@ final class WorkerCollectionViewModel: BaseViewModel, IWorkerCollectionViewModel
 internal extension WorkerCollectionViewModel {
 
     func saveCollection() {
-        guard self.uiModel.kesiciCount != 0, self.uiModel.ayakciCount != 0 else { return }
+        guard self.uiModel.kesiciCount != 0 else { return }
 
         handleResourceFirestore(
             request: self.repository.saveNewCollection(season: self.uiModel.season,

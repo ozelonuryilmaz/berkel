@@ -94,6 +94,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="KDV"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94O-YE-Xn7" userLabel="tfDesc" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">

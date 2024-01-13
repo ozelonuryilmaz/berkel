@@ -78,6 +78,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Günlük Çavuşluk Fiyatı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0 TL"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvD-zX-DQv" userLabel="tfKesiciPrice" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -96,6 +97,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Günlük Kesici Fiyatı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0 TL"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tku-ZI-Nhf" userLabel="tfAyakciPrice" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -114,6 +116,7 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
                                                     <integer key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0 TL"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOk-Mz-kL2" userLabel="tfServisPrice" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
@@ -132,6 +135,7 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Günlük Servis Fiyatı"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="0 TL"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nC-kx-sjx" userLabel="tfBahceSahibi" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">

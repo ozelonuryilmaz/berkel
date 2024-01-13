@@ -85,10 +85,6 @@ extension NewWorkerUIModel {
             return "Lütfen günlük kesici ücreti giriniz"
         }
 
-        if ayakciPrice == 0.0 {
-            return "Lütfen günlük ayakçı ücreti yazınız"
-        }
-
         if desc.isEmpty {
             return "Lütfen çavuş açıklaması giriniz"
         }

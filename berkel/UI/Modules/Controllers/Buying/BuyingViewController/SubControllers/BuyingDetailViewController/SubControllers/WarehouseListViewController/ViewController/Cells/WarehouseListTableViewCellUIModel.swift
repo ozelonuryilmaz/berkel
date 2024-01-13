@@ -11,9 +11,11 @@ import Foundation
 protocol IWarehouseListTableViewCellUIModelUIModel {
 
     var warehouses: WarehouseModel { get }
+    var result: Double { get }
 }
 
 struct WarehouseListTableViewCellUIModelUIModel: IWarehouseListTableViewCellUIModelUIModel {
     
     let warehouses: WarehouseModel
+    let result: Double
 }

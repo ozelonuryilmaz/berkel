@@ -80,10 +80,6 @@ extension NewSellerUIModel {
             return "Lütfen KG fiyatını giriniz"
         }
 
-        if kdv <= 0.0 {
-            return "Lütfen KDV giriniz"
-        }
-
         if desc.isEmpty {
             return "Lütfen satın alım açıklaması giriniz"
         }

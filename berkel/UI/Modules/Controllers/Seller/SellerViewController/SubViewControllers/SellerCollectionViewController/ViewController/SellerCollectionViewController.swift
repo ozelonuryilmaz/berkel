@@ -86,10 +86,10 @@ final class SellerCollectionViewController: BerkelBaseViewController {
                 self.lblProductName.text = "(\(name))"
 
             case .setPrice(let price):
-                self.tfPrice.textField.text = price
+                self.tfPrice.textField.placeholder = price
 
             case .setKDV(let kdv):
-                self.tfKDV.textField.text = kdv
+                self.tfKDV.textField.placeholder = kdv
 
             case .setTotalKg(let kg):
                 self.lblTotalKG.text = kg + " Kg"
