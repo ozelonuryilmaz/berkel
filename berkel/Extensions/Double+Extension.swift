@@ -15,7 +15,7 @@ extension Double {
         numberFormatter.numberStyle = .decimal // Noktalı biçim
 
         // 1000'den büyük veya tam bir sayıysa kesiratı gösterme
-        if Double(Int(self)) == self || self > 100 {
+        if Double(Int(self)) == self || self > 200 {
             numberFormatter.maximumFractionDigits = 0
             numberFormatter.minimumFractionDigits = 0
         } else {
