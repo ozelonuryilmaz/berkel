@@ -71,17 +71,17 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
             self.viewStateShowBuyingActiveButton()
         }
 
-        getBuyingCollection(completion: { [weak self] in
+        getBuyingPayment(completion: { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.delay(250) { [weak self] in
+            DispatchQueue.delay(75) { [weak self] in
                 guard let self = self else { return }
-                self.getBuyingPayment()
+                self.getBuyingCollection()
             }
         })
     }
 
     func reloadPage() {
-        DispatchQueue.delay(750) { [weak self] in
+        DispatchQueue.delay(300) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()
@@ -99,7 +99,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
 // MARK: Service
 internal extension BuyingDetailViewModel {
 
-    private func getBuyingCollection(completion: @escaping () -> Void) {
+    private func getBuyingCollection() {
         handleResourceFirestore(
             request: self.repository.getCollection(season: self.uiModel.season,
                                                    buyingId: self.uiModel.buyingId),
@@ -110,22 +110,21 @@ internal extension BuyingDetailViewModel {
                 //self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-
                 if let data = self.responseCollection.value, !data.isEmpty {
                     self.uiModel.setCollectionResponse(data: data)
                     // Her Cell için ayrı ayrı depo çıktısı bilgisi toplanıyor.
                     self.getWarehouses()
-                } else {
+                }
+            }, callbackComplete: { [weak self] in
+                guard let self = self else { return }
+                if let data = self.responseCollection.value, data.isEmpty {
                     self.viewStateShowNativeProgress(isProgress: false)
                     self.reloadPage()
                 }
-
-            }, callbackComplete: {
-                completion()
             })
     }
 
-    private func getBuyingPayment() {
+    private func getBuyingPayment(completion: @escaping () -> Void) {
         handleResourceFirestore(
             request: self.repository.getPayment(season: self.uiModel.season,
                                                 buyingId: self.uiModel.buyingId),
@@ -139,6 +138,8 @@ internal extension BuyingDetailViewModel {
                     let data = self.responsePayment.value else { return }
                 self.uiModel.setPaymentResponse(data: data)
                 self.viewStateReloadPaymentTableView()
+            }, callbackComplete: {
+                completion()
             })
     }
 
@@ -171,7 +172,7 @@ internal extension BuyingDetailViewModel {
                 let limit = collections.count
                 let count = index + 1
                 if limit > count {
-                    DispatchQueue.delay(30) { [weak self] in
+                    DispatchQueue.delay(25) { [weak self] in
                         guard let self = self else { return }
                         self.getWarehouses(index: count)
                     }

@@ -71,7 +71,7 @@ final class SellerDetailViewModel: BaseViewModel, ISellerDetailViewModel {
 
         getSellerCollection(completion: { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.delay(250) { [weak self] in
+            DispatchQueue.delay(150) { [weak self] in
                 guard let self = self else { return }
                 self.getSellerPayment()
             }
@@ -80,7 +80,7 @@ final class SellerDetailViewModel: BaseViewModel, ISellerDetailViewModel {
 
     func reloadPage() {
         self.viewStateSetNavigationTitle()
-        DispatchQueue.delay(750) { [weak self] in
+        DispatchQueue.delay(300) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()
@@ -107,7 +107,6 @@ internal extension SellerDetailViewModel {
                 guard let self = self,
                     let data = self.responseCollection.value else { return }
                 self.uiModel.setCollectionResponse(data: data)
-                self.reloadPage()
             }, callbackComplete: {
                 completion()
             })
@@ -127,6 +126,9 @@ internal extension SellerDetailViewModel {
                     let data = self.responsePayment.value else { return }
                 self.uiModel.setPaymentResponse(data: data)
                 self.viewStateReloadPaymentTableView()
+            }, callbackComplete: { [weak self] in
+                guard let self = self else { return }
+                self.reloadPage()
             })
     }
 

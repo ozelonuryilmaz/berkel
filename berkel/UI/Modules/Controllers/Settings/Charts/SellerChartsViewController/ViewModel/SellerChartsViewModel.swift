@@ -51,14 +51,14 @@ final class SellerChartsViewModel: BaseViewModel, ISellerChartsViewModel {
     }
 
     func updateView() {
-        DispatchQueue.delay(750) { [weak self] in
+        DispatchQueue.delay(300) { [weak self] in
             guard let self = self else { return }
             self.viewStateOldDoubt()
             self.viewStateNowDoubt()
             self.viewStateBuildCollectionSnapshot()
         }
 
-        DispatchQueue.delay(800) { [weak self] in
+        DispatchQueue.delay(350) { [weak self] in
             self?.viewStateShowNativeProgress(isProgress: false)
         }
     }
