@@ -17,6 +17,13 @@ class MainTabbarCoordinator: RootableCoordinator {
 
     override func start() {
 
+        // Liste
+        let settingsNavController = MainNavigationController()
+        settingsNavController.tabBarItem.title = .tab_title_settings
+        settingsNavController.tabBarItem.image = .tab_title_settings
+        settingsNavController.tabBarItem.selectedImage = .tab_title_settings_selected
+        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavController)
+
         // Buying
         let buyingNavController = MainNavigationController()
         buyingNavController.tabBarItem.title = .tab_title_buying
@@ -38,32 +45,25 @@ class MainTabbarCoordinator: RootableCoordinator {
         sellerNavController.tabBarItem.selectedImage = .tab_title_seller_selected
         let sellerCoordinator = SellerCoordinator(navigationController: sellerNavController)
 
-        // Settings
-        let settingsNavController = MainNavigationController()
-        settingsNavController.tabBarItem.title = .tab_title_settings
-        settingsNavController.tabBarItem.image = .tab_title_settings
-        settingsNavController.tabBarItem.selectedImage = .tab_title_settings_selected
-        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavController)
-
         // workerNavController
         mainTabbarController.viewControllers = [
+            settingsNavController,
             buyingNavController,
             workerNavController,
-            sellerNavController,
-            settingsNavController
+            sellerNavController
         ]
 
         window?.rootViewController = mainTabbarController
         window?.makeKeyAndVisible()
 
         // Coordinate to first controllers for tabs
+        coordinate(to: settingsCoordinator)
         coordinate(to: buyingCoordinator)
         coordinate(to: workerCoordinator)
         coordinate(to: sellerCoordinator)
-        coordinate(to: settingsCoordinator)
 
         // Uygulamanın ilk açılış ekranı
-        self.mainTabbarController.changeTabbarItemController(position: .buying)
+        self.mainTabbarController.changeTabbarItemController(position: .settings)
 
         // uygulamaya giriş yapıldıktan 1 saniye sonra tetiklenen callback
         DispatchQueue.delay(1000) { [weak self] in
@@ -90,7 +90,7 @@ fileprivate extension String {
     static var tab_title_buying = "Alış"
     static var tab_title_worker = "İşçi"
     static var tab_title_seller = "Satış"
-    static var tab_title_settings = "Diğer"
+    static var tab_title_settings = "Liste"
 }
 
 // Tab Icons
