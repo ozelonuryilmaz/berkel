@@ -85,7 +85,8 @@ struct SellerCollectionUIModel: ISellerCollectionUIModel {
 
     func getTotalKg() -> String {
         let result = self.totalKg()
-        return "\(result > 0 ? result : 0)"
+        let _result = result > 0 ? result : 0
+        return _result.decimalString()
     }
 
     func getTotalPrice() -> String {

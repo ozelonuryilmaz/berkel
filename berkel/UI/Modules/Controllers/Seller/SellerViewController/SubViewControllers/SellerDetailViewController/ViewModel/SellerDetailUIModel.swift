@@ -167,7 +167,7 @@ extension SellerDetailUIModel {
                                                            isActive: self.isActive,
                                                            date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
                                                            faturaNo: responseModel.faturaNo,
-                                                           totalKg: "\(responseModel.daraliKg - responseModel.dara)",
+                                                           totalKg: (responseModel.daraliKg - responseModel.dara).decimalString(),
                                                            totalPrice: self.getTotalPrice(data: responseModel).decimalString(),
                                                            isVisibleButtons: true,
                                                            chartTotalKg: nil,

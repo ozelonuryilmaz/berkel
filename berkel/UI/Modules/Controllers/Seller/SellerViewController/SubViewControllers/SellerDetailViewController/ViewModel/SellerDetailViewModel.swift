@@ -71,13 +71,16 @@ final class SellerDetailViewModel: BaseViewModel, ISellerDetailViewModel {
 
         getSellerCollection(completion: { [weak self] in
             guard let self = self else { return }
-            self.getSellerPayment()
+            DispatchQueue.delay(250) { [weak self] in
+                guard let self = self else { return }
+                self.getSellerPayment()
+            }
         })
     }
 
     func reloadPage() {
         self.viewStateSetNavigationTitle()
-        DispatchQueue.delay(250) { [weak self] in
+        DispatchQueue.delay(750) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()

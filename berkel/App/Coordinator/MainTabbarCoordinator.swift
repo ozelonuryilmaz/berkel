@@ -17,13 +17,6 @@ class MainTabbarCoordinator: RootableCoordinator {
 
     override func start() {
 
-        // Liste
-        let settingsNavController = MainNavigationController()
-        settingsNavController.tabBarItem.title = .tab_title_settings
-        settingsNavController.tabBarItem.image = .tab_title_settings
-        settingsNavController.tabBarItem.selectedImage = .tab_title_settings_selected
-        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavController)
-
         // Buying
         let buyingNavController = MainNavigationController()
         buyingNavController.tabBarItem.title = .tab_title_buying
@@ -45,22 +38,29 @@ class MainTabbarCoordinator: RootableCoordinator {
         sellerNavController.tabBarItem.selectedImage = .tab_title_seller_selected
         let sellerCoordinator = SellerCoordinator(navigationController: sellerNavController)
 
+        // Liste
+        let settingsNavController = MainNavigationController()
+        settingsNavController.tabBarItem.title = .tab_title_settings
+        settingsNavController.tabBarItem.image = .tab_title_settings
+        settingsNavController.tabBarItem.selectedImage = .tab_title_settings_selected
+        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavController)
+
         // workerNavController
         mainTabbarController.viewControllers = [
-            settingsNavController,
             buyingNavController,
             workerNavController,
-            sellerNavController
+            sellerNavController,
+            settingsNavController
         ]
 
         window?.rootViewController = mainTabbarController
         window?.makeKeyAndVisible()
 
         // Coordinate to first controllers for tabs
-        coordinate(to: settingsCoordinator)
         coordinate(to: buyingCoordinator)
         coordinate(to: workerCoordinator)
         coordinate(to: sellerCoordinator)
+        coordinate(to: settingsCoordinator)
 
         // Uygulamanın ilk açılış ekranı
         self.mainTabbarController.changeTabbarItemController(position: .settings)

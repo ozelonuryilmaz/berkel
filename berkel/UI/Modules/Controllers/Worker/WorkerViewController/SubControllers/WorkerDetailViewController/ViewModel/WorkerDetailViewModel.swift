@@ -71,13 +71,16 @@ final class WorkerDetailViewModel: BaseViewModel, IWorkerDetailViewModel {
 
         getWorkerCollection(completion: { [weak self] in
             guard let self = self else { return }
-            self.getWorkerPayment()
+            DispatchQueue.delay(250) { [weak self] in
+                guard let self = self else { return }
+                self.getWorkerPayment()
+            }
         })
     }
 
     func reloadPage() {
         self.viewStateSetNavigationTitle()
-        DispatchQueue.delay(250) { [weak self] in
+        DispatchQueue.delay(750) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()

@@ -8,10 +8,10 @@
 import UIKit
 
 enum MainTabbarItemPosition: Int {
-    case settings = 0
-    case buying = 1
-    case worker = 2
-    case sales = 3
+    case buying = 0
+    case worker = 1
+    case sales = 2
+    case settings = 3
     case none = -1
 }
 
