@@ -90,12 +90,12 @@ final class WorkerCollectionViewController: BerkelBaseViewController {
                 self.tfKesiciPrice.textField.placeholder = data.kesiciPrice.decimalString() + " TL"
                 self.tfAyakciPrice.textField.placeholder = data.ayakciPrice.decimalString() + " TL"
                 self.tfServicePrice.textField.placeholder = data.servisPrice.decimalString() + " TL"
-                
+
             case .initCounts(let kesici, let ayakci, let other):
                 self.tfKesiciCount.textField.placeholder = kesici.decimalString()
                 self.tfAyakciCount.textField.placeholder = ayakci.decimalString()
                 self.tfOtherPrice.textField.placeholder = other.decimalString() + " TL"
-                
+
             case .viewedData(let isVisible):
                 self.btnSave.isHidden = !isVisible
                 self.datePicker.isEnabled = isVisible
@@ -106,7 +106,8 @@ final class WorkerCollectionViewController: BerkelBaseViewController {
                 self.tfKesiciPrice.textField.isEnabled = isVisible
                 self.tfAyakciPrice.textField.isEnabled = isVisible
                 self.tfServicePrice.textField.isEnabled = isVisible
-                
+                self.tfOtherPrice.textField.isEnabled = isVisible
+
             }
 
         }).store(in: &cancelBag)

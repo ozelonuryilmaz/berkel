@@ -87,7 +87,7 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
             case .setSellerAndProductNameAndKg(let seller, let product, let kgPrice):
                 self.lblSellerName.text = seller
                 self.lblProductName.text = "(\(product))"
-                self.tfKgPrice.placeholder = String(kgPrice)
+                self.tfKgPrice.placeholder = kgPrice.decimalString()
 
             case .setTotalKg(let kg):
                 self.lblTotalKG.text = kg + " Kg"
@@ -99,19 +99,19 @@ final class BuyingCollectionViewController: BerkelBaseViewController {
             case .getViewedPageData(let data):
 
                 self.datePicker.date = data.date?.getApiResponseTypeDate() ?? Date()
-                self.tfKantarFisi.textField.text = String(data.kantarFisi)
-                self.tfPalet.textField.text = String(data.palet)
-                self.tfRedCase.textField.text = String(data.redCase)
-                self.tfGreenCase.textField.text = String(data.greenCase)
-                self.tf22BlackFoodCase.textField.text = String(data.black22FoodCase)
-                self.tfBigBlackCase.textField.text = String(data.bigBlackCase)
-                self.tfPercentFire.textField.text = String(data.percentFire)
-                self.tfKgPrice.textField.text = String(data.kgPrice)
-                self.tfPaletDari.textField.text = String(data.paletDari)
-                self.tfRedDari.textField.text = String(data.redDari)
-                self.tfGreenDari.textField.text = String(data.greenDari)
-                self.tf22BlackDari.textField.text = String(data.black22FoodDari)
-                self.tfBigBlackDari.textField.text = String(data.bigBlackDari)
+                self.tfKantarFisi.textField.text = data.kantarFisi.decimalString()
+                self.tfPalet.textField.text = data.palet.decimalString()
+                self.tfRedCase.textField.text = data.redCase.decimalString()
+                self.tfGreenCase.textField.text = data.greenCase.decimalString()
+                self.tf22BlackFoodCase.textField.text = data.black22FoodCase.decimalString()
+                self.tfBigBlackCase.textField.text = data.bigBlackCase.decimalString()
+                self.tfPercentFire.textField.text = data.percentFire.decimalString()
+                self.tfKgPrice.textField.text = data.kgPrice.decimalString() + " TL"
+                self.tfPaletDari.textField.text = data.paletDari.decimalString() + " Kg"
+                self.tfRedDari.textField.text = data.redDari.decimalString() + " Kg"
+                self.tfGreenDari.textField.text = data.greenDari.decimalString() + " Kg"
+                self.tf22BlackDari.textField.text = data.black22FoodDari.decimalString() + " Kg"
+                self.tfBigBlackDari.textField.text = data.bigBlackDari.decimalString() + " Kg"
 
                 self.datePicker.isEnabled = false
                 self.tfKantarFisi.textField.isEnabled = false
