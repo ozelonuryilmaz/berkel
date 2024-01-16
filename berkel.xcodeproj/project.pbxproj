@@ -74,6 +74,7 @@
 		672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */; };
 		672E0A982AEAE8430065C36B /* ArchiveListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */; };
 		672E0A9A2AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */; };
+		672EB35C2B558DFD00B1C2DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 672EB35B2B558DFC00B1C2DD /* GoogleService-Info.plist */; };
 		6730ED662B1CA95400111826 /* SellerDetailPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6730ED642B1CA95400111826 /* SellerDetailPaymentTableViewCell.swift */; };
 		6730ED672B1CA95400111826 /* SellerDetailPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6730ED652B1CA95400111826 /* SellerDetailPaymentTableViewCell.xib */; };
 		6730ED692B1CA96200111826 /* SellerDetailPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6730ED682B1CA96200111826 /* SellerDetailPaymentTableViewCellUIModel.swift */; };
@@ -147,7 +148,6 @@
 		675984322B08ECF500F0DAD0 /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 675984302B08ECF500F0DAD0 /* ProductListTableViewCell.xib */; };
 		675984342B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984332B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift */; };
 		675984362B08EFA500F0DAD0 /* ProductItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675984352B08EFA500F0DAD0 /* ProductItemService.swift */; };
-		6759844D2B52F11000153D3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6759844C2B52F11000153D3B /* GoogleService-Info.plist */; };
 		675F5C262AC4C09000DC863F /* NewBuyingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C252AC4C09000DC863F /* NewBuyingModel.swift */; };
 		675F5C292AC4C25F00DC863F /* NewBuyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F5C282AC4C25F00DC863F /* NewBuyingService.swift */; };
 		676E72082AA383CE00010350 /* BerkelTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676E72072AA383CE00010350 /* BerkelTabBar.swift */; };
@@ -599,6 +599,7 @@
 		672E0A952AEAE8430065C36B /* ArchiveListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCell.swift; sourceTree = "<group>"; };
 		672E0A962AEAE8430065C36B /* ArchiveListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveListTableViewCell.xib; sourceTree = "<group>"; };
 		672E0A992AEAE8560065C36B /* ArchiveListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		672EB35B2B558DFC00B1C2DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6730ED642B1CA95400111826 /* SellerDetailPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerDetailPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		6730ED652B1CA95400111826 /* SellerDetailPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerDetailPaymentTableViewCell.xib; sourceTree = "<group>"; };
 		6730ED682B1CA96200111826 /* SellerDetailPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerDetailPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
@@ -672,7 +673,6 @@
 		675984302B08ECF500F0DAD0 /* ProductListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListTableViewCell.xib; sourceTree = "<group>"; };
 		675984332B08ECFF00F0DAD0 /* ProductListTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		675984352B08EFA500F0DAD0 /* ProductItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemService.swift; sourceTree = "<group>"; };
-		6759844C2B52F11000153D3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		675F5C252AC4C09000DC863F /* NewBuyingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingModel.swift; sourceTree = "<group>"; };
 		675F5C282AC4C25F00DC863F /* NewBuyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingService.swift; sourceTree = "<group>"; };
 		676E72072AA383CE00010350 /* BerkelTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerkelTabBar.swift; sourceTree = "<group>"; };
@@ -3803,7 +3803,7 @@
 				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
-				6759844C2B52F11000153D3B /* GoogleService-Info.plist */,
+				672EB35B2B558DFC00B1C2DD /* GoogleService-Info.plist */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
 			path = App;
@@ -4521,7 +4521,7 @@
 				67DDE8762B0E5F6700E24949 /* NewSellerViewController.xib in Resources */,
 				674705ED2B0A7A1C006F1639 /* CustomerListViewController.xib in Resources */,
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
-				6759844D2B52F11000153D3B /* GoogleService-Info.plist in Resources */,
+				672EB35C2B558DFD00B1C2DD /* GoogleService-Info.plist in Resources */,
 				67A1EE8D2AF1691700126E44 /* CavusListViewController.xib in Resources */,
 				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
@@ -5213,7 +5213,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;
@@ -5249,7 +5249,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;

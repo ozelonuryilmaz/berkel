@@ -53,13 +53,14 @@ class SellerDetailCollectionTableViewCell: BaseTableViewCell {
         let isCalc = !uiModel.isActive && uiModel.isCalc
         let isntCalc = !uiModel.isActive && !uiModel.isCalc
         let btnTitle: String = isCalc ? "Aktif" : isntCalc ? "Pasif" : (uiModel.isCalc ? "Pasifleştir" : "Aktifleştir")
-        let bgColor: UIColor = (isCalc || isntCalc) ? .lightGray : (uiModel.isCalc ? .redColor : .orangeColor)
+        let bgColor: UIColor = (isCalc || isntCalc) ? .lightGray : (uiModel.isCalc ? .lightGray : .orangeColor)
 
         btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
         btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
         btnCalcActivate.setTitle(btnTitle, for: .normal)
         btnCalcActivate.isEnabled = uiModel.isActive
         btnCalcActivate.backgroundColor = bgColor
+        mContentView.alpha = uiModel.isCalc ? 1 : 0.4
 
         lblDate.text = uiModel.date
         lblFaturaNo.text = uiModel.chartTotalKg == nil ? "Fatura No: \(uiModel.faturaNo)" : uiModel.chartTotalKg ?? ""
