@@ -27,6 +27,7 @@ protocol IWorkerDetailViewModel: WorkerDetailCollectionDataSourceFactoryOutputDe
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateWorkerActive(completion: @escaping () -> Void)
+    func deletePayment(uiModel: WorkerPaymentModel)
     
     // Coordinate
     func presentNewSellerImageViewController(imagePathType: ImagePathType)
@@ -50,6 +51,7 @@ final class WorkerDetailViewModel: BaseViewModel, IWorkerDetailViewModel {
     let responseCollection = CurrentValueSubject<[WorkerCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
+    let responseDeletePayment = CurrentValueSubject<Bool?, Never>(nil)
 
     var workerId: String {
         return self.uiModel.workerId
@@ -170,6 +172,25 @@ internal extension WorkerDetailViewModel {
 
                 completion()
                 self.reloadPage()
+            })
+    }
+    
+    func deletePayment(uiModel: WorkerPaymentModel) {
+        guard let paymentId = uiModel.id else { return }
+
+        handleResourceFirestore(
+            request: self.repository.deletePayment(season: self.uiModel.season,
+                                                   workerId: self.uiModel.workerId,
+                                                   paymentId: paymentId),
+            response: self.responseDeletePayment,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
+            callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.getWorkerPayment()
             })
     }
 }

@@ -196,7 +196,7 @@ private extension WorkerDetailViewController {
 }
 
 // MARK: UITableViewDelegate & UITableViewDataSource
-extension WorkerDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension WorkerDetailViewController: UITableViewDelegate, UITableViewDataSource, WorkerDetailPaymentTableViewCellOutputDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.getNumberOfItemsInSection()
@@ -205,6 +205,19 @@ extension WorkerDetailViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.generateReusableCell(WorkerDetailPaymentTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
+        cell.outputDelegate = self
         return cell
+    }
+    
+    func deleteButtonTapped(uiModel: WorkerPaymentModel) {
+        self.showSystemAlert(
+            title: "\(uiModel.payment.decimalString()) TL tutarı silmek istediğinize emin misin?",
+            message: "",
+            positiveButtonText: "Evet",
+            positiveButtonClickListener: {
+                self.viewModel.deletePayment(uiModel: uiModel)
+            },
+            negativeButtonText: "Hayır"
+        )
     }
 }

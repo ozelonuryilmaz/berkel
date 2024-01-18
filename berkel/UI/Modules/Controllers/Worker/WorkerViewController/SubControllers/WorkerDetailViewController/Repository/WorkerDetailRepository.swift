@@ -14,6 +14,8 @@ protocol IWorkerDetailRepository: AnyObject {
 
     func updateCollectionCalc(season: String, workerId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
     func updateBuyingActive(season: String, workerId: String, isActive: Bool) -> FirestoreResponseType<Bool>
+    
+    func deletePayment(season: String, workerId: String, paymentId: String) -> FirestoreResponseType<Bool>
 }
 
 final class WorkerDetailRepository: BaseRepository, IWorkerDetailRepository {
@@ -36,5 +38,10 @@ final class WorkerDetailRepository: BaseRepository, IWorkerDetailRepository {
     func updateBuyingActive(season: String, workerId: String, isActive: Bool) -> FirestoreResponseType<Bool> {
         let db = WorkerService.collection(season: season, workerId: workerId).documentReference
         return updateData(db, data: ["isActive": isActive])
+    }
+    
+    func deletePayment(season: String, workerId: String, paymentId: String) -> FirestoreResponseType<Bool> {
+        let db = WorkerService.deletePayment(season: season, workerId: workerId, paymentId: paymentId).documentReference
+        return deleteData(db)
     }
 }
