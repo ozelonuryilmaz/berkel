@@ -15,6 +15,7 @@ protocol IBuyingDetailRepository: AnyObject {
     func updateCollectionCalc(season: String, buyingId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
     func updateBuyingActive(season: String, buyingId: String, isActive: Bool) -> FirestoreResponseType<Bool>
 
+    func deletePayment(season: String, buyingId: String, paymentId: String) -> FirestoreResponseType<Bool>
 }
 
 final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
@@ -42,5 +43,10 @@ final class BuyingDetailRepository: BaseRepository, IBuyingDetailRepository {
     func updateBuyingActive(season: String, buyingId: String, isActive: Bool) -> FirestoreResponseType<Bool> {
         let db = BuyingDataService.collection(season: season, buyingId: buyingId).documentReference
         return updateData(db, data: ["isActive": isActive])
+    }
+
+    func deletePayment(season: String, buyingId: String, paymentId: String) -> FirestoreResponseType<Bool> {
+        let db: DocumentReference = BuyingDataService.deletePayment(season: season, buyingId: buyingId, paymentId: paymentId).documentReference
+        return deleteData(db)
     }
 }

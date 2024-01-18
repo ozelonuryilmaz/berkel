@@ -36,24 +36,6 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         mContentView.roundCornersEachCorner(.allCorners, radius: 8)
     }
 
-    func registerEvents(uiModel: IBuyingCollectionTableViewCellUIModel) {
-
-        // Events
-        mContentView.onTap { [unowned self] _ in
-            self.outputDelegate?.cellTapped(uiModel: uiModel)
-        }
-
-        btnWarehouse.onTap { [unowned self] _ in
-            self.outputDelegate?.warehouseTapped(uiModel: uiModel)
-        }
-
-        btnCalcActivate.onTap { [unowned self] _ in
-            self.outputDelegate?.calcActivateTapped(id: uiModel.collectionId ?? "",
-                                                    date: uiModel.date,
-                                                    isCalc: !uiModel.isCalc)
-        }
-    }
-
     func configureCellWith(uiModel: IBuyingCollectionTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
         self.visibilityButtons(isVisible: !uiModel.isCharts)
@@ -73,6 +55,24 @@ class BuyingCollectionTableViewCell: BaseTableViewCell {
         lblDate.text = uiModel.date
         lblWarehouse.text = uiModel.isCharts ? uiModel.totalKg : "Depo Çıkması: \(uiModel.warehouseKg) Kg, \(uiModel.warehouseKgPrice) TL"
         lblTotalKg.text = uiModel.isCharts ? uiModel.totalKgPrice : "Toplam: \(uiModel.totalKg) Kg, \(uiModel.totalKgPrice) TL"
+    }
+
+    func registerEvents(uiModel: IBuyingCollectionTableViewCellUIModel) {
+
+        // Events
+        mContentView.onTap { [unowned self] _ in
+            self.outputDelegate?.cellTapped(uiModel: uiModel)
+        }
+
+        btnWarehouse.onTap { [unowned self] _ in
+            self.outputDelegate?.warehouseTapped(uiModel: uiModel)
+        }
+
+        btnCalcActivate.onTap { [unowned self] _ in
+            self.outputDelegate?.calcActivateTapped(id: uiModel.collectionId ?? "",
+                                                    date: uiModel.date,
+                                                    isCalc: !uiModel.isCalc)
+        }
     }
 
     private func visibilityButtons(isVisible: Bool) {

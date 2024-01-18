@@ -11,6 +11,7 @@ enum BuyingDataService {
 
     case collection(season: String, buyingId: String)
     case payment(season: String, buyingId: String)
+    case deletePayment(season: String, buyingId: String, paymentId: String)
     case wavehouse(season: String, buyingId: String, collectionId: String)
 }
 
@@ -36,6 +37,16 @@ extension BuyingDataService: DocumentServiceType {
                 .document(season)
                 .collection("buying")
                 .document(buyingId)
+            
+        case .deletePayment(let season,let buyingId,let paymentId):
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("buying")
+                .document(buyingId)
+                .collection("payments")
+                .document(paymentId)
 
         default:
             return Firestore
@@ -53,6 +64,7 @@ extension BuyingDataService: CollectionServiceType {
         switch self {
         case .collection(_, _),
              .payment(_, _),
+             .deletePayment(_, _, _),
              .wavehouse(_, _, _):
 
             return "date"
@@ -93,6 +105,11 @@ extension BuyingDataService: CollectionServiceType {
                 .document(collectionId)
                 .collection("wavehouses")
 
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+                .collection("")
         }
     }
 }

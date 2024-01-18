@@ -28,6 +28,7 @@ protocol IBuyingDetailViewModel: BuyingCollectionDataSourceFactoryOutputDelegate
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateBuyingActive(completion: @escaping () -> Void)
+    func deletePayment(uiModel: NewBuyingPaymentModel)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -52,6 +53,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     let responseWarehouse = CurrentValueSubject<[WarehouseModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
+    let responseDeletePayment = CurrentValueSubject<Bool?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IBuyingDetailRepository,
@@ -214,6 +216,27 @@ internal extension BuyingDetailViewModel {
                 self.successDismissCallBack?(false)
                 completion()
                 self.reloadPage()
+            })
+    }
+
+    func deletePayment(uiModel: NewBuyingPaymentModel) {
+        guard let paymentId = uiModel.id else { return }
+
+        handleResourceFirestore(
+            request: self.repository.deletePayment(season: self.uiModel.season,
+                                                   buyingId: self.uiModel.buyingId,
+                                                   paymentId: paymentId),
+            response: self.responseDeletePayment,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: true)
+                self.getBuyingPayment(completion: {
+                    self.reloadPage()
+                })
             })
     }
 }
