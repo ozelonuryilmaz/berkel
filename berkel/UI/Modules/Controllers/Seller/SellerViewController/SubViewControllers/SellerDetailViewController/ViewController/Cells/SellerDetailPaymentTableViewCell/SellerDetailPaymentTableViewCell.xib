@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                         <rect key="frame" x="16" y="8" width="288" height="125"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIB-ID-XrZ" userLabel="lblDate">
-                                <rect key="frame" x="16" y="16" width="256" height="30"/>
+                                <rect key="frame" x="16" y="16" width="220" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="U2a-Gy-Fva"/>
                                 </constraints>
@@ -45,11 +46,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mO-Wt-vj8">
+                                <rect key="frame" x="236" y="14" width="52" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="YJg-tz-wdd"/>
+                                    <constraint firstAttribute="width" constant="52" id="m6B-xj-JFf"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7uS-QD-CJP" secondAttribute="trailing" constant="16" id="0zM-lC-ZWr"/>
-                            <constraint firstAttribute="trailing" secondItem="mIB-ID-XrZ" secondAttribute="trailing" constant="16" id="G4i-nu-POL"/>
+                            <constraint firstItem="0mO-Wt-vj8" firstAttribute="centerY" secondItem="mIB-ID-XrZ" secondAttribute="centerY" id="8Bk-b8-PQT"/>
+                            <constraint firstItem="0mO-Wt-vj8" firstAttribute="leading" secondItem="mIB-ID-XrZ" secondAttribute="trailing" id="9HB-Rd-xE1"/>
                             <constraint firstAttribute="bottom" secondItem="vUY-Ty-rPh" secondAttribute="bottom" constant="16" id="O7R-Ra-Wrl"/>
                             <constraint firstItem="vUY-Ty-rPh" firstAttribute="top" secondItem="7uS-QD-CJP" secondAttribute="bottom" constant="8" id="eVC-w0-ijl"/>
                             <constraint firstItem="vUY-Ty-rPh" firstAttribute="leading" secondItem="l48-IR-8mU" secondAttribute="leading" constant="16" id="ice-U7-sbW"/>
@@ -57,6 +69,7 @@
                             <constraint firstItem="7uS-QD-CJP" firstAttribute="leading" secondItem="l48-IR-8mU" secondAttribute="leading" constant="16" id="nvz-8e-Z6c"/>
                             <constraint firstItem="7uS-QD-CJP" firstAttribute="top" secondItem="mIB-ID-XrZ" secondAttribute="bottom" constant="8" id="qsj-ke-PiX"/>
                             <constraint firstItem="mIB-ID-XrZ" firstAttribute="leading" secondItem="l48-IR-8mU" secondAttribute="leading" constant="16" id="rHl-5C-T9D"/>
+                            <constraint firstAttribute="trailing" secondItem="0mO-Wt-vj8" secondAttribute="trailing" id="shY-5P-hyr"/>
                             <constraint firstItem="mIB-ID-XrZ" firstAttribute="top" secondItem="l48-IR-8mU" secondAttribute="top" constant="16" id="t1e-Uv-P5T"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -79,6 +92,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
             <connections>
+                <outlet property="btnDelete" destination="0mO-Wt-vj8" id="DVL-fV-H6N"/>
                 <outlet property="lblDate" destination="mIB-ID-XrZ" id="6ls-dU-991"/>
                 <outlet property="lblDesc" destination="vUY-Ty-rPh" id="SZV-Nh-xGl"/>
                 <outlet property="lblPrice" destination="7uS-QD-CJP" id="4lf-hz-yHS"/>
@@ -94,5 +108,8 @@
         <namedColor name="PrimaryVeryLightGray">
             <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

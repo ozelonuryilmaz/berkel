@@ -13,6 +13,7 @@ enum SellerService {
     case list(season: String)
     case collection(season: String, sellerId: String)
     case payment(season: String, sellerId: String)
+    case deletePayment(season: String, sellerId: String, paymentId: String)
     case seller(season: String, sellerId: String, collectionId: String)
 }
 
@@ -20,7 +21,7 @@ extension SellerService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .save(_), .list(_), .collection(_, _), .payment(_, _):
+        case .save(_), .list(_), .collection(_, _), .payment(_, _), .deletePayment(_, _, _):
             return "date"
         default:
             return ""
@@ -90,7 +91,18 @@ extension SellerService: DocumentServiceType {
                 .document(season)
                 .collection("seller")
                 .document(sellerId)
+            
+        case .deletePayment(let season, let sellerId, let paymentId):
 
+            return Firestore
+                .firestore()
+                .collection("data")
+                .document(season)
+                .collection("seller")
+                .document(sellerId)
+                .collection("payments")
+                .document(paymentId)
+            
         default:
             return Firestore
                 .firestore()

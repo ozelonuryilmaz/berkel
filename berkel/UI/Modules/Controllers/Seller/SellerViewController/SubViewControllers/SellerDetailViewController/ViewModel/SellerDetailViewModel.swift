@@ -30,6 +30,7 @@ protocol ISellerDetailViewModel: SellerDetailCollectionDataSourceFactoryOutputDe
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateSellerActive(completion: @escaping () -> Void)
+    func deletePayment(uiModel: SellerPaymentModel)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -50,6 +51,7 @@ final class SellerDetailViewModel: BaseViewModel, ISellerDetailViewModel {
     let responseCollection = CurrentValueSubject<[SellerCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
+    let responseDeletePayment = CurrentValueSubject<Bool?, Never>(nil)
 
     var sellerId: String {
         return self.uiModel.sellerId
@@ -167,6 +169,24 @@ internal extension SellerDetailViewModel {
 
                 completion()
                 self.reloadPage()
+            })
+    }
+
+    func deletePayment(uiModel: SellerPaymentModel) {
+        guard let paymentId = uiModel.id else { return }
+
+        handleResourceFirestore(
+            request: self.repository.deletePayment(season: self.uiModel.season,
+                                                   sellerId: self.uiModel.sellerId,
+                                                   paymentId: paymentId),
+            response: self.responseDeletePayment,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.getSellerPayment()
             })
     }
 }

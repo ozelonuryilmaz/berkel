@@ -193,7 +193,7 @@ private extension SellerDetailViewController {
 }
 
 // MARK: UITableViewDelegate & UITableViewDataSource
-extension SellerDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension SellerDetailViewController: UITableViewDelegate, UITableViewDataSource, SellerDetailPaymentTableViewCellOutputDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.getNumberOfItemsInSection()
@@ -202,6 +202,19 @@ extension SellerDetailViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.generateReusableCell(SellerDetailPaymentTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
+        cell.outputDelegate = self
         return cell
+    }
+    
+    func deleteButtonTapped(uiModel: SellerPaymentModel) {
+        self.showSystemAlert(
+            title: "\(uiModel.payment.decimalString()) TL tutarı silmek istediğinize emin misin?",
+            message: "",
+            positiveButtonText: "Evet",
+            positiveButtonClickListener: {
+                self.viewModel.deletePayment(uiModel: uiModel)
+            },
+            negativeButtonText: "Hayır"
+        )
     }
 }
