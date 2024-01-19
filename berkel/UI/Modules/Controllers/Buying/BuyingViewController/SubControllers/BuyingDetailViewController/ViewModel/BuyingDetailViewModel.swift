@@ -75,7 +75,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
 
         getBuyingPayment(completion: { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.delay(75) { [weak self] in
+            DispatchQueue.delay(50) { [weak self] in
                 guard let self = self else { return }
                 self.getBuyingCollection()
             }
@@ -83,7 +83,7 @@ final class BuyingDetailViewModel: BaseViewModel, IBuyingDetailViewModel {
     }
 
     func reloadPage() {
-        DispatchQueue.delay(300) { [weak self] in
+        DispatchQueue.delay(250) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
             self.viewStateOldDoubt()
@@ -174,7 +174,7 @@ internal extension BuyingDetailViewModel {
                 let limit = collections.count
                 let count = index + 1
                 if limit > count {
-                    DispatchQueue.delay(25) { [weak self] in
+                    DispatchQueue.delay(15) { [weak self] in
                         guard let self = self else { return }
                         self.getWarehouses(index: count)
                     }

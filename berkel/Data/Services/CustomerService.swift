@@ -11,6 +11,7 @@ enum CustomerService {
 
     case list
     case save
+    case update(id: String)
 }
 
 extension CustomerService: CollectionServiceType {
@@ -37,6 +38,33 @@ extension CustomerService: CollectionServiceType {
             return Firestore
                 .firestore()
                 .collection("customer")
+            
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+                .collection("")
         }
     }
+}
+
+extension CustomerService: DocumentServiceType {
+
+    var documentReference: DocumentReference {
+        switch self {
+        case .update(let id):
+            
+            return Firestore
+                .firestore()
+                .collection("customer")
+                .document(id)
+
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+        }
+    }
+
+
 }

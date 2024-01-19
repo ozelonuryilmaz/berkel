@@ -51,14 +51,14 @@ final class WorkerChartsViewModel: BaseViewModel, IWorkerChartsViewModel {
     }
 
     func updateView() {
-        DispatchQueue.delay(300) { [weak self] in
+        DispatchQueue.delay(250) { [weak self] in
             guard let self = self else { return }
             self.viewStateOldDoubt()
             self.viewStateNowDoubt()
             self.viewStateBuildCollectionSnapshot()
         }
 
-        DispatchQueue.delay(350) { [weak self] in
+        DispatchQueue.delay(300) { [weak self] in
             self?.viewStateShowNativeProgress(isProgress: false)
         }
     }
@@ -106,7 +106,7 @@ internal extension WorkerChartsViewModel {
                 if workerResponse.count <= (index + 1) {
                     self.getSellerPayment()
                 } else {
-                    DispatchQueue.delay(30) { [weak self] in
+                    DispatchQueue.delay(10) { [weak self] in
                         self?.getSellerCollection(index: index + 1)
                     }
                 }
@@ -131,7 +131,7 @@ internal extension WorkerChartsViewModel {
                 if workerResponse.count <= (index + 1) {
                     self.updateView()
                 } else {
-                    DispatchQueue.delay(30) { [weak self] in
+                    DispatchQueue.delay(10) { [weak self] in
                         self?.getSellerPayment(index: index + 1)
                     }
                 }

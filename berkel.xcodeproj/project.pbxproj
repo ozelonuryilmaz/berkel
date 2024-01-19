@@ -1539,6 +1539,62 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		67460D1A2B5A8F18000AB380 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				67460D1B2B5A8F21000AB380 /* Seller */,
+				67460D1C2B5A8F2C000AB380 /* Cavus */,
+				67460D1D2B5A8F2F000AB380 /* Customer */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		67460D1B2B5A8F21000AB380 /* Seller */ = {
+			isa = PBXGroup;
+			children = (
+				67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */,
+				6776F4D02AB3AEE7006836CE /* AddSellerViewController */,
+			);
+			path = Seller;
+			sourceTree = "<group>";
+		};
+		67460D1C2B5A8F2C000AB380 /* Cavus */ = {
+			isa = PBXGroup;
+			children = (
+				67A1EE7A2AF1686800126E44 /* CavusListViewController */,
+				67A1EE7C2AF1689C00126E44 /* NewCavusViewController */,
+			);
+			path = Cavus;
+			sourceTree = "<group>";
+		};
+		67460D1D2B5A8F2F000AB380 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				674705DB2B0A79E8006F1639 /* CustomerListViewController */,
+				674705DC2B0A79F0006F1639 /* NewCustomorViewController */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		67460D1E2B5A8FE4000AB380 /* Warehouse */ = {
+			isa = PBXGroup;
+			children = (
+				674CC6BB2ADEE7A70026A9D2 /* WarehouseListViewController */,
+				674CC6BC2ADEE7B10026A9D2 /* NewWarehouseViewController */,
+			);
+			path = Warehouse;
+			sourceTree = "<group>";
+		};
+		67460D1F2B5A94D7000AB380 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				672397F12AEACAEC001538C1 /* ArchiveListViewController */,
+				672397F22AEACB07001538C1 /* ArchiveDetailViewController */,
+				6774FB0B2AE6DFAD00F1F692 /* NewSellerImageViewController */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
 		674705DB2B0A79E8006F1639 /* CustomerListViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1789,16 +1845,6 @@
 				67C019702B110B4C0094D023 /* SellerPaymentViewController.xib */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		674CC6BA2ADEE79F0026A9D2 /* SubControllers */ = {
-			isa = PBXGroup;
-			children = (
-				6774FB0B2AE6DFAD00F1F692 /* NewSellerImageViewController */,
-				674CC6BB2ADEE7A70026A9D2 /* WarehouseListViewController */,
-				674CC6BC2ADEE7B10026A9D2 /* NewWarehouseViewController */,
-			);
-			path = SubControllers;
 			sourceTree = "<group>";
 		};
 		674CC6BB2ADEE7A70026A9D2 /* WarehouseListViewController */ = {
@@ -2292,8 +2338,6 @@
 			children = (
 				677E67982AA35238001775E2 /* BuyingViewController */,
 				67DB17172ABF14AE00463CA9 /* NewBuyingViewController */,
-				67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */,
-				6776F4D02AB3AEE7006836CE /* AddSellerViewController */,
 			);
 			path = Buying;
 			sourceTree = "<group>";
@@ -2303,8 +2347,6 @@
 			children = (
 				677E67992AA35240001775E2 /* WorkerViewController */,
 				67A1EE7B2AF1687C00126E44 /* NewWorkerViewController */,
-				67A1EE7A2AF1686800126E44 /* CavusListViewController */,
-				67A1EE7C2AF1689C00126E44 /* NewCavusViewController */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -2314,8 +2356,6 @@
 			children = (
 				677E679A2AA35247001775E2 /* SellerViewController */,
 				679836F82B0E5EB8007350F1 /* NewSellerViewController */,
-				674705DB2B0A79E8006F1639 /* CustomerListViewController */,
-				674705DC2B0A79F0006F1639 /* NewCustomorViewController */,
 			);
 			path = Seller;
 			sourceTree = "<group>";
@@ -2327,6 +2367,8 @@
 				6797C4922AC1ECBC0049C8F7 /* SeasonsViewController */,
 				677521652B4FD84300239364 /* UserAuthsViewController */,
 				675984152B08DF2800F0DAD0 /* ProductListViewController */,
+				67460D1F2B5A94D7000AB380 /* Archive */,
+				67460D1A2B5A8F18000AB380 /* Lists */,
 				678BACCD2B2A2D1A00EF7050 /* Charts */,
 			);
 			path = Settings;
@@ -3338,7 +3380,6 @@
 				67B98CFC2ADBE76F00CD4B15 /* Repository */,
 				67B98CFB2ADBE76400CD4B15 /* ViewModel */,
 				67B98CFA2ADBE75700CD4B15 /* ViewController */,
-				674CC6BA2ADEE79F0026A9D2 /* SubControllers */,
 			);
 			path = BuyingDetailViewController;
 			sourceTree = "<group>";
@@ -3415,6 +3456,7 @@
 				67B98CE82ADBE6ED00CD4B15 /* BuyingDetailViewController */,
 				67B9EE412AD5AF7B003E6BA3 /* BuyingCollectionViewController */,
 				67B98CFF2ADBEB2000CD4B15 /* BuyingPaymentViewController */,
+				67460D1E2B5A8FE4000AB380 /* Warehouse */,
 			);
 			path = SubControllers;
 			sourceTree = "<group>";
@@ -3948,15 +3990,6 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		67DB17162ABF145F00463CA9 /* SubViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				672397F12AEACAEC001538C1 /* ArchiveListViewController */,
-				672397F22AEACB07001538C1 /* ArchiveDetailViewController */,
-			);
-			path = SubViewControllers;
-			sourceTree = "<group>";
-		};
 		67DB17172ABF14AE00463CA9 /* NewBuyingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -4249,7 +4282,6 @@
 				67F87F1E2AB3A3B200FFC097 /* Repository */,
 				67F87F1C2AB3A3A900FFC097 /* ViewModel */,
 				67F87F1B2AB3A3A500FFC097 /* ViewController */,
-				67DB17162ABF145F00463CA9 /* SubViewControllers */,
 			);
 			path = AddBuyingItemViewController;
 			sourceTree = "<group>";

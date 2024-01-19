@@ -10,6 +10,7 @@ import FirebaseFirestore
 enum SellerListService {
 
     case save
+    case update(id: String)
 }
 
 extension SellerListService: CollectionServiceType {
@@ -21,6 +22,33 @@ extension SellerListService: CollectionServiceType {
             return Firestore
                 .firestore()
                 .collection("seller")
+
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+                .collection("")
         }
     }
+}
+
+extension SellerListService: DocumentServiceType {
+
+    var documentReference: DocumentReference {
+        switch self {
+        case .update(let id):
+            
+            return Firestore
+                .firestore()
+                .collection("seller")
+                .document(id)
+
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+        }
+    }
+
+
 }

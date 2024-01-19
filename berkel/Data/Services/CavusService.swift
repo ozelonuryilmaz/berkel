@@ -11,6 +11,7 @@ enum CavusService {
 
     case list
     case save
+    case update(id: String)
 }
 
 extension CavusService: CollectionServiceType {
@@ -37,6 +38,33 @@ extension CavusService: CollectionServiceType {
             return Firestore
                 .firestore()
                 .collection("cavus")
+            
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+                .collection("")
         }
     }
+}
+
+extension CavusService: DocumentServiceType {
+
+    var documentReference: DocumentReference {
+        switch self {
+        case .update(let id):
+            
+            return Firestore
+                .firestore()
+                .collection("cavus")
+                .document(id)
+
+        default:
+            return Firestore
+                .firestore()
+                .document("")
+        }
+    }
+
+
 }

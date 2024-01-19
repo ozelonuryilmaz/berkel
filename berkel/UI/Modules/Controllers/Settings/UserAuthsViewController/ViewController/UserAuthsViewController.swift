@@ -36,7 +36,7 @@ final class UserAuthsViewController: BerkelBaseViewController {
     }
 
     override func setupView() {
-        DispatchQueue.delay(250) { [weak self] in
+        DispatchQueue.delay(200) { [weak self] in
             self?.viewModel.getUsers()
         }
     }

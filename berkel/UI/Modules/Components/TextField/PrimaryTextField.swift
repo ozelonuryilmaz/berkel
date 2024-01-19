@@ -25,6 +25,12 @@ class PrimaryTextField: BaseReusableView {
             lblTitle.text = title
         }
     }
+    
+    var text: String = "" {
+        didSet {
+            textField.text = text
+        }
+    }
 
     @IBInspectable
     var placeholder: String = "" {
