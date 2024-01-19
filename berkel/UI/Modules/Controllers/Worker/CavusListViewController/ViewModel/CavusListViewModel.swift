@@ -145,6 +145,15 @@ internal extension CavusListViewModel {
     }
 }
 
+// MARK: NewWorkerViewControllerOutputDelegate
+extension CavusListViewModel {
+
+    func newWorkerData(_ data: WorkerModel) {
+        self.viewStateOutputDelegate(workerModel: data)
+        self.popToRootViewController(animated: true)
+    }
+}
+
 // MARK: CavusListDataSourceFactoryOutputDelegate
 extension CavusListViewModel {
 
@@ -173,14 +182,6 @@ extension CavusListViewModel {
     }
 }
 
-// MARK: NewWorkerViewControllerOutputDelegate
-extension CavusListViewModel {
-
-    func newWorkerData(_ data: WorkerModel) {
-        self.viewStateOutputDelegate(workerModel: data)
-        self.popToRootViewController(animated: true)
-    }
-}
 
 enum CavusListViewState {
     case showNativeProgress(isProgress: Bool)

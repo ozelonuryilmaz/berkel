@@ -2618,8 +2618,8 @@
 			isa = PBXGroup;
 			children = (
 				677E67982AA35238001775E2 /* BuyingViewController */,
-				67DB17172ABF14AE00463CA9 /* NewBuyingViewController */,
 				67F87F0A2AB3A36E00FFC097 /* AddBuyingItemViewController */,
+				67DB17172ABF14AE00463CA9 /* NewBuyingViewController */,
 				6776F4D02AB3AEE7006836CE /* AddSellerViewController */,
 			);
 			path = Buying;

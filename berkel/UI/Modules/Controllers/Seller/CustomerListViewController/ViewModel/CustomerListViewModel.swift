@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol ICustomerListViewModel: NewCustomerViewControllerOutputDelegate, CustomerListDataSourceFactoryOutputDelegate, NewSellerViewControllerOutputDelegate{
+protocol ICustomerListViewModel: NewCustomerViewControllerOutputDelegate, CustomerListDataSourceFactoryOutputDelegate, NewSellerViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<CustomerListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -18,10 +18,10 @@ protocol ICustomerListViewModel: NewCustomerViewControllerOutputDelegate, Custom
 
     // Coordinate
     func presentNewCustomerViewController(passData: NewCustomerPassData)
-    
+
     // Service
     func getCustomerList()
-    
+
     func updateSnapshot(currentSnapshot: CustomerListSnapshot,
                         newDatas: [CustomerModel]) -> CustomerListSnapshot
 }
@@ -124,7 +124,7 @@ internal extension CustomerListViewModel {
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
-    
+
     func pushArchiveListViewController(customerId: String) {
         // MARK: sellerId kullanılmıyor
         let data = ArchiveListPassData(imagePageType: .seller(customerId: customerId,
@@ -143,6 +143,15 @@ internal extension CustomerListViewModel {
     }
 }
 
+// MARK: NewSellerViewControllerOutputDelegate
+internal extension CustomerListViewModel {
+
+    func newSellerData(_ data: SellerModel) {
+        self.viewStateOutputDelegate(sellerModel: data)
+        self.popToRootViewController(animated: true)
+    }
+}
+
 // MARK: CustomerListDataSourceFactoryOutputDelegate
 extension CustomerListViewModel {
 
@@ -155,7 +164,7 @@ extension CustomerListViewModel {
             self.presentNewSellerViewController(customerId: uiModel.id ?? "", customerName: uiModel.name)
         }
     }
-    
+
     func archiveTapped(customerId: String) {
         self.pushArchiveListViewController(customerId: customerId)
     }
@@ -170,16 +179,6 @@ extension CustomerListViewModel {
         }
     }
 }
-
-// MARK: NewSellerViewControllerOutputDelegate
-internal extension CustomerListViewModel {
-
-    func newSellerData(_ data: SellerModel) {
-        self.viewStateOutputDelegate(sellerModel: data)
-        self.popToRootViewController(animated: true)
-    }
-}
-
 
 enum CustomerListViewState {
     case showNativeProgress(isProgress: Bool)
