@@ -1,0 +1,58 @@
+//
+//  NewOtherSellerCoordinator.swift
+//  berkel
+//
+//  Created by Onur Yilmaz on 19.01.2024.
+//
+
+import UIKit
+
+protocol INewOtherSellerCoordinator: AnyObject {
+
+    func dismiss(completion: (() -> Void)?)
+}
+
+final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerCoordinator {
+
+    private var coordinatorData: NewOtherSellerPassData { return castPassData(NewOtherSellerPassData.self) }
+
+    private unowned var navController: MainNavigationController // Presenter
+
+    private weak var outputDelegate: NewOtherSellerViewControllerOutputDelegate? = nil
+
+    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
+        self.navController = navController
+        super.init(presenterViewController: presenterViewController)
+    }
+
+    @discardableResult
+    func with(outputDelegate: NewOtherSellerViewControllerOutputDelegate) -> NewOtherSellerCoordinator {
+        self.outputDelegate = outputDelegate
+        return self
+    }
+    
+    override func start() {
+        guard let outputDelegate = outputDelegate else { return }
+        
+        let controller = NewOtherSellerBuilder.generate(with: coordinatorData,
+                                                        coordinator: self,
+                                                        outputDelegate: outputDelegate)
+
+        navController.setRootViewController(viewController: controller)
+        startPresent(targetVC: navController)
+    }
+
+
+    func dismiss(completion: (() -> Void)? = nil) {
+        navController.dismiss(animated: true, completion: completion)
+    }
+}
+
+// Presenter
+extension NewOtherSellerCoordinator {
+
+    static func getInstance(presenterViewController: UIViewController?) -> NewOtherSellerCoordinator {
+        return NewOtherSellerCoordinator(presenterViewController: presenterViewController,
+                                                    navController: MainNavigationController())
+    }
+}

@@ -90,6 +90,40 @@
 		67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */; };
 		673929E22AFC08DE0079A520 /* WorkerCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673929E12AFC08DE0079A520 /* WorkerCollectionModel.swift */; };
 		673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */; };
+		67460D2F2B5AA70A000AB380 /* OtherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D272B5AA70A000AB380 /* OtherCoordinator.swift */; };
+		67460D302B5AA70A000AB380 /* OtherUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D282B5AA70A000AB380 /* OtherUIModel.swift */; };
+		67460D312B5AA70A000AB380 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D292B5AA70A000AB380 /* OtherViewController.swift */; };
+		67460D322B5AA70A000AB380 /* OtherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D2A2B5AA70A000AB380 /* OtherRepository.swift */; };
+		67460D332B5AA70A000AB380 /* OtherBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D2B2B5AA70A000AB380 /* OtherBuilder.swift */; };
+		67460D342B5AA70A000AB380 /* OtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D2C2B5AA70A000AB380 /* OtherViewModel.swift */; };
+		67460D352B5AA70A000AB380 /* OtherPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D2D2B5AA70A000AB380 /* OtherPassData.swift */; };
+		67460D362B5AA70A000AB380 /* OtherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67460D2E2B5AA70A000AB380 /* OtherViewController.xib */; };
+		67460D472B5AB005000AB380 /* NewOtherItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D3F2B5AB005000AB380 /* NewOtherItemCoordinator.swift */; };
+		67460D482B5AB005000AB380 /* NewOtherItemUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D402B5AB005000AB380 /* NewOtherItemUIModel.swift */; };
+		67460D492B5AB005000AB380 /* NewOtherItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D412B5AB005000AB380 /* NewOtherItemViewController.swift */; };
+		67460D4A2B5AB005000AB380 /* NewOtherItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D422B5AB005000AB380 /* NewOtherItemRepository.swift */; };
+		67460D4B2B5AB005000AB380 /* NewOtherItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D432B5AB005000AB380 /* NewOtherItemBuilder.swift */; };
+		67460D4C2B5AB005000AB380 /* NewOtherItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D442B5AB005000AB380 /* NewOtherItemViewModel.swift */; };
+		67460D4D2B5AB005000AB380 /* NewOtherItemPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D452B5AB005000AB380 /* NewOtherItemPassData.swift */; };
+		67460D4E2B5AB005000AB380 /* NewOtherItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67460D462B5AB005000AB380 /* NewOtherItemViewController.xib */; };
+		67460D512B5AB034000AB380 /* OtherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D502B5AB034000AB380 /* OtherModel.swift */; };
+		67460D792B5AE07C000AB380 /* OtherSellerListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D712B5AE07C000AB380 /* OtherSellerListCoordinator.swift */; };
+		67460D7A2B5AE07C000AB380 /* OtherSellerListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D722B5AE07C000AB380 /* OtherSellerListUIModel.swift */; };
+		67460D7B2B5AE07C000AB380 /* OtherSellerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D732B5AE07C000AB380 /* OtherSellerListViewController.swift */; };
+		67460D7C2B5AE07C000AB380 /* OtherSellerListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D742B5AE07C000AB380 /* OtherSellerListRepository.swift */; };
+		67460D7D2B5AE07C000AB380 /* OtherSellerListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D752B5AE07C000AB380 /* OtherSellerListBuilder.swift */; };
+		67460D7E2B5AE07C000AB380 /* OtherSellerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D762B5AE07C000AB380 /* OtherSellerListViewModel.swift */; };
+		67460D7F2B5AE07C000AB380 /* OtherSellerListPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D772B5AE07C000AB380 /* OtherSellerListPassData.swift */; };
+		67460D802B5AE07C000AB380 /* OtherSellerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67460D782B5AE07C000AB380 /* OtherSellerListViewController.xib */; };
+		67460D8E2B5AE409000AB380 /* NewOtherSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D862B5AE409000AB380 /* NewOtherSellerCoordinator.swift */; };
+		67460D8F2B5AE409000AB380 /* NewOtherSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D872B5AE409000AB380 /* NewOtherSellerUIModel.swift */; };
+		67460D902B5AE409000AB380 /* NewOtherSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D882B5AE409000AB380 /* NewOtherSellerViewController.swift */; };
+		67460D912B5AE409000AB380 /* NewOtherSellerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D892B5AE409000AB380 /* NewOtherSellerRepository.swift */; };
+		67460D922B5AE409000AB380 /* NewOtherSellerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D8A2B5AE409000AB380 /* NewOtherSellerBuilder.swift */; };
+		67460D932B5AE409000AB380 /* NewOtherSellerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D8B2B5AE409000AB380 /* NewOtherSellerViewModel.swift */; };
+		67460D942B5AE409000AB380 /* NewOtherSellerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D8C2B5AE409000AB380 /* NewOtherSellerPassData.swift */; };
+		67460D952B5AE409000AB380 /* NewOtherSellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67460D8D2B5AE409000AB380 /* NewOtherSellerViewController.xib */; };
+		67460D982B5AE47C000AB380 /* OtherSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67460D972B5AE47C000AB380 /* OtherSellerModel.swift */; };
 		674705E62B0A7A1C006F1639 /* CustomerListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674705DE2B0A7A1C006F1639 /* CustomerListCoordinator.swift */; };
 		674705E72B0A7A1C006F1639 /* CustomerListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674705DF2B0A7A1C006F1639 /* CustomerListUIModel.swift */; };
 		674705E82B0A7A1C006F1639 /* CustomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674705E02B0A7A1C006F1639 /* CustomerListViewController.swift */; };
@@ -615,6 +649,40 @@
 		67334EA22AB4E1270072DBD6 /* AddSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSellerModel.swift; sourceTree = "<group>"; };
 		673929E12AFC08DE0079A520 /* WorkerCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCollectionModel.swift; sourceTree = "<group>"; };
 		673DF5B32ABF15BE005F6B33 /* NewBuyingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewBuyingViewController.xib; sourceTree = "<group>"; };
+		67460D272B5AA70A000AB380 /* OtherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCoordinator.swift; sourceTree = "<group>"; };
+		67460D282B5AA70A000AB380 /* OtherUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUIModel.swift; sourceTree = "<group>"; };
+		67460D292B5AA70A000AB380 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		67460D2A2B5AA70A000AB380 /* OtherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherRepository.swift; sourceTree = "<group>"; };
+		67460D2B2B5AA70A000AB380 /* OtherBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherBuilder.swift; sourceTree = "<group>"; };
+		67460D2C2B5AA70A000AB380 /* OtherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewModel.swift; sourceTree = "<group>"; };
+		67460D2D2B5AA70A000AB380 /* OtherPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPassData.swift; sourceTree = "<group>"; };
+		67460D2E2B5AA70A000AB380 /* OtherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherViewController.xib; sourceTree = "<group>"; };
+		67460D3F2B5AB005000AB380 /* NewOtherItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemCoordinator.swift; sourceTree = "<group>"; };
+		67460D402B5AB005000AB380 /* NewOtherItemUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemUIModel.swift; sourceTree = "<group>"; };
+		67460D412B5AB005000AB380 /* NewOtherItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemViewController.swift; sourceTree = "<group>"; };
+		67460D422B5AB005000AB380 /* NewOtherItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemRepository.swift; sourceTree = "<group>"; };
+		67460D432B5AB005000AB380 /* NewOtherItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemBuilder.swift; sourceTree = "<group>"; };
+		67460D442B5AB005000AB380 /* NewOtherItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemViewModel.swift; sourceTree = "<group>"; };
+		67460D452B5AB005000AB380 /* NewOtherItemPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherItemPassData.swift; sourceTree = "<group>"; };
+		67460D462B5AB005000AB380 /* NewOtherItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOtherItemViewController.xib; sourceTree = "<group>"; };
+		67460D502B5AB034000AB380 /* OtherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModel.swift; sourceTree = "<group>"; };
+		67460D712B5AE07C000AB380 /* OtherSellerListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListCoordinator.swift; sourceTree = "<group>"; };
+		67460D722B5AE07C000AB380 /* OtherSellerListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListUIModel.swift; sourceTree = "<group>"; };
+		67460D732B5AE07C000AB380 /* OtherSellerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListViewController.swift; sourceTree = "<group>"; };
+		67460D742B5AE07C000AB380 /* OtherSellerListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListRepository.swift; sourceTree = "<group>"; };
+		67460D752B5AE07C000AB380 /* OtherSellerListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListBuilder.swift; sourceTree = "<group>"; };
+		67460D762B5AE07C000AB380 /* OtherSellerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListViewModel.swift; sourceTree = "<group>"; };
+		67460D772B5AE07C000AB380 /* OtherSellerListPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListPassData.swift; sourceTree = "<group>"; };
+		67460D782B5AE07C000AB380 /* OtherSellerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherSellerListViewController.xib; sourceTree = "<group>"; };
+		67460D862B5AE409000AB380 /* NewOtherSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerCoordinator.swift; sourceTree = "<group>"; };
+		67460D872B5AE409000AB380 /* NewOtherSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerUIModel.swift; sourceTree = "<group>"; };
+		67460D882B5AE409000AB380 /* NewOtherSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerViewController.swift; sourceTree = "<group>"; };
+		67460D892B5AE409000AB380 /* NewOtherSellerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerRepository.swift; sourceTree = "<group>"; };
+		67460D8A2B5AE409000AB380 /* NewOtherSellerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerBuilder.swift; sourceTree = "<group>"; };
+		67460D8B2B5AE409000AB380 /* NewOtherSellerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerViewModel.swift; sourceTree = "<group>"; };
+		67460D8C2B5AE409000AB380 /* NewOtherSellerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOtherSellerPassData.swift; sourceTree = "<group>"; };
+		67460D8D2B5AE409000AB380 /* NewOtherSellerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOtherSellerViewController.xib; sourceTree = "<group>"; };
+		67460D972B5AE47C000AB380 /* OtherSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerModel.swift; sourceTree = "<group>"; };
 		674705DE2B0A7A1C006F1639 /* CustomerListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListCoordinator.swift; sourceTree = "<group>"; };
 		674705DF2B0A7A1C006F1639 /* CustomerListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListUIModel.swift; sourceTree = "<group>"; };
 		674705E02B0A7A1C006F1639 /* CustomerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewController.swift; sourceTree = "<group>"; };
@@ -1545,6 +1613,7 @@
 				67460D1B2B5A8F21000AB380 /* Seller */,
 				67460D1C2B5A8F2C000AB380 /* Cavus */,
 				67460D1D2B5A8F2F000AB380 /* Customer */,
+				67460D522B5AD0B9000AB380 /* Other */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -1593,6 +1662,262 @@
 				6774FB0B2AE6DFAD00F1F692 /* NewSellerImageViewController */,
 			);
 			path = Archive;
+			sourceTree = "<group>";
+		};
+		67460D202B5AA6BB000AB380 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				67460D212B5AA6CA000AB380 /* OtherViewController */,
+				67460D372B5AAF81000AB380 /* NewOtherItemViewController */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		67460D212B5AA6CA000AB380 /* OtherViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D262B5AA6EE000AB380 /* Builder */,
+				67460D252B5AA6E9000AB380 /* Coordinator */,
+				67460D242B5AA6E2000AB380 /* Repository */,
+				67460D232B5AA6DF000AB380 /* ViewModel */,
+				67460D222B5AA6D8000AB380 /* ViewController */,
+			);
+			path = OtherViewController;
+			sourceTree = "<group>";
+		};
+		67460D222B5AA6D8000AB380 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D292B5AA70A000AB380 /* OtherViewController.swift */,
+				67460D2E2B5AA70A000AB380 /* OtherViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67460D232B5AA6DF000AB380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67460D2C2B5AA70A000AB380 /* OtherViewModel.swift */,
+				67460D282B5AA70A000AB380 /* OtherUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67460D242B5AA6E2000AB380 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67460D2A2B5AA70A000AB380 /* OtherRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67460D252B5AA6E9000AB380 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67460D272B5AA70A000AB380 /* OtherCoordinator.swift */,
+				67460D2D2B5AA70A000AB380 /* OtherPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67460D262B5AA6EE000AB380 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67460D2B2B5AA70A000AB380 /* OtherBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67460D372B5AAF81000AB380 /* NewOtherItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D3D2B5AAFBD000AB380 /* Builder */,
+				67460D3C2B5AAFB9000AB380 /* Coordinator */,
+				67460D3B2B5AAFB6000AB380 /* Models */,
+				67460D3A2B5AAFB1000AB380 /* Repository */,
+				67460D392B5AAFAA000AB380 /* ViewModel */,
+				67460D382B5AAFA5000AB380 /* ViewController */,
+			);
+			path = NewOtherItemViewController;
+			sourceTree = "<group>";
+		};
+		67460D382B5AAFA5000AB380 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D412B5AB005000AB380 /* NewOtherItemViewController.swift */,
+				67460D462B5AB005000AB380 /* NewOtherItemViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67460D392B5AAFAA000AB380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67460D442B5AB005000AB380 /* NewOtherItemViewModel.swift */,
+				67460D402B5AB005000AB380 /* NewOtherItemUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67460D3A2B5AAFB1000AB380 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67460D422B5AB005000AB380 /* NewOtherItemRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67460D3B2B5AAFB6000AB380 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67460D502B5AB034000AB380 /* OtherModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		67460D3C2B5AAFB9000AB380 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67460D3F2B5AB005000AB380 /* NewOtherItemCoordinator.swift */,
+				67460D452B5AB005000AB380 /* NewOtherItemPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67460D3D2B5AAFBD000AB380 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67460D432B5AB005000AB380 /* NewOtherItemBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67460D522B5AD0B9000AB380 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				67460D6A2B5AD804000AB380 /* OtherSellerListViewController */,
+				67460D6B2B5AD80D000AB380 /* NewOtherSellerItemViewController */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		67460D6A2B5AD804000AB380 /* OtherSellerListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D702B5AE060000AB380 /* Builder */,
+				67460D6E2B5AE054000AB380 /* Coordinator */,
+				67460D6F2B5AE058000AB380 /* Repository */,
+				67460D6D2B5AE051000AB380 /* ViewModel */,
+				67460D6C2B5AE04D000AB380 /* ViewController */,
+			);
+			path = OtherSellerListViewController;
+			sourceTree = "<group>";
+		};
+		67460D6B2B5AD80D000AB380 /* NewOtherSellerItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D852B5AE3F3000AB380 /* Builder */,
+				67460D962B5AE466000AB380 /* Model */,
+				67460D842B5AE3EF000AB380 /* Coordinator */,
+				67460D832B5AE3EB000AB380 /* Repository */,
+				67460D822B5AE3E7000AB380 /* ViewModel */,
+				67460D812B5AE3E2000AB380 /* ViewController */,
+			);
+			path = NewOtherSellerItemViewController;
+			sourceTree = "<group>";
+		};
+		67460D6C2B5AE04D000AB380 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D732B5AE07C000AB380 /* OtherSellerListViewController.swift */,
+				67460D782B5AE07C000AB380 /* OtherSellerListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67460D6D2B5AE051000AB380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67460D762B5AE07C000AB380 /* OtherSellerListViewModel.swift */,
+				67460D722B5AE07C000AB380 /* OtherSellerListUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67460D6E2B5AE054000AB380 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67460D712B5AE07C000AB380 /* OtherSellerListCoordinator.swift */,
+				67460D772B5AE07C000AB380 /* OtherSellerListPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67460D6F2B5AE058000AB380 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67460D742B5AE07C000AB380 /* OtherSellerListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67460D702B5AE060000AB380 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67460D752B5AE07C000AB380 /* OtherSellerListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67460D812B5AE3E2000AB380 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67460D882B5AE409000AB380 /* NewOtherSellerViewController.swift */,
+				67460D8D2B5AE409000AB380 /* NewOtherSellerViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67460D822B5AE3E7000AB380 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67460D8B2B5AE409000AB380 /* NewOtherSellerViewModel.swift */,
+				67460D872B5AE409000AB380 /* NewOtherSellerUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67460D832B5AE3EB000AB380 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67460D892B5AE409000AB380 /* NewOtherSellerRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67460D842B5AE3EF000AB380 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67460D862B5AE409000AB380 /* NewOtherSellerCoordinator.swift */,
+				67460D8C2B5AE409000AB380 /* NewOtherSellerPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67460D852B5AE3F3000AB380 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67460D8A2B5AE409000AB380 /* NewOtherSellerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67460D962B5AE466000AB380 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67460D972B5AE47C000AB380 /* OtherSellerModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		674705DB2B0A79E8006F1639 /* CustomerListViewController */ = {
@@ -2328,6 +2653,7 @@
 				677E67942AA3521B001775E2 /* Buying */,
 				677E67952AA35225001775E2 /* Worker */,
 				677E67962AA35229001775E2 /* Seller */,
+				67460D202B5AA6BB000AB380 /* Other */,
 				677E67972AA3522C001775E2 /* Settings */,
 			);
 			path = Controllers;
@@ -4542,13 +4868,16 @@
 				671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */,
 				678610982ADEEC6F00031FF5 /* NewWarehouseViewController.xib in Resources */,
 				67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */,
+				67460D952B5AE409000AB380 /* NewOtherSellerViewController.xib in Resources */,
 				67BE9D552AF66A6200D07DA7 /* WorkerDetailViewController.xib in Resources */,
+				67460D802B5AE07C000AB380 /* OtherSellerListViewController.xib in Resources */,
 				6730ED6D2B1CAAE200111826 /* SellerDetailCollectionTableViewCell.xib in Resources */,
 				674D106D2ADD9964002CFFE8 /* BuyingCollectionTableViewCell.xib in Resources */,
 				67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */,
 				6780BDA52AF40366007B131C /* CavusListTableViewCell.xib in Resources */,
 				6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */,
 				675984262B08E1F400F0DAD0 /* ProductListViewController.xib in Resources */,
+				67460D4E2B5AB005000AB380 /* NewOtherItemViewController.xib in Resources */,
 				677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */,
 				67DDE8762B0E5F6700E24949 /* NewSellerViewController.xib in Resources */,
 				674705ED2B0A7A1C006F1639 /* CustomerListViewController.xib in Resources */,
@@ -4577,6 +4906,7 @@
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
 				67B98CF92ADBE74500CD4B15 /* BuyingDetailViewController.xib in Resources */,
 				67C019642B1109EA0094D023 /* SellerCollectionViewController.xib in Resources */,
+				67460D362B5AA70A000AB380 /* OtherViewController.xib in Resources */,
 				674C26242B0FC84100B9A32A /* SellerTableViewCell.xib in Resources */,
 				6774FB1B2AE6DFC900F1F692 /* NewSellerImageViewController.xib in Resources */,
 				67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */,
@@ -4677,6 +5007,7 @@
 				674705EC2B0A7A1C006F1639 /* CustomerListPassData.swift in Sources */,
 				674D10732ADDAC88002CFFE8 /* BuyingCollectionDataSource.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
+				67460D512B5AB034000AB380 /* OtherModel.swift in Sources */,
 				672AD5F12B4F058B009C8E4A /* UserService.swift in Sources */,
 				6718844A2AF17A4300D76672 /* CavusService.swift in Sources */,
 				67C019732B110B4C0094D023 /* SellerPaymentViewController.swift in Sources */,
@@ -4687,6 +5018,7 @@
 				674705FB2B0A7D61006F1639 /* NewCustomerCoordinator.swift in Sources */,
 				678B53962AA263AF003F4355 /* Toast.swift in Sources */,
 				6774FB232AE6FA3D00F1F692 /* DGZoomableImageView.swift in Sources */,
+				67460D7C2B5AE07C000AB380 /* OtherSellerListRepository.swift in Sources */,
 				67B903EC2AA8F6A4005A980C /* DocumentServiceType.swift in Sources */,
 				67DB17242ABF155F00463CA9 /* NewBuyingRepository.swift in Sources */,
 				67BE9D632AF66B1000D07DA7 /* WorkerCollectionCoordinator.swift in Sources */,
@@ -4716,11 +5048,14 @@
 				676F789D2B27767A00CCB926 /* SettingsFooterCell.swift in Sources */,
 				67BE9D3E2AF643A300D07DA7 /* WorkerSection.swift in Sources */,
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
+				67460D8F2B5AE409000AB380 /* NewOtherSellerUIModel.swift in Sources */,
 				67A1EE8A2AF1691700126E44 /* CavusListBuilder.swift in Sources */,
+				67460D7A2B5AE07C000AB380 /* OtherSellerListUIModel.swift in Sources */,
 				6797F0542AA4975300638C09 /* DocumentReference+Combine.swift in Sources */,
 				67C1EC682AFFC41E005DDA22 /* WorkerDetailCollectionDataSourceFactory.swift in Sources */,
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,
 				67B98CF62ADBE74500CD4B15 /* BuyingDetailBuilder.swift in Sources */,
+				67460D4D2B5AB005000AB380 /* NewOtherItemPassData.swift in Sources */,
 				67FA8B592AF66C4A00C09B09 /* WorkerPaymentPassData.swift in Sources */,
 				670B3C792ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.swift in Sources */,
 				67FA8B552AF66C4A00C09B09 /* WorkerPaymentViewController.swift in Sources */,
@@ -4731,6 +5066,7 @@
 				67FC97362ADEEC4600FC53AE /* NewWarehouseBuilder.swift in Sources */,
 				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
 				67C019492B1108640094D023 /* SellerDetailCoordinator.swift in Sources */,
+				67460D7D2B5AE07C000AB380 /* OtherSellerListBuilder.swift in Sources */,
 				672397FD2AEACB25001538C1 /* ArchiveListUIModel.swift in Sources */,
 				67334EA02AB4E0840072DBD6 /* SellerListService.swift in Sources */,
 				67EA5B6E2AAF86C70086E20C /* UIGestureRecognizer+Closures.swift in Sources */,
@@ -4743,6 +5079,7 @@
 				674C26312B0FCAEC00B9A32A /* SellerDataSource.swift in Sources */,
 				67B9EE502AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift in Sources */,
 				672398022AEACB25001538C1 /* ArchiveListPassData.swift in Sources */,
+				67460D472B5AB005000AB380 /* NewOtherItemCoordinator.swift in Sources */,
 				67C019632B1109EA0094D023 /* SellerCollectionPassData.swift in Sources */,
 				6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */,
 				67A1EE9F2AF169B000126E44 /* NewCavusViewModel.swift in Sources */,
@@ -4790,6 +5127,7 @@
 				6780BDAF2AF4053A007B131C /* CavusListRowModel.swift in Sources */,
 				67B6CF8E2B25EA8400E066D6 /* SettingsSectionUIModel.swift in Sources */,
 				678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */,
+				67460D312B5AA70A000AB380 /* OtherViewController.swift in Sources */,
 				67BE9D682AF66B1000D07DA7 /* WorkerCollectionViewModel.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
 				674CC6C92ADEE7FD0026A9D2 /* WarehouseListBuilder.swift in Sources */,
@@ -4810,7 +5148,9 @@
 				674D10712ADDAC83002CFFE8 /* BuyingCollectionRowModel.swift in Sources */,
 				67FC97342ADEEC4600FC53AE /* NewWarehouseViewController.swift in Sources */,
 				674705EB2B0A7A1C006F1639 /* CustomerListViewModel.swift in Sources */,
+				67460D4B2B5AB005000AB380 /* NewOtherItemBuilder.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
+				67460D922B5AE409000AB380 /* NewOtherSellerBuilder.swift in Sources */,
 				67A1EE862AF1691700126E44 /* CavusListCoordinator.swift in Sources */,
 				67BE9D642AF66B1000D07DA7 /* WorkerCollectionUIModel.swift in Sources */,
 				67F87F162AB3A3A000FFC097 /* AddBuyingItemRepository.swift in Sources */,
@@ -4820,9 +5160,11 @@
 				677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */,
 				67D770452B4D49760034A867 /* BuyingChartsPassData.swift in Sources */,
 				67DDE8722B0E5F6700E24949 /* NewSellerRepository.swift in Sources */,
+				67460D342B5AA70A000AB380 /* OtherViewModel.swift in Sources */,
 				670B3C8A2ABA109500EE7CFB /* UITableViewCell+Extension.swift in Sources */,
 				676F78992B27734F00CCB926 /* SettingsCellTypes.swift in Sources */,
 				67FC97332ADEEC4600FC53AE /* NewWarehouseUIModel.swift in Sources */,
+				67460D4C2B5AB005000AB380 /* NewOtherItemViewModel.swift in Sources */,
 				67FC97352ADEEC4600FC53AE /* NewWarehouseRepository.swift in Sources */,
 				674705FC2B0A7D61006F1639 /* NewCustomerUIModel.swift in Sources */,
 				67C1EC532AFFA9AE005DDA22 /* WorkerDetailCollectionTableViewCellUIModel.swift in Sources */,
@@ -4863,6 +5205,7 @@
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
 				67A1EE872AF1691700126E44 /* CavusListUIModel.swift in Sources */,
 				6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */,
+				67460D932B5AE409000AB380 /* NewOtherSellerViewModel.swift in Sources */,
 				674CC6C62ADEE7FD0026A9D2 /* WarehouseListUIModel.swift in Sources */,
 				67B6CF872B25E63B00E066D6 /* SettingsItemCell.swift in Sources */,
 				671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */,
@@ -4898,6 +5241,7 @@
 				67BE9D542AF66A6200D07DA7 /* WorkerDetailPassData.swift in Sources */,
 				67A1EE9C2AF169B000126E44 /* NewCavusViewController.swift in Sources */,
 				6730ED742B1CB7BA00111826 /* SellerDetailCollectionDiffableTableView.swift in Sources */,
+				67460D302B5AA70A000AB380 /* OtherUIModel.swift in Sources */,
 				67B9EE4C2AD5AF9F003E6BA3 /* BuyingCollectionViewController.swift in Sources */,
 				674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
@@ -4947,6 +5291,7 @@
 				678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
 				67FC97382ADEEC4600FC53AE /* NewWarehousePassData.swift in Sources */,
+				67460D2F2B5AA70A000AB380 /* OtherCoordinator.swift in Sources */,
 				674705FD2B0A7D61006F1639 /* NewCustomerViewController.swift in Sources */,
 				67C019772B110B4C0094D023 /* SellerPaymentPassData.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
@@ -4969,9 +5314,13 @@
 				67DDE88D2B0E777D00E24949 /* CustomerListSection.swift in Sources */,
 				67A1EE9B2AF169B000126E44 /* NewCavusUIModel.swift in Sources */,
 				674C262D2B0FCAB800B9A32A /* SellerRowModel.swift in Sources */,
+				67460D332B5AA70A000AB380 /* OtherBuilder.swift in Sources */,
 				672398012AEACB25001538C1 /* ArchiveListViewModel.swift in Sources */,
 				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
+				67460D7B2B5AE07C000AB380 /* OtherSellerListViewController.swift in Sources */,
+				67460D7E2B5AE07C000AB380 /* OtherSellerListViewModel.swift in Sources */,
 				67F87F092AB3A2E700FFC097 /* AppColors.swift in Sources */,
+				67460D912B5AE409000AB380 /* NewOtherSellerRepository.swift in Sources */,
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
 				676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */,
 				677521772B4FD8C500239364 /* UserAuthsBuilder.swift in Sources */,
@@ -5001,6 +5350,7 @@
 				6718843C2AF16ABE00D76672 /* NewWorkerRepository.swift in Sources */,
 				675755E42B15216C00BDA8C2 /* SellerCollectionModel.swift in Sources */,
 				67C0194D2B1108640094D023 /* SellerDetailBuilder.swift in Sources */,
+				67460D8E2B5AE409000AB380 /* NewOtherSellerCoordinator.swift in Sources */,
 				6718843E2AF16ABE00D76672 /* NewWorkerViewModel.swift in Sources */,
 				67FC97282ADEE94A00FC53AE /* WarehoseModel.swift in Sources */,
 				674706012B0A7D61006F1639 /* NewCustomerPassData.swift in Sources */,
@@ -5024,13 +5374,16 @@
 				675984222B08E1F400F0DAD0 /* ProductListRepository.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */,
+				67460D4A2B5AB005000AB380 /* NewOtherItemRepository.swift in Sources */,
 				67DDE88B2B0E777100E24949 /* CustomerListRowModel.swift in Sources */,
 				672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */,
 				6730ED6C2B1CAAE200111826 /* SellerDetailCollectionTableViewCell.swift in Sources */,
 				67C019762B110B4C0094D023 /* SellerPaymentViewModel.swift in Sources */,
 				678E0D2B2B1FB3E800C4FCC9 /* CustomerImageModel.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
+				67460D482B5AB005000AB380 /* NewOtherItemUIModel.swift in Sources */,
 				67B98D092ADBEB3700CD4B15 /* BuyingPaymentUIModel.swift in Sources */,
+				67460D352B5AA70A000AB380 /* OtherPassData.swift in Sources */,
 				674C262F2B0FCAD500B9A32A /* SellerSection.swift in Sources */,
 				6774FB182AE6DFC900F1F692 /* NewSellerImageBuilder.swift in Sources */,
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
@@ -5041,6 +5394,8 @@
 				67A65E322B4C62D1003EACA0 /* WorkerChartsViewController.swift in Sources */,
 				67B98D0A2ADBEB3700CD4B15 /* BuyingPaymentViewController.swift in Sources */,
 				677E67DD2AA35415001775E2 /* SettingsViewModel.swift in Sources */,
+				67460D792B5AE07C000AB380 /* OtherSellerListCoordinator.swift in Sources */,
+				67460D322B5AA70A000AB380 /* OtherRepository.swift in Sources */,
 				67B9EE4F2AD5AF9F003E6BA3 /* BuyingCollectionViewModel.swift in Sources */,
 				6776F4DD2AB3AF27006836CE /* AddSellerBuilder.swift in Sources */,
 				6797F0372AA4973600638C09 /* UserProfileChangeRequest+Combine.swift in Sources */,
@@ -5049,6 +5404,7 @@
 				6718843A2AF16ABE00D76672 /* NewWorkerUIModel.swift in Sources */,
 				678DE0002AC7489900AA8D46 /* BuyingDataSourceFactory.swift in Sources */,
 				6774FB142AE6DFC900F1F692 /* NewSellerImageCoordinator.swift in Sources */,
+				67460D492B5AB005000AB380 /* NewOtherItemViewController.swift in Sources */,
 				67FAA6352AF4154100BB400A /* WorkerModel.swift in Sources */,
 				674706092B0A7FDC006F1639 /* CustomerModel.swift in Sources */,
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
@@ -5073,8 +5429,10 @@
 				671884472AF1769D00D76672 /* CavusModel.swift in Sources */,
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
 				6759842D2B08EB8400F0DAD0 /* ProductListModel.swift in Sources */,
+				67460D982B5AE47C000AB380 /* OtherSellerModel.swift in Sources */,
 				678BACDD2B2A2D5000EF7050 /* SellerChartsUIModel.swift in Sources */,
 				67BE9D672AF66B1000D07DA7 /* WorkerCollectionBuilder.swift in Sources */,
+				67460D942B5AE409000AB380 /* NewOtherSellerPassData.swift in Sources */,
 				6774FB0A2AE6D86A00F1F692 /* SellerImageModel.swift in Sources */,
 				677D62EC2AC1F087004F3232 /* UserDefaultsManager.swift in Sources */,
 				67C0194E2B1108640094D023 /* SellerDetailViewModel.swift in Sources */,
@@ -5087,8 +5445,10 @@
 				6730ED7B2B1CB9D700111826 /* SellerDetailCollectionDataSourceFactory.swift in Sources */,
 				672398132AEACFD1001538C1 /* ArchiveDetailViewController.swift in Sources */,
 				678DE0042AC74A9000AA8D46 /* BuyingTableViewCell.swift in Sources */,
+				67460D902B5AE409000AB380 /* NewOtherSellerViewController.swift in Sources */,
 				67B9EE4D2AD5AF9F003E6BA3 /* BuyingCollectionRepository.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
+				67460D7F2B5AE07C000AB380 /* OtherSellerListPassData.swift in Sources */,
 				67A1EEA02AF169B000126E44 /* NewCavusPassData.swift in Sources */,
 				67B98D0E2ADBEB3700CD4B15 /* BuyingPaymentPassData.swift in Sources */,
 				67F87F182AB3A3A000FFC097 /* AddBuyingItemViewModel.swift in Sources */,

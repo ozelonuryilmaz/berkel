@@ -36,9 +36,7 @@ struct SellerUIModel: ISellerUIModel {
     var isHaveBuildData: Bool = false
 
     // MARK: Initialize
-    init() {
-
-    }
+    init() { }
 
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"

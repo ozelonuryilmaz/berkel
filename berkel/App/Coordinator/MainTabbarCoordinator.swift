@@ -38,6 +38,13 @@ class MainTabbarCoordinator: RootableCoordinator {
         sellerNavController.tabBarItem.selectedImage = .tab_title_seller_selected
         let sellerCoordinator = SellerCoordinator(navigationController: sellerNavController)
 
+        // Other
+        let otherNavController = MainNavigationController()
+        otherNavController.tabBarItem.title = .tab_title_other
+        otherNavController.tabBarItem.image = .tab_title_other
+        otherNavController.tabBarItem.selectedImage = .tab_title_other_selected
+        let otherCoordinator = OtherCoordinator(navigationController: otherNavController)
+
         // Liste
         let settingsNavController = MainNavigationController()
         settingsNavController.tabBarItem.title = .tab_title_settings
@@ -50,6 +57,7 @@ class MainTabbarCoordinator: RootableCoordinator {
             buyingNavController,
             workerNavController,
             sellerNavController,
+            otherNavController,
             settingsNavController
         ]
 
@@ -60,6 +68,7 @@ class MainTabbarCoordinator: RootableCoordinator {
         coordinate(to: buyingCoordinator)
         coordinate(to: workerCoordinator)
         coordinate(to: sellerCoordinator)
+        coordinate(to: otherCoordinator)
         coordinate(to: settingsCoordinator)
 
         // Uygulamanın ilk açılış ekranı
@@ -90,6 +99,7 @@ fileprivate extension String {
     static var tab_title_buying = "Alış"
     static var tab_title_worker = "İşçi"
     static var tab_title_seller = "Satış"
+    static var tab_title_other = "Diğer"
     static var tab_title_settings = "Liste"
 }
 
@@ -103,8 +113,11 @@ fileprivate extension UIImage {
 
     static var tab_title_seller = UIImage(named: "ic_tab_3")!.withRenderingMode(.alwaysTemplate)
     static var tab_title_seller_selected = UIImage(named: "ic_tab_3_selected")!.withRenderingMode(.alwaysOriginal)
+    
+    static var tab_title_other = UIImage(named: "ic_tab_4")!.withRenderingMode(.alwaysTemplate)
+    static var tab_title_other_selected = UIImage(named: "ic_tab_4_selected")!.withRenderingMode(.alwaysOriginal)
 
-    static var tab_title_settings = UIImage(named: "ic_tab_4")!.withRenderingMode(.alwaysTemplate)
-    static var tab_title_settings_selected = UIImage(named: "ic_tab_4_selected")!.withRenderingMode(.alwaysOriginal)
+    static var tab_title_settings = UIImage(named: "ic_tab_5")!.withRenderingMode(.alwaysTemplate)
+    static var tab_title_settings_selected = UIImage(named: "ic_tab_5_selected")!.withRenderingMode(.alwaysOriginal)
 }
 

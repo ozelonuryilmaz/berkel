@@ -11,7 +11,8 @@ enum MainTabbarItemPosition: Int {
     case buying = 0
     case worker = 1
     case sales = 2
-    case settings = 3
+    case other = 3
+    case settings = 4
     case none = -1
 }
 
