@@ -40,7 +40,7 @@ final class NewOtherItemCoordinator: PresentationCoordinator, INewOtherItemCoord
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
-    
+
     func dismiss(completion: (() -> Void)? = nil) {
         navController.dismiss(animated: true, completion: completion)
     }

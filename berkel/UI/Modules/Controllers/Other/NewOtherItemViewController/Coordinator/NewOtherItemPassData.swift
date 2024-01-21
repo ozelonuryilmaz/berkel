@@ -9,4 +9,8 @@ import Foundation
 
 struct NewOtherItemPassData: ICoordinatorPassData {
 
+    let otherSellerId: String?
+    let otherSellerName: String
+    let otherSellerCategoryId: String?
+    let otherSellerCategoryName: String
 }

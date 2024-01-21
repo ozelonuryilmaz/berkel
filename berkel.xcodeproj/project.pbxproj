@@ -90,6 +90,7 @@
 		672474882B5D400D00E50B4A /* OtherSellerListDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672474872B5D400D00E50B4A /* OtherSellerListDataSourceFactory.swift */; };
 		6724748A2B5D401400E50B4A /* OtherSellerListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672474892B5D401400E50B4A /* OtherSellerListDataSource.swift */; };
 		6724748D2B5D42ED00E50B4A /* OtherSellerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724748C2B5D42ED00E50B4A /* OtherSellerImageModel.swift */; };
+		6724748F2B5D50C800E50B4A /* OtherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724748E2B5D50C800E50B4A /* OtherService.swift */; };
 		6729D5692AFD593300DA5F48 /* WorkerPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6729D5682AFD593300DA5F48 /* WorkerPaymentModel.swift */; };
 		672AD5ED2B4EFB06009C8E4A /* ReadMe.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */; };
 		672AD5EF2B4F03FB009C8E4A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672AD5EE2B4F03FB009C8E4A /* UserModel.swift */; };
@@ -672,6 +673,7 @@
 		672474872B5D400D00E50B4A /* OtherSellerListDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListDataSourceFactory.swift; sourceTree = "<group>"; };
 		672474892B5D401400E50B4A /* OtherSellerListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerListDataSource.swift; sourceTree = "<group>"; };
 		6724748C2B5D42ED00E50B4A /* OtherSellerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerImageModel.swift; sourceTree = "<group>"; };
+		6724748E2B5D50C800E50B4A /* OtherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherService.swift; sourceTree = "<group>"; };
 		6729D5682AFD593300DA5F48 /* WorkerPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerPaymentModel.swift; sourceTree = "<group>"; };
 		672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
 		672AD5EE2B4F03FB009C8E4A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -1313,6 +1315,7 @@
 				67FAA6362AF41CC200BB400A /* WorkerService.swift */,
 				6710BF3C2AA7AD48000034FD /* SettingsService.swift */,
 				674C261C2B0FB66B00B9A32A /* SellerService.swift */,
+				6724748E2B5D50C800E50B4A /* OtherService.swift */,
 				67334E9F2AB4E0840072DBD6 /* SellerListService.swift */,
 				670B3C9C2ABA20F000EE7CFB /* BuyingItemService.swift */,
 				675F5C282AC4C25F00DC863F /* NewBuyingService.swift */,
@@ -5295,6 +5298,7 @@
 				670B3C982ABA130A00EE7CFB /* HighlightTableViewCell.swift in Sources */,
 				6724748D2B5D42ED00E50B4A /* OtherSellerImageModel.swift in Sources */,
 				6718843B2AF16ABE00D76672 /* NewWorkerViewController.swift in Sources */,
+				6724748F2B5D50C800E50B4A /* OtherService.swift in Sources */,
 				67A65E362B4C62D1003EACA0 /* WorkerChartsPassData.swift in Sources */,
 				6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */,
 				674706002B0A7D61006F1639 /* NewCustomerViewModel.swift in Sources */,

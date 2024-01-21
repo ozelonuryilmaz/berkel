@@ -163,7 +163,10 @@ extension OtherSellerListViewModel {
 
     func cellTapped(uiModel: IOtherSellerListTableViewCellUIModel) {
         if !self.uiModel.isCancellableCellTabbed {
-            let passData = NewOtherItemPassData()
+            let passData = NewOtherItemPassData(otherSellerId: uiModel.id,
+                                                otherSellerName: uiModel.name,
+                                                otherSellerCategoryId: uiModel.categoryId,
+                                                otherSellerCategoryName: uiModel.categoryName ?? "")
             self.presentNewOtherItemViewController(passData: passData)
         }
     }

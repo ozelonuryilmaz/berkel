@@ -18,8 +18,14 @@ protocol INewOtherItemViewModel: AnyObject {
 
     func initComponents()
     
+    // Service
+    func saveNewOther()
+    
     // Coordinate
     func dismiss(completion: (() -> Void)?)
+    
+    // Setter
+    func setDesc(_ value: String)
 }
 
 final class NewOtherItemViewModel: BaseViewModel, INewOtherItemViewModel {
@@ -32,7 +38,7 @@ final class NewOtherItemViewModel: BaseViewModel, INewOtherItemViewModel {
     // MARK: Public Props
     var viewState = ScreenStateSubject<NewOtherItemViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let responseOther = CurrentValueSubject<OtherModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewOtherItemRepository,
@@ -44,7 +50,7 @@ final class NewOtherItemViewModel: BaseViewModel, INewOtherItemViewModel {
     }
 
     func initComponents() {
-
+        self.viewStateOtherSellerName()
     }
 }
 
@@ -52,6 +58,29 @@ final class NewOtherItemViewModel: BaseViewModel, INewOtherItemViewModel {
 // MARK: Service
 internal extension NewOtherItemViewModel {
 
+    func saveNewOther() {
+        if let errorMessage = self.uiModel.errorMessage {
+            errorState.value = .ERROR_MESSAGE(title: "Uyarı", msg: errorMessage)
+            return
+        }
+
+        handleResourceFirestore(
+            request: self.repository.saveNewOther(data: self.uiModel.newOtherData,
+                                                season: self.uiModel.season),
+            response: self.responseOther,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let response = self.responseOther.value else { return }
+                self.dismiss(completion: {
+                    self.viewStateOutputDelegate(otherModel: response)
+                })
+                
+            })
+    }
 }
 
 // MARK: States
@@ -66,6 +95,10 @@ internal extension NewOtherItemViewModel {
         self.viewState.value = .outputDelegate(otherModel: otherModel)
     }
 
+    func viewStateOtherSellerName() {
+        self.viewState.value = .setOtherSellerName(name: self.uiModel.otherSellerName,
+                                                   categoryName: self.uiModel.otherSellerCategoryName)
+    }
 }
 
 // MARK: Coordinate
@@ -76,8 +109,17 @@ internal extension NewOtherItemViewModel {
     }
 }
 
+// MARK: Setter
+internal extension NewOtherItemViewModel {
+
+    func setDesc(_ value: String) {
+        self.uiModel.setDesc(value)
+    }
+}
 
 enum NewOtherItemViewState {
     case showNativeProgress(isProgress: Bool)
     case outputDelegate(otherModel: OtherModel)
+    case setOtherSellerName(name: String,
+                            categoryName: String)
 }

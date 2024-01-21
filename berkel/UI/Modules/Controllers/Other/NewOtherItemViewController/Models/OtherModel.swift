@@ -15,6 +15,8 @@ struct OtherModel: Codable {
     let otherSellerName: String
     let otherSellerCategoryId: String?
     let otherSellerCategoryName: String
-    
-    
+
+    var isActive: Bool
+    let date: String
+    let desc: String
 }
