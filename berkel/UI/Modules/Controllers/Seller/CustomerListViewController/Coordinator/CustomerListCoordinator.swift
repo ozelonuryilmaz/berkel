@@ -9,9 +9,12 @@ import UIKit
 
 protocol ICustomerListCoordinator: AnyObject {
 
-    func presentNewCustomerViewController(passData: NewCustomerPassData, outputDelegate: NewCustomerViewControllerOutputDelegate)
+    func presentNewCustomerViewController(passData: NewCustomerPassData,
+                                          outputDelegate: NewCustomerViewControllerOutputDelegate)
+    
     func presentNewSellerViewController(passData: NewSellerPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
+    
     func pushArchiveListViewController(passData: ArchiveListPassData)
     func popToRootViewController(animated: Bool)
 }

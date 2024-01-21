@@ -14,13 +14,14 @@ enum SellerImageService {
     case buyingImage(sellerId: String, season: String, imagePathType: ImagePathType)
     case sellerImage(customerId: String, season: String, imagePathType: ImagePathType)
     case workerImage(cavusId: String, season: String, imagePathType: ImagePathType)
+    case otherImage(otherSellerId: String, season: String, imagePathType: ImagePathType)
 }
 
 extension SellerImageService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .buyingImage(_, _, _), .sellerImage(_, _, _), .workerImage(_, _, _):
+        case .buyingImage(_, _, _), .sellerImage(_, _, _), .workerImage(_, _, _), .otherImage(_, _, _):
 
             return "date"
         }
@@ -56,6 +57,15 @@ extension SellerImageService: CollectionServiceType {
                 .child(cavusId)
                 .child(season)
                 .child("\(imagePathType.rawValue)/\(Date().dateFormatterApiResponseType()).jpg")
+            
+        case .otherImage(let otherSellerId, let season, let imagePathType):
+            return Storage
+                .storage()
+                .reference()
+                .child("otherSeller")
+                .child(otherSellerId)
+                .child(season)
+                .child("\(imagePathType.rawValue)/\(Date().dateFormatterApiResponseType()).jpg")
         }
     }
 
@@ -87,6 +97,16 @@ extension SellerImageService: CollectionServiceType {
                 .firestore()
                 .collection("cavus")
                 .document(cavusId)
+                .collection(season)
+                .document("images")
+                .collection(imagePathType.rawValue)
+            
+        case .otherImage(let otherSellerId, let season, let imagePathType):
+
+            return Firestore
+                .firestore()
+                .collection("otherSeller")
+                .document(otherSellerId)
                 .collection(season)
                 .document("images")
                 .collection(imagePathType.rawValue)

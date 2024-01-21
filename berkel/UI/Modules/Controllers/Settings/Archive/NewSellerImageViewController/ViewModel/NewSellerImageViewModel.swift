@@ -48,6 +48,7 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
     let responseSellerImage = CurrentValueSubject<SellerImageModel?, Never>(nil)
     let responseCustomerImage = CurrentValueSubject<CustomerImageModel?, Never>(nil)
     let responseWorkerImage = CurrentValueSubject<WorkerImageModel?, Never>(nil)
+    let responseOtherSellerImage = CurrentValueSubject<OtherSellerImageModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewSellerImageRepository,
@@ -106,7 +107,7 @@ internal extension NewSellerImageViewModel {
                                                   imageUrl: imageUrl)
 
                     self.saveSellerImageData(data: data)
-                    
+
                 case .worker(let cavusId, let workerId, let workerProductName):
                     let data = WorkerImageModel(cavusId: cavusId,
                                                 userId: self.uiModel.userId,
@@ -117,7 +118,17 @@ internal extension NewSellerImageViewModel {
                                                 imageUrl: imageUrl)
 
                     self.saveSellerImageData(data: data)
-                    
+
+                case .other(let otherSellerId, let otherId, let otherSellerProductName):
+                    let data = OtherSellerImageModel(otherSellerId: otherSellerId,
+                                                     userId: self.uiModel.userId,
+                                                     otherId: otherId,
+                                                     otherProductName: otherSellerProductName,
+                                                     date: self.uiModel.date,
+                                                     description: self.uiModel.desc,
+                                                     imageUrl: imageUrl)
+
+                    self.saveSellerImageData(data: data)
                 }
 
             })
@@ -139,7 +150,7 @@ internal extension NewSellerImageViewModel {
                 self.viewStateShowSuccessAlertMessage()
             })
     }
-    
+
     private func saveSellerImageData(data: CustomerImageModel) {
         handleResourceFirestore(
             request: self.repository.saveSellerImage(customerId: data.customerId,
@@ -156,7 +167,7 @@ internal extension NewSellerImageViewModel {
                 self.viewStateShowSuccessAlertMessage()
             })
     }
-    
+
     private func saveSellerImageData(data: WorkerImageModel) {
         handleResourceFirestore(
             request: self.repository.saveSellerImage(cavusId: data.cavusId,
@@ -164,6 +175,23 @@ internal extension NewSellerImageViewModel {
                                                      imagePathType: self.uiModel.imagePathType,
                                                      data: data),
             response: self.responseWorkerImage,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowSuccessAlertMessage()
+            })
+    }
+
+    private func saveSellerImageData(data: OtherSellerImageModel) {
+        handleResourceFirestore(
+            request: self.repository.saveSellerImage(otherSellerId: data.otherSellerId,
+                                                     season: self.uiModel.season,
+                                                     imagePathType: self.uiModel.imagePathType,
+                                                     data: data),
+            response: self.responseOtherSellerImage,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }

@@ -8,9 +8,12 @@
 import Foundation
 
 struct OtherSellerModel: Codable {
-    
+
     var id: String?
+    var categoryId: String?
+    var categoryName: String
     let name: String
+    let phoneNumber: String
     let description: String?
     let date: String?
 }

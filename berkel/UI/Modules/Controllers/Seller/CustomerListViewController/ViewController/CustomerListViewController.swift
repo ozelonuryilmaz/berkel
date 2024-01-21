@@ -48,10 +48,6 @@ final class CustomerListViewController: MainBaseViewController {
         initTableView()
     }
 
-    override func registerEvents() {
-
-    }
-
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()

@@ -14,10 +14,6 @@ protocol NewOtherSellerViewControllerOutputDelegate: AnyObject {
 
 final class NewOtherSellerViewController: BerkelBaseViewController {
 
-    override var navigationTitle: String? {
-        return "Diğer Satıcı Ekle"
-    }
-
     // MARK: Constants
 
     // MARK: Inject
@@ -25,6 +21,11 @@ final class NewOtherSellerViewController: BerkelBaseViewController {
     private var outputDelegate: NewOtherSellerViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tfName: PrimaryTextField!
+    @IBOutlet private weak var tfPhone: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnSave: UIButton!
+    @IBOutlet private weak var btnCategory: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -43,15 +44,30 @@ final class NewOtherSellerViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        self.viewModel.initData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.viewModel.viewWillAppear()
     }
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveNewOtherSeller()
+        }
+
+        btnCategory.onTap { [unowned self] _ in
+            self.viewModel.presentOtherSellerCategoryListViewController()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -62,6 +78,23 @@ final class NewOtherSellerViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .showSavedOtherSeller(let data):
+                self.outputDelegate?.otherSellerData(data)
+
+            case .initData(let categoryName, let name, let phoneNumber, let desc):
+                self.btnCategory.setTitle(categoryName, for: .normal)
+                self.tfName.placeholder = name
+                self.tfPhone.text = phoneNumber
+                self.tfDesc.text = desc
+
+            case .disableNameTextField:
+                self.tfName.textField.disable()
+
+            case .updateNavigationTitle(let title):
+                self.navigationItem.title = title
+
+            case .setCategoryName(let name):
+                self.btnCategory.setTitle(name, for: .normal)
             }
 
         }).store(in: &cancelBag)
@@ -84,4 +117,17 @@ final class NewOtherSellerViewController: BerkelBaseViewController {
 // MARK: Props
 private extension NewOtherSellerViewController {
 
+    func listenTextFieldsDidChange() {
+        tfName.addListenDidChange { [unowned self] text in
+            self.viewModel.setName(text)
+        }
+
+        tfPhone.addListenDidChange { [unowned self] text in
+            self.viewModel.setPhone(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

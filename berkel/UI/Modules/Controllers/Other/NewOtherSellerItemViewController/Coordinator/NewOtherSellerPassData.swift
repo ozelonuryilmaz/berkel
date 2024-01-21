@@ -9,4 +9,5 @@ import Foundation
 
 struct NewOtherSellerPassData: ICoordinatorPassData {
 
+    let otherSellerInformation: IOtherSellerListTableViewCellUIModel?
 }

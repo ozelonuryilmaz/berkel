@@ -26,7 +26,6 @@
                                 <rect key="frame" x="16" y="16" width="256" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="6go-TX-oqj"/>
-                                    <constraint firstAttribute="width" priority="750" constant="41.329999999999998" id="B5j-kn-chU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>

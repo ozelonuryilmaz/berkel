@@ -15,6 +15,7 @@ protocol INewSellerImageRepository: AnyObject {
     func saveSellerImage(sellerId: String, season: String, imagePathType: ImagePathType, data: SellerImageModel) -> FirestoreResponseType<SellerImageModel>
     func saveSellerImage(customerId: String, season: String, imagePathType: ImagePathType, data: CustomerImageModel) -> FirestoreResponseType<CustomerImageModel>
     func saveSellerImage(cavusId: String, season: String, imagePathType: ImagePathType, data: WorkerImageModel) -> FirestoreResponseType<WorkerImageModel>
+    func saveSellerImage(otherSellerId: String, season: String, imagePathType: ImagePathType, data: OtherSellerImageModel) -> FirestoreResponseType<OtherSellerImageModel>
 }
 
 final class NewSellerImageRepository: BaseRepository, INewSellerImageRepository {
@@ -37,6 +38,11 @@ final class NewSellerImageRepository: BaseRepository, INewSellerImageRepository 
             let db: StorageReference = SellerImageService.workerImage(cavusId: cavusId,
                                                                       season: season,
                                                                       imagePathType: imagePathType).storageReference
+            return putData(db, data: imageData)
+        case .other(let otherSellerId, _, _):
+            let db: StorageReference = SellerImageService.otherImage(otherSellerId: otherSellerId,
+                                                                     season: season,
+                                                                     imagePathType: imagePathType).storageReference
             return putData(db, data: imageData)
         }
 
@@ -67,6 +73,17 @@ final class NewSellerImageRepository: BaseRepository, INewSellerImageRepository 
     func saveSellerImage(cavusId: String, season: String, imagePathType: ImagePathType, data: WorkerImageModel) -> FirestoreResponseType<WorkerImageModel> {
 
         let db: DocumentReference = SellerImageService.workerImage(cavusId: cavusId, season: season, imagePathType: imagePathType).collectionReference.document()
+
+        let key = db.documentID
+        var tempData = data
+        tempData.id = key
+
+        return self.setData(db, data: tempData)
+    }
+
+    func saveSellerImage(otherSellerId: String, season: String, imagePathType: ImagePathType, data: OtherSellerImageModel) -> FirestoreResponseType<OtherSellerImageModel> {
+
+        let db: DocumentReference = SellerImageService.otherImage(otherSellerId: otherSellerId, season: season, imagePathType: imagePathType).collectionReference.document()
 
         let key = db.documentID
         var tempData = data

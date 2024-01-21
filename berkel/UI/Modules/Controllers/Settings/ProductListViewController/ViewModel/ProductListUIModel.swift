@@ -11,8 +11,6 @@ protocol IProductListUIModel {
 
     init(data: ProductListPassData)
 
-    
-
     mutating func setResponse(_ response: [ProductListModel])
     mutating func addProduct(_ product: ProductListModel)
 

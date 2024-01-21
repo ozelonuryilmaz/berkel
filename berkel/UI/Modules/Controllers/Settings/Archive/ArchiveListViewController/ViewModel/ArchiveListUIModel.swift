@@ -24,6 +24,7 @@ protocol IArchiveListUIModel {
     mutating func setArchive(imagePathType: ImagePathType, data: [SellerImageModel])
     mutating func setArchive(imagePathType: ImagePathType, data: [CustomerImageModel])
     mutating func setArchive(imagePathType: ImagePathType, data: [WorkerImageModel])
+    mutating func setArchive(imagePathType: ImagePathType, data: [OtherSellerImageModel])
     mutating func setArchiveType(index: Int)
 
     // for Table View
@@ -123,6 +124,26 @@ extension ArchiveListUIModel {
                                                    date: workerImageModel.date?.dateTimeFormatFull() ?? "",
                                                    productName: workerImageModel.workerProductName,
                                                    desc: workerImageModel.description ?? "")
+        })
+
+        switch imagePathType {
+        case .kantarFisi:
+            self.kantarFisi = archiveListTableViewCellUIModel
+        case .cek:
+            self.cek = archiveListTableViewCellUIModel
+        case .dekont:
+            self.dekont = archiveListTableViewCellUIModel
+        case .diger:
+            self.diger = archiveListTableViewCellUIModel
+        }
+    }
+    
+    mutating func setArchive(imagePathType: ImagePathType, data: [OtherSellerImageModel]) {
+        let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ otherSellerImageModel in
+            return ArchiveListTableViewCellUIModel(imageUrl: otherSellerImageModel.imageUrl,
+                                                   date: otherSellerImageModel.date?.dateTimeFormatFull() ?? "",
+                                                   productName: otherSellerImageModel.otherProductName,
+                                                   desc: otherSellerImageModel.description ?? "")
         })
 
         switch imagePathType {

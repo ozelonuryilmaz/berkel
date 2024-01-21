@@ -11,9 +11,13 @@ protocol IOtherSellerListCoordinator: AnyObject {
 
     func presentNewOtherSellerViewController(passData: NewOtherSellerPassData,
                                              outputDelegate: NewOtherSellerViewControllerOutputDelegate)
-    
+
     func presentNewOtherItemViewController(passData: NewOtherItemPassData,
                                            outputDelegate: NewOtherItemViewControllerOutputDelegate)
+
+    func pushArchiveListViewController(passData: ArchiveListPassData)
+
+    func popToRootViewController(animated: Bool)
 }
 
 final class OtherSellerListCoordinator: NavigationCoordinator, IOtherSellerListCoordinator {
@@ -36,7 +40,7 @@ final class OtherSellerListCoordinator: NavigationCoordinator, IOtherSellerListC
                                                          outputDelegate: outputDelegate)
         navigationController.pushViewController(controller, animated: true)
     }
-    
+
     func presentNewOtherSellerViewController(passData: NewOtherSellerPassData,
                                              outputDelegate: NewOtherSellerViewControllerOutputDelegate) {
         let controller = NewOtherSellerCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
@@ -44,12 +48,22 @@ final class OtherSellerListCoordinator: NavigationCoordinator, IOtherSellerListC
             .with(passData: passData)
         coordinate(to: controller)
     }
-    
+
     func presentNewOtherItemViewController(passData: NewOtherItemPassData,
                                            outputDelegate: NewOtherItemViewControllerOutputDelegate) {
         let controller = NewOtherItemCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)
+    }
+
+    func pushArchiveListViewController(passData: ArchiveListPassData) {
+        let coordinator = ArchiveListCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
+    func popToRootViewController(animated: Bool) {
+        self.navigationController.popToRootViewController(animated: animated)
     }
 }

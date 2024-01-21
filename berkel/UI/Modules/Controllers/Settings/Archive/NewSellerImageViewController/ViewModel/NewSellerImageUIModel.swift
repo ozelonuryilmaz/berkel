@@ -55,7 +55,7 @@ struct NewSellerImageUIModel: INewSellerImageUIModel {
     var navTitle: String {
         switch self.imagePathType {
         case .kantarFisi:
-            return "Kantar Fişi Resmi Ekle"
+            return "Fiş Resmi Ekle"
         case .cek:
             return "Çek Resmi Ekle"
         case .dekont:

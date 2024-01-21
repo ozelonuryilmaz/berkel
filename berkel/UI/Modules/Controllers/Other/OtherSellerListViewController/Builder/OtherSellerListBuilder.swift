@@ -16,8 +16,8 @@ enum OtherSellerListBuilder {
         let repository = OtherSellerListRepository()
         let uiModel = OtherSellerListUIModel(data: data)
         let viewModel = OtherSellerListViewModel(repository: repository,
-                                                           coordinator: coordinator,
-                                                           uiModel: uiModel)
+                                                 coordinator: coordinator,
+                                                 uiModel: uiModel)
 
         return OtherSellerListViewController(viewModel: viewModel,
                                              outputDelegate: outputDelegate)

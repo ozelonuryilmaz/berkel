@@ -10,6 +10,8 @@ import UIKit
 protocol INewOtherSellerCoordinator: AnyObject {
 
     func dismiss(completion: (() -> Void)?)
+
+    func presentOtherSellerCategoryListViewController(outputDelegate: OtherSellerCategoryListViewControllerOutputDelegate)
 }
 
 final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerCoordinator {
@@ -30,10 +32,10 @@ final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerC
         self.outputDelegate = outputDelegate
         return self
     }
-    
+
     override func start() {
         guard let outputDelegate = outputDelegate else { return }
-        
+
         let controller = NewOtherSellerBuilder.generate(with: coordinatorData,
                                                         coordinator: self,
                                                         outputDelegate: outputDelegate)
@@ -46,6 +48,13 @@ final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerC
     func dismiss(completion: (() -> Void)? = nil) {
         navController.dismiss(animated: true, completion: completion)
     }
+
+    func presentOtherSellerCategoryListViewController(outputDelegate: OtherSellerCategoryListViewControllerOutputDelegate) {
+        let controller = OtherSellerCategoryListCoordinator.getInstance(presenterViewController: self.navController.lastViewController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: OtherSellerCategoryListPassData())
+        coordinate(to: controller)
+    }
 }
 
 // Presenter
@@ -53,6 +62,6 @@ extension NewOtherSellerCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> NewOtherSellerCoordinator {
         return NewOtherSellerCoordinator(presenterViewController: presenterViewController,
-                                                    navController: MainNavigationController())
+                                         navController: MainNavigationController())
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 struct OtherSellerListPassData: ICoordinatorPassData {
 
+    var isCancellableCellTabbed: Bool = false
 }

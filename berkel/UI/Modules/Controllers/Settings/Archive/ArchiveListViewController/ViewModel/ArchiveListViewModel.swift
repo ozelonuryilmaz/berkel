@@ -40,6 +40,7 @@ final class ArchiveListViewModel: BaseViewModel, IArchiveListViewModel {
     let responseArchive = CurrentValueSubject<[SellerImageModel]?, Never>(nil)
     let responseCustomerArchive = CurrentValueSubject<[CustomerImageModel]?, Never>(nil)
     let responseWorkerArchive = CurrentValueSubject<[WorkerImageModel]?, Never>(nil)
+    let responseOtherArchive = CurrentValueSubject<[OtherSellerImageModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IArchiveListRepository,
@@ -97,6 +98,8 @@ internal extension ArchiveListViewModel {
             self.getSellerArchives(customerId: customerId, imagePathType: imagePathType)
         case .worker(let cavusId, _, _):
             self.getWorkerArchives(cavusId: cavusId, imagePathType: imagePathType)
+        case .other(let otherSellerId, _, _):
+            self.getOtherSellerArchives(otherSellerId: otherSellerId, imagePathType: imagePathType)
         }
     }
     
@@ -151,6 +154,25 @@ internal extension ArchiveListViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responseWorkerArchive.value else { return }
+
+                self.uiModel.setArchive(imagePathType: imagePathType, data: data)
+                self.viewStateReloadTableView()
+            })
+    }
+    
+    private func getOtherSellerArchives(otherSellerId: String, imagePathType: ImagePathType){
+        handleResourceFirestore(
+            request: self.repository.getArchiveList(season: self.uiModel.season,
+                                                    otherSellerId: otherSellerId,
+                                                    imagePathType: imagePathType),
+            response: self.responseOtherArchive,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseOtherArchive.value else { return }
 
                 self.uiModel.setArchive(imagePathType: imagePathType, data: data)
                 self.viewStateReloadTableView()

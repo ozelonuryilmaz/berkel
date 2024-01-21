@@ -24,7 +24,7 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZwC-LI-qJN">
                     <rect key="frame" x="16" y="55" width="358" height="32"/>
                     <segments>
-                        <segment title="Kantar Fişi"/>
+                        <segment title="Fiş"/>
                         <segment title="Çek"/>
                         <segment title="Dekont"/>
                         <segment title="Diğer"/>

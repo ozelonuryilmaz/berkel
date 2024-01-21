@@ -21,6 +21,7 @@ final class OtherSellerListViewController: MainBaseViewController {
     private var outputDelegate: NewOtherItemViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: OtherSellerListDiffableTableView!
 
     // MARK: Constraints Outlets
 
@@ -39,10 +40,12 @@ final class OtherSellerListViewController: MainBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+
+        self.viewModel.getOtherSellerList()
     }
 
-    override func registerEvents() {
-
+    override func setupView() {
+        initTableView()
     }
 
     private func observeReactiveDatas() {
@@ -58,13 +61,29 @@ final class OtherSellerListViewController: MainBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
+
+            case .outputDelegate(let otherModel):
+                self.outputDelegate?.newOtherItemData(otherModel)
             }
 
         }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
-        let errorHandle = FirestoreErrorHandle(viewController: self)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getOtherSellerList()
+            }
+        )
         observeErrorState(errorState: viewModel.errorState,
                           errorHandle: errorHandle)
     }
@@ -72,7 +91,7 @@ final class OtherSellerListViewController: MainBaseViewController {
     // MARK: Define Components
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(image: .addPersonNav) { [unowned self] _ in
-            self.viewModel.presentNewOtherSellerViewController(passData: NewOtherSellerPassData())
+            self.viewModel.presentNewOtherSellerViewController(passData: NewOtherSellerPassData(otherSellerInformation: nil))
         }
     }()
 }
@@ -80,4 +99,7 @@ final class OtherSellerListViewController: MainBaseViewController {
 // MARK: Props
 private extension OtherSellerListViewController {
 
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

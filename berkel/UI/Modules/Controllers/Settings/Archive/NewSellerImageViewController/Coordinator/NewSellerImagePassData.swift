@@ -11,6 +11,7 @@ enum ImagePageType {
     case buying(sellerId: String, buyingId: String, buyingProductName: String)
     case worker(cavusId: String, workerId: String, workerProductName: String)
     case seller(customerId: String, sellerId: String, sellerProductName: String)
+    case other(otherSellerId: String, otherId: String, otherSellerProductName: String)
 }
 
 enum ImagePathType: String {
