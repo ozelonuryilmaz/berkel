@@ -11,7 +11,7 @@ import Combine
 final class OtherSellerListViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
-        return "Diğer Satıcı Listesi"
+        return "Hizmet Sağlayanlar"
     }
 
     // MARK: Constants

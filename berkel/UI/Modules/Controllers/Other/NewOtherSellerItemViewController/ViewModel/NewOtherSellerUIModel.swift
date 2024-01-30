@@ -68,7 +68,7 @@ struct NewOtherSellerUIModel: INewOtherSellerUIModel {
     }
 
     var navigationTitle: String {
-        return isUpdatedOtherSeller ? "Diğer Satıcıyı Güncelle" : "Yeni Diğer Satıcı Ekle"
+        return isUpdatedOtherSeller ? "Hizmeti Sağlayanı Güncelle" : "Yeni Hizmet Sağlayıcı"
     }
 
     var errorMessage: String? {

@@ -11,10 +11,10 @@ protocol ISellerCoordinator: AnyObject {
 
     func pushCustomerListViewController(passData: CustomerListPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
-    
+
     func pushSellerDetailViewController(passData: SellerDetailPassData,
                                         outputDelegate: SellerDetailViewControllerOutputDelegate)
-    
+
     func presentSellerCollectionViewController(passData: SellerCollectionPassData)
     func presentSellerPaymentViewController(passData: SellerPaymentPassData)
 }
@@ -27,7 +27,7 @@ final class SellerCoordinator: NavigationCoordinator, ISellerCoordinator {
         let controller = SellerBuilder.generate(coordinator: self)
         navigationController.viewControllers = [controller]
     }
-    
+
     func pushCustomerListViewController(passData: CustomerListPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate) {
         let coordinator = CustomerListCoordinator(navigationController: self.navigationController)
@@ -35,7 +35,7 @@ final class SellerCoordinator: NavigationCoordinator, ISellerCoordinator {
             .with(passData: passData)
         coordinate(to: coordinator)
     }
-    
+
     func pushSellerDetailViewController(passData: SellerDetailPassData,
                                         outputDelegate: SellerDetailViewControllerOutputDelegate) {
         let coordinator = SellerDetailCoordinator(navigationController: self.navigationController)

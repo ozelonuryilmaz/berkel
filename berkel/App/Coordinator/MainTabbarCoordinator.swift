@@ -99,7 +99,7 @@ fileprivate extension String {
     static var tab_title_buying = "Alış"
     static var tab_title_worker = "İşçi"
     static var tab_title_seller = "Satış"
-    static var tab_title_other = "Diğer"
+    static var tab_title_other = "Hizmet"
     static var tab_title_settings = "Liste"
 }
 

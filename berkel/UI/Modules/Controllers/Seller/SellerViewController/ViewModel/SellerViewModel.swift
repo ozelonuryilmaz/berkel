@@ -194,4 +194,3 @@ enum SellerViewState {
     case buildSnapshot(snapshot: SellerSnapshot)
     case updateSnapshot(data: [SellerModel])
 }
-

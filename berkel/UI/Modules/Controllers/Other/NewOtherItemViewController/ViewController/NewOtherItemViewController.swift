@@ -15,7 +15,7 @@ protocol NewOtherItemViewControllerOutputDelegate: AnyObject {
 final class NewOtherItemViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
-        return "Yeni Diğer Alım Oluştur"
+        return "Yeni Hizmet"
     }
 
     // MARK: Inject

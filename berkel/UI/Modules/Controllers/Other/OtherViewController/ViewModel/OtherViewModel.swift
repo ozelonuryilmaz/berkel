@@ -20,6 +20,13 @@ protocol IOtherViewModel: NewOtherItemViewControllerOutputDelegate {
 
     // Coordinator
     func pushOtherItemListViewController()
+    
+    // Service
+    func getOther()
+
+    // DataSource
+    func updateSnapshot(currentSnapshot: OtherSnapshot,
+                        newDatas: [OtherModel]) -> OtherSnapshot
 }
 
 final class OtherViewModel: BaseViewModel, IOtherViewModel {
@@ -32,7 +39,7 @@ final class OtherViewModel: BaseViewModel, IOtherViewModel {
     // MARK: Public Props
     var viewState = ScreenStateSubject<OtherViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<[OtherModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IOtherRepository,
@@ -46,12 +53,48 @@ final class OtherViewModel: BaseViewModel, IOtherViewModel {
     var season: String {
         return uiModel.season
     }
+    
+    private var isLastPage: Bool = false
+    private var isAvailablePagination: Bool = false
+    
+    func updateSnapshot(currentSnapshot: OtherSnapshot,
+                        newDatas: [OtherModel]) -> OtherSnapshot {
+        return self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
+    }
 }
 
 
 // MARK: Service
 internal extension OtherViewModel {
 
+    func getOther() {
+
+        handleResourceFirestore(
+            request: self.repository.getOtherList(season: self.uiModel.season,
+                                                   cursor: self.uiModel.getLastCursor(),
+                                                   limit: self.uiModel.limit),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { isProgress in
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+                self.isAvailablePagination = !isProgress
+            },
+            callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.setResponse(self.response.value ?? [])
+
+                if !self.uiModel.isHaveBuildData {
+                    self.viewStateBuildSnapshot()
+                } else {
+                    self.viewStateUpdateSnapshot(data: self.response.value ?? [])
+                }
+
+                if true == self.response.value?.isEmpty {
+                    self.isLastPage = true
+                }
+            }
+        )
+    }
 }
 
 // MARK: States
@@ -62,6 +105,13 @@ internal extension OtherViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateBuildSnapshot() {
+        viewState.value = .buildSnapshot(snapshot: self.uiModel.buildSnapshot())
+    }
+
+    func viewStateUpdateSnapshot(data: [OtherModel]) {
+        viewState.value = .updateSnapshot(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -77,11 +127,40 @@ internal extension OtherViewModel {
 internal extension OtherViewModel {
 
     func newOtherItemData(_ data: OtherModel) {
-        //self.uiModel.appendFirstItem(data: data)
-        //self.viewStateBuildSnapshot()
+        self.uiModel.appendFirstItem(data: data)
+        self.viewStateBuildSnapshot()
+    }
+}
+
+// MARK: OtherDataSourceFactoryOutputDelegate
+internal extension OtherViewModel {
+    
+    func cellTapped(uiModel: IOtherTableViewCellUIModel) {
+        
+    }
+
+    func addCollectionTapped(uiModel: IOtherTableViewCellUIModel) {
+        let passData = OtherCollectionPassData(otherModel: uiModel.otherModel)
+        self.presentOtherCollectionViewController(passData: passData)
+    }
+
+    func addPaymentTapped(uiModel: IOtherTableViewCellUIModel) {
+        let passData = OtherPaymentPassData(otherId: uiModel.otherId,
+                                            otherSellerName: uiModel.otherSellerName,
+                                            otherSellerId: uiModel.otherSellerId,
+                                            categoryName: uiModel.categoryName)
+        self.presentOtherPaymentViewController(passData: passData)
+    }
+
+    func scrollDidScroll(isAvailablePagination: Bool) {
+        if self.isAvailablePagination && isAvailablePagination && !isLastPage {
+            self.getOther()
+        }
     }
 }
 
 enum OtherViewState {
     case showNativeProgress(isProgress: Bool)
+    case buildSnapshot(snapshot: OtherSnapshot)
+    case updateSnapshot(data: [OtherModel])
 }

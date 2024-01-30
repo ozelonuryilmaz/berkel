@@ -11,7 +11,7 @@ import Combine
 final class OtherViewController: MainBaseViewController {
     
     override var navigationTitle: String? {
-        return "Diğer"
+        return "Hizmet"
     }
     
     override var navigationSubTitle: String? {
@@ -19,6 +19,7 @@ final class OtherViewController: MainBaseViewController {
     }
 
     // MARK: Constants
+    @IBOutlet private weak var tableView: OtherDiffableTableView!
 
     // MARK: Inject
     private let viewModel: IOtherViewModel
@@ -40,6 +41,9 @@ final class OtherViewController: MainBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+        self.initTableView()
+
+        self.viewModel.getOther()
     }
 
     override func registerEvents() {
@@ -58,14 +62,27 @@ final class OtherViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+    
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
 
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
             }
 
         }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
-        let errorHandle = FirestoreErrorHandle(viewController: self)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getOther()
+            }
+        )
         observeErrorState(errorState: viewModel.errorState,
                           errorHandle: errorHandle)
     }
@@ -80,5 +97,8 @@ final class OtherViewController: MainBaseViewController {
 
 // MARK: Props
 private extension OtherViewController {
-
+    
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }
