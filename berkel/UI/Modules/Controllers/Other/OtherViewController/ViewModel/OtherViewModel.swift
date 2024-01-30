@@ -7,7 +7,8 @@
 
 import Combine
 
-protocol IOtherViewModel: NewOtherItemViewControllerOutputDelegate {
+protocol IOtherViewModel: NewOtherItemViewControllerOutputDelegate,
+    OtherDataSourceFactoryOutputDelegate {
 
     var viewState: ScreenStateSubject<OtherViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -20,7 +21,7 @@ protocol IOtherViewModel: NewOtherItemViewControllerOutputDelegate {
 
     // Coordinator
     func pushOtherItemListViewController()
-    
+
     // Service
     func getOther()
 
@@ -53,10 +54,10 @@ final class OtherViewModel: BaseViewModel, IOtherViewModel {
     var season: String {
         return uiModel.season
     }
-    
+
     private var isLastPage: Bool = false
     private var isAvailablePagination: Bool = false
-    
+
     func updateSnapshot(currentSnapshot: OtherSnapshot,
                         newDatas: [OtherModel]) -> OtherSnapshot {
         return self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
@@ -71,8 +72,8 @@ internal extension OtherViewModel {
 
         handleResourceFirestore(
             request: self.repository.getOtherList(season: self.uiModel.season,
-                                                   cursor: self.uiModel.getLastCursor(),
-                                                   limit: self.uiModel.limit),
+                                                  cursor: self.uiModel.getLastCursor(),
+                                                  limit: self.uiModel.limit),
             response: self.response,
             errorState: self.errorState,
             callbackLoading: { isProgress in
@@ -121,6 +122,14 @@ internal extension OtherViewModel {
         self.coordinator.pushOtherSellerListViewController(passData: OtherSellerListPassData(),
                                                            outputDelegate: self)
     }
+
+    func presentOtherCollectionViewController(passData: OtherCollectionPassData) {
+        self.coordinator.presentOtherCollectionViewController(passData: passData)
+    }
+
+    func presentOtherPaymentViewController(passData: OtherPaymentPassData) {
+        self.coordinator.presentOtherPaymentViewController(passData: passData)
+    }
 }
 
 // MARK: NewOtherItemViewControllerOutputDelegate
@@ -134,9 +143,9 @@ internal extension OtherViewModel {
 
 // MARK: OtherDataSourceFactoryOutputDelegate
 internal extension OtherViewModel {
-    
+
     func cellTapped(uiModel: IOtherTableViewCellUIModel) {
-        
+
     }
 
     func addCollectionTapped(uiModel: IOtherTableViewCellUIModel) {

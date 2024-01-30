@@ -182,6 +182,15 @@
 		674706012B0A7D61006F1639 /* NewCustomerPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674705F92B0A7D61006F1639 /* NewCustomerPassData.swift */; };
 		674706022B0A7D61006F1639 /* NewCustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674705FA2B0A7D61006F1639 /* NewCustomerViewController.xib */; };
 		674706092B0A7FDC006F1639 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674706082B0A7FDC006F1639 /* CustomerModel.swift */; };
+		6747AC132B69651B00D4E8CA /* OtherPaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC0B2B69651B00D4E8CA /* OtherPaymentCoordinator.swift */; };
+		6747AC142B69651B00D4E8CA /* OtherPaymentUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC0C2B69651B00D4E8CA /* OtherPaymentUIModel.swift */; };
+		6747AC152B69651B00D4E8CA /* OtherPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC0D2B69651B00D4E8CA /* OtherPaymentViewController.swift */; };
+		6747AC162B69651B00D4E8CA /* OtherPaymentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC0E2B69651B00D4E8CA /* OtherPaymentRepository.swift */; };
+		6747AC172B69651B00D4E8CA /* OtherPaymentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC0F2B69651B00D4E8CA /* OtherPaymentBuilder.swift */; };
+		6747AC182B69651B00D4E8CA /* OtherPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC102B69651B00D4E8CA /* OtherPaymentViewModel.swift */; };
+		6747AC192B69651B00D4E8CA /* OtherPaymentPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC112B69651B00D4E8CA /* OtherPaymentPassData.swift */; };
+		6747AC1A2B69651B00D4E8CA /* OtherPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6747AC122B69651B00D4E8CA /* OtherPaymentViewController.xib */; };
+		6747AC1C2B69655600D4E8CA /* OtherPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC1B2B69655600D4E8CA /* OtherPaymentModel.swift */; };
 		674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C261C2B0FB66B00B9A32A /* SellerService.swift */; };
 		674C26232B0FC84100B9A32A /* SellerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C26212B0FC84100B9A32A /* SellerTableViewCell.swift */; };
 		674C26242B0FC84100B9A32A /* SellerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674C26222B0FC84100B9A32A /* SellerTableViewCell.xib */; };
@@ -782,6 +791,15 @@
 		674705F92B0A7D61006F1639 /* NewCustomerPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomerPassData.swift; sourceTree = "<group>"; };
 		674705FA2B0A7D61006F1639 /* NewCustomerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCustomerViewController.xib; sourceTree = "<group>"; };
 		674706082B0A7FDC006F1639 /* CustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerModel.swift; sourceTree = "<group>"; };
+		6747AC0B2B69651B00D4E8CA /* OtherPaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentCoordinator.swift; sourceTree = "<group>"; };
+		6747AC0C2B69651B00D4E8CA /* OtherPaymentUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentUIModel.swift; sourceTree = "<group>"; };
+		6747AC0D2B69651B00D4E8CA /* OtherPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentViewController.swift; sourceTree = "<group>"; };
+		6747AC0E2B69651B00D4E8CA /* OtherPaymentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentRepository.swift; sourceTree = "<group>"; };
+		6747AC0F2B69651B00D4E8CA /* OtherPaymentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentBuilder.swift; sourceTree = "<group>"; };
+		6747AC102B69651B00D4E8CA /* OtherPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentViewModel.swift; sourceTree = "<group>"; };
+		6747AC112B69651B00D4E8CA /* OtherPaymentPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentPassData.swift; sourceTree = "<group>"; };
+		6747AC122B69651B00D4E8CA /* OtherPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPaymentViewController.xib; sourceTree = "<group>"; };
+		6747AC1B2B69655600D4E8CA /* OtherPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentModel.swift; sourceTree = "<group>"; };
 		674C261C2B0FB66B00B9A32A /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		674C26212B0FC84100B9A32A /* SellerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTableViewCell.swift; sourceTree = "<group>"; };
 		674C26222B0FC84100B9A32A /* SellerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerTableViewCell.xib; sourceTree = "<group>"; };
@@ -1826,6 +1844,12 @@
 		672474942B5D57A700E50B4A /* OtherPaymentViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6747AC092B69638900D4E8CA /* Builder */,
+				6747AC082B69638500D4E8CA /* Coordinator */,
+				6747AC072B69638000D4E8CA /* Model */,
+				6747AC062B69637B00D4E8CA /* Repository */,
+				6747AC052B69637800D4E8CA /* ViewModel */,
+				6747AC042B69636E00D4E8CA /* ViewController */,
 			);
 			path = OtherPaymentViewController;
 			sourceTree = "<group>";
@@ -2361,6 +2385,57 @@
 			isa = PBXGroup;
 			children = (
 				674705F72B0A7D61006F1639 /* NewCustomerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		6747AC042B69636E00D4E8CA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC0D2B69651B00D4E8CA /* OtherPaymentViewController.swift */,
+				6747AC122B69651B00D4E8CA /* OtherPaymentViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6747AC052B69637800D4E8CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC102B69651B00D4E8CA /* OtherPaymentViewModel.swift */,
+				6747AC0C2B69651B00D4E8CA /* OtherPaymentUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6747AC062B69637B00D4E8CA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC0E2B69651B00D4E8CA /* OtherPaymentRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6747AC072B69638000D4E8CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC1B2B69655600D4E8CA /* OtherPaymentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6747AC082B69638500D4E8CA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC0B2B69651B00D4E8CA /* OtherPaymentCoordinator.swift */,
+				6747AC112B69651B00D4E8CA /* OtherPaymentPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6747AC092B69638900D4E8CA /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC0F2B69651B00D4E8CA /* OtherPaymentBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -5255,6 +5330,7 @@
 				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
 				6718842B2AF169E000D76672 /* NewCavusViewController.xib in Resources */,
 				672398032AEACB25001538C1 /* ArchiveListViewController.xib in Resources */,
+				6747AC1A2B69651B00D4E8CA /* OtherPaymentViewController.xib in Resources */,
 				67B6CF882B25E63B00E066D6 /* SettingsItemCell.xib in Resources */,
 				67FA8B5A2AF66C4A00C09B09 /* WorkerPaymentViewController.xib in Resources */,
 				67BE9D332AF63FF700D07DA7 /* WorkerTableViewCell.xib in Resources */,
@@ -5344,6 +5420,7 @@
 				674705EC2B0A7A1C006F1639 /* CustomerListPassData.swift in Sources */,
 				674D10732ADDAC88002CFFE8 /* BuyingCollectionDataSource.swift in Sources */,
 				67CC75B62AA25EF1003206F0 /* SplashRepository.swift in Sources */,
+				6747AC172B69651B00D4E8CA /* OtherPaymentBuilder.swift in Sources */,
 				67460D512B5AB034000AB380 /* OtherModel.swift in Sources */,
 				672AD5F12B4F058B009C8E4A /* UserService.swift in Sources */,
 				6718844A2AF17A4300D76672 /* CavusService.swift in Sources */,
@@ -5464,7 +5541,10 @@
 				6710C8002B667C4700028500 /* OtherCollectionUIModel.swift in Sources */,
 				67B98CF52ADBE74500CD4B15 /* BuyingDetailRepository.swift in Sources */,
 				6729D5692AFD593300DA5F48 /* WorkerPaymentModel.swift in Sources */,
+				6747AC1C2B69655600D4E8CA /* OtherPaymentModel.swift in Sources */,
 				675984252B08E1F400F0DAD0 /* ProductListPassData.swift in Sources */,
+				6747AC182B69651B00D4E8CA /* OtherPaymentViewModel.swift in Sources */,
+				6747AC162B69651B00D4E8CA /* OtherPaymentRepository.swift in Sources */,
 				67BE9D4F2AF66A6200D07DA7 /* WorkerDetailUIModel.swift in Sources */,
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
 				678BACE22B2A2D5000EF7050 /* SellerChartsPassData.swift in Sources */,
@@ -5601,6 +5681,7 @@
 				6730ED742B1CB7BA00111826 /* SellerDetailCollectionDiffableTableView.swift in Sources */,
 				67460D302B5AA70A000AB380 /* OtherUIModel.swift in Sources */,
 				67B9EE4C2AD5AF9F003E6BA3 /* BuyingCollectionViewController.swift in Sources */,
+				6747AC142B69651B00D4E8CA /* OtherPaymentUIModel.swift in Sources */,
 				674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
 				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
@@ -5622,6 +5703,7 @@
 				6730ED662B1CA95400111826 /* SellerDetailPaymentTableViewCell.swift in Sources */,
 				67B9EE592AD5B0A6003E6BA3 /* BuyingCollectionModel.swift in Sources */,
 				670C0B1E2AB0E39600B4C9A1 /* BackBarButtonIten.swift in Sources */,
+				6747AC192B69651B00D4E8CA /* OtherPaymentPassData.swift in Sources */,
 				67EA5B7F2AAF8DFA0086E20C /* LoginViewController.swift in Sources */,
 				671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */,
 				67A65E342B4C62D1003EACA0 /* WorkerChartsBuilder.swift in Sources */,
@@ -5656,6 +5738,7 @@
 				67460D2F2B5AA70A000AB380 /* OtherCoordinator.swift in Sources */,
 				674705FD2B0A7D61006F1639 /* NewCustomerViewController.swift in Sources */,
 				67C019772B110B4C0094D023 /* SellerPaymentPassData.swift in Sources */,
+				6747AC152B69651B00D4E8CA /* OtherPaymentViewController.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
 				6724746A2B5D1FB700E50B4A /* OtherSellerCategoryListModel.swift in Sources */,
 				67EA5B612AAF865E0086E20C /* BaseReusableView.swift in Sources */,
@@ -5754,6 +5837,7 @@
 				672474842B5D3FEF00E50B4A /* OtherSellerListRowModel.swift in Sources */,
 				6797F0512AA4975300638C09 /* FirestoreError.swift in Sources */,
 				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
+				6747AC132B69651B00D4E8CA /* OtherPaymentCoordinator.swift in Sources */,
 				67A2EE232AB0D4AC00756120 /* RegisterUIModel.swift in Sources */,
 				6710C8052B667C4700028500 /* OtherCollectionPassData.swift in Sources */,
 				6797F0392AA4973600638C09 /* User+Combine.swift in Sources */,
