@@ -61,7 +61,7 @@ class SellerTableViewCell: BaseTableViewCell {
         if uiModel.desc.isEmpty{
             self.lblDesc.text = "\(uiModel.productName)"
         } else {
-            self.lblDesc.text = "\(uiModel.productName)\n\n\(uiModel.desc)"
+            self.lblDesc.text = "\(uiModel.productName)\n\(uiModel.desc)"
         }
 
         if uiModel.isActive {

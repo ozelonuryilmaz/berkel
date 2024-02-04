@@ -63,7 +63,7 @@ class OtherTableViewCell: BaseTableViewCell {
         if uiModel.desc.isEmpty{
             self.lblDesc.text = "\(uiModel.categoryName)"
         } else {
-            self.lblDesc.text = "\(uiModel.categoryName)\n\n\(uiModel.desc)"
+            self.lblDesc.text = "\(uiModel.categoryName)\n\(uiModel.desc)"
         }
 
         if uiModel.isActive {

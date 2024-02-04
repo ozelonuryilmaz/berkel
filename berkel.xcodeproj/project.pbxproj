@@ -191,6 +191,14 @@
 		6747AC192B69651B00D4E8CA /* OtherPaymentPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC112B69651B00D4E8CA /* OtherPaymentPassData.swift */; };
 		6747AC1A2B69651B00D4E8CA /* OtherPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6747AC122B69651B00D4E8CA /* OtherPaymentViewController.xib */; };
 		6747AC1C2B69655600D4E8CA /* OtherPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC1B2B69655600D4E8CA /* OtherPaymentModel.swift */; };
+		6747AC2B2B697CEE00D4E8CA /* OtherDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC232B697CEE00D4E8CA /* OtherDetailCoordinator.swift */; };
+		6747AC2C2B697CEE00D4E8CA /* OtherDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC242B697CEE00D4E8CA /* OtherDetailUIModel.swift */; };
+		6747AC2D2B697CEE00D4E8CA /* OtherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC252B697CEE00D4E8CA /* OtherDetailViewController.swift */; };
+		6747AC2E2B697CEE00D4E8CA /* OtherDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC262B697CEE00D4E8CA /* OtherDetailRepository.swift */; };
+		6747AC2F2B697CEE00D4E8CA /* OtherDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC272B697CEE00D4E8CA /* OtherDetailBuilder.swift */; };
+		6747AC302B697CEE00D4E8CA /* OtherDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC282B697CEE00D4E8CA /* OtherDetailViewModel.swift */; };
+		6747AC312B697CEE00D4E8CA /* OtherDetailPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747AC292B697CEE00D4E8CA /* OtherDetailPassData.swift */; };
+		6747AC322B697CEE00D4E8CA /* OtherDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6747AC2A2B697CEE00D4E8CA /* OtherDetailViewController.xib */; };
 		674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C261C2B0FB66B00B9A32A /* SellerService.swift */; };
 		674C26232B0FC84100B9A32A /* SellerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C26212B0FC84100B9A32A /* SellerTableViewCell.swift */; };
 		674C26242B0FC84100B9A32A /* SellerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674C26222B0FC84100B9A32A /* SellerTableViewCell.xib */; };
@@ -355,6 +363,12 @@
 		678BACE12B2A2D5000EF7050 /* SellerChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACD92B2A2D5000EF7050 /* SellerChartsViewModel.swift */; };
 		678BACE22B2A2D5000EF7050 /* SellerChartsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678BACDA2B2A2D5000EF7050 /* SellerChartsPassData.swift */; };
 		678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678BACDB2B2A2D5000EF7050 /* SellerChartsViewController.xib */; };
+		678D8FFE2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D8FFC2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.swift */; };
+		678D8FFF2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678D8FFD2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.xib */; };
+		678D90022B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D90002B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.swift */; };
+		678D90032B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678D90012B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib */; };
+		678D90052B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D90042B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift */; };
+		678D90072B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678D90062B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift */; };
 		678DDFF82AC7469A00AA8D46 /* BuyingDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */; };
 		678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */; };
 		678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */; };
@@ -800,6 +814,14 @@
 		6747AC112B69651B00D4E8CA /* OtherPaymentPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentPassData.swift; sourceTree = "<group>"; };
 		6747AC122B69651B00D4E8CA /* OtherPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherPaymentViewController.xib; sourceTree = "<group>"; };
 		6747AC1B2B69655600D4E8CA /* OtherPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPaymentModel.swift; sourceTree = "<group>"; };
+		6747AC232B697CEE00D4E8CA /* OtherDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailCoordinator.swift; sourceTree = "<group>"; };
+		6747AC242B697CEE00D4E8CA /* OtherDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailUIModel.swift; sourceTree = "<group>"; };
+		6747AC252B697CEE00D4E8CA /* OtherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailViewController.swift; sourceTree = "<group>"; };
+		6747AC262B697CEE00D4E8CA /* OtherDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailRepository.swift; sourceTree = "<group>"; };
+		6747AC272B697CEE00D4E8CA /* OtherDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailBuilder.swift; sourceTree = "<group>"; };
+		6747AC282B697CEE00D4E8CA /* OtherDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailViewModel.swift; sourceTree = "<group>"; };
+		6747AC292B697CEE00D4E8CA /* OtherDetailPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailPassData.swift; sourceTree = "<group>"; };
+		6747AC2A2B697CEE00D4E8CA /* OtherDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherDetailViewController.xib; sourceTree = "<group>"; };
 		674C261C2B0FB66B00B9A32A /* SellerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerService.swift; sourceTree = "<group>"; };
 		674C26212B0FC84100B9A32A /* SellerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerTableViewCell.swift; sourceTree = "<group>"; };
 		674C26222B0FC84100B9A32A /* SellerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerTableViewCell.xib; sourceTree = "<group>"; };
@@ -964,6 +986,12 @@
 		678BACD92B2A2D5000EF7050 /* SellerChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsViewModel.swift; sourceTree = "<group>"; };
 		678BACDA2B2A2D5000EF7050 /* SellerChartsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerChartsPassData.swift; sourceTree = "<group>"; };
 		678BACDB2B2A2D5000EF7050 /* SellerChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerChartsViewController.xib; sourceTree = "<group>"; };
+		678D8FFC2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailPaymentTableViewCell.swift; sourceTree = "<group>"; };
+		678D8FFD2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherDetailPaymentTableViewCell.xib; sourceTree = "<group>"; };
+		678D90002B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		678D90012B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherDetailCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		678D90042B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailCollectionTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		678D90062B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherDetailPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
 		678DDFF72AC7469A00AA8D46 /* BuyingDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingDiffableTableView.swift; sourceTree = "<group>"; };
 		678DDFF92AC747AB00AA8D46 /* BuyingRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingRowModel.swift; sourceTree = "<group>"; };
 		678DDFFB2AC747D600AA8D46 /* BuyingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingSection.swift; sourceTree = "<group>"; };
@@ -1824,6 +1852,11 @@
 		672474922B5D579800E50B4A /* OtherDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6747AC212B697C7900D4E8CA /* Builder */,
+				6747AC202B697C7600D4E8CA /* Coordinator */,
+				6747AC1F2B697C7100D4E8CA /* Repository */,
+				6747AC1E2B697C6B00D4E8CA /* ViewModel */,
+				6747AC1D2B697C6700D4E8CA /* ViewController */,
 			);
 			path = OtherDetailViewController;
 			sourceTree = "<group>";
@@ -2436,6 +2469,51 @@
 			isa = PBXGroup;
 			children = (
 				6747AC0F2B69651B00D4E8CA /* OtherPaymentBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		6747AC1D2B697C6700D4E8CA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				678D8FF52B6F962B00EE2584 /* Cells */,
+				678D8FF62B6F962E00EE2584 /* DataSource */,
+				6747AC252B697CEE00D4E8CA /* OtherDetailViewController.swift */,
+				6747AC2A2B697CEE00D4E8CA /* OtherDetailViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6747AC1E2B697C6B00D4E8CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC282B697CEE00D4E8CA /* OtherDetailViewModel.swift */,
+				6747AC242B697CEE00D4E8CA /* OtherDetailUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6747AC1F2B697C7100D4E8CA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC262B697CEE00D4E8CA /* OtherDetailRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6747AC202B697C7600D4E8CA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC232B697CEE00D4E8CA /* OtherDetailCoordinator.swift */,
+				6747AC292B697CEE00D4E8CA /* OtherDetailPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6747AC212B697C7900D4E8CA /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6747AC272B697CEE00D4E8CA /* OtherDetailBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -3574,6 +3652,66 @@
 				678BACD82B2A2D5000EF7050 /* SellerChartsBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		678D8FF52B6F962B00EE2584 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				678D8FF72B6F963D00EE2584 /* OtherDetailPaymentTableViewCell */,
+				678D8FF82B6F964B00EE2584 /* OtherDetailCollectionTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		678D8FF62B6F962E00EE2584 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				678D8FF92B6F965D00EE2584 /* View */,
+				678D8FFA2B6F966300EE2584 /* Model */,
+				678D8FFB2B6F966500EE2584 /* DataSource */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		678D8FF72B6F963D00EE2584 /* OtherDetailPaymentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				678D90062B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift */,
+				678D8FFC2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.swift */,
+				678D8FFD2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.xib */,
+			);
+			path = OtherDetailPaymentTableViewCell;
+			sourceTree = "<group>";
+		};
+		678D8FF82B6F964B00EE2584 /* OtherDetailCollectionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				678D90042B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift */,
+				678D90002B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.swift */,
+				678D90012B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib */,
+			);
+			path = OtherDetailCollectionTableViewCell;
+			sourceTree = "<group>";
+		};
+		678D8FF92B6F965D00EE2584 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		678D8FFA2B6F966300EE2584 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		678D8FFB2B6F966500EE2584 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		678DDFF32AC7455500AA8D46 /* DataSource */ = {
@@ -5286,7 +5424,9 @@
 				675984262B08E1F400F0DAD0 /* ProductListViewController.xib in Resources */,
 				67460D4E2B5AB005000AB380 /* NewOtherItemViewController.xib in Resources */,
 				677D62EA2AC1ED1C004F3232 /* SeasonsViewController.xib in Resources */,
+				678D8FFF2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.xib in Resources */,
 				67DDE8762B0E5F6700E24949 /* NewSellerViewController.xib in Resources */,
+				678D90032B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib in Resources */,
 				674705ED2B0A7A1C006F1639 /* CustomerListViewController.xib in Resources */,
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
 				6710C7E42B666D3800028500 /* OtherTableViewCell.xib in Resources */,
@@ -5325,6 +5465,7 @@
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
 				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
+				6747AC322B697CEE00D4E8CA /* OtherDetailViewController.xib in Resources */,
 				677521802B50218200239364 /* UserAuthsItemCell.xib in Resources */,
 				6730ED672B1CA95400111826 /* SellerDetailPaymentTableViewCell.xib in Resources */,
 				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
@@ -5465,6 +5606,7 @@
 				67BE9D3E2AF643A300D07DA7 /* WorkerSection.swift in Sources */,
 				67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */,
 				6710C7EC2B666D7A00028500 /* OtherRowModel.swift in Sources */,
+				6747AC2E2B697CEE00D4E8CA /* OtherDetailRepository.swift in Sources */,
 				67460D8F2B5AE409000AB380 /* NewOtherSellerUIModel.swift in Sources */,
 				67A1EE8A2AF1691700126E44 /* CavusListBuilder.swift in Sources */,
 				67460D7A2B5AE07C000AB380 /* OtherSellerListUIModel.swift in Sources */,
@@ -5485,6 +5627,7 @@
 				672474502B5D1B5700E50B4A /* OtherSellerService.swift in Sources */,
 				67FC97362ADEEC4600FC53AE /* NewWarehouseBuilder.swift in Sources */,
 				67F87F192AB3A3A000FFC097 /* AddBuyingItemPassData.swift in Sources */,
+				6747AC2F2B697CEE00D4E8CA /* OtherDetailBuilder.swift in Sources */,
 				67C019492B1108640094D023 /* SellerDetailCoordinator.swift in Sources */,
 				67460D7D2B5AE07C000AB380 /* OtherSellerListBuilder.swift in Sources */,
 				6710C7E82B666D6200028500 /* OtherDataSource.swift in Sources */,
@@ -5612,6 +5755,7 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67BE9D692AF66B1000D07DA7 /* WorkerCollectionPassData.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
+				6747AC312B697CEE00D4E8CA /* OtherDetailPassData.swift in Sources */,
 				678BACE02B2A2D5000EF7050 /* SellerChartsBuilder.swift in Sources */,
 				67C0195F2B1109EA0094D023 /* SellerCollectionViewController.swift in Sources */,
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
@@ -5622,6 +5766,7 @@
 				67C0194B2B1108640094D023 /* SellerDetailViewController.swift in Sources */,
 				6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */,
 				674C26332B0FCAF600B9A32A /* SellerDataSourceFactory.swift in Sources */,
+				6747AC2D2B697CEE00D4E8CA /* OtherDetailViewController.swift in Sources */,
 				6780BDB52AF4056E007B131C /* CavusListDataSourceFactory.swift in Sources */,
 				67C019622B1109EA0094D023 /* SellerCollectionViewModel.swift in Sources */,
 				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
@@ -5683,6 +5828,7 @@
 				67B9EE4C2AD5AF9F003E6BA3 /* BuyingCollectionViewController.swift in Sources */,
 				6747AC142B69651B00D4E8CA /* OtherPaymentUIModel.swift in Sources */,
 				674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */,
+				6747AC302B697CEE00D4E8CA /* OtherDetailViewModel.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
 				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
 				6710C7E32B666D3800028500 /* OtherTableViewCell.swift in Sources */,
@@ -5737,6 +5883,7 @@
 				67FC97382ADEEC4600FC53AE /* NewWarehousePassData.swift in Sources */,
 				67460D2F2B5AA70A000AB380 /* OtherCoordinator.swift in Sources */,
 				674705FD2B0A7D61006F1639 /* NewCustomerViewController.swift in Sources */,
+				678D90072B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift in Sources */,
 				67C019772B110B4C0094D023 /* SellerPaymentPassData.swift in Sources */,
 				6747AC152B69651B00D4E8CA /* OtherPaymentViewController.swift in Sources */,
 				677E67DA2AA35415001775E2 /* SettingsViewController.swift in Sources */,
@@ -5770,6 +5917,7 @@
 				678B53A02AA268E5003F4355 /* UINavigationController+Extensions.swift in Sources */,
 				676E720C2AA3855E00010350 /* UIScreen+Extension.swift in Sources */,
 				677521772B4FD8C500239364 /* UserAuthsBuilder.swift in Sources */,
+				678D90022B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.swift in Sources */,
 				6797C49B2AC1ECD30049C8F7 /* SeasonsCoordinator.swift in Sources */,
 				67FA8B532AF66C4A00C09B09 /* WorkerPaymentCoordinator.swift in Sources */,
 				678B539A2AA264B0003F4355 /* UIView+Extensions.swift in Sources */,
@@ -5782,6 +5930,7 @@
 				67EA5B692AAF86C70086E20C /* UIView+Closures.swift in Sources */,
 				670B3C952ABA130100EE7CFB /* HighlightCollectionViewCell.swift in Sources */,
 				674D10722ADDAC85002CFFE8 /* BuyingCollectionSection.swift in Sources */,
+				6747AC2B2B697CEE00D4E8CA /* OtherDetailCoordinator.swift in Sources */,
 				67C019612B1109EA0094D023 /* SellerCollectionBuilder.swift in Sources */,
 				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
@@ -5834,6 +5983,8 @@
 				674C262F2B0FCAD500B9A32A /* SellerSection.swift in Sources */,
 				6774FB182AE6DFC900F1F692 /* NewSellerImageBuilder.swift in Sources */,
 				677E67DB2AA35415001775E2 /* SettingsRepository.swift in Sources */,
+				678D90052B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift in Sources */,
+				6747AC2C2B697CEE00D4E8CA /* OtherDetailUIModel.swift in Sources */,
 				672474842B5D3FEF00E50B4A /* OtherSellerListRowModel.swift in Sources */,
 				6797F0512AA4975300638C09 /* FirestoreError.swift in Sources */,
 				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
@@ -5921,6 +6072,7 @@
 				6710C7EA2B666D6B00028500 /* OtherDataSourceFactory.swift in Sources */,
 				672474742B5D251100E50B4A /* OtherSellerCategoryListTableViewCellUIModel.swift in Sources */,
 				67CC75B52AA25EF1003206F0 /* SplashViewController.swift in Sources */,
+				678D8FFE2B6F968400EE2584 /* OtherDetailPaymentTableViewCell.swift in Sources */,
 				67334EA32AB4E1270072DBD6 /* AddSellerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

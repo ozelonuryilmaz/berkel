@@ -1,31 +1,31 @@
 //
-//  SellerDetailViewController.swift
+//  OtherDetailViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 24.11.2023.
+//  Created by Onur Yilmaz on 30.01.2024.
 //
 
 import UIKit
 import Combine
 
-protocol SellerDetailViewControllerOutputDelegate: AnyObject {
+protocol OtherDetailViewControllerOutputDelegate: AnyObject {
 
-    func closeButtonTapped(sellerId: String, isActive: Bool)
+    func closeButtonTapped(otherId: String, isActive: Bool)
 }
 
-final class SellerDetailViewController: MainBaseViewController {
+final class OtherDetailViewController: MainBaseViewController {
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: ISellerDetailViewModel
-    private weak var outputDelegate: SellerDetailViewControllerOutputDelegate? = nil
+    private let viewModel: IOtherDetailViewModel
+    private weak var outputDelegate: OtherDetailViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
     @IBOutlet private weak var lblOldDoubt: UILabel!
     @IBOutlet private weak var lblNowDoubt: UILabel!
     @IBOutlet private weak var segmentedController: UISegmentedControl!
-    @IBOutlet private weak var tableViewSellerDetail: SellerDetailCollectionDiffableTableView!
+    @IBOutlet private weak var tableViewOtherDetail: OtherDetailCollectionDiffableTableView!
     @IBOutlet private weak var tableViewPayment: UITableView!
     @IBOutlet private weak var viewImage: UIView!
     
@@ -37,11 +37,11 @@ final class SellerDetailViewController: MainBaseViewController {
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: ISellerDetailViewModel,
-         outputDelegate: SellerDetailViewControllerOutputDelegate?) {
+    init(viewModel: IOtherDetailViewModel,
+         outputDelegate: OtherDetailViewControllerOutputDelegate?) {
         self.viewModel = viewModel
         self.outputDelegate = outputDelegate
-        super.init(nibName: "SellerDetailViewController", bundle: nil)
+        super.init(nibName: "OtherDetailViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +60,7 @@ final class SellerDetailViewController: MainBaseViewController {
 
     override func setupView() {
         initTableViewPayment()
-        initTableViewSellerDetail()
+        initTableViewOtherDetail()
     }
 
     override func registerEvents() {
@@ -102,7 +102,7 @@ final class SellerDetailViewController: MainBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
-            case .showSellerActiveButton:
+            case .showOtherActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
                 self.btnKantarFisi.isHidden = false
                 self.btnCek.isHidden = false
@@ -138,7 +138,7 @@ final class SellerDetailViewController: MainBaseViewController {
                     negativeButtonText: "İptal"
                 )
             case .closeButtonTapped:
-                self.outputDelegate?.closeButtonTapped(sellerId: self.viewModel.sellerId, isActive: false)
+                self.outputDelegate?.closeButtonTapped(otherId: self.viewModel.otherId, isActive: false)
 
             }
 
@@ -155,13 +155,13 @@ final class SellerDetailViewController: MainBaseViewController {
     private lazy var discardBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(title: "KAPAT", style: .plain, handler: { [unowned self] _ in
             self.showSystemAlert(
-                title: "Tüm Tahsilatınız tamamlandı mı?",
-                message: "Ticaretiniz sonlandıysa kapatılsın mı?",
+                title: "Tüm Ödemeniz tamamlandı mı?",
+                message: "Kişi/Kurum kartı kapatılacak",
                 positiveButtonText: "Evet",
                 positiveButtonClickListener: {
                     self.viewModel.updateSellerActive(completion: { [weak self] in
                         guard let self = self else { return }
-                        self.outputDelegate?.closeButtonTapped(sellerId: self.viewModel.sellerId, isActive: false)
+                        self.outputDelegate?.closeButtonTapped(sellerId: self.viewModel.otherId, isActive: false)
                         self.navigationItem.rightBarButtonItems = []
                         self.btnKantarFisi.isHidden = true
                         self.btnCek.isHidden = true
@@ -176,14 +176,14 @@ final class SellerDetailViewController: MainBaseViewController {
 }
 
 // MARK: Props
-private extension SellerDetailViewController {
+private extension OtherDetailViewController {
 
-    func initTableViewSellerDetail() {
-        self.tableViewSellerDetail.configureView(delegateManager: self.viewModel)
+    func initTableViewOtherDetail() {
+        self.tableViewOtherDetail.configureView(delegateManager: self.viewModel)
     }
 
     func initTableViewPayment() {
-        self.tableViewPayment.registerCell(SellerDetailPaymentTableViewCell.self)
+        self.tableViewPayment.registerCell(OtherDetailPaymentTableViewCell.self)
         self.tableViewPayment.delegate = self
         self.tableViewPayment.dataSource = self
         self.tableViewPayment.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
@@ -193,20 +193,20 @@ private extension SellerDetailViewController {
 }
 
 // MARK: UITableViewDelegate & UITableViewDataSource
-extension SellerDetailViewController: UITableViewDelegate, UITableViewDataSource, SellerDetailPaymentTableViewCellOutputDelegate {
+extension OtherDetailViewController: UITableViewDelegate, UITableViewDataSource, OtherDetailPaymentTableViewCellOutputDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.getNumberOfItemsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.generateReusableCell(SellerDetailPaymentTableViewCell.self, indexPath: indexPath)
+        let cell = tableView.generateReusableCell(OtherDetailPaymentTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: self.viewModel.getCellUIModel(at: indexPath.row))
         cell.outputDelegate = self
         return cell
     }
     
-    func deleteButtonTapped(uiModel: SellerPaymentModel) {
+    func deleteButtonTapped(uiModel: OtherPaymentModel) {
         self.showSystemAlert(
             title: "\(uiModel.payment.decimalString()) TL tutarı silmek istediğinize emin misin?",
             message: "",
