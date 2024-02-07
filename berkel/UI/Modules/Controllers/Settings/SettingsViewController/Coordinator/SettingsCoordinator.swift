@@ -16,6 +16,8 @@ protocol ISettingsCoordinator: AnyObject {
                                      outputDelegate: NewWorkerViewControllerOutputDelegate)
     func pushCustomerListViewController(passData: CustomerListPassData,
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
+    func pushOtherSellerListViewController(passData: OtherSellerListPassData,
+                                           outputDelegate: NewOtherItemViewControllerOutputDelegate)
 
     // Charts
     func pushBuyingChartsViewController(passData: BuyingChartsPassData)
@@ -62,8 +64,16 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         coordinate(to: coordinator)
     }
 
+    func pushOtherSellerListViewController(passData: OtherSellerListPassData,
+                                           outputDelegate: NewOtherItemViewControllerOutputDelegate) {
+        let coordinator = OtherSellerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+
     // Charts
-    
+
     func pushBuyingChartsViewController(passData: BuyingChartsPassData) {
         let coordinator = BuyingChartsCoordinator(navigationController: self.navigationController)
             .with(passData: passData)
@@ -75,7 +85,7 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
             .with(passData: passData)
         coordinate(to: coordinator)
     }
-    
+
     func pushSellerChartsViewController(passData: SellerChartsPassData) {
         let coordinator = SellerChartsCoordinator(navigationController: self.navigationController)
             .with(passData: passData)
@@ -83,7 +93,7 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
     }
 
     // Settings
-    
+
     func pushUserAuthsViewController() {
         let coordinator = UserAuthsCoordinator(navigationController: self.navigationController)
             .with(passData: UserAuthsPassData())

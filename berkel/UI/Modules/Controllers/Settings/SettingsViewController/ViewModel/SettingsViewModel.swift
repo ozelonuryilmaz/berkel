@@ -12,7 +12,8 @@ import FirebaseAuth
 protocol ISettingsViewModel: SettingsItemCellOutputDelegate,
     AddBuyingItemViewControllerOutputDelegate,
     NewWorkerViewControllerOutputDelegate,
-    NewSellerViewControllerOutputDelegate {
+    NewSellerViewControllerOutputDelegate,
+    NewOtherItemViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<SettingsViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -127,6 +128,8 @@ extension SettingsViewModel {
             self.pushCavusListViewController()
         case .musteriList:
             self.pushCustomerListViewController()
+        case .otherList:
+            self.pushOtherSellerListViewController()
         case .alisGelirGiderCizergesi:
             self.pushBuyingChartsViewController()
         case .isciGelirGiderCizergesi:
@@ -164,6 +167,11 @@ internal extension SettingsViewModel {
         self.coordinator.pushCustomerListViewController(passData: CustomerListPassData(isCancellableCellTabbed: true),
                                                         outputDelegate: self)
     }
+    
+    func pushOtherSellerListViewController() {
+        self.coordinator.pushOtherSellerListViewController(passData: OtherSellerListPassData(isCancellableCellTabbed: true),
+                                                           outputDelegate: self)
+    }
 
     func pushBuyingChartsViewController() {
         self.coordinator.pushBuyingChartsViewController(passData: BuyingChartsPassData())
@@ -186,11 +194,12 @@ internal extension SettingsViewModel {
     }
 }
 
-// MARK: AddBuyingItemViewControllerOutputDelegate, NewWorkerViewControllerOutputDelegate, NewSellerViewControllerOutputDelegate
+// MARK: AddBuyingItemViewControllerOutputDelegate, NewWorkerViewControllerOutputDelegate, NewSellerViewControllerOutputDelegate, NewOtherSellerViewControllerOutputDelegate
 internal extension SettingsViewModel {
     func newAddBuyingData(_ data: NewBuyingModel) { }
     func newWorkerData(_ data: WorkerModel) { }
     func newSellerData(_ data: SellerModel) { }
+    func newOtherItemData(_ data: OtherModel) { }
 }
 
 enum SettingsViewState {

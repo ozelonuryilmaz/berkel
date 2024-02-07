@@ -68,6 +68,7 @@ extension SettingsUIModel {
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .saticiList)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cavusList)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .musteriList)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherList)))
         return tempArray
     }
 

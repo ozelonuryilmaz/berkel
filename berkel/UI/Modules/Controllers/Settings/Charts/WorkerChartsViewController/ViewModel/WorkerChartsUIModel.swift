@@ -44,7 +44,7 @@ struct WorkerChartsUIModel: IWorkerChartsUIModel {
 extension WorkerChartsUIModel {
 
     mutating func setResponseList(_ response: [WorkerModel]) {
-        self.workerResponse = response
+        self.workerResponse = response.filter({ $0.isActive })
     }
 
     mutating func setCollectionResponse(_ response: [WorkerCollectionModel]) {

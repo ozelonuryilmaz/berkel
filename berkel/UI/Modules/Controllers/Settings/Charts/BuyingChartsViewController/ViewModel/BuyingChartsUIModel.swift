@@ -89,7 +89,7 @@ private extension BuyingChartsUIModel {
 extension BuyingChartsUIModel {
 
     mutating func setResponseList(_ response: [NewBuyingModel]) {
-        self.buyingResponse = response
+        self.buyingResponse = response.filter({ $0.isActive })
     }
 
     mutating func setCollectionResponse(_ response: [BuyingCollectionModel]) {

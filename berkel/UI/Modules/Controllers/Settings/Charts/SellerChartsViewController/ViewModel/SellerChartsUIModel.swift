@@ -43,7 +43,7 @@ struct SellerChartsUIModel: ISellerChartsUIModel {
 extension SellerChartsUIModel {
 
     mutating func setResponseList(_ response: [SellerModel]) {
-        self.sellerResponse = response
+        self.sellerResponse = response.filter({ $0.isActive })
     }
 
     mutating func setCollectionResponse(_ response: [SellerCollectionModel]) {
