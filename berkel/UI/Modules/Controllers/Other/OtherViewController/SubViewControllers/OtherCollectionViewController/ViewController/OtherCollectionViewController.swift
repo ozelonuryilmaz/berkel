@@ -77,7 +77,7 @@ final class OtherCollectionViewController: BerkelBaseViewController {
                 self.lblCategoryName.text = name
 
             case .initCounts(let price, let desc):
-                self.tfPrice.textField.text = price
+                self.tfPrice.textField.text = price + " TL"
                 self.tfDesc.textField.text = desc
 
             case .viewedData(let isVisible):

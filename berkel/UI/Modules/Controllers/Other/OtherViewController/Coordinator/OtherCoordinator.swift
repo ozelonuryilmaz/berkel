@@ -12,6 +12,9 @@ protocol IOtherCoordinator: AnyObject {
     func pushOtherSellerListViewController(passData: OtherSellerListPassData,
                                            outputDelegate: NewOtherItemViewControllerOutputDelegate)
     
+    func pushOtherDetailViewController(passData: OtherDetailPassData,
+                                        outputDelegate: OtherDetailViewControllerOutputDelegate)
+    
     func presentOtherCollectionViewController(passData: OtherCollectionPassData)
     func presentOtherPaymentViewController(passData: OtherPaymentPassData)
 }
@@ -28,6 +31,14 @@ final class OtherCoordinator: NavigationCoordinator, IOtherCoordinator {
     func pushOtherSellerListViewController(passData: OtherSellerListPassData,
                                          outputDelegate: NewOtherItemViewControllerOutputDelegate) {
         let coordinator = OtherSellerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+    
+    func pushOtherDetailViewController(passData: OtherDetailPassData,
+                                       outputDelegate: OtherDetailViewControllerOutputDelegate) {
+        let coordinator = OtherDetailCoordinator(navigationController: self.navigationController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: coordinator)

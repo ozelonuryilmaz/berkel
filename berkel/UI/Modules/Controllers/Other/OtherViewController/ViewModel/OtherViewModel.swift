@@ -8,7 +8,8 @@
 import Combine
 
 protocol IOtherViewModel: NewOtherItemViewControllerOutputDelegate,
-    OtherDataSourceFactoryOutputDelegate {
+    OtherDataSourceFactoryOutputDelegate,
+    OtherDetailViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<OtherViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -123,6 +124,11 @@ internal extension OtherViewModel {
                                                            outputDelegate: self)
     }
 
+    func pushOtherDetailViewController(passData: OtherDetailPassData) {
+        self.coordinator.pushOtherDetailViewController(passData: passData,
+                                                       outputDelegate: self)
+    }
+
     func presentOtherCollectionViewController(passData: OtherCollectionPassData) {
         self.coordinator.presentOtherCollectionViewController(passData: passData)
     }
@@ -145,7 +151,13 @@ internal extension OtherViewModel {
 internal extension OtherViewModel {
 
     func cellTapped(uiModel: IOtherTableViewCellUIModel) {
-
+        let data = OtherDetailPassData(otherId: uiModel.otherId,
+                                       otherSellerName: uiModel.otherSellerName,
+                                       otherSellerId: uiModel.otherSellerId,
+                                       isActive: uiModel.isActive,
+                                       categoryName: uiModel.categoryName,
+                                       categoryId: uiModel.categoryId)
+        self.pushOtherDetailViewController(passData: data)
     }
 
     func addCollectionTapped(uiModel: IOtherTableViewCellUIModel) {
@@ -165,6 +177,15 @@ internal extension OtherViewModel {
         if self.isAvailablePagination && isAvailablePagination && !isLastPage {
             self.getOther()
         }
+    }
+}
+
+// MARK: OtherDetailViewControllerOutputDelegate
+internal extension OtherViewModel {
+
+    func closeButtonTapped(otherId: String, isActive: Bool) {
+        self.uiModel.updateIsActive(otherId: otherId, isActive: isActive)
+        self.viewStateBuildSnapshot()
     }
 }
 

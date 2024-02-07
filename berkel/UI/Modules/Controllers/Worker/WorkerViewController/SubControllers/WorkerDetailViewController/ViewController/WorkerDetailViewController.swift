@@ -170,6 +170,7 @@ final class WorkerDetailViewController: MainBaseViewController {
                         self.btnCek.isHidden = true
                         self.btnDekont.isHidden = true
                         self.btnDiger.isHidden = true
+                        self.tableViewPayment.reloadData()
                     })
                 },
                 negativeButtonText: "İptal"

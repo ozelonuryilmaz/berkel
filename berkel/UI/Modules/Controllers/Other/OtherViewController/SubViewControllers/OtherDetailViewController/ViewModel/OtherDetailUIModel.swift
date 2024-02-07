@@ -40,12 +40,12 @@ protocol IOtherDetailUIModel {
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> OtherDetailPaymentTableViewCellUIModel
 
-} 
+}
 
 struct OtherDetailUIModel: IOtherDetailUIModel {
 
     // MARK: Definitions
-    let sellerId: String
+    let otherId: String
     let otherSellerName: String
     let otherSellerId: String
     var isActive: Bool
@@ -75,9 +75,9 @@ struct OtherDetailUIModel: IOtherDetailUIModel {
     mutating func setActive(isActive: Bool) {
         self.isActive = isActive
     }
-    
+
     // MARK: Computed Props
-    
+
     func oldDoubt() -> String {
         let _collections = self.collections.filter({ true == $0.isCalc })
         var totalPrice: Int = 0
@@ -100,7 +100,7 @@ struct OtherDetailUIModel: IOtherDetailUIModel {
     }
 
     func getCollection(otherId: String?) -> OtherCollectionModel? {
-        if let index = self.collections.firstIndex(where: { $0.id == sellerId }) {
+        if let index = self.collections.firstIndex(where: { $0.id == otherId }) {
             return self.collections[index]
         } else {
             return nil
@@ -150,23 +150,20 @@ extension OtherDetailUIModel {
                                         otherSellerCategoryId: self.categoryId,
                                         otherSellerCategoryName: self.categoryName,
                                         isActive: self.isActive,
-                                         date: responseModel.date ?? "",
-                                         desc: responseModel.desc)
+                                        date: responseModel.date ?? "",
+                                        desc: responseModel.desc)
 
             return OtherDetailCollectionRowModel(uiModel:
-                OtherDetailCollectionTableViewCellUIModel(sellerModel: sellerModel,
-                                                           sellerCollectionModel: responseModel,
-                                                           sellerId: self.sellerId,
-                                                           collectionId: responseModel.id,
-                                                           isCalc: responseModel.isCalc,
-                                                           isActive: self.isActive,
-                                                           date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                                                           faturaNo: responseModel.faturaNo,
-                                                           totalKg: (responseModel.daraliKg - responseModel.dara).decimalString(),
-                                                           totalPrice: self.getTotalPrice(data: responseModel).decimalString(),
-                                                           isVisibleButtons: true,
-                                                           chartTotalKg: nil,
-                                                           chartTotalPrice: nil)
+                OtherDetailCollectionTableViewCellUIModel(otherModel: otherModel,
+                                                          otherCollectionModel: responseModel,
+                                                          otherId: self.otherId,
+                                                          collectionId: responseModel.id,
+                                                          isCalc: responseModel.isCalc,
+                                                          isActive: self.isActive,
+                                                          date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
+                                                          price: responseModel.price.decimalString(),
+                                                          desc: responseModel.desc,
+                                                          isVisibleButtons: true)
             )
         }
         return rowModels
@@ -182,6 +179,7 @@ extension OtherDetailUIModel {
     }
 
     func getCellUIModel(at index: Int) -> OtherDetailPaymentTableViewCellUIModel {
-        return OtherDetailPaymentTableViewCellUIModel(payment: self.payments[index])
+        return OtherDetailPaymentTableViewCellUIModel(payment: self.payments[index],
+                                                      isActive: self.isActive)
     }
 }

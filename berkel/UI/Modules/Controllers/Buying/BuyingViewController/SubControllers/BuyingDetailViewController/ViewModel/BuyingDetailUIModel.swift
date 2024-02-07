@@ -249,6 +249,7 @@ extension BuyingDetailUIModel {
     }
 
     func getCellUIModel(at index: Int) -> BuyingPaymentTableViewCellUIModel {
-        return BuyingPaymentTableViewCellUIModel(payment: self.payments[index])
+        return BuyingPaymentTableViewCellUIModel(payment: self.payments[index],
+                                                 isActive: self.isActive)
     }
 }

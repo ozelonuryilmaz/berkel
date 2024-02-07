@@ -84,7 +84,7 @@ final class OtherDetailViewController: MainBaseViewController {
     }
 
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        self.tableViewSellerDetail.isHidden = sender.selectedSegmentIndex == 1
+        self.tableViewOtherDetail.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
         self.viewImage.isHidden = sender.selectedSegmentIndex == 1 || sender.selectedSegmentIndex == 0
     }
@@ -118,7 +118,7 @@ final class OtherDetailViewController: MainBaseViewController {
                 self.lblNowDoubt.text = text
 
             case .buildCollectionSnapshot(let snapshot):
-                self.tableViewSellerDetail.applySnapshot(snapshot)
+                self.tableViewOtherDetail.applySnapshot(snapshot)
 
             case .updateCollectionSnapshot(_):
                 break
@@ -161,12 +161,13 @@ final class OtherDetailViewController: MainBaseViewController {
                 positiveButtonClickListener: {
                     self.viewModel.updateSellerActive(completion: { [weak self] in
                         guard let self = self else { return }
-                        self.outputDelegate?.closeButtonTapped(sellerId: self.viewModel.otherId, isActive: false)
+                        self.outputDelegate?.closeButtonTapped(otherId: self.viewModel.otherId, isActive: false)
                         self.navigationItem.rightBarButtonItems = []
                         self.btnKantarFisi.isHidden = true
                         self.btnCek.isHidden = true
                         self.btnDekont.isHidden = true
                         self.btnDiger.isHidden = true
+                        self.tableViewPayment.reloadData()
                     })
                 },
                 negativeButtonText: "İptal"

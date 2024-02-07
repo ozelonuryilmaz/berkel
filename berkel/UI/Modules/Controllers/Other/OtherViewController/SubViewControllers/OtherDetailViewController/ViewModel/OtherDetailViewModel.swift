@@ -5,6 +5,7 @@
 //  Created by Onur Yilmaz on 30.01.2024.
 //
 
+import Foundation
 import Combine
 
 protocol IOtherDetailViewModel: OtherDetailCollectionDataSourceFactoryOutputDelegate {
@@ -67,7 +68,7 @@ final class OtherDetailViewModel: BaseViewModel, IOtherDetailViewModel {
 
     func initComponents() {
         if self.uiModel.isActive {
-            self.viewStateShowSellerActiveButton()
+            self.viewStateShowOtherActiveButton()
         }
 
         getSellerCollection(completion: { [weak self] in
@@ -215,7 +216,7 @@ internal extension OtherDetailViewModel {
         viewState.value = .buildCollectionSnapshot(snapshot: self.uiModel.buildCollectionSnapshot())
     }
 
-    func viewStateUpdateCollectionSnapshot(data: [SellerCollectionModel]) {
+    func viewStateUpdateCollectionSnapshot(data: [OtherCollectionModel]) {
         viewState.value = .updateCollectionSnapshot(data: data)
     }
 

@@ -29,6 +29,7 @@ class WorkerDetailPaymentTableViewCell: BaseTableViewCell {
 
     func configureCell(with uiModel: IWorkerDetailPaymentTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
+        self.btnDelete.isEnabled = uiModel.isActive
 
         lblDate.text = uiModel.payment.date?.dateFormatToAppDisplayType() ?? ""
         lblPrice.text = "\(uiModel.payment.payment.decimalString()) TL Ödendi"

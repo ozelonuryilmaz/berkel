@@ -181,6 +181,7 @@ extension WorkerDetailUIModel {
     }
 
     func getCellUIModel(at index: Int) -> WorkerDetailPaymentTableViewCellUIModel {
-        return WorkerDetailPaymentTableViewCellUIModel(payment: self.payments[index])
+        return WorkerDetailPaymentTableViewCellUIModel(payment: self.payments[index],
+                                                       isActive: self.isActive)
     }
 }

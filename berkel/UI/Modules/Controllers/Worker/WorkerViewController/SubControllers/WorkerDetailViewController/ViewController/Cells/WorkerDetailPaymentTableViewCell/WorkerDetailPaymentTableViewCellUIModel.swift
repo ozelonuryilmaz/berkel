@@ -10,9 +10,11 @@ import Foundation
 protocol IWorkerDetailPaymentTableViewCellUIModel {
 
     var payment: WorkerPaymentModel { get }
+    var isActive: Bool { get }
 }
 
 struct WorkerDetailPaymentTableViewCellUIModel: IWorkerDetailPaymentTableViewCellUIModel {
     
     let payment: WorkerPaymentModel
+    let isActive: Bool
 }
