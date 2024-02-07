@@ -84,6 +84,7 @@ internal extension SeasonsViewModel {
     }
 
     func saveSeason(season: SeasonResponseModel) {
+        guard !self.uiModel.isHaveSeason(season.season) else { return }
 
         handleResourceFirestore(
             request: self.repository.saveSeason(season: season),

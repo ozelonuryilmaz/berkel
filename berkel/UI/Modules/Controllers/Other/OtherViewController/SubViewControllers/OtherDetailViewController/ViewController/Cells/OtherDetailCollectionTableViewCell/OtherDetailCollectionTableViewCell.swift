@@ -64,7 +64,7 @@ class OtherDetailCollectionTableViewCell: BaseTableViewCell {
         mContentView.alpha = uiModel.isCalc ? 1 : 0.4
 
         lblDate.text = uiModel.date
-        lblTotalPrice.text = uiModel.price + " TL"
+        lblTotalPrice.text = uiModel.price
         lblDesc.text = uiModel.desc
     }
     

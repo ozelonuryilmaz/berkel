@@ -23,6 +23,7 @@ protocol ISettingsCoordinator: AnyObject {
     func pushBuyingChartsViewController(passData: BuyingChartsPassData)
     func pushWorkerChartsViewController(passData: WorkerChartsPassData)
     func pushSellerChartsViewController(passData: SellerChartsPassData)
+    func pushOtherSellerChartsViewController(passData: OtherSellerChartsPassData)
 
     // Settings
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
@@ -92,6 +93,11 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         coordinate(to: coordinator)
     }
 
+    func pushOtherSellerChartsViewController(passData: OtherSellerChartsPassData) {
+        let coordinator = OtherSellerChartsCoordinator(navigationController: self.navigationController)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
     // Settings
 
     func pushUserAuthsViewController() {

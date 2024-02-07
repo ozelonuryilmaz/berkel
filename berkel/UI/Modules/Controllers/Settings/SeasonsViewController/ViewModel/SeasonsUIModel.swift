@@ -16,6 +16,7 @@ protocol ISeasonsUIModel {
     mutating func setResponse(_ response: [SeasonResponseModel])
     mutating func addSeason(_ season: SeasonResponseModel)
 
+    func isHaveSeason(_ season: String) -> Bool
     func saveSeason(index: Int)
 
     func getNumberOfRowsInSection() -> Int
@@ -32,6 +33,10 @@ struct SeasonsUIModel: ISeasonsUIModel {
     // MARK: Initialize
     init(data: SeasonsPassData) {
         self.isHiddenBackButton = data.isHiddenBackButton
+    }
+
+    func isHaveSeason(_ season: String) -> Bool {
+        return items.contains(where: { $0.season == season })
     }
 
     // MARK: Computed Props

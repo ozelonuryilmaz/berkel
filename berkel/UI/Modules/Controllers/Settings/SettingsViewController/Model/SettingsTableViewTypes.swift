@@ -37,6 +37,7 @@ enum SettingsCellType {
     case alisGelirGiderCizergesi
     case isciGelirGiderCizergesi
     case satisGelirGiderCizergesi
+    case otherGelirGiderCizergesi
     case userAuths
     case sezonlar
     case cikisYap
@@ -57,6 +58,8 @@ enum SettingsCellType {
             return "İşçi Çizelgesi"
         case .satisGelirGiderCizergesi:
             return "Satış Çizelgesi"
+        case .otherGelirGiderCizergesi:
+            return "Hizmet Çizelgesi"
         case .userAuths:
             return "Kullanıcı Yetkilendir"
         case .sezonlar:

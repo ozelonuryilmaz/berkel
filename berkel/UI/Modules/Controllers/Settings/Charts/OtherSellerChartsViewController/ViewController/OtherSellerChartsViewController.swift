@@ -1,39 +1,37 @@
 //
-//  SellerChartsViewController.swift
+//  OtherSellerChartsViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 13.12.2023.
+//  Created by Onur Yilmaz on 7.02.2024.
 //
 
 import UIKit
 import Combine
 
-final class SellerChartsViewController: MainBaseViewController {
+final class OtherSellerChartsViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
-        return "Satış Çizelgesi"
+        return "Hizmet Çizelgesi"
     }
 
     override var navigationSubTitle: String? {
         return self.viewModel.season
     }
 
-    // MARK: Constants
-
     // MARK: Inject
-    private let viewModel: ISellerChartsViewModel
-
-    // MARK: IBOutlets
+    private let viewModel: IOtherSellerChartsViewModel
     @IBOutlet private weak var lblOldDoubt: UILabel!
     @IBOutlet private weak var lblNowDoubt: UILabel!
-    @IBOutlet private weak var tableViewSellerDetail: SellerDetailCollectionDiffableTableView!
+    @IBOutlet private weak var tableViewOtherDetail: OtherDetailCollectionDiffableTableView!
+    
+    // MARK: IBOutlets
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: ISellerChartsViewModel) {
+    init(viewModel: IOtherSellerChartsViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "SellerChartsViewController", bundle: nil)
+        super.init(nibName: "OtherSellerChartsViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -46,7 +44,7 @@ final class SellerChartsViewController: MainBaseViewController {
     }
 
     override func setupView() {
-        initTableViewSellerDetail()
+        initTableViewOtherDetail()
     }
 
     private func observeReactiveDatas() {
@@ -61,13 +59,14 @@ final class SellerChartsViewController: MainBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+                
             case .oldDoubt(let text):
                 self.lblOldDoubt.text = text
             case .nowDoubt(let text):
                 self.lblNowDoubt.text = text
 
             case .buildCollectionSnapshot(let snapshot):
-                self.tableViewSellerDetail.applySnapshot(snapshot)
+                self.tableViewOtherDetail.applySnapshot(snapshot)
             }
 
         }).store(in: &cancelBag)
@@ -81,9 +80,9 @@ final class SellerChartsViewController: MainBaseViewController {
 }
 
 // MARK: Props
-private extension SellerChartsViewController {
+private extension OtherSellerChartsViewController {
 
-    func initTableViewSellerDetail() {
-        self.tableViewSellerDetail.configureView(delegateManager: self.viewModel)
+    func initTableViewOtherDetail() {
+        self.tableViewOtherDetail.configureView(delegateManager: self.viewModel)
     }
 }

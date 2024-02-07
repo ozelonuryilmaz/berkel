@@ -161,7 +161,7 @@ extension OtherDetailUIModel {
                                                           isCalc: responseModel.isCalc,
                                                           isActive: self.isActive,
                                                           date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                                                          price: responseModel.price.decimalString(),
+                                                          price: responseModel.price.decimalString() + " TL",
                                                           desc: responseModel.desc,
                                                           isVisibleButtons: true)
             )

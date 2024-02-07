@@ -136,6 +136,8 @@ extension SettingsViewModel {
             self.pushWorkerChartsViewController()
         case .satisGelirGiderCizergesi:
             self.pushSellerChartsViewController()
+        case .otherGelirGiderCizergesi:
+            self.pushOtherSellerChartsViewController()
         case .userAuths:
             self.pushUserAuthsViewController()
         case .sezonlar:
@@ -183,6 +185,10 @@ internal extension SettingsViewModel {
 
     func pushSellerChartsViewController() {
         self.coordinator.pushSellerChartsViewController(passData: SellerChartsPassData())
+    }
+    
+    func pushOtherSellerChartsViewController() {
+        self.coordinator.pushOtherSellerChartsViewController(passData: OtherSellerChartsPassData())
     }
     
     func pushUserAuthsViewController() {

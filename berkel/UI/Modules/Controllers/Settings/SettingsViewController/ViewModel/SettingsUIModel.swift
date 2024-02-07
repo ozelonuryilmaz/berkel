@@ -78,6 +78,7 @@ extension SettingsUIModel {
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .alisGelirGiderCizergesi)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .isciGelirGiderCizergesi)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .satisGelirGiderCizergesi)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherGelirGiderCizergesi)))
         return tempArray
     }
 
