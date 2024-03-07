@@ -146,6 +146,8 @@ extension SettingsViewModel {
                     self.viewStateStartFlowSplash()
                 }
             })
+        case .moduleSelection:
+            self.viewStateStartFlowSplash()
         case .cikisYap:
             self.logOut()
         }

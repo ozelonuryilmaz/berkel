@@ -87,6 +87,7 @@ extension SettingsUIModel {
         var tempArray = [ISettingsRowModel]()
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
+        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .moduleSelection)))
         return tempArray
     }
 

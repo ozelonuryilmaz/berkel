@@ -21,58 +21,65 @@ service cloud.firestore \{\
   match /databases/\{database\}/documents \{\
   \
    	function isAdmin() \{\
-  	 	return request.auth != null && (request.auth.uid == "6sngATMGmPcxiaDuopCjBYS9cv13" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true);\
+  	 	return request.auth != null && (request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true);\
   	\}\
   \
     // 'users' koleksiyonundaki herhangi bir belgeye e\uc0\u351 le\u351 tir\
     match /users/\{usersId=**\} \{\
       // Belgenin 'role' alan\uc0\u305 n\u305 n 'admin' oldu\u287 u durumlarda yazma, okuma izni ver\
-      allow write, update, read: if request.auth.uid == "6sngATMGmPcxiaDuopCjBYS9cv13";\
+      allow write, read: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
     \}\
     \
     // 'tempUsers' koleksiyonu i\'e7in izinler\
     match /tempUsers/\{tempUsersId=**\} \{\
       // Bu belgeleri sadece oturum a\'e7an kullan\uc0\u305 c\u305 lar yazabilir ve okuyabilir\
       allow write: if request.auth != null;\
-      allow update, read, delete: if request.auth.uid == "6sngATMGmPcxiaDuopCjBYS9cv13";\
+      allow read, delete: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
     \}\
 \
     // 'data' koleksiyonu i\'e7in izinler\
     match /data/\{documentId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
+      allow delete: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
     \}\
     \
     // 'seller' koleksiyonu i\'e7in izinler\
     match /seller/\{sellerId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
     \}\
     \
     // 'cavus' koleksiyonu i\'e7in izinler\
     match /cavus/\{cavusId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
     \}\
     \
     // 'customer' koleksiyonu i\'e7in izinler\
     match /customer/\{customerId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
     \}\
 \
- // 'cariye' koleksiyonu i\'e7in izinler\
-    match /cariye/\{cariyeId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+    // 'otherSeller' koleksiyonu i\'e7in izinler\
+    match /otherSeller/\{otherSellerId=**\} \{\
+      allow write, read: if isAdmin() == true;\
     \}\
-  \
+\
     // 'products' koleksiyonu i\'e7in izinler\
     match /products/\{productId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
+    \}\
+    \
+    // 'otherSellerCategory' koleksiyonu i\'e7in izinler\
+    match /otherSellerCategory/\{otherSellerCategoryId=**\} \{\
+      allow write, read: if isAdmin() == true;\
     \}\
     \
     // 'seasons' koleksiyonu i\'e7in izinler\
     match /seasons/\{seasonId=**\} \{\
-      allow write, update, read: if isAdmin() == true;\
+      allow write, read: if isAdmin() == true;\
     \}\
   \}\
 \}\
+\
 \
 \
 \

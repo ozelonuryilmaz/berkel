@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ModuleSelectionViewController" customModule="berkel" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAccouting" destination="ihm-Z5-oUV" id="9QY-Cp-isb"/>
+                <outlet property="btnCost" destination="RjW-1v-fN7" id="ioT-DJ-6af"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-Z5-oUV">
+                    <rect key="frame" x="145" y="245" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="6pm-cc-WvU"/>
+                        <constraint firstAttribute="width" constant="100" id="90Y-dQ-viX"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="icon_accounting"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muhasebe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7l-vg-dYa">
+                    <rect key="frame" x="146.66666666666666" y="345" width="97" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.50588235294117645" blue="0.63137254901960782" alpha="0.70394675147454466" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjW-1v-fN7">
+                    <rect key="frame" x="145" y="435" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="bgT-ek-8oS"/>
+                        <constraint firstAttribute="height" constant="100" id="pTu-bb-c0I"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="icon_stock"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stok" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SO-WS-PbS">
+                    <rect key="frame" x="174" y="535" width="42" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" red="0.2196078431372549" green="0.50588235294117645" blue="0.63137254901960782" alpha="0.69886183580815397" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="PrimaryVeryLightGray"/>
+            <constraints>
+                <constraint firstItem="A7l-vg-dYa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-64" id="6hX-lN-GNe"/>
+                <constraint firstItem="RjW-1v-fN7" firstAttribute="centerX" secondItem="ihm-Z5-oUV" secondAttribute="centerX" id="98w-RK-VJt"/>
+                <constraint firstItem="A7l-vg-dYa" firstAttribute="centerX" secondItem="ihm-Z5-oUV" secondAttribute="centerX" id="ByY-2c-aMx"/>
+                <constraint firstItem="A7l-vg-dYa" firstAttribute="top" secondItem="ihm-Z5-oUV" secondAttribute="bottom" id="Gad-fa-nbe"/>
+                <constraint firstItem="3SO-WS-PbS" firstAttribute="centerX" secondItem="RjW-1v-fN7" secondAttribute="centerX" id="MTH-bN-YTI"/>
+                <constraint firstItem="ihm-Z5-oUV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VM2-gi-Qj2"/>
+                <constraint firstItem="3SO-WS-PbS" firstAttribute="top" secondItem="RjW-1v-fN7" secondAttribute="bottom" id="gUz-or-ZVo"/>
+                <constraint firstItem="RjW-1v-fN7" firstAttribute="top" secondItem="A7l-vg-dYa" secondAttribute="bottom" constant="64" id="iSO-Mx-LF5"/>
+            </constraints>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_accounting" width="100" height="100"/>
+        <image name="icon_stock" width="100" height="100"/>
+        <namedColor name="PrimaryVeryLightGray">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

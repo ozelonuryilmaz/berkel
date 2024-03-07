@@ -55,6 +55,10 @@ extension AppDelegate {
     func startFlowMain() {
         self.appCoordinator.startFlowMain()
     }
+    
+    func startFlowJobi() {
+        self.appCoordinator.startFlowJobi()
+    }
 }
 
 // MARK: Setup

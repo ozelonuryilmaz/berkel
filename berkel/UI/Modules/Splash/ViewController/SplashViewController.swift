@@ -34,7 +34,7 @@ final class SplashViewController: BerkelBaseViewController {
 
             switch states {
             case .startFlowMain:
-                self.appDelegate.startFlowMain()
+                self.viewModel.presentModuleSelectionViewController()
             }
 
         }).store(in: &cancelBag)

@@ -10,7 +10,7 @@ import UIKit
 final class SettingsViewController: MainBaseViewController {
 
     override var navigationTitle: String? {
-        return "Liste"
+        return "Muhasebe"
     }
 
     override var navigationSubTitle: String? {

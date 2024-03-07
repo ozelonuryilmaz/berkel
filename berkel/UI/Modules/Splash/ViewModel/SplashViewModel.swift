@@ -14,6 +14,7 @@ protocol ISplashViewModel: AnyObject {
          uiModel: ISplashUIModel)
 
     func startFlowMainAfterLogin()
+    func presentModuleSelectionViewController()
 }
 
 final class SplashViewModel: BaseViewModel, ISplashViewModel {
@@ -91,6 +92,10 @@ internal extension SplashViewModel {
 
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
         self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
+    }
+    
+    func presentModuleSelectionViewController() {
+        self.coordinator.presentModuleSelectionViewController()
     }
 }
 

@@ -40,6 +40,7 @@ enum SettingsCellType {
     case otherGelirGiderCizergesi
     case userAuths
     case sezonlar
+    case moduleSelection
     case cikisYap
 
     var rowTitle: String {
@@ -64,6 +65,8 @@ enum SettingsCellType {
             return "Kullanıcı Yetkilendir"
         case .sezonlar:
             return "Sezon Değiştir"
+        case .moduleSelection:
+            return "Uygulama Değiştir"
         case .cikisYap:
             return "Çıkış Yap"
         }

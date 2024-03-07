@@ -26,4 +26,10 @@ class AppCoordinator: RootableCoordinator, AppCoordinatorFlow {
         tabbarCoordinator.callbackIsPreparedMainScreen = callbackIsPreparedMainScreen
         coordinate(to: tabbarCoordinator)
     }
+    
+    func startFlowJobi() {
+        let tabbarCoordinator = JobiTabbarCoordinator(window: self.window)
+        tabbarCoordinator.callbackIsPreparedMainScreen = callbackIsPreparedMainScreen
+        coordinate(to: tabbarCoordinator)
+    }
 }
