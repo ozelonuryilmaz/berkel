@@ -8,6 +8,8 @@
 import UIKit
 
 protocol IModuleSelectionUIModel {
+    
+    var seasonTitle: String { get }
 
 	 init(data: ModuleSelectionPassData)
 
@@ -20,6 +22,14 @@ struct ModuleSelectionUIModel: IModuleSelectionUIModel {
 	// MARK: Initialize
     init(data: ModuleSelectionPassData) {
 
+    }
+    
+    var seasonTitle: String {
+        return season.isEmpty ? "" : "\(season) Sezonu"
+    }
+    
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? ""
     }
 
     // MARK: Computed Props

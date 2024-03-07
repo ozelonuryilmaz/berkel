@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="btnAccouting" destination="ihm-Z5-oUV" id="9QY-Cp-isb"/>
                 <outlet property="btnCost" destination="RjW-1v-fN7" id="ioT-DJ-6af"/>
+                <outlet property="lblSeasonTitle" destination="sTE-em-grV" id="4KM-0e-Tuq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,6 +52,12 @@
                     <color key="textColor" red="0.2196078431372549" green="0.50588235294117645" blue="0.63137254901960782" alpha="0.69886183580815397" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X Sezonu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-em-grV">
+                    <rect key="frame" x="16" y="63.000000000000007" width="358" height="25.333333333333336"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
@@ -60,9 +67,12 @@
                 <constraint firstItem="A7l-vg-dYa" firstAttribute="centerX" secondItem="ihm-Z5-oUV" secondAttribute="centerX" id="ByY-2c-aMx"/>
                 <constraint firstItem="A7l-vg-dYa" firstAttribute="top" secondItem="ihm-Z5-oUV" secondAttribute="bottom" id="Gad-fa-nbe"/>
                 <constraint firstItem="3SO-WS-PbS" firstAttribute="centerX" secondItem="RjW-1v-fN7" secondAttribute="centerX" id="MTH-bN-YTI"/>
+                <constraint firstItem="sTE-em-grV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="PMi-Bn-mPF"/>
                 <constraint firstItem="ihm-Z5-oUV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VM2-gi-Qj2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sTE-em-grV" secondAttribute="trailing" constant="16" id="dyn-Rv-coe"/>
                 <constraint firstItem="3SO-WS-PbS" firstAttribute="top" secondItem="RjW-1v-fN7" secondAttribute="bottom" id="gUz-or-ZVo"/>
                 <constraint firstItem="RjW-1v-fN7" firstAttribute="top" secondItem="A7l-vg-dYa" secondAttribute="bottom" constant="64" id="iSO-Mx-LF5"/>
+                <constraint firstItem="sTE-em-grV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="qZ8-gQ-1Sb"/>
             </constraints>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </view>

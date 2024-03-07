@@ -22,6 +22,7 @@ final class ModuleSelectionCoordinator: PresentationCoordinator, IModuleSelectio
                                                                    coordinator: self)
         navController = MainNavigationController() // memory leak için weak tanımlandı
         navController!.modalPresentationStyle = .fullScreen
+        navController!.modalTransitionStyle = .crossDissolve
         navController!.setRootViewController(viewController: controller)
         startPresent(targetVC: navController!)
     }

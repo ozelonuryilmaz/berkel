@@ -59,12 +59,14 @@ internal extension SplashViewModel {
     
     func decideToScreen() {
         if self.uiModel.isHaveAnySeason {
-            self.viewStateStartFlowMain()
+            //self.viewStateStartFlowMain()
+            self.viewStateStartModuleSelection()
         } else {
             // Eğer sezon hiç seçilmemişse sezon seçildikten sonra FlowMain akışına geçilir.
             self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
                 if isSelected {
-                    self.viewStateStartFlowMain()
+                    //self.viewStateStartFlowMain()
+                    self.viewStateStartModuleSelection()
                 } else {
                     self.decideToScreen()
                 }
@@ -81,6 +83,9 @@ internal extension SplashViewModel {
         viewState.value = .startFlowMain
     }
 
+    func viewStateStartModuleSelection() {
+        viewState.value = .startModuleSelection
+    }
 }
 
 // MARK: Coordinate
@@ -101,4 +106,5 @@ internal extension SplashViewModel {
 
 enum SplashViewState {
     case startFlowMain
+    case startModuleSelection
 }

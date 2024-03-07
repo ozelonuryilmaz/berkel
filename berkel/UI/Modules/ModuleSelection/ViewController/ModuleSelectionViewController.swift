@@ -18,6 +18,7 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
     // MARK: IBOutlets
     @IBOutlet private weak var btnAccouting: UIButton!
     @IBOutlet private weak var btnCost: UIButton!
+    @IBOutlet private weak var lblSeasonTitle: UILabel!
 
     // MARK: Constraints Outlets
 
@@ -34,16 +35,21 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.observeReactiveDatas()
         self.visibleNavigationBar(isVisible: false)
+        self.viewModel.viewStateSetSeasonTitle()
     }
 
     override func registerEvents() {
 
         btnAccouting.onTap { [unowned self] _ in
-            self.appDelegate.startFlowMain()
+            self.selfDismiss(completion: {
+                self.appDelegate.startFlowMain()
+            })
         }
         
         btnCost.onTap { [unowned self] _ in
-            self.appDelegate.startFlowJobi()
+            self.selfDismiss(completion: {
+                self.appDelegate.startFlowJobi()
+            })
         }
     }
 
@@ -59,7 +65,8 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-
+            case .setSeasonTitle(let title):
+                self.lblSeasonTitle.text = title
             }
 
         }).store(in: &cancelBag)

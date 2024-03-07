@@ -15,6 +15,8 @@ protocol IModuleSelectionViewModel: AnyObject {
     init(repository: IModuleSelectionRepository,
          coordinator: IModuleSelectionCoordinator,
          uiModel: IModuleSelectionUIModel)
+    
+    func viewStateSetSeasonTitle()
 }
 
 final class ModuleSelectionViewModel: BaseViewModel, IModuleSelectionViewModel {
@@ -54,6 +56,9 @@ internal extension ModuleSelectionViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateSetSeasonTitle() {
+        viewState.value = .setSeasonTitle(title: self.uiModel.seasonTitle)
+    }
 }
 
 // MARK: Coordinate
@@ -64,4 +69,5 @@ internal extension ModuleSelectionViewModel {
 
 enum ModuleSelectionViewState {
     case showNativeProgress(isProgress: Bool)
+    case setSeasonTitle(title: String)
 }
