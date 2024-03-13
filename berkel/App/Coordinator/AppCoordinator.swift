@@ -9,7 +9,8 @@ import UIKit
 
 protocol AppCoordinatorFlow: AnyObject {
 
-    func startFlowMain()
+    func startFlowAccounting()
+    func startFlowJobi()
 }
 
 class AppCoordinator: RootableCoordinator, AppCoordinatorFlow {
@@ -21,7 +22,7 @@ class AppCoordinator: RootableCoordinator, AppCoordinatorFlow {
         coordinate(to: splashCoordinator)
     }
     
-    func startFlowMain() {
+    func startFlowAccounting() {
         let tabbarCoordinator = MainTabbarCoordinator(window: self.window)
         tabbarCoordinator.callbackIsPreparedMainScreen = callbackIsPreparedMainScreen
         coordinate(to: tabbarCoordinator)

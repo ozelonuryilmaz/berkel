@@ -27,7 +27,8 @@ service cloud.firestore \{\
     // 'users' koleksiyonundaki herhangi bir belgeye e\uc0\u351 le\u351 tir\
     match /users/\{usersId=**\} \{\
       // Belgenin 'role' alan\uc0\u305 n\u305 n 'admin' oldu\u287 u durumlarda yazma, okuma izni ver\
-      allow write, read: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
+      allow write: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
+      allow read: if request.auth != null;\
     \}\
     \
     // 'tempUsers' koleksiyonu i\'e7in izinler\

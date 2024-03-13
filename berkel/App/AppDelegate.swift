@@ -52,8 +52,8 @@ extension AppDelegate {
         self.appCoordinator.start()
     }
 
-    func startFlowMain() {
-        self.appCoordinator.startFlowMain()
+    func startFlowAccounting() {
+        self.appCoordinator.startFlowAccounting()
     }
     
     func startFlowJobi() {

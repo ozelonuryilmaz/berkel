@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 protocol ISplashRepository: AnyObject {
 
+    func getUsers() -> FirestoreResponseType<[UserModel]>
 }
 
-final class SplashRepository:  ISplashRepository {
+final class SplashRepository: BaseRepository, ISplashRepository {
 
-   
+    func getUsers() -> FirestoreResponseType<[UserModel]> {
+        let db = UserListService.list
+        return getDocuments(db, order: db.order)
+    }
 }

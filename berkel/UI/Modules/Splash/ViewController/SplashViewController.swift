@@ -25,7 +25,7 @@ final class SplashViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.observeViewState()
 
-        self.viewModel.startFlowMainAfterLogin()
+        self.viewModel.getUsersForScreens()
     }
 
     private func observeViewState() {
@@ -33,8 +33,14 @@ final class SplashViewController: BerkelBaseViewController {
             guard let self = self, let states = states else { return }
 
             switch states {
-            case .startFlowMain:
-                self.appDelegate.startFlowMain()
+            case .showNativeProgress(let isProgress):
+                self.playNativeLoading(isLoading: isProgress)
+
+            case .startFlowAccounting:
+                self.appDelegate.startFlowAccounting()
+                
+            case .startFlowJobi:
+                self.appDelegate.startFlowJobi()
                 
             case .startModuleSelection:
                 self.viewModel.presentModuleSelectionViewController()

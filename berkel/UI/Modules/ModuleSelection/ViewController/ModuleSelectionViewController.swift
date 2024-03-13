@@ -42,7 +42,7 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
 
         btnAccouting.onTap { [unowned self] _ in
             self.selfDismiss(completion: {
-                self.appDelegate.startFlowMain()
+                self.appDelegate.startFlowAccounting()
             })
         }
         
