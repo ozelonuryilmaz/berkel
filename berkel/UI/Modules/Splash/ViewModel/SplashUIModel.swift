@@ -16,7 +16,7 @@ protocol ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        allOfThem: () -> (Void),
+                        moduleSelection: () -> (Void),
                         denied: () -> (Void))
 
     func isUserAlreadyLogin(completion: @escaping (Bool) -> Void)
@@ -51,21 +51,21 @@ struct SplashUIModel: ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        allOfThem: () -> (Void),
+                        moduleSelection: () -> (Void),
                         denied: () -> (Void)) {
 
-    if self.userId == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" {
-        allOfThem()
-    } else if true == user?.isAdmin && true == user?.isStockAdmin {
-        allOfThem()
-    } else if true == user?.isAdmin {
-        accounting()
-    } else if true == user?.isStockAdmin {
-        jobi()
-    } else {
-        denied()
+        if self.userId == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" {
+            moduleSelection()
+        } else if true == user?.isAdmin && true == user?.isStockAdmin {
+            moduleSelection()
+        } else if true == user?.isAdmin {
+            moduleSelection()
+        } else if true == user?.isStockAdmin {
+            jobi()
+        } else {
+            denied()
+        }
     }
-}
 }
 
 // MARK: Props

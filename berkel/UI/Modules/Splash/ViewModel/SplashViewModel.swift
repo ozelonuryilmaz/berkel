@@ -109,16 +109,13 @@ private extension SplashViewModel {
     func startScreen() {
         self.uiModel.decideToScreen(
             accounting: {
-                self.viewStateStartFlowAccounting()
-            },
-            jobi: {
-                self.viewStateStartFlowJobi()
-            },
-            allOfThem: {
-                self.viewStateStartModuleSelection()
-            },
-            denied: {
-                print("**** DENIED")
+                viewStateStartFlowAccounting()
+            }, jobi: {
+                viewStateStartFlowJobi()
+            }, moduleSelection: {
+                viewStateStartModuleSelection()
+            }, denied: {
+                presentEmptyAuthViewController()
             }
         )
     }
@@ -158,6 +155,10 @@ internal extension SplashViewModel {
 
     func presentModuleSelectionViewController() {
         self.coordinator.presentModuleSelectionViewController()
+    }
+    
+    func presentEmptyAuthViewController() {
+        self.coordinator.presentEmptyAuthViewController()
     }
 }
 

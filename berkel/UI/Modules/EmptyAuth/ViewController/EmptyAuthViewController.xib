@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyAuthViewController" customModule="berkel" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yetkiniz bulunmamaktadır. Admin ile iletişime geçiniz." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUz-0m-Ldf">
+                    <rect key="frame" x="32" y="383.33333333333331" width="326" height="45.666666666666686"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UYARI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wr1-4a-bul">
+                    <rect key="frame" x="32" y="343.33333333333331" width="326" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="MUz-0m-Ldf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-16" id="4jb-Ks-r7Q"/>
+                <constraint firstItem="wr1-4a-bul" firstAttribute="centerX" secondItem="MUz-0m-Ldf" secondAttribute="centerX" id="9YN-tr-0Wm"/>
+                <constraint firstItem="wr1-4a-bul" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="DnE-sm-NNB"/>
+                <constraint firstItem="MUz-0m-Ldf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Gri-xC-CPZ"/>
+                <constraint firstItem="MUz-0m-Ldf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kaf-sY-wbt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MUz-0m-Ldf" secondAttribute="trailing" constant="32" id="WmL-3G-go4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wr1-4a-bul" secondAttribute="trailing" constant="32" id="YbZ-qy-4E3"/>
+                <constraint firstItem="MUz-0m-Ldf" firstAttribute="top" secondItem="wr1-4a-bul" secondAttribute="bottom" constant="16" id="npc-3A-MBt"/>
+            </constraints>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </view>
+    </objects>
+</document>
