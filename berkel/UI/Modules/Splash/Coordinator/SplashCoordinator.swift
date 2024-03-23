@@ -12,7 +12,6 @@ protocol ISplashCoordinator: AnyObject {
     func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?)
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
     func presentModuleSelectionViewController()
-    func presentEmptyAuthViewController()
 }
 
 final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
@@ -27,7 +26,7 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
     }
     
     func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
-        let coordinator = LoginCoordinator(presenterViewController: self.window?.topViewControllerNew())
+        let coordinator = LoginCoordinator(presenterViewController: self.window?.topViewController())
             .with(authDismissCallBack: authDismissCallBack)
             .with(passData: LoginPassData())
         DispatchQueue.delay(25) { [unowned self] in
@@ -36,7 +35,7 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
     }
     
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
-        let coordinator = SeasonsCoordinator(presenterViewController: self.window?.topViewControllerNew())
+        let coordinator = SeasonsCoordinator(presenterViewController: self.window?.topViewController())
             .with(seasonDismissCallback: seasonDismissCallback)
             .with(passData: SeasonsPassData(isHiddenBackButton: true))
         DispatchQueue.delay(25) { [unowned self] in
@@ -45,16 +44,8 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
     }
     
     func presentModuleSelectionViewController() {
-        let coordinator = ModuleSelectionCoordinator(presenterViewController: self.window?.topViewControllerNew())
+        let coordinator = ModuleSelectionCoordinator(presenterViewController: self.window?.topViewController())
             .with(passData: ModuleSelectionPassData())
-        DispatchQueue.delay(25) { [unowned self] in
-            self.coordinate(to: coordinator)
-        }
-    }
-
-    func presentEmptyAuthViewController() {
-        let coordinator = EmptyAuthCoordinator(presenterViewController: self.window?.topViewControllerNew())
-            .with(passData: EmptyAuthPassData())
         DispatchQueue.delay(25) { [unowned self] in
             self.coordinate(to: coordinator)
         }

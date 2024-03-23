@@ -9,6 +9,14 @@ import UIKit
 import Combine
 
 final class StockViewController: JobiBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Stok"
+    }
+    
+    override var navigationSubTitle: String? {
+        return self.viewModel.season
+    }
 
     // MARK: Constants
 
@@ -30,6 +38,7 @@ final class StockViewController: JobiBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
     }
 
@@ -62,6 +71,11 @@ final class StockViewController: JobiBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var addBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
+            self.viewModel.pushMyStockListViewController()
+        }
+    }()
 }
 
 // MARK: Props

@@ -16,14 +16,7 @@ final class OtherSellerCategoryListCoordinator: PresentationCoordinator, IOtherS
 
     private var coordinatorData: OtherSellerCategoryListPassData { return castPassData(OtherSellerCategoryListPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private weak var outputDelegate: OtherSellerCategoryListViewControllerOutputDelegate? = nil
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
 
     @discardableResult
     func with(outputDelegate: OtherSellerCategoryListViewControllerOutputDelegate) -> OtherSellerCategoryListCoordinator {
@@ -37,13 +30,14 @@ final class OtherSellerCategoryListCoordinator: PresentationCoordinator, IOtherS
         let controller = OtherSellerCategoryListBuilder.generate(with: coordinatorData,
                                                                  coordinator: self,
                                                                  outputDelegate: outputDelegate)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -51,7 +45,6 @@ final class OtherSellerCategoryListCoordinator: PresentationCoordinator, IOtherS
 extension OtherSellerCategoryListCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> OtherSellerCategoryListCoordinator {
-        return OtherSellerCategoryListCoordinator(presenterViewController: presenterViewController,
-                                                    navController: MainNavigationController())
+        return OtherSellerCategoryListCoordinator(presenterViewController: presenterViewController)
     }
 }

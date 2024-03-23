@@ -17,8 +17,6 @@ final class SeasonsCoordinator: PresentationCoordinator, ISeasonsCoordinator {
 
     private var seasonDismissCallback: ((_ isSelected: Bool) -> Void)? = nil
 
-    private weak var navController: MainNavigationController? = nil
-
     @discardableResult
     func with(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) -> SeasonsCoordinator {
         self.seasonDismissCallback = seasonDismissCallback
@@ -29,9 +27,9 @@ final class SeasonsCoordinator: PresentationCoordinator, ISeasonsCoordinator {
         let controller = SeasonsBuilder.generate(with: coordinatorData,
                                                  coordinator: self,
                                                  seasonDismissCallback: self.seasonDismissCallback)
-        navController = MainNavigationController() // memory leak için weak tanımlandı
-        navController!.modalPresentationStyle = .fullScreen
-        navController!.setRootViewController(viewController: controller)
-        startPresent(targetVC: navController!)
+        let navController = MainNavigationController()
+        navController.modalPresentationStyle = .fullScreen
+        navController.setRootViewController(viewController: controller)
+        startPresent(targetVC: navController)
     }
 }

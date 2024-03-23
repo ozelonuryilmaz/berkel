@@ -15,13 +15,6 @@ final class NewWorkerCoordinator: PresentationCoordinator, INewWorkerCoordinator
 
     private var coordinatorData: NewWorkerPassData { return castPassData(NewWorkerPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     private weak var outputDelegate: NewWorkerViewControllerOutputDelegate? = nil
 
     @discardableResult
@@ -36,13 +29,14 @@ final class NewWorkerCoordinator: PresentationCoordinator, INewWorkerCoordinator
         let controller = NewWorkerBuilder.generate(with: coordinatorData,
                                                    coordinator: self,
                                                    outputDelegate: outputDelegate)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -50,7 +44,6 @@ final class NewWorkerCoordinator: PresentationCoordinator, INewWorkerCoordinator
 extension NewWorkerCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> NewWorkerCoordinator {
-        return NewWorkerCoordinator(presenterViewController: presenterViewController,
-                                    navController: MainNavigationController())
+        return NewWorkerCoordinator(presenterViewController: presenterViewController)
     }
 }

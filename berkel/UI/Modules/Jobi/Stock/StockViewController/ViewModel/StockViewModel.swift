@@ -7,14 +7,19 @@
 
 import Combine
 
-protocol IStockViewModel: AnyObject {
+protocol IStockViewModel: MyStockListViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<StockViewState> { get }
     var errorState: ErrorStateSubject { get }
+    
+    var season: String { get }
 
     init(repository: IStockRepository,
          coordinator: IStockCoordinator,
          uiModel: IStockUIModel)
+    
+    // Coordinator
+    func pushMyStockListViewController()
 }
 
 final class StockViewModel: BaseViewModel, IStockViewModel {
@@ -38,6 +43,9 @@ final class StockViewModel: BaseViewModel, IStockViewModel {
         self.uiModel = uiModel
     }
 
+    var season: String {
+        return uiModel.season
+    }
 }
 
 
@@ -59,8 +67,19 @@ internal extension StockViewModel {
 // MARK: Coordinate
 internal extension StockViewModel {
 
+    func pushMyStockListViewController() {
+        self.coordinator.pushMyStockListViewController(passData: MyStockListPassData(),
+                                                       outputDelegate: self)
+    }
 }
 
+// MARK: MyStockListViewControllerOutputDelegate
+internal extension StockViewModel {
+
+    func stockData(_ data: StockModel) {
+        
+    }
+}
 
 enum StockViewState {
     case showNativeProgress(isProgress: Bool)

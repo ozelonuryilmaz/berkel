@@ -16,14 +16,7 @@ final class ProductListCoordinator: PresentationCoordinator, IProductListCoordin
 
     private var coordinatorData: ProductListPassData { return castPassData(ProductListPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private weak var outputDelegate: ProductListViewControllerOutputDelegate? = nil
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
 
     @discardableResult
     func with(outputDelegate: ProductListViewControllerOutputDelegate) -> ProductListCoordinator {
@@ -37,20 +30,20 @@ final class ProductListCoordinator: PresentationCoordinator, IProductListCoordin
         let controller = ProductListBuilder.generate(with: coordinatorData,
                                                      coordinator: self,
                                                      outputDelegate: outputDelegate)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
 extension ProductListCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> ProductListCoordinator {
-        return ProductListCoordinator(presenterViewController: presenterViewController,
-                                      navController: MainNavigationController())
+        return ProductListCoordinator(presenterViewController: presenterViewController)
     }
 }

@@ -15,10 +15,9 @@ extension UIApplication {
         }
         return nil
     }
-    
-    // NEW
-    static func topViewControllerNew() -> UIViewController? {
-        return WindowHelper.getWindow()?.topViewControllerNew()
+
+    static func topViewController() -> UIViewController? {
+        return WindowHelper.getWindow()?.topViewController()
     }
     
     static func getBottomSafeAreaInset() -> CGFloat {
@@ -31,4 +30,3 @@ extension UIApplication {
         }
     }
 }
-

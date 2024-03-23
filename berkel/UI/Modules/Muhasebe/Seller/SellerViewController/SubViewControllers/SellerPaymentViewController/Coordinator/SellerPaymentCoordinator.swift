@@ -16,24 +16,17 @@ final class SellerPaymentCoordinator: PresentationCoordinator, ISellerPaymentCoo
 
     private var coordinatorData: SellerPaymentPassData { return castPassData(SellerPaymentPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = SellerPaymentBuilder.generate(with: coordinatorData,
                                                        coordinator: self)
-
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -41,7 +34,6 @@ final class SellerPaymentCoordinator: PresentationCoordinator, ISellerPaymentCoo
 extension SellerPaymentCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> SellerPaymentCoordinator {
-        return SellerPaymentCoordinator(presenterViewController: presenterViewController,
-                                        navController: MainNavigationController())
+        return SellerPaymentCoordinator(presenterViewController: presenterViewController)
     }
 }

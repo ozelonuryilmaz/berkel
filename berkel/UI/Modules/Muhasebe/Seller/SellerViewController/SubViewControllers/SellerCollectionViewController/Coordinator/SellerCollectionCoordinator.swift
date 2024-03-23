@@ -16,24 +16,17 @@ final class SellerCollectionCoordinator: PresentationCoordinator, ISellerCollect
 
     private var coordinatorData: SellerCollectionPassData { return castPassData(SellerCollectionPassData.self) }
 
-    private unowned var navController: MainNavigationController // Presenter
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = SellerCollectionBuilder.generate(with: coordinatorData,
                                                           coordinator: self)
-
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -41,7 +34,6 @@ final class SellerCollectionCoordinator: PresentationCoordinator, ISellerCollect
 extension SellerCollectionCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> SellerCollectionCoordinator {
-        return SellerCollectionCoordinator(presenterViewController: presenterViewController,
-                                           navController: MainNavigationController())
+        return SellerCollectionCoordinator(presenterViewController: presenterViewController)
     }
 }

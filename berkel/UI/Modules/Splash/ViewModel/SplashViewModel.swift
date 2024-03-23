@@ -114,8 +114,6 @@ private extension SplashViewModel {
                 viewStateStartFlowJobi()
             }, moduleSelection: {
                 viewStateStartModuleSelection()
-            }, denied: {
-                presentEmptyAuthViewController()
             }
         )
     }
@@ -155,10 +153,6 @@ internal extension SplashViewModel {
 
     func presentModuleSelectionViewController() {
         self.coordinator.presentModuleSelectionViewController()
-    }
-    
-    func presentEmptyAuthViewController() {
-        self.coordinator.presentEmptyAuthViewController()
     }
 }
 

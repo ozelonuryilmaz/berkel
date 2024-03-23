@@ -16,8 +16,6 @@ final class BuyingCollectionCoordinator: PresentationCoordinator, IBuyingCollect
 
     private var coordinatorData: BuyingCollectionPassData { return castPassData(BuyingCollectionPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private var successDismissCallBack: ((_ data: BuyingCollectionModel) -> Void)? = nil
 
     @discardableResult
@@ -26,21 +24,17 @@ final class BuyingCollectionCoordinator: PresentationCoordinator, IBuyingCollect
         return self
     }
 
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = BuyingCollectionBuilder.generate(with: coordinatorData,
                                                           coordinator: self,
                                                           successDismissCallBack: self.successDismissCallBack)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -49,7 +43,6 @@ final class BuyingCollectionCoordinator: PresentationCoordinator, IBuyingCollect
 extension BuyingCollectionCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> BuyingCollectionCoordinator {
-        return BuyingCollectionCoordinator(presenterViewController: presenterViewController,
-                                           navController: MainNavigationController())
+        return BuyingCollectionCoordinator(presenterViewController: presenterViewController)
     }
 }

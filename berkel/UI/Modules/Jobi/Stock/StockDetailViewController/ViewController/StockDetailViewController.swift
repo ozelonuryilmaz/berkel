@@ -1,28 +1,28 @@
 //
-//  EmptyAuthViewController.swift
+//  StockDetailViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 13.03.2024.
+//  Created by Onur Yilmaz on 20.03.2024.
 //
 
 import UIKit
 import Combine
 
-final class EmptyAuthViewController: BerkelBaseViewController {
+final class StockDetailViewController: JobiBaseViewController {
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IEmptyAuthViewModel
+    private let viewModel: IStockDetailViewModel
 
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
 
     // MARK: Initializer
-    init(viewModel: IEmptyAuthViewModel) {
+    init(viewModel: IStockDetailViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "EmptyAuthViewController", bundle: nil)
+        super.init(nibName: "StockDetailViewController", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,7 +31,6 @@ final class EmptyAuthViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
-        self.visibleNavigationBar(isVisible: false)
     }
 
     override func registerEvents() {
@@ -66,6 +65,6 @@ final class EmptyAuthViewController: BerkelBaseViewController {
 }
 
 // MARK: Props
-private extension EmptyAuthViewController {
+private extension StockDetailViewController {
 
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 protocol IStockUIModel {
+    
+    var season: String { get }
 
     init()
 } 
@@ -20,6 +22,9 @@ struct StockUIModel: IStockUIModel {
     init() { }
 
     // MARK: Computed Props
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
 }
 
 // MARK: Props

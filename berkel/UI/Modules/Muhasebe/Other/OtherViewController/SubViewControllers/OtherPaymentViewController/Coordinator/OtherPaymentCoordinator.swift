@@ -16,24 +16,17 @@ final class OtherPaymentCoordinator: PresentationCoordinator, IOtherPaymentCoord
 
     private var coordinatorData: OtherPaymentPassData { return castPassData(OtherPaymentPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = OtherPaymentBuilder.generate(with: coordinatorData,
                                                                    coordinator: self)
-
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -41,7 +34,6 @@ final class OtherPaymentCoordinator: PresentationCoordinator, IOtherPaymentCoord
 extension OtherPaymentCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> OtherPaymentCoordinator {
-        return OtherPaymentCoordinator(presenterViewController: presenterViewController,
-                                                    navController: MainNavigationController())
+        return OtherPaymentCoordinator(presenterViewController: presenterViewController)
     }
 }

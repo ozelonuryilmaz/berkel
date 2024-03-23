@@ -16,21 +16,15 @@ final class ArchiveDetailCoordinator: PresentationCoordinator, IArchiveDetailCoo
 
     private var coordinatorData: ArchiveDetailPassData { return castPassData(ArchiveDetailPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = ArchiveDetailBuilder.generate(with: coordinatorData, coordinator: self)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
     func dismiss() {
-        navController.dismiss(animated: true, completion: nil)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -38,8 +32,7 @@ final class ArchiveDetailCoordinator: PresentationCoordinator, IArchiveDetailCoo
 extension ArchiveDetailCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> ArchiveDetailCoordinator {
-        return ArchiveDetailCoordinator(presenterViewController: presenterViewController,
-                                        navController: MainNavigationController())
+        return ArchiveDetailCoordinator(presenterViewController: presenterViewController)
     }
 }
 

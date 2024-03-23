@@ -16,19 +16,12 @@ final class AddSellerCoordinator: PresentationCoordinator, IAddSellerCoordinator
 
     private var coordinatorData: AddSellerPassData { return castPassData(AddSellerPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private weak var outputDelegate: AddSellerViewControllerOutputDelegate? = nil
 
     @discardableResult
     func with(outputDelegate: AddSellerViewControllerOutputDelegate) -> AddSellerCoordinator {
         self.outputDelegate = outputDelegate
         return self
-    }
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
     }
 
     override func start() {
@@ -38,19 +31,19 @@ final class AddSellerCoordinator: PresentationCoordinator, IAddSellerCoordinator
                                                    coordinator: self,
                                                    outputDelegate: outputDelegate)
         //controller.modalPresentationStyle = .fullScreen
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
     func dismiss() {
-        navController.dismiss(animated: true)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true)
     }
 }
 
 extension AddSellerCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> AddSellerCoordinator {
-        return AddSellerCoordinator(presenterViewController: presenterViewController,
-                                    navController: MainNavigationController())
+        return AddSellerCoordinator(presenterViewController: presenterViewController)
     }
 }

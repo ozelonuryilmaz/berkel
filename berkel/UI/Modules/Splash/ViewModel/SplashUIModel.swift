@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 
+public var jobiUuid: String = "unknown"
+
 protocol ISplashUIModel {
 
     var isHaveAnySeason: Bool { get }
@@ -16,8 +18,7 @@ protocol ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        moduleSelection: () -> (Void),
-                        denied: () -> (Void))
+                        moduleSelection: () -> (Void))
 
     func isUserAlreadyLogin(completion: @escaping (Bool) -> Void)
     mutating func setUsers(users: [UserModel])
@@ -35,6 +36,10 @@ struct SplashUIModel: ISplashUIModel {
     var isHaveAnySeason: Bool {
         return UserDefaultsManager.shared.getStringValue(key: .season) != nil
     }
+    
+    private var jobiAdminKey: String {
+        return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
+    }
 
     // MARK: Initialize
     init() {
@@ -51,19 +56,23 @@ struct SplashUIModel: ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        moduleSelection: () -> (Void),
-                        denied: () -> (Void)) {
+                        moduleSelection: () -> (Void)) {
 
-        if self.userId == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" {
+        if self.userId == self.jobiAdminKey {
+            jobiUuid = self.jobiAdminKey
             moduleSelection()
         } else if true == user?.isAdmin && true == user?.isStockAdmin {
+            jobiUuid = self.jobiAdminKey
             moduleSelection()
         } else if true == user?.isAdmin {
+            jobiUuid = "unknown"
             moduleSelection()
         } else if true == user?.isStockAdmin {
+            jobiUuid = self.jobiAdminKey
             jobi()
         } else {
-            denied()
+            jobiUuid = self.userId ?? "unknown"
+            jobi()
         }
     }
 }
@@ -79,5 +88,6 @@ extension SplashUIModel {
 
     mutating func setUsers(users: [UserModel]) {
         self.user = users.filter({ $0.id == userId }).first
+        jobiUuid = self.user?.id ?? "unknown"
     }
 }

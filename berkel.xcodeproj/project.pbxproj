@@ -249,6 +249,41 @@
 		676F78992B27734F00CCB926 /* SettingsCellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F78982B27734F00CCB926 /* SettingsCellTypes.swift */; };
 		676F789B2B2774FB00CCB926 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F789A2B2774FB00CCB926 /* SectionTitleView.swift */; };
 		676F789D2B27767A00CCB926 /* SettingsFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676F789C2B27767A00CCB926 /* SettingsFooterCell.swift */; };
+		67707D282BAB3759008CEBF4 /* MyStockListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D202BAB3759008CEBF4 /* MyStockListCoordinator.swift */; };
+		67707D292BAB3759008CEBF4 /* MyStockListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D212BAB3759008CEBF4 /* MyStockListUIModel.swift */; };
+		67707D2A2BAB3759008CEBF4 /* MyStockListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D222BAB3759008CEBF4 /* MyStockListViewController.swift */; };
+		67707D2B2BAB3759008CEBF4 /* MyStockListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D232BAB3759008CEBF4 /* MyStockListRepository.swift */; };
+		67707D2C2BAB3759008CEBF4 /* MyStockListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D242BAB3759008CEBF4 /* MyStockListBuilder.swift */; };
+		67707D2D2BAB3759008CEBF4 /* MyStockListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D252BAB3759008CEBF4 /* MyStockListViewModel.swift */; };
+		67707D2E2BAB3759008CEBF4 /* MyStockListPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D262BAB3759008CEBF4 /* MyStockListPassData.swift */; };
+		67707D2F2BAB3759008CEBF4 /* MyStockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */; };
+		67707D4B2BAB38EC008CEBF4 /* NewStockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */; };
+		67707D4C2BAB38EC008CEBF4 /* NewStockUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */; };
+		67707D4D2BAB38ED008CEBF4 /* NewStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */; };
+		67707D4E2BAB38ED008CEBF4 /* NewStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */; };
+		67707D4F2BAB38ED008CEBF4 /* NewStockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */; };
+		67707D502BAB38ED008CEBF4 /* NewStockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */; };
+		67707D512BAB38ED008CEBF4 /* NewStockPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */; };
+		67707D522BAB38ED008CEBF4 /* NewStockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */; };
+		67707D5B2BAB3932008CEBF4 /* StockDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D532BAB3932008CEBF4 /* StockDetailCoordinator.swift */; };
+		67707D5C2BAB3932008CEBF4 /* StockDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D542BAB3932008CEBF4 /* StockDetailUIModel.swift */; };
+		67707D5D2BAB3932008CEBF4 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D552BAB3932008CEBF4 /* StockDetailViewController.swift */; };
+		67707D5E2BAB3932008CEBF4 /* StockDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D562BAB3932008CEBF4 /* StockDetailRepository.swift */; };
+		67707D5F2BAB3932008CEBF4 /* StockDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D572BAB3932008CEBF4 /* StockDetailBuilder.swift */; };
+		67707D602BAB3932008CEBF4 /* StockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D582BAB3932008CEBF4 /* StockDetailViewModel.swift */; };
+		67707D612BAB3932008CEBF4 /* StockDetailPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D592BAB3932008CEBF4 /* StockDetailPassData.swift */; };
+		67707D622BAB3932008CEBF4 /* StockDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D5A2BAB3932008CEBF4 /* StockDetailViewController.xib */; };
+		67707D6B2BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D632BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift */; };
+		67707D6C2BAB3976008CEBF4 /* StockDetailInformationUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D642BAB3976008CEBF4 /* StockDetailInformationUIModel.swift */; };
+		67707D6D2BAB3976008CEBF4 /* StockDetailInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D652BAB3976008CEBF4 /* StockDetailInformationViewController.swift */; };
+		67707D6E2BAB3976008CEBF4 /* StockDetailInformationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D662BAB3976008CEBF4 /* StockDetailInformationRepository.swift */; };
+		67707D6F2BAB3976008CEBF4 /* StockDetailInformationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D672BAB3976008CEBF4 /* StockDetailInformationBuilder.swift */; };
+		67707D702BAB3976008CEBF4 /* StockDetailInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D682BAB3976008CEBF4 /* StockDetailInformationViewModel.swift */; };
+		67707D712BAB3976008CEBF4 /* StockDetailInformationPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D692BAB3976008CEBF4 /* StockDetailInformationPassData.swift */; };
+		67707D722BAB3976008CEBF4 /* StockDetailInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D6A2BAB3976008CEBF4 /* StockDetailInformationViewController.xib */; };
+		67707D752BAB39D7008CEBF4 /* JobiStockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D742BAB39D7008CEBF4 /* JobiStockService.swift */; };
+		67707D782BAB3B01008CEBF4 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D772BAB3B01008CEBF4 /* StockModel.swift */; };
+		67707D7B2BAB6157008CEBF4 /* JobiStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D7A2BAB6157008CEBF4 /* JobiStockRepository.swift */; };
 		6772DE442AAF8E570044607A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6772DE432AAF8E570044607A /* LoginViewController.xib */; };
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
@@ -629,14 +664,6 @@
 		67DDE88F2B0E778E00E24949 /* CustomerListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE88E2B0E778E00E24949 /* CustomerListDataSource.swift */; };
 		67DDE8912B0E779D00E24949 /* CustomerListDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8902B0E779D00E24949 /* CustomerListDataSourceFactory.swift */; };
 		67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */; };
-		67E7011D2BA2247200BFC376 /* EmptyAuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E701152BA2247200BFC376 /* EmptyAuthCoordinator.swift */; };
-		67E7011E2BA2247200BFC376 /* EmptyAuthUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E701162BA2247200BFC376 /* EmptyAuthUIModel.swift */; };
-		67E7011F2BA2247200BFC376 /* EmptyAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E701172BA2247200BFC376 /* EmptyAuthViewController.swift */; };
-		67E701202BA2247200BFC376 /* EmptyAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E701182BA2247200BFC376 /* EmptyAuthRepository.swift */; };
-		67E701212BA2247200BFC376 /* EmptyAuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E701192BA2247200BFC376 /* EmptyAuthBuilder.swift */; };
-		67E701222BA2247200BFC376 /* EmptyAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7011A2BA2247200BFC376 /* EmptyAuthViewModel.swift */; };
-		67E701232BA2247200BFC376 /* EmptyAuthPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E7011B2BA2247200BFC376 /* EmptyAuthPassData.swift */; };
-		67E701242BA2247200BFC376 /* EmptyAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E7011C2BA2247200BFC376 /* EmptyAuthViewController.xib */; };
 		67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B582AAF83890086E20C /* PrimaryTextField.swift */; };
 		67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */; };
 		67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */; };
@@ -936,6 +963,41 @@
 		676F78982B27734F00CCB926 /* SettingsCellTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellTypes.swift; sourceTree = "<group>"; };
 		676F789A2B2774FB00CCB926 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 		676F789C2B27767A00CCB926 /* SettingsFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFooterCell.swift; sourceTree = "<group>"; };
+		67707D202BAB3759008CEBF4 /* MyStockListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListCoordinator.swift; sourceTree = "<group>"; };
+		67707D212BAB3759008CEBF4 /* MyStockListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListUIModel.swift; sourceTree = "<group>"; };
+		67707D222BAB3759008CEBF4 /* MyStockListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListViewController.swift; sourceTree = "<group>"; };
+		67707D232BAB3759008CEBF4 /* MyStockListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListRepository.swift; sourceTree = "<group>"; };
+		67707D242BAB3759008CEBF4 /* MyStockListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListBuilder.swift; sourceTree = "<group>"; };
+		67707D252BAB3759008CEBF4 /* MyStockListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListViewModel.swift; sourceTree = "<group>"; };
+		67707D262BAB3759008CEBF4 /* MyStockListPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListPassData.swift; sourceTree = "<group>"; };
+		67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyStockListViewController.xib; sourceTree = "<group>"; };
+		67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockCoordinator.swift; sourceTree = "<group>"; };
+		67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockUIModel.swift; sourceTree = "<group>"; };
+		67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockViewController.swift; sourceTree = "<group>"; };
+		67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockRepository.swift; sourceTree = "<group>"; };
+		67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockBuilder.swift; sourceTree = "<group>"; };
+		67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockViewModel.swift; sourceTree = "<group>"; };
+		67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockPassData.swift; sourceTree = "<group>"; };
+		67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewStockViewController.xib; sourceTree = "<group>"; };
+		67707D532BAB3932008CEBF4 /* StockDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailCoordinator.swift; sourceTree = "<group>"; };
+		67707D542BAB3932008CEBF4 /* StockDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailUIModel.swift; sourceTree = "<group>"; };
+		67707D552BAB3932008CEBF4 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
+		67707D562BAB3932008CEBF4 /* StockDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailRepository.swift; sourceTree = "<group>"; };
+		67707D572BAB3932008CEBF4 /* StockDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailBuilder.swift; sourceTree = "<group>"; };
+		67707D582BAB3932008CEBF4 /* StockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewModel.swift; sourceTree = "<group>"; };
+		67707D592BAB3932008CEBF4 /* StockDetailPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailPassData.swift; sourceTree = "<group>"; };
+		67707D5A2BAB3932008CEBF4 /* StockDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockDetailViewController.xib; sourceTree = "<group>"; };
+		67707D632BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationCoordinator.swift; sourceTree = "<group>"; };
+		67707D642BAB3976008CEBF4 /* StockDetailInformationUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationUIModel.swift; sourceTree = "<group>"; };
+		67707D652BAB3976008CEBF4 /* StockDetailInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationViewController.swift; sourceTree = "<group>"; };
+		67707D662BAB3976008CEBF4 /* StockDetailInformationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationRepository.swift; sourceTree = "<group>"; };
+		67707D672BAB3976008CEBF4 /* StockDetailInformationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationBuilder.swift; sourceTree = "<group>"; };
+		67707D682BAB3976008CEBF4 /* StockDetailInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationViewModel.swift; sourceTree = "<group>"; };
+		67707D692BAB3976008CEBF4 /* StockDetailInformationPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailInformationPassData.swift; sourceTree = "<group>"; };
+		67707D6A2BAB3976008CEBF4 /* StockDetailInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockDetailInformationViewController.xib; sourceTree = "<group>"; };
+		67707D742BAB39D7008CEBF4 /* JobiStockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiStockService.swift; sourceTree = "<group>"; };
+		67707D772BAB3B01008CEBF4 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
+		67707D7A2BAB6157008CEBF4 /* JobiStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiStockRepository.swift; sourceTree = "<group>"; };
 		6772DE432AAF8E570044607A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -1290,6 +1352,8 @@
 		67D7703C2B4D49760034A867 /* BuyingChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsViewModel.swift; sourceTree = "<group>"; };
 		67D7703D2B4D49760034A867 /* BuyingChartsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingChartsPassData.swift; sourceTree = "<group>"; };
 		67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingChartsViewController.xib; sourceTree = "<group>"; };
+		67D820AF2BAEDEF2008698FF /* BerkelTemplateReadme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BerkelTemplateReadme.md; sourceTree = "<group>"; };
+		67D820C22BAEDFD5008698FF /* BerkelModule.xctemplate.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = BerkelModule.xctemplate.zip; sourceTree = "<group>"; };
 		67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingCoordinator.swift; sourceTree = "<group>"; };
 		67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingUIModel.swift; sourceTree = "<group>"; };
 		67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewController.swift; sourceTree = "<group>"; };
@@ -1316,14 +1380,6 @@
 		67DDE88E2B0E778E00E24949 /* CustomerListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListDataSource.swift; sourceTree = "<group>"; };
 		67DDE8902B0E779D00E24949 /* CustomerListDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListDataSourceFactory.swift; sourceTree = "<group>"; };
 		67E6BD072AB3AF8E002A8DB0 /* AddSellerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSellerViewController.xib; sourceTree = "<group>"; };
-		67E701152BA2247200BFC376 /* EmptyAuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthCoordinator.swift; sourceTree = "<group>"; };
-		67E701162BA2247200BFC376 /* EmptyAuthUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthUIModel.swift; sourceTree = "<group>"; };
-		67E701172BA2247200BFC376 /* EmptyAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthViewController.swift; sourceTree = "<group>"; };
-		67E701182BA2247200BFC376 /* EmptyAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthRepository.swift; sourceTree = "<group>"; };
-		67E701192BA2247200BFC376 /* EmptyAuthBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthBuilder.swift; sourceTree = "<group>"; };
-		67E7011A2BA2247200BFC376 /* EmptyAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthViewModel.swift; sourceTree = "<group>"; };
-		67E7011B2BA2247200BFC376 /* EmptyAuthPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAuthPassData.swift; sourceTree = "<group>"; };
-		67E7011C2BA2247200BFC376 /* EmptyAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyAuthViewController.xib; sourceTree = "<group>"; };
 		67EA5B582AAF83890086E20C /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		67EA5B5B2AAF83B90086E20C /* BaseReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReusableTextField.swift; sourceTree = "<group>"; };
 		67EA5B5D2AAF85B00086E20C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -1502,8 +1558,10 @@
 			isa = PBXGroup;
 			children = (
 				6710BF382AA79B7B000034FD /* BaseRepository.swift */,
+				675129E62AAC7BD400429CB7 /* Types */,
 				675129DE2AAC677B00429CB7 /* NetworkingError */,
 				6710BF3B2AA7AD3D000034FD /* Services */,
+				67707D732BAB39BB008CEBF4 /* JobiService */,
 				6772DE452AAF90540044607A /* Repository */,
 			);
 			path = Data;
@@ -1512,7 +1570,6 @@
 		6710BF3B2AA7AD3D000034FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				675129E62AAC7BD400429CB7 /* Types */,
 				672AD5F02B4F058B009C8E4A /* UserService.swift */,
 				67A09ABF2B509791001D0A12 /* UserListService.swift */,
 				676F532C2AD9BEB8001F06DF /* BuyingDataService.swift */,
@@ -3022,10 +3079,247 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		67707D1A2BAB3719008CEBF4 /* MyStockListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D1F2BAB3741008CEBF4 /* Builder */,
+				67707D1E2BAB373D008CEBF4 /* Coordinator */,
+				67707D1D2BAB3737008CEBF4 /* Repository */,
+				67707D1C2BAB3734008CEBF4 /* ViewModel */,
+				67707D1B2BAB372E008CEBF4 /* ViewController */,
+			);
+			path = MyStockListViewController;
+			sourceTree = "<group>";
+		};
+		67707D1B2BAB372E008CEBF4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D222BAB3759008CEBF4 /* MyStockListViewController.swift */,
+				67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67707D1C2BAB3734008CEBF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67707D252BAB3759008CEBF4 /* MyStockListViewModel.swift */,
+				67707D212BAB3759008CEBF4 /* MyStockListUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67707D1D2BAB3737008CEBF4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67707D232BAB3759008CEBF4 /* MyStockListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67707D1E2BAB373D008CEBF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67707D202BAB3759008CEBF4 /* MyStockListCoordinator.swift */,
+				67707D262BAB3759008CEBF4 /* MyStockListPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67707D1F2BAB3741008CEBF4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67707D242BAB3759008CEBF4 /* MyStockListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67707D302BAB37D3008CEBF4 /* NewStockViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D362BAB383B008CEBF4 /* Builder */,
+				67707D352BAB3837008CEBF4 /* Coordinator */,
+				67707D372BAB3840008CEBF4 /* Repository */,
+				67707D342BAB3832008CEBF4 /* ViewModel */,
+				67707D332BAB382D008CEBF4 /* ViewController */,
+			);
+			path = NewStockViewController;
+			sourceTree = "<group>";
+		};
+		67707D312BAB37F1008CEBF4 /* StockDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D3C2BAB3855008CEBF4 /* Builder */,
+				67707D3B2BAB3851008CEBF4 /* Coordinator */,
+				67707D3A2BAB384E008CEBF4 /* Repository */,
+				67707D392BAB384A008CEBF4 /* ViewModel */,
+				67707D382BAB3846008CEBF4 /* ViewController */,
+			);
+			path = StockDetailViewController;
+			sourceTree = "<group>";
+		};
+		67707D322BAB3807008CEBF4 /* StockDetailInformationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D412BAB3869008CEBF4 /* Builder */,
+				67707D402BAB3864008CEBF4 /* Coordinator */,
+				67707D3F2BAB3861008CEBF4 /* Repository */,
+				67707D3E2BAB385D008CEBF4 /* ViewModel */,
+				67707D3D2BAB3858008CEBF4 /* ViewController */,
+			);
+			path = StockDetailInformationViewController;
+			sourceTree = "<group>";
+		};
+		67707D332BAB382D008CEBF4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */,
+				67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67707D342BAB3832008CEBF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */,
+				67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67707D352BAB3837008CEBF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */,
+				67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67707D362BAB383B008CEBF4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67707D372BAB3840008CEBF4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67707D382BAB3846008CEBF4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D552BAB3932008CEBF4 /* StockDetailViewController.swift */,
+				67707D5A2BAB3932008CEBF4 /* StockDetailViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67707D392BAB384A008CEBF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67707D582BAB3932008CEBF4 /* StockDetailViewModel.swift */,
+				67707D542BAB3932008CEBF4 /* StockDetailUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67707D3A2BAB384E008CEBF4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67707D562BAB3932008CEBF4 /* StockDetailRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67707D3B2BAB3851008CEBF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67707D532BAB3932008CEBF4 /* StockDetailCoordinator.swift */,
+				67707D592BAB3932008CEBF4 /* StockDetailPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67707D3C2BAB3855008CEBF4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67707D572BAB3932008CEBF4 /* StockDetailBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67707D3D2BAB3858008CEBF4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67707D652BAB3976008CEBF4 /* StockDetailInformationViewController.swift */,
+				67707D6A2BAB3976008CEBF4 /* StockDetailInformationViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67707D3E2BAB385D008CEBF4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67707D682BAB3976008CEBF4 /* StockDetailInformationViewModel.swift */,
+				67707D642BAB3976008CEBF4 /* StockDetailInformationUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67707D3F2BAB3861008CEBF4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				67707D662BAB3976008CEBF4 /* StockDetailInformationRepository.swift */,
+				67707D692BAB3976008CEBF4 /* StockDetailInformationPassData.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		67707D402BAB3864008CEBF4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				67707D632BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		67707D412BAB3869008CEBF4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				67707D672BAB3976008CEBF4 /* StockDetailInformationBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		67707D732BAB39BB008CEBF4 /* JobiService */ = {
+			isa = PBXGroup;
+			children = (
+				67707D742BAB39D7008CEBF4 /* JobiStockService.swift */,
+			);
+			path = JobiService;
+			sourceTree = "<group>";
+		};
+		67707D762BAB3AF4008CEBF4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67707D772BAB3B01008CEBF4 /* StockModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6772DE452AAF90540044607A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				6772DE462AAF905E0044607A /* AuthenticationRepository.swift */,
+				67707D7A2BAB6157008CEBF4 /* JobiStockRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -3912,6 +4206,10 @@
 			isa = PBXGroup;
 			children = (
 				678F49942B9A1E17006E5083 /* StockViewController */,
+				67707D1A2BAB3719008CEBF4 /* MyStockListViewController */,
+				67707D302BAB37D3008CEBF4 /* NewStockViewController */,
+				67707D312BAB37F1008CEBF4 /* StockDetailViewController */,
+				67707D322BAB3807008CEBF4 /* StockDetailInformationViewController */,
 			);
 			path = Stock;
 			sourceTree = "<group>";
@@ -3945,6 +4243,7 @@
 			children = (
 				678F49992B9A1E3D006E5083 /* Builder */,
 				678F49982B9A1E3A006E5083 /* Coordinator */,
+				67707D762BAB3AF4008CEBF4 /* Model */,
 				678F49972B9A1E36006E5083 /* Repository */,
 				678F49962B9A1E32006E5083 /* ViewModel */,
 				678F49952B9A1E2E006E5083 /* ViewController */,
@@ -5226,6 +5525,7 @@
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
 				678F4A052B9A38A9006E5083 /* GoogleService-Info.plist */,
+				67D820B02BAEDEF2008698FF /* Template */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
 			path = App;
@@ -5253,7 +5553,6 @@
 			children = (
 				678B537D2AA25F72003F4355 /* Bases */,
 				676E72062AA383C200010350 /* Components */,
-				67E7010F2BA2131B00BFC376 /* EmptyAuth */,
 				67CC75AA2AA25EC7003206F0 /* Splash */,
 				67EA5B732AAF8DCC0086E20C /* Auth */,
 				678F49EF2B9A2591006E5083 /* ModuleSelection */,
@@ -5371,6 +5670,15 @@
 				67D7703B2B4D49760034A867 /* BuyingChartsBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		67D820B02BAEDEF2008698FF /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				67D820AF2BAEDEF2008698FF /* BerkelTemplateReadme.md */,
+				67D820C22BAEDFD5008698FF /* BerkelModule.xctemplate.zip */,
+			);
+			path = Template;
 			sourceTree = "<group>";
 		};
 		67DB17172ABF14AE00463CA9 /* NewBuyingViewController */ = {
@@ -5506,61 +5814,6 @@
 				67DDE8902B0E779D00E24949 /* CustomerListDataSourceFactory.swift */,
 			);
 			path = DataSource;
-			sourceTree = "<group>";
-		};
-		67E7010F2BA2131B00BFC376 /* EmptyAuth */ = {
-			isa = PBXGroup;
-			children = (
-				67E701142BA2133B00BFC376 /* Builder */,
-				67E701132BA2133800BFC376 /* Coordinator */,
-				67E701122BA2133400BFC376 /* Repository */,
-				67E701112BA2133100BFC376 /* ViewModel */,
-				67E701102BA2132400BFC376 /* ViewController */,
-			);
-			path = EmptyAuth;
-			sourceTree = "<group>";
-		};
-		67E701102BA2132400BFC376 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				67E701172BA2247200BFC376 /* EmptyAuthViewController.swift */,
-				67E7011C2BA2247200BFC376 /* EmptyAuthViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		67E701112BA2133100BFC376 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				67E7011A2BA2247200BFC376 /* EmptyAuthViewModel.swift */,
-				67E701162BA2247200BFC376 /* EmptyAuthUIModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		67E701122BA2133400BFC376 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				67E701182BA2247200BFC376 /* EmptyAuthRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		67E701132BA2133800BFC376 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				67E701152BA2247200BFC376 /* EmptyAuthCoordinator.swift */,
-				67E7011B2BA2247200BFC376 /* EmptyAuthPassData.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		67E701142BA2133B00BFC376 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				67E701192BA2247200BFC376 /* EmptyAuthBuilder.swift */,
-			);
-			path = Builder;
 			sourceTree = "<group>";
 		};
 		67EA5B5A2AAF83AF0086E20C /* TextField */ = {
@@ -5976,6 +6229,7 @@
 			files = (
 				67B9EE512AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib in Resources */,
 				678DE0052AC74A9000AA8D46 /* BuyingTableViewCell.xib in Resources */,
+				67707D522BAB38ED008CEBF4 /* NewStockViewController.xib in Resources */,
 				67DDE8822B0E764700E24949 /* CustomerListTableViewCell.xib in Resources */,
 				671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */,
 				678610982ADEEC6F00031FF5 /* NewWarehouseViewController.xib in Resources */,
@@ -6002,7 +6256,6 @@
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
 				6710C7E42B666D3800028500 /* OtherTableViewCell.xib in Resources */,
 				672474622B5D1F7400E50B4A /* OtherSellerCategoryListViewController.xib in Resources */,
-				67E701242BA2247200BFC376 /* EmptyAuthViewController.xib in Resources */,
 				67A1EE8D2AF1691700126E44 /* CavusListViewController.xib in Resources */,
 				678F49EC2B9A1EF1006E5083 /* JobiListViewController.xib in Resources */,
 				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
@@ -6014,10 +6267,12 @@
 				670B3C7A2ABA0CA500EE7CFB /* AddBuyingItemTableViewCell.xib in Resources */,
 				671AC43D2AE18F0E00915113 /* WarehouseListTableViewCell.xib in Resources */,
 				67FA8B452AF66B4100C09B09 /* WorkerCollectionViewController.xib in Resources */,
+				67707D722BAB3976008CEBF4 /* StockDetailInformationViewController.xib in Resources */,
 				67995ACB2ADBEB8200D8EA12 /* BuyingPaymentViewController.xib in Resources */,
 				672AD5ED2B4EFB06009C8E4A /* ReadMe.rtf in Resources */,
 				677E67CF2AA35403001775E2 /* SellerViewController.xib in Resources */,
 				6776F49A2AB3A403006836CE /* AddBuyingItemViewController.xib in Resources */,
+				67707D622BAB3932008CEBF4 /* StockDetailViewController.xib in Resources */,
 				67C019782B110B4C0094D023 /* SellerPaymentViewController.xib in Resources */,
 				67C019502B1108640094D023 /* SellerDetailViewController.xib in Resources */,
 				6775217A2B4FD8C500239364 /* UserAuthsViewController.xib in Resources */,
@@ -6025,6 +6280,7 @@
 				672E0A8E2AEACFF30065C36B /* ArchiveDetailViewController.xib in Resources */,
 				67C1EC582AFFC11E005DDA22 /* WorkerDetailPaymentTableViewCell.xib in Resources */,
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
+				67707D2F2BAB3759008CEBF4 /* MyStockListViewController.xib in Resources */,
 				67B98CF92ADBE74500CD4B15 /* BuyingDetailViewController.xib in Resources */,
 				67C019642B1109EA0094D023 /* SellerCollectionViewController.xib in Resources */,
 				6724747B2B5D3E8700E50B4A /* OtherSellerListTableViewCell.xib in Resources */,
@@ -6109,7 +6365,9 @@
 				6774FB152AE6DFC900F1F692 /* NewSellerImageUIModel.swift in Sources */,
 				67F87F172AB3A3A000FFC097 /* AddBuyingItemBuilder.swift in Sources */,
 				6797F0442AA4974000638C09 /* Auth.swift in Sources */,
+				67707D5F2BAB3932008CEBF4 /* StockDetailBuilder.swift in Sources */,
 				670FC3C82ABDF676007F82D9 /* PhoneCallHelper.swift in Sources */,
+				67707D512BAB38ED008CEBF4 /* NewStockPassData.swift in Sources */,
 				672474862B5D3FF800E50B4A /* OtherSellerListSection.swift in Sources */,
 				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				67B98D0B2ADBEB3700CD4B15 /* BuyingPaymentRepository.swift in Sources */,
@@ -6124,6 +6382,7 @@
 				6730ED692B1CA96200111826 /* SellerDetailPaymentTableViewCellUIModel.swift in Sources */,
 				67EA5B6B2AAF86C70086E20C /* UIBarButtonItem+Closures.swift in Sources */,
 				673929E22AFC08DE0079A520 /* WorkerCollectionModel.swift in Sources */,
+				67707D5B2BAB3932008CEBF4 /* StockDetailCoordinator.swift in Sources */,
 				67B9EE4B2AD5AF9F003E6BA3 /* BuyingCollectionUIModel.swift in Sources */,
 				6780BDA42AF40366007B131C /* CavusListTableViewCell.swift in Sources */,
 				677E67D92AA35415001775E2 /* SettingsUIModel.swift in Sources */,
@@ -6200,7 +6459,6 @@
 				677521752B4FD8C500239364 /* UserAuthsViewController.swift in Sources */,
 				674D10702ADDAC80002CFFE8 /* BuyingCollectionDiffableTableView.swift in Sources */,
 				677E67B82AA353EA001775E2 /* WorkerViewController.swift in Sources */,
-				67E701222BA2247200BFC376 /* EmptyAuthViewModel.swift in Sources */,
 				6774E26E2ABAF153005FC78A /* Date+Extension.swift in Sources */,
 				672474502B5D1B5700E50B4A /* OtherSellerService.swift in Sources */,
 				67AD20DF2B73DB750031A598 /* OtherDetailCollectionDataSourceFactory.swift in Sources */,
@@ -6231,10 +6489,11 @@
 				6710C8022B667C4700028500 /* OtherCollectionRepository.swift in Sources */,
 				6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */,
 				67A1EE9F2AF169B000126E44 /* NewCavusViewModel.swift in Sources */,
+				67707D4F2BAB38ED008CEBF4 /* NewStockBuilder.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				674CC6C82ADEE7FD0026A9D2 /* WarehouseListRepository.swift in Sources */,
 				674CC6CA2ADEE7FD0026A9D2 /* WarehouseListViewModel.swift in Sources */,
-				67E7011E2BA2247200BFC376 /* EmptyAuthUIModel.swift in Sources */,
+				67707D7B2BAB6157008CEBF4 /* JobiStockRepository.swift in Sources */,
 				6774FB162AE6DFC900F1F692 /* NewSellerImageViewController.swift in Sources */,
 				67C1EC622AFFC3F7005DDA22 /* WorkerDetailCollectionRowModel.swift in Sources */,
 				674705EA2B0A7A1C006F1639 /* CustomerListBuilder.swift in Sources */,
@@ -6300,6 +6559,7 @@
 				6724748D2B5D42ED00E50B4A /* OtherSellerImageModel.swift in Sources */,
 				6718843B2AF16ABE00D76672 /* NewWorkerViewController.swift in Sources */,
 				6724748F2B5D50C800E50B4A /* OtherService.swift in Sources */,
+				67707D752BAB39D7008CEBF4 /* JobiStockService.swift in Sources */,
 				67A65E362B4C62D1003EACA0 /* WorkerChartsPassData.swift in Sources */,
 				6776F4DA2AB3AF27006836CE /* AddSellerUIModel.swift in Sources */,
 				674706002B0A7D61006F1639 /* NewCustomerViewModel.swift in Sources */,
@@ -6308,14 +6568,17 @@
 				6776F4DC2AB3AF27006836CE /* AddSellerRepository.swift in Sources */,
 				6774E2762ABAF2BC005FC78A /* String+Subscripts+Extension.swift in Sources */,
 				67F87F142AB3A3A000FFC097 /* AddBuyingItemUIModel.swift in Sources */,
+				67707D6E2BAB3976008CEBF4 /* StockDetailInformationRepository.swift in Sources */,
 				67B98CF32ADBE74500CD4B15 /* BuyingDetailUIModel.swift in Sources */,
 				674CC6C72ADEE7FD0026A9D2 /* WarehouseListViewController.swift in Sources */,
+				67707D6C2BAB3976008CEBF4 /* StockDetailInformationUIModel.swift in Sources */,
 				6724747D2B5D3E9300E50B4A /* OtherSellerListTableViewCellUIModel.swift in Sources */,
 				674D10712ADDAC83002CFFE8 /* BuyingCollectionRowModel.swift in Sources */,
 				67FC97342ADEEC4600FC53AE /* NewWarehouseViewController.swift in Sources */,
 				674705EB2B0A7A1C006F1639 /* CustomerListViewModel.swift in Sources */,
 				67460D4B2B5AB005000AB380 /* NewOtherItemBuilder.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
+				67707D4D2BAB38ED008CEBF4 /* NewStockViewController.swift in Sources */,
 				67460D922B5AE409000AB380 /* NewOtherSellerBuilder.swift in Sources */,
 				6724745D2B5D1F7400E50B4A /* OtherSellerCategoryListViewController.swift in Sources */,
 				67A1EE862AF1691700126E44 /* CavusListCoordinator.swift in Sources */,
@@ -6325,6 +6588,7 @@
 				67CC75B72AA25EF1003206F0 /* SplashBuilder.swift in Sources */,
 				671AC43C2AE18F0E00915113 /* WarehouseListTableViewCell.swift in Sources */,
 				677D62F02AC1F410004F3232 /* SeasonsTableViewCell.swift in Sources */,
+				67707D602BAB3932008CEBF4 /* StockDetailViewModel.swift in Sources */,
 				67D770452B4D49760034A867 /* BuyingChartsPassData.swift in Sources */,
 				67DDE8722B0E5F6700E24949 /* NewSellerRepository.swift in Sources */,
 				67460D342B5AA70A000AB380 /* OtherViewModel.swift in Sources */,
@@ -6334,6 +6598,7 @@
 				67FC97332ADEEC4600FC53AE /* NewWarehouseUIModel.swift in Sources */,
 				67460D4C2B5AB005000AB380 /* NewOtherItemViewModel.swift in Sources */,
 				67FC97352ADEEC4600FC53AE /* NewWarehouseRepository.swift in Sources */,
+				67707D612BAB3932008CEBF4 /* StockDetailPassData.swift in Sources */,
 				678F49C82B9A1ECC006E5083 /* OrderRepository.swift in Sources */,
 				674705FC2B0A7D61006F1639 /* NewCustomerUIModel.swift in Sources */,
 				67C1EC532AFFA9AE005DDA22 /* WorkerDetailCollectionTableViewCellUIModel.swift in Sources */,
@@ -6357,6 +6622,7 @@
 				670B3C992ABA130A00EE7CFB /* BaseTableViewCell.swift in Sources */,
 				6797F0452AA4974000638C09 /* Storage.swift in Sources */,
 				6710C7F02B666DA400028500 /* OtherDiffableTableView.swift in Sources */,
+				67707D5D2BAB3932008CEBF4 /* StockDetailViewController.swift in Sources */,
 				67DDE8892B0E775C00E24949 /* CustomerListDiffableTableView.swift in Sources */,
 				67D770432B4D49760034A867 /* BuyingChartsBuilder.swift in Sources */,
 				67C0194B2B1108640094D023 /* SellerDetailViewController.swift in Sources */,
@@ -6373,11 +6639,14 @@
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				67BE9D3A2AF6438900D07DA7 /* WorkerDiffableTableView.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
+				67707D502BAB38ED008CEBF4 /* NewStockViewModel.swift in Sources */,
 				67FC97322ADEEC4600FC53AE /* NewWarehouseCoordinator.swift in Sources */,
+				67707D2B2BAB3759008CEBF4 /* MyStockListRepository.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
 				672474602B5D1F7400E50B4A /* OtherSellerCategoryListViewModel.swift in Sources */,
 				67BE9D522AF66A6200D07DA7 /* WorkerDetailBuilder.swift in Sources */,
 				674705E72B0A7A1C006F1639 /* CustomerListUIModel.swift in Sources */,
+				67707D282BAB3759008CEBF4 /* MyStockListCoordinator.swift in Sources */,
 				678DE0072AC74AB200AA8D46 /* BuyingTableViewCellUIModel.swift in Sources */,
 				6797F0412AA4974000638C09 /* Functions.swift in Sources */,
 				67A1EE872AF1691700126E44 /* CavusListUIModel.swift in Sources */,
@@ -6386,6 +6655,7 @@
 				67460D932B5AE409000AB380 /* NewOtherSellerViewModel.swift in Sources */,
 				674CC6C62ADEE7FD0026A9D2 /* WarehouseListUIModel.swift in Sources */,
 				67B6CF872B25E63B00E066D6 /* SettingsItemCell.swift in Sources */,
+				67707D712BAB3976008CEBF4 /* StockDetailInformationPassData.swift in Sources */,
 				671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */,
 				678F49C72B9A1ECC006E5083 /* OrderViewController.swift in Sources */,
 				67C019602B1109EA0094D023 /* SellerCollectionRepository.swift in Sources */,
@@ -6398,6 +6668,7 @@
 				67B98D0D2ADBEB3700CD4B15 /* BuyingPaymentViewModel.swift in Sources */,
 				678F49BA2B9A1EA0006E5083 /* StockPassData.swift in Sources */,
 				678F4A022B9A25B8006E5083 /* ModuleSelectionViewModel.swift in Sources */,
+				67707D4B2BAB38EC008CEBF4 /* NewStockCoordinator.swift in Sources */,
 				67BE9D422AF643C500D07DA7 /* WorkerDataSourceFactory.swift in Sources */,
 				67AD20F02B73F8040031A598 /* OtherSellerChartsUIModel.swift in Sources */,
 				6780BDAD2AF40529007B131C /* CavusListDiffableTableView.swift in Sources */,
@@ -6423,6 +6694,7 @@
 				67C0194C2B1108640094D023 /* SellerDetailRepository.swift in Sources */,
 				67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */,
 				67AD20F22B73F8040031A598 /* OtherSellerChartsRepository.swift in Sources */,
+				67707D4C2BAB38EC008CEBF4 /* NewStockUIModel.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
 				678F49EA2B9A1EF1006E5083 /* JobiListViewModel.swift in Sources */,
 				672398002AEACB25001538C1 /* ArchiveListBuilder.swift in Sources */,
@@ -6435,10 +6707,11 @@
 				678F498B2B9A19BC006E5083 /* JobiTabbarController.swift in Sources */,
 				674C261D2B0FB66B00B9A32A /* SellerService.swift in Sources */,
 				6747AC302B697CEE00D4E8CA /* OtherDetailViewModel.swift in Sources */,
+				67707D6F2BAB3976008CEBF4 /* StockDetailInformationBuilder.swift in Sources */,
 				677F8DD92AB2333400DE5264 /* NativeProgressView.swift in Sources */,
+				67707D702BAB3976008CEBF4 /* StockDetailInformationViewModel.swift in Sources */,
 				677E67CE2AA35403001775E2 /* SellerPassData.swift in Sources */,
 				6710C7E32B666D3800028500 /* OtherTableViewCell.swift in Sources */,
-				67E701232BA2247200BFC376 /* EmptyAuthPassData.swift in Sources */,
 				6730ED7D2B1CB9DE00111826 /* SellerDetailCollectionDataSource.swift in Sources */,
 				67A65E302B4C62D1003EACA0 /* WorkerChartsCoordinator.swift in Sources */,
 				67DB17262ABF155F00463CA9 /* NewBuyingViewModel.swift in Sources */,
@@ -6461,6 +6734,7 @@
 				671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */,
 				67A65E342B4C62D1003EACA0 /* WorkerChartsBuilder.swift in Sources */,
 				670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */,
+				67707D6D2BAB3976008CEBF4 /* StockDetailInformationViewController.swift in Sources */,
 				67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */,
 				67C019742B110B4C0094D023 /* SellerPaymentRepository.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
@@ -6484,12 +6758,15 @@
 				67C1EC602AFFC3E3005DDA22 /* WorkerDetailCollectionDiffableTableView.swift in Sources */,
 				67DDE8732B0E5F6700E24949 /* NewSellerBuilder.swift in Sources */,
 				670B3C732ABA0C4E00EE7CFB /* AddBuyingItemRowModel.swift in Sources */,
+				67707D6B2BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift in Sources */,
 				67EA5B5C2AAF83B90086E20C /* BaseReusableTextField.swift in Sources */,
 				6774E2732ABAF1D4005FC78A /* String+Date+Extension.swift in Sources */,
 				678DDFFC2AC747D600AA8D46 /* BuyingSection.swift in Sources */,
+				67707D5E2BAB3932008CEBF4 /* StockDetailRepository.swift in Sources */,
 				67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */,
 				67FC97382ADEEC4600FC53AE /* NewWarehousePassData.swift in Sources */,
 				67460D2F2B5AA70A000AB380 /* OtherCoordinator.swift in Sources */,
+				67707D5C2BAB3932008CEBF4 /* StockDetailUIModel.swift in Sources */,
 				674705FD2B0A7D61006F1639 /* NewCustomerViewController.swift in Sources */,
 				678D90072B6F96BD00EE2584 /* OtherDetailPaymentTableViewCellUIModel.swift in Sources */,
 				67C019772B110B4C0094D023 /* SellerPaymentPassData.swift in Sources */,
@@ -6518,6 +6795,7 @@
 				674C262D2B0FCAB800B9A32A /* SellerRowModel.swift in Sources */,
 				67460D332B5AA70A000AB380 /* OtherBuilder.swift in Sources */,
 				672398012AEACB25001538C1 /* ArchiveListViewModel.swift in Sources */,
+				67707D2A2BAB3759008CEBF4 /* MyStockListViewController.swift in Sources */,
 				676E720A2AA3852D00010350 /* CGFloat+Extension.swift in Sources */,
 				67460D7B2B5AE07C000AB380 /* OtherSellerListViewController.swift in Sources */,
 				67460D7E2B5AE07C000AB380 /* OtherSellerListViewModel.swift in Sources */,
@@ -6558,6 +6836,7 @@
 				67C0194D2B1108640094D023 /* SellerDetailBuilder.swift in Sources */,
 				67460D8E2B5AE409000AB380 /* NewOtherSellerCoordinator.swift in Sources */,
 				6718843E2AF16ABE00D76672 /* NewWorkerViewModel.swift in Sources */,
+				67707D2E2BAB3759008CEBF4 /* MyStockListPassData.swift in Sources */,
 				67FC97282ADEE94A00FC53AE /* WarehoseModel.swift in Sources */,
 				674706012B0A7D61006F1639 /* NewCustomerPassData.swift in Sources */,
 				678BACE12B2A2D5000EF7050 /* SellerChartsViewModel.swift in Sources */,
@@ -6570,6 +6849,7 @@
 				6797F0522AA4975300638C09 /* WriteBatch+Combine.swift in Sources */,
 				67A09AC02B509791001D0A12 /* UserListService.swift in Sources */,
 				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,
+				67707D4E2BAB38ED008CEBF4 /* NewStockRepository.swift in Sources */,
 				67FC97372ADEEC4600FC53AE /* NewWarehouseViewModel.swift in Sources */,
 				677F8DD72AB2126500DE5264 /* UserManager.swift in Sources */,
 				67B9EE4A2AD5AF9F003E6BA3 /* BuyingCollectionCoordinator.swift in Sources */,
@@ -6582,10 +6862,10 @@
 				678F49D52B9A1EDF006E5083 /* CostCoordinator.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */,
-				67E701202BA2247200BFC376 /* EmptyAuthRepository.swift in Sources */,
 				67460D4A2B5AB005000AB380 /* NewOtherItemRepository.swift in Sources */,
 				67DDE88B2B0E777100E24949 /* CustomerListRowModel.swift in Sources */,
 				672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */,
+				67707D782BAB3B01008CEBF4 /* StockModel.swift in Sources */,
 				6730ED6C2B1CAAE200111826 /* SellerDetailCollectionTableViewCell.swift in Sources */,
 				67C019762B110B4C0094D023 /* SellerPaymentViewModel.swift in Sources */,
 				678F49E82B9A1EF1006E5083 /* JobiListRepository.swift in Sources */,
@@ -6602,6 +6882,7 @@
 				678D90052B6F96AF00EE2584 /* OtherDetailCollectionTableViewCellUIModel.swift in Sources */,
 				6747AC2C2B697CEE00D4E8CA /* OtherDetailUIModel.swift in Sources */,
 				672474842B5D3FEF00E50B4A /* OtherSellerListRowModel.swift in Sources */,
+				67707D2C2BAB3759008CEBF4 /* MyStockListBuilder.swift in Sources */,
 				6797F0512AA4975300638C09 /* FirestoreError.swift in Sources */,
 				678B53902AA262BA003F4355 /* WindowHelper.swift in Sources */,
 				6747AC132B69651B00D4E8CA /* OtherPaymentCoordinator.swift in Sources */,
@@ -6622,7 +6903,6 @@
 				67C019722B110B4C0094D023 /* SellerPaymentUIModel.swift in Sources */,
 				6718843A2AF16ABE00D76672 /* NewWorkerUIModel.swift in Sources */,
 				678DE0002AC7489900AA8D46 /* BuyingDataSourceFactory.swift in Sources */,
-				67E7011D2BA2247200BFC376 /* EmptyAuthCoordinator.swift in Sources */,
 				6774FB142AE6DFC900F1F692 /* NewSellerImageCoordinator.swift in Sources */,
 				67460D492B5AB005000AB380 /* NewOtherItemViewController.swift in Sources */,
 				67FAA6352AF4154100BB400A /* WorkerModel.swift in Sources */,
@@ -6657,8 +6937,6 @@
 				678BACDD2B2A2D5000EF7050 /* SellerChartsUIModel.swift in Sources */,
 				67BE9D672AF66B1000D07DA7 /* WorkerCollectionBuilder.swift in Sources */,
 				67460D942B5AE409000AB380 /* NewOtherSellerPassData.swift in Sources */,
-				67E701212BA2247200BFC376 /* EmptyAuthBuilder.swift in Sources */,
-				67E7011F2BA2247200BFC376 /* EmptyAuthViewController.swift in Sources */,
 				6774FB0A2AE6D86A00F1F692 /* SellerImageModel.swift in Sources */,
 				678F49B62B9A1EA0006E5083 /* StockViewController.swift in Sources */,
 				6710C8092B667D4700028500 /* OtherCollectionModel.swift in Sources */,
@@ -6673,9 +6951,11 @@
 				678BACDC2B2A2D5000EF7050 /* SellerChartsCoordinator.swift in Sources */,
 				672398152AEACFD1001538C1 /* ArchiveDetailBuilder.swift in Sources */,
 				6730ED7B2B1CB9D700111826 /* SellerDetailCollectionDataSourceFactory.swift in Sources */,
+				67707D292BAB3759008CEBF4 /* MyStockListUIModel.swift in Sources */,
 				672398132AEACFD1001538C1 /* ArchiveDetailViewController.swift in Sources */,
 				67AD20F12B73F8040031A598 /* OtherSellerChartsViewController.swift in Sources */,
 				678DE0042AC74A9000AA8D46 /* BuyingTableViewCell.swift in Sources */,
+				67707D2D2BAB3759008CEBF4 /* MyStockListViewModel.swift in Sources */,
 				67460D902B5AE409000AB380 /* NewOtherSellerViewController.swift in Sources */,
 				67AD20F42B73F8040031A598 /* OtherSellerChartsViewModel.swift in Sources */,
 				678F49E72B9A1EF1006E5083 /* JobiListViewController.swift in Sources */,

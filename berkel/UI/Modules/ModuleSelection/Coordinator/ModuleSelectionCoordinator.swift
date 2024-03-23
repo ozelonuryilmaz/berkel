@@ -15,15 +15,13 @@ final class ModuleSelectionCoordinator: PresentationCoordinator, IModuleSelectio
 
     private var coordinatorData: ModuleSelectionPassData { return castPassData(ModuleSelectionPassData.self) }
 
-    private weak var navController: MainNavigationController? = nil
-
     override func start() {
         let controller = ModuleSelectionBuilder.generate(with: coordinatorData,
                                                                    coordinator: self)
-        navController = MainNavigationController() // memory leak için weak tanımlandı
-        navController!.modalPresentationStyle = .fullScreen
-        navController!.modalTransitionStyle = .crossDissolve
-        navController!.setRootViewController(viewController: controller)
-        startPresent(targetVC: navController!)
+        let navController = MainNavigationController()
+        navController.modalPresentationStyle = .fullScreen
+        navController.modalTransitionStyle = .crossDissolve
+        navController.setRootViewController(viewController: controller)
+        startPresent(targetVC: navController)
     }
 }

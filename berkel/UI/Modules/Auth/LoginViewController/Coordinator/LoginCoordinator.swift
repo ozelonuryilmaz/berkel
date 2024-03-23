@@ -17,8 +17,6 @@ final class LoginCoordinator: PresentationCoordinator, ILoginCoordinator {
 
     private var coordinatorData: LoginPassData { return castPassData(LoginPassData.self) }
 
-    private weak var authNavigationController: MainNavigationController? = nil
-
     private var authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)? = nil
 
     @discardableResult
@@ -33,14 +31,14 @@ final class LoginCoordinator: PresentationCoordinator, ILoginCoordinator {
                                                willDismissCallback: self.willDismissCallback,
                                                didDismissCallback: self.didDismissCallback,
                                                authDismissCallBack: self.authDismissCallBack)
-        authNavigationController = MainNavigationController() // memory leak için weak tanımlandı
-        authNavigationController!.setRootViewController(viewController: controller)
-        authNavigationController!.modalPresentationStyle = .fullScreen
-        startPresent(targetVC: authNavigationController!)
+        let authNavigationController = MainNavigationController()
+        authNavigationController.setRootViewController(viewController: controller)
+        authNavigationController.modalPresentationStyle = .fullScreen
+        startPresent(targetVC: authNavigationController)
     }
 
     func pushRegisterViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?) {
-        guard let navController = authNavigationController else { return }
+        guard let navController = UIApplication.topViewController()?.navigationController else { return }
         let coordinator = RegisterCoordinator(navigationController: navController)
             .with(authDismissCallBack: authDismissCallBack)
             .with(passData: RegisterPassData())
@@ -48,6 +46,6 @@ final class LoginCoordinator: PresentationCoordinator, ILoginCoordinator {
     }
 
     func dismiss(completion: (() -> Void)?) {
-        self.authNavigationController?.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }

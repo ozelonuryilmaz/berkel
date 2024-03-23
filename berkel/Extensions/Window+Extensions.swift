@@ -9,24 +9,24 @@ import UIKit
 
 extension UIWindow {
 
-    func topViewControllerNew() -> UIViewController? {
-        return topViewControllerNew(self.rootViewController)
+    func topViewController() -> UIViewController? {
+        return topViewController(self.rootViewController)
     }
 
-    private func topViewControllerNew(_ base: UIViewController?) -> UIViewController? {
+    private func topViewController(_ base: UIViewController?) -> UIViewController? {
 
         if let nav = base as? UINavigationController {
-            return topViewControllerNew(nav.visibleViewController)
+            return topViewController(nav.visibleViewController)
         }
 
         if let tab = base as? UITabBarController {
             if let selected = tab.selectedViewController {
-                return topViewControllerNew(selected)
+                return topViewController(selected)
             }
         }
 
         if let presented = base?.presentedViewController {
-            return topViewControllerNew(presented)
+            return topViewController(presented)
         }
 
         return base

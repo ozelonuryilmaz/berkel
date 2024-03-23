@@ -16,31 +16,23 @@ final class WorkerCollectionCoordinator: PresentationCoordinator, IWorkerCollect
 
     private var coordinatorData: WorkerCollectionPassData { return castPassData(WorkerCollectionPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = WorkerCollectionBuilder.generate(with: coordinatorData,
                                                           coordinator: self)
-
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
 extension WorkerCollectionCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> WorkerCollectionCoordinator {
-        return WorkerCollectionCoordinator(presenterViewController: presenterViewController,
-                                           navController: MainNavigationController())
+        return WorkerCollectionCoordinator(presenterViewController: presenterViewController)
     }
 }

@@ -18,14 +18,7 @@ final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerC
 
     private var coordinatorData: NewOtherSellerPassData { return castPassData(NewOtherSellerPassData.self) }
 
-    private unowned var navController: MainNavigationController // Presenter
-
     private weak var outputDelegate: NewOtherSellerViewControllerOutputDelegate? = nil
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
 
     @discardableResult
     func with(outputDelegate: NewOtherSellerViewControllerOutputDelegate) -> NewOtherSellerCoordinator {
@@ -39,18 +32,19 @@ final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerC
         let controller = NewOtherSellerBuilder.generate(with: coordinatorData,
                                                         coordinator: self,
                                                         outputDelegate: outputDelegate)
-
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 
     func presentOtherSellerCategoryListViewController(outputDelegate: OtherSellerCategoryListViewControllerOutputDelegate) {
-        let controller = OtherSellerCategoryListCoordinator.getInstance(presenterViewController: self.navController.lastViewController)
+        guard let lastViewController = UIApplication.topViewController()?.navigationController?.lastViewController else { return }
+        let controller = OtherSellerCategoryListCoordinator.getInstance(presenterViewController: lastViewController)
             .with(outputDelegate: outputDelegate)
             .with(passData: OtherSellerCategoryListPassData())
         coordinate(to: controller)
@@ -61,7 +55,6 @@ final class NewOtherSellerCoordinator: PresentationCoordinator, INewOtherSellerC
 extension NewOtherSellerCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> NewOtherSellerCoordinator {
-        return NewOtherSellerCoordinator(presenterViewController: presenterViewController,
-                                         navController: MainNavigationController())
+        return NewOtherSellerCoordinator(presenterViewController: presenterViewController)
     }
 }

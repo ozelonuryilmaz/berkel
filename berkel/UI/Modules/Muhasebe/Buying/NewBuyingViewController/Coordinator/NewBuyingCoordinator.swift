@@ -17,8 +17,6 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
 
     private var coordinatorData: NewBuyingPassData { return castPassData(NewBuyingPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private var successDismissCallBack: ((_ data: NewBuyingModel) -> Void)? = nil
 
     @discardableResult
@@ -27,27 +25,24 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
         return self
     }
 
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
-
     override func start() {
         let controller = NewBuyingBuilder.generate(with: coordinatorData,
                                                    coordinator: self,
                                                    successDismissCallBack: self.successDismissCallBack)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
-    
+
     func presentProductListViewController(outputDelegate: ProductListViewControllerOutputDelegate) {
-        let controller =  ProductListCoordinator.getInstance(presenterViewController: self.navController.lastViewController)
+        guard let lastViewController = UIApplication.topViewController()?.navigationController?.lastViewController else { return }
+        let controller = ProductListCoordinator.getInstance(presenterViewController: lastViewController)
             .with(outputDelegate: outputDelegate)
-            .with(passData:  ProductListPassData())
+            .with(passData: ProductListPassData())
         coordinate(to: controller)
     }
 }
@@ -56,7 +51,6 @@ final class NewBuyingCoordinator: PresentationCoordinator, INewBuyingCoordinator
 extension NewBuyingCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> NewBuyingCoordinator {
-        return NewBuyingCoordinator(presenterViewController: presenterViewController,
-                                    navController: MainNavigationController())
+        return NewBuyingCoordinator(presenterViewController: presenterViewController)
     }
 }

@@ -16,14 +16,7 @@ final class NewOtherItemCoordinator: PresentationCoordinator, INewOtherItemCoord
 
     private var coordinatorData: NewOtherItemPassData { return castPassData(NewOtherItemPassData.self) }
 
-    private unowned var navController: MainNavigationController
-
     private weak var outputDelegate: NewOtherItemViewControllerOutputDelegate? = nil
-
-    init(presenterViewController: UIViewController?, navController: MainNavigationController) {
-        self.navController = navController
-        super.init(presenterViewController: presenterViewController)
-    }
 
     @discardableResult
     func with(outputDelegate: NewOtherItemViewControllerOutputDelegate) -> NewOtherItemCoordinator {
@@ -37,12 +30,13 @@ final class NewOtherItemCoordinator: PresentationCoordinator, INewOtherItemCoord
         let controller = NewOtherItemBuilder.generate(with: coordinatorData,
                                                       coordinator: self,
                                                       outputDelegate: outputDelegate)
+        let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
 
     func dismiss(completion: (() -> Void)? = nil) {
-        navController.dismiss(animated: true, completion: completion)
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
@@ -51,7 +45,6 @@ final class NewOtherItemCoordinator: PresentationCoordinator, INewOtherItemCoord
 extension NewOtherItemCoordinator {
 
     static func getInstance(presenterViewController: UIViewController?) -> NewOtherItemCoordinator {
-        return NewOtherItemCoordinator(presenterViewController: presenterViewController,
-                                       navController: MainNavigationController())
+        return NewOtherItemCoordinator(presenterViewController: presenterViewController)
     }
 }

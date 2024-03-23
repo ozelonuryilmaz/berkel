@@ -29,7 +29,7 @@ final class OtherCoordinator: NavigationCoordinator, IOtherCoordinator {
     }
 
     func pushOtherSellerListViewController(passData: OtherSellerListPassData,
-                                         outputDelegate: NewOtherItemViewControllerOutputDelegate) {
+                                           outputDelegate: NewOtherItemViewControllerOutputDelegate) {
         let coordinator = OtherSellerListCoordinator(navigationController: self.navigationController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)

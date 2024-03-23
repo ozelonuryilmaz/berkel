@@ -54,8 +54,8 @@ extension Coordinator {
         return passData
     }
 
-    func topViewControllerNew() -> UIViewController? {
-        return UIApplication.topViewControllerNew()
+    func topViewController() -> UIViewController? {
+        return UIApplication.topViewController()
     }
 }
 
