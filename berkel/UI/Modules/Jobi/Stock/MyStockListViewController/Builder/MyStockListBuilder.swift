@@ -14,8 +14,10 @@ enum MyStockListBuilder {
                          outputDelegate: MyStockListViewControllerOutputDelegate?) -> MyStockListViewController {
 
         let repository = MyStockListRepository()
+        let jobiStockRepository = JobiStockRepository()
         let uiModel = MyStockListUIModel(data: data)
         let viewModel = MyStockListViewModel(repository: repository,
+                                             jobiStockRepository: jobiStockRepository,
                                              coordinator: coordinator,
                                              uiModel: uiModel)
 

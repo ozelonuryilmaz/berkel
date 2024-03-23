@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 
 public var jobiUuid: String = "unknown"
+public var jobiCollection: String = "unknown"
+
 
 protocol ISplashUIModel {
 
@@ -40,6 +42,14 @@ struct SplashUIModel: ISplashUIModel {
     private var jobiAdminKey: String {
         return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
     }
+    
+    private var jobiAdmin: String {
+        return "jobi"
+    }
+    
+    private var jobiGuest: String {
+        return "jobiGuest"
+    }
 
     // MARK: Initialize
     init() {
@@ -60,18 +70,23 @@ struct SplashUIModel: ISplashUIModel {
 
         if self.userId == self.jobiAdminKey {
             jobiUuid = self.jobiAdminKey
+            jobiCollection = self.jobiAdmin
             moduleSelection()
         } else if true == user?.isAdmin && true == user?.isStockAdmin {
             jobiUuid = self.jobiAdminKey
+            jobiCollection = self.jobiAdmin
             moduleSelection()
         } else if true == user?.isAdmin {
             jobiUuid = "unknown"
+            jobiCollection = self.jobiGuest
             moduleSelection()
         } else if true == user?.isStockAdmin {
             jobiUuid = self.jobiAdminKey
+            jobiCollection = self.jobiAdmin
             jobi()
         } else {
             jobiUuid = self.userId ?? "unknown"
+            jobiCollection = self.jobiGuest
             jobi()
         }
     }

@@ -9,20 +9,35 @@ import UIKit
 
 protocol IMyStockListUIModel {
 
-	 init(data: MyStockListPassData)
+    var season: String { get }
 
-} 
+    init(data: MyStockListPassData)
+
+    func getStockModel(name: String) -> StockModel
+}
 
 struct MyStockListUIModel: IMyStockListUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: MyStockListPassData) {
 
     }
 
-    // MARK: Computed Props
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
+    func getStockModel(name: String) -> StockModel {
+        return StockModel(userId: userId,
+                          stockName: name,
+                          date: Date().dateFormatterApiResponseType())
+    }
 }
 
 // MARK: Props

@@ -638,6 +638,7 @@
 		67D770442B4D49760034A867 /* BuyingChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703C2B4D49760034A867 /* BuyingChartsViewModel.swift */; };
 		67D770452B4D49760034A867 /* BuyingChartsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7703D2B4D49760034A867 /* BuyingChartsPassData.swift */; };
 		67D770462B4D49760034A867 /* BuyingChartsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */; };
+		67D820D62BAEFD91008698FF /* SubStockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D820D52BAEFD91008698FF /* SubStockModel.swift */; };
 		67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */; };
 		67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */; };
 		67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */; };
@@ -1354,6 +1355,7 @@
 		67D7703E2B4D49760034A867 /* BuyingChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingChartsViewController.xib; sourceTree = "<group>"; };
 		67D820AF2BAEDEF2008698FF /* BerkelTemplateReadme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BerkelTemplateReadme.md; sourceTree = "<group>"; };
 		67D820C22BAEDFD5008698FF /* BerkelModule.xctemplate.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = BerkelModule.xctemplate.zip; sourceTree = "<group>"; };
+		67D820D52BAEFD91008698FF /* SubStockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubStockModel.swift; sourceTree = "<group>"; };
 		67DB17192ABF155F00463CA9 /* NewBuyingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingCoordinator.swift; sourceTree = "<group>"; };
 		67DB171A2ABF155F00463CA9 /* NewBuyingUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingUIModel.swift; sourceTree = "<group>"; };
 		67DB171B2ABF155F00463CA9 /* NewBuyingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewController.swift; sourceTree = "<group>"; };
@@ -3311,6 +3313,7 @@
 			isa = PBXGroup;
 			children = (
 				67707D772BAB3B01008CEBF4 /* StockModel.swift */,
+				67D820D52BAEFD91008698FF /* SubStockModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6478,6 +6481,7 @@
 				670B3C942ABA130100EE7CFB /* BaseCollectionViewCell.swift in Sources */,
 				67DDE8712B0E5F6700E24949 /* NewSellerViewController.swift in Sources */,
 				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
+				67D820D62BAEFD91008698FF /* SubStockModel.swift in Sources */,
 				67AD20D92B73DB430031A598 /* OtherDetailCollectionRowModel.swift in Sources */,
 				678F4A012B9A25B8006E5083 /* ModuleSelectionBuilder.swift in Sources */,
 				675984242B08E1F400F0DAD0 /* ProductListViewModel.swift in Sources */,

@@ -13,11 +13,12 @@ protocol IMyStockListViewModel: NewStockViewControllerOutputDelegate {
     var errorState: ErrorStateSubject { get }
 
     init(repository: IMyStockListRepository,
+         jobiStockRepository: IJobiStockRepository,
          coordinator: IMyStockListCoordinator,
          uiModel: IMyStockListUIModel)
     
     // Service
-    func saveNewStockCategory(name: String)
+    func saveStock(name: String)
     
     // Coordinate
     func pushNewStockViewController()
@@ -27,19 +28,22 @@ final class MyStockListViewModel: BaseViewModel, IMyStockListViewModel {
 
     // MARK: Definitions
     private let repository: IMyStockListRepository
+    private let jobiStockRepository: IJobiStockRepository
     private let coordinator: IMyStockListCoordinator
     private var uiModel: IMyStockListUIModel
 
     // MARK: Public Props
     var viewState = ScreenStateSubject<MyStockListViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let responseStock = CurrentValueSubject<StockModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IMyStockListRepository,
+                  jobiStockRepository: IJobiStockRepository,
                   coordinator: IMyStockListCoordinator,
                   uiModel: IMyStockListUIModel) {
         self.repository = repository
+        self.jobiStockRepository = jobiStockRepository
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
@@ -50,8 +54,20 @@ final class MyStockListViewModel: BaseViewModel, IMyStockListViewModel {
 // MARK: Service
 internal extension MyStockListViewModel {
 
-    func saveNewStockCategory(name: String) {
-        
+    func saveStock(name: String) {
+        handleResourceFirestore(
+            request: self.jobiStockRepository.saveStock(season: self.uiModel.season,
+                                                        data: self.uiModel.getStockModel(name: name)),
+            response: self.responseStock,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let response = self.responseStock.value else { return }
+                
+            })
     }
 }
 

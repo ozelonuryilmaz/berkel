@@ -11,6 +11,6 @@ struct StockModel: Codable {
     
     var id: String? = nil
     let userId: String?
-    let stockCategoryName: String
+    let stockName: String
     var date: String
 }

@@ -9,13 +9,16 @@ import FirebaseFirestore
 
 protocol IJobiStockRepository: AnyObject {
 
-    func saveNewStockCategory(season: StockModel) -> FirestoreResponseType<StockModel>
+    func saveStock(season: String, data: StockModel) -> FirestoreResponseType<StockModel>
 }
 
 final class JobiStockRepository: BaseRepository, IJobiStockRepository {
 
-    func saveNewStockCategory(season: StockModel) -> FirestoreResponseType<StockModel> {
-        let db: DocumentReference = JobiStockService.save.collectionReference.document()
-        return self.setData(db, data: season)
+    func saveStock(season: String, data: StockModel) -> FirestoreResponseType<StockModel> {
+        let db: DocumentReference = JobiStockService.stocks(season: season).collectionReference.document()
+        let key = db.documentID
+        var tempData = data
+        tempData.id = key
+        return self.setData(db, data: tempData)
     }
 }

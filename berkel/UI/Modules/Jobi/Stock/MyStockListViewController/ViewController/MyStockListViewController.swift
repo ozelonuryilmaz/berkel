@@ -76,7 +76,7 @@ final class MyStockListViewController: JobiBaseViewController {
     // MARK: Define Components
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
-            self.viewModel.pushNewStockViewController()
+            self.newStockCategoryWithTextField()
         }
     }()
 }
@@ -88,15 +88,15 @@ private extension MyStockListViewController {
         let alertController = UIAlertController(title: "Yeni Stok Kategorisi Ekleyin", message: nil, preferredStyle: .alert)
 
         alertController.addTextField { (textField) in
-            textField.placeholder = "Ana Stok Kategorisi Girin"
+            textField.placeholder = "Stok Kategorisi Girin"
         }
 
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
         let saveAction = UIAlertAction(title: "Ekle", style: .default) { _ in
 
             let inputName = alertController.textFields![0].text
-            if (inputName?.count ?? 0) < 50 {
-                //self.viewModel.saveSeason(season: SeasonResponseModel(season: inputName!, date: Date().dateFormatterApiResponseType()))
+            if (inputName?.count ?? 0) > 2 && (inputName?.count ?? 0) < 50 {
+                self.viewModel.saveStock(name: inputName?.capitalized(with: Locale(identifier: "tr")) ?? "")
             } else {
                 self.showSystemAlert(title: "Lütfen stok isminin 50 karakterden fazla girmeyin", message: "")
             }
