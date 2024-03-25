@@ -646,6 +646,11 @@
 		67DB17252ABF155F00463CA9 /* NewBuyingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171D2ABF155F00463CA9 /* NewBuyingBuilder.swift */; };
 		67DB17262ABF155F00463CA9 /* NewBuyingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171E2ABF155F00463CA9 /* NewBuyingViewModel.swift */; };
 		67DB17272ABF155F00463CA9 /* NewBuyingPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DB171F2ABF155F00463CA9 /* NewBuyingPassData.swift */; };
+		67DC11F02BB1E8190049FD18 /* MyStockListItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11EF2BB1E8190049FD18 /* MyStockListItemCellUIModel.swift */; };
+		67DC11F42BB1E8620049FD18 /* MyStockListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11F22BB1E8620049FD18 /* MyStockListItemCell.swift */; };
+		67DC11F52BB1E8620049FD18 /* MyStockListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DC11F32BB1E8620049FD18 /* MyStockListItemCell.xib */; };
+		67DC11F82BB1E92B0049FD18 /* MyStockListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */; };
+		67DC11FA2BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11F92BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift */; };
 		67DDE86F2B0E5F6700E24949 /* NewSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */; };
 		67DDE8702B0E5F6700E24949 /* NewSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */; };
 		67DDE8712B0E5F6700E24949 /* NewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */; };
@@ -1363,6 +1368,11 @@
 		67DB171D2ABF155F00463CA9 /* NewBuyingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingBuilder.swift; sourceTree = "<group>"; };
 		67DB171E2ABF155F00463CA9 /* NewBuyingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingViewModel.swift; sourceTree = "<group>"; };
 		67DB171F2ABF155F00463CA9 /* NewBuyingPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBuyingPassData.swift; sourceTree = "<group>"; };
+		67DC11EF2BB1E8190049FD18 /* MyStockListItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListItemCellUIModel.swift; sourceTree = "<group>"; };
+		67DC11F22BB1E8620049FD18 /* MyStockListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListItemCell.swift; sourceTree = "<group>"; };
+		67DC11F32BB1E8620049FD18 /* MyStockListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyStockListItemCell.xib; sourceTree = "<group>"; };
+		67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListHeaderCell.swift; sourceTree = "<group>"; };
+		67DC11F92BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListHeaderCellUIModel.swift; sourceTree = "<group>"; };
 		67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerCoordinator.swift; sourceTree = "<group>"; };
 		67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerUIModel.swift; sourceTree = "<group>"; };
 		67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerViewController.swift; sourceTree = "<group>"; };
@@ -3096,6 +3106,7 @@
 		67707D1B2BAB372E008CEBF4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				67DC11EE2BB1E7FF0049FD18 /* Cells */,
 				67707D222BAB3759008CEBF4 /* MyStockListViewController.swift */,
 				67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */,
 			);
@@ -5748,6 +5759,34 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		67DC11EE2BB1E7FF0049FD18 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67DC11F62BB1E9110049FD18 /* MyStockListHeaderCell */,
+				67DC11F12BB1E81E0049FD18 /* MyStockListItemCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67DC11F12BB1E81E0049FD18 /* MyStockListItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				67DC11EF2BB1E8190049FD18 /* MyStockListItemCellUIModel.swift */,
+				67DC11F22BB1E8620049FD18 /* MyStockListItemCell.swift */,
+				67DC11F32BB1E8620049FD18 /* MyStockListItemCell.xib */,
+			);
+			path = MyStockListItemCell;
+			sourceTree = "<group>";
+		};
+		67DC11F62BB1E9110049FD18 /* MyStockListHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				67DC11F92BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift */,
+				67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */,
+			);
+			path = MyStockListHeaderCell;
+			sourceTree = "<group>";
+		};
 		67DDE8662B0E5F5100E24949 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -6283,6 +6322,7 @@
 				672E0A8E2AEACFF30065C36B /* ArchiveDetailViewController.xib in Resources */,
 				67C1EC582AFFC11E005DDA22 /* WorkerDetailPaymentTableViewCell.xib in Resources */,
 				677E67AB2AA353D2001775E2 /* BuyingViewController.xib in Resources */,
+				67DC11F52BB1E8620049FD18 /* MyStockListItemCell.xib in Resources */,
 				67707D2F2BAB3759008CEBF4 /* MyStockListViewController.xib in Resources */,
 				67B98CF92ADBE74500CD4B15 /* BuyingDetailViewController.xib in Resources */,
 				67C019642B1109EA0094D023 /* SellerCollectionViewController.xib in Resources */,
@@ -6662,6 +6702,7 @@
 				67707D712BAB3976008CEBF4 /* StockDetailInformationPassData.swift in Sources */,
 				671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */,
 				678F49C72B9A1ECC006E5083 /* OrderViewController.swift in Sources */,
+				67DC11F82BB1E92B0049FD18 /* MyStockListHeaderCell.swift in Sources */,
 				67C019602B1109EA0094D023 /* SellerCollectionRepository.swift in Sources */,
 				6797F0492AA4974800638C09 /* DatabaseReference+Combine.swift in Sources */,
 				670B3C9D2ABA20F000EE7CFB /* BuyingItemService.swift in Sources */,
@@ -6826,6 +6867,7 @@
 				67EA5B7E2AAF8DFA0086E20C /* LoginUIModel.swift in Sources */,
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
 				6775217F2B50218200239364 /* UserAuthsItemCell.swift in Sources */,
+				67DC11F42BB1E8620049FD18 /* MyStockListItemCell.swift in Sources */,
 				678F49D72B9A1EDF006E5083 /* CostViewController.swift in Sources */,
 				67D770402B4D49760034A867 /* BuyingChartsUIModel.swift in Sources */,
 				674C26232B0FC84100B9A32A /* SellerTableViewCell.swift in Sources */,
@@ -6906,6 +6948,7 @@
 				678F49C52B9A1ECC006E5083 /* OrderCoordinator.swift in Sources */,
 				67C019722B110B4C0094D023 /* SellerPaymentUIModel.swift in Sources */,
 				6718843A2AF16ABE00D76672 /* NewWorkerUIModel.swift in Sources */,
+				67DC11FA2BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift in Sources */,
 				678DE0002AC7489900AA8D46 /* BuyingDataSourceFactory.swift in Sources */,
 				6774FB142AE6DFC900F1F692 /* NewSellerImageCoordinator.swift in Sources */,
 				67460D492B5AB005000AB380 /* NewOtherItemViewController.swift in Sources */,
@@ -6924,6 +6967,7 @@
 				674CC6C52ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift in Sources */,
 				6724746C2B5D20E800E50B4A /* OtherSellerCategoryItemService.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
+				67DC11F02BB1E8190049FD18 /* MyStockListItemCellUIModel.swift in Sources */,
 				6776F4DB2AB3AF27006836CE /* AddSellerViewController.swift in Sources */,
 				6797F0532AA4975300638C09 /* CollectionReference+Combine.swift in Sources */,
 				67FA8B542AF66C4A00C09B09 /* WorkerPaymentUIModel.swift in Sources */,

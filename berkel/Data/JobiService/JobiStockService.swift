@@ -11,14 +11,14 @@ enum JobiStockService {
 
     case stocks(season: String) // Limonata, Nar, ...
     case subStocks(season: String, stokId: String) // 0.33lt, 0.5lt, ...
-    case list
+    case stockList(season: String)
 }
 
 extension JobiStockService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .stocks(_), .subStocks(_,_):
+        case .stockList(_):
             return "date"
         default:
             return ""
@@ -27,6 +27,17 @@ extension JobiStockService: CollectionServiceType {
 
     var collectionReference: CollectionReference {
         switch self {
+        case .stockList(let season):
+
+            return Firestore
+                .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
+                .collection("data")
+                .document(season)
+                .collection("stocks")
+
+            
         case .stocks(let season):
 
             return Firestore
@@ -48,12 +59,6 @@ extension JobiStockService: CollectionServiceType {
                 .collection("stocks")
                 .document(stokId)
                 .collection("subStocks")
-            
-        default:
-            return Firestore
-                .firestore()
-                .document("")
-                .collection("")
         }
     }
 }
