@@ -119,24 +119,28 @@ internal extension MyStockListViewModel {
     }
 
     private func getSubStock(stock: StockModel) {
-        handleResourceFirestore(
-            request: self.jobiStockRepository.getSubStock(season: self.uiModel.season, stockId: stock.id ?? ""),
-            response: self.responseSubStockList,
-            errorState: self.errorState,
-            callbackLoading: { [weak self] isProgress in
-                guard let self = self else { return }
-                self.viewStateShowNativeProgress(isProgress: isProgress)
-            },
-            callbackSuccess: { [weak self] in
-                guard let self = self,
-                    let subStockList = self.responseSubStockList.value else { return }
-                self.uiModel.setStock(stock: stock, subStock: subStockList)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
 
-                if self.uiModel.isLastRequest {
-                    self.reloadData()
-                    self.viewStateShowNativeProgress(isProgress: false)
-                }
-            })
+            self.handleResourceFirestore(
+                request: self.jobiStockRepository.getSubStock(season: self.uiModel.season, stockId: stock.id ?? ""),
+                response: self.responseSubStockList,
+                errorState: self.errorState,
+                callbackLoading: { [weak self] isProgress in
+                    guard let self = self else { return }
+                    self.viewStateShowNativeProgress(isProgress: isProgress)
+                },
+                callbackSuccess: { [weak self] in
+                    guard let self = self,
+                        let subStockList = self.responseSubStockList.value else { return }
+                    self.uiModel.setStock(stock: stock, subStock: subStockList)
+
+                    if self.uiModel.isLastRequest {
+                        self.reloadData()
+                        self.viewStateShowNativeProgress(isProgress: false)
+                    }
+                })
+        }
     }
 }
 
