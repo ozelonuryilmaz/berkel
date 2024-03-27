@@ -257,14 +257,6 @@
 		67707D2D2BAB3759008CEBF4 /* MyStockListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D252BAB3759008CEBF4 /* MyStockListViewModel.swift */; };
 		67707D2E2BAB3759008CEBF4 /* MyStockListPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D262BAB3759008CEBF4 /* MyStockListPassData.swift */; };
 		67707D2F2BAB3759008CEBF4 /* MyStockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */; };
-		67707D4B2BAB38EC008CEBF4 /* NewStockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */; };
-		67707D4C2BAB38EC008CEBF4 /* NewStockUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */; };
-		67707D4D2BAB38ED008CEBF4 /* NewStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */; };
-		67707D4E2BAB38ED008CEBF4 /* NewStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */; };
-		67707D4F2BAB38ED008CEBF4 /* NewStockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */; };
-		67707D502BAB38ED008CEBF4 /* NewStockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */; };
-		67707D512BAB38ED008CEBF4 /* NewStockPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */; };
-		67707D522BAB38ED008CEBF4 /* NewStockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */; };
 		67707D5B2BAB3932008CEBF4 /* StockDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D532BAB3932008CEBF4 /* StockDetailCoordinator.swift */; };
 		67707D5C2BAB3932008CEBF4 /* StockDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D542BAB3932008CEBF4 /* StockDetailUIModel.swift */; };
 		67707D5D2BAB3932008CEBF4 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D552BAB3932008CEBF4 /* StockDetailViewController.swift */; };
@@ -622,6 +614,7 @@
 		67C1EC642AFFC402005DDA22 /* WorkerDetailCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1EC632AFFC402005DDA22 /* WorkerDetailCollectionSection.swift */; };
 		67C1EC662AFFC410005DDA22 /* WorkerDetailCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1EC652AFFC410005DDA22 /* WorkerDetailCollectionDataSource.swift */; };
 		67C1EC682AFFC41E005DDA22 /* WorkerDetailCollectionDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1EC672AFFC41E005DDA22 /* WorkerDetailCollectionDataSourceFactory.swift */; };
+		67C73A322BB4A76700280785 /* StockListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C73A312BB4A76700280785 /* StockListModel.swift */; };
 		67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CC75A52AA25A6F003206F0 /* Color.xcassets */; };
 		67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AB2AA25EF1003206F0 /* SplashCoordinator.swift */; };
 		67CC75B42AA25EF1003206F0 /* SplashUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC75AC2AA25EF1003206F0 /* SplashUIModel.swift */; };
@@ -977,14 +970,6 @@
 		67707D252BAB3759008CEBF4 /* MyStockListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListViewModel.swift; sourceTree = "<group>"; };
 		67707D262BAB3759008CEBF4 /* MyStockListPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListPassData.swift; sourceTree = "<group>"; };
 		67707D272BAB3759008CEBF4 /* MyStockListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyStockListViewController.xib; sourceTree = "<group>"; };
-		67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockCoordinator.swift; sourceTree = "<group>"; };
-		67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockUIModel.swift; sourceTree = "<group>"; };
-		67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockViewController.swift; sourceTree = "<group>"; };
-		67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockRepository.swift; sourceTree = "<group>"; };
-		67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockBuilder.swift; sourceTree = "<group>"; };
-		67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockViewModel.swift; sourceTree = "<group>"; };
-		67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockPassData.swift; sourceTree = "<group>"; };
-		67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewStockViewController.xib; sourceTree = "<group>"; };
 		67707D532BAB3932008CEBF4 /* StockDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailCoordinator.swift; sourceTree = "<group>"; };
 		67707D542BAB3932008CEBF4 /* StockDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailUIModel.swift; sourceTree = "<group>"; };
 		67707D552BAB3932008CEBF4 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
@@ -1342,6 +1327,7 @@
 		67C1EC632AFFC402005DDA22 /* WorkerDetailCollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailCollectionSection.swift; sourceTree = "<group>"; };
 		67C1EC652AFFC410005DDA22 /* WorkerDetailCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailCollectionDataSource.swift; sourceTree = "<group>"; };
 		67C1EC672AFFC41E005DDA22 /* WorkerDetailCollectionDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailCollectionDataSourceFactory.swift; sourceTree = "<group>"; };
+		67C73A312BB4A76700280785 /* StockListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListModel.swift; sourceTree = "<group>"; };
 		67CC75A52AA25A6F003206F0 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		67CC75AB2AA25EF1003206F0 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		67CC75AC2AA25EF1003206F0 /* SplashUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIModel.swift; sourceTree = "<group>"; };
@@ -3096,6 +3082,7 @@
 			children = (
 				67707D1F2BAB3741008CEBF4 /* Builder */,
 				67707D1E2BAB373D008CEBF4 /* Coordinator */,
+				67C73A302BB4A75500280785 /* Model */,
 				67707D1D2BAB3737008CEBF4 /* Repository */,
 				67707D1C2BAB3734008CEBF4 /* ViewModel */,
 				67707D1B2BAB372E008CEBF4 /* ViewController */,
@@ -3147,18 +3134,6 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		67707D302BAB37D3008CEBF4 /* NewStockViewController */ = {
-			isa = PBXGroup;
-			children = (
-				67707D362BAB383B008CEBF4 /* Builder */,
-				67707D352BAB3837008CEBF4 /* Coordinator */,
-				67707D372BAB3840008CEBF4 /* Repository */,
-				67707D342BAB3832008CEBF4 /* ViewModel */,
-				67707D332BAB382D008CEBF4 /* ViewController */,
-			);
-			path = NewStockViewController;
-			sourceTree = "<group>";
-		};
 		67707D312BAB37F1008CEBF4 /* StockDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3181,49 +3156,6 @@
 				67707D3D2BAB3858008CEBF4 /* ViewController */,
 			);
 			path = StockDetailInformationViewController;
-			sourceTree = "<group>";
-		};
-		67707D332BAB382D008CEBF4 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				67707D452BAB38EC008CEBF4 /* NewStockViewController.swift */,
-				67707D4A2BAB38EC008CEBF4 /* NewStockViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		67707D342BAB3832008CEBF4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				67707D482BAB38EC008CEBF4 /* NewStockViewModel.swift */,
-				67707D442BAB38EC008CEBF4 /* NewStockUIModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		67707D352BAB3837008CEBF4 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				67707D432BAB38EC008CEBF4 /* NewStockCoordinator.swift */,
-				67707D492BAB38EC008CEBF4 /* NewStockPassData.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		67707D362BAB383B008CEBF4 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				67707D472BAB38EC008CEBF4 /* NewStockBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
-		67707D372BAB3840008CEBF4 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				67707D462BAB38EC008CEBF4 /* NewStockRepository.swift */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		67707D382BAB3846008CEBF4 /* ViewController */ = {
@@ -4221,7 +4153,6 @@
 			children = (
 				678F49942B9A1E17006E5083 /* StockViewController */,
 				67707D1A2BAB3719008CEBF4 /* MyStockListViewController */,
-				67707D302BAB37D3008CEBF4 /* NewStockViewController */,
 				67707D312BAB37F1008CEBF4 /* StockDetailViewController */,
 				67707D322BAB3807008CEBF4 /* StockDetailInformationViewController */,
 			);
@@ -5523,6 +5454,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		67C73A302BB4A75500280785 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67C73A312BB4A76700280785 /* StockListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67CC75A32AA25909003206F0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -6271,7 +6210,6 @@
 			files = (
 				67B9EE512AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib in Resources */,
 				678DE0052AC74A9000AA8D46 /* BuyingTableViewCell.xib in Resources */,
-				67707D522BAB38ED008CEBF4 /* NewStockViewController.xib in Resources */,
 				67DDE8822B0E764700E24949 /* CustomerListTableViewCell.xib in Resources */,
 				671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */,
 				678610982ADEEC6F00031FF5 /* NewWarehouseViewController.xib in Resources */,
@@ -6410,7 +6348,6 @@
 				6797F0442AA4974000638C09 /* Auth.swift in Sources */,
 				67707D5F2BAB3932008CEBF4 /* StockDetailBuilder.swift in Sources */,
 				670FC3C82ABDF676007F82D9 /* PhoneCallHelper.swift in Sources */,
-				67707D512BAB38ED008CEBF4 /* NewStockPassData.swift in Sources */,
 				672474862B5D3FF800E50B4A /* OtherSellerListSection.swift in Sources */,
 				67F87F062AB3A2B500FFC097 /* AppImages.swift in Sources */,
 				67B98D0B2ADBEB3700CD4B15 /* BuyingPaymentRepository.swift in Sources */,
@@ -6533,7 +6470,6 @@
 				6710C8022B667C4700028500 /* OtherCollectionRepository.swift in Sources */,
 				6759841F2B08E1F400F0DAD0 /* ProductListCoordinator.swift in Sources */,
 				67A1EE9F2AF169B000126E44 /* NewCavusViewModel.swift in Sources */,
-				67707D4F2BAB38ED008CEBF4 /* NewStockBuilder.swift in Sources */,
 				678B538D2AA26241003F4355 /* UIApplication+Extensions.swift in Sources */,
 				674CC6C82ADEE7FD0026A9D2 /* WarehouseListRepository.swift in Sources */,
 				674CC6CA2ADEE7FD0026A9D2 /* WarehouseListViewModel.swift in Sources */,
@@ -6555,6 +6491,7 @@
 				672398172AEACFD1001538C1 /* ArchiveDetailPassData.swift in Sources */,
 				677E678C2AA34202001775E2 /* MainTabbarController.swift in Sources */,
 				67BE9D662AF66B1000D07DA7 /* WorkerCollectionRepository.swift in Sources */,
+				67C73A322BB4A76700280785 /* StockListModel.swift in Sources */,
 				67EA5B802AAF8DFA0086E20C /* LoginRepository.swift in Sources */,
 				67DDE8912B0E779D00E24949 /* CustomerListDataSourceFactory.swift in Sources */,
 				67A1EE882AF1691700126E44 /* CavusListViewController.swift in Sources */,
@@ -6622,7 +6559,6 @@
 				674705EB2B0A7A1C006F1639 /* CustomerListViewModel.swift in Sources */,
 				67460D4B2B5AB005000AB380 /* NewOtherItemBuilder.swift in Sources */,
 				6797F0552AA4975300638C09 /* Query+Combine.swift in Sources */,
-				67707D4D2BAB38ED008CEBF4 /* NewStockViewController.swift in Sources */,
 				67460D922B5AE409000AB380 /* NewOtherSellerBuilder.swift in Sources */,
 				6724745D2B5D1F7400E50B4A /* OtherSellerCategoryListViewController.swift in Sources */,
 				67A1EE862AF1691700126E44 /* CavusListCoordinator.swift in Sources */,
@@ -6683,7 +6619,6 @@
 				67F87F152AB3A3A000FFC097 /* AddBuyingItemViewController.swift in Sources */,
 				67BE9D3A2AF6438900D07DA7 /* WorkerDiffableTableView.swift in Sources */,
 				677E67D82AA35415001775E2 /* SettingsCoordinator.swift in Sources */,
-				67707D502BAB38ED008CEBF4 /* NewStockViewModel.swift in Sources */,
 				67FC97322ADEEC4600FC53AE /* NewWarehouseCoordinator.swift in Sources */,
 				67707D2B2BAB3759008CEBF4 /* MyStockListRepository.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
@@ -6713,7 +6648,6 @@
 				67B98D0D2ADBEB3700CD4B15 /* BuyingPaymentViewModel.swift in Sources */,
 				678F49BA2B9A1EA0006E5083 /* StockPassData.swift in Sources */,
 				678F4A022B9A25B8006E5083 /* ModuleSelectionViewModel.swift in Sources */,
-				67707D4B2BAB38EC008CEBF4 /* NewStockCoordinator.swift in Sources */,
 				67BE9D422AF643C500D07DA7 /* WorkerDataSourceFactory.swift in Sources */,
 				67AD20F02B73F8040031A598 /* OtherSellerChartsUIModel.swift in Sources */,
 				6780BDAD2AF40529007B131C /* CavusListDiffableTableView.swift in Sources */,
@@ -6739,7 +6673,6 @@
 				67C0194C2B1108640094D023 /* SellerDetailRepository.swift in Sources */,
 				67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */,
 				67AD20F22B73F8040031A598 /* OtherSellerChartsRepository.swift in Sources */,
-				67707D4C2BAB38EC008CEBF4 /* NewStockUIModel.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
 				678F49EA2B9A1EF1006E5083 /* JobiListViewModel.swift in Sources */,
 				672398002AEACB25001538C1 /* ArchiveListBuilder.swift in Sources */,
@@ -6895,7 +6828,6 @@
 				6797F0522AA4975300638C09 /* WriteBatch+Combine.swift in Sources */,
 				67A09AC02B509791001D0A12 /* UserListService.swift in Sources */,
 				677E67BB2AA353EA001775E2 /* WorkerViewModel.swift in Sources */,
-				67707D4E2BAB38ED008CEBF4 /* NewStockRepository.swift in Sources */,
 				67FC97372ADEEC4600FC53AE /* NewWarehouseViewModel.swift in Sources */,
 				677F8DD72AB2126500DE5264 /* UserManager.swift in Sources */,
 				67B9EE4A2AD5AF9F003E6BA3 /* BuyingCollectionCoordinator.swift in Sources */,

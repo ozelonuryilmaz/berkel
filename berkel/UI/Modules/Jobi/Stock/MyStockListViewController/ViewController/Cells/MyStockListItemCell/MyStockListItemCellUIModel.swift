@@ -9,5 +9,9 @@ import Foundation
 
 struct MyStockListItemCellUIModel {
 
-    let subStockName: String
+    let subStock: SubStockModel
+    
+    var subStockName: String {
+        return subStock.subStockName
+    }
 }

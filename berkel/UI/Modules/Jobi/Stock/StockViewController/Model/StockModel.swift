@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct StockModel: Codable {
-    
+struct StockModel: Codable, Hashable {
+
     var id: String? = nil
     let userId: String?
     let stockName: String

@@ -12,6 +12,7 @@ protocol IJobiStockRepository: AnyObject {
     func saveStock(season: String, data: StockModel) -> FirestoreResponseType<StockModel>
     func saveSubStock(season: String, stockId: String, data: SubStockModel) -> FirestoreResponseType<SubStockModel>
     func getStock(season: String) -> FirestoreResponseType<[StockModel]>
+    func getSubStock(season: String, stockId: String) -> FirestoreResponseType<[SubStockModel]>
 }
 
 final class JobiStockRepository: BaseRepository, IJobiStockRepository {
@@ -25,7 +26,8 @@ final class JobiStockRepository: BaseRepository, IJobiStockRepository {
     }
     
     func saveSubStock(season: String, stockId: String, data: SubStockModel) -> FirestoreResponseType<SubStockModel> {
-        let db: DocumentReference = JobiStockService.subStocks(season: season, stokId: stockId).collectionReference.document()
+        let db: DocumentReference = JobiStockService.subStocks(season: season,
+                                                               stockId: stockId).collectionReference.document()
         let key = db.documentID
         var tempData = data
         tempData.id = key
@@ -35,5 +37,10 @@ final class JobiStockRepository: BaseRepository, IJobiStockRepository {
     func getStock(season: String) -> FirestoreResponseType<[StockModel]> {
         return getDocuments(JobiStockService.stockList(season: season),
                             order: JobiStockService.stockList(season: season).order)
+    }
+    
+    func getSubStock(season: String, stockId: String) -> FirestoreResponseType<[SubStockModel]> {
+        return getDocuments(JobiStockService.subStockList(season: season, stockId: stockId),
+                            order: JobiStockService.subStockList(season: season, stockId: stockId).order)
     }
 }

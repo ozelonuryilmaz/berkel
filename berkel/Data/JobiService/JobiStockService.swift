@@ -10,15 +10,16 @@ import FirebaseFirestore
 enum JobiStockService {
 
     case stocks(season: String) // Limonata, Nar, ...
-    case subStocks(season: String, stokId: String) // 0.33lt, 0.5lt, ...
+    case subStocks(season: String, stockId: String) // 0.33lt, 0.5lt, ...
     case stockList(season: String)
+    case subStockList(season: String, stockId: String)
 }
 
 extension JobiStockService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .stockList(_):
+        case .stockList(_), .subStockList(_,_):
             return "date"
         default:
             return ""
@@ -36,8 +37,19 @@ extension JobiStockService: CollectionServiceType {
                 .collection("data")
                 .document(season)
                 .collection("stocks")
-
             
+        case .subStockList(let season, let stockId):
+
+            return Firestore
+                .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
+                .collection("data")
+                .document(season)
+                .collection("stocks")
+                .document(stockId)
+                .collection("subStocks")
+
         case .stocks(let season):
 
             return Firestore
@@ -48,7 +60,7 @@ extension JobiStockService: CollectionServiceType {
                 .document(season)
                 .collection("stocks")
 
-        case .subStocks(let season, let stokId):
+        case .subStocks(let season, let stockId):
 
             return Firestore
                 .firestore()
@@ -57,7 +69,7 @@ extension JobiStockService: CollectionServiceType {
                 .collection("data")
                 .document(season)
                 .collection("stocks")
-                .document(stokId)
+                .document(stockId)
                 .collection("subStocks")
         }
     }

@@ -15,7 +15,7 @@ protocol MyStockListViewControllerOutputDelegate: AnyObject {
 final class MyStockListViewController: JobiBaseViewController {
 
     override var navigationTitle: String? {
-        return "Stok Listesi"
+        return "Stok Ekle"
     }
 
     // MARK: Constants
@@ -68,6 +68,8 @@ final class MyStockListViewController: JobiBaseViewController {
             case .newSubStockCategoryWithTextField(let uiModel):
                 self.newSubStockCategoryWithTextField(uiModel: uiModel)
 
+            case .reloadData:
+                self.tableView.reloadData()
             }
 
         }).store(in: &cancelBag)

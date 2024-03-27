@@ -8,7 +8,14 @@
 import Foundation
 
 struct MyStockListHeaderCellUIModel {
+
+    let stockModel: StockModel
     
-    let stockId: String
-    let stockName: String
+    var stockId: String {
+        return stockModel.id ?? ""
+    }
+    
+    var stockName: String {
+        return stockModel.stockName
+    }
 }

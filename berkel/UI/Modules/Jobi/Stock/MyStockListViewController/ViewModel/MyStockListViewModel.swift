@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol IMyStockListViewModel: NewStockViewControllerOutputDelegate, MyStockListHeaderCellOutputDelegate{
+protocol IMyStockListViewModel: MyStockListHeaderCellOutputDelegate {
 
     var viewState: ScreenStateSubject<MyStockListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -17,15 +17,12 @@ protocol IMyStockListViewModel: NewStockViewControllerOutputDelegate, MyStockLis
          jobiStockRepository: IJobiStockRepository,
          coordinator: IMyStockListCoordinator,
          uiModel: IMyStockListUIModel)
-    
+
     // Service
     func getStock()
     func saveStock(name: String)
     func saveSubStock(name: String, stockId: String)
-    
-    // Coordinate
-    func pushNewStockViewController()
-    
+
     // TableView
     func getNumberOfItemsInSection() -> Int
     func getNumberOfItemsInRow(section: Int) -> Int
@@ -47,6 +44,7 @@ final class MyStockListViewModel: BaseViewModel, IMyStockListViewModel {
     let responseStock = CurrentValueSubject<StockModel?, Never>(nil)
     let responseStockList = CurrentValueSubject<[StockModel]?, Never>(nil)
     let responseSubStock = CurrentValueSubject<SubStockModel?, Never>(nil)
+    let responseSubStockList = CurrentValueSubject<[SubStockModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IMyStockListRepository,
@@ -59,6 +57,10 @@ final class MyStockListViewModel: BaseViewModel, IMyStockListViewModel {
         self.uiModel = uiModel
     }
 
+    private func reloadData() {
+        self.uiModel.sortedStocks()
+        self.viewStateReloadData()
+    }
 }
 
 
@@ -76,11 +78,12 @@ internal extension MyStockListViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
-                    let response = self.responseStock.value else { return }
-                
+                    let stockModel = self.responseStock.value else { return }
+                self.uiModel.setStock(stock: stockModel, subStock: [])
+                self.reloadData()
             })
     }
-    
+
     func saveSubStock(name: String, stockId: String) {
         handleResourceFirestore(
             request: self.jobiStockRepository.saveSubStock(season: self.uiModel.season,
@@ -92,24 +95,47 @@ internal extension MyStockListViewModel {
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
-                guard let self = self,
-                    let response = self.responseSubStock.value else { return }
-                
+                guard let self = self else { return }
+                self.uiModel.resetValues()
+                self.getStock()
             })
     }
-    
+
     func getStock() {
+        viewStateShowNativeProgress(isProgress: true)
+
         handleResourceFirestore(
             request: self.jobiStockRepository.getStock(season: self.uiModel.season),
             response: self.responseStockList,
             errorState: self.errorState,
+            callbackSuccess: { [weak self] in
+                guard let self = self, let stockList = self.responseStockList.value else { return }
+                self.uiModel.setStockIdx(idx: stockList.compactMap({ $0.id }))
+                self.reloadData()
+                for stock in stockList {
+                    self.getSubStock(stock: stock)
+                }
+            })
+    }
+
+    private func getSubStock(stock: StockModel) {
+        handleResourceFirestore(
+            request: self.jobiStockRepository.getSubStock(season: self.uiModel.season, stockId: stock.id ?? ""),
+            response: self.responseSubStockList,
+            errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
-            }, callbackSuccess: { [weak self] in
+            },
+            callbackSuccess: { [weak self] in
                 guard let self = self,
-                    let response = self.responseStockList.value else { return }
-                print("*** \(response)")
+                    let subStockList = self.responseSubStockList.value else { return }
+                self.uiModel.setStock(stock: stock, subStock: subStockList)
+
+                if self.uiModel.isLastRequest {
+                    self.reloadData()
+                    self.viewStateShowNativeProgress(isProgress: false)
+                }
             })
     }
 }
@@ -121,27 +147,19 @@ internal extension MyStockListViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateNewSubStockCategoryWithTextField(uiModel: MyStockListHeaderCellUIModel) {
         viewState.value = .newSubStockCategoryWithTextField(uiModel: uiModel)
+    }
+
+    func viewStateReloadData() {
+        viewState.value = .reloadData
     }
 }
 
 // MARK: Coordinate
 internal extension MyStockListViewModel {
 
-    func pushNewStockViewController() {
-        self.coordinator.pushNewStockViewController(passData: NewStockPassData(),
-                                                    outputDelegate: self)
-    }
-}
-
-// MARK: NewStockViewControllerOutputDelegate
-internal extension MyStockListViewModel {
-
-    func newStockData(_ data: StockModel) {
-        
-    }
 }
 
 // MARK: MyStockListHeaderCellOutputDelegate
@@ -154,19 +172,19 @@ internal extension MyStockListViewModel {
 
 // MARK: TableView
 internal extension MyStockListViewModel {
-    
+
     func getNumberOfItemsInSection() -> Int {
         return self.uiModel.getNumberOfItemsInSection()
     }
-    
+
     func getNumberOfItemsInRow(section: Int) -> Int {
         return self.uiModel.getNumberOfItemsInRow(section: section)
     }
-    
+
     func getSectionUIModel(section: Int) -> MyStockListHeaderCellUIModel {
         return self.uiModel.getSectionUIModel(section: section)
     }
-    
+
     func getItemCellUIModel(indexPath: IndexPath) -> MyStockListItemCellUIModel {
         return self.uiModel.getItemCellUIModel(indexPath: indexPath)
     }
@@ -175,4 +193,5 @@ internal extension MyStockListViewModel {
 enum MyStockListViewState {
     case showNativeProgress(isProgress: Bool)
     case newSubStockCategoryWithTextField(uiModel: MyStockListHeaderCellUIModel)
+    case reloadData
 }

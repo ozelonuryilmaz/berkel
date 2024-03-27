@@ -9,8 +9,6 @@ import UIKit
 
 protocol IMyStockListCoordinator: AnyObject {
 
-    func pushNewStockViewController(passData: NewStockPassData,
-                                    outputDelegate: NewStockViewControllerOutputDelegate)
 }
 
 final class MyStockListCoordinator: NavigationCoordinator, IMyStockListCoordinator {
@@ -32,13 +30,5 @@ final class MyStockListCoordinator: NavigationCoordinator, IMyStockListCoordinat
                                                      coordinator: self,
                                                      outputDelegate: outputDelegate)
         navigationController.pushViewController(controller, animated: true)
-    }
-    
-    func pushNewStockViewController(passData: NewStockPassData,
-                                    outputDelegate: NewStockViewControllerOutputDelegate) {
-        let coordinator = NewStockCoordinator(navigationController: self.navigationController)
-            .with(outputDelegate: outputDelegate)
-            .with(passData: passData)
-        coordinate(to: coordinator)
     }
 }
