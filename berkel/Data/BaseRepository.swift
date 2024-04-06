@@ -161,3 +161,50 @@ class BaseRepository: IBaseRepository {
         return subject
     }
 }
+
+// Stok sayısı aynı anda arttırılmaya çalışıldığında işlemleri sıraya alarak teker teker arttırır.
+extension BaseRepository {
+    
+    func updateStockCount(_ db: DocumentReference, count: Int) -> FirestoreResponseType<Bool> {
+        let firestore = Firestore.firestore()
+        let subject = FirestoreResponseType<Bool>()
+
+        firestore.runTransaction { (transaction, errorPointer) in
+
+            let counterDocument: DocumentSnapshot
+            do {
+                try counterDocument = transaction.getDocument(db)
+            } catch let fetchError as NSError {
+                errorPointer?.pointee = fetchError
+                subject.send(false)
+                return nil
+            }
+
+            guard let oldValue = counterDocument.data()?["count"] as? Int else {
+                let error = NSError(
+                    domain: "AppErrorDomain",
+                    code: -1,
+                    userInfo: [
+                        NSLocalizedDescriptionKey: "Unable to retrieve counter from snapshot \(counterDocument)"
+                    ]
+                )
+                errorPointer?.pointee = error
+                subject.send(false)
+                return nil
+            }
+
+            // Increment counter by Count Parametre
+            transaction.updateData(["count": oldValue + count], forDocument: db)
+            subject.send(true)
+            return nil
+        } completion: { (object, error) in
+            if let error = error {
+                subject.send(completion: .failure(error))
+            } else {
+                subject.send(completion: .finished)
+            }
+        }
+
+        return subject
+    }
+}

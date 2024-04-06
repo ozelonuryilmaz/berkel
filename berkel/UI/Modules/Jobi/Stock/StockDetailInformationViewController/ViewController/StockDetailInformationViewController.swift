@@ -10,12 +10,23 @@ import Combine
 
 final class StockDetailInformationViewController: JobiBaseViewController {
 
+    override var navigationTitle: String? {
+        return self.viewModel.navigationTitle
+    }
+
+    override var navigationSubTitle: String? {
+        return self.viewModel.navigationSubTitle
+    }
+
     // MARK: Constants
 
     // MARK: Inject
     private let viewModel: IStockDetailInformationViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var btnAddStock: UIButton!
+    @IBOutlet private weak var btnRemoveStock: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -34,7 +45,14 @@ final class StockDetailInformationViewController: JobiBaseViewController {
     }
 
     override func registerEvents() {
-
+        
+        btnAddStock.onTap { [unowned self] _ in
+            self.viewModel.updateStockCount(1)
+        }
+        
+        btnRemoveStock.onTap { [unowned self] _ in
+            self.viewModel.updateStockCount(-1)
+        }
     }
 
     private func observeReactiveDatas() {

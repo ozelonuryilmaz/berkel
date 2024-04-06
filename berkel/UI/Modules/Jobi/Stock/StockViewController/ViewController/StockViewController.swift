@@ -120,6 +120,7 @@ extension StockViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.generateReusableCell(StockItemCell.self, indexPath: indexPath)
         cell.configureCell(with: viewModel.getItemCellUIModel(indexPath: indexPath))
+        cell.outputDelegate = self.viewModel
         return cell
     }
 

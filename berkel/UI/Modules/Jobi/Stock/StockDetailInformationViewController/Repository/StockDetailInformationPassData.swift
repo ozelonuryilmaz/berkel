@@ -9,4 +9,6 @@ import Foundation
 
 struct StockDetailInformationPassData: ICoordinatorPassData {
 
+    let stockModel: StockModel
+    let subStockModel: SubStockModel
 }

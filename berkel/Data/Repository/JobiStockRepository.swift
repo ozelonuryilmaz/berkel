@@ -13,6 +13,7 @@ protocol IJobiStockRepository: AnyObject {
     func saveSubStock(season: String, stockId: String, data: SubStockModel) -> FirestoreResponseType<SubStockModel>
     func getStock(season: String) -> FirestoreResponseType<[StockModel]>
     func getSubStock(season: String, stockId: String) -> FirestoreResponseType<[SubStockModel]>
+    func updateStockCount(count: Int, season: String, stockId: String, subStockId: String) -> FirestoreResponseType<Bool>
 }
 
 final class JobiStockRepository: BaseRepository, IJobiStockRepository {
@@ -42,5 +43,9 @@ final class JobiStockRepository: BaseRepository, IJobiStockRepository {
     func getSubStock(season: String, stockId: String) -> FirestoreResponseType<[SubStockModel]> {
         return getDocuments(JobiStockService.subStockList(season: season, stockId: stockId),
                             order: JobiStockService.subStockList(season: season, stockId: stockId).order)
+    }
+    
+    func updateStockCount(count: Int, season: String, stockId: String, subStockId: String) -> FirestoreResponseType<Bool> {
+        return updateStockCount(JobiStockService.subStock(season: season, stockId: stockId, subStockId: subStockId).documentReference, count: count)
     }
 }

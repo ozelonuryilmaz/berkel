@@ -18,6 +18,8 @@ protocol IStockUIModel {
     mutating func sortedStocks()
     mutating func setStockIdx(idx: [String])
     mutating func setStock(stock: StockModel, subStock: [SubStockModel])
+    
+    func getStockModel(subStockId: String?) -> StockModel?
 
     // TableView
     func getNumberOfItemsInSection() -> Int
@@ -65,6 +67,17 @@ extension StockUIModel {
     mutating func resetValues() {
         self.stocks.removeAll()
         self.stockIdx.removeAll()
+    }
+    
+    // SubStock detayına gidilirken stock bilgisi de gönderilecek
+    func getStockModel(subStockId: String?) -> StockModel? {
+        var stockModel: StockModel? = nil
+        self.stocks.forEach { stock in
+            if stock.subStocks.contains(where: { $0.id == subStockId }) {
+                stockModel = stock.stock
+            }
+        }
+        return stockModel
     }
 }
 

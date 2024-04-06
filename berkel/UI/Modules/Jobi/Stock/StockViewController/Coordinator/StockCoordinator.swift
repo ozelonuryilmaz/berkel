@@ -11,6 +11,8 @@ protocol IStockCoordinator: AnyObject {
 
     func pushMyStockListViewController(passData: MyStockListPassData,
                                        outputDelegate: MyStockListViewControllerOutputDelegate)
+    
+    func pushStockDetailInfoViewController(passData: StockDetailInformationPassData)
 }
 
 final class StockCoordinator: NavigationCoordinator, IStockCoordinator {
@@ -26,6 +28,12 @@ final class StockCoordinator: NavigationCoordinator, IStockCoordinator {
                                        outputDelegate: MyStockListViewControllerOutputDelegate) {
         let coordinator = MyStockListCoordinator(navigationController: self.navigationController)
             .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+    
+    func pushStockDetailInfoViewController(passData: StockDetailInformationPassData) {
+        let coordinator = StockDetailInformationCoordinator(navigationController: self.navigationController)
             .with(passData: passData)
         coordinate(to: coordinator)
     }

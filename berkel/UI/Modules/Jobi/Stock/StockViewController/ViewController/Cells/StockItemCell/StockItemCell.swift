@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol StockItemCellOutputDelegate: AnyObject {
+
+    func subStockTapped(subStock: SubStockModel)
+}
+
 class StockItemCell: BaseTableViewCell {
 
+    @IBOutlet private weak var mContentView: UIView!
     @IBOutlet private weak var labelName: UILabel!
     @IBOutlet private weak var labelCount: UILabel!
+    
+    weak var outputDelegate: StockItemCellOutputDelegate? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +34,8 @@ class StockItemCell: BaseTableViewCell {
 
     private func registerEvents(uiModel: StockItemCellUIModel) {
 
+        self.mContentView.onTap { [unowned self] _ in
+            self.outputDelegate?.subStockTapped(subStock: uiModel.subStock)
+        }
     }
 }

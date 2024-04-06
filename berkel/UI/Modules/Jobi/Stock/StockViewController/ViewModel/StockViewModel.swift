@@ -8,7 +8,9 @@
 import Foundation
 import Combine
 
-protocol IStockViewModel: MyStockListViewControllerOutputDelegate, StockHeaderCellOutputDelegate {
+protocol IStockViewModel: MyStockListViewControllerOutputDelegate, 
+                            StockHeaderCellOutputDelegate,
+                            StockItemCellOutputDelegate {
 
     var viewState: ScreenStateSubject<StockViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -144,6 +146,12 @@ internal extension StockViewModel {
         self.coordinator.pushMyStockListViewController(passData: MyStockListPassData(),
                                                        outputDelegate: self)
     }
+    
+    func pushStockDetailInfoViewController(subStockModel: SubStockModel) {
+        guard let stockModel = self.uiModel.getStockModel(subStockId: subStockModel.id) else { return }
+        let passData = StockDetailInformationPassData(stockModel: stockModel, subStockModel: subStockModel)
+        self.coordinator.pushStockDetailInfoViewController(passData: passData)
+    }
 }
 
 // MARK: MyStockListViewControllerOutputDelegate
@@ -159,6 +167,14 @@ internal extension StockViewModel {
     
     func updateStockCounts(stockModel: StockModel) {
         
+    }
+}
+
+// MARK: StockItemCellOutputDelegate
+internal extension StockViewModel {
+    
+    func subStockTapped(subStock: SubStockModel) {
+        self.pushStockDetailInfoViewController(subStockModel: subStock)
     }
 }
 
