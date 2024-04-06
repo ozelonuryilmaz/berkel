@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+
+import FirebaseAuth
+
+
 final class CostViewController: JobiBaseViewController {
 
     // MARK: Constants
@@ -31,6 +35,16 @@ final class CostViewController: JobiBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 
     override func registerEvents() {

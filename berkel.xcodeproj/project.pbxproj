@@ -681,6 +681,11 @@
 		67EA5B812AAF8DFA0086E20C /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B792AAF8DFA0086E20C /* LoginBuilder.swift */; };
 		67EA5B822AAF8DFA0086E20C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B7A2AAF8DFA0086E20C /* LoginViewModel.swift */; };
 		67EA5B832AAF8DFA0086E20C /* LoginPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EA5B7B2AAF8DFA0086E20C /* LoginPassData.swift */; };
+		67EB43882BC145E2002E9D1D /* StockHeaderCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB43872BC145E2002E9D1D /* StockHeaderCellUIModel.swift */; };
+		67EB438A2BC145F7002E9D1D /* StockHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB43892BC145F7002E9D1D /* StockHeaderCell.swift */; };
+		67EB438F2BC146E3002E9D1D /* StockItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB438D2BC146E3002E9D1D /* StockItemCell.swift */; };
+		67EB43902BC146E3002E9D1D /* StockItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EB438E2BC146E3002E9D1D /* StockItemCell.xib */; };
+		67EB43922BC146F5002E9D1D /* StockItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB43912BC146F5002E9D1D /* StockItemCellUIModel.swift */; };
 		67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DF72AA110B400DBCD48 /* AppDelegate.swift */; };
 		67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E002AA110B500DBCD48 /* Assets.xcassets */; };
 		67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */; };
@@ -1396,6 +1401,11 @@
 		67EA5B792AAF8DFA0086E20C /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		67EA5B7A2AAF8DFA0086E20C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		67EA5B7B2AAF8DFA0086E20C /* LoginPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassData.swift; sourceTree = "<group>"; };
+		67EB43872BC145E2002E9D1D /* StockHeaderCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderCellUIModel.swift; sourceTree = "<group>"; };
+		67EB43892BC145F7002E9D1D /* StockHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHeaderCell.swift; sourceTree = "<group>"; };
+		67EB438D2BC146E3002E9D1D /* StockItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemCell.swift; sourceTree = "<group>"; };
+		67EB438E2BC146E3002E9D1D /* StockItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockItemCell.xib; sourceTree = "<group>"; };
+		67EB43912BC146F5002E9D1D /* StockItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemCellUIModel.swift; sourceTree = "<group>"; };
 		67F03DF42AA110B400DBCD48 /* berkel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = berkel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F03DF72AA110B400DBCD48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67F03E002AA110B500DBCD48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -4199,6 +4209,7 @@
 		678F49952B9A1E2E006E5083 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				67EB43862BC142C5002E9D1D /* Cells */,
 				678F49AE2B9A1EA0006E5083 /* StockViewController.swift */,
 				678F49B32B9A1EA0006E5083 /* StockViewController.xib */,
 			);
@@ -5894,6 +5905,34 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		67EB43862BC142C5002E9D1D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67EB438B2BC1463E002E9D1D /* StockHeaderCell */,
+				67EB438C2BC14644002E9D1D /* StockItemCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67EB438B2BC1463E002E9D1D /* StockHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				67EB43872BC145E2002E9D1D /* StockHeaderCellUIModel.swift */,
+				67EB43892BC145F7002E9D1D /* StockHeaderCell.swift */,
+			);
+			path = StockHeaderCell;
+			sourceTree = "<group>";
+		};
+		67EB438C2BC14644002E9D1D /* StockItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				67EB43912BC146F5002E9D1D /* StockItemCellUIModel.swift */,
+				67EB438D2BC146E3002E9D1D /* StockItemCell.swift */,
+				67EB438E2BC146E3002E9D1D /* StockItemCell.xib */,
+			);
+			path = StockItemCell;
+			sourceTree = "<group>";
+		};
 		67F03DEB2AA110B400DBCD48 = {
 			isa = PBXGroup;
 			children = (
@@ -6289,6 +6328,7 @@
 				67BE9D332AF63FF700D07DA7 /* WorkerTableViewCell.xib in Resources */,
 				67FC97212ADEE83900FC53AE /* WarehouseListViewController.xib in Resources */,
 				67D770462B4D49760034A867 /* BuyingChartsViewController.xib in Resources */,
+				67EB43902BC146E3002E9D1D /* StockItemCell.xib in Resources */,
 				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
 				672474722B5D250600E50B4A /* OtherSellerCategoryListTableViewCell.xib in Resources */,
 			);
@@ -6588,6 +6628,7 @@
 				678F49E92B9A1EF1006E5083 /* JobiListBuilder.swift in Sources */,
 				67C0195E2B1109EA0094D023 /* SellerCollectionUIModel.swift in Sources */,
 				674705FE2B0A7D61006F1639 /* NewCustomerRepository.swift in Sources */,
+				67EB438F2BC146E3002E9D1D /* StockItemCell.swift in Sources */,
 				678F49B72B9A1EA0006E5083 /* StockRepository.swift in Sources */,
 				677521742B4FD8C500239364 /* UserAuthsUIModel.swift in Sources */,
 				677E67A52AA353D2001775E2 /* BuyingUIModel.swift in Sources */,
@@ -6713,6 +6754,7 @@
 				67A65E342B4C62D1003EACA0 /* WorkerChartsBuilder.swift in Sources */,
 				670B3C8B2ABA109500EE7CFB /* UITableView+General.swift in Sources */,
 				67707D6D2BAB3976008CEBF4 /* StockDetailInformationViewController.swift in Sources */,
+				67EB438A2BC145F7002E9D1D /* StockHeaderCell.swift in Sources */,
 				67DB17222ABF155F00463CA9 /* NewBuyingUIModel.swift in Sources */,
 				67C019742B110B4C0094D023 /* SellerPaymentRepository.swift in Sources */,
 				6797F0482AA4974800638C09 /* DatabaseQuery+Combine.swift in Sources */,
@@ -6810,6 +6852,7 @@
 				6797F0382AA4973600638C09 /* Auth+Combine.swift in Sources */,
 				677E67A72AA353D2001775E2 /* BuyingRepository.swift in Sources */,
 				672E0A972AEAE8430065C36B /* ArchiveListTableViewCell.swift in Sources */,
+				67EB43882BC145E2002E9D1D /* StockHeaderCellUIModel.swift in Sources */,
 				6718843C2AF16ABE00D76672 /* NewWorkerRepository.swift in Sources */,
 				675755E42B15216C00BDA8C2 /* SellerCollectionModel.swift in Sources */,
 				67C0194D2B1108640094D023 /* SellerDetailBuilder.swift in Sources */,
@@ -6832,6 +6875,7 @@
 				677F8DD72AB2126500DE5264 /* UserManager.swift in Sources */,
 				67B9EE4A2AD5AF9F003E6BA3 /* BuyingCollectionCoordinator.swift in Sources */,
 				6724745E2B5D1F7400E50B4A /* OtherSellerCategoryListRepository.swift in Sources */,
+				67EB43922BC146F5002E9D1D /* StockItemCellUIModel.swift in Sources */,
 				677E67902AA34751001775E2 /* MainNavigationController.swift in Sources */,
 				67A1EE9D2AF169B000126E44 /* NewCavusRepository.swift in Sources */,
 				67D770442B4D49760034A867 /* BuyingChartsViewModel.swift in Sources */,

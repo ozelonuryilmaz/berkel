@@ -65,7 +65,7 @@ extension MyStockListHeaderCell {
         
         btnSubStock.snp.makeConstraints { maker in
             maker.leading.equalTo(headerTitleView.snp.trailing)
-            maker.trailing.equalToSuperview().offset(-16)
+            maker.trailing.equalToSuperview().offset(-32)
             maker.centerY.equalTo(headerTitleView).offset(8)
             maker.width.equalTo(44)
             maker.height.equalTo(44)

@@ -68,6 +68,8 @@ final class MyStockListViewModel: BaseViewModel, IMyStockListViewModel {
 internal extension MyStockListViewModel {
 
     func saveStock(name: String) {
+        guard !uiModel.isHaveStock(name: name) else { return }
+
         handleResourceFirestore(
             request: self.jobiStockRepository.saveStock(season: self.uiModel.season,
                                                         data: self.uiModel.getStockModel(name: name)),
@@ -85,6 +87,8 @@ internal extension MyStockListViewModel {
     }
 
     func saveSubStock(name: String, stockId: String) {
+        guard !uiModel.isHaveSubStock(stockId: stockId, name: name) else { return }
+
         handleResourceFirestore(
             request: self.jobiStockRepository.saveSubStock(season: self.uiModel.season,
                                                            stockId: stockId,
@@ -111,9 +115,15 @@ internal extension MyStockListViewModel {
             callbackSuccess: { [weak self] in
                 guard let self = self, let stockList = self.responseStockList.value else { return }
                 self.uiModel.setStockIdx(idx: stockList.compactMap({ $0.id }))
-                self.reloadData()
                 for stock in stockList {
                     self.getSubStock(stock: stock)
+                }
+            },
+            callbackComplete: { [weak self] in
+                guard let self = self, let stockList = self.responseStockList.value else { return }
+                if stockList.isEmpty {
+                    self.viewStateShowNativeProgress(isProgress: false)
+                    self.reloadData()
                 }
             })
     }
@@ -134,10 +144,12 @@ internal extension MyStockListViewModel {
                     guard let self = self,
                         let subStockList = self.responseSubStockList.value else { return }
                     self.uiModel.setStock(stock: stock, subStock: subStockList)
-
+                },
+                callbackComplete: { [weak self] in
+                    guard let self = self else { return }
                     if self.uiModel.isLastRequest {
-                        self.reloadData()
                         self.viewStateShowNativeProgress(isProgress: false)
+                        self.reloadData()
                     }
                 })
         }

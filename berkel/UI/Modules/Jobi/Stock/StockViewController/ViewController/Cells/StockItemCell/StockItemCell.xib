@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="StockItemCell" customModule="berkel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMa-Fh-esE">
+                        <rect key="frame" x="16" y="8" width="125" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="4j7-qq-QiV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-aI-fdN">
+                        <rect key="frame" x="143" y="8" width="125" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="KC7-yr-KIQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconArrowRightGrey" translatesAutoresizingMaskIntoConstraints="NO" id="as9-Ae-85S">
+                        <rect key="frame" x="284" y="20.666666666666668" width="20" height="20.000000000000004"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="AdI-gm-T0n"/>
+                            <constraint firstAttribute="width" constant="20" id="NFP-Ap-cLF"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pfc-aI-fdN" firstAttribute="leading" secondItem="fMa-Fh-esE" secondAttribute="trailing" constant="2" id="79m-cP-pvd"/>
+                    <constraint firstAttribute="trailing" secondItem="as9-Ae-85S" secondAttribute="trailing" constant="16" id="ASN-rN-hkt"/>
+                    <constraint firstItem="fMa-Fh-esE" firstAttribute="width" secondItem="pfc-aI-fdN" secondAttribute="width" id="QHZ-3A-ejI"/>
+                    <constraint firstItem="as9-Ae-85S" firstAttribute="leading" secondItem="pfc-aI-fdN" secondAttribute="trailing" constant="16" id="Qca-7G-FlU"/>
+                    <constraint firstAttribute="bottom" secondItem="fMa-Fh-esE" secondAttribute="bottom" constant="8" id="SJN-l2-j47"/>
+                    <constraint firstItem="fMa-Fh-esE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Uy1-VT-igu"/>
+                    <constraint firstItem="pfc-aI-fdN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Yub-Wt-Hi4"/>
+                    <constraint firstAttribute="bottom" secondItem="pfc-aI-fdN" secondAttribute="bottom" constant="8" id="dWl-nd-gui"/>
+                    <constraint firstItem="as9-Ae-85S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m1R-J0-1Wp"/>
+                    <constraint firstItem="fMa-Fh-esE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="sbB-4L-o85"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="labelCount" destination="pfc-aI-fdN" id="kgj-Cq-l6C"/>
+                <outlet property="labelName" destination="fMa-Fh-esE" id="mM6-37-LPI"/>
+            </connections>
+            <point key="canvasLocation" x="132.82442748091603" y="5.9859154929577469"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="iconArrowRightGrey" width="20" height="20"/>
+    </resources>
+</document>

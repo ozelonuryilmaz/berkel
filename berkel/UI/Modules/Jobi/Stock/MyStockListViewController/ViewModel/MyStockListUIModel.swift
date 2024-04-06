@@ -22,6 +22,9 @@ protocol IMyStockListUIModel {
 
     func getStockModel(name: String) -> StockModel
     func getSubStockModel(name: String) -> SubStockModel
+    
+    func isHaveStock(name: String) -> Bool
+    func isHaveSubStock(stockId: String, name: String) -> Bool
 
     // TableView
     func getNumberOfItemsInSection() -> Int
@@ -49,6 +52,15 @@ struct MyStockListUIModel: IMyStockListUIModel {
 
     var isLastRequest: Bool {
         return stocks.count == stockIdx.count
+    }
+
+    func isHaveStock(name: String) -> Bool {
+        return stocks.contains(where: { s in s.stock.stockName.lowercased() == name.lowercased() })
+    }
+
+    func isHaveSubStock(stockId: String, name: String) -> Bool {
+        let subStock = self.stocks.first(where: { $0.stock.id == stockId })?.subStocks ?? []
+        return subStock.contains(where: { ss in ss.subStockName.lowercased() == name.lowercased() })
     }
 
     func getStockModel(name: String) -> StockModel {

@@ -9,13 +9,13 @@ import UIKit
 import Combine
 
 protocol MyStockListViewControllerOutputDelegate: AnyObject {
-    func stockData(_ data: StockModel)
+    func stockData(_ data: StockListModel)
 }
 
 final class MyStockListViewController: JobiBaseViewController {
 
     override var navigationTitle: String? {
-        return "Stok Ekle"
+        return "Stok K. Ekle"
     }
 
     // MARK: Constants
