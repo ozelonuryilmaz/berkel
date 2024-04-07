@@ -18,6 +18,7 @@ protocol IStockDetailInformationUIModel {
 
     init(data: StockDetailInformationPassData)
 
+    func getUpdateStockPassData(type: UpdateStockType) -> UpdateStockPassData 
 }
 
 struct StockDetailInformationUIModel: IStockDetailInformationUIModel {
@@ -58,4 +59,7 @@ struct StockDetailInformationUIModel: IStockDetailInformationUIModel {
 // MARK: Props
 extension StockDetailInformationUIModel {
 
+    func getUpdateStockPassData(type: UpdateStockType) -> UpdateStockPassData {
+        return UpdateStockPassData(type: type, stockModel: self.stockModel, subStockModel: self.subStockModel)
+    }
 }

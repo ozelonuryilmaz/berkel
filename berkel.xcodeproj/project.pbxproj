@@ -479,6 +479,14 @@
 		6797F05D2AA4976C00638C09 /* StorageObservabeTask+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6797F05B2AA4976C00638C09 /* StorageObservabeTask+Combine.swift */; };
 		6797F05F2AA49BF100638C09 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6797F05E2AA49BF100638C09 /* README.md */; };
 		67995ACB2ADBEB8200D8EA12 /* BuyingPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67995ACA2ADBEB8200D8EA12 /* BuyingPaymentViewController.xib */; };
+		679ADD052BC291A200A0FD67 /* UpdateStockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679ADD042BC291A200A0FD67 /* UpdateStockViewController.xib */; };
+		679ADD062BC291A200A0FD67 /* UpdateStockCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADCFD2BC291A200A0FD67 /* UpdateStockCoordinator.swift */; };
+		679ADD072BC291A200A0FD67 /* UpdateStockUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADCFE2BC291A200A0FD67 /* UpdateStockUIModel.swift */; };
+		679ADD082BC291A200A0FD67 /* UpdateStockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADCFF2BC291A200A0FD67 /* UpdateStockViewController.swift */; };
+		679ADD092BC291A200A0FD67 /* UpdateStockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADD002BC291A200A0FD67 /* UpdateStockRepository.swift */; };
+		679ADD0A2BC291A200A0FD67 /* UpdateStockBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADD012BC291A200A0FD67 /* UpdateStockBuilder.swift */; };
+		679ADD0B2BC291A200A0FD67 /* UpdateStockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADD022BC291A200A0FD67 /* UpdateStockViewModel.swift */; };
+		679ADD0C2BC291A200A0FD67 /* UpdateStockPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ADD032BC291A200A0FD67 /* UpdateStockPassData.swift */; };
 		67A09AC02B509791001D0A12 /* UserListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A09ABF2B509791001D0A12 /* UserListService.swift */; };
 		67A1EE862AF1691700126E44 /* CavusListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A1EE7E2AF1691700126E44 /* CavusListCoordinator.swift */; };
 		67A1EE872AF1691700126E44 /* CavusListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A1EE7F2AF1691700126E44 /* CavusListUIModel.swift */; };
@@ -1197,6 +1205,14 @@
 		6797F05B2AA4976C00638C09 /* StorageObservabeTask+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StorageObservabeTask+Combine.swift"; sourceTree = "<group>"; };
 		6797F05E2AA49BF100638C09 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		67995ACA2ADBEB8200D8EA12 /* BuyingPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyingPaymentViewController.xib; sourceTree = "<group>"; };
+		679ADCFD2BC291A200A0FD67 /* UpdateStockCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockCoordinator.swift; sourceTree = "<group>"; };
+		679ADCFE2BC291A200A0FD67 /* UpdateStockUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockUIModel.swift; sourceTree = "<group>"; };
+		679ADCFF2BC291A200A0FD67 /* UpdateStockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockViewController.swift; sourceTree = "<group>"; };
+		679ADD002BC291A200A0FD67 /* UpdateStockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockRepository.swift; sourceTree = "<group>"; };
+		679ADD012BC291A200A0FD67 /* UpdateStockBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockBuilder.swift; sourceTree = "<group>"; };
+		679ADD022BC291A200A0FD67 /* UpdateStockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockViewModel.swift; sourceTree = "<group>"; };
+		679ADD032BC291A200A0FD67 /* UpdateStockPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStockPassData.swift; sourceTree = "<group>"; };
+		679ADD042BC291A200A0FD67 /* UpdateStockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateStockViewController.xib; sourceTree = "<group>"; };
 		67A09ABF2B509791001D0A12 /* UserListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListService.swift; sourceTree = "<group>"; };
 		67A1EE7E2AF1691700126E44 /* CavusListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListCoordinator.swift; sourceTree = "<group>"; };
 		67A1EE7F2AF1691700126E44 /* CavusListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CavusListUIModel.swift; sourceTree = "<group>"; };
@@ -3164,6 +3180,7 @@
 				67707D3F2BAB3861008CEBF4 /* Repository */,
 				67707D3E2BAB385D008CEBF4 /* ViewModel */,
 				67707D3D2BAB3858008CEBF4 /* ViewController */,
+				679ADCFB2BC2906700A0FD67 /* SubViewController */,
 			);
 			path = StockDetailInformationViewController;
 			sourceTree = "<group>";
@@ -3233,7 +3250,6 @@
 			isa = PBXGroup;
 			children = (
 				67707D662BAB3976008CEBF4 /* StockDetailInformationRepository.swift */,
-				67707D692BAB3976008CEBF4 /* StockDetailInformationPassData.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -3242,6 +3258,7 @@
 			isa = PBXGroup;
 			children = (
 				67707D632BAB3976008CEBF4 /* StockDetailInformationCoordinator.swift */,
+				67707D692BAB3976008CEBF4 /* StockDetailInformationPassData.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -4698,6 +4715,69 @@
 			isa = PBXGroup;
 			children = (
 				67B98D042ADBEB3700CD4B15 /* BuyingPaymentBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		679ADCFB2BC2906700A0FD67 /* SubViewController */ = {
+			isa = PBXGroup;
+			children = (
+				679ADCFC2BC2907400A0FD67 /* UpdateStockViewController */,
+			);
+			path = SubViewController;
+			sourceTree = "<group>";
+		};
+		679ADCFC2BC2907400A0FD67 /* UpdateStockViewController */ = {
+			isa = PBXGroup;
+			children = (
+				679ADD112BC291BC00A0FD67 /* Builder */,
+				679ADD102BC291B800A0FD67 /* Coordinator */,
+				679ADD0F2BC291B500A0FD67 /* Repository */,
+				679ADD0E2BC291B100A0FD67 /* ViewModel */,
+				679ADD0D2BC291AB00A0FD67 /* ViewController */,
+			);
+			path = UpdateStockViewController;
+			sourceTree = "<group>";
+		};
+		679ADD0D2BC291AB00A0FD67 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				679ADCFF2BC291A200A0FD67 /* UpdateStockViewController.swift */,
+				679ADD042BC291A200A0FD67 /* UpdateStockViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		679ADD0E2BC291B100A0FD67 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				679ADD022BC291A200A0FD67 /* UpdateStockViewModel.swift */,
+				679ADCFE2BC291A200A0FD67 /* UpdateStockUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		679ADD0F2BC291B500A0FD67 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				679ADD002BC291A200A0FD67 /* UpdateStockRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		679ADD102BC291B800A0FD67 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				679ADCFD2BC291A200A0FD67 /* UpdateStockCoordinator.swift */,
+				679ADD032BC291A200A0FD67 /* UpdateStockPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		679ADD112BC291BC00A0FD67 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				679ADD012BC291A200A0FD67 /* UpdateStockBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -6273,6 +6353,7 @@
 				678D90032B6F969C00EE2584 /* OtherDetailCollectionTableViewCell.xib in Resources */,
 				674705ED2B0A7A1C006F1639 /* CustomerListViewController.xib in Resources */,
 				671884402AF16ABE00D76672 /* NewWorkerViewController.xib in Resources */,
+				679ADD052BC291A200A0FD67 /* UpdateStockViewController.xib in Resources */,
 				6710C7E42B666D3800028500 /* OtherTableViewCell.xib in Resources */,
 				672474622B5D1F7400E50B4A /* OtherSellerCategoryListViewController.xib in Resources */,
 				67A1EE8D2AF1691700126E44 /* CavusListViewController.xib in Resources */,
@@ -6436,6 +6517,13 @@
 				6710C8012B667C4700028500 /* OtherCollectionViewController.swift in Sources */,
 				6710BF422AA7C7AB000034FD /* CollectionServiceType.swift in Sources */,
 				67A65E352B4C62D1003EACA0 /* WorkerChartsViewModel.swift in Sources */,
+				679ADD062BC291A200A0FD67 /* UpdateStockCoordinator.swift in Sources */,
+				679ADD072BC291A200A0FD67 /* UpdateStockUIModel.swift in Sources */,
+				679ADD082BC291A200A0FD67 /* UpdateStockViewController.swift in Sources */,
+				679ADD092BC291A200A0FD67 /* UpdateStockRepository.swift in Sources */,
+				679ADD0A2BC291A200A0FD67 /* UpdateStockBuilder.swift in Sources */,
+				679ADD0B2BC291A200A0FD67 /* UpdateStockViewModel.swift in Sources */,
+				679ADD0C2BC291A200A0FD67 /* UpdateStockPassData.swift in Sources */,
 				67AD20DD2B73DB650031A598 /* OtherDetailCollectionDataSource.swift in Sources */,
 				678B538A2AA261E0003F4355 /* Coordinator.swift in Sources */,
 				67DDE8812B0E764700E24949 /* CustomerListTableViewCell.swift in Sources */,

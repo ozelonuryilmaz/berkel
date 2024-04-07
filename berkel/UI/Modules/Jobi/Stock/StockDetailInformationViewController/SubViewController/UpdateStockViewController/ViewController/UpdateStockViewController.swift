@@ -1,15 +1,20 @@
 //
-//  StockDetailInformationViewController.swift
+//  UpdateStockViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 20.03.2024.
+//  Created by Onur Yilmaz on 7.04.2024.
+//  Copyright (c) 2024 Berkel IOS Development Team. All rights reserved.[OY-2024]
 //
 
 import UIKit
 import Combine
 
-final class StockDetailInformationViewController: JobiBaseViewController {
+protocol UpdateStockViewControllerOutputDelegate: AnyObject {
 
+}
+
+final class UpdateStockViewController: BerkelBaseViewController {
+    
     override var navigationTitle: String? {
         return self.viewModel.navigationTitle
     }
@@ -21,38 +26,32 @@ final class StockDetailInformationViewController: JobiBaseViewController {
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IStockDetailInformationViewModel
+    private let viewModel: IUpdateStockViewModel
+    private weak var outputDelegate: UpdateStockViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var btnAddStock: UIButton!
-    @IBOutlet private weak var btnRemoveStock: UIButton!
 
     // MARK: Constraints Outlets
-
+    
     // MARK: Initializer
-    init(viewModel: IStockDetailInformationViewModel) {
+    init(viewModel: IUpdateStockViewModel,
+         outputDelegate: UpdateStockViewControllerOutputDelegate?) {
         self.viewModel = viewModel
-        super.init(nibName: "StockDetailInformationViewController", bundle: nil)
+        self.outputDelegate = outputDelegate
+        super.init(nibName: "UpdateStockViewController", bundle: nil)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
     }
 
     override func registerEvents() {
-        
-        btnAddStock.onTap { [unowned self] _ in
-            self.viewModel.presentUpdateStockViewController(type: .add)
-        }
-        
-        btnRemoveStock.onTap { [unowned self] _ in
-            self.viewModel.presentUpdateStockViewController(type: .remove)
-        }
+
     }
 
     private func observeReactiveDatas() {
@@ -80,9 +79,14 @@ final class StockDetailInformationViewController: JobiBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
+        }
+    }()
 }
 
 // MARK: Props
-private extension StockDetailInformationViewController {
-
+private extension UpdateStockViewController {
+    
 }

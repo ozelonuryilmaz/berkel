@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol IStockDetailInformationViewModel: AnyObject {
+protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<StockDetailInformationViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -19,9 +19,9 @@ protocol IStockDetailInformationViewModel: AnyObject {
          jobiStockRepository: IJobiStockRepository,
          coordinator: IStockDetailInformationCoordinator,
          uiModel: IStockDetailInformationUIModel)
-    
-    // Service
-    func updateStockCount(_ count: Int)
+
+    // Coordinate
+    func presentUpdateStockViewController(type: UpdateStockType)
 }
 
 final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformationViewModel {
@@ -103,8 +103,16 @@ internal extension StockDetailInformationViewModel {
 // MARK: Coordinate
 internal extension StockDetailInformationViewModel {
 
+    func presentUpdateStockViewController(type: UpdateStockType) {
+        self.coordinator.presentUpdateStockViewController(passData: uiModel.getUpdateStockPassData(type: type),
+                                                          outputDelegate: self)
+    }
 }
 
+// MARK: UpdateStockViewControllerOutputDelegate
+internal extension StockDetailInformationViewModel {
+    
+}
 
 enum StockDetailInformationViewState {
     case showNativeProgress(isProgress: Bool)
