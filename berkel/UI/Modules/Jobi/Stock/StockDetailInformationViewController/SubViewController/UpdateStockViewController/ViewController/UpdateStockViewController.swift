@@ -14,7 +14,7 @@ protocol UpdateStockViewControllerOutputDelegate: AnyObject {
 }
 
 final class UpdateStockViewController: BerkelBaseViewController {
-    
+
     override var navigationTitle: String? {
         return self.viewModel.navigationTitle
     }
@@ -31,14 +31,12 @@ final class UpdateStockViewController: BerkelBaseViewController {
 
     // MARK: IBOutlets
     @IBOutlet private weak var datePicker: UIDatePicker!
-
     @IBOutlet private weak var tfCount: PrimaryTextField!
     @IBOutlet private weak var tfDesc: PrimaryTextField!
-
     @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: IUpdateStockViewModel,
          outputDelegate: UpdateStockViewControllerOutputDelegate?) {
@@ -46,7 +44,7 @@ final class UpdateStockViewController: BerkelBaseViewController {
         self.outputDelegate = outputDelegate
         super.init(nibName: "UpdateStockViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
@@ -83,6 +81,12 @@ final class UpdateStockViewController: BerkelBaseViewController {
 
             case .setButtonTitle(let title):
                 self.btnSave.setTitle(title, for: .normal)
+
+            case .disableButton:
+                self.btnSave.isEnabled = false
+
+            case .showSystemAlert(let title, let message):
+                self.showSystemAlert(title: title, message: message)
             }
 
         }).store(in: &cancelBag)

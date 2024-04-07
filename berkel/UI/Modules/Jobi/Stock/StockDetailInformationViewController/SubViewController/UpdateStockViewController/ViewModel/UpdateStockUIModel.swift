@@ -14,19 +14,30 @@ protocol IUpdateStockUIModel {
     var navigationSubTitle: String { get }
     var buttonTitle: String { get }
 
+    var data: UpdateStockModel { get }
+    var season: String { get }
+    var stockId: String { get }
+    var subStockId: String { get }
+
     init(data: UpdateStockPassData)
 
     mutating func setDate(date: String?)
     mutating func setCount(_ text: String)
     mutating func setDesc(_ text: String)
+
+    func getCount() -> Int
 }
 
 struct UpdateStockUIModel: IUpdateStockUIModel {
 
     // MARK: Definitions
-    let type: UpdateStockType
-    let stockModel: StockModel
-    let subStockModel: SubStockModel
+    private let type: UpdateStockType
+    private let stockModel: StockModel
+    private let subStockModel: SubStockModel
+
+    private var date: String? = Date().dateFormatterApiResponseType()
+    private var count: Int = 0
+    private var desc: String? = nil
 
     // MARK: Initialize
     init(data: UpdateStockPassData) {
@@ -35,11 +46,11 @@ struct UpdateStockUIModel: IUpdateStockUIModel {
         self.subStockModel = data.subStockModel
     }
 
-    var date: String? = Date().dateFormatterApiResponseType()
-    var count: Int = 0
-    var desc: String? = nil
-
     // MARK: Computed Props
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
     var userId: String? {
         return UserManager.shared.userId
     }
@@ -60,6 +71,24 @@ struct UpdateStockUIModel: IUpdateStockUIModel {
             return "Stok Çıkar"
         }
     }
+
+    var stockId: String {
+        return stockModel.id ?? ""
+    }
+
+    var subStockId: String {
+        return subStockModel.id ?? ""
+    }
+
+    var data: UpdateStockModel {
+        return UpdateStockModel(stockId: stockId,
+                                subStockId: subStockId,
+                                userId: userId,
+                                count: getCount(),
+                                date: date ?? Date().dateFormatterApiResponseType(),
+                                desc: desc,
+                                type: type.rawValue)
+    }
 }
 
 // MARK: Props
@@ -75,5 +104,14 @@ extension UpdateStockUIModel {
 
     mutating func setDesc(_ text: String) {
         self.desc = text
+    }
+
+    func getCount() -> Int {
+        switch self.type {
+        case .add:
+            return self.count
+        case .remove:
+            return self.count * (-1)
+        }
     }
 }

@@ -35,7 +35,7 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
     // MARK: Public Props
     var viewState = ScreenStateSubject<StockDetailInformationViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    let response = CurrentValueSubject<Bool?, Never>(nil)
+    //let response = CurrentValueSubject<?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IStockDetailInformationRepository,
@@ -61,33 +61,7 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
 // MARK: Service
 internal extension StockDetailInformationViewModel {
 
-    // TODO: Count yüklenemediğinde kullanıcıya uyarı göster! Güncelleme işlemini başlat. Güncelleme işleminde stoğa yeni giriş yapılmamışsa güncelle.
-    func updateStockCount(_ count: Int) {
-        var reRequest: Bool = true
-        
-        handleResourceFirestore(
-            request: self.jobiStockRepository.updateStockCount(count: count,
-                                                               season: self.uiModel.season,
-                                                               stockId: self.uiModel.stockId,
-                                                               subStockId: self.uiModel.subStockId),
-            response: self.response,
-            errorState: self.errorState,
-            callbackLoading: { [weak self] isProgress in
-                self?.viewStateShowNativeProgress(isProgress: isProgress)
-            }, callbackSuccess: { [weak self] in
-                guard let self = self, let isSuccess = self.response.value else { return }
-                if isSuccess {
-                    reRequest = true
-                }
-            },
-            callbackComplete: { [weak self] in
-                guard let self = self, let isSuccess = self.response.value else { return }
-                if !isSuccess && reRequest {
-                    self.updateStockCount(count)
-                    reRequest = false
-                }
-            })
-    }
+    
 }
 
 // MARK: States

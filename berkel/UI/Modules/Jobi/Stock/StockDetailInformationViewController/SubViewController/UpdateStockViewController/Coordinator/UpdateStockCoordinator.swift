@@ -35,7 +35,7 @@ final class UpdateStockCoordinator: PresentationCoordinator, IUpdateStockCoordin
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }
-    
+
     func dismiss(completion: (() -> Void)? = nil) {
         UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }

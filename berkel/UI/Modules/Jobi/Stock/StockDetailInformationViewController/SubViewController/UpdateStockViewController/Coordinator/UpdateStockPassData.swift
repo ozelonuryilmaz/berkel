@@ -15,7 +15,7 @@ struct UpdateStockPassData: ICoordinatorPassData {
     let subStockModel: SubStockModel
 }
 
-enum UpdateStockType {
-    case add
-    case remove
+enum UpdateStockType: String {
+    case add = "ADD"
+    case remove = "REMOVE"
 }

@@ -15,8 +15,10 @@ enum UpdateStockBuilder {
                          outputDelegate: UpdateStockViewControllerOutputDelegate?) -> UpdateStockViewController {
 
         let repository = UpdateStockRepository()
+        let jobiStockRepository = JobiStockRepository()
         let uiModel = UpdateStockUIModel(data: data)
         let viewModel = UpdateStockViewModel(repository: repository,
+                                             jobiStockRepository: jobiStockRepository,
                                              coordinator: coordinator,
                                              uiModel: uiModel)
 
