@@ -24,7 +24,7 @@ final class StockDetailInformationViewController: JobiBaseViewController {
     private let viewModel: IStockDetailInformationViewModel
 
     // MARK: IBOutlets
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: StockDetailInfoDiffableTableView!
     @IBOutlet private weak var btnAddStock: UIButton!
     @IBOutlet private weak var btnRemoveStock: UIButton!
 
@@ -42,14 +42,20 @@ final class StockDetailInformationViewController: JobiBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+
+        self.viewModel.getStockList()
+    }
+
+    override func setupView() {
+        initTableView()
     }
 
     override func registerEvents() {
-        
+
         btnAddStock.onTap { [unowned self] _ in
             self.viewModel.presentUpdateStockViewController(type: .add)
         }
-        
+
         btnRemoveStock.onTap { [unowned self] _ in
             self.viewModel.presentUpdateStockViewController(type: .remove)
         }
@@ -68,6 +74,13 @@ final class StockDetailInformationViewController: JobiBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
             }
 
         }).store(in: &cancelBag)
@@ -85,4 +98,7 @@ final class StockDetailInformationViewController: JobiBaseViewController {
 // MARK: Props
 private extension StockDetailInformationViewController {
 
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

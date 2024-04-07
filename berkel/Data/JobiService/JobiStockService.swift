@@ -21,7 +21,7 @@ extension JobiStockService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .stockList(_), .subStockList(_,_):
+        case .stockList(_), .subStockList(_,_), .stockInfo(_,_,_):
             return "date"
         default:
             return ""

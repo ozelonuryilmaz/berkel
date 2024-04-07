@@ -11,6 +11,7 @@ import Combine
 
 protocol UpdateStockViewControllerOutputDelegate: AnyObject {
 
+    func updateStockData(_ data: UpdateStockModel)
 }
 
 final class UpdateStockViewController: BerkelBaseViewController {
@@ -87,6 +88,9 @@ final class UpdateStockViewController: BerkelBaseViewController {
 
             case .showSystemAlert(let title, let message):
                 self.showSystemAlert(title: title, message: message)
+                
+            case .showSavedUpdateStockData(let data):
+                self.outputDelegate?.updateStockData(data)
             }
 
         }).store(in: &cancelBag)

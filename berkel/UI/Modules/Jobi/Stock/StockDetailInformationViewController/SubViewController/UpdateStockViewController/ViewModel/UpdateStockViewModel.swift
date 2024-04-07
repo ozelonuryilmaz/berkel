@@ -115,8 +115,13 @@ internal extension UpdateStockViewModel {
             },
             callbackSuccess: { [weak self] in
                 DispatchQueue.delay(300) { [weak self] in
-                    guard let self = self, let isSuccess = self.updateStockResponse.value else { return }
+                    guard let self = self,
+                        let isSuccess = self.updateStockResponse.value,
+                        let data = self.response.value
+                        else { return }
+
                     if isSuccess {
+                        self.viewStateShowSavedUpdateStockData(data: data)
                         self.dismiss()
                     }
                 }
@@ -155,6 +160,10 @@ internal extension UpdateStockViewModel {
     func viewStateShowSystemAlert(title: String, message: String) {
         viewState.value = .showSystemAlert(title: title, message: message)
     }
+
+    func viewStateShowSavedUpdateStockData(data: UpdateStockModel) {
+        viewState.value = .showSavedUpdateStockData(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -186,4 +195,5 @@ enum UpdateStockViewState {
     case setButtonTitle(title: String)
     case disableButton
     case showSystemAlert(title: String, message: String)
+    case showSavedUpdateStockData(data: UpdateStockModel)
 }

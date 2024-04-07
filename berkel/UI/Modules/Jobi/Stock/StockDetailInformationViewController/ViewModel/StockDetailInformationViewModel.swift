@@ -7,7 +7,8 @@
 
 import Combine
 
-protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelegate {
+protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelegate,
+                                           StockDetailInfoDataSourceFactoryOutputDelegate{
 
     var viewState: ScreenStateSubject<StockDetailInformationViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -22,6 +23,12 @@ protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelega
 
     // Coordinate
     func presentUpdateStockViewController(type: UpdateStockType)
+    
+    // Service
+    func getStockList()
+
+    func updateSnapshot(currentSnapshot: StockDetailInfoSnapshot,
+                        newDatas: [UpdateStockModel]) -> StockDetailInfoSnapshot
 }
 
 final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformationViewModel {
@@ -33,9 +40,12 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
     private var uiModel: IStockDetailInformationUIModel
 
     // MARK: Public Props
+    private var isLastPage: Bool = false
+    private var isAvailablePagination: Bool = false
+    
     var viewState = ScreenStateSubject<StockDetailInformationViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<[UpdateStockModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IStockDetailInformationRepository,
@@ -55,13 +65,45 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
     var navigationSubTitle: String {
         return uiModel.navigationSubTitle
     }
+    
+    func updateSnapshot(currentSnapshot: StockDetailInfoSnapshot,
+                        newDatas: [UpdateStockModel]) -> StockDetailInfoSnapshot {
+        self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
+    }
 }
 
 
 // MARK: Service
 internal extension StockDetailInformationViewModel {
 
-    
+    func getStockList() {
+        handleResourceFirestore(
+            request: jobiStockRepository.getStockInfo(cursor: uiModel.getLastCursor(),
+                                                      limit: uiModel.limit,
+                                                      season: uiModel.season,
+                                                      stockId: uiModel.stockId,
+                                                      subStockId: uiModel.subStockId),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { isProgress in
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+                self.isAvailablePagination = !isProgress
+            },
+            callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.setResponse(self.response.value ?? [])
+                if !self.uiModel.isHaveBuildData {
+                    self.viewStateBuildSnapshot()
+                } else {
+                    self.viewStateUpdateSnapshot(data: self.response.value ?? [])
+                }
+
+                if true == self.response.value?.isEmpty {
+                    self.isLastPage = true
+                }
+            }
+        )
+    }
 }
 
 // MARK: States
@@ -70,6 +112,14 @@ internal extension StockDetailInformationViewModel {
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+    
+    func viewStateBuildSnapshot() {
+        viewState.value = .buildSnapshot(snapshot: self.uiModel.buildSnapshot())
+    }
+
+    func viewStateUpdateSnapshot(data: [UpdateStockModel]) {
+        viewState.value = .updateSnapshot(data: data)
     }
 
 }
@@ -86,8 +136,28 @@ internal extension StockDetailInformationViewModel {
 // MARK: UpdateStockViewControllerOutputDelegate
 internal extension StockDetailInformationViewModel {
     
+    func updateStockData(_ data: UpdateStockModel) {
+        self.uiModel.appendFirstItem(data: data)
+        self.viewStateBuildSnapshot()
+    }
+}
+
+// MARK: StockDetailInfoDataSourceFactoryOutputDelegate
+extension StockDetailInformationViewModel {
+
+    func cellTapped(uiModel: IStockDetailInfoTableViewCellUIModel) {
+        
+    }
+
+    func scrollDidScroll(isAvailablePagination: Bool) {
+        if self.isAvailablePagination && isAvailablePagination && !isLastPage {
+            self.getStockList()
+        }
+    }
 }
 
 enum StockDetailInformationViewState {
     case showNativeProgress(isProgress: Bool)
+    case buildSnapshot(snapshot: StockDetailInfoSnapshot)
+    case updateSnapshot(data: [UpdateStockModel])
 }

@@ -35,6 +35,7 @@ class BuyingTableViewCell: BaseTableViewCell {
         super.awakeFromNib()
         // Initialization code
         mContentView.roundCornersEachCorner(.allCorners, radius: 8)
+        lblActive.roundCornersEachCorner(.allCorners, radius: 6)
     }
 
     func registerEvents(uiModel: IBuyingTableViewCellUIModel) {
@@ -56,7 +57,6 @@ class BuyingTableViewCell: BaseTableViewCell {
     func configureCellWith(uiModel: IBuyingTableViewCellUIModel) {
         self.registerEvents(uiModel: uiModel)
         self.visibilityButtons(isVisible: uiModel.isActive)
-        self.lblActive.roundCornersEachCorner(.allCorners, radius: 6)
 
         self.lblName.text = uiModel.sellerName
         self.lblProduct.text = uiModel.productName
