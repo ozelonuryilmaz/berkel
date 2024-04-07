@@ -9,12 +9,16 @@
 import UIKit
 
 protocol IUpdateStockUIModel {
-    
+
     var navigationTitle: String { get }
     var navigationSubTitle: String { get }
+    var buttonTitle: String { get }
 
     init(data: UpdateStockPassData)
 
+    mutating func setDate(date: String?)
+    mutating func setCount(_ text: String)
+    mutating func setDesc(_ text: String)
 }
 
 struct UpdateStockUIModel: IUpdateStockUIModel {
@@ -31,7 +35,15 @@ struct UpdateStockUIModel: IUpdateStockUIModel {
         self.subStockModel = data.subStockModel
     }
 
+    var date: String? = Date().dateFormatterApiResponseType()
+    var count: Int = 0
+    var desc: String? = nil
+
     // MARK: Computed Props
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
     var navigationTitle: String {
         return stockModel.stockName
     }
@@ -39,9 +51,29 @@ struct UpdateStockUIModel: IUpdateStockUIModel {
     var navigationSubTitle: String {
         return subStockModel.subStockName
     }
+
+    var buttonTitle: String {
+        switch type {
+        case .add:
+            return "Stok Ekle"
+        case .remove:
+            return "Stok Çıkar"
+        }
+    }
 }
 
 // MARK: Props
 extension UpdateStockUIModel {
 
+    mutating func setDate(date: String?) {
+        self.date = date
+    }
+
+    mutating func setCount(_ text: String) {
+        self.count = Int(text) ?? 0
+    }
+
+    mutating func setDesc(_ text: String) {
+        self.desc = text
+    }
 }

@@ -21,7 +21,16 @@ protocol IUpdateStockViewModel: AnyObject {
          coordinator: IUpdateStockCoordinator,
          uiModel: IUpdateStockUIModel)
     
+    func initComponents()
     func dismiss()
+
+    // Setter
+    func setDate(date: String?)
+    func setCount(_ text: String)
+    func setDesc(_ text: String)
+
+    // Service
+    func saveStock()
 }
 
 final class UpdateStockViewModel: BaseViewModel, IUpdateStockViewModel {
@@ -44,6 +53,10 @@ final class UpdateStockViewModel: BaseViewModel, IUpdateStockViewModel {
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
+    
+    func initComponents() {
+        self.viewStateSetButtonTitle()
+    }
 
     var navigationTitle: String {
         return uiModel.navigationTitle
@@ -58,6 +71,9 @@ final class UpdateStockViewModel: BaseViewModel, IUpdateStockViewModel {
 // MARK: Service
 internal extension UpdateStockViewModel {
 
+    func saveStock() {
+        
+    }
 }
 
 // MARK: States
@@ -66,6 +82,10 @@ internal extension UpdateStockViewModel {
     // MARK: View State
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
+    }
+    
+    func viewStateSetButtonTitle() {
+        viewState.value = .setButtonTitle(title: uiModel.buttonTitle)
     }
 
 }
@@ -78,6 +98,23 @@ internal extension UpdateStockViewModel {
     }
 }
 
+// MARK: Setter
+internal extension UpdateStockViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setCount(_ text: String) {
+        self.uiModel.setCount(text)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
+    }
+}
+
 enum UpdateStockViewState {
     case showNativeProgress(isProgress: Bool)
+    case setButtonTitle(title: String)
 }

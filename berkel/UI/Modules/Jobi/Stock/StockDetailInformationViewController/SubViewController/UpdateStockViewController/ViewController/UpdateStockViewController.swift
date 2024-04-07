@@ -30,6 +30,12 @@ final class UpdateStockViewController: BerkelBaseViewController {
     private weak var outputDelegate: UpdateStockViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var datePicker: UIDatePicker!
+
+    @IBOutlet private weak var tfCount: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
     
@@ -50,13 +56,21 @@ final class UpdateStockViewController: BerkelBaseViewController {
         self.observeReactiveDatas()
     }
 
-    override func registerEvents() {
+    override func setupView() {
+        self.viewModel.initComponents()
+        self.initDatePickerView()
+    }
 
+    override func registerEvents() {
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveStock()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -67,6 +81,8 @@ final class UpdateStockViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .setButtonTitle(let title):
+                self.btnSave.setTitle(title, for: .normal)
             }
 
         }).store(in: &cancelBag)
@@ -88,5 +104,27 @@ final class UpdateStockViewController: BerkelBaseViewController {
 
 // MARK: Props
 private extension UpdateStockViewController {
-    
+
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
+}
+
+// MARK: TextField
+private extension UpdateStockViewController {
+
+    func listenTextFieldsDidChange() {
+        tfCount.addListenDidChange { [unowned self] text in
+            self.viewModel.setCount(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }
