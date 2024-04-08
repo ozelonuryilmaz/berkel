@@ -263,7 +263,7 @@ extension UIViewController {
         self.view.makeToast(message, position: position, style: style)
     }
 
-    func showToast(_ toast: UIView, duration: TimeInterval = 5.0, position: ToastPosition = .bottom, completion: ((_ didTap: Bool) -> Void)? = nil) {
+    func showToast(_ toast: UIView, duration: TimeInterval = 10.0, position: ToastPosition = .bottom, completion: ((_ didTap: Bool) -> Void)? = nil) {
         self.hideAllToast()
         self.navigationController?.view.showToast(toast, duration: duration, position: position, completion: completion)
     }

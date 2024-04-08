@@ -80,10 +80,10 @@ internal extension UpdateStockViewModel {
         guard self.uiModel.getCount() != 0 else { return }
 
         handleResourceFirestore(
-            request: self.jobiStockRepository.saveStockInfo(season: uiModel.season,
-                                                            stockId: uiModel.stockId,
-                                                            subStockId: uiModel.subStockId,
-                                                            data: uiModel.data),
+            request: self.jobiStockRepository.saveSubStockInfo(season: uiModel.season,
+                                                               stockId: uiModel.stockId,
+                                                               subStockId: uiModel.subStockId,
+                                                               data: uiModel.data),
             response: self.response,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
@@ -103,10 +103,10 @@ internal extension UpdateStockViewModel {
         var reRequest: Bool = true
 
         handleResourceFirestore(
-            request: self.jobiStockRepository.updateStockCount(count: uiModel.getCount(),
-                                                               season: uiModel.season,
-                                                               stockId: uiModel.stockId,
-                                                               subStockId: uiModel.subStockId),
+            request: self.jobiStockRepository.updateSubStockCountWithTransaction(count: uiModel.getCount(),
+                                                                                 season: uiModel.season,
+                                                                                 stockId: uiModel.stockId,
+                                                                                 subStockId: uiModel.subStockId),
             response: self.updateStockResponse,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in

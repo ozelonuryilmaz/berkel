@@ -109,7 +109,7 @@ internal extension MyStockListViewModel {
         viewStateShowNativeProgress(isProgress: true)
 
         handleResourceFirestore(
-            request: self.jobiStockRepository.getStock(season: self.uiModel.season),
+            request: self.jobiStockRepository.getStocks(season: self.uiModel.season),
             response: self.responseStockList,
             errorState: self.errorState,
             callbackSuccess: { [weak self] in
@@ -133,7 +133,7 @@ internal extension MyStockListViewModel {
             guard let self else { return }
 
             self.handleResourceFirestore(
-                request: self.jobiStockRepository.getSubStock(season: self.uiModel.season, stockId: stock.id ?? ""),
+                request: self.jobiStockRepository.getSubStocks(season: self.uiModel.season, stockId: stock.id ?? ""),
                 response: self.responseSubStockList,
                 errorState: self.errorState,
                 callbackLoading: { [weak self] isProgress in

@@ -68,6 +68,12 @@ final class StockViewController: JobiBaseViewController {
 
             case .reloadData:
                 self.tableView.reloadData()
+                
+            case .reloadDataWith(let indexPath):
+                self.tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
+
+            case .showToastMessage(let message):
+                self.showToast(message: message)
             }
 
         }).store(in: &cancelBag)

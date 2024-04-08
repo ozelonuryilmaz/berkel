@@ -16,6 +16,6 @@ struct StockItemCellUIModel {
     }
     
     var subStockCount: String {
-        return "\(subStock.count) Adet"
+        return "\(subStock.counter ?? 0) Adet"
     }
 }

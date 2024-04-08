@@ -73,7 +73,7 @@ struct MyStockListUIModel: IMyStockListUIModel {
         return SubStockModel(userId: userId,
                              subStockName: name,
                              date: Date().dateFormatterApiResponseType(),
-                             count: 0)
+                             counter: 0)
     }
 }
 

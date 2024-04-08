@@ -13,5 +13,5 @@ struct SubStockModel: Codable {
     let userId: String?
     let subStockName: String
     var date: String
-    var count: Int
+    var counter: Int?
 }

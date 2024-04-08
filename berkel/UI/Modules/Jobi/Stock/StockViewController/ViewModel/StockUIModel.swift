@@ -20,7 +20,10 @@ protocol IStockUIModel {
     mutating func setStock(stock: StockModel, subStock: [SubStockModel])
     
     func getStockModel(subStockId: String?) -> StockModel?
-
+    mutating func getSubStockIdx(stockId: String?) -> [SubStockModel]
+    mutating func updateSubStockCount(_ count: Int, stockId: String?, subStockId: String?) -> IndexPath?
+    mutating func updateStockDate(_ date: String, stockId: String?)
+    
     // TableView
     func getNumberOfItemsInSection() -> Int
     func getNumberOfItemsInRow(section: Int) -> Int
@@ -68,7 +71,7 @@ extension StockUIModel {
         self.stocks.removeAll()
         self.stockIdx.removeAll()
     }
-    
+
     // SubStock detayına gidilirken stock bilgisi de gönderilecek
     func getStockModel(subStockId: String?) -> StockModel? {
         var stockModel: StockModel? = nil
@@ -78,6 +81,29 @@ extension StockUIModel {
             }
         }
         return stockModel
+    }
+    
+    // Güncelle butonuna tıklanıldığında SubStocks ve her substock'un subStockInfo'ları çekiliyor
+    mutating func getSubStockIdx(stockId: String?) -> [SubStockModel] {
+        return self.stocks.first(where: { $0.stock.id == stockId })?.subStocks ?? []
+    }
+    
+    // Counter güncellenmesi sağlandı
+    mutating func updateSubStockCount(_ count: Int, stockId: String?, subStockId: String?) -> IndexPath? {
+        if let section = self.stocks.firstIndex(where: { $0.stock.id == stockId }) {
+            if let row = self.stocks[section].subStocks.firstIndex(where: { $0.id == subStockId }) {
+                self.stocks[section].subStocks[row].counter = count
+                return IndexPath(row: row, section: section)
+            }
+        }
+        return nil
+    }
+    
+    // Counter güncellendikten sonra stock date güncellenmeli
+    mutating func updateStockDate(_ date: String, stockId: String?) {
+        if let section = self.stocks.firstIndex(where: { $0.stock.id == stockId }) {
+            self.stocks[section].stock.date = date
+        }
     }
 }
 

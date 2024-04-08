@@ -8,7 +8,7 @@
 import Combine
 
 protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelegate,
-                                           StockDetailInfoDataSourceFactoryOutputDelegate{
+    StockDetailInfoDataSourceFactoryOutputDelegate {
 
     var viewState: ScreenStateSubject<StockDetailInformationViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -23,7 +23,7 @@ protocol IStockDetailInformationViewModel: UpdateStockViewControllerOutputDelega
 
     // Coordinate
     func presentUpdateStockViewController(type: UpdateStockType)
-    
+
     // Service
     func getStockList()
 
@@ -42,7 +42,7 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
     // MARK: Public Props
     private var isLastPage: Bool = false
     private var isAvailablePagination: Bool = false
-    
+
     var viewState = ScreenStateSubject<StockDetailInformationViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let response = CurrentValueSubject<[UpdateStockModel]?, Never>(nil)
@@ -65,7 +65,7 @@ final class StockDetailInformationViewModel: BaseViewModel, IStockDetailInformat
     var navigationSubTitle: String {
         return uiModel.navigationSubTitle
     }
-    
+
     func updateSnapshot(currentSnapshot: StockDetailInfoSnapshot,
                         newDatas: [UpdateStockModel]) -> StockDetailInfoSnapshot {
         self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
@@ -78,11 +78,11 @@ internal extension StockDetailInformationViewModel {
 
     func getStockList() {
         handleResourceFirestore(
-            request: jobiStockRepository.getStockInfo(cursor: uiModel.getLastCursor(),
-                                                      limit: uiModel.limit,
-                                                      season: uiModel.season,
-                                                      stockId: uiModel.stockId,
-                                                      subStockId: uiModel.subStockId),
+            request: jobiStockRepository.getSubStockInfos(cursor: uiModel.getLastCursor(),
+                                                          limit: uiModel.limit,
+                                                          season: uiModel.season,
+                                                          stockId: uiModel.stockId,
+                                                          subStockId: uiModel.subStockId),
             response: self.response,
             errorState: self.errorState,
             callbackLoading: { isProgress in
@@ -113,7 +113,7 @@ internal extension StockDetailInformationViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-    
+
     func viewStateBuildSnapshot() {
         viewState.value = .buildSnapshot(snapshot: self.uiModel.buildSnapshot())
     }
@@ -135,7 +135,7 @@ internal extension StockDetailInformationViewModel {
 
 // MARK: UpdateStockViewControllerOutputDelegate
 internal extension StockDetailInformationViewModel {
-    
+
     func updateStockData(_ data: UpdateStockModel) {
         self.uiModel.appendFirstItem(data: data)
         self.viewStateBuildSnapshot()
@@ -146,7 +146,7 @@ internal extension StockDetailInformationViewModel {
 extension StockDetailInformationViewModel {
 
     func cellTapped(uiModel: IStockDetailInfoTableViewCellUIModel) {
-        
+
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {

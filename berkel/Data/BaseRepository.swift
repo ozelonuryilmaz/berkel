@@ -50,11 +50,41 @@ class BaseRepository: IBaseRepository {
             subject.send(snapshot)
         }
 
-        // Sarak ayarlaource parametresini server ol
         // Tek bir seferlik verileri çekmek için kullanıldı. Cache iptal edildi.
         let source = FirestoreSource.server
 
         ref.getDocuments(source: source, as: T.self)
+            .sink(receiveCompletion: onErrorCompletion,
+                  receiveValue: onValue)
+            .store(in: &cancelBag)
+
+        return subject
+    }
+    
+    // Document içerisinde verileri getirir.
+    func getDocument<T: Codable>(_ db: DocumentServiceType) -> FirestoreResponseType<T> {
+        var ref = db.documentReference
+
+        let subject = FirestoreResponseType<T>()
+
+        let onErrorCompletion: (Subscribers.Completion<Error>) -> Void = { completion in
+            switch completion {
+            case .failure(let error):
+                subject.send(completion: .failure(error))
+            case .finished:
+                subject.send(completion: .finished)
+            }
+        }
+
+        let onValue: ((T?) -> Void) = { snapshot in
+            guard let snapshot else { return }
+            subject.send(snapshot)
+        }
+
+        // Tek bir seferlik verileri çekmek için kullanıldı. Cache iptal edildi.
+        let source = FirestoreSource.server
+
+        ref.getDocument(source: source, as: T.self)
             .sink(receiveCompletion: onErrorCompletion,
                   receiveValue: onValue)
             .store(in: &cancelBag)
@@ -180,7 +210,7 @@ extension BaseRepository {
                 return nil
             }
 
-            guard let oldValue = counterDocument.data()?["count"] as? Int else {
+            guard let oldValue = counterDocument.data()?["counter"] as? Int else {
                 let error = NSError(
                     domain: "AppErrorDomain",
                     code: -1,
@@ -194,7 +224,7 @@ extension BaseRepository {
             }
 
             // Increment counter by Count Parametre
-            transaction.updateData(["count": oldValue + count], forDocument: db)
+            transaction.updateData(["counter": oldValue + count], forDocument: db)
             subject.send(true)
             return nil
         } completion: { (object, error) in

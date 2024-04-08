@@ -9,6 +9,6 @@ import Foundation
 
 struct StockListModel {
     
-    let stock: StockModel
-    let subStocks: [SubStockModel]
+    var stock: StockModel
+    var subStocks: [SubStockModel]
 }

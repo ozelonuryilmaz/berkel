@@ -11,17 +11,16 @@ enum JobiStockService {
 
     case stocks(season: String) // Limonata, Nar, ...
     case subStocks(season: String, stockId: String) // 0.33lt, 0.5lt, ...
+    case stock(season: String, stockId: String)
     case subStock(season: String, stockId: String, subStockId: String)
-    case stockList(season: String)
-    case stockInfo(season: String, stockId: String, subStockId: String)
-    case subStockList(season: String, stockId: String)
+    case subStockInfo(season: String, stockId: String, subStockId: String)
 }
 
 extension JobiStockService: CollectionServiceType {
 
     var order: String {
         switch self {
-        case .stockList(_), .subStockList(_,_), .stockInfo(_,_,_):
+        case .stocks(_), .subStocks(_,_), .subStockInfo(_,_,_):
             return "date"
         default:
             return ""
@@ -30,28 +29,6 @@ extension JobiStockService: CollectionServiceType {
 
     var collectionReference: CollectionReference {
         switch self {
-        case .stockList(let season):
-
-            return Firestore
-                .firestore()
-                .collection(jobiCollection)
-                .document(jobiUuid)
-                .collection("data")
-                .document(season)
-                .collection("stocks")
-            
-        case .subStockList(let season, let stockId):
-
-            return Firestore
-                .firestore()
-                .collection(jobiCollection)
-                .document(jobiUuid)
-                .collection("data")
-                .document(season)
-                .collection("stocks")
-                .document(stockId)
-                .collection("subStocks")
-
         case .stocks(let season):
 
             return Firestore
@@ -74,7 +51,7 @@ extension JobiStockService: CollectionServiceType {
                 .document(stockId)
                 .collection("subStocks")
             
-        case .stockInfo(let season,let stockId,let subStockId):
+        case .subStockInfo(let season,let stockId,let subStockId):
             return Firestore
                 .firestore()
                 .collection(jobiCollection)
@@ -100,6 +77,16 @@ extension JobiStockService: DocumentServiceType {
     
     var documentReference: DocumentReference {
         switch self {
+            
+        case .stock(let season,let stockId):
+            return Firestore
+                .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
+                .collection("data")
+                .document(season)
+                .collection("stocks")
+                .document(stockId)
     
         case .subStock(let season,let stockId,let subStockId):
             return Firestore
