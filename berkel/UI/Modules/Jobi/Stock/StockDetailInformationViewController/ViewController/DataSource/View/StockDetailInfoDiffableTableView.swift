@@ -50,7 +50,7 @@ private extension StockDetailInfoDiffableTableView {
 
     func initializeTableView() {
         self.registerCell(StockDetailInfoTableViewCell.self)
-        self.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 64, right: 0)
+        self.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 72, right: 0)
         self.delegate = self.stockDetailInfoDataSource
         self.dataSource = self.stockDetailInfoDataSource
         self.removeTableFooterView()

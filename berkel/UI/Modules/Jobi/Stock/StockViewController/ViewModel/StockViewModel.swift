@@ -96,8 +96,9 @@ internal extension StockViewModel {
                 }
             },
             callbackComplete: { [weak self] in
-                guard let self = self, let stockList = self.responseStockList.value else { return }
-                if stockList.isEmpty {
+                guard let self = self else { return }
+                let stockList = self.responseStockList.value ?? []
+                if stockList.isEmpty  {
                     self.viewStateShowNativeProgress(isProgress: false)
                     self.reloadData()
                 }
@@ -112,10 +113,6 @@ internal extension StockViewModel {
                 request: self.jobiStockRepository.getSubStocks(season: self.uiModel.season, stockId: stock.id ?? ""),
                 response: self.responseSubStockList,
                 errorState: self.errorState,
-                callbackLoading: { [weak self] isProgress in
-                    guard let self = self else { return }
-                    self.viewStateShowNativeProgress(isProgress: isProgress)
-                },
                 callbackSuccess: { [weak self] in
                     guard let self = self,
                         let subStockList = self.responseSubStockList.value else { return }

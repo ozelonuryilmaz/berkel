@@ -63,7 +63,7 @@ class JobiTabbarCoordinator: RootableCoordinator {
         coordinate(to: jobiListCoordinator)
 
         // Uygulamanın ilk açılış ekranı
-        self.jobiTabbarController.changeTabbarItemController(position: .jobiList)
+        self.jobiTabbarController.changeTabbarItemController(position: .stock)
 
         // uygulamaya giriş yapıldıktan 1 saniye sonra tetiklenen callback
         DispatchQueue.delay(1000) { [weak self] in
