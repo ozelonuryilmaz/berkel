@@ -1,44 +1,43 @@
 //
-//  OrderViewController.swift
+//  OrderCollectionViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 7.03.2024.
+//  Created by Onur Yilmaz on 16.04.2024.
+//  Copyright (c) 2024 Berkel IOS Development Team. All rights reserved.[OY-2024]
 //
 
 import UIKit
 import Combine
 
-final class OrderViewController: JobiBaseViewController {
-    
-    override var navigationTitle: String? {
-        return "Sipariş"
-    }
-    
-    override var navigationSubTitle: String? {
-        return self.viewModel.season
-    }
+protocol OrderCollectionViewControllerOutputDelegate: AnyObject {
+
+}
+
+final class OrderCollectionViewController: BerkelBaseViewController {
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IOrderViewModel
+    private let viewModel: IOrderCollectionViewModel
+    private weak var outputDelegate: OrderCollectionViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
 
     // MARK: Constraints Outlets
-
+    
     // MARK: Initializer
-    init(viewModel: IOrderViewModel) {
+    init(viewModel: IOrderCollectionViewModel,
+         outputDelegate: OrderCollectionViewControllerOutputDelegate?) {
         self.viewModel = viewModel
-        super.init(nibName: "OrderViewController", bundle: nil)
+        self.outputDelegate = outputDelegate
+        super.init(nibName: "OrderCollectionViewController", bundle: nil)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
     }
 
@@ -71,14 +70,9 @@ final class OrderViewController: JobiBaseViewController {
     }
 
     // MARK: Define Components
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
-            self.viewModel.pushJBCustomerListViewController()
-        }
-    }()
 }
 
 // MARK: Props
-private extension OrderViewController {
-
+private extension OrderCollectionViewController {
+    
 }

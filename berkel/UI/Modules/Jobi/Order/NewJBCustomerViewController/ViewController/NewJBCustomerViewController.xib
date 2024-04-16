@@ -15,12 +15,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewCavusViewController" customModule="berkel" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewJBCustomerViewController" customModule="berkel" customModuleProvider="target">
             <connections>
-                <outlet property="btnSave" destination="Q7w-ll-eSa" id="4dy-3C-dPe"/>
-                <outlet property="tfDesc" destination="eUq-d6-0kt" id="2sl-Me-BWx"/>
-                <outlet property="tfName" destination="VNT-y5-She" id="Q6l-b5-R6G"/>
-                <outlet property="tfPhone" destination="PjA-45-Rkb" id="dMZ-Z3-YHN"/>
+                <outlet property="btnSave" destination="w3q-qG-BBd" id="408-7H-WUF"/>
+                <outlet property="tfDesc" destination="cmV-9h-4kZ" id="4kK-ck-gm9"/>
+                <outlet property="tfName" destination="iaI-14-TPT" id="P8S-HL-UZo"/>
+                <outlet property="tfPhone" destination="Zt4-M7-iHH" id="qri-h0-MRe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,36 +29,36 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-nm-BXK">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-kM-sgi">
                     <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wax-9L-gd9" userLabel="mContentView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LJ-rK-lKu" userLabel="mContentView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="476"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naa-bp-pMX" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2of-wZ-rcU" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
                                     <rect key="frame" x="16" y="32" width="380" height="412"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNT-y5-She" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-14-TPT" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="32" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="TFl-iP-zfM"/>
+                                                <constraint firstAttribute="height" constant="76" id="6po-HX-ur4"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
                                                     <integer key="value" value="100"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Çavuş Adı Soyadı"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Müşteri"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-45-Rkb" userLabel="tfNumber" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zt4-M7-iHH" userLabel="tfNumber" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="124" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="ZOd-Pg-UI9"/>
+                                                <constraint firstAttribute="height" constant="76" id="k6L-vD-nbj"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
@@ -73,11 +73,11 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUq-d6-0kt" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmV-9h-4kZ" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="216" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="ysR-DJ-Cui"/>
+                                                <constraint firstAttribute="height" constant="76" id="Idl-Y9-hDZ"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
@@ -88,11 +88,11 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7w-ll-eSa" userLabel="btnSave">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-qG-BBd" userLabel="btnSave">
                                             <rect key="frame" x="32" y="324" width="352" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="56" id="4ks-Xa-3TL"/>
+                                                <constraint firstAttribute="height" constant="56" id="9j8-oL-Ocd"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="MavenProBold" family="Maven Pro" pointSize="20"/>
                                             <state key="normal" title="Kaydet">
@@ -107,19 +107,19 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="VNT-y5-She" secondAttribute="trailing" id="0QP-xp-zH4"/>
-                                        <constraint firstItem="VNT-y5-She" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="6Fr-RR-7CA"/>
-                                        <constraint firstItem="PjA-45-Rkb" firstAttribute="top" secondItem="VNT-y5-She" secondAttribute="bottom" constant="16" id="7kF-QM-zMB"/>
-                                        <constraint firstAttribute="trailing" secondItem="Q7w-ll-eSa" secondAttribute="trailing" constant="-4" id="DmP-wa-qeQ"/>
-                                        <constraint firstItem="PjA-45-Rkb" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="HmT-s1-w2j"/>
-                                        <constraint firstAttribute="trailing" secondItem="PjA-45-Rkb" secondAttribute="trailing" id="TFC-HL-kSD"/>
-                                        <constraint firstItem="Q7w-ll-eSa" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="32" id="XIB-n5-1SW"/>
-                                        <constraint firstItem="eUq-d6-0kt" firstAttribute="leading" secondItem="naa-bp-pMX" secondAttribute="leading" constant="16" id="d1B-O6-ExZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="eUq-d6-0kt" secondAttribute="trailing" id="ghp-3d-Ko5"/>
-                                        <constraint firstItem="VNT-y5-She" firstAttribute="top" secondItem="naa-bp-pMX" secondAttribute="top" constant="32" id="hWK-4g-l7e"/>
-                                        <constraint firstAttribute="bottom" secondItem="Q7w-ll-eSa" secondAttribute="bottom" constant="32" id="o3g-Bz-y21"/>
-                                        <constraint firstItem="Q7w-ll-eSa" firstAttribute="top" secondItem="eUq-d6-0kt" secondAttribute="bottom" constant="32" id="qPB-MM-fwt"/>
-                                        <constraint firstItem="eUq-d6-0kt" firstAttribute="top" secondItem="PjA-45-Rkb" secondAttribute="bottom" constant="16" id="yWd-HX-5Fo"/>
+                                        <constraint firstItem="cmV-9h-4kZ" firstAttribute="top" secondItem="Zt4-M7-iHH" secondAttribute="bottom" constant="16" id="19h-Qb-5Pn"/>
+                                        <constraint firstItem="w3q-qG-BBd" firstAttribute="top" secondItem="cmV-9h-4kZ" secondAttribute="bottom" constant="32" id="6YB-ML-2Ou"/>
+                                        <constraint firstAttribute="bottom" secondItem="w3q-qG-BBd" secondAttribute="bottom" constant="32" id="9Pa-I6-Dd3"/>
+                                        <constraint firstItem="iaI-14-TPT" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="16" id="DpP-Cw-2cG"/>
+                                        <constraint firstItem="cmV-9h-4kZ" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="16" id="La1-2j-k7g"/>
+                                        <constraint firstAttribute="trailing" secondItem="iaI-14-TPT" secondAttribute="trailing" id="Nca-4q-Yqe"/>
+                                        <constraint firstAttribute="trailing" secondItem="w3q-qG-BBd" secondAttribute="trailing" constant="-4" id="ZnY-O0-jXd"/>
+                                        <constraint firstAttribute="trailing" secondItem="cmV-9h-4kZ" secondAttribute="trailing" id="bj4-TS-dyo"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zt4-M7-iHH" secondAttribute="trailing" id="d73-xr-QFp"/>
+                                        <constraint firstItem="Zt4-M7-iHH" firstAttribute="top" secondItem="iaI-14-TPT" secondAttribute="bottom" constant="16" id="fMo-uH-pse"/>
+                                        <constraint firstItem="w3q-qG-BBd" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="32" id="rzs-s4-yTC"/>
+                                        <constraint firstItem="iaI-14-TPT" firstAttribute="top" secondItem="2of-wZ-rcU" secondAttribute="top" constant="32" id="tHg-2O-iM2"/>
+                                        <constraint firstItem="Zt4-M7-iHH" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="16" id="y1c-cE-o1W"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -142,33 +142,32 @@
                             </subviews>
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="naa-bp-pMX" secondAttribute="bottom" constant="32" id="0JY-go-lfR"/>
-                                <constraint firstAttribute="trailing" secondItem="naa-bp-pMX" secondAttribute="trailing" constant="-6" id="9xl-W5-azY"/>
-                                <constraint firstItem="naa-bp-pMX" firstAttribute="leading" secondItem="Wax-9L-gd9" secondAttribute="leading" constant="16" id="g54-jy-LFw"/>
-                                <constraint firstItem="naa-bp-pMX" firstAttribute="top" secondItem="Wax-9L-gd9" secondAttribute="top" constant="32" id="gfQ-Kp-Lfm"/>
+                                <constraint firstAttribute="bottom" secondItem="2of-wZ-rcU" secondAttribute="bottom" constant="32" id="KI4-dj-4os"/>
+                                <constraint firstItem="2of-wZ-rcU" firstAttribute="top" secondItem="4LJ-rK-lKu" secondAttribute="top" constant="32" id="PkE-YH-NHB"/>
+                                <constraint firstAttribute="trailing" secondItem="2of-wZ-rcU" secondAttribute="trailing" constant="-6" id="Tzb-Kq-moH"/>
+                                <constraint firstItem="2of-wZ-rcU" firstAttribute="leading" secondItem="4LJ-rK-lKu" secondAttribute="leading" constant="16" id="cNh-uo-dP0"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                     <constraints>
-                        <constraint firstItem="Wax-9L-gd9" firstAttribute="height" secondItem="m5i-nm-BXK" secondAttribute="height" multiplier="0.95" priority="250" id="Fgt-Xt-p0G"/>
-                        <constraint firstAttribute="bottom" secondItem="Wax-9L-gd9" secondAttribute="bottom" id="GG5-lY-Beh"/>
-                        <constraint firstAttribute="trailing" secondItem="Wax-9L-gd9" secondAttribute="trailing" id="b8o-sm-kkz"/>
-                        <constraint firstItem="Wax-9L-gd9" firstAttribute="width" secondItem="m5i-nm-BXK" secondAttribute="width" id="jFP-Z5-6Zo"/>
-                        <constraint firstItem="Wax-9L-gd9" firstAttribute="leading" secondItem="m5i-nm-BXK" secondAttribute="leading" id="mU1-zZ-0Si"/>
-                        <constraint firstItem="Wax-9L-gd9" firstAttribute="top" secondItem="m5i-nm-BXK" secondAttribute="top" id="ycU-d3-D6Y"/>
+                        <constraint firstItem="4LJ-rK-lKu" firstAttribute="leading" secondItem="hLg-kM-sgi" secondAttribute="leading" id="3EA-Cq-B5f"/>
+                        <constraint firstAttribute="trailing" secondItem="4LJ-rK-lKu" secondAttribute="trailing" id="JbW-f3-Tzv"/>
+                        <constraint firstItem="4LJ-rK-lKu" firstAttribute="height" secondItem="hLg-kM-sgi" secondAttribute="height" multiplier="0.95" priority="250" id="aRz-OR-a6G"/>
+                        <constraint firstItem="4LJ-rK-lKu" firstAttribute="top" secondItem="hLg-kM-sgi" secondAttribute="top" id="kwi-Vp-1aX"/>
+                        <constraint firstItem="4LJ-rK-lKu" firstAttribute="width" secondItem="hLg-kM-sgi" secondAttribute="width" id="u3S-P8-gLJ"/>
+                        <constraint firstAttribute="bottom" secondItem="4LJ-rK-lKu" secondAttribute="bottom" id="uXF-CF-UbE"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
             <constraints>
-                <constraint firstItem="m5i-nm-BXK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Wv-8f-Nti"/>
-                <constraint firstAttribute="bottom" secondItem="m5i-nm-BXK" secondAttribute="bottom" id="Jv8-x3-Ita"/>
-                <constraint firstItem="m5i-nm-BXK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="RtF-bz-QRh"/>
-                <constraint firstItem="m5i-nm-BXK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tLV-8c-Iqc"/>
+                <constraint firstAttribute="bottom" secondItem="hLg-kM-sgi" secondAttribute="bottom" id="4Oy-6s-GaD"/>
+                <constraint firstItem="hLg-kM-sgi" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EVW-OP-ae9"/>
+                <constraint firstItem="hLg-kM-sgi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="I74-RP-nck"/>
+                <constraint firstItem="hLg-kM-sgi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="elu-Uq-4bc"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </view>
     </objects>

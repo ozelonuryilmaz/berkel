@@ -9,6 +9,8 @@ import UIKit
 
 protocol IOrderCoordinator: AnyObject {
 
+    func pushJBCustomerListViewController(passData: JBCustomerListPassData,
+                                          outputDelegate: JBCustomerListViewControllerOutputDelegate)
 }
 
 final class OrderCoordinator: NavigationCoordinator, IOrderCoordinator {
@@ -21,4 +23,15 @@ final class OrderCoordinator: NavigationCoordinator, IOrderCoordinator {
     }
 
 
+    func pushJBCustomerListViewController() {
+        
+    }
+    
+    func pushJBCustomerListViewController(passData: JBCustomerListPassData,
+                                          outputDelegate: JBCustomerListViewControllerOutputDelegate) {
+        let coordinator = JBCustomerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
 }

@@ -23,6 +23,10 @@ service cloud.firestore \{\
    	function isAdmin() \{\
   	 	return request.auth != null && (request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true);\
   	\}\
+    \
+    function isJobiAdmin() \{\
+  	 	return request.auth != null && (request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isStockAdmin == true);\
+  	\}\
   \
     // 'users' koleksiyonundaki herhangi bir belgeye e\uc0\u351 le\u351 tir\
     match /users/\{usersId=**\} \{\
@@ -79,9 +83,23 @@ service cloud.firestore \{\
       allow write: if isAdmin() == true;\
       allow read: if request.auth != null;\
     \}\
+    \
+    // 'jobi' koleksiyonu i\'e7in izinler\
+    match /jobi/\{jobiId=**\} \{\
+      allow write, read: if isJobiAdmin() == true;\
+    \}\
+    \
+    // 'jobiGuest' koleksiyonu i\'e7in izinler\
+    match /jobiGuest/\{jobiGuestId=**\} \{\
+      allow write, read: if request.auth != null;\
+    \}\
+    \
+    // 'jobiCustomer' koleksiyonu i\'e7in izinler\
+    match /jobiCustomer/\{jobiCustomerId=**\} \{\
+      allow write, read: if request.auth != null;\
+    \}\
   \}\
 \}\
-\
 \
 \
 \

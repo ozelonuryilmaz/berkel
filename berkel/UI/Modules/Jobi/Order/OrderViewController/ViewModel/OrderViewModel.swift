@@ -7,14 +7,19 @@
 
 import Combine
 
-protocol IOrderViewModel: AnyObject {
+protocol IOrderViewModel: JBCustomerListViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<OrderViewState> { get }
     var errorState: ErrorStateSubject { get }
+    
+    var season: String { get }
 
     init(repository: IOrderRepository,
          coordinator: IOrderCoordinator,
          uiModel: IOrderUIModel)
+    
+    // Coordinator
+    func pushJBCustomerListViewController()
 }
 
 final class OrderViewModel: BaseViewModel, IOrderViewModel {
@@ -38,6 +43,9 @@ final class OrderViewModel: BaseViewModel, IOrderViewModel {
         self.uiModel = uiModel
     }
 
+    var season: String {
+        return uiModel.season
+    }
 }
 
 
@@ -59,8 +67,16 @@ internal extension OrderViewModel {
 // MARK: Coordinate
 internal extension OrderViewModel {
 
+    func pushJBCustomerListViewController() {
+        self.coordinator.pushJBCustomerListViewController(passData: JBCustomerListPassData(),
+                                                          outputDelegate: self)
+    }
 }
 
+// MARK: JBCustomerListViewControllerOutputDelegate
+internal extension OrderViewModel {
+    
+}
 
 enum OrderViewState {
     case showNativeProgress(isProgress: Bool)
