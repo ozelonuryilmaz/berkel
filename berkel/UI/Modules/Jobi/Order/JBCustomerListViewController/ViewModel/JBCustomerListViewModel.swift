@@ -9,8 +9,9 @@
 import Foundation
 import Combine
 
-protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate, 
-                                    JBCustomerListDataSourceFactoryOutputDelegate {
+protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
+    JBCustomerListDataSourceFactoryOutputDelegate,
+    JBCustomerPriceViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<JBCustomerListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -18,10 +19,10 @@ protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
     init(repository: IJBCustomerListRepository,
          coordinator: IJBCustomerListCoordinator,
          uiModel: IJBCustomerListUIModel)
-    
+
     // Coordinator
     func presentNewJBCustomerViewController(passData: NewJBCustomerPassData)
-    
+
     // Service
     func getCustomerList()
 
@@ -40,7 +41,7 @@ final class JBCustomerListViewModel: BaseViewModel, IJBCustomerListViewModel {
     var viewState = ScreenStateSubject<JBCustomerListViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let response = CurrentValueSubject<[JBCustomerModel]?, Never>(nil)
-    
+
     private var isLastPage: Bool = false
     private var isAvailablePagination: Bool = false
 
@@ -52,7 +53,7 @@ final class JBCustomerListViewModel: BaseViewModel, IJBCustomerListViewModel {
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
-    
+
     func updateSnapshot(currentSnapshot: JBCustomerListSnapshot,
                         newDatas: [JBCustomerModel]) -> JBCustomerListSnapshot {
         self.uiModel.updateSnapshot(currentSnapshot: currentSnapshot, newDatas: newDatas)
@@ -119,6 +120,11 @@ internal extension JBCustomerListViewModel {
                                                             outputDelegate: self)
     }
     
+    func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData) {
+        self.coordinator.presentJBCustomerPriceViewController(passData: passData,
+                                                              outputDelegate: self)
+    }
+
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
@@ -126,11 +132,16 @@ internal extension JBCustomerListViewModel {
 
 // MARK: NewJBCustomerViewControllerOutputDelegate
 internal extension JBCustomerListViewModel {
-    
+
     func newJBCustomerData(_ data: JBCustomerModel) {
         self.uiModel.appendFirstItem(data: data)
         self.viewStateBuildSnapshot()
     }
+}
+
+// MARK: JBCustomerPriceViewControllerOutputDelegate
+internal extension JBCustomerListViewModel {
+
 }
 
 // MARK: JBCustomerListDataSourceFactoryOutputDelegate
@@ -147,11 +158,12 @@ extension JBCustomerListViewModel {
     }
 
     func priceTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
-        
+        self.presentJBCustomerPriceViewController(passData: JBCustomerPricePassData(isPriceSelectable: false,
+                                                                                    customerName: uiModel.name))
     }
 
     func archiveTapped(customerId: String) {
-        
+
     }
 
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel) {

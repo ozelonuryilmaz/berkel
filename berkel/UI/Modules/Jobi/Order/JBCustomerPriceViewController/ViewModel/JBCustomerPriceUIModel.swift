@@ -1,28 +1,28 @@
 //
-//  StockUIModel.swift
+//  JBCustomerPriceUIModel.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 7.03.2024.
+//  Created by Onur Yilmaz on 21.04.2024.
+//  Copyright (c) 2024 Berkel IOS Development Team. All rights reserved.[OY-2024]
 //
 
 import UIKit
 
-protocol IStockUIModel {
+protocol IJBCustomerPriceUIModel {
 
     var isLastRequest: Bool { get }
+    var customerName: String { get }
+
     var season: String { get }
 
-    init()
+    init(data: JBCustomerPricePassData)
 
     mutating func resetValues()
     mutating func sortedStocks()
     mutating func setStockIdx(idx: [String])
     mutating func setStock(stock: StockModel, subStock: [SubStockModel])
-    
+
     func getStockModel(subStockId: String?) -> StockModel?
-    mutating func getSubStockIdx(stockId: String?) -> [SubStockModel]
-    mutating func updateSubStockCount(_ count: Int, stockId: String?, subStockId: String?) -> IndexPath?
-    mutating func updateStockDate(_ date: String, stockId: String?)
     
     // TableView
     func getNumberOfItemsInSection() -> Int
@@ -31,16 +31,19 @@ protocol IStockUIModel {
     func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel
 }
 
-struct StockUIModel: IStockUIModel {
+struct JBCustomerPriceUIModel: IJBCustomerPriceUIModel {
 
     // MARK: Definitions
     private var stocks: [StockListModel] = []
     private var stockIdx: [String] = []
+    let customerName: String
+
 
     // MARK: Initialize
-    init() { }
+    init(data: JBCustomerPricePassData) {
+        self.customerName = data.customerName
+    }
 
-    // MARK: Computed Props
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
@@ -48,10 +51,12 @@ struct StockUIModel: IStockUIModel {
     var isLastRequest: Bool {
         return stocks.count == stockIdx.count
     }
+
+    // MARK: Computed Props
 }
 
 // MARK: Props
-extension StockUIModel {
+extension JBCustomerPriceUIModel {
 
     mutating func setStock(stock: StockModel, subStock: [SubStockModel]) {
         let _subStocks = subStock.sorted(by: { $0.subStockName < $1.subStockName })
@@ -63,7 +68,7 @@ extension StockUIModel {
     }
 
     mutating func sortedStocks() {
-        self.stocks = self.stocks.filter( { !$0.subStocks.isEmpty } )
+        self.stocks = self.stocks.filter({ !$0.subStocks.isEmpty })
         self.stocks = self.stocks.sorted(by: { $0.stock.stockName < $1.stock.stockName })
     }
 
@@ -82,32 +87,9 @@ extension StockUIModel {
         }
         return stockModel
     }
-    
-    // Güncelle butonuna tıklanıldığında SubStocks ve her substock'un subStockInfo'ları çekiliyor
-    mutating func getSubStockIdx(stockId: String?) -> [SubStockModel] {
-        return self.stocks.first(where: { $0.stock.id == stockId })?.subStocks ?? []
-    }
-    
-    // Counter güncellenmesi sağlandı
-    mutating func updateSubStockCount(_ count: Int, stockId: String?, subStockId: String?) -> IndexPath? {
-        if let section = self.stocks.firstIndex(where: { $0.stock.id == stockId }) {
-            if let row = self.stocks[section].subStocks.firstIndex(where: { $0.id == subStockId }) {
-                self.stocks[section].subStocks[row].counter = count
-                return IndexPath(row: row, section: section)
-            }
-        }
-        return nil
-    }
-    
-    // Counter güncellendikten sonra stock date güncellenmeli
-    mutating func updateStockDate(_ date: String, stockId: String?) {
-        if let section = self.stocks.firstIndex(where: { $0.stock.id == stockId }) {
-            self.stocks[section].stock.date = date
-        }
-    }
 }
 
-internal extension StockUIModel {
+internal extension JBCustomerPriceUIModel {
 
     func getNumberOfItemsInSection() -> Int {
         return self.stocks.count
@@ -118,8 +100,8 @@ internal extension StockUIModel {
     }
 
     func getSectionUIModel(section: Int) -> StockHeaderCellUIModel {
-        return StockHeaderCellUIModel(stockModel: self.stocks[section].stock, 
-                                      isUpdateButtonHideable: false)
+        return StockHeaderCellUIModel(stockModel: self.stocks[section].stock,
+                                      isUpdateButtonHideable: true)
     }
 
     func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel {

@@ -12,7 +12,8 @@ protocol IJBCustomerListCoordinator: AnyObject {
 
     func presentNewJBCustomerViewController(passData: NewJBCustomerPassData,
                                             outputDelegate: NewJBCustomerViewControllerOutputDelegate)
-    
+    func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData,
+                                              outputDelegate: JBCustomerPriceViewControllerOutputDelegate)
     func popToRootViewController(animated: Bool)
 }
 
@@ -40,6 +41,14 @@ final class JBCustomerListCoordinator: NavigationCoordinator, IJBCustomerListCoo
     func presentNewJBCustomerViewController(passData: NewJBCustomerPassData,
                                             outputDelegate: NewJBCustomerViewControllerOutputDelegate) {
         let controller = NewJBCustomerCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+    
+    func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData,
+                                              outputDelegate: JBCustomerPriceViewControllerOutputDelegate) {
+        let controller = JBCustomerPriceCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)

@@ -1,51 +1,56 @@
 //
-//  StockViewController.swift
+//  JBCustomerPriceViewController.swift
 //  berkel
 //
-//  Created by Onur Yilmaz on 7.03.2024.
+//  Created by Onur Yilmaz on 21.04.2024.
+//  Copyright (c) 2024 Berkel IOS Development Team. All rights reserved.[OY-2024]
 //
 
 import UIKit
 import Combine
 
-final class StockViewController: JobiBaseViewController {
+protocol JBCustomerPriceViewControllerOutputDelegate: AnyObject {
+
+}
+
+final class JBCustomerPriceViewController: BerkelBaseViewController {
     
     override var navigationTitle: String? {
-        return "Stok"
+        return viewModel.customerName
     }
     
     override var navigationSubTitle: String? {
-        return self.viewModel.season
+        return "Fiyat Listesi"
     }
 
     // MARK: Constants
 
     // MARK: Inject
-    private let viewModel: IStockViewModel
+    private let viewModel: IJBCustomerPriceViewModel
+    private weak var outputDelegate: JBCustomerPriceViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Constraints Outlets
-
+    
     // MARK: Initializer
-    init(viewModel: IStockViewModel) {
+    init(viewModel: IJBCustomerPriceViewModel,
+         outputDelegate: JBCustomerPriceViewControllerOutputDelegate?) {
         self.viewModel = viewModel
-        super.init(nibName: "StockViewController", bundle: nil)
+        self.outputDelegate = outputDelegate
+        super.init(nibName: "JBCustomerPriceViewController", bundle: nil)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        
         self.initTableView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.viewModel.getStock()
     }
 
@@ -65,7 +70,7 @@ final class StockViewController: JobiBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-
+                
             case .reloadData:
                 self.tableView.reloadData()
                 
@@ -86,16 +91,16 @@ final class StockViewController: JobiBaseViewController {
     }
 
     // MARK: Define Components
-    private lazy var addBarButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(image: .addNavLoupe) { [unowned self] _ in
-            self.viewModel.pushMyStockListViewController()
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
         }
     }()
 }
 
 // MARK: Props
-private extension StockViewController {
-
+private extension JBCustomerPriceViewController {
+    
     func initTableView() {
         tableView.registerHeaderFooterView(StockHeaderCell.self)
         tableView.registerCell(StockItemCell.self)
@@ -111,7 +116,7 @@ private extension StockViewController {
 }
 
 // MARK: UITableViewDelegate & UITableViewDataSource
-extension StockViewController: UITableViewDelegate, UITableViewDataSource {
+extension JBCustomerPriceViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.getNumberOfItemsInSection()
@@ -131,7 +136,6 @@ extension StockViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = tableView.generateReusableHeaderFooterView(StockHeaderCell.self)
         sectionView.configureCell(with: self.viewModel.getSectionUIModel(section: section))
-        sectionView.outputDelegate = self.viewModel
         return sectionView
     }
 

@@ -28,6 +28,7 @@ class StockHeaderCell: BaseTableViewHeaderFooterView {
 
         headerTitleView.text = uiModel.stockName
         lblDate.text = uiModel.date
+        btnUpdateStock.isHidden = uiModel.isUpdateButtonHideable
     }
     
     private func registerEvents(uiModel: StockHeaderCellUIModel) {

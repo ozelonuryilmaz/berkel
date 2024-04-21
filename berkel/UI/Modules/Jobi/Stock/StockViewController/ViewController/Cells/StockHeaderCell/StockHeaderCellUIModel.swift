@@ -10,6 +10,7 @@ import Foundation
 struct StockHeaderCellUIModel {
 
     let stockModel: StockModel
+    let isUpdateButtonHideable: Bool
     
     var stockId: String {
         return stockModel.id ?? ""
