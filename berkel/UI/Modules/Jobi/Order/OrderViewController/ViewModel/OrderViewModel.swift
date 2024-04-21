@@ -75,7 +75,10 @@ internal extension OrderViewModel {
 
 // MARK: JBCustomerListViewControllerOutputDelegate
 internal extension OrderViewModel {
-    
+
+    func newOrderData(_ data: OrderModel) {
+        
+    }
 }
 
 enum OrderViewState {

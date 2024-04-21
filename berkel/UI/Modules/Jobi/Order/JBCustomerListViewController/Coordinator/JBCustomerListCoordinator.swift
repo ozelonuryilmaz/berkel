@@ -12,6 +12,8 @@ protocol IJBCustomerListCoordinator: AnyObject {
 
     func presentNewJBCustomerViewController(passData: NewJBCustomerPassData,
                                             outputDelegate: NewJBCustomerViewControllerOutputDelegate)
+    
+    func popToRootViewController(animated: Bool)
 }
 
 final class JBCustomerListCoordinator: NavigationCoordinator, IJBCustomerListCoordinator {
@@ -41,5 +43,9 @@ final class JBCustomerListCoordinator: NavigationCoordinator, IJBCustomerListCoo
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)
+    }
+
+    func popToRootViewController(animated: Bool) {
+        self.navigationController.popToRootViewController(animated: animated)
     }
 }

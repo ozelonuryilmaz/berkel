@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol JBCustomerListViewControllerOutputDelegate: AnyObject {
-
+    func newOrderData(_ data: OrderModel)
 }
 
 final class JBCustomerListViewController: JobiBaseViewController {
@@ -26,6 +26,7 @@ final class JBCustomerListViewController: JobiBaseViewController {
     private weak var outputDelegate: JBCustomerListViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: JBCustomerListDiffableTableView!
 
     // MARK: Constraints Outlets
     
@@ -44,6 +45,12 @@ final class JBCustomerListViewController: JobiBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+        
+        self.viewModel.getCustomerList()
+    }
+    
+    override func setupView() {
+        initTableView()
     }
 
     override func registerEvents() {
@@ -63,13 +70,29 @@ final class JBCustomerListViewController: JobiBaseViewController {
             case .playNativeLoading(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
+
+            case .outputDelegate(let orderModel):
+                self.outputDelegate?.newOrderData(orderModel)
             }
 
         }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
-        let errorHandle = FirestoreErrorHandle(viewController: self)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getCustomerList()
+            }
+        )
         observeErrorState(errorState: viewModel.errorState,
                           errorHandle: errorHandle)
     }
@@ -77,7 +100,7 @@ final class JBCustomerListViewController: JobiBaseViewController {
     // MARK: Define Components
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(image: .addPersonNav) { [unowned self] _ in
-            self.viewModel.presentNewJBCustomerViewController()
+            self.viewModel.presentNewJBCustomerViewController(passData: NewJBCustomerPassData(customerInformation: nil))
         }
     }()
 }
@@ -85,4 +108,7 @@ final class JBCustomerListViewController: JobiBaseViewController {
 // MARK: Props
 private extension JBCustomerListViewController {
     
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

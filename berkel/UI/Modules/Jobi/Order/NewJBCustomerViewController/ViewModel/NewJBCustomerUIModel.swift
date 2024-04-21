@@ -30,7 +30,7 @@ protocol INewJBCustomerUIModel {
 struct NewJBCustomerUIModel: INewJBCustomerUIModel {
 
     // MARK: Definitions
-    //private let customerInformation: IJBCustomerListTableViewCellUIModel?
+    private let customerInformation: IJBCustomerListTableViewCellUIModel?
 
     private var name: String = ""
     private var phone: String = ""
@@ -38,22 +38,22 @@ struct NewJBCustomerUIModel: INewJBCustomerUIModel {
 
     // MARK: Initialize
     init(data: NewJBCustomerPassData) {
-        //self.customerInformation = data.customerInformation
-        //self.setName(self.customerInformation?.name ?? "")
-        //self.setPhone(self.customerInformation?.phoneNumber ?? "")
-        //self.setDesc(self.customerInformation?.desc ?? "")
+        self.customerInformation = data.customerInformation
+        self.setName(self.customerInformation?.name ?? "")
+        self.setPhone(self.customerInformation?.phoneNumber ?? "")
+        self.setDesc(self.customerInformation?.desc ?? "")
     }
 
     var data: JBCustomerModel {
-        return JBCustomerModel(id: nil, //customerInformation?.id,
-        name: self.name,
+        return JBCustomerModel(id: customerInformation?.id,
+                               name: self.name,
                                phoneNumber: self.phone,
                                description: self.desc,
                                date: Date().dateFormatterApiResponseType())
     }
 
     var isUpdatedCustomer: Bool {
-        return false //customerInformation != nil
+        return customerInformation != nil
     }
 
     var navigationTitle: String {

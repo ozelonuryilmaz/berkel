@@ -9,9 +9,15 @@
 import Foundation
 
 protocol IJBCustomerListRepository: AnyObject {
-
+    func getCustomerList(cursor: [String]?, limit: Int) -> FirestoreResponseType<[JBCustomerModel]>
 }
 
 final class JBCustomerListRepository: BaseRepository, IJBCustomerListRepository {
 
+    func getCustomerList(cursor: [String]?, limit: Int) -> FirestoreResponseType<[JBCustomerModel]> {
+        return getDocuments(JBCustomerService.list,
+                            order: JBCustomerService.list.order,
+                            cursor: cursor,
+                            limit: limit)
+    }
 }

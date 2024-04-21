@@ -10,6 +10,6 @@ import Foundation
 
 struct NewJBCustomerPassData: ICoordinatorPassData {
 
-    //let cavusInformation: IJBCustomerListTableViewCellUIModel?
+    let customerInformation: IJBCustomerListTableViewCellUIModel?
 }
 

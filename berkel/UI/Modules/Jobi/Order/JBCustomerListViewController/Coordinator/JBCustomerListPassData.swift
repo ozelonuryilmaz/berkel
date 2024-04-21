@@ -9,6 +9,6 @@
 import Foundation
 
 struct JBCustomerListPassData: ICoordinatorPassData {
-
+    var isCancellableCellTabbed: Bool = false
 }
 
