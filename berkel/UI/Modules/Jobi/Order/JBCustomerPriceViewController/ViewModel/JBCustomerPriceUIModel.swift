@@ -13,6 +13,7 @@ protocol IJBCustomerPriceUIModel {
     var isLastRequest: Bool { get }
     var customerName: String { get }
 
+    var isPriceSelectable: Bool { get }
     var customerModel: JBCustomerModel { get }
 
     var season: String { get }
@@ -39,9 +40,11 @@ struct JBCustomerPriceUIModel: IJBCustomerPriceUIModel {
     private var stocks: [StockListModel] = []
     private var stockIdx: [String] = []
     let customerModel: JBCustomerModel
+    let isPriceSelectable: Bool
 
     // MARK: Initialize
     init(data: JBCustomerPricePassData) {
+        self.isPriceSelectable = data.isPriceSelectable
         self.customerModel = data.customerModel
     }
 

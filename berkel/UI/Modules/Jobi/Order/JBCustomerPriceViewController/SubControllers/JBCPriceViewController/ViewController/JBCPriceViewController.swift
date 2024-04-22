@@ -30,6 +30,7 @@ final class JBCPriceViewController: JobiBaseViewController {
     private weak var outputDelegate: JBCPriceViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Constraints Outlets
     
@@ -48,6 +49,11 @@ final class JBCPriceViewController: JobiBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+        self.initTableView()
+
+        DispatchQueue.delay(150) { [weak self] in
+            self?.viewModel.getPrices()
+        }
     }
 
     override func registerEvents() {
@@ -67,6 +73,8 @@ final class JBCPriceViewController: JobiBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .reloadData:
+                self.tableView.reloadData()
             }
 
         }).store(in: &cancelBag)
@@ -89,4 +97,33 @@ final class JBCPriceViewController: JobiBaseViewController {
 // MARK: Props
 private extension JBCPriceViewController {
     
+    func initTableView() {
+        tableView.registerCell(JBCPriceItemCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset = .init(top: 16, left: 0, bottom: 16, right: 0)
+        
+        tableViewReload()
+    }
+
+    func tableViewReload() {
+        tableView.reloadData()
+        tableView.animatedAlpha(from: 0, to: 1, withDuration: 1)
+    }
 }
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+extension JBCPriceViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getNumberOfItemsInRow()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.generateReusableCell(JBCPriceItemCell.self, indexPath: indexPath)
+        cell.configureCell(with: viewModel.getItemCellUIModel(indexPath: indexPath))
+        cell.outputDelegate = self.viewModel
+        return cell
+    }
+}
+

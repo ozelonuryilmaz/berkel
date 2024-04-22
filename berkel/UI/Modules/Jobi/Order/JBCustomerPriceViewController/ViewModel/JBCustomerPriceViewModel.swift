@@ -168,7 +168,8 @@ internal extension JBCustomerPriceViewModel {
 
     func subStockTapped(subStock: SubStockModel) {
         guard let stockModel = uiModel.getStockModel(subStockId: subStock.id) else { return }
-        self.pushJBCPriceViewController(passData: JBCPricePassData(customerModel: uiModel.customerModel,
+        self.pushJBCPriceViewController(passData: JBCPricePassData(isPriceSelectable: uiModel.isPriceSelectable,
+                                                                   customerModel: uiModel.customerModel,
                                                                    stockModel: stockModel,
                                                                    subStockModel: subStock))
     }

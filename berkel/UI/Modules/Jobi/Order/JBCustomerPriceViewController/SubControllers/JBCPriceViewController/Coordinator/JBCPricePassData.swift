@@ -9,6 +9,8 @@
 import Foundation
 
 struct JBCPricePassData: ICoordinatorPassData {
+    
+    let isPriceSelectable: Bool // Müşteri listesinden fiyat seçimi yapılamayacak
 
     let customerModel: JBCustomerModel
     let stockModel: StockModel

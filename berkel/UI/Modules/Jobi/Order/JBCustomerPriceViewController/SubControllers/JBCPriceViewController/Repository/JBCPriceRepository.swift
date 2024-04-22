@@ -9,9 +9,16 @@
 import Foundation
 
 protocol IJBCPriceRepository: AnyObject {
-
+    func getPrices(customerId: String, season: String, stockId: String, subStockId: String) -> FirestoreResponseType<[JBCPriceModel]>
 }
 
 final class JBCPriceRepository: BaseRepository, IJBCPriceRepository {
 
+    func getPrices(customerId: String, season: String, stockId: String, subStockId: String) -> FirestoreResponseType<[JBCPriceModel]> {
+        let db = JBCustomerService.prices(customerId: customerId, 
+                                          season: season,
+                                          stockId: stockId,
+                                          subStockId: subStockId)
+        return getDocuments(db, order: db.order)
+    }
 }

@@ -18,7 +18,7 @@ extension JBCustomerService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .customer:
+        case .customer, .prices(_,_,_,_):
             return "date"
         default:
             return ""
