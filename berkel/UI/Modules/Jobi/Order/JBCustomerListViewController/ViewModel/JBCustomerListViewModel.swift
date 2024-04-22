@@ -125,6 +125,13 @@ internal extension JBCustomerListViewModel {
                                                               outputDelegate: self)
     }
 
+    func pushArchiveListViewController(jbCustomerId: String) {
+        let data = ArchiveListPassData(imagePageType: .order(jbCustomerId: jbCustomerId, 
+                                                             orderId: "",
+                                                             orderName: ""))
+        self.coordinator.pushArchiveListViewController(passData: data)
+    }
+
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
@@ -165,7 +172,7 @@ extension JBCustomerListViewModel {
     }
 
     func archiveTapped(customerId: String) {
-
+        self.pushArchiveListViewController(jbCustomerId: customerId)
     }
 
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel) {

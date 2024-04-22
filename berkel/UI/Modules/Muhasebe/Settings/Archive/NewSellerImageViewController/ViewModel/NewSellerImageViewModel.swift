@@ -129,6 +129,17 @@ internal extension NewSellerImageViewModel {
                                                      imageUrl: imageUrl)
 
                     self.saveSellerImageData(data: data)
+
+                case .order(let jbCustomerId, let orderId, let orderName):
+                    let data = OrderImageModel(jbCustomerId: jbCustomerId,
+                                               userId: self.uiModel.userId,
+                                               orderId: orderId,
+                                               orderName: orderName,
+                                               date: self.uiModel.date,
+                                               description: self.uiModel.desc,
+                                               imageUrl: imageUrl)
+
+                    self.saveSellerImageData(data: data)
                 }
 
             })
@@ -188,6 +199,23 @@ internal extension NewSellerImageViewModel {
     private func saveSellerImageData(data: OtherSellerImageModel) {
         handleResourceFirestore(
             request: self.repository.saveSellerImage(otherSellerId: data.otherSellerId,
+                                                     season: self.uiModel.season,
+                                                     imagePathType: self.uiModel.imagePathType,
+                                                     data: data),
+            response: self.responseOtherSellerImage,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.viewStateShowSuccessAlertMessage()
+            })
+    }
+    
+    private func saveSellerImageData(data: OrderImageModel) {
+        handleResourceFirestore(
+            request: self.repository.saveSellerImage(jbCustomerId: data.jbCustomerId,
                                                      season: self.uiModel.season,
                                                      imagePathType: self.uiModel.imagePathType,
                                                      data: data),

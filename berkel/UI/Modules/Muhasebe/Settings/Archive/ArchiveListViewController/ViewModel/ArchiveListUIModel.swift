@@ -25,6 +25,7 @@ protocol IArchiveListUIModel {
     mutating func setArchive(imagePathType: ImagePathType, data: [CustomerImageModel])
     mutating func setArchive(imagePathType: ImagePathType, data: [WorkerImageModel])
     mutating func setArchive(imagePathType: ImagePathType, data: [OtherSellerImageModel])
+    mutating func setArchive(imagePathType: ImagePathType, data: [OrderImageModel])
     mutating func setArchiveType(index: Int)
 
     // for Table View
@@ -97,7 +98,7 @@ extension ArchiveListUIModel {
             self.diger = archiveListTableViewCellUIModel
         }
     }
-    
+
     mutating func setArchive(imagePathType: ImagePathType, data: [CustomerImageModel]) {
         let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ customerImageModel in
             return ArchiveListTableViewCellUIModel(imageUrl: customerImageModel.imageUrl,
@@ -117,7 +118,7 @@ extension ArchiveListUIModel {
             self.diger = archiveListTableViewCellUIModel
         }
     }
-    
+
     mutating func setArchive(imagePathType: ImagePathType, data: [WorkerImageModel]) {
         let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ workerImageModel in
             return ArchiveListTableViewCellUIModel(imageUrl: workerImageModel.imageUrl,
@@ -137,12 +138,32 @@ extension ArchiveListUIModel {
             self.diger = archiveListTableViewCellUIModel
         }
     }
-    
+
     mutating func setArchive(imagePathType: ImagePathType, data: [OtherSellerImageModel]) {
         let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ otherSellerImageModel in
             return ArchiveListTableViewCellUIModel(imageUrl: otherSellerImageModel.imageUrl,
                                                    date: otherSellerImageModel.date?.dateTimeFormatFull() ?? "",
                                                    productName: otherSellerImageModel.otherProductName,
+                                                   desc: otherSellerImageModel.description ?? "")
+        })
+
+        switch imagePathType {
+        case .kantarFisi:
+            self.kantarFisi = archiveListTableViewCellUIModel
+        case .cek:
+            self.cek = archiveListTableViewCellUIModel
+        case .dekont:
+            self.dekont = archiveListTableViewCellUIModel
+        case .diger:
+            self.diger = archiveListTableViewCellUIModel
+        }
+    }
+
+    mutating func setArchive(imagePathType: ImagePathType, data: [OrderImageModel]) {
+        let archiveListTableViewCellUIModel: [ArchiveListTableViewCellUIModel] = data.compactMap({ otherSellerImageModel in
+            return ArchiveListTableViewCellUIModel(imageUrl: otherSellerImageModel.imageUrl,
+                                                   date: otherSellerImageModel.date?.dateTimeFormatFull() ?? "",
+                                                   productName: otherSellerImageModel.orderName,
                                                    desc: otherSellerImageModel.description ?? "")
         })
 

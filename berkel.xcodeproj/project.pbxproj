@@ -748,6 +748,7 @@
 		67DD6E392BD67F6A0097F69C /* JBCPriceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD6E372BD67F6A0097F69C /* JBCPriceItemCell.swift */; };
 		67DD6E3A2BD67F6A0097F69C /* JBCPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DD6E382BD67F6A0097F69C /* JBCPriceItemCell.xib */; };
 		67DD6E3C2BD67F760097F69C /* JBCPriceItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD6E3B2BD67F760097F69C /* JBCPriceItemCellUIModel.swift */; };
+		67DD6E3E2BD6B76C0097F69C /* OrderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD6E3D2BD6B76C0097F69C /* OrderImageModel.swift */; };
 		67DDE86F2B0E5F6700E24949 /* NewSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */; };
 		67DDE8702B0E5F6700E24949 /* NewSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */; };
 		67DDE8712B0E5F6700E24949 /* NewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */; };
@@ -1572,6 +1573,7 @@
 		67DD6E372BD67F6A0097F69C /* JBCPriceItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCPriceItemCell.swift; sourceTree = "<group>"; };
 		67DD6E382BD67F6A0097F69C /* JBCPriceItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JBCPriceItemCell.xib; sourceTree = "<group>"; };
 		67DD6E3B2BD67F760097F69C /* JBCPriceItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCPriceItemCellUIModel.swift; sourceTree = "<group>"; };
+		67DD6E3D2BD6B76C0097F69C /* OrderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderImageModel.swift; sourceTree = "<group>"; };
 		67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerCoordinator.swift; sourceTree = "<group>"; };
 		67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerUIModel.swift; sourceTree = "<group>"; };
 		67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerViewController.swift; sourceTree = "<group>"; };
@@ -3922,6 +3924,7 @@
 				678E0D2A2B1FB3E800C4FCC9 /* CustomerImageModel.swift */,
 				67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */,
 				6724748C2B5D42ED00E50B4A /* OtherSellerImageModel.swift */,
+				67DD6E3D2BD6B76C0097F69C /* OrderImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -7991,6 +7994,7 @@
 				67FAA6352AF4154100BB400A /* WorkerModel.swift in Sources */,
 				670B1AB12BD5144500C07DA4 /* JBCustomerListTableViewCell.swift in Sources */,
 				674706092B0A7FDC006F1639 /* CustomerModel.swift in Sources */,
+				67DD6E3E2BD6B76C0097F69C /* OrderImageModel.swift in Sources */,
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				679ADD202BC2D06A00A0FD67 /* StockDetailInfoDataSource.swift in Sources */,

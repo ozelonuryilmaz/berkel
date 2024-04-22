@@ -19,7 +19,7 @@ protocol IArchiveListViewModel: ArchiveListTableViewCellOutputDelegate {
 
     func setArchiveType(index: Int)
     func getArchive()
-    
+
     // for Table View
     func getNumberOfItemsInSection() -> Int
     func getCellUIModel(at index: Int) -> ArchiveListTableViewCellUIModel
@@ -41,6 +41,7 @@ final class ArchiveListViewModel: BaseViewModel, IArchiveListViewModel {
     let responseCustomerArchive = CurrentValueSubject<[CustomerImageModel]?, Never>(nil)
     let responseWorkerArchive = CurrentValueSubject<[WorkerImageModel]?, Never>(nil)
     let responseOtherArchive = CurrentValueSubject<[OtherSellerImageModel]?, Never>(nil)
+    let responseOrderArchive = CurrentValueSubject<[OrderImageModel]?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IArchiveListRepository,
@@ -92,18 +93,20 @@ internal extension ArchiveListViewModel {
 
     private func getArchive(imagePathType: ImagePathType) {
         switch self.uiModel.imagePageType {
-        case .buying(let sellerId, _,_):
+        case .buying(let sellerId, _, _):
             self.getBuyingArchives(sellerId: sellerId, imagePathType: imagePathType)
-        case .seller(let customerId, _,_):
+        case .seller(let customerId, _, _):
             self.getSellerArchives(customerId: customerId, imagePathType: imagePathType)
         case .worker(let cavusId, _, _):
             self.getWorkerArchives(cavusId: cavusId, imagePathType: imagePathType)
         case .other(let otherSellerId, _, _):
             self.getOtherSellerArchives(otherSellerId: otherSellerId, imagePathType: imagePathType)
+        case .order(let jbCustomerId, _, _):
+            self.getOrderArchives(jbCustomerId: jbCustomerId, imagePathType: imagePathType)
         }
     }
-    
-    private func getBuyingArchives(sellerId: String, imagePathType: ImagePathType){
+
+    private func getBuyingArchives(sellerId: String, imagePathType: ImagePathType) {
         handleResourceFirestore(
             request: self.repository.getArchiveList(season: self.uiModel.season,
                                                     sellerId: sellerId,
@@ -121,8 +124,8 @@ internal extension ArchiveListViewModel {
                 self.viewStateReloadTableView()
             })
     }
-    
-    private func getSellerArchives(customerId: String, imagePathType: ImagePathType){
+
+    private func getSellerArchives(customerId: String, imagePathType: ImagePathType) {
         handleResourceFirestore(
             request: self.repository.getArchiveList(season: self.uiModel.season,
                                                     customerId: customerId,
@@ -140,8 +143,8 @@ internal extension ArchiveListViewModel {
                 self.viewStateReloadTableView()
             })
     }
-    
-    private func getWorkerArchives(cavusId: String, imagePathType: ImagePathType){
+
+    private func getWorkerArchives(cavusId: String, imagePathType: ImagePathType) {
         handleResourceFirestore(
             request: self.repository.getArchiveList(season: self.uiModel.season,
                                                     cavusId: cavusId,
@@ -159,8 +162,8 @@ internal extension ArchiveListViewModel {
                 self.viewStateReloadTableView()
             })
     }
-    
-    private func getOtherSellerArchives(otherSellerId: String, imagePathType: ImagePathType){
+
+    private func getOtherSellerArchives(otherSellerId: String, imagePathType: ImagePathType) {
         handleResourceFirestore(
             request: self.repository.getArchiveList(season: self.uiModel.season,
                                                     otherSellerId: otherSellerId,
@@ -173,6 +176,25 @@ internal extension ArchiveListViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self,
                     let data = self.responseOtherArchive.value else { return }
+
+                self.uiModel.setArchive(imagePathType: imagePathType, data: data)
+                self.viewStateReloadTableView()
+            })
+    }
+
+    private func getOrderArchives(jbCustomerId: String, imagePathType: ImagePathType) {
+        handleResourceFirestore(
+            request: self.repository.getArchiveList(season: self.uiModel.season,
+                                                    jbCustomerId: jbCustomerId,
+                                                    imagePathType: imagePathType),
+            response: self.responseOrderArchive,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self,
+                    let data = self.responseOrderArchive.value else { return }
 
                 self.uiModel.setArchive(imagePathType: imagePathType, data: data)
                 self.viewStateReloadTableView()
@@ -217,7 +239,7 @@ internal extension ArchiveListViewModel {
 
 // MARK: ArchiveListTableViewCellOutputDelegate
 internal extension ArchiveListViewModel {
-    
+
     func cellTapped(uiModel: IArchiveListTableViewCellUIModel) {
         self.presentArchiveDetailViewController(date: uiModel.date,
                                                 productName: uiModel.productName,
