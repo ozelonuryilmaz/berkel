@@ -161,7 +161,8 @@ internal extension JBCustomerListViewModel {
 internal extension JBCustomerListViewModel {
 
     func newOrderItemData(_ data: OrderModel) {
-        print("** \(data)")
+        self.viewStateOutputDelegate(orderModel: data)
+        self.popToRootViewController(animated: true)
     }
 }
 

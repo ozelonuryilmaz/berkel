@@ -45,6 +45,7 @@ final class NewOrderViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
         
         self.viewModel.initComponents()

@@ -32,10 +32,10 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-Ip-UOB" userLabel="mContenView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="336"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="328"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2c-9b-6Kh" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="272"/>
+                                    <rect key="frame" x="16" y="32" width="380" height="264"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NR-gP-9jJ" userLabel="lblOtherSellerName">
                                             <rect key="frame" x="16" y="16" width="348" height="28"/>
@@ -47,7 +47,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8V-Gi-NQ9" userLabel="tfDesc" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="76" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="68" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="UKS-qR-hW0"/>
@@ -65,7 +65,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXu-jQ-qbu" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="184" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="176" width="352" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="wWh-44-hnY"/>
@@ -86,7 +86,7 @@
                                         <constraint firstItem="C8V-Gi-NQ9" firstAttribute="leading" secondItem="i2c-9b-6Kh" secondAttribute="leading" constant="16" id="696-br-fdj"/>
                                         <constraint firstItem="3NR-gP-9jJ" firstAttribute="leading" secondItem="i2c-9b-6Kh" secondAttribute="leading" constant="16" id="QbH-8p-0O6"/>
                                         <constraint firstAttribute="trailing" secondItem="3NR-gP-9jJ" secondAttribute="trailing" constant="16" id="Udh-FH-v7x"/>
-                                        <constraint firstItem="C8V-Gi-NQ9" firstAttribute="top" secondItem="3NR-gP-9jJ" secondAttribute="bottom" constant="32" id="ZXE-st-dqO"/>
+                                        <constraint firstItem="C8V-Gi-NQ9" firstAttribute="top" secondItem="3NR-gP-9jJ" secondAttribute="bottom" constant="24" id="ZXE-st-dqO"/>
                                         <constraint firstItem="3NR-gP-9jJ" firstAttribute="top" secondItem="i2c-9b-6Kh" secondAttribute="top" constant="16" id="dXe-eV-pRK"/>
                                         <constraint firstAttribute="trailing" secondItem="C8V-Gi-NQ9" secondAttribute="trailing" id="h7f-8F-IBm"/>
                                         <constraint firstItem="sXu-jQ-qbu" firstAttribute="leading" secondItem="i2c-9b-6Kh" secondAttribute="leading" constant="32" id="hux-ID-aOx"/>

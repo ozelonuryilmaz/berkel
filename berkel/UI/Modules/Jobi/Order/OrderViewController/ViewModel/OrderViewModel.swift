@@ -77,7 +77,7 @@ internal extension OrderViewModel {
 internal extension OrderViewModel {
 
     func newOrderData(_ data: OrderModel) {
-        
+        print("*** \(data)")
     }
 }
 
