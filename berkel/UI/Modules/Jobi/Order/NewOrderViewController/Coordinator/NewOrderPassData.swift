@@ -10,5 +10,6 @@ import Foundation
 
 struct NewOrderPassData: ICoordinatorPassData {
 
+    let customerModel: JBCustomerModel
 }
 

@@ -7,6 +7,13 @@
 
 import Foundation
 
-struct OrderModel {
-    
+struct OrderModel: Codable {
+
+    var id: String?
+    let userId: String?
+    let jbCustomerName: String
+    let jbCustomerId: String?
+    let desc: String
+    let isActive: Bool
+    let date: String
 }

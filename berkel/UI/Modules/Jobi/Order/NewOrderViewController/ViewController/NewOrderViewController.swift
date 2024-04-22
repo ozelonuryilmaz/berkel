@@ -10,10 +10,14 @@ import UIKit
 import Combine
 
 protocol NewOrderViewControllerOutputDelegate: AnyObject {
-
+    func newOrderItemData(_ data: OrderModel)
 }
 
 final class NewOrderViewController: BerkelBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Yeni Sipariş"
+    }
 
     // MARK: Constants
 
@@ -22,6 +26,9 @@ final class NewOrderViewController: BerkelBaseViewController {
     private weak var outputDelegate: NewOrderViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblOrderName: UILabel!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
     
@@ -39,15 +46,21 @@ final class NewOrderViewController: BerkelBaseViewController {
 
     override func initialComponents() {
         self.observeReactiveDatas()
+        
+        self.viewModel.initComponents()
     }
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.saveNewOrder()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -58,6 +71,11 @@ final class NewOrderViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .outputDelegate(let newOrderItemData):
+                self.outputDelegate?.newOrderItemData(newOrderItemData)
+
+            case .setJBCustomerName(let name):
+                self.lblOrderName.text = name
             }
 
         }).store(in: &cancelBag)
@@ -70,9 +88,21 @@ final class NewOrderViewController: BerkelBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss(completion: nil)
+        }
+    }()
 }
 
 // MARK: Props
 private extension NewOrderViewController {
-    
+
+    func listenTextFieldsDidChange() {
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }
+

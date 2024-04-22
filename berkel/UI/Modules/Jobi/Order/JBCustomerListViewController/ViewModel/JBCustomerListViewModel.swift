@@ -11,7 +11,8 @@ import Combine
 
 protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
     JBCustomerListDataSourceFactoryOutputDelegate,
-    JBCustomerPriceViewControllerOutputDelegate {
+    JBCustomerPriceViewControllerOutputDelegate,
+                                    NewOrderViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<JBCustomerListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -131,6 +132,11 @@ internal extension JBCustomerListViewModel {
                                                              orderName: ""))
         self.coordinator.pushArchiveListViewController(passData: data)
     }
+    
+    func presentNewOrderViewController(passData: NewOrderPassData) {
+        self.coordinator.presentNewOrderViewController(passData: passData,
+                                                       outputDelegate: self)
+    }
 
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
@@ -151,6 +157,14 @@ internal extension JBCustomerListViewModel {
 
 }
 
+// MARK: NewOrderViewControllerOutputDelegate
+internal extension JBCustomerListViewModel {
+
+    func newOrderItemData(_ data: OrderModel) {
+        print("** \(data)")
+    }
+}
+
 // MARK: JBCustomerListDataSourceFactoryOutputDelegate
 extension JBCustomerListViewModel {
 
@@ -160,7 +174,8 @@ extension JBCustomerListViewModel {
 
     func cellTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
         if !self.uiModel.isCancellableCellTabbed {
-            //self.presentNewSellerViewController(customerId: uiModel.id ?? "", customerName: uiModel.name)
+            let data = NewOrderPassData(customerModel: uiModel.customerModel)
+            self.presentNewOrderViewController(passData: data)
         }
     }
 
