@@ -119,7 +119,7 @@ internal extension JBCustomerListViewModel {
         self.coordinator.presentNewJBCustomerViewController(passData: passData,
                                                             outputDelegate: self)
     }
-    
+
     func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData) {
         self.coordinator.presentJBCustomerPriceViewController(passData: passData,
                                                               outputDelegate: self)
@@ -158,8 +158,10 @@ extension JBCustomerListViewModel {
     }
 
     func priceTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
-        self.presentJBCustomerPriceViewController(passData: JBCustomerPricePassData(isPriceSelectable: false,
-                                                                                    customerName: uiModel.name))
+        self.presentJBCustomerPriceViewController(
+            passData: JBCustomerPricePassData(isPriceSelectable: false,
+                                              customerModel: uiModel.customerModel)
+        )
     }
 
     func archiveTapped(customerId: String) {

@@ -15,8 +15,8 @@ protocol IJBCustomerListRepository: AnyObject {
 final class JBCustomerListRepository: BaseRepository, IJBCustomerListRepository {
 
     func getCustomerList(cursor: [String]?, limit: Int) -> FirestoreResponseType<[JBCustomerModel]> {
-        return getDocuments(JBCustomerService.list,
-                            order: JBCustomerService.list.order,
+        return getDocuments(JBCustomerService.customer,
+                            order: JBCustomerService.customer.order,
                             cursor: cursor,
                             limit: limit)
     }

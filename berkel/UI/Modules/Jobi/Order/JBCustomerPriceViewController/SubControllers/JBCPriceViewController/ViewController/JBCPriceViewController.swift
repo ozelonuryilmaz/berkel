@@ -18,6 +18,10 @@ final class JBCPriceViewController: JobiBaseViewController {
     override var navigationTitle: String? {
         return "Fiyat Listesi"
     }
+    
+    override var navigationSubTitle: String? {
+        return viewModel.navTitle
+    }
 
     // MARK: Constants
 

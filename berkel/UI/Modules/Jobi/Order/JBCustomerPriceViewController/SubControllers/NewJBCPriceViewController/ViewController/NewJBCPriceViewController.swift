@@ -11,12 +11,17 @@ import Combine
 
 protocol NewJBCPriceViewControllerOutputDelegate: AnyObject {
 
+    func newJBCPriceData(_ data: JBCPriceModel)
 }
 
 final class NewJBCPriceViewController: BerkelBaseViewController {
 
     override var navigationTitle: String? {
         return "Fiyat Ekle"
+    }
+    
+    override var navigationSubTitle: String? {
+        return viewModel.navTitle
     }
 
     // MARK: Constants
@@ -26,6 +31,10 @@ final class NewJBCPriceViewController: BerkelBaseViewController {
     private weak var outputDelegate: NewJBCPriceViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var tfCount: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
     
@@ -46,13 +55,20 @@ final class NewJBCPriceViewController: BerkelBaseViewController {
         self.observeReactiveDatas()
     }
 
-    override func registerEvents() {
+    override func setupView() {
+        self.initDatePickerView()
+    }
 
+    override func registerEvents() {
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.savePrice()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -63,6 +79,11 @@ final class NewJBCPriceViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .showSystemAlert(let title, let message):
+                self.showSystemAlert(title: title, message: message)
+                
+            case .showSavedJBCPriceData(let data):
+                self.outputDelegate?.newJBCPriceData(data)
             }
 
         }).store(in: &cancelBag)
@@ -84,5 +105,27 @@ final class NewJBCPriceViewController: BerkelBaseViewController {
 
 // MARK: Props
 private extension NewJBCPriceViewController {
-    
+
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
+}
+
+// MARK: TextField
+private extension NewJBCPriceViewController {
+
+    func listenTextFieldsDidChange() {
+        tfCount.addListenDidChange { [unowned self] text in
+            self.viewModel.setCount(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

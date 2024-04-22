@@ -744,6 +744,7 @@
 		67DC11F52BB1E8620049FD18 /* MyStockListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DC11F32BB1E8620049FD18 /* MyStockListItemCell.xib */; };
 		67DC11F82BB1E92B0049FD18 /* MyStockListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */; };
 		67DC11FA2BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC11F92BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift */; };
+		67DD6E342BD645920097F69C /* JBCPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DD6E332BD645920097F69C /* JBCPriceModel.swift */; };
 		67DDE86F2B0E5F6700E24949 /* NewSellerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */; };
 		67DDE8702B0E5F6700E24949 /* NewSellerUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */; };
 		67DDE8712B0E5F6700E24949 /* NewSellerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */; };
@@ -1564,6 +1565,7 @@
 		67DC11F32BB1E8620049FD18 /* MyStockListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyStockListItemCell.xib; sourceTree = "<group>"; };
 		67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListHeaderCell.swift; sourceTree = "<group>"; };
 		67DC11F92BB1E93C0049FD18 /* MyStockListHeaderCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStockListHeaderCellUIModel.swift; sourceTree = "<group>"; };
+		67DD6E332BD645920097F69C /* JBCPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCPriceModel.swift; sourceTree = "<group>"; };
 		67DDE8672B0E5F6700E24949 /* NewSellerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerCoordinator.swift; sourceTree = "<group>"; };
 		67DDE8682B0E5F6700E24949 /* NewSellerUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerUIModel.swift; sourceTree = "<group>"; };
 		67DDE8692B0E5F6700E24949 /* NewSellerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSellerViewController.swift; sourceTree = "<group>"; };
@@ -6400,6 +6402,7 @@
 			children = (
 				67D574F02BD55157004D0387 /* Builder */,
 				67D574EF2BD55154004D0387 /* Coordinator */,
+				67DD6E322BD645750097F69C /* Model */,
 				67D574EE2BD5514F004D0387 /* Repository */,
 				67D574ED2BD5514B004D0387 /* ViewModel */,
 				67D574DC2BD55130004D0387 /* ViewController */,
@@ -6659,6 +6662,14 @@
 				67DC11F72BB1E92B0049FD18 /* MyStockListHeaderCell.swift */,
 			);
 			path = MyStockListHeaderCell;
+			sourceTree = "<group>";
+		};
+		67DD6E322BD645750097F69C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67DD6E332BD645920097F69C /* JBCPriceModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		67DDE8662B0E5F5100E24949 /* ViewController */ = {
@@ -7420,6 +7431,7 @@
 				67460D7A2B5AE07C000AB380 /* OtherSellerListUIModel.swift in Sources */,
 				6797F0542AA4975300638C09 /* DocumentReference+Combine.swift in Sources */,
 				6724745C2B5D1F7400E50B4A /* OtherSellerCategoryListUIModel.swift in Sources */,
+				67DD6E342BD645920097F69C /* JBCPriceModel.swift in Sources */,
 				67C1EC682AFFC41E005DDA22 /* WorkerDetailCollectionDataSourceFactory.swift in Sources */,
 				672474712B5D250600E50B4A /* OtherSellerCategoryListTableViewCell.swift in Sources */,
 				677E67DE2AA35415001775E2 /* SettingsPassData.swift in Sources */,

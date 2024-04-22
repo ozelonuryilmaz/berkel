@@ -10,5 +10,8 @@ import Foundation
 
 struct JBCPricePassData: ICoordinatorPassData {
 
+    let customerModel: JBCustomerModel
+    let stockModel: StockModel
+    let subStockModel: SubStockModel
 }
 

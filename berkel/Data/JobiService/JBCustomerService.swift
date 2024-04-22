@@ -9,16 +9,16 @@ import FirebaseFirestore
 
 enum JBCustomerService {
 
-    case list
-    case save
     case update(id: String)
+    case customer
+    case prices(customerId: String, season: String, stockId: String, subStockId: String)
 }
 
 extension JBCustomerService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .list:
+        case .customer:
             return "date"
         default:
             return ""
@@ -27,18 +27,24 @@ extension JBCustomerService: CollectionServiceType {
     
     var collectionReference: CollectionReference {
         switch self {
-        case .save:
-
+        case .customer:
             return Firestore
                 .firestore()
                 .collection("jobiCustomer")
             
-        case .list:
-
+        case .prices(let customerId, let season, let stockId, let subStockId):
             return Firestore
                 .firestore()
                 .collection("jobiCustomer")
-            
+                .document(customerId)
+                .collection("data")
+                .document(season)
+                .collection("stock")
+                .document(stockId)
+                .collection("subStocks")
+                .document(subStockId)
+                .collection("prices")
+
         default:
             return Firestore
                 .firestore()

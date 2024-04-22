@@ -8,6 +8,8 @@
 import Foundation
 
 protocol IJBCustomerListTableViewCellUIModel {
+    
+    var customerModel: JBCustomerModel { get }
 
     var id: String? { get }
     var name: String { get }
@@ -17,8 +19,22 @@ protocol IJBCustomerListTableViewCellUIModel {
 
 struct JBCustomerListTableViewCellUIModel: IJBCustomerListTableViewCellUIModel {
 
-    let id: String?
-    let name: String
-    let desc: String?
-    let phoneNumber: String
+    let customerModel: JBCustomerModel
+    
+    var id: String? {
+        return customerModel.id
+    }
+    
+    var name: String {
+        return customerModel.name
+    }
+    
+    var desc: String? {
+        return customerModel.description
+    }
+    
+    var phoneNumber: String {
+        return customerModel.phoneNumber
+    }
+    
 }

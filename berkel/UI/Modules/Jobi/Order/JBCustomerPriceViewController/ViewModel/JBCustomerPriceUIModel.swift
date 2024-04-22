@@ -13,6 +13,8 @@ protocol IJBCustomerPriceUIModel {
     var isLastRequest: Bool { get }
     var customerName: String { get }
 
+    var customerModel: JBCustomerModel { get }
+
     var season: String { get }
 
     init(data: JBCustomerPricePassData)
@@ -23,7 +25,7 @@ protocol IJBCustomerPriceUIModel {
     mutating func setStock(stock: StockModel, subStock: [SubStockModel])
 
     func getStockModel(subStockId: String?) -> StockModel?
-    
+
     // TableView
     func getNumberOfItemsInSection() -> Int
     func getNumberOfItemsInRow(section: Int) -> Int
@@ -36,12 +38,11 @@ struct JBCustomerPriceUIModel: IJBCustomerPriceUIModel {
     // MARK: Definitions
     private var stocks: [StockListModel] = []
     private var stockIdx: [String] = []
-    let customerName: String
-
+    let customerModel: JBCustomerModel
 
     // MARK: Initialize
     init(data: JBCustomerPricePassData) {
-        self.customerName = data.customerName
+        self.customerModel = data.customerModel
     }
 
     var season: String {
@@ -50,6 +51,10 @@ struct JBCustomerPriceUIModel: IJBCustomerPriceUIModel {
 
     var isLastRequest: Bool {
         return stocks.count == stockIdx.count
+    }
+
+    var customerName: String {
+        return customerModel.name
     }
 
     // MARK: Computed Props

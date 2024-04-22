@@ -34,6 +34,7 @@ final class JBCustomerPriceCoordinator: PresentationCoordinator, IJBCustomerPric
                                                          outputDelegate: outputDelegate)
 
         let navController = MainNavigationController()
+        navController.modalPresentationStyle = .fullScreen
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
     }

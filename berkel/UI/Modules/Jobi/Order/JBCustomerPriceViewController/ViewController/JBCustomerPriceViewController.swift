@@ -20,7 +20,7 @@ final class JBCustomerPriceViewController: BerkelBaseViewController {
     }
     
     override var navigationSubTitle: String? {
-        return "Fiyat Listesi"
+        return "\(viewModel.season) Fiyat Listesi"
     }
 
     // MARK: Constants

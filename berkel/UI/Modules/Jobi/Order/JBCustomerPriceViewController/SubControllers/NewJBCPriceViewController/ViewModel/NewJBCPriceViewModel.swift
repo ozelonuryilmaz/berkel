@@ -18,8 +18,17 @@ protocol INewJBCPriceViewModel: AnyObject {
          coordinator: INewJBCPriceCoordinator,
          uiModel: INewJBCPriceUIModel)
     
-    // Coordinate
+    var navTitle: String { get }
+    
     func dismiss()
+
+    // Setter
+    func setDate(date: String?)
+    func setCount(_ text: String)
+    func setDesc(_ text: String)
+
+    // Service
+    func savePrice()
 }
 
 final class NewJBCPriceViewModel: BaseViewModel, INewJBCPriceViewModel {
@@ -32,7 +41,7 @@ final class NewJBCPriceViewModel: BaseViewModel, INewJBCPriceViewModel {
     // MARK: Private Props
     var viewState = ScreenStateSubject<NewJBCPriceViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<JBCPriceModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewJBCPriceRepository,
@@ -42,13 +51,35 @@ final class NewJBCPriceViewModel: BaseViewModel, INewJBCPriceViewModel {
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
-
+    
+    var navTitle: String {
+        return uiModel.navTitle
+    }
 }
 
 
 // MARK: Service
 internal extension NewJBCPriceViewModel {
 
+    func savePrice() {
+        if let errorMessage = self.uiModel.errorMessage {
+            errorState.value = .ERROR_MESSAGE(title: "Uyarı", msg: errorMessage)
+            return
+        }
+
+        handleResourceFirestore(
+            request: self.repository.savePrice(data: uiModel.data, season: uiModel.season),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self, let data = self.response.value else { return }
+                self.viewStateShowSavedJBCPriceData(data: data)
+                self.dismiss()
+            })
+    }
 }
 
 // MARK: States
@@ -59,6 +90,13 @@ internal extension NewJBCPriceViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateShowSystemAlert(title: String, message: String) {
+        viewState.value = .showSystemAlert(title: title, message: message)
+    }
+
+    func viewStateShowSavedJBCPriceData(data: JBCPriceModel) {
+        viewState.value = .showSavedJBCPriceData(data: data)
+    }
 }
 
 // MARK: Coordinate
@@ -69,6 +107,24 @@ internal extension NewJBCPriceViewModel {
     }
 }
 
+// MARK: Setter
+internal extension NewJBCPriceViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setCount(_ text: String) {
+        self.uiModel.setCount(text)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
+    }
+}
+
 enum NewJBCPriceViewState {
     case showNativeProgress(isProgress: Bool)
+    case showSystemAlert(title: String, message: String)
+    case showSavedJBCPriceData(data: JBCPriceModel)
 }

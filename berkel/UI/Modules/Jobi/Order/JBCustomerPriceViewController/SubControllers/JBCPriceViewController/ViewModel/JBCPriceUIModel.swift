@@ -9,6 +9,9 @@
 import UIKit
 
 protocol IJBCPriceUIModel {
+    
+    var newJBCPricePassData: NewJBCPricePassData { get }
+    var navTitle: String { get }
 
 	 init(data: JBCPricePassData)
 
@@ -17,13 +20,27 @@ protocol IJBCPriceUIModel {
 struct JBCPriceUIModel: IJBCPriceUIModel {
 
 	// MARK: Definitions
+    private let customerModel: JBCustomerModel
+    private let stockModel: StockModel
+    private let subStockModel: SubStockModel
 
 	// MARK: Initialize
     init(data: JBCPricePassData) {
-
+        self.customerModel = data.customerModel
+        self.stockModel = data.stockModel
+        self.subStockModel = data.subStockModel
     }
 
     // MARK: Computed Props
+    var newJBCPricePassData: NewJBCPricePassData {
+        return NewJBCPricePassData(customerModel: customerModel,
+                                   stockModel: stockModel,
+                                   subStockModel: subStockModel)
+    }
+    
+    var navTitle: String {
+        return "\(stockModel.stockName) - \(subStockModel.subStockName)"
+    }
 }
 
 // MARK: Props

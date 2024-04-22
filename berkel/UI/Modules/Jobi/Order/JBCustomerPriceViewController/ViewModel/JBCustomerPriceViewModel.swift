@@ -9,8 +9,8 @@
 import Foundation
 import Combine
 
-protocol IJBCustomerPriceViewModel: StockItemCellOutputDelegate, 
-                                        JBCPriceViewControllerOutputDelegate {
+protocol IJBCustomerPriceViewModel: StockItemCellOutputDelegate,
+    JBCPriceViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<JBCustomerPriceViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -19,15 +19,16 @@ protocol IJBCustomerPriceViewModel: StockItemCellOutputDelegate,
          jobiStockRepository: IJobiStockRepository,
          coordinator: IJBCustomerPriceCoordinator,
          uiModel: IJBCustomerPriceUIModel)
-    
+
+    var season: String { get }
     var customerName: String { get }
-    
+
     // Coordinate
     func dismiss()
-    
+
     // Service
     func getStock()
-    
+
     // TableView
     func getNumberOfItemsInSection() -> Int
     func getNumberOfItemsInRow(section: Int) -> Int
@@ -60,10 +61,14 @@ final class JBCustomerPriceViewModel: BaseViewModel, IJBCustomerPriceViewModel {
         self.uiModel = uiModel
     }
     
+    var season: String {
+        return uiModel.season
+    }
+
     var customerName: String {
         return uiModel.customerName
     }
-    
+
     private func reloadData() {
         self.uiModel.sortedStocks()
         self.viewStateReloadData()
@@ -93,13 +98,13 @@ internal extension JBCustomerPriceViewModel {
             callbackComplete: { [weak self] in
                 guard let self = self else { return }
                 let stockList = self.responseStockList.value ?? []
-                if stockList.isEmpty  {
+                if stockList.isEmpty {
                     self.viewStateShowNativeProgress(isProgress: false)
                     self.reloadData()
                 }
             })
     }
-    
+
     private func getSubStocks(stock: StockModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -147,9 +152,9 @@ internal extension JBCustomerPriceViewModel {
 
 // MARK: Coordinate
 internal extension JBCustomerPriceViewModel {
-    
-    func pushJBCPriceViewController() {
-        self.coordinator.pushJBCPriceViewController(passData: JBCPricePassData(),
+
+    func pushJBCPriceViewController(passData: JBCPricePassData) {
+        self.coordinator.pushJBCPriceViewController(passData: passData,
                                                     outputDelegate: self)
     }
 
@@ -162,13 +167,16 @@ internal extension JBCustomerPriceViewModel {
 internal extension JBCustomerPriceViewModel {
 
     func subStockTapped(subStock: SubStockModel) {
-        self.pushJBCPriceViewController()
+        guard let stockModel = uiModel.getStockModel(subStockId: subStock.id) else { return }
+        self.pushJBCPriceViewController(passData: JBCPricePassData(customerModel: uiModel.customerModel,
+                                                                   stockModel: stockModel,
+                                                                   subStockModel: subStock))
     }
 }
 
 // MARK: JBCPriceViewControllerOutputDelegate
 internal extension JBCustomerPriceViewModel {
-    
+
 }
 
 // MARK: TableView

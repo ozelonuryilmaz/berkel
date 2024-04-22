@@ -18,6 +18,8 @@ protocol IJBCPriceViewModel: NewJBCPriceViewControllerOutputDelegate {
          coordinator: IJBCPriceCoordinator,
          uiModel: IJBCPriceUIModel)
     
+    var navTitle: String { get }
+    
     // Coordinator
     func presentNewJBCPriceViewController()
 }
@@ -43,6 +45,9 @@ final class JBCPriceViewModel: BaseViewModel, IJBCPriceViewModel {
         self.uiModel = uiModel
     }
 
+    var navTitle: String {
+        return uiModel.navTitle
+    }
 }
 
 
@@ -65,7 +70,7 @@ internal extension JBCPriceViewModel {
 internal extension JBCPriceViewModel {
 
     func presentNewJBCPriceViewController() {
-        self.coordinator.presentNewJBCPriceCiewController(passData: NewJBCPricePassData(),
+        self.coordinator.presentNewJBCPriceCiewController(passData: self.uiModel.newJBCPricePassData,
                                                           outputDelegate: self)
     }
 }
@@ -73,6 +78,9 @@ internal extension JBCPriceViewModel {
 // MARK: NewJBCPriceViewControllerOutputDelegate
 internal extension JBCPriceViewModel {
     
+    func newJBCPriceData(_ data: JBCPriceModel) {
+        
+    }
 }
 
 enum JBCPriceViewState {

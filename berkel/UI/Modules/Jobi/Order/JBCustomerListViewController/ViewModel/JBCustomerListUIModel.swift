@@ -54,7 +54,6 @@ struct JBCustomerListUIModel: IJBCustomerListUIModel {
         }
         self.response.insert(data, at: 0)
     }
-    
 }
 
 // MARK: Props
@@ -81,10 +80,7 @@ extension JBCustomerListUIModel {
 
     private func prepareSnapshotRowModel() -> [JBCustomerListRowModel] {
         let rowModels: [JBCustomerListRowModel] = response.compactMap { item in
-            return JBCustomerListRowModel(uiModel: JBCustomerListTableViewCellUIModel(id: item.id,
-                                                                                      name: item.name,
-                                                                                      desc: item.description,
-                                                                                      phoneNumber: item.phoneNumber))
+            return JBCustomerListRowModel(uiModel: JBCustomerListTableViewCellUIModel(customerModel: item))
         }
         return rowModels
     }
@@ -96,10 +92,7 @@ extension JBCustomerListUIModel {
         var configuredItems: [JBCustomerListRowModel] = []
 
         configuredItems = newDatas.compactMap({ item in
-            return JBCustomerListRowModel(uiModel: JBCustomerListTableViewCellUIModel(id: item.id,
-                                                                                      name: item.name,
-                                                                                      desc: item.description,
-                                                                                      phoneNumber: item.phoneNumber))
+            return JBCustomerListRowModel(uiModel: JBCustomerListTableViewCellUIModel(customerModel: item))
         })
 
         snapshot.appendItems(configuredItems) // Ekleme olduğu için append. Yenileme olduğunda reload kullanılır

@@ -17,7 +17,7 @@ protocol INewJBCustomerRepository: AnyObject {
 final class NewJBCustomerRepository: BaseRepository, INewJBCustomerRepository {
 
     func saveNewCustomer(data: JBCustomerModel) -> FirestoreResponseType<JBCustomerModel> {
-        let db: DocumentReference = JBCustomerService.save.collectionReference.document()
+        let db: DocumentReference = JBCustomerService.customer.collectionReference.document()
         let key = db.documentID
 
         var tempData = data
