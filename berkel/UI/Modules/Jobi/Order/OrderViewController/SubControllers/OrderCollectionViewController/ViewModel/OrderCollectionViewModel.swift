@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-protocol IOrderCollectionViewModel: AnyObject {
+protocol IOrderCollectionViewModel: JBCustomerPriceViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<OrderCollectionViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -17,6 +17,18 @@ protocol IOrderCollectionViewModel: AnyObject {
     init(repository: IOrderCollectionRepository,
          coordinator: IOrderCollectionCoordinator,
          uiModel: IOrderCollectionUIModel)
+
+    // Init
+    func initComponents()
+
+    // Coordinate
+    func presentJBCustomerPriceViewController()
+    func dismiss()
+
+    // Setter
+    func setCount(_ count: String)
+    func setKDV(_ kdv: String)
+    func setDesc(_ desc: String)
 }
 
 final class OrderCollectionViewModel: BaseViewModel, IOrderCollectionViewModel {
@@ -40,6 +52,21 @@ final class OrderCollectionViewModel: BaseViewModel, IOrderCollectionViewModel {
         self.uiModel = uiModel
     }
 
+    func initComponents() {
+        self.viewStateSetCustomerName()
+    }
+
+    func setCount(_ count: String) {
+        self.uiModel.setCount(count)
+    }
+
+    func setKDV(_ kdv: String) {
+        self.uiModel.setKDV(kdv)
+    }
+
+    func setDesc(_ desc: String) {
+        self.uiModel.setDesc(desc)
+    }
 }
 
 
@@ -56,13 +83,55 @@ internal extension OrderCollectionViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateSetCustomerName() {
+        viewState.value = .setCustomerName(name: uiModel.customerName)
+    }
+
+    func viewStateSetProductName() {
+        viewState.value = .setProductName(name: uiModel.productName)
+    }
+
+    func viewStateSetPrice() {
+        viewState.value = .setPrice(price: uiModel.productPrice)
+    }
 }
 
 // MARK: Coordinate
 internal extension OrderCollectionViewModel {
+    
+    func presentJBCustomerPriceViewController() {
+        let passData = JBCustomerPricePassData(isPriceSelectable: true,
+                                               customerModel: JBCustomerModel(id: uiModel.customerId,
+                                                                              name: uiModel.customerName,
+                                                                              phoneNumber: "",
+                                                                              description: nil,
+                                                                              date: nil))
 
+        self.coordinator.presentJBCustomerPriceViewController(passData: passData,
+                                                              outputDelegate: self)
+    }
+
+    func dismiss() {
+        self.coordinator.dismiss(completion: nil)
+    }
+}
+
+// MARK: JBCustomerPriceViewControllerOutputDelegate
+internal extension OrderCollectionViewModel {
+
+    func getJBCProductAndPrice(stockModel: StockModel, subStockModel: SubStockModel, price: Double) {
+        self.uiModel.setStockModel(stockModel)
+        self.uiModel.setSubStockModel(subStockModel)
+        self.uiModel.setPrice(price)
+
+        self.viewStateSetProductName()
+        self.viewStateSetPrice()
+    }
 }
 
 enum OrderCollectionViewState {
     case showNativeProgress(isProgress: Bool)
+    case setCustomerName(name: String)
+    case setProductName(name: String)
+    case setPrice(price: String)
 }

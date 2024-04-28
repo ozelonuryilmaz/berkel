@@ -26,6 +26,14 @@ extension String {
         return nil
     }
 
+    // "dd MMMM yyyy"
+    func dateFormatToAppDisplayNameType() -> String? {
+        if let date = getApiResponseTypeDate() {
+            return DateFormatHelper.createFormatterAppDisplayNameType().string(from: date)
+        }
+        return nil
+    }
+
     // "HH:mm"
     func timeFormatHourMinute() -> String? {
         if let date = getApiResponseTypeDate() {

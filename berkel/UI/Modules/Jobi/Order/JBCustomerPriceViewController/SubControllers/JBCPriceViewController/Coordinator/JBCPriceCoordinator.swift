@@ -12,6 +12,8 @@ protocol IJBCPriceCoordinator: AnyObject {
     
     func presentNewJBCPriceCiewController(passData: NewJBCPricePassData,
                                             outputDelegate: NewJBCPriceViewControllerOutputDelegate)
+    
+    func popToRootViewController(animated: Bool)
 }
 
 final class JBCPriceCoordinator: NavigationCoordinator , IJBCPriceCoordinator {
@@ -41,5 +43,9 @@ final class JBCPriceCoordinator: NavigationCoordinator , IJBCPriceCoordinator {
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: controller)
+    }
+    
+    func popToRootViewController(animated: Bool) {
+        self.navigationController.popToRootViewController(animated: animated)
     }
 }

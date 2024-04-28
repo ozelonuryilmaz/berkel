@@ -14,6 +14,10 @@ protocol OrderPaymentViewControllerOutputDelegate: AnyObject {
 }
 
 final class OrderPaymentViewController: BerkelBaseViewController {
+    
+    override var navigationTitle: String? {
+        return "Tahsilat Ekle"
+    }
 
     // MARK: Constants
 
@@ -38,6 +42,7 @@ final class OrderPaymentViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
     }
 
@@ -70,6 +75,11 @@ final class OrderPaymentViewController: BerkelBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
+        }
+    }()
 }
 
 // MARK: Props

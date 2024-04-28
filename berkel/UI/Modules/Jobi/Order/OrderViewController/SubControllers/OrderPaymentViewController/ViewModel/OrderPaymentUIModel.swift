@@ -17,10 +17,11 @@ protocol IOrderPaymentUIModel {
 struct OrderPaymentUIModel: IOrderPaymentUIModel {
 
 	// MARK: Definitions
+    private let orderModel: OrderModel
 
 	// MARK: Initialize
     init(data: OrderPaymentPassData) {
-
+        self.orderModel = data.orderModel
     }
 
     // MARK: Computed Props

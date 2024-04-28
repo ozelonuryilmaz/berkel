@@ -14,6 +14,6 @@ struct OrderModel: Codable {
     let jbCustomerName: String
     let jbCustomerId: String?
     let desc: String
-    let isActive: Bool
+    var isActive: Bool
     let date: String
 }

@@ -24,7 +24,7 @@ protocol IJBCustomerPriceViewModel: StockItemCellOutputDelegate,
     var customerName: String { get }
 
     // Coordinate
-    func dismiss()
+    func dismiss(completion: (() -> Void)?)
 
     // Service
     func getStock()
@@ -148,6 +148,12 @@ internal extension JBCustomerPriceViewModel {
     func viewStateShowToastMessage(message: String) {
         viewState.value = .showToastMessage(message: message)
     }
+    
+    func viewStateOutputDelegate(stockModel: StockModel, subStockModel: SubStockModel, price: Double) {
+        viewState.value = .outputDelegate(stockModel: stockModel,
+                                          subStockModel: subStockModel,
+                                          price: price)
+    }
 }
 
 // MARK: Coordinate
@@ -158,8 +164,8 @@ internal extension JBCustomerPriceViewModel {
                                                     outputDelegate: self)
     }
 
-    func dismiss() {
-        self.coordinator.dismiss(completion: nil)
+    func dismiss(completion: (() -> Void)? = nil) {
+        self.coordinator.dismiss(completion: completion)
     }
 }
 
@@ -178,6 +184,11 @@ internal extension JBCustomerPriceViewModel {
 // MARK: JBCPriceViewControllerOutputDelegate
 internal extension JBCustomerPriceViewModel {
 
+    func getJBCProductAndPrice(stockModel: StockModel, subStockModel: SubStockModel, price: Double) {
+        self.dismiss(completion: {
+            self.viewStateOutputDelegate(stockModel: stockModel, subStockModel: subStockModel, price: price)
+        })
+    }
 }
 
 // MARK: TableView
@@ -205,4 +216,5 @@ enum JBCustomerPriceViewState {
     case reloadData
     case reloadDataWith(indexPath: IndexPath)
     case showToastMessage(message: String)
+    case outputDelegate(stockModel: StockModel, subStockModel: SubStockModel,price: Double)
 }

@@ -12,7 +12,7 @@ struct JBCPricePassData: ICoordinatorPassData {
     
     let isPriceSelectable: Bool // Müşteri listesinden fiyat seçimi yapılamayacak
 
-    let customerModel: JBCustomerModel
+    let customerModel: JBCustomerModel // Sipariş oluşturmada phoneNumber, date boş gönderiliyor
     let stockModel: StockModel
     let subStockModel: SubStockModel
 }

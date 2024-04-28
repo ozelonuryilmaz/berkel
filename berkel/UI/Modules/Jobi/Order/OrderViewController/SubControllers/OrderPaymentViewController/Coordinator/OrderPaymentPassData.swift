@@ -10,5 +10,6 @@ import Foundation
 
 struct OrderPaymentPassData: ICoordinatorPassData {
 
+    let orderModel: OrderModel
 }
 

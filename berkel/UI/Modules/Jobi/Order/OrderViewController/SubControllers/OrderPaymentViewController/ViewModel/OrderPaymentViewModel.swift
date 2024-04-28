@@ -17,6 +17,9 @@ protocol IOrderPaymentViewModel: AnyObject {
     init(repository: IOrderPaymentRepository,
          coordinator: IOrderPaymentCoordinator,
          uiModel: IOrderPaymentUIModel)
+    
+    // Coordinate
+    func dismiss()
 }
 
 final class OrderPaymentViewModel: BaseViewModel, IOrderPaymentViewModel {
@@ -61,6 +64,9 @@ internal extension OrderPaymentViewModel {
 // MARK: Coordinate
 internal extension OrderPaymentViewModel {
 
+    func dismiss() {
+        self.coordinator.dismiss(completion: nil)
+    }
 }
 
 enum OrderPaymentViewState {

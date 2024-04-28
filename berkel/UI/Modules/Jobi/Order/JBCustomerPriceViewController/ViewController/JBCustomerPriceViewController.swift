@@ -11,6 +11,7 @@ import Combine
 
 protocol JBCustomerPriceViewControllerOutputDelegate: AnyObject {
 
+    func getJBCProductAndPrice(stockModel: StockModel, subStockModel: SubStockModel, price: Double)
 }
 
 final class JBCustomerPriceViewController: BerkelBaseViewController {
@@ -79,6 +80,11 @@ final class JBCustomerPriceViewController: BerkelBaseViewController {
 
             case .showToastMessage(let message):
                 self.showToast(message: message)
+                
+            case .outputDelegate(let stockModel,let subStockModel,let price):
+                self.outputDelegate?.getJBCProductAndPrice(stockModel: stockModel,
+                                                           subStockModel: subStockModel,
+                                                           price: price)
             }
 
         }).store(in: &cancelBag)
@@ -93,7 +99,7 @@ final class JBCustomerPriceViewController: BerkelBaseViewController {
     // MARK: Define Components
     private lazy var closeBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
-            self.viewModel.dismiss()
+            self.viewModel.dismiss(completion: nil)
         }
     }()
 }

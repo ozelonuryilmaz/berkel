@@ -32,6 +32,7 @@ protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
 }
 
 final class JBCustomerListViewModel: BaseViewModel, IJBCustomerListViewModel {
+    
 
     // MARK: Definitions
     private let repository: IJBCustomerListRepository
@@ -155,6 +156,9 @@ internal extension JBCustomerListViewModel {
 // MARK: JBCustomerPriceViewControllerOutputDelegate
 internal extension JBCustomerListViewModel {
 
+    func getJBCProductAndPrice(stockModel: StockModel, subStockModel: SubStockModel, price: Double) {
+        
+    }
 }
 
 // MARK: NewOrderViewControllerOutputDelegate

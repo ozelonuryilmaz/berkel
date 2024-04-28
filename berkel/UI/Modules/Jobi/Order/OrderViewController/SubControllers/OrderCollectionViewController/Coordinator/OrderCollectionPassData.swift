@@ -9,6 +9,6 @@
 import Foundation
 
 struct OrderCollectionPassData: ICoordinatorPassData {
-
+    let orderModel: OrderModel
 }
 

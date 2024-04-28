@@ -601,6 +601,14 @@
 		67AD20F42B73F8040031A598 /* OtherSellerChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD20EC2B73F8040031A598 /* OtherSellerChartsViewModel.swift */; };
 		67AD20F52B73F8040031A598 /* OtherSellerChartsPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD20ED2B73F8040031A598 /* OtherSellerChartsPassData.swift */; };
 		67AD20F62B73F8040031A598 /* OtherSellerChartsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67AD20EE2B73F8040031A598 /* OtherSellerChartsViewController.xib */; };
+		67B522ED2BDACFD500425CA1 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522EB2BDACFD500425CA1 /* OrderTableViewCell.swift */; };
+		67B522EE2BDACFD500425CA1 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B522EC2BDACFD500425CA1 /* OrderTableViewCell.xib */; };
+		67B522F02BDACFE300425CA1 /* OrderTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522EF2BDACFE300425CA1 /* OrderTableViewCellUIModel.swift */; };
+		67B522F62BDAD23200425CA1 /* OrderDiffableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522F52BDAD23200425CA1 /* OrderDiffableTableView.swift */; };
+		67B522F82BDAD27400425CA1 /* OrderRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522F72BDAD27400425CA1 /* OrderRowModel.swift */; };
+		67B522FA2BDAD27E00425CA1 /* OrderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522F92BDAD27E00425CA1 /* OrderSection.swift */; };
+		67B522FC2BDAD2AE00425CA1 /* OrderDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522FB2BDAD2AE00425CA1 /* OrderDataSourceFactory.swift */; };
+		67B522FE2BDAD2B900425CA1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B522FD2BDAD2B900425CA1 /* OrderDataSource.swift */; };
 		67B6CF872B25E63B00E066D6 /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6CF852B25E63B00E066D6 /* SettingsItemCell.swift */; };
 		67B6CF882B25E63B00E066D6 /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B6CF862B25E63B00E066D6 /* SettingsItemCell.xib */; };
 		67B6CF8A2B25E69F00E066D6 /* SettingsItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B6CF892B25E69F00E066D6 /* SettingsItemCellUIModel.swift */; };
@@ -1425,6 +1433,14 @@
 		67AD20EC2B73F8040031A598 /* OtherSellerChartsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerChartsViewModel.swift; sourceTree = "<group>"; };
 		67AD20ED2B73F8040031A598 /* OtherSellerChartsPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSellerChartsPassData.swift; sourceTree = "<group>"; };
 		67AD20EE2B73F8040031A598 /* OtherSellerChartsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherSellerChartsViewController.xib; sourceTree = "<group>"; };
+		67B522EB2BDACFD500425CA1 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		67B522EC2BDACFD500425CA1 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		67B522EF2BDACFE300425CA1 /* OrderTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCellUIModel.swift; sourceTree = "<group>"; };
+		67B522F52BDAD23200425CA1 /* OrderDiffableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDiffableTableView.swift; sourceTree = "<group>"; };
+		67B522F72BDAD27400425CA1 /* OrderRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowModel.swift; sourceTree = "<group>"; };
+		67B522F92BDAD27E00425CA1 /* OrderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSection.swift; sourceTree = "<group>"; };
+		67B522FB2BDAD2AE00425CA1 /* OrderDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSourceFactory.swift; sourceTree = "<group>"; };
+		67B522FD2BDAD2B900425CA1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
 		67B6CF852B25E63B00E066D6 /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
 		67B6CF862B25E63B00E066D6 /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		67B6CF892B25E69F00E066D6 /* SettingsItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCellUIModel.swift; sourceTree = "<group>"; };
@@ -4902,6 +4918,8 @@
 		678F499B2B9A1E4C006E5083 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				67B522E92BDACFB600425CA1 /* Cells */,
+				67B522F12BDAD1FC00425CA1 /* DataSource */,
 				678F49BF2B9A1ECC006E5083 /* OrderViewController.swift */,
 				678F49C42B9A1ECC006E5083 /* OrderViewController.xib */,
 			);
@@ -5731,6 +5749,60 @@
 				67AD20EB2B73F8040031A598 /* OtherSellerChartsBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		67B522E92BDACFB600425CA1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67B522EA2BDACFBE00425CA1 /* OrderTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67B522EA2BDACFBE00425CA1 /* OrderTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				67B522EF2BDACFE300425CA1 /* OrderTableViewCellUIModel.swift */,
+				67B522EB2BDACFD500425CA1 /* OrderTableViewCell.swift */,
+				67B522EC2BDACFD500425CA1 /* OrderTableViewCell.xib */,
+			);
+			path = OrderTableViewCell;
+			sourceTree = "<group>";
+		};
+		67B522F12BDAD1FC00425CA1 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				67B522F42BDAD21100425CA1 /* View */,
+				67B522F32BDAD20E00425CA1 /* Model */,
+				67B522F22BDAD20900425CA1 /* DataSource */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		67B522F22BDAD20900425CA1 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				67B522FD2BDAD2B900425CA1 /* OrderDataSource.swift */,
+				67B522FB2BDAD2AE00425CA1 /* OrderDataSourceFactory.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		67B522F32BDAD20E00425CA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67B522F72BDAD27400425CA1 /* OrderRowModel.swift */,
+				67B522F92BDAD27E00425CA1 /* OrderSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		67B522F42BDAD21100425CA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67B522F52BDAD23200425CA1 /* OrderDiffableTableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		67B6CF812B25E3DE00E066D6 /* Cells */ = {
@@ -7309,6 +7381,7 @@
 				67D770462B4D49760034A867 /* BuyingChartsViewController.xib in Resources */,
 				67EB43902BC146E3002E9D1D /* StockItemCell.xib in Resources */,
 				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
+				67B522EE2BDACFD500425CA1 /* OrderTableViewCell.xib in Resources */,
 				672474722B5D250600E50B4A /* OtherSellerCategoryListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -7498,6 +7571,7 @@
 				678DDFFA2AC747AB00AA8D46 /* BuyingRowModel.swift in Sources */,
 				67D820D62BAEFD91008698FF /* SubStockModel.swift in Sources */,
 				67AD20D92B73DB430031A598 /* OtherDetailCollectionRowModel.swift in Sources */,
+				67B522FA2BDAD27E00425CA1 /* OrderSection.swift in Sources */,
 				67D574D42BD5512C004D0387 /* JBCPriceCoordinator.swift in Sources */,
 				67D574D52BD5512C004D0387 /* JBCPriceUIModel.swift in Sources */,
 				67D574D62BD5512C004D0387 /* JBCPriceViewController.swift in Sources */,
@@ -7599,6 +7673,7 @@
 				67460D312B5AA70A000AB380 /* OtherViewController.swift in Sources */,
 				67BE9D682AF66B1000D07DA7 /* WorkerCollectionViewModel.swift in Sources */,
 				677E67CC2AA35403001775E2 /* SellerBuilder.swift in Sources */,
+				67B522FE2BDAD2B900425CA1 /* OrderDataSource.swift in Sources */,
 				674CC6C92ADEE7FD0026A9D2 /* WarehouseListBuilder.swift in Sources */,
 				67EA5B712AAF877B0086E20C /* UIImage+Extension.swift in Sources */,
 				672AD5EF2B4F03FB009C8E4A /* UserModel.swift in Sources */,
@@ -7681,6 +7756,7 @@
 				6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */,
 				674C26332B0FCAF600B9A32A /* SellerDataSourceFactory.swift in Sources */,
 				6747AC2D2B697CEE00D4E8CA /* OtherDetailViewController.swift in Sources */,
+				67B522F82BDAD27400425CA1 /* OrderRowModel.swift in Sources */,
 				6780BDB52AF4056E007B131C /* CavusListDataSourceFactory.swift in Sources */,
 				67C019622B1109EA0094D023 /* SellerCollectionViewModel.swift in Sources */,
 				6776F4D92AB3AF27006836CE /* AddSellerCoordinator.swift in Sources */,
@@ -7694,6 +7770,7 @@
 				67FC97322ADEEC4600FC53AE /* NewWarehouseCoordinator.swift in Sources */,
 				67707D2B2BAB3759008CEBF4 /* MyStockListRepository.swift in Sources */,
 				67EA5B5E2AAF85B00086E20C /* UITextField+Extensions.swift in Sources */,
+				67B522ED2BDACFD500425CA1 /* OrderTableViewCell.swift in Sources */,
 				672474602B5D1F7400E50B4A /* OtherSellerCategoryListViewModel.swift in Sources */,
 				67BE9D522AF66A6200D07DA7 /* WorkerDetailBuilder.swift in Sources */,
 				674705E72B0A7A1C006F1639 /* CustomerListUIModel.swift in Sources */,
@@ -7750,6 +7827,7 @@
 				674D106C2ADD9964002CFFE8 /* BuyingCollectionTableViewCell.swift in Sources */,
 				6776F4DE2AB3AF27006836CE /* AddSellerViewModel.swift in Sources */,
 				67EA5B6C2AAF86C70086E20C /* ClosureHandler.swift in Sources */,
+				67B522F62BDAD23200425CA1 /* OrderDiffableTableView.swift in Sources */,
 				67C0194C2B1108640094D023 /* SellerDetailRepository.swift in Sources */,
 				67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */,
 				67AD20F22B73F8040031A598 /* OtherSellerChartsRepository.swift in Sources */,
@@ -8002,6 +8080,7 @@
 				67A2EE262AB0D4AC00756120 /* RegisterBuilder.swift in Sources */,
 				677E67A92AA353D2001775E2 /* BuyingViewModel.swift in Sources */,
 				679ADD202BC2D06A00A0FD67 /* StockDetailInfoDataSource.swift in Sources */,
+				67B522FC2BDAD2AE00425CA1 /* OrderDataSourceFactory.swift in Sources */,
 				6774FB1A2AE6DFC900F1F692 /* NewSellerImagePassData.swift in Sources */,
 				67C019752B110B4C0094D023 /* SellerPaymentBuilder.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
@@ -8011,6 +8090,7 @@
 				670B3C812ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift in Sources */,
 				67BE9D352AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift in Sources */,
 				674CC6C52ADEE7FD0026A9D2 /* WarehouseListCoordinator.swift in Sources */,
+				67B522F02BDACFE300425CA1 /* OrderTableViewCellUIModel.swift in Sources */,
 				6724746C2B5D20E800E50B4A /* OtherSellerCategoryItemService.swift in Sources */,
 				67CC75B32AA25EF1003206F0 /* SplashCoordinator.swift in Sources */,
 				67DC11F02BB1E8190049FD18 /* MyStockListItemCellUIModel.swift in Sources */,

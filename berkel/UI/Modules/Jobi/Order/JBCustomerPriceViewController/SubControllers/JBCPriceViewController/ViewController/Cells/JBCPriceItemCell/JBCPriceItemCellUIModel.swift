@@ -10,6 +10,10 @@ import Foundation
 struct JBCPriceItemCellUIModel {
 
     let priceModel: JBCPriceModel
+    
+    var productPrice: Double {
+        return priceModel.price
+    }
 
     var price: String {
         return priceModel.price.decimalString()

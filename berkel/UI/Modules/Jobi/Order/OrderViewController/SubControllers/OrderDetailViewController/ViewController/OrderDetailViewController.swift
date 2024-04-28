@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol OrderDetailViewControllerOutputDelegate: AnyObject {
-
+    func closeButtonTapped(orderId: String, isActive: Bool)
 }
 
 final class OrderDetailViewController: JobiBaseViewController {

@@ -15,6 +15,10 @@ protocol OrderCollectionViewControllerOutputDelegate: AnyObject {
 
 final class OrderCollectionViewController: BerkelBaseViewController {
 
+    override var navigationTitle: String? {
+        return "Sipariş Ekle"
+    }
+
     // MARK: Constants
 
     // MARK: Inject
@@ -22,9 +26,17 @@ final class OrderCollectionViewController: BerkelBaseViewController {
     private weak var outputDelegate: OrderCollectionViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblCustomer: UILabel!
+    @IBOutlet private weak var lblProduct: UILabel!
+    @IBOutlet private weak var lblPrice: UILabel!
+    @IBOutlet private weak var tfCount: PrimaryTextField!
+    @IBOutlet private weak var tfKDV: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+    @IBOutlet private weak var btnProduct: UIButton!
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: IOrderCollectionViewModel,
          outputDelegate: OrderCollectionViewControllerOutputDelegate?) {
@@ -32,22 +44,33 @@ final class OrderCollectionViewController: BerkelBaseViewController {
         self.outputDelegate = outputDelegate
         super.init(nibName: "OrderCollectionViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+
+        self.viewModel.initComponents()
     }
 
     override func registerEvents() {
 
+        btnProduct.onTap { [unowned self] _ in
+            self.viewModel.presentJBCustomerPriceViewController()
+        }
+
+        btnSave.onTap { [unowned self] _ in
+
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -57,6 +80,15 @@ final class OrderCollectionViewController: BerkelBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
+
+            case .setCustomerName(let name):
+                self.lblCustomer.text = name
+
+            case .setProductName(let name):
+                self.lblProduct.text = name
+
+            case .setPrice(let price):
+                self.lblPrice.text = price
 
             }
 
@@ -70,9 +102,28 @@ final class OrderCollectionViewController: BerkelBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.viewModel.dismiss()
+        }
+    }()
 }
+
 
 // MARK: Props
 private extension OrderCollectionViewController {
-    
+
+    func listenTextFieldsDidChange() {
+        tfCount.addListenDidChange { [unowned self] text in
+            self.viewModel.setCount(text)
+        }
+
+        tfKDV.addListenDidChange { [unowned self] text in
+            self.viewModel.setKDV(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

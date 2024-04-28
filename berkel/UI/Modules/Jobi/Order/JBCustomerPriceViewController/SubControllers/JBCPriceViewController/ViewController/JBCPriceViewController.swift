@@ -11,6 +11,7 @@ import Combine
 
 protocol JBCPriceViewControllerOutputDelegate: AnyObject {
 
+    func getJBCProductAndPrice(stockModel: StockModel, subStockModel: SubStockModel, price: Double)
 }
 
 final class JBCPriceViewController: JobiBaseViewController {
@@ -75,6 +76,11 @@ final class JBCPriceViewController: JobiBaseViewController {
 
             case .reloadData:
                 self.tableView.reloadData()
+                
+            case .outputDelegate(let stockModel,let subStockModel,let price):
+                self.outputDelegate?.getJBCProductAndPrice(stockModel: stockModel,
+                                                           subStockModel: subStockModel,
+                                                           price: price)
             }
 
         }).store(in: &cancelBag)

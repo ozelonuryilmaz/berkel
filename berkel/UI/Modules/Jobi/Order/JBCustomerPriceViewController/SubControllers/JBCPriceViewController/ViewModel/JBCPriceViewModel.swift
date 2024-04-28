@@ -94,6 +94,12 @@ internal extension JBCPriceViewModel {
     func viewStateReloadData() {
         viewState.value = .reloadData
     }
+    
+    func viewStateOutputDelegate(price: Double) {
+        viewState.value = .outputDelegate(stockModel: uiModel.stockModel,
+                                          subStockModel: uiModel.subStockModel,
+                                          price: price)
+    }
 }
 
 // MARK: Coordinate
@@ -102,6 +108,10 @@ internal extension JBCPriceViewModel {
     func presentNewJBCPriceViewController() {
         self.coordinator.presentNewJBCPriceCiewController(passData: self.uiModel.newJBCPricePassData,
                                                           outputDelegate: self)
+    }
+
+    func popToRootViewController(animated: Bool) {
+        self.coordinator.popToRootViewController(animated: animated)
     }
 }
 
@@ -119,7 +129,10 @@ internal extension JBCPriceViewModel {
 
     func cellTapped(uiModel: JBCPriceItemCellUIModel) {
         guard self.uiModel.isPriceSelectable else { return }
-        
+        self.viewStateOutputDelegate(price: uiModel.productPrice)
+        DispatchQueue.delay(25) { [weak self] in
+            self?.popToRootViewController(animated: false)
+        }
     }
 }
 
@@ -138,4 +151,5 @@ internal extension JBCPriceViewModel {
 enum JBCPriceViewState {
     case showNativeProgress(isProgress: Bool)
     case reloadData
+    case outputDelegate(stockModel: StockModel, subStockModel: SubStockModel,price: Double)
 }

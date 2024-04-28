@@ -24,6 +24,7 @@ final class OrderViewController: JobiBaseViewController {
     private let viewModel: IOrderViewModel
 
     // MARK: IBOutlets
+    @IBOutlet private weak var tableView: OrderDiffableTableView!
 
     // MARK: Constraints Outlets
 
@@ -40,6 +41,9 @@ final class OrderViewController: JobiBaseViewController {
     override func initialComponents() {
         self.navigationItem.rightBarButtonItems = [addBarButtonItem]
         self.observeReactiveDatas()
+        self.initTableView()
+
+        self.viewModel.getOrder()
     }
 
     override func registerEvents() {
@@ -59,13 +63,26 @@ final class OrderViewController: JobiBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .buildSnapshot(let snapshot):
+                self.tableView.applySnapshot(snapshot)
+
+            case .updateSnapshot(let data):
+                let snapsoht = self.viewModel.updateSnapshot(currentSnapshot: self.tableView.getSnapshot(),
+                                                             newDatas: data)
+                self.tableView.applySnapshot(snapsoht)
             }
 
         }).store(in: &cancelBag)
     }
 
     private func listenErrorState() {
-        let errorHandle = FirestoreErrorHandle(viewController: self)
+        let errorHandle = FirestoreErrorHandle(
+            viewController: self,
+            callbackOverrideAlert: nil,
+            callbackAlertButtonAction: { [unowned self] in
+                self.viewModel.getOrder()
+            }
+        )
         observeErrorState(errorState: viewModel.errorState,
                           errorHandle: errorHandle)
     }
@@ -81,4 +98,7 @@ final class OrderViewController: JobiBaseViewController {
 // MARK: Props
 private extension OrderViewController {
 
+    func initTableView() {
+        self.tableView.configureView(delegateManager: self.viewModel)
+    }
 }

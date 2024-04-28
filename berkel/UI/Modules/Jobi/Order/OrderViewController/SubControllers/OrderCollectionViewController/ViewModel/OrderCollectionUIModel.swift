@@ -10,23 +10,112 @@ import UIKit
 
 protocol IOrderCollectionUIModel {
 
-	 init(data: OrderCollectionPassData)
+    var customerId: String? { get }
+    var customerName: String { get }
+    var productName: String { get }
+    var productPrice: String { get }
 
-} 
+    init(data: OrderCollectionPassData)
+
+    mutating func setStockModel(_ stockModel: StockModel)
+    mutating func setSubStockModel(_ subStockModel: SubStockModel)
+    mutating func setPrice(_ price: Double)
+
+    mutating func setCount(_ count: String)
+    mutating func setKDV(_ kdv: String)
+    mutating func setDesc(_ desc: String)
+}
 
 struct OrderCollectionUIModel: IOrderCollectionUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
+    private let orderModel: OrderModel
 
-	// MARK: Initialize
+    private var stockModel: StockModel? = nil
+    private var subStockModel: SubStockModel? = nil
+
+    private var price: Double = 0.0
+
+    private var count: Int = 0
+    private var kdv: Int = 0
+    private var desc: String? = nil
+
+    // MARK: Initialize
     init(data: OrderCollectionPassData) {
-
+        self.orderModel = data.orderModel
     }
 
     // MARK: Computed Props
+
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
+    var season: String {
+        return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+
+    // Stock
+    var stockId: String? {
+        return stockModel?.id
+    }
+
+    var stockName: String {
+        return stockModel?.stockName ?? ""
+    }
+
+    // Sub Stock
+    var subStockId: String? {
+        return subStockModel?.id
+    }
+
+    var subStockName: String {
+        return subStockModel?.subStockName ?? ""
+    }
+
+    // JB Customer
+    var customerId: String? {
+        return orderModel.jbCustomerId
+    }
+
+    var customerName: String {
+        return orderModel.jbCustomerName
+    }
+
+    // UI
+    var productName: String {
+        return "\(stockName) - \(subStockName)"
+    }
+
+    var productPrice: String {
+        return price.decimalString() + " TL"
+    }
 }
 
-// MARK: Props
+// MARK: Setter
 extension OrderCollectionUIModel {
 
+    mutating func setStockModel(_ stockModel: StockModel) {
+        self.stockModel = stockModel
+    }
+
+    mutating func setSubStockModel(_ subStockModel: SubStockModel) {
+        self.subStockModel = subStockModel
+    }
+
+    mutating func setPrice(_ price: Double) {
+        self.price = price
+    }
+
+    mutating func setCount(_ count: String) {
+        self.count = Int(count) ?? 0
+    }
+
+    mutating func setKDV(_ kdv: String) {
+        self.kdv = Int(kdv) ?? 00
+    }
+
+    mutating func setDesc(_ desc: String) {
+        self.desc = desc
+    }
 }

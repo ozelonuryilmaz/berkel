@@ -12,6 +12,9 @@ protocol IJBCPriceUIModel {
 
     var newJBCPricePassData: NewJBCPricePassData { get }
     var navTitle: String { get }
+    
+    var stockModel: StockModel { get }
+    var subStockModel: SubStockModel { get }
 
     var isPriceSelectable: Bool { get }
     var customerId: String { get }
@@ -38,8 +41,8 @@ struct JBCPriceUIModel: IJBCPriceUIModel {
     
     let isPriceSelectable: Bool
     private let customerModel: JBCustomerModel
-    private let stockModel: StockModel
-    private let subStockModel: SubStockModel
+    let stockModel: StockModel
+    let subStockModel: SubStockModel
 
     // MARK: Initialize
     init(data: JBCPricePassData) {

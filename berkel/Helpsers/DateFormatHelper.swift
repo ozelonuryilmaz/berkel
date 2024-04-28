@@ -26,6 +26,13 @@ struct DateFormatHelper {
         formatter.dateFormat = "dd.MM.yyyy"
         return formatter
     }
+    
+    static func createFormatterAppDisplayNameType() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "tr_TR")
+        formatter.dateFormat = "dd MMMM yyyy"
+        return formatter
+    }
 
     static func createFormatterHourMinute() -> DateFormatter {
         let formatter = DateFormatter()

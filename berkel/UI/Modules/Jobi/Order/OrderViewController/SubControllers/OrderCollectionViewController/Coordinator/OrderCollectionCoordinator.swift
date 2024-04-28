@@ -9,7 +9,11 @@
 import UIKit
 
 protocol IOrderCollectionCoordinator: AnyObject {
+    
+    func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData,
+                                              outputDelegate: JBCustomerPriceViewControllerOutputDelegate)
 
+    func dismiss(completion: (() -> Void)?)
 }
 
 final class OrderCollectionCoordinator: PresentationCoordinator, IOrderCollectionCoordinator {
@@ -34,6 +38,18 @@ final class OrderCollectionCoordinator: PresentationCoordinator, IOrderCollectio
         let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
         startPresent(targetVC: navController)
+    }
+
+    func presentJBCustomerPriceViewController(passData: JBCustomerPricePassData,
+                                              outputDelegate: JBCustomerPriceViewControllerOutputDelegate) {
+        let controller = JBCustomerPriceCoordinator.getInstance(presenterViewController: UIApplication.topViewController())
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: controller)
+    }
+
+    func dismiss(completion: (() -> Void)? = nil) {
+        UIApplication.topViewController()?.navigationController?.dismiss(animated: true, completion: completion)
     }
 }
 
