@@ -10,12 +10,24 @@ import UIKit
 
 protocol IOrderCollectionUIModel {
 
+    var season: String { get }
+    
     var customerId: String? { get }
     var customerName: String { get }
     var productName: String { get }
     var productPrice: String { get }
+    
+    var stockId: String? { get }
+    var subStockId: String? { get }
+
+    var data: OrderCollectionModel { get }
+    var stockData: UpdateStockModel { get }
+
+    var errorMessage: String? { get }
 
     init(data: OrderCollectionPassData)
+    
+    func getCount() -> Int
 
     mutating func setStockModel(_ stockModel: StockModel)
     mutating func setSubStockModel(_ subStockModel: SubStockModel)
@@ -55,6 +67,10 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
 
+    var orderId: String? {
+        return orderModel.id
+    }
+
     // Stock
     var stockId: String? {
         return stockModel?.id
@@ -89,6 +105,58 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
 
     var productPrice: String {
         return price.decimalString() + " TL"
+    }
+    
+    private var stockDesc: String {
+        return "\(customerName) müşteri siparişi"
+    }
+
+    var data: OrderCollectionModel {
+        return OrderCollectionModel(id: nil,
+                                    orderId: orderId,
+                                    userId: userId,
+                                    stockId: stockId,
+                                    subStockId: subStockId,
+                                    customerId: customerId,
+                                    stockName: stockName,
+                                    subStockName: subStockName,
+                                    customerName: customerName,
+                                    count: count,
+                                    price: price,
+                                    kdv: kdv,
+                                    desc: desc,
+                                    date: Date().dateFormatterApiResponseType())
+    }
+    
+    var stockData: UpdateStockModel {
+        return UpdateStockModel(stockId: stockId,
+                                subStockId: subStockId,
+                                userId: userId,
+                                count: getCount(),
+                                date: Date().dateFormatterApiResponseType(),
+                                desc: stockDesc,
+                                type: UpdateStockType.remove.rawValue)
+    }
+
+    var errorMessage: String? {
+        if stockModel == nil {
+            return "Lütfen ürün ve fiyat seçiniz"
+        }
+
+        if count <= 0 {
+            return "Lütfen ürün adeti giriniz"
+        }
+
+        if (desc?.count ?? 0) < 3 {
+            return "Lütfen açıklama yazınız"
+        }
+
+        return nil
+    }
+    
+    // Stoktan düşürüleceği için -1 ile çarpıldı
+    func getCount() -> Int {
+        return self.count * (-1)
     }
 }
 

@@ -15,8 +15,10 @@ enum OrderCollectionBuilder {
                          outputDelegate: OrderCollectionViewControllerOutputDelegate?) -> OrderCollectionViewController {
 
         let repository = OrderCollectionRepository()
+        let jobiStockRepository = JobiStockRepository()
         let uiModel = OrderCollectionUIModel(data: data)
         let viewModel = OrderCollectionViewModel(repository: repository,
+                                                 jobiStockRepository: jobiStockRepository,
                                                  coordinator: coordinator,
                                                  uiModel: uiModel)
 

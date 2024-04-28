@@ -16,5 +16,5 @@ struct UpdateStockModel: Codable {
     let count: Int
     var date: String
     var desc: String?
-    let type: String
+    let type: String // UpdateStockType enum type
 }

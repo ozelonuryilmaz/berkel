@@ -339,6 +339,7 @@
 		6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE462AAF905E0044607A /* AuthenticationRepository.swift */; };
 		6772DE492AAFB2A30044607A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772DE482AAFB2A30044607A /* ShadowView.swift */; };
 		6772EBC12AD46E8000AA547D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772EBC02AD46E8000AA547D /* Int+Extension.swift */; };
+		67730D2B2BDE95CE00E925B8 /* OrderCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67730D2A2BDE95CE00E925B8 /* OrderCollectionModel.swift */; };
 		6774E26E2ABAF153005FC78A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E26D2ABAF153005FC78A /* Date+Extension.swift */; };
 		6774E2712ABAF188005FC78A /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E2702ABAF188005FC78A /* DateFormatHelper.swift */; };
 		6774E2732ABAF1D4005FC78A /* String+Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6774E2722ABAF1D4005FC78A /* String+Date+Extension.swift */; };
@@ -1171,6 +1172,7 @@
 		6772DE462AAF905E0044607A /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		6772DE482AAFB2A30044607A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		6772EBC02AD46E8000AA547D /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		67730D2A2BDE95CE00E925B8 /* OrderCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionModel.swift; sourceTree = "<group>"; };
 		6774E26D2ABAF153005FC78A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		6774E2702ABAF188005FC78A /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		6774E2722ABAF1D4005FC78A /* String+Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date+Extension.swift"; sourceTree = "<group>"; };
@@ -3395,6 +3397,7 @@
 			children = (
 				675D94E52BCECFE10084C0FD /* Builder */,
 				675D94E42BCECFDD0084C0FD /* Coordinator */,
+				67730D292BDE95B400E925B8 /* Model */,
 				675D94E32BCECFD90084C0FD /* Repository */,
 				675D94E22BCECFD50084C0FD /* ViewModel */,
 				675D94E12BCECFD20084C0FD /* ViewController */,
@@ -3924,6 +3927,14 @@
 				67707D7A2BAB6157008CEBF4 /* JobiStockRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		67730D292BDE95B400E925B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67730D2A2BDE95CE00E925B8 /* OrderCollectionModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6774E2742ABAF2AB005FC78A /* String */ = {
@@ -8153,6 +8164,7 @@
 				678F49EB2B9A1EF1006E5083 /* JobiListPassData.swift in Sources */,
 				678F49D62B9A1EDF006E5083 /* CostUIModel.swift in Sources */,
 				670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */,
+				67730D2B2BDE95CE00E925B8 /* OrderCollectionModel.swift in Sources */,
 				67DDE8842B0E765800E24949 /* CustomerListTableViewCellUIModel.swift in Sources */,
 				6710BF3D2AA7AD48000034FD /* SettingsService.swift in Sources */,
 				67C1EC502AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.swift in Sources */,

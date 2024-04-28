@@ -46,7 +46,7 @@ final class UpdateStockViewModel: BaseViewModel, IUpdateStockViewModel {
     var viewState = ScreenStateSubject<UpdateStockViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let response = CurrentValueSubject<UpdateStockModel?, Never>(nil)
-    let updateStockResponse = CurrentValueSubject<Bool?, Never>(nil)
+    let updateStockResponse = CurrentValueSubject<Bool?, Never>(false)
 
     // MARK: Initiliazer
     required init(repository: IUpdateStockRepository,
@@ -116,9 +116,8 @@ internal extension UpdateStockViewModel {
             callbackSuccess: { [weak self] in
                 DispatchQueue.delay(300) { [weak self] in
                     guard let self = self,
-                        let isSuccess = self.updateStockResponse.value,
-                        let data = self.response.value
-                        else { return }
+                        let data = self.response.value else { return }
+                    let isSuccess = self.updateStockResponse.value ?? false
 
                     if isSuccess {
                         self.viewStateShowSavedUpdateStockData(data: data)
@@ -128,7 +127,8 @@ internal extension UpdateStockViewModel {
             },
             callbackComplete: { [weak self] in
                 DispatchQueue.delay(300) { [weak self] in
-                    guard let self = self, let isSuccess = self.updateStockResponse.value else { return }
+                    guard let self = self else { return }
+                    let isSuccess = self.updateStockResponse.value ?? false
                     if !isSuccess && reRequest {
                         self.updateStockCount()
                         reRequest = false

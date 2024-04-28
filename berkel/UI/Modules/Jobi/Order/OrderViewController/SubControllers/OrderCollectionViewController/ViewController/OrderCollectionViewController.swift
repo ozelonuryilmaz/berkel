@@ -63,7 +63,7 @@ final class OrderCollectionViewController: BerkelBaseViewController {
         }
 
         btnSave.onTap { [unowned self] _ in
-
+            self.viewModel.saveOrder()
         }
     }
 
@@ -89,6 +89,12 @@ final class OrderCollectionViewController: BerkelBaseViewController {
 
             case .setPrice(let price):
                 self.lblPrice.text = price
+
+            case .disableButton:
+                self.btnSave.isEnabled = false
+
+            case .showSystemAlert(let title, let message):
+                self.showSystemAlert(title: title, message: message)
 
             }
 

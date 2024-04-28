@@ -15,11 +15,15 @@ protocol IOrderCollectionViewModel: JBCustomerPriceViewControllerOutputDelegate 
     var errorState: ErrorStateSubject { get }
 
     init(repository: IOrderCollectionRepository,
+         jobiStockRepository: IJobiStockRepository,
          coordinator: IOrderCollectionCoordinator,
          uiModel: IOrderCollectionUIModel)
 
     // Init
     func initComponents()
+    
+    // Service
+    func saveOrder()
 
     // Coordinate
     func presentJBCustomerPriceViewController()
@@ -35,19 +39,25 @@ final class OrderCollectionViewModel: BaseViewModel, IOrderCollectionViewModel {
 
     // MARK: Definitions
     private let repository: IOrderCollectionRepository
+    private let jobiStockRepository: IJobiStockRepository
     private let coordinator: IOrderCollectionCoordinator
     private var uiModel: IOrderCollectionUIModel
 
     // MARK: Private Props
     var viewState = ScreenStateSubject<OrderCollectionViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    var emptyErrorState = ErrorStateSubject(nil)
+    let responseOrderCollection = CurrentValueSubject<OrderCollectionModel?, Never>(nil)
+    let updateStockResponse = CurrentValueSubject<Bool?, Never>(false)
+    let saveStockResponse = CurrentValueSubject<UpdateStockModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IOrderCollectionRepository,
+                  jobiStockRepository: IJobiStockRepository,
                   coordinator: IOrderCollectionCoordinator,
                   uiModel: IOrderCollectionUIModel) {
         self.repository = repository
+        self.jobiStockRepository = jobiStockRepository
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
@@ -73,6 +83,104 @@ final class OrderCollectionViewModel: BaseViewModel, IOrderCollectionViewModel {
 // MARK: Service
 internal extension OrderCollectionViewModel {
 
+    func saveOrder() {
+        if let errorMessage = self.uiModel.errorMessage {
+            errorState.value = .ERROR_MESSAGE(title: "Uyarı", msg: errorMessage)
+            return
+        }
+
+        handleResourceFirestore(
+            request: self.repository.saveOrder(data: self.uiModel.data,
+                                            season: self.uiModel.season),
+            response: self.responseOrderCollection,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self  else { return }
+                self.viewStateDisableButton() // üst üste butona tıklanılmasın
+                DispatchQueue.delay(100) { [weak self] in
+                    self?.saveStock()
+                }
+            })
+    }
+    
+    func saveStock() {
+        var reRequest: Bool = true
+        
+        handleResourceFirestore(
+            request: self.jobiStockRepository.saveSubStockInfo(season: uiModel.season,
+                                                               stockId: uiModel.stockId ?? "",
+                                                               subStockId: uiModel.subStockId ?? "",
+                                                               data: uiModel.stockData),
+            response: self.saveStockResponse,
+            errorState: self.emptyErrorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.delay(300) { [weak self] in
+                    self?.updateStockCount()
+                }
+            },
+            callbackComplete: { [weak self] in
+                DispatchQueue.delay(300) { [weak self] in
+                    guard let self = self else { return }
+                    if self.saveStockResponse.value == nil && reRequest {
+                        self.saveStock()
+                        reRequest = false
+                    } else if self.saveStockResponse.value == nil {
+                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                                                      message: "Stoktan çıkarılamadı. Stoktan çıkarma işlemi yapınız.")
+                    }
+                }
+            })
+    }
+    
+    func updateStockCount() {
+        var reRequest: Bool = true
+        
+        handleResourceFirestore(
+            request: self.jobiStockRepository.updateSubStockCountWithTransaction(count: uiModel.getCount(),
+                                                                                 season: uiModel.season,
+                                                                                 stockId: uiModel.stockId ?? "",
+                                                                                 subStockId: uiModel.subStockId ?? ""),
+            response: self.updateStockResponse,
+            errorState: self.emptyErrorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            },
+            callbackSuccess: { [weak self] in
+                DispatchQueue.delay(300) { [weak self] in
+                    guard let self = self,
+                        let isSuccess = self.updateStockResponse.value,
+                        let data = self.saveStockResponse.value
+                        else { return }
+
+                    if isSuccess {
+                        self.dismiss()
+                    }
+                }
+            },
+            callbackComplete: { [weak self] in
+                DispatchQueue.delay(300) { [weak self] in
+                    guard let self = self else { return }
+                    let isSuccess = self.updateStockResponse.value ?? false
+                    if !isSuccess && reRequest {
+                        self.updateStockCount()
+                        reRequest = false
+                    } else if !isSuccess {
+                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                                                      message: "Stok kaydedildi fakat Stok Sayısı güncellenemedi. Ana sayfadan güncelleme yapınız.")
+                    }
+                }
+            })
+
+    }
+
 }
 
 // MARK: States
@@ -93,6 +201,14 @@ internal extension OrderCollectionViewModel {
 
     func viewStateSetPrice() {
         viewState.value = .setPrice(price: uiModel.productPrice)
+    }
+    
+    func viewStateDisableButton() {
+        viewState.value = .disableButton
+    }
+    
+    func viewStateShowSystemAlert(title: String, message: String) {
+        viewState.value = .showSystemAlert(title: title, message: message)
     }
 }
 
@@ -134,4 +250,6 @@ enum OrderCollectionViewState {
     case setCustomerName(name: String)
     case setProductName(name: String)
     case setPrice(price: String)
+    case disableButton
+    case showSystemAlert(title: String, message: String)
 }

@@ -10,13 +10,15 @@ import FirebaseFirestore
 enum OrderService {
 
     case order(season: String)
+    case customer(season: String, customerId: String, orderId: String)
+    case none
 }
 
 extension OrderService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .order(_):
+        case .order(_), .customer(_,_,_):
             return "date"
             
         default:
@@ -32,6 +34,15 @@ extension OrderService: CollectionServiceType {
                 .collection("jobiOrder")
                 .document(season)
                 .collection("order")
+            
+        case .customer(let season, let customerId, let orderId):
+            return Firestore
+                .firestore()
+                .collection("jobiOrder")
+                .document(season)
+                .collection("order")
+                .document(customerId)
+                .collection(orderId)
             
         default:
             return Firestore
