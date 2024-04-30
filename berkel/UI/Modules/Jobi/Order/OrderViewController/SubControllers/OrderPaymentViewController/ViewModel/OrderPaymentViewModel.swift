@@ -18,8 +18,16 @@ protocol IOrderPaymentViewModel: AnyObject {
          coordinator: IOrderPaymentCoordinator,
          uiModel: IOrderPaymentUIModel)
     
-    // Coordinate
+    func initComponents()
     func dismiss()
+
+    // Setter
+    func setDate(date: String?)
+    func setPayment(_ text: String)
+    func setDesc(_ text: String)
+
+    // Service
+    func savePayment()
 }
 
 final class OrderPaymentViewModel: BaseViewModel, IOrderPaymentViewModel {
@@ -32,7 +40,7 @@ final class OrderPaymentViewModel: BaseViewModel, IOrderPaymentViewModel {
     // MARK: Private Props
     var viewState = ScreenStateSubject<OrderPaymentViewState>(nil)
     var errorState = ErrorStateSubject(nil)
-    //let response = CurrentValueSubject<?, Never>(nil)
+    let response = CurrentValueSubject<OrderPaymentModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IOrderPaymentRepository,
@@ -43,12 +51,31 @@ final class OrderPaymentViewModel: BaseViewModel, IOrderPaymentViewModel {
         self.uiModel = uiModel
     }
 
+    func initComponents() {
+        self.viewStateCustomerName()
+    }
 }
 
 
 // MARK: Service
 internal extension OrderPaymentViewModel {
 
+    func savePayment() {
+        guard self.uiModel.payment > 0 else { return }
+
+        handleResourceFirestore(
+            request: self.repository.savePayment(data: self.uiModel.data, 
+                                                 season: self.uiModel.season),
+            response: self.response,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.dismiss()
+            })
+    }
 }
 
 // MARK: States
@@ -59,6 +86,9 @@ internal extension OrderPaymentViewModel {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
 
+    func viewStateCustomerName() {
+        self.viewState.value = .setCustomerName(name: self.uiModel.customerName)
+    }
 }
 
 // MARK: Coordinate
@@ -69,6 +99,23 @@ internal extension OrderPaymentViewModel {
     }
 }
 
+// MARK: Setter
+internal extension OrderPaymentViewModel {
+
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
+    func setPayment(_ text: String) {
+        self.uiModel.setPayment(text)
+    }
+
+    func setDesc(_ text: String) {
+        self.uiModel.setDesc(text)
+    }
+}
+
 enum OrderPaymentViewState {
     case showNativeProgress(isProgress: Bool)
+    case setCustomerName(name: String)
 }

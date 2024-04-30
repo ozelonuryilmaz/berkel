@@ -10,22 +10,23 @@ import FirebaseFirestore
 enum OrderService {
 
     case order(season: String)
-    case customer(season: String, customerId: String, orderId: String)
+    case customerCollections(season: String, customerId: String, orderId: String)
+    case customerPayments(season: String, customerId: String, orderId: String)
     case none
 }
 
 extension OrderService: CollectionServiceType {
-    
+
     var order: String {
         switch self {
-        case .order(_), .customer(_,_,_):
+        case .order(_), .customerCollections(_, _, _), .customerPayments(_, _, _):
             return "date"
-            
+
         default:
             return ""
         }
     }
-    
+
     var collectionReference: CollectionReference {
         switch self {
         case .order(let season):
@@ -34,16 +35,25 @@ extension OrderService: CollectionServiceType {
                 .collection("jobiOrder")
                 .document(season)
                 .collection("order")
-            
-        case .customer(let season, let customerId, let orderId):
+
+        case .customerCollections(let season, let customerId, let orderId):
             return Firestore
                 .firestore()
-                .collection("jobiOrder")
+                .collection("jobiOrderDetail")
                 .document(season)
-                .collection("order")
-                .document(customerId)
-                .collection(orderId)
-            
+                .collection(customerId)
+                .document(orderId)
+                .collection("collections")
+
+        case .customerPayments(let season, let customerId, let orderId):
+            return Firestore
+                .firestore()
+                .collection("jobiOrderDetail")
+                .document(season)
+                .collection(customerId)
+                .document(orderId)
+                .collection("payments")
+
         default:
             return Firestore
                 .firestore()
@@ -57,7 +67,7 @@ extension OrderService: DocumentServiceType {
 
     var documentReference: DocumentReference {
         switch self {
-        
+
         default:
             return Firestore
                 .firestore()

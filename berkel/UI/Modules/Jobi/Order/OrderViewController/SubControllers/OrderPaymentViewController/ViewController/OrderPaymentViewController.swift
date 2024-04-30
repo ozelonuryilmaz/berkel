@@ -26,6 +26,13 @@ final class OrderPaymentViewController: BerkelBaseViewController {
     private weak var outputDelegate: OrderPaymentViewControllerOutputDelegate? = nil
 
     // MARK: IBOutlets
+    @IBOutlet private weak var lblCustomerName: UILabel!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+
+    @IBOutlet private weak var tfPayment: PrimaryTextField!
+    @IBOutlet private weak var tfDesc: PrimaryTextField!
+
+    @IBOutlet private weak var btnSave: UIButton!
 
     // MARK: Constraints Outlets
     
@@ -45,14 +52,23 @@ final class OrderPaymentViewController: BerkelBaseViewController {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
     }
+    
+    override func setupView() {
+        self.viewModel.initComponents()
+        self.initDatePickerView()
+    }
 
     override func registerEvents() {
 
+        btnSave.onTap { [unowned self] _ in
+            self.viewModel.savePayment()
+        }
     }
 
     private func observeReactiveDatas() {
         observeViewState()
         listenErrorState()
+        listenTextFieldsDidChange()
     }
 
     private func observeViewState() {
@@ -63,6 +79,8 @@ final class OrderPaymentViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .setCustomerName(let name):
+                self.lblCustomerName.text = name
             }
 
         }).store(in: &cancelBag)
@@ -85,4 +103,26 @@ final class OrderPaymentViewController: BerkelBaseViewController {
 // MARK: Props
 private extension OrderPaymentViewController {
     
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
+}
+
+// MARK: TextField
+private extension OrderPaymentViewController {
+
+    func listenTextFieldsDidChange() {
+        tfPayment.addListenDidChange { [unowned self] text in
+            self.viewModel.setPayment(text)
+        }
+
+        tfDesc.addListenDidChange { [unowned self] text in
+            self.viewModel.setDesc(text)
+        }
+    }
 }

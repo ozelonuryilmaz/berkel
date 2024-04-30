@@ -15,9 +15,9 @@ protocol IOrderCollectionRepository: AnyObject {
 final class OrderCollectionRepository: BaseRepository, IOrderCollectionRepository {
 
     func saveOrder(data: OrderCollectionModel, season: String) -> FirestoreResponseType<OrderCollectionModel> {
-        let db: DocumentReference = OrderService.customer(season: season,
-                                                          customerId: data.customerId ?? "",
-                                                          orderId: data.orderId ?? "").collectionReference.document()
+        let db: DocumentReference = OrderService.customerCollections(season: season,
+                                                                     customerId: data.customerId ?? "",
+                                                                     orderId: data.orderId ?? "").collectionReference.document()
         let key = db.documentID
 
         var tempData = data

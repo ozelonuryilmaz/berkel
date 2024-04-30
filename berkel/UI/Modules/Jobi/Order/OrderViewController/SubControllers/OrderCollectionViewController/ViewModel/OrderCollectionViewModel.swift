@@ -155,10 +155,7 @@ internal extension OrderCollectionViewModel {
             },
             callbackSuccess: { [weak self] in
                 DispatchQueue.delay(300) { [weak self] in
-                    guard let self = self,
-                        let isSuccess = self.updateStockResponse.value,
-                        let data = self.saveStockResponse.value
-                        else { return }
+                    guard let self = self, let isSuccess = self.updateStockResponse.value else { return }
 
                     if isSuccess {
                         self.dismiss()

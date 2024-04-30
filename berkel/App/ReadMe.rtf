@@ -89,13 +89,18 @@ service cloud.firestore \{\
       allow write, read: if isJobiAdmin() == true;\
     \}\
 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0     // 'jobiOrder' koleksiyonu i\'e7in izinler\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0     match /jobiOrder/\{jobiOrderId=**\} \{\
+    // 'jobiOrder' koleksiyonu i\'e7in izinler\
+    match /jobiOrder/\{jobiOrderId=**\} \{\
       allow write, read: if isJobiAdmin() == true;\
     \}\
-    \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0      // 'jobiOrderDetail' koleksiyonu i\'e7in izinler\
+    match /jobiOrderDetail/\{jobiOrderDetailId=**\} \{\
+      allow write, read: if isJobiAdmin() == true;\
+    \}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0     \
     // 'jobiGuest' koleksiyonu i\'e7in izinler\
     match /jobiGuest/\{jobiGuestId=**\} \{\
       allow write, read: if request.auth != null;\
