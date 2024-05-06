@@ -12,6 +12,9 @@ protocol IOrderCoordinator: AnyObject {
     func pushJBCustomerListViewController(passData: JBCustomerListPassData,
                                           outputDelegate: JBCustomerListViewControllerOutputDelegate)
     
+    func pushOrderDetailViewController(passData: OrderDetailPassData,
+                                          outputDelegate: OrderDetailViewControllerOutputDelegate)
+    
     func presentOrderCollectionViewController(passData: OrderCollectionPassData,
                                               outputDelegate: OrderCollectionViewControllerOutputDelegate)
     func presentOrderPaymentViewController(passData: OrderPaymentPassData,
@@ -35,6 +38,14 @@ final class OrderCoordinator: NavigationCoordinator, IOrderCoordinator {
     func pushJBCustomerListViewController(passData: JBCustomerListPassData,
                                           outputDelegate: JBCustomerListViewControllerOutputDelegate) {
         let coordinator = JBCustomerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+    
+    func pushOrderDetailViewController(passData: OrderDetailPassData,
+                                       outputDelegate: OrderDetailViewControllerOutputDelegate) {
+        let coordinator = OrderDetailCoordinator(navigationController: self.navigationController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: coordinator)

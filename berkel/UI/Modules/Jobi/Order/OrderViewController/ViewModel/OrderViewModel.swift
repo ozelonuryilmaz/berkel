@@ -126,6 +126,11 @@ internal extension OrderViewModel {
                                                           outputDelegate: self)
     }
 
+    func pushOrderDetailViewController(passData: OrderDetailPassData) {
+        self.coordinator.pushOrderDetailViewController(passData: passData,
+                                                          outputDelegate: self)
+    }
+
     func presentOrderCollectionViewController(passData: OrderCollectionPassData) {
         self.coordinator.presentOrderCollectionViewController(passData: passData,
                                                               outputDelegate: self)
@@ -150,13 +155,8 @@ internal extension OrderViewModel {
 internal extension OrderViewModel {
 
     func cellTapped(uiModel: IOrderTableViewCellUIModel) {
-        /*let data = OrderDetailPassData(orderId: uiModel.orderId,
-                                       orderSellerName: uiModel.orderSellerName,
-                                       orderSellerId: uiModel.orderSellerId,
-                                       isActive: uiModel.isActive,
-                                       categoryName: uiModel.categoryName,
-                                       categoryId: uiModel.categoryId)
-        self.pushOrderDetailViewController(passData: data)*/
+        let passData = OrderDetailPassData(orderModel: uiModel.orderModel)
+        self.pushOrderDetailViewController(passData: passData)
     }
 
     func addCollectionTapped(uiModel: IOrderTableViewCellUIModel) {
@@ -180,7 +180,8 @@ internal extension OrderViewModel {
 internal extension OrderViewModel {
 
     func closeButtonTapped(orderId: String, isActive: Bool) {
-
+        self.uiModel.updateIsActive(orderId: orderId, isActive: isActive)
+        self.viewStateBuildSnapshot()
     }
 }
 

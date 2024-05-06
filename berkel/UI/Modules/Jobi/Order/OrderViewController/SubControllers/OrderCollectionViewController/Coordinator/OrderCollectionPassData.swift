@@ -10,5 +10,6 @@ import Foundation
 
 struct OrderCollectionPassData: ICoordinatorPassData {
     let orderModel: OrderModel
+    var orderCollectionModel: OrderCollectionModel? = nil
 }
 

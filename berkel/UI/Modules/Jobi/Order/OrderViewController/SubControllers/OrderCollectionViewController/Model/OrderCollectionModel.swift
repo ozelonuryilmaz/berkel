@@ -25,4 +25,5 @@ struct OrderCollectionModel: Codable {
     let kdv: Int
     let desc: String?
     let date: String?
+    var isCalc: Bool
 }

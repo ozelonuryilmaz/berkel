@@ -17,7 +17,7 @@ protocol IOrderPaymentViewModel: AnyObject {
     init(repository: IOrderPaymentRepository,
          coordinator: IOrderPaymentCoordinator,
          uiModel: IOrderPaymentUIModel)
-    
+
     func initComponents()
     func dismiss()
 

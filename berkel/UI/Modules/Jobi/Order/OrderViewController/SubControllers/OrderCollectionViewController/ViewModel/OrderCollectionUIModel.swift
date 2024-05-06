@@ -125,7 +125,8 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
                                     price: price,
                                     kdv: kdv,
                                     desc: desc,
-                                    date: Date().dateFormatterApiResponseType())
+                                    date: Date().dateFormatterApiResponseType(),
+                                    isCalc: true)
     }
     
     var stockData: UpdateStockModel {

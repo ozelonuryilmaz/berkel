@@ -9,9 +9,37 @@
 import Foundation
 
 protocol IOrderDetailRepository: AnyObject {
-
+    func getCollection(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderCollectionModel]>
+    func getPayment(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderPaymentModel]>
+    func updateCollectionCalc(season: String, customerId: String, orderId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
+    func updateBuyingActive(season: String, orderId: String, isActive: Bool) -> FirestoreResponseType<Bool>
+    func deletePayment(season: String, customerId: String, orderId: String, paymentId: String) -> FirestoreResponseType<Bool>
 }
 
 final class OrderDetailRepository: BaseRepository, IOrderDetailRepository {
 
+    func getCollection(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderCollectionModel]> {
+        let db = OrderService.customerCollections(season: season, customerId: customerId, orderId: orderId)
+        return getDocuments(db, order: db.order)
+    }
+
+    func getPayment(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderPaymentModel]> {
+        let db = OrderService.customerPayments(season: season, customerId: customerId, orderId: orderId)
+        return getDocuments(db, order: db.order)
+    }
+
+    func updateCollectionCalc(season: String, customerId: String, orderId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool> {
+        let db = OrderService.customerCollection(season: season, customerId: customerId, orderId: orderId, collectionId: collectionId).documentReference
+        return updateData(db, data: ["isCalc": isCalc])
+    }
+
+    func updateBuyingActive(season: String, orderId: String, isActive: Bool) -> FirestoreResponseType<Bool> {
+        let db = OrderService.orderDetail(season: season, orderId: orderId).documentReference
+        return updateData(db, data: ["isActive": isActive])
+    }
+
+    func deletePayment(season: String, customerId: String, orderId: String, paymentId: String) -> FirestoreResponseType<Bool> {
+        let db = OrderService.customerPayment(season: season, customerId: customerId, orderId: orderId, paymentId: paymentId).documentReference
+        return deleteData(db)
+    }
 }

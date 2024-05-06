@@ -10,8 +10,11 @@ import FirebaseFirestore
 enum OrderService {
 
     case order(season: String)
+    case orderDetail(season: String, orderId: String)
     case customerCollections(season: String, customerId: String, orderId: String)
     case customerPayments(season: String, customerId: String, orderId: String)
+    case customerCollection(season: String, customerId: String, orderId: String, collectionId: String)
+    case customerPayment(season: String, customerId: String, orderId: String, paymentId: String)
     case none
 }
 
@@ -67,6 +70,34 @@ extension OrderService: DocumentServiceType {
 
     var documentReference: DocumentReference {
         switch self {
+            
+        case .orderDetail(let season, let orderId):
+            return Firestore
+                .firestore()
+                .collection("jobiOrder")
+                .document(season)
+                .collection("order")
+                .document(orderId)
+            
+        case .customerCollection(let season, let customerId, let orderId, let collectionId):
+            return Firestore
+                .firestore()
+                .collection("jobiOrderDetail")
+                .document(season)
+                .collection(customerId)
+                .document(orderId)
+                .collection("collections")
+                .document(collectionId)
+
+        case .customerPayment(let season, let customerId, let orderId, let paymentId):
+            return Firestore
+                .firestore()
+                .collection("jobiOrderDetail")
+                .document(season)
+                .collection(customerId)
+                .document(orderId)
+                .collection("payments")
+                .document(paymentId)
 
         default:
             return Firestore

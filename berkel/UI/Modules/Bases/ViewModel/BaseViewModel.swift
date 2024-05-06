@@ -33,11 +33,11 @@ class BaseViewModel {
                 // finished ve failure'dan sadece biri tetikleniyor
             case .failure(let error):
                 errorState.value = .COMMON_ERROR(error: error)
-                callbackComplete?()
                 callbackLoading?(false)
+                callbackComplete?()
             case .finished:
-                callbackComplete?()
                 callbackLoading?(false)
+                callbackComplete?()
             }
 
         }, receiveValue: { value in

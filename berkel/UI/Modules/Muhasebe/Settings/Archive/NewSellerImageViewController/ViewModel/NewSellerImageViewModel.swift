@@ -49,6 +49,7 @@ final class NewSellerImageViewModel: BaseViewModel, INewSellerImageViewModel {
     let responseCustomerImage = CurrentValueSubject<CustomerImageModel?, Never>(nil)
     let responseWorkerImage = CurrentValueSubject<WorkerImageModel?, Never>(nil)
     let responseOtherSellerImage = CurrentValueSubject<OtherSellerImageModel?, Never>(nil)
+    let responseOrderImage = CurrentValueSubject<OrderImageModel?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: INewSellerImageRepository,
@@ -219,7 +220,7 @@ internal extension NewSellerImageViewModel {
                                                      season: self.uiModel.season,
                                                      imagePathType: self.uiModel.imagePathType,
                                                      data: data),
-            response: self.responseOtherSellerImage,
+            response: self.responseOrderImage,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }

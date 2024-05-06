@@ -29,11 +29,9 @@ final class OrderCollectionCoordinator: PresentationCoordinator, IOrderCollectio
     }
 
     override func start() {
-        guard let outputDelegate = outputDelegate else { return }
-
         let controller = OrderCollectionBuilder.generate(with: coordinatorData,
                                                          coordinator: self,
-                                                         outputDelegate: outputDelegate)
+                                                         outputDelegate: self.outputDelegate)
 
         let navController = MainNavigationController()
         navController.setRootViewController(viewController: controller)
