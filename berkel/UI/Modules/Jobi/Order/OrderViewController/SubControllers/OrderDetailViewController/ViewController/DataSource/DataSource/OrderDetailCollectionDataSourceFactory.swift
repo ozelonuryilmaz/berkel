@@ -9,7 +9,8 @@ import UIKit
 
 protocol OrderDetailCollectionDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
-    func calcActivateTapped(id: String, date: String, isCalc: Bool)
+    func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
+    func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
 }
 
 final class OrderDetailCollectionDataSourceFactory {
@@ -46,8 +47,12 @@ extension OrderDetailCollectionDataSourceFactory: OrderDetailCollectionTableView
         self.outputDelegate?.cellTapped(uiModel: uiModel)
     }
 
-    func calcActivateTapped(id: String, date: String, isCalc: Bool) {
-        self.outputDelegate?.calcActivateTapped(id: id, date: date, isCalc: isCalc)
+    func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        self.outputDelegate?.appendFaturaTapped(uiModel: uiModel)
+    }
+
+    func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        self.outputDelegate?.cancelTapped(uiModel: uiModel)
     }
 }
 

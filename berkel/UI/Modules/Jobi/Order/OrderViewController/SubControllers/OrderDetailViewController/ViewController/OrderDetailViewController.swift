@@ -28,14 +28,14 @@ final class OrderDetailViewController: JobiBaseViewController {
     @IBOutlet private weak var tableViewOrderDetail: OrderDetailCollectionDiffableTableView!
     @IBOutlet private weak var tableViewPayment: UITableView!
     @IBOutlet private weak var viewImage: UIView!
-    
+
     @IBOutlet private weak var btnKantarFisi: UIButton!
     @IBOutlet private weak var btnCek: UIButton!
     @IBOutlet private weak var btnDekont: UIButton!
     @IBOutlet private weak var btnDiger: UIButton!
 
     // MARK: Constraints Outlets
-    
+
     // MARK: Initializer
     init(viewModel: IOrderDetailViewModel,
          outputDelegate: OrderDetailViewControllerOutputDelegate?) {
@@ -43,7 +43,7 @@ final class OrderDetailViewController: JobiBaseViewController {
         self.outputDelegate = outputDelegate
         super.init(nibName: "OrderDetailViewController", bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         return nil
     }
@@ -52,12 +52,12 @@ final class OrderDetailViewController: JobiBaseViewController {
         self.observeReactiveDatas()
         self.viewModel.initComponents()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel.viewStateSetNavigationTitle()
     }
-    
+
     override func setupView() {
         initTableViewPayment()
         initTableViewOrderDetail()
@@ -65,7 +65,7 @@ final class OrderDetailViewController: JobiBaseViewController {
 
     override func registerEvents() {
         segmentedController.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
-        
+
         btnKantarFisi.onTap { [unowned self] _ in
             self.viewModel.presentNewSellerImageViewController(imagePathType: .kantarFisi)
         }
@@ -82,7 +82,7 @@ final class OrderDetailViewController: JobiBaseViewController {
             self.viewModel.presentNewSellerImageViewController(imagePathType: .diger)
         }
     }
-    
+
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableViewOrderDetail.isHidden = sender.selectedSegmentIndex == 1
         self.tableViewPayment.isHidden = sender.selectedSegmentIndex == 0
@@ -101,7 +101,7 @@ final class OrderDetailViewController: JobiBaseViewController {
             switch states {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
-                
+
             case .showOrderActiveButton:
                 self.navigationItem.rightBarButtonItems = [self.discardBarButtonItem]
                 self.btnKantarFisi.isHidden = false
@@ -137,9 +137,12 @@ final class OrderDetailViewController: JobiBaseViewController {
                     },
                     negativeButtonText: "İptal"
                 )
-        
+
             case .closeButtonTapped:
                 self.outputDelegate?.closeButtonTapped(orderId: self.viewModel.orderId, isActive: false)
+
+            case .showSystemAlert(let title, let message):
+                self.showSystemAlert(title: title, message: message)
 
             }
 
@@ -179,7 +182,7 @@ final class OrderDetailViewController: JobiBaseViewController {
 
 // MARK: Props
 private extension OrderDetailViewController {
-    
+
     func initTableViewOrderDetail() {
         self.tableViewOrderDetail.configureView(delegateManager: self.viewModel)
     }
@@ -207,7 +210,7 @@ extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource,
         cell.outputDelegate = self
         return cell
     }
-    
+
     func deleteButtonTapped(uiModel: OrderPaymentModel) {
         self.showSystemAlert(
             title: "\(uiModel.payment.decimalString()) TL tahsilatı silmek istediğinize emin misin?",

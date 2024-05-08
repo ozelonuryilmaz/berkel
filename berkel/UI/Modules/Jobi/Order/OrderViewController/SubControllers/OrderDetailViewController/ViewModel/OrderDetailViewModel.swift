@@ -15,6 +15,7 @@ protocol IOrderDetailViewModel: OrderDetailCollectionDataSourceFactoryOutputDele
     var errorState: ErrorStateSubject { get }
 
     init(repository: IOrderDetailRepository,
+         jobiStockRepository: IJobiStockRepository,
          coordinator: IOrderDetailCoordinator,
          uiModel: IOrderDetailUIModel)
 
@@ -30,8 +31,10 @@ protocol IOrderDetailViewModel: OrderDetailCollectionDataSourceFactoryOutputDele
 
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
+    func updateFaturaNo(collectionId: String, faturaNo: String)
     func updateSellerActive(completion: @escaping () -> Void)
     func deletePayment(uiModel: OrderPaymentModel)
+    func deleteCollection(data: OrderCollectionModel)
 
     // for Table View
     func getNumberOfItemsInSection() -> Int
@@ -42,43 +45,42 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
 
     // MARK: Definitions
     private let repository: IOrderDetailRepository
+    private let jobiStockRepository: IJobiStockRepository
     private let coordinator: IOrderDetailCoordinator
     private var uiModel: IOrderDetailUIModel
 
     // MARK: Private Props
     var viewState = ScreenStateSubject<OrderDetailViewState>(nil)
     var errorState = ErrorStateSubject(nil)
+    var emptyErrorState = ErrorStateSubject(nil)
     let responsePayment = CurrentValueSubject<[OrderPaymentModel]?, Never>(nil)
     let responseCollection = CurrentValueSubject<[OrderCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
+    let responseUpdateFaturaNo = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
     let responseDeletePayment = CurrentValueSubject<Bool?, Never>(nil)
-
+    let responseDeleteCollection = CurrentValueSubject<Bool?, Never>(nil)
+    let saveStockResponse = CurrentValueSubject<UpdateStockModel?, Never>(nil)
+    let updateStockResponse = CurrentValueSubject<Bool?, Never>(false)
+    
     var orderId: String {
         return self.uiModel.orderId
     }
 
     // MARK: Initiliazer
     required init(repository: IOrderDetailRepository,
+                  jobiStockRepository: IJobiStockRepository,
                   coordinator: IOrderDetailCoordinator,
                   uiModel: IOrderDetailUIModel) {
         self.repository = repository
+        self.jobiStockRepository = jobiStockRepository
         self.coordinator = coordinator
         self.uiModel = uiModel
     }
 
     func initComponents() {
-        if self.uiModel.isActive {
-            self.viewStateShowOrderActiveButton()
-        }
-
-        getSellerCollection(completion: { [weak self] in
-            guard let self = self else { return }
-            DispatchQueue.delay(100) { [weak self] in
-                guard let self = self else { return }
-                self.getSellerPayment()
-            }
-        })
+        if self.uiModel.isActive { self.viewStateShowOrderActiveButton() }
+        self.getDatas()
     }
 
     func reloadPage() {
@@ -96,8 +98,17 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
 // MARK: Service
 internal extension OrderDetailViewModel {
 
-    private func getSellerCollection(completion: @escaping () -> Void) {
+    func getDatas() {
+        self.getSellerCollection(completion: { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.delay(100) { [weak self] in
+                guard let self = self else { return }
+                self.getSellerPayment()
+            }
+        })
+    }
 
+    private func getSellerCollection(completion: @escaping () -> Void) {
         handleResourceFirestore(
             request: self.repository.getCollection(season: self.uiModel.season,
                                                    customerId: self.uiModel.customerId,
@@ -156,6 +167,25 @@ internal extension OrderDetailViewModel {
             })
     }
 
+    func updateFaturaNo(collectionId: String, faturaNo: String) {
+        handleResourceFirestore(
+            request: self.repository.updateFaturaNo(season: self.uiModel.season,
+                                                    customerId: self.uiModel.customerId,
+                                                    orderId: self.uiModel.orderId,
+                                                    collectionId: collectionId,
+                                                    faturaNo: faturaNo),
+            response: self.responseUpdateFaturaNo,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.updateFaturaNo(collectionId: collectionId, faturaNo: faturaNo)
+                self.reloadPage()
+            })
+    }
+
     func updateSellerActive(completion: @escaping () -> Void) {
         handleResourceFirestore(
             request: self.repository.updateBuyingActive(season: self.uiModel.season,
@@ -193,6 +223,108 @@ internal extension OrderDetailViewModel {
                 guard let self = self else { return }
                 self.getSellerPayment()
             })
+    }
+
+    func deleteCollection(data: OrderCollectionModel) {
+        guard let collectionId = data.id else { return }
+
+        handleResourceFirestore(
+            request: self.repository.deleteCollection(season: self.uiModel.season,
+                                                      customerId: self.uiModel.customerId,
+                                                      orderId: self.uiModel.orderId,
+                                                      collectionId: collectionId),
+            response: self.responseDeleteCollection,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                
+                self.addStockDataAgain(data: data)
+            })
+    }
+    
+    func addStockDataAgain(data: OrderCollectionModel) {
+        var reRequest: Bool = true
+        let stockData = UpdateStockModel(stockId: data.stockId,
+                                    subStockId: data.subStockId,
+                                    userId: self.uiModel.userId,
+                                    count: data.count,
+                                    date: Date().dateFormatterApiResponseType(),
+                                    desc: "\(data.customerName) siparişi iptal edildi",
+                                    type: UpdateStockType.add.rawValue)
+        
+        handleResourceFirestore(
+            request: self.jobiStockRepository.saveSubStockInfo(season: self.uiModel.season,
+                                                               stockId: data.stockId ?? "",
+                                                               subStockId: data.subStockId ?? "",
+                                                               data: stockData),
+            response: self.saveStockResponse,
+            errorState: self.emptyErrorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.delay(300) { [weak self] in
+                    self?.updateStockCount(data: data)
+                }
+            },
+            callbackComplete: { [weak self] in
+                DispatchQueue.delay(300) { [weak self] in
+                    guard let self = self else { return }
+                    if self.saveStockResponse.value == nil && reRequest {
+                        self.addStockDataAgain(data: data)
+                        reRequest = false
+                    } else if self.saveStockResponse.value == nil {
+                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                                                      message: "Stoktan çıkarılamadı. Stoktan çıkarma işlemi yapınız.")
+                    }
+                }
+            })
+    }
+    
+    func updateStockCount(data: OrderCollectionModel) {
+        var reRequest: Bool = true
+        
+        handleResourceFirestore(
+            request: self.jobiStockRepository.updateSubStockCountWithTransaction(count: data.count,
+                                                                                 season: self.uiModel.season,
+                                                                                 stockId: data.stockId ?? "",
+                                                                                 subStockId: data.subStockId ?? ""),
+            response: self.updateStockResponse,
+            errorState: self.emptyErrorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                let isSuccess = self.updateStockResponse.value ?? false
+                if isSuccess {
+                    DispatchQueue.delay(300) { [weak self] in
+                        self?.uiModel.deleteCollection(collectionId: data.id ?? "")
+                        self?.reloadPage()
+                    }
+                }
+            },
+            callbackComplete: { [weak self] in
+                DispatchQueue.delay(300) { [weak self] in
+                    guard let self = self else { return }
+                    let isSuccess = self.updateStockResponse.value ?? false
+                    if !isSuccess && reRequest {
+                        self.updateStockCount(data: data)
+                        reRequest = false
+                    } else if !isSuccess {
+                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                                                      message: "Stok kaydedildi fakat Stok Sayısı güncellenemedi. Ana sayfadan güncelleme yapınız.")
+                    } else {
+                        self.viewStateShowSystemAlert(title: "Sipariş iptal edildi. Stok güncellendi.",
+                                                      message: "")
+                    }
+                }
+            })
+
     }
 }
 
@@ -239,6 +371,10 @@ internal extension OrderDetailViewModel {
     func viewStateCloseButtonTapped() {
         viewState.value = .closeButtonTapped
     }
+
+    func viewStateShowSystemAlert(title: String, message: String) {
+        viewState.value = .showSystemAlert(title: title, message: message)
+    }
 }
 
 // MARK: Coordinate
@@ -275,12 +411,21 @@ internal extension OrderDetailViewModel {
 
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
         guard let orderModel = uiModel.orderModel else { return }
-        self.presentOrderCollectionViewController(passData: OrderCollectionPassData(orderModel: orderModel,
-                                                                                    orderCollectionModel: uiModel.orderCollectionModel))
+        self.presentOrderCollectionViewController(
+            passData: OrderCollectionPassData(orderModel: orderModel, orderCollectionModel: uiModel.orderCollectionModel)
+        )
     }
 
-    func calcActivateTapped(id: String, date: String, isCalc: Bool) {
-        self.viewStateShowUpdateCalcAlertMessage(collectionId: id, date: date, isCalc: isCalc)
+    func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        // TODO: viewState ile alert gösterilecek faturaNo güncellenebilecek. updateFaturaNo fonksiyonu kullan
+        guard let collectionId = uiModel.collectionId else { return }
+        self.updateFaturaNo(collectionId: collectionId, faturaNo: "TEST")
+    }
+
+    func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        // TODO: collection silinecek ve stok geri eklenecek. deleteCollection fonksiyonu kullan
+        guard let data = uiModel.orderCollectionModel else { return }
+        self.deleteCollection(data: data)
     }
 }
 
@@ -295,4 +440,5 @@ enum OrderDetailViewState {
     case showUpdateCalcAlertMessage(collectionId: String, date: String, isCalc: Bool)
     case showOrderActiveButton
     case closeButtonTapped
+    case showSystemAlert(title: String, message: String)
 }

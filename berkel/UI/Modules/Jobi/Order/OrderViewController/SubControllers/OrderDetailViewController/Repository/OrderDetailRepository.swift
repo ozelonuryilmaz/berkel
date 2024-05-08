@@ -12,8 +12,10 @@ protocol IOrderDetailRepository: AnyObject {
     func getCollection(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderCollectionModel]>
     func getPayment(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderPaymentModel]>
     func updateCollectionCalc(season: String, customerId: String, orderId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
+    func updateFaturaNo(season: String, customerId: String, orderId: String, collectionId: String, faturaNo: String) -> FirestoreResponseType<Bool>
     func updateBuyingActive(season: String, orderId: String, isActive: Bool) -> FirestoreResponseType<Bool>
     func deletePayment(season: String, customerId: String, orderId: String, paymentId: String) -> FirestoreResponseType<Bool>
+    func deleteCollection(season: String, customerId: String, orderId: String, collectionId: String) -> FirestoreResponseType<Bool>
 }
 
 final class OrderDetailRepository: BaseRepository, IOrderDetailRepository {
@@ -38,8 +40,18 @@ final class OrderDetailRepository: BaseRepository, IOrderDetailRepository {
         return updateData(db, data: ["isActive": isActive])
     }
 
+    func updateFaturaNo(season: String, customerId: String, orderId: String, collectionId: String, faturaNo: String) -> FirestoreResponseType<Bool> {
+        let db = OrderService.customerCollection(season: season, customerId: customerId, orderId: orderId, collectionId: collectionId).documentReference
+        return updateData(db, data: ["faturaNo": faturaNo])
+    }
+
     func deletePayment(season: String, customerId: String, orderId: String, paymentId: String) -> FirestoreResponseType<Bool> {
         let db = OrderService.customerPayment(season: season, customerId: customerId, orderId: orderId, paymentId: paymentId).documentReference
+        return deleteData(db)
+    }
+
+    func deleteCollection(season: String, customerId: String, orderId: String, collectionId: String) -> FirestoreResponseType<Bool> {
+        let db = OrderService.customerCollection(season: season, customerId: customerId, orderId: orderId, collectionId: collectionId).documentReference
         return deleteData(db)
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol IOrderDetailUIModel {
 
     var season: String { get }
+    var userId: String { get }
 
     var orderId: String { get }
     var customerName: String { get }
@@ -30,6 +31,8 @@ protocol IOrderDetailUIModel {
     mutating func setPaymentResponse(data: [OrderPaymentModel])
 
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool)
+    mutating func updateFaturaNo(collectionId: String, faturaNo: String)
+    mutating func deleteCollection(collectionId: String)
 
     func getCollection(orderId: String?) -> OrderCollectionModel?
 
@@ -73,6 +76,10 @@ struct OrderDetailUIModel: IOrderDetailUIModel {
 
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
+    }
+    
+    var userId: String {
+        return UserManager.shared.userId ?? ""
     }
 
     mutating func setActive(isActive: Bool) {
@@ -123,6 +130,18 @@ extension OrderDetailUIModel {
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool) {
         if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
             self.collections[index].isCalc = isCalc
+        }
+    }
+
+    mutating func updateFaturaNo(collectionId: String, faturaNo: String) {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            self.collections[index].faturaNo = faturaNo
+        }
+    }
+    
+    mutating func deleteCollection(collectionId: String) {
+        if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
+            self.collections.remove(at: index)
         }
     }
 

@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-wp-KRH" userLabel="viewButtons">
                                 <rect key="frame" x="16" y="133" width="250" height="52"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-4G-bZ8" userLabel="btnDetail">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5h-4G-bZ8" userLabel="btnDetail">
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="V5n-hp-SsS"/>
@@ -57,17 +57,18 @@
                                         <color key="tintColor" name="PrimaryBlue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Toplama"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="-">
-                                            <color key="baseBackgroundColor" name="PrimaryBlue"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="İptal">
+                                            <color key="baseBackgroundColor" red="0.76019988397155147" green="0.17681152606533918" blue="0.14833211671323931" alpha="0.69410109362065397" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJT-Sh-XzD" userLabel="btnCalcActivated">
                                         <rect key="frame" x="133" y="0.0" width="117" height="36"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <color key="backgroundColor" red="0.15341926176090889" green="0.59419061819754582" blue="0.26754568392645922" alpha="0.77823815756286219" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="iDA-Lm-4HX"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Fatura Ekle"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,7 +121,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnCalcActivate" destination="ZJT-Sh-XzD" id="Qxd-Bw-9YV"/>
+                <outlet property="btnCancel" destination="X5h-4G-bZ8" id="H5H-Fq-nkS"/>
+                <outlet property="btnFatura" destination="ZJT-Sh-XzD" id="kit-eG-NU4"/>
                 <outlet property="constraintViewButtonsHeight" destination="BOt-WM-5W3" id="Gfp-Va-Dia"/>
                 <outlet property="lblCount" destination="Z1e-zP-DQz" id="RWA-bk-dJr"/>
                 <outlet property="lblDate" destination="Zvs-lm-33S" id="CnV-p6-pVm"/>
@@ -143,9 +145,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

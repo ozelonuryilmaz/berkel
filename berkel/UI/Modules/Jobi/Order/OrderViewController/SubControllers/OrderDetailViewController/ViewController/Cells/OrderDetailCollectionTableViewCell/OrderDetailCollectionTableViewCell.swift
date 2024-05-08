@@ -9,7 +9,8 @@ import UIKit
 
 protocol OrderDetailCollectionTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
-    func calcActivateTapped(id: String, date: String, isCalc: Bool)
+    func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
+    func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
 }
 
 
@@ -22,7 +23,8 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var lblDate: UILabel!
     @IBOutlet private weak var lblProductName: UILabel!
     @IBOutlet private weak var lblCount: UILabel!
-    @IBOutlet private weak var btnCalcActivate: UIButton!
+    @IBOutlet private weak var btnFatura: UIButton!
+    @IBOutlet private weak var btnCancel: UIButton!
     @IBOutlet private weak var viewButtons: UIView!
 
     // MARK: Constraints Outlets
@@ -31,6 +33,8 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         mContentView.roundCornersEachCorner(.allCorners, radius: 8)
+        btnFatura.roundCornersEachCorner(.allCorners, radius: 6)
+        btnCancel.roundCornersEachCorner(.allCorners, radius: 6)
     }
 
     func registerEvents(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
@@ -40,28 +44,18 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
             self.outputDelegate?.cellTapped(uiModel: uiModel)
         }
 
-        btnCalcActivate.onTap { [unowned self] _ in
-            self.outputDelegate?.calcActivateTapped(id: uiModel.collectionId ?? "",
-                                                    date: uiModel.date,
-                                                    isCalc: !uiModel.isCalc)
+        btnCancel.onTap { [unowned self] _ in
+            self.outputDelegate?.cancelTapped(uiModel: uiModel)
+        }
+ 
+        btnFatura.onTap { [unowned self] _ in
+            self.outputDelegate?.appendFaturaTapped(uiModel: uiModel)
         }
     }
 
     func configureCellWith(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
-        self.registerEvents(uiModel: uiModel)
-        self.visibilityButtons(isVisible: uiModel.isVisibleButtons)
-
-        let isCalc = !uiModel.isActive && uiModel.isCalc
-        let isntCalc = !uiModel.isActive && !uiModel.isCalc
-        let btnTitle: String = isCalc ? "Aktif" : isntCalc ? "Pasif" : (uiModel.isCalc ? "Pasifleştir" : "Aktifleştir")
-        let bgColor: UIColor = (isCalc || isntCalc) ? .lightGray : (uiModel.isCalc ? .lightGray : .orangeColor)
-
-        btnCalcActivate.roundCornersEachCorner(.allCorners, radius: 6)
-        btnCalcActivate.setTitleColor(.whiteColor, for: .disabled)
-        btnCalcActivate.setTitle(btnTitle, for: .normal)
-        btnCalcActivate.isEnabled = uiModel.isActive
-        btnCalcActivate.backgroundColor = bgColor
-        mContentView.alpha = uiModel.isCalc ? 1 : 0.4
+        registerEvents(uiModel: uiModel)
+        visibilityButtons(isVisible: uiModel.isVisibleButtons)
 
         lblDate.text = uiModel.date
         lblProductName.text = uiModel.orderName

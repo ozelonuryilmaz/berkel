@@ -15,8 +15,11 @@ enum OrderDetailBuilder {
                          outputDelegate: OrderDetailViewControllerOutputDelegate?) -> OrderDetailViewController {
 
         let repository = OrderDetailRepository()
+        let jobiStockRepository = JobiStockRepository()
+        
         let uiModel = OrderDetailUIModel(data: data)
         let viewModel = OrderDetailViewModel(repository: repository,
+                                             jobiStockRepository: jobiStockRepository,
                                              coordinator: coordinator,
                                              uiModel: uiModel)
 
