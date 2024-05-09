@@ -58,7 +58,7 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
         visibilityButtons(isVisible: uiModel.isVisibleButtons)
 
         lblDate.text = uiModel.date
-        lblProductName.text = uiModel.orderName
+        lblProductName.text = uiModel.orderName + "   \(uiModel.orderCollectionModel?.faturaNo ?? "")"
         lblCount.text = uiModel.count
     }
 

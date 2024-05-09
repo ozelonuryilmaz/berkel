@@ -133,7 +133,7 @@ internal extension UpdateStockViewModel {
                         self.updateStockCount()
                         reRequest = false
                     } else if !isSuccess {
-                        self.viewStateShowSystemAlert(title: "UYARI!",
+                        self.viewStateShowSystemAlert(title: "!!! UYARI * DİKKAT !!!",
                                                       message: "Stok kaydedildi fakat Stok Sayısı güncellenemedi. Ana sayfadan güncelleme yapınız.")
                     }
                 }

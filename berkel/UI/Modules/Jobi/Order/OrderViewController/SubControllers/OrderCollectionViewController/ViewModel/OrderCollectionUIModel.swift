@@ -108,7 +108,7 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
     }
     
     private var stockDesc: String {
-        return "\(customerName) müşteri siparişi"
+        return "\(customerName) müşteri siparişi verildi"
     }
 
     var data: OrderCollectionModel {

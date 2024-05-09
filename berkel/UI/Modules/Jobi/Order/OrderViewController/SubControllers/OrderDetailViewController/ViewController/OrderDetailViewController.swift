@@ -144,6 +144,19 @@ final class OrderDetailViewController: JobiBaseViewController {
             case .showSystemAlert(let title, let message):
                 self.showSystemAlert(title: title, message: message)
 
+            case .deleteCollection(let data):
+                self.showSystemAlert(
+                    title: "Siparişi iptal etmek istiyor musunuz?",
+                    message: "\(data.count) Adet \(data.stockName)-\(data.subStockName)",
+                    positiveButtonText: "Evet",
+                    positiveButtonClickListener: {
+                        self.viewModel.deleteCollection(data: data)
+                    },
+                    negativeButtonText: "İptal"
+                )
+
+            case .updateFaturaNo(let collectionId):
+                self.faturaAlertWithTextField(collectionId: collectionId)
             }
 
         }).store(in: &cancelBag)
@@ -174,7 +187,7 @@ final class OrderDetailViewController: JobiBaseViewController {
                         self.tableViewPayment.reloadData()
                     })
                 },
-                negativeButtonText: "İptal"
+                negativeButtonText: "Hayır"
             )
         })
     }()
@@ -196,6 +209,45 @@ private extension OrderDetailViewController {
         self.tableViewPayment.removeTableFooterView()
     }
 }
+
+
+// MARK: Alert Controller
+private extension OrderDetailViewController {
+
+    func faturaAlertWithTextField(collectionId: String) {
+        let alertController = UIAlertController(title: "Güncel Fatura Numarası Ekleyin", message: nil, preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Fatura Numarası"
+            textField.delegate = self
+            textField.keyboardType = .default
+        }
+
+        let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ekle", style: .default) { _ in
+
+            let inputName = alertController.textFields![0].text
+            if (inputName?.count ?? 0) <= 100 {
+                self.viewModel.updateFaturaNo(collectionId: collectionId, faturaNo: inputName!)
+            } else {
+                self.showSystemAlert(title: "Lütfen fatura numarası 100 harfi geçmesin", message: "")
+            }
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension OrderDetailViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.setMaxLengthShouldChangeCharactersIn(range: range, string: string, maxLength: 100)
+    }
+}
+
 
 // MARK: UITableViewDelegate & UITableViewDataSource
 extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource, OrderDetailPaymentTableViewCellOutputDelegate {

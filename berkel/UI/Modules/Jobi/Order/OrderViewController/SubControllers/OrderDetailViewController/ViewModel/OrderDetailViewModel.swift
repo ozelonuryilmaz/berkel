@@ -62,7 +62,7 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
     let responseDeleteCollection = CurrentValueSubject<Bool?, Never>(nil)
     let saveStockResponse = CurrentValueSubject<UpdateStockModel?, Never>(nil)
     let updateStockResponse = CurrentValueSubject<Bool?, Never>(false)
-    
+
     var orderId: String {
         return self.uiModel.orderId
     }
@@ -240,21 +240,21 @@ internal extension OrderDetailViewModel {
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
-                
+
                 self.addStockDataAgain(data: data)
             })
     }
-    
+
     func addStockDataAgain(data: OrderCollectionModel) {
         var reRequest: Bool = true
         let stockData = UpdateStockModel(stockId: data.stockId,
-                                    subStockId: data.subStockId,
-                                    userId: self.uiModel.userId,
-                                    count: data.count,
-                                    date: Date().dateFormatterApiResponseType(),
-                                    desc: "\(data.customerName) siparişi iptal edildi",
-                                    type: UpdateStockType.add.rawValue)
-        
+                                         subStockId: data.subStockId,
+                                         userId: self.uiModel.userId,
+                                         count: data.count,
+                                         date: Date().dateFormatterApiResponseType(),
+                                         desc: "\(data.customerName) siparişi iptal edildi",
+                                         type: UpdateStockType.add.rawValue)
+
         handleResourceFirestore(
             request: self.jobiStockRepository.saveSubStockInfo(season: self.uiModel.season,
                                                                stockId: data.stockId ?? "",
@@ -278,16 +278,16 @@ internal extension OrderDetailViewModel {
                         self.addStockDataAgain(data: data)
                         reRequest = false
                     } else if self.saveStockResponse.value == nil {
-                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                        self.viewStateShowSystemAlert(title: "!!! UYARI * DİKKAT !!!",
                                                       message: "Stoktan çıkarılamadı. Stoktan çıkarma işlemi yapınız.")
                     }
                 }
             })
     }
-    
+
     func updateStockCount(data: OrderCollectionModel) {
         var reRequest: Bool = true
-        
+
         handleResourceFirestore(
             request: self.jobiStockRepository.updateSubStockCountWithTransaction(count: data.count,
                                                                                  season: self.uiModel.season,
@@ -316,15 +316,14 @@ internal extension OrderDetailViewModel {
                         self.updateStockCount(data: data)
                         reRequest = false
                     } else if !isSuccess {
-                        self.viewStateShowSystemAlert(title: "!!! UYARI !!!",
+                        self.viewStateShowSystemAlert(title: "!!! UYARI * DİKKAT !!!",
                                                       message: "Stok kaydedildi fakat Stok Sayısı güncellenemedi. Ana sayfadan güncelleme yapınız.")
                     } else {
-                        self.viewStateShowSystemAlert(title: "Sipariş iptal edildi. Stok güncellendi.",
+                        self.viewStateShowSystemAlert(title: "Sipariş iptal edildi. Stok güncellendi",
                                                       message: "")
                     }
                 }
             })
-
     }
 }
 
@@ -375,6 +374,14 @@ internal extension OrderDetailViewModel {
     func viewStateShowSystemAlert(title: String, message: String) {
         viewState.value = .showSystemAlert(title: title, message: message)
     }
+
+    func viewStateDeleteCollection(data: OrderCollectionModel) {
+        viewState.value = .deleteCollection(data: data)
+    }
+
+    func viewStateUpdateFaturaNo(collectionId: String) {
+        viewState.value = .updateFaturaNo(collectionId: collectionId)
+    }
 }
 
 // MARK: Coordinate
@@ -410,22 +417,21 @@ internal extension OrderDetailViewModel {
 internal extension OrderDetailViewModel {
 
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
-        guard let orderModel = uiModel.orderModel else { return }
+        // Tüm detay cell'de gösteriliyor
+        /*guard let orderModel = uiModel.orderModel else { return }
         self.presentOrderCollectionViewController(
             passData: OrderCollectionPassData(orderModel: orderModel, orderCollectionModel: uiModel.orderCollectionModel)
-        )
+        )*/
     }
 
     func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
-        // TODO: viewState ile alert gösterilecek faturaNo güncellenebilecek. updateFaturaNo fonksiyonu kullan
         guard let collectionId = uiModel.collectionId else { return }
-        self.updateFaturaNo(collectionId: collectionId, faturaNo: "TEST")
+        self.viewStateUpdateFaturaNo(collectionId: collectionId)
     }
 
     func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
-        // TODO: collection silinecek ve stok geri eklenecek. deleteCollection fonksiyonu kullan
         guard let data = uiModel.orderCollectionModel else { return }
-        self.deleteCollection(data: data)
+        self.viewStateDeleteCollection(data: data)
     }
 }
 
@@ -441,4 +447,6 @@ enum OrderDetailViewState {
     case showOrderActiveButton
     case closeButtonTapped
     case showSystemAlert(title: String, message: String)
+    case deleteCollection(data: OrderCollectionModel)
+    case updateFaturaNo(collectionId: String)
 }
