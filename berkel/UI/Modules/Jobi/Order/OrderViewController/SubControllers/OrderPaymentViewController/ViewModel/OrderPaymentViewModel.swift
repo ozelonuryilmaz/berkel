@@ -25,6 +25,7 @@ protocol IOrderPaymentViewModel: AnyObject {
     func setDate(date: String?)
     func setPayment(_ text: String)
     func setDesc(_ text: String)
+    func setFaturaNo(_ text: String)
 
     // Service
     func savePayment()
@@ -108,6 +109,10 @@ internal extension OrderPaymentViewModel {
 
     func setPayment(_ text: String) {
         self.uiModel.setPayment(text)
+    }
+    
+    func setFaturaNo(_ text: String) {
+        self.uiModel.setFaturaNo(text)
     }
 
     func setDesc(_ text: String) {

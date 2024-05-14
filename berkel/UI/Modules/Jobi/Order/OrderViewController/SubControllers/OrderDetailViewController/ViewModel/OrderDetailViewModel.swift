@@ -32,6 +32,7 @@ protocol IOrderDetailViewModel: OrderDetailCollectionDataSourceFactoryOutputDele
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
     func updateFaturaNo(collectionId: String, faturaNo: String)
+    func updateFaturaNo(paymentId: String, faturaNo: String)
     func updateSellerActive(completion: @escaping () -> Void)
     func deletePayment(uiModel: OrderPaymentModel)
     func deleteCollection(data: OrderCollectionModel)
@@ -57,6 +58,7 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
     let responseCollection = CurrentValueSubject<[OrderCollectionModel]?, Never>(nil)
     let responseUpdateCalc = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateFaturaNo = CurrentValueSubject<Bool?, Never>(nil)
+    let responseUpdatePaymentFaturaNo = CurrentValueSubject<Bool?, Never>(nil)
     let responseUpdateActive = CurrentValueSubject<Bool?, Never>(nil)
     let responseDeletePayment = CurrentValueSubject<Bool?, Never>(nil)
     let responseDeleteCollection = CurrentValueSubject<Bool?, Never>(nil)
@@ -88,6 +90,7 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
         DispatchQueue.delay(250) { [weak self] in
             guard let self = self else { return }
             self.viewStateBuildCollectionSnapshot()
+            self.viewStateReloadPaymentTableView()
             self.viewStateOldDoubt()
             self.viewStateNowDoubt()
         }
@@ -182,6 +185,25 @@ internal extension OrderDetailViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.updateFaturaNo(collectionId: collectionId, faturaNo: faturaNo)
+                self.reloadPage()
+            })
+    }
+
+    func updateFaturaNo(paymentId: String, faturaNo: String) {
+        handleResourceFirestore(
+            request: self.repository.updateFaturaNo(season: self.uiModel.season,
+                                                    customerId: self.uiModel.customerId,
+                                                    orderId: self.uiModel.orderId,
+                                                    paymentId: paymentId,
+                                                    faturaNo: faturaNo),
+            response: self.responseUpdatePaymentFaturaNo,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                self.uiModel.updateFaturaNo(paymentId: paymentId, faturaNo: faturaNo)
                 self.reloadPage()
             })
     }

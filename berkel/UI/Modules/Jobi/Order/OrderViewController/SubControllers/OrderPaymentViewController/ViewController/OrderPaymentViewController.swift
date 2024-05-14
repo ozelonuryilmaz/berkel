@@ -30,6 +30,7 @@ final class OrderPaymentViewController: BerkelBaseViewController {
     @IBOutlet private weak var datePicker: UIDatePicker!
 
     @IBOutlet private weak var tfPayment: PrimaryTextField!
+    @IBOutlet private weak var tfFaturaNo: PrimaryTextField!
     @IBOutlet private weak var tfDesc: PrimaryTextField!
 
     @IBOutlet private weak var btnSave: UIButton!
@@ -117,8 +118,13 @@ private extension OrderPaymentViewController {
 private extension OrderPaymentViewController {
 
     func listenTextFieldsDidChange() {
+
         tfPayment.addListenDidChange { [unowned self] text in
             self.viewModel.setPayment(text)
+        }
+        
+        tfFaturaNo.addListenDidChange { [unowned self] text in
+            self.viewModel.setFaturaNo(text)
         }
 
         tfDesc.addListenDidChange { [unowned self] text in

@@ -32,6 +32,7 @@ protocol IOrderDetailUIModel {
 
     mutating func updateCalcForCollection(collectionId: String, isCalc: Bool)
     mutating func updateFaturaNo(collectionId: String, faturaNo: String)
+    mutating func updateFaturaNo(paymentId: String, faturaNo: String)
     mutating func deleteCollection(collectionId: String)
 
     func getCollection(orderId: String?) -> OrderCollectionModel?
@@ -77,7 +78,7 @@ struct OrderDetailUIModel: IOrderDetailUIModel {
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
-    
+
     var userId: String {
         return UserManager.shared.userId ?? ""
     }
@@ -138,7 +139,13 @@ extension OrderDetailUIModel {
             self.collections[index].faturaNo = faturaNo
         }
     }
-    
+
+    mutating func updateFaturaNo(paymentId: String, faturaNo: String) {
+        if let index = self.payments.firstIndex(where: { $0.id == paymentId }) {
+            self.payments[index].faturaNo = faturaNo
+        }
+    }
+
     mutating func deleteCollection(collectionId: String) {
         if let index = self.collections.firstIndex(where: { $0.id == collectionId }) {
             self.collections.remove(at: index)

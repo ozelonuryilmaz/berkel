@@ -13,6 +13,7 @@ protocol IOrderDetailRepository: AnyObject {
     func getPayment(season: String, customerId: String, orderId: String) -> FirestoreResponseType<[OrderPaymentModel]>
     func updateCollectionCalc(season: String, customerId: String, orderId: String, collectionId: String, isCalc: Bool) -> FirestoreResponseType<Bool>
     func updateFaturaNo(season: String, customerId: String, orderId: String, collectionId: String, faturaNo: String) -> FirestoreResponseType<Bool>
+    func updateFaturaNo(season: String, customerId: String, orderId: String, paymentId: String, faturaNo: String) -> FirestoreResponseType<Bool>
     func updateBuyingActive(season: String, orderId: String, isActive: Bool) -> FirestoreResponseType<Bool>
     func deletePayment(season: String, customerId: String, orderId: String, paymentId: String) -> FirestoreResponseType<Bool>
     func deleteCollection(season: String, customerId: String, orderId: String, collectionId: String) -> FirestoreResponseType<Bool>
@@ -42,6 +43,11 @@ final class OrderDetailRepository: BaseRepository, IOrderDetailRepository {
 
     func updateFaturaNo(season: String, customerId: String, orderId: String, collectionId: String, faturaNo: String) -> FirestoreResponseType<Bool> {
         let db = OrderService.customerCollection(season: season, customerId: customerId, orderId: orderId, collectionId: collectionId).documentReference
+        return updateData(db, data: ["faturaNo": faturaNo])
+    }
+    
+    func updateFaturaNo(season: String, customerId: String, orderId: String, paymentId: String, faturaNo: String) -> FirestoreResponseType<Bool> {
+        let db = OrderService.customerPayment(season: season, customerId: customerId, orderId: orderId, paymentId: paymentId).documentReference
         return updateData(db, data: ["faturaNo": faturaNo])
     }
 

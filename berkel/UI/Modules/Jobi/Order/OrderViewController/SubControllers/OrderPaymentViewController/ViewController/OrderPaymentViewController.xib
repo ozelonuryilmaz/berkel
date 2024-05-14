@@ -21,6 +21,7 @@
                 <outlet property="datePicker" destination="6He-Wd-g9L" id="bWX-gr-plD"/>
                 <outlet property="lblCustomerName" destination="Zgp-dy-67m" id="t9y-mV-wff"/>
                 <outlet property="tfDesc" destination="Y6q-7T-G23" id="wnt-n4-wIL"/>
+                <outlet property="tfFaturaNo" destination="PyG-XV-hd7" id="oxR-wg-FkN"/>
                 <outlet property="tfPayment" destination="8ak-7h-pJi" id="D0f-En-rlt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,10 +35,10 @@
                     <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="viZ-gt-1f0" userLabel="mContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="472"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="564"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVR-n1-kpS" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="408"/>
+                                    <rect key="frame" x="16" y="32" width="380" height="500"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Müşteri:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSb-du-Lby" userLabel="lblCustomer">
                                             <rect key="frame" x="16" y="16" width="81.666666666666671" height="28"/>
@@ -85,8 +86,26 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-7T-G23" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyG-XV-hd7" userLabel="tfFatura" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
                                             <rect key="frame" x="16" y="212" width="364" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="GxT-ch-Htl"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxCharacterLenght">
+                                                    <integer key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Fatura No"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                    <integer key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6q-7T-G23" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="304" width="364" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="0Ui-2n-l58"/>
@@ -101,7 +120,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ge2-8D-51Z" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="320" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="412" width="352" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="hW9-3y-Xq4"/>
@@ -124,6 +143,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Zgp-dy-67m" secondAttribute="trailing" constant="16" id="CWw-7f-xal"/>
                                         <constraint firstItem="6He-Wd-g9L" firstAttribute="top" secondItem="FSb-du-Lby" secondAttribute="bottom" constant="16" id="DpF-2w-mkU"/>
                                         <constraint firstItem="Zgp-dy-67m" firstAttribute="top" secondItem="oVR-n1-kpS" secondAttribute="top" constant="16" id="DuJ-Nx-tpb"/>
+                                        <constraint firstAttribute="trailing" secondItem="PyG-XV-hd7" secondAttribute="trailing" id="Ggo-Kr-UOM"/>
                                         <constraint firstItem="FSb-du-Lby" firstAttribute="top" secondItem="oVR-n1-kpS" secondAttribute="top" constant="16" id="H6z-84-keq"/>
                                         <constraint firstAttribute="bottom" secondItem="ge2-8D-51Z" secondAttribute="bottom" constant="32" id="OQr-sV-Rvg"/>
                                         <constraint firstAttribute="trailing" secondItem="6He-Wd-g9L" secondAttribute="trailing" constant="16" id="SFP-HA-OxE"/>
@@ -131,12 +151,14 @@
                                         <constraint firstItem="8ak-7h-pJi" firstAttribute="leading" secondItem="oVR-n1-kpS" secondAttribute="leading" constant="16" id="YV4-xT-hAa"/>
                                         <constraint firstItem="6He-Wd-g9L" firstAttribute="leading" secondItem="oVR-n1-kpS" secondAttribute="leading" constant="16" id="aMx-hk-wfg"/>
                                         <constraint firstAttribute="trailing" secondItem="Y6q-7T-G23" secondAttribute="trailing" id="bkH-8p-9NK"/>
-                                        <constraint firstItem="Y6q-7T-G23" firstAttribute="top" secondItem="8ak-7h-pJi" secondAttribute="bottom" constant="16" id="cT1-iw-YPb"/>
+                                        <constraint firstItem="Y6q-7T-G23" firstAttribute="top" secondItem="PyG-XV-hd7" secondAttribute="bottom" constant="16" id="hse-Na-I1h"/>
                                         <constraint firstItem="Zgp-dy-67m" firstAttribute="leading" secondItem="FSb-du-Lby" secondAttribute="trailing" constant="8" id="i6p-So-DAn"/>
                                         <constraint firstItem="FSb-du-Lby" firstAttribute="leading" secondItem="oVR-n1-kpS" secondAttribute="leading" constant="16" id="im6-eS-x62"/>
                                         <constraint firstAttribute="trailing" secondItem="8ak-7h-pJi" secondAttribute="trailing" id="lL7-fH-7xc"/>
                                         <constraint firstAttribute="trailing" secondItem="ge2-8D-51Z" secondAttribute="trailing" constant="-4" id="mtX-7x-zQa"/>
+                                        <constraint firstItem="PyG-XV-hd7" firstAttribute="leading" secondItem="oVR-n1-kpS" secondAttribute="leading" constant="16" id="orE-I1-Axx"/>
                                         <constraint firstItem="ge2-8D-51Z" firstAttribute="leading" secondItem="oVR-n1-kpS" secondAttribute="leading" constant="32" id="rEc-GY-MBf"/>
+                                        <constraint firstItem="PyG-XV-hd7" firstAttribute="top" secondItem="8ak-7h-pJi" secondAttribute="bottom" constant="16" id="xeO-74-7fy"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

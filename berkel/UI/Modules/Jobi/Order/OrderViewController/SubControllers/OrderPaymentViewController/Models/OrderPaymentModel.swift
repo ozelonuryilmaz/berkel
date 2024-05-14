@@ -18,5 +18,6 @@ struct OrderPaymentModel: Codable {
 
     let date: String?
     let payment: Int
+    var faturaNo: String?
     let description: String?
 }

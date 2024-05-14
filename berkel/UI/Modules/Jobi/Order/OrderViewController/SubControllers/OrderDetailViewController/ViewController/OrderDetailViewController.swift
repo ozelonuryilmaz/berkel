@@ -282,7 +282,7 @@ private extension OrderDetailViewController {
         alertController.addTextField { (textField) in
             textField.placeholder = "Fatura Numarası"
             textField.delegate = self
-            textField.keyboardType = .default
+            textField.keyboardType = .namePhonePad
         }
 
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
@@ -290,7 +290,33 @@ private extension OrderDetailViewController {
 
             let inputName = alertController.textFields![0].text
             if (inputName?.count ?? 0) <= 100 {
-                self.viewModel.updateFaturaNo(collectionId: collectionId, faturaNo: inputName!)
+                self.viewModel.updateFaturaNo(collectionId: collectionId, faturaNo: inputName!.uppercased(with: Locale(identifier: "tr")))
+            } else {
+                self.showSystemAlert(title: "Lütfen fatura numarası 100 harfi geçmesin", message: "")
+            }
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func faturaAlertWithTextField(paymentId: String) {
+        let alertController = UIAlertController(title: "Güncel Fatura Numarası Ekleyin", message: nil, preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Fatura Numarası"
+            textField.delegate = self
+            textField.keyboardType = .namePhonePad
+        }
+
+        let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Ekle", style: .default) { _ in
+
+            let inputName = alertController.textFields![0].text
+            if (inputName?.count ?? 0) <= 100 {
+                self.viewModel.updateFaturaNo(paymentId: paymentId, faturaNo: inputName!.uppercased(with: Locale(identifier: "tr")))
             } else {
                 self.showSystemAlert(title: "Lütfen fatura numarası 100 harfi geçmesin", message: "")
             }
@@ -335,5 +361,9 @@ extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource,
             },
             negativeButtonText: "Hayır"
         )
+    }
+    
+    func faturaButtonTapped(uiModel: OrderPaymentModel) {
+        self.faturaAlertWithTextField(paymentId: uiModel.id ?? "")
     }
 }

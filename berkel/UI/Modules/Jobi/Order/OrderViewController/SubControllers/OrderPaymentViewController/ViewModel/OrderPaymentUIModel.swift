@@ -9,32 +9,34 @@
 import UIKit
 
 protocol IOrderPaymentUIModel {
-    
+
     var season: String { get }
-    
+
     var data: OrderPaymentModel { get }
     var customerName: String { get }
     var payment: Int { get }
 
-	 init(data: OrderPaymentPassData)
+    init(data: OrderPaymentPassData)
 
     mutating func setDate(date: String?)
     mutating func setPayment(_ text: String)
+    mutating func setFaturaNo(_ text: String)
     mutating func setDesc(_ text: String)
 }
 
 struct OrderPaymentUIModel: IOrderPaymentUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
     private let orderModel: OrderModel
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: OrderPaymentPassData) {
         self.orderModel = data.orderModel
     }
-    
+
     var date: String? = Date().dateFormatterApiResponseType()
     var payment: Int = 0
+    var faturaNo: String? = nil
     var desc: String? = nil
 
     var userId: String? {
@@ -66,6 +68,7 @@ struct OrderPaymentUIModel: IOrderPaymentUIModel {
                                  customerName: customerName,
                                  date: date,
                                  payment: payment,
+                                 faturaNo: faturaNo?.uppercased(with: Locale(identifier: "tr")),
                                  description: desc)
     }
 
@@ -86,6 +89,10 @@ extension OrderPaymentUIModel {
 
     mutating func setPayment(_ text: String) {
         self.payment = Int(text) ?? 0
+    }
+
+    mutating func setFaturaNo(_ text: String) {
+        self.faturaNo = text
     }
 
     mutating func setDesc(_ text: String) {

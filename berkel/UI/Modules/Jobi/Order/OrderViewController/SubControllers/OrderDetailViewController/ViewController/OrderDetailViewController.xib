@@ -173,7 +173,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-2W-fos" userLabel="btnDiger">
-                                            <rect key="frame" x="64" y="32" width="262" height="48"/>
+                                            <rect key="frame" x="32" y="32" width="326" height="48"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="zsS-Za-19M"/>
@@ -192,13 +192,13 @@
                                     <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                                     <constraints>
                                         <constraint firstItem="0uI-2W-fos" firstAttribute="top" secondItem="x4g-KK-bTV" secondAttribute="top" constant="32" id="6ma-0z-MAB"/>
-                                        <constraint firstAttribute="trailing" secondItem="0uI-2W-fos" secondAttribute="trailing" constant="64" id="80y-EM-uy0"/>
+                                        <constraint firstAttribute="trailing" secondItem="0uI-2W-fos" secondAttribute="trailing" constant="32" id="80y-EM-uy0"/>
                                         <constraint firstItem="1G9-GE-oJB" firstAttribute="leading" secondItem="x4g-KK-bTV" secondAttribute="leading" constant="32" id="BZ2-jQ-5fu"/>
                                         <constraint firstItem="iKn-24-cOZ" firstAttribute="leading" secondItem="x4g-KK-bTV" secondAttribute="leading" constant="32" id="GDH-qK-vDM"/>
                                         <constraint firstItem="1G9-GE-oJB" firstAttribute="top" secondItem="iKn-24-cOZ" secondAttribute="bottom" constant="16" id="SA4-1G-zk2"/>
                                         <constraint firstAttribute="bottom" secondItem="xHm-f6-iNF" secondAttribute="bottom" constant="32" id="WMb-0q-aFE"/>
                                         <constraint firstAttribute="trailing" secondItem="1G9-GE-oJB" secondAttribute="trailing" constant="32" id="ce6-re-Lz1"/>
-                                        <constraint firstItem="0uI-2W-fos" firstAttribute="leading" secondItem="x4g-KK-bTV" secondAttribute="leading" constant="64" id="chk-2X-jaU"/>
+                                        <constraint firstItem="0uI-2W-fos" firstAttribute="leading" secondItem="x4g-KK-bTV" secondAttribute="leading" constant="32" id="chk-2X-jaU"/>
                                         <constraint firstAttribute="trailing" secondItem="iKn-24-cOZ" secondAttribute="trailing" constant="32" id="cid-QW-S64"/>
                                         <constraint firstItem="xHm-f6-iNF" firstAttribute="top" secondItem="Jja-Eb-nVq" secondAttribute="bottom" constant="16" id="g9A-WO-TLo"/>
                                         <constraint firstItem="xHm-f6-iNF" firstAttribute="leading" secondItem="x4g-KK-bTV" secondAttribute="leading" constant="32" id="gSA-rO-cC9"/>
