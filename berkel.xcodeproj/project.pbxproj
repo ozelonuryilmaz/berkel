@@ -689,6 +689,7 @@
 		67C019762B110B4C0094D023 /* SellerPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C0196E2B110B4C0094D023 /* SellerPaymentViewModel.swift */; };
 		67C019772B110B4C0094D023 /* SellerPaymentPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C0196F2B110B4C0094D023 /* SellerPaymentPassData.swift */; };
 		67C019782B110B4C0094D023 /* SellerPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C019702B110B4C0094D023 /* SellerPaymentViewController.xib */; };
+		67C191B82BEDFC3700F32C5D /* InvoicePDFCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C191B72BEDFC3700F32C5D /* InvoicePDFCreator.swift */; };
 		67C1EC502AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1EC4E2AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.swift */; };
 		67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C1EC4F2AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib */; };
 		67C1EC532AFFA9AE005DDA22 /* WorkerDetailCollectionTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1EC522AFFA9AD005DDA22 /* WorkerDetailCollectionTableViewCellUIModel.swift */; };
@@ -1534,6 +1535,7 @@
 		67C0196E2B110B4C0094D023 /* SellerPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerPaymentViewModel.swift; sourceTree = "<group>"; };
 		67C0196F2B110B4C0094D023 /* SellerPaymentPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerPaymentPassData.swift; sourceTree = "<group>"; };
 		67C019702B110B4C0094D023 /* SellerPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SellerPaymentViewController.xib; sourceTree = "<group>"; };
+		67C191B72BEDFC3700F32C5D /* InvoicePDFCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicePDFCreator.swift; sourceTree = "<group>"; };
 		67C1EC4E2AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		67C1EC4F2AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerDetailCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		67C1EC522AFFA9AD005DDA22 /* WorkerDetailCollectionTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerDetailCollectionTableViewCellUIModel.swift; sourceTree = "<group>"; };
@@ -4493,6 +4495,7 @@
 			children = (
 				677F8DD62AB2126500DE5264 /* UserManager.swift */,
 				677D62EB2AC1F087004F3232 /* UserDefaultsManager.swift */,
+				67C191B72BEDFC3700F32C5D /* InvoicePDFCreator.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -7717,6 +7720,7 @@
 				67D574C12BD53ACA004D0387 /* JBCustomerPriceCoordinator.swift in Sources */,
 				67D574C22BD53ACA004D0387 /* JBCustomerPriceUIModel.swift in Sources */,
 				67D574C32BD53ACA004D0387 /* JBCustomerPriceViewController.swift in Sources */,
+				67C191B82BEDFC3700F32C5D /* InvoicePDFCreator.swift in Sources */,
 				67D574C42BD53ACA004D0387 /* JBCustomerPriceRepository.swift in Sources */,
 				67D574C52BD53ACA004D0387 /* JBCustomerPriceBuilder.swift in Sources */,
 				67D574C62BD53ACA004D0387 /* JBCustomerPriceViewModel.swift in Sources */,

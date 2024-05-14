@@ -20,8 +20,6 @@ protocol IOrderDetailCollectionTableViewCellUIModel {
     var date: String { get }
     var count: String { get }
     var orderName: String { get }
-
-    var isVisibleButtons: Bool { get }
 }
 
 struct OrderDetailCollectionTableViewCellUIModel: IOrderDetailCollectionTableViewCellUIModel {
@@ -37,7 +35,4 @@ struct OrderDetailCollectionTableViewCellUIModel: IOrderDetailCollectionTableVie
     let date: String
     var count: String
     var orderName: String
-
-    // Seller Charts için eklendi
-    let isVisibleButtons: Bool
 }

@@ -55,7 +55,7 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
 
     func configureCellWith(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
         registerEvents(uiModel: uiModel)
-        visibilityButtons(isVisible: uiModel.isVisibleButtons)
+        visibilityButtons(isVisible: uiModel.isActive)
 
         lblDate.text = uiModel.date
         lblProductName.text = uiModel.orderName + "   \(uiModel.orderCollectionModel?.faturaNo ?? "")"

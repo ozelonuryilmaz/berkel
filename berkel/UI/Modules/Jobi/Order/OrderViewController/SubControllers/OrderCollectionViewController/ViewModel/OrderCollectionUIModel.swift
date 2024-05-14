@@ -149,10 +149,6 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
             return "Lütfen ürün adeti giriniz"
         }
 
-        if (desc?.count ?? 0) < 3 {
-            return "Lütfen açıklama yazınız"
-        }
-
         return nil
     }
     

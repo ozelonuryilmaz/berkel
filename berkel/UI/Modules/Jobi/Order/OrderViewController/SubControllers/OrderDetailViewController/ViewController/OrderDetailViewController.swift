@@ -33,6 +33,7 @@ final class OrderDetailViewController: JobiBaseViewController {
     @IBOutlet private weak var btnCek: UIButton!
     @IBOutlet private weak var btnDekont: UIButton!
     @IBOutlet private weak var btnDiger: UIButton!
+    @IBOutlet private weak var btnCizelge: UIButton!
 
     // MARK: Constraints Outlets
 
@@ -81,6 +82,67 @@ final class OrderDetailViewController: JobiBaseViewController {
         btnDiger.onTap { [unowned self] _ in
             self.viewModel.presentNewSellerImageViewController(imagePathType: .diger)
         }
+
+        btnCizelge.onTap { [unowned self] _ in
+
+            
+            // Örnek kullanım:
+            let invoiceItems = [
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "TAHSİLAT", invoiceNumber: "123456", price: 110.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "TAHSİLAT", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ananas 0.3lt", invoiceNumber: "123456", price: 200.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Nar 1lt", invoiceNumber: "123456", price: 150.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Nar 0.5lt", invoiceNumber: "123456", price: 110.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "TAHSİLAT", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                InvoicePDFCreator.InvoiceItem(dateString: "01/01/2024", productName: "Ürün A", invoiceNumber: "123456", price: 100.00),
+                // Diğer fatura maddeleri...
+            ]
+            let pdfCreator = InvoicePDFCreator(items: invoiceItems)
+            let pdfData = pdfCreator.createPDF()
+
+            // PDF verisini kaydetme veya paylaşma
+
+            
+            sharePDF(data: pdfData, viewController: self)
+
+        }
+        
+    }
+    
+    func sharePDF(data: Data, viewController: UIViewController) {
+        let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        
+        // iPad için pop-over sunucusunu ayarlama
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = viewController.view
+            popoverController.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
+        viewController.present(activityViewController, animated: true, completion: nil)
     }
 
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
@@ -135,7 +197,7 @@ final class OrderDetailViewController: JobiBaseViewController {
                     positiveButtonClickListener: {
                         self.viewModel.updateCalcForCollection(collectionId: collectionId, isCalc: isCalc)
                     },
-                    negativeButtonText: "İptal"
+                    negativeButtonText: "Hayır"
                 )
 
             case .closeButtonTapped:
@@ -152,7 +214,7 @@ final class OrderDetailViewController: JobiBaseViewController {
                     positiveButtonClickListener: {
                         self.viewModel.deleteCollection(data: data)
                     },
-                    negativeButtonText: "İptal"
+                    negativeButtonText: "Hayır"
                 )
 
             case .updateFaturaNo(let collectionId):

@@ -181,9 +181,8 @@ extension OrderDetailUIModel {
                                                                    isCalc: responseModel.isCalc,
                                                                    isActive: self.isActive,
                                                                    date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                                                                   count: "\(responseModel.count) x \(responseModel.price.decimalString()) = \(price) TL+KDV",
-                                                                   orderName: "\(responseModel.stockName) - \(responseModel.subStockName)",
-                                                                   isVisibleButtons: true)
+                                                                   count: "\(responseModel.count) x \(responseModel.price.decimalString()) + KDV = \(price) TL",
+                                                                   orderName: "\(responseModel.stockName) - \(responseModel.subStockName)")
             )
         }
         return rowModels
