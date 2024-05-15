@@ -8,110 +8,116 @@
 import UIKit
 import PDFKit
 
-class InvoicePDFCreator {
-    var items: [InvoiceItem]
-    var totalAmount: Double {
-        return items.reduce(0) { $0 + $1.price }
+typealias InvoicePDFModel = InvoicePDFCreator.Entry
+
+final class InvoicePDFCreator {
+    var entries: [Entry]
+    var totalDebit: String { entries.reduce(0) { $0 + $1.debit }.decimalString() }
+    var totalCredit: String { entries.reduce(0) { $0 + $1.credit }.decimalString() }
+    var totalBalance: String { entries.reduce(0) { $0 + $1.balance }.decimalString() }
+
+    struct Entry {
+        let date: String
+        let description: String
+        let debit: Double
+        let credit: Double
+        let balance: Double
     }
 
-    struct InvoiceItem {
-        let dateString: String
-        let productName: String
-        let invoiceNumber: String
-        let price: Double
-    }
-
-    init(items: [InvoiceItem]) {
-        self.items = items
+    init(entries: [Entry]) {
+        self.entries = entries
     }
 
     func createPDF() -> Data {
         let title = "Jobi - \(Date().dateFormatterApiResponseType().dateFormatToAppDisplayNameType() ?? "")"
         let subtitle = "    Gelir Gider Çizelgesi"
-        
+
         let pdfMetaData = [
             kCGPDFContextCreator: title,
             kCGPDFContextAuthor: title,
             kCGPDFContextTitle: title
         ]
+
         let format = UIGraphicsPDFRendererFormat()
         format.documentInfo = pdfMetaData as [String: Any]
 
-        let pageWidth = 595.2
-        let pageHeight = 841.8
+        // Yatay A4 boyutu
+        let pageWidth = 842.0
+        let pageHeight = 595.0
         let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
 
         let data = renderer.pdfData { context in
             context.beginPage()
             var yOffset: CGFloat = 30
+            let leftMargin: CGFloat = 50 // Sol tarafa eklenen boşluk
 
-            // Başlıkları çizme
+            // Başlık ve alt başlık
             let titleFont = UIFont.boldSystemFont(ofSize: 18)
             let subtitleFont = UIFont.systemFont(ofSize: 15)
             let titleAttributes: [NSAttributedString.Key: Any] = [.font: titleFont]
             let subtitleAttributes: [NSAttributedString.Key: Any] = [.font: subtitleFont]
 
-            title.draw(at: CGPoint(x: pageWidth / 3, y: yOffset), withAttributes: titleAttributes)
+            title.draw(at: CGPoint(x: pageWidth / 2.5, y: yOffset), withAttributes: titleAttributes)
             yOffset += titleFont.lineHeight
 
-            subtitle.draw(at: CGPoint(x: pageWidth / 3, y: yOffset), withAttributes: subtitleAttributes)
+            subtitle.draw(at: CGPoint(x: pageWidth / 2.5, y: yOffset), withAttributes: subtitleAttributes)
             yOffset += subtitleFont.lineHeight + 30
 
-            // Tablo başlıklarını çizme
-            let headers = ["Tarih", "Açıklama", "Fatura No", "Tutar"]
-            let columnWidth = pageWidth / CGFloat(headers.count)
+            // Tablo başlıkları
+            let headers = ["Tarih", "Açıklama", "Borç", "Alacak", "Bakiye"]
+            let columnWidths = [140.0, 320.0, 110.0, 110.0, 110.0]
             for (index, header) in headers.enumerated() {
-                let headerRect = CGRect(x: CGFloat(index) * columnWidth, y: yOffset, width: columnWidth, height: 30)
+                let headerRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset, width: CGFloat(columnWidths[index]), height: 30)
                 header.draw(in: headerRect, withAttributes: titleAttributes)
             }
             yOffset += 30
 
-            // Tablo maddelerini çizme
-            for (index, item) in items.enumerated() {
-                if index % 20 == 0 && index != 0 { // Her 20 maddede bir yeni sayfa başlat
-                    context.beginPage()
-                    yOffset = 30
-                }
-
-                let isSingleDigit = index % 2 == 0 // çift haneli satırlar gri olur
-                let backgroundColor = isSingleDigit ? UIColor.primaryLightGray : UIColor.white
-                let textRect = CGRect(x: 0, y: yOffset, width: pageWidth, height: 30)
+            // Tablo maddeleri ve toplamlar
+            for (index, entry) in entries.enumerated() {
+                let isDoubleDigit = index % 2 == 0 // Çift haneli satırlar için kontrol
+                let backgroundColor = isDoubleDigit ? UIColor.primaryVeryLightGray : UIColor.white
+                let rowRect = CGRect(x: leftMargin, y: yOffset, width: pageWidth - leftMargin, height: 22)
 
                 context.cgContext.saveGState() // Grafik durumunu kaydet
                 context.cgContext.setFillColor(backgroundColor.cgColor)
-                context.cgContext.fill(textRect)
+                context.cgContext.fill(rowRect)
                 context.cgContext.restoreGState() // Grafik durumunu geri yükle
 
                 let row = [
-                    item.dateString,
-                    item.productName,
-                    item.invoiceNumber,
-                    "\(item.price)"
+                    entry.date,
+                    entry.description,
+                    entry.debit.decimalString() == "0" ? "" : entry.debit.decimalString(),
+                    entry.credit.decimalString() == "0" ? "" : entry.credit.decimalString(),
+                    entry.balance.decimalString() == "0" ? "" : entry.balance.decimalString()
                 ]
 
-                for (columnIndex, text) in row.enumerated() {
-                    let cellRect = CGRect(x: CGFloat(columnIndex) * columnWidth, y: yOffset, width: columnWidth, height: 30)
-                    text.draw(in: cellRect.insetBy(dx: 5, dy: 5), withAttributes: subtitleAttributes)
+                for (index, text) in row.enumerated() {
+                    let cellRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset, width: CGFloat(columnWidths[index]), height: 22)
+                    text.draw(in: cellRect, withAttributes: subtitleAttributes)
                 }
+                yOffset += 22
 
-                yOffset += 30
+                // Yeni sayfa başlatma kontrolü
+                if yOffset >= pageHeight - 60 {
+                    context.beginPage()
+                    yOffset = 30
+                }
             }
 
-            // Son sayfada toplam tutarı çizme
-            if yOffset >= pageHeight - 40 {
-                context.beginPage()
-                yOffset = 30
+            // Sütun toplamları
+            let totalsRow = ["", "Genel Toplam", totalDebit, totalCredit, totalBalance]
+            let totalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 15)]
+            for (index, text) in totalsRow.enumerated() {
+                let cellRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset + 10, width: CGFloat(columnWidths[index]), height: 40)
+                text.draw(in: cellRect, withAttributes: totalAttributes)
             }
-
-            //let totalTitle = "Toplam Tutar"
-            let totalAmountString = "Toplam Tahsilat: \(totalAmount.decimalString())TL\nBekleyen Tahsilat: \(totalAmount.decimalString())TL\nToplam Tutar: \(totalAmount.decimalString())TL"
-            let totalAmountSize = totalAmountString.size(withAttributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
-            
-            let totalAmountRect = CGRect(x: pageWidth - totalAmountSize.width - 100, y: yOffset + 40, width: totalAmountSize.width, height: totalAmountSize.height)
-            totalAmountString.draw(in: totalAmountRect, withAttributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
         }
 
         return data
+    }
+
+    private func sum(_ array: [Double], upTo index: Int) -> Double {
+        return array[..<index].reduce(0, +)
     }
 }
