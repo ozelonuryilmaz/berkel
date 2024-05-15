@@ -36,6 +36,7 @@ protocol IOrderDetailUIModel {
     mutating func deleteCollection(collectionId: String)
 
     func getCollection(orderId: String?) -> OrderCollectionModel?
+    func getInvoicePDFModel() -> [InvoicePDFModel]
 
     // Collection
     mutating func buildCollectionSnapshot() -> OrderDetailCollectionSnapshot
@@ -197,6 +198,81 @@ extension OrderDetailUIModel {
 
 }
 
+// MARK: Gelir Gider Çizelgesi
+extension OrderDetailUIModel {
+
+    func getInvoicePDFModel() -> [InvoicePDFModel] {
+        return combineOrders(collections: collections, payments: payments)
+    }
+
+    func combineOrders(collections: [OrderCollectionModel], payments: [OrderPaymentModel]) -> [InvoicePDFModel] {
+        var invoices: [InvoicePDFModel] = collections.compactMap({
+
+            guard let faturaNo = $0.faturaNo else { return nil }
+            return InvoicePDFModel(date: $0.date ?? "", description: "*\(faturaNo) no'lu fatura", invoiceNo: faturaNo,
+                                   type: .collection, isSumBalance: false, debit: getTotalPrice(data: $0), credit: 0, balance: getTotalPrice(data: $0))
+        }).reduce(into: [:]) { (acc: inout [String: InvoicePDFModel], cur: InvoicePDFModel) in
+
+            let key = cur.invoiceNo
+            if let existing = acc[key] {
+                acc[key]?.debit += cur.debit
+                acc[key]?.balance += cur.balance
+            } else {
+                acc[key] = cur
+            }
+        }.values.sorted(by: { $0.date < $1.date })
+
+        let paymentInvoices: [InvoicePDFModel] = payments.compactMap({
+            guard let faturaNo = $0.faturaNo else { return nil }
+            return InvoicePDFModel(date: $0.date ?? "", description: "\(faturaNo) no'lu fatura tahsilatı", invoiceNo: faturaNo,
+                                   type: .payment, isSumBalance: false, debit: 0, credit: Double($0.payment), balance: 0)
+        }).sorted(by: { $0.date > $1.date })
+
+        // PaymentInvoices'i invoices dizisine ekleyin
+        for payment in paymentInvoices {
+            if let index = invoices.firstIndex(where: { $0.invoiceNo == payment.invoiceNo }) {
+
+                let newPayment = InvoicePDFModel(date: payment.date,
+                                                 description: payment.description,
+                                                 invoiceNo: payment.invoiceNo,
+                                                 type: payment.type,
+                                                 isSumBalance: false,
+                                                 debit: 0,
+                                                 credit: payment.credit,
+                                                 balance: 0)
+
+                invoices.insert(newPayment, at: index + 1)
+            }
+        }
+
+        for i in 0..<invoices.count {
+            // Eğer mevcut elemanın tipi payment ise ve bir önceki elemanla aynı fatura numarasına sahipse
+            if invoices[i].type == .payment,
+                i > 0,
+                invoices[i].invoiceNo == invoices[i - 1].invoiceNo {
+                // Önceki balance'dan mevcut credit'i çıkararak yeni balance hesapla
+                invoices[i].balance = invoices[i - 1].balance - invoices[i].credit
+            }
+        }
+
+        // Fatura numarasına göre gruplama ve her grup için en son kaydı bulma
+        let groupedInvoices = Dictionary(grouping: invoices) { $0.invoiceNo }
+        var idx: [String] = []
+        for (_, values) in groupedInvoices {
+            idx.append(values.last?.uuid ?? "")
+        }
+
+        // Her grup için en son tarihli kaydı işaretleme
+        invoices = invoices.map { invoice in
+            var modifiedInvoice = invoice
+            modifiedInvoice.isSumBalance = idx.contains(invoice.uuid)
+            return modifiedInvoice
+        }
+
+        return invoices
+    }
+}
+
 // MARK: TableView Helper
 extension OrderDetailUIModel {
 
@@ -209,3 +285,25 @@ extension OrderDetailUIModel {
                                                       isActive: self.isActive)
     }
 }
+
+/*
+ 
+ 
+ for (p_index, payment) in paymentInvoices.enumerated() {
+     for (index, collection) in invoices.enumerated() {
+         if collection.invoiceNo == payment.invoiceNo {
+             let newPayment = InvoicePDFModel(date: payment.date,
+                                              description: payment.description,
+                                              invoiceNo: payment.invoiceNo,
+                                              type: payment.type,
+                                              isSumBalance: false,
+                                              debit: 0,
+                                              credit: payment.credit,
+                                              balance: 0)
+             
+             invoices.insert(newPayment, at: index + 1)
+         }
+     }
+ }
+
+ */

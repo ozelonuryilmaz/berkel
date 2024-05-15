@@ -28,6 +28,8 @@ protocol IOrderDetailViewModel: OrderDetailCollectionDataSourceFactoryOutputDele
 
     // View State
     func viewStateSetNavigationTitle()
+    
+    func getInvoicePDFModel() -> [InvoicePDFModel]
 
     // Service
     func updateCalcForCollection(collectionId: String, isCalc: Bool)
@@ -83,6 +85,10 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
     func initComponents() {
         if self.uiModel.isActive { self.viewStateShowOrderActiveButton() }
         self.getDatas()
+    }
+    
+    func getInvoicePDFModel() -> [InvoicePDFModel] {
+        return uiModel.getInvoicePDFModel()
     }
 
     func reloadPage() {

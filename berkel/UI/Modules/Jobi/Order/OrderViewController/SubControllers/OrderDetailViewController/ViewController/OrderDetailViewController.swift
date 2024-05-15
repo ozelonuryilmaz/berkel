@@ -84,21 +84,9 @@ final class OrderDetailViewController: JobiBaseViewController {
         }
 
         btnCizelge.onTap { [unowned self] _ in
-            // Örnek kullanım:
-            let invoiceItems = [
-                InvoicePDFModel(date: "01/06/2024", description: "A3BC123A Nolu Fatura", debit: 50, credit: 0, balance: 100),
-                InvoicePDFModel(date: "01/06/2024", description: "DFA512A2 Nolu Fatura", debit: 20, credit: 0, balance: 120),
-                InvoicePDFModel(date: "01/06/2024", description: "Tahsilat", debit: 0, credit: 50, balance: 0),
-                InvoicePDFModel(date: "01/06/2024", description: "Tahsilat", debit: 0, credit: 25, balance: 0),
-                InvoicePDFModel(date: "01/06/2024", description: "HVA612AS Nolu Fatura", debit: 80, credit: 0, balance: 150),
-                InvoicePDFModel(date: "01/06/2024", description: "Tahsilat", debit: 0, credit: 10, balance: 0),
-            ]
-            let pdfCreator = InvoicePDFCreator(entries: invoiceItems)
+            let pdfCreator = InvoicePDFCreator(entries: self.viewModel.getInvoicePDFModel())
             let pdfData = pdfCreator.createPDF()
-
-            // PDF verisini kaydetme veya paylaşma
-            sharePDF(data: pdfData, viewController: self)
-
+            self.sharePDF(data: pdfData, viewController: self)
         }
         
     }

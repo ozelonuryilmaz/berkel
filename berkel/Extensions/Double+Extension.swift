@@ -25,4 +25,15 @@ extension Double {
 
         return numberFormatter.string(from: NSNumber(value: self)) ?? "0"
     }
+    
+    func decimalTwoString() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale(identifier: "tr_TR")
+        numberFormatter.numberStyle = .decimal // Noktalı biçim
+
+        numberFormatter.minimumFractionDigits = 2 // En az sıfır basamaklı kesir
+        numberFormatter.maximumFractionDigits = 2 // En çok iki basamaklı kesir
+
+        return numberFormatter.string(from: NSNumber(value: self)) ?? "0"
+    }
 }

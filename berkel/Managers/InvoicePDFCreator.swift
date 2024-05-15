@@ -14,14 +14,23 @@ final class InvoicePDFCreator {
     var entries: [Entry]
     var totalDebit: String { entries.reduce(0) { $0 + $1.debit }.decimalString() }
     var totalCredit: String { entries.reduce(0) { $0 + $1.credit }.decimalString() }
-    var totalBalance: String { entries.reduce(0) { $0 + $1.balance }.decimalString() }
-
+    var totalBalance: String { entries.filter({ $0.isSumBalance }).reduce(0) { $0 + $1.balance }.decimalString() }
+    
     struct Entry {
+        let uuid: String = UUID().uuidString
         let date: String
         let description: String
-        let debit: Double
-        let credit: Double
-        let balance: Double
+        let invoiceNo: String
+        let type: EntryType
+        var isSumBalance: Bool // Faturaların son bakiyeleri
+        var debit: Double
+        var credit: Double
+        var balance: Double
+        
+        enum EntryType {
+            case collection
+            case payment
+        }
     }
 
     init(entries: [Entry]) {
@@ -85,11 +94,11 @@ final class InvoicePDFCreator {
                 context.cgContext.restoreGState() // Grafik durumunu geri yükle
 
                 let row = [
-                    entry.date,
+                    entry.date.dateFormatToAppDisplayType() ?? "",
                     entry.description,
-                    entry.debit.decimalString() == "0" ? "" : entry.debit.decimalString(),
-                    entry.credit.decimalString() == "0" ? "" : entry.credit.decimalString(),
-                    entry.balance.decimalString() == "0" ? "" : entry.balance.decimalString()
+                    entry.debit.decimalString() == "0" ? "" : entry.debit.decimalTwoString(),
+                    entry.credit.decimalString() == "0" ? "" : entry.credit.decimalTwoString(),
+                    entry.balance.decimalString() == "0" ? "" : entry.balance.decimalTwoString()
                 ]
 
                 for (index, text) in row.enumerated() {
