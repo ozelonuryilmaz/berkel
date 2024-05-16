@@ -63,10 +63,12 @@ extension AppDelegate {
     }
 
     func startFlowAccounting() {
+        otherModule = .accouting
         self.appCoordinator.startFlowAccounting()
     }
 
     func startFlowJobi() {
+        otherModule = .jobi
         self.appCoordinator.startFlowJobi()
     }
 }

@@ -16,17 +16,39 @@ protocol IProductListRepository: AnyObject {
 final class ProductListRepository: BaseRepository, IProductListRepository {
 
     func getProductList() -> FirestoreResponseType<[ProductListModel]> {
-        return getDocuments(ProductItemService.list,
-                            order: ProductItemService.list.order)
+        switch otherModule {
+        case .accouting:
+            let db = ProductItemService.list
+            return getDocuments(db,
+                                order: db.order)
+        case .jobi:
+            let db = JobiProductItemService.list
+            return getDocuments(db,
+                                order: db.order)
+        }
+        
+        
     }
     
     func saveProduct(data: ProductListModel) -> FirestoreResponseType<ProductListModel> {
-        let db: DocumentReference = ProductItemService.save.collectionReference.document()
-        let key = db.documentID
+        switch otherModule {
+        case .accouting:
+            let db: DocumentReference = ProductItemService.save.collectionReference.document()
+            let key = db.documentID
 
-        var tempData = data
-        tempData.id = key
+            var tempData = data
+            tempData.id = key
 
-        return self.setData(db, data: tempData)
+            return self.setData(db, data: tempData)
+        case .jobi:
+            let db: DocumentReference = JobiProductItemService.save.collectionReference.document()
+            let key = db.documentID
+
+            var tempData = data
+            tempData.id = key
+
+            return self.setData(db, data: tempData)
+        }
+        
     }
 }

@@ -15,12 +15,24 @@ protocol INewOtherItemRepository: AnyObject {
 final class NewOtherItemRepository: BaseRepository, INewOtherItemRepository {
 
     func saveNewOther(data: OtherModel, season: String) -> FirestoreResponseType<OtherModel> {
-        let db: DocumentReference = OtherService.save(season: season).collectionReference.document()
-        let key = db.documentID
+        switch otherModule {
+        case .accouting:
+            let db: DocumentReference = OtherService.save(season: season).collectionReference.document()
+            let key = db.documentID
 
-        var tempData = data
-        tempData.id = key
+            var tempData = data
+            tempData.id = key
 
-        return self.setData(db, data: tempData)
+            return self.setData(db, data: tempData)
+        case .jobi:
+            let db: DocumentReference = JobiOtherService.save(season: season).collectionReference.document()
+            let key = db.documentID
+
+            var tempData = data
+            tempData.id = key
+
+            return self.setData(db, data: tempData)
+        }
+        
     }
 }

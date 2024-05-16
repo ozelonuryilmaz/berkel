@@ -31,12 +31,12 @@ class JobiTabbarCoordinator: RootableCoordinator {
         orderNavController.tabBarItem.selectedImage = .tab_title_worker_selected
         let orderCoordinator = OrderCoordinator(navigationController: orderNavController)
 
-        // Masraf
+        // Hizmet
         let costNavController = MainNavigationController()
         costNavController.tabBarItem.title = .tab_title_seller
         costNavController.tabBarItem.image = .tab_title_seller
         costNavController.tabBarItem.selectedImage = .tab_title_seller_selected
-        let costCoordinator = CostCoordinator(navigationController: costNavController)
+        let costCoordinator = OtherCoordinator(navigationController: costNavController)
 
         // Liste
         let jobiListNavController = MainNavigationController()
@@ -89,7 +89,7 @@ extension JobiTabbarCoordinator: UITabBarControllerDelegate {
 fileprivate extension String {
     static var tab_title_buying = "Stok"
     static var tab_title_worker = "Sipariş"
-    static var tab_title_seller = "Masraf"
+    static var tab_title_seller = "Hizmet"
     static var tab_title_settings = "Liste"
 }
 

@@ -19,12 +19,23 @@ final class OtherPaymentRepository: BaseRepository, IOtherPaymentRepository {
     func saveNewPayment(season: String,
                         otherId: String,
                         data: OtherPaymentModel) -> FirestoreResponseType<OtherPaymentModel> {
-        let db: DocumentReference = OtherService.payment(season: season, otherId: otherId).collectionReference.document()
-        let key = db.documentID
+        switch otherModule {
+        case .accouting:
+            let db: DocumentReference = OtherService.payment(season: season, otherId: otherId).collectionReference.document()
+            let key = db.documentID
 
-        var tempData = data
-        tempData.id = key
+            var tempData = data
+            tempData.id = key
 
-        return self.setData(db, data: tempData)
+            return self.setData(db, data: tempData)
+        case .jobi:
+            let db: DocumentReference = JobiOtherService.payment(season: season, otherId: otherId).collectionReference.document()
+            let key = db.documentID
+
+            var tempData = data
+            tempData.id = key
+
+            return self.setData(db, data: tempData)
+        }
     }
 }

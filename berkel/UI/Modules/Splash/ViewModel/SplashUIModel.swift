@@ -8,8 +8,12 @@
 import UIKit
 import FirebaseAuth
 
+// Firebase Rules'da 5 admin 1 bahadir ID'si eklenecek
+// Canlıya çıkıldığında admin ve bahadir key güncellenecek
+
 public var jobiUuid: String = "unknown"
 public var jobiCollection: String = "unknown"
+public var otherModule: OtherModuleType = .accouting
 
 public var jobiAdminKey: String {
     return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
@@ -116,4 +120,9 @@ extension SplashUIModel {
         self.user = users.filter({ $0.id == userId }).first
         jobiUuid = self.user?.id ?? "unknown"
     }
+}
+
+public enum OtherModuleType {
+    case accouting
+    case jobi
 }

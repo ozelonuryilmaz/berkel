@@ -17,17 +17,38 @@ protocol IOtherSellerChartsRepository: AnyObject {
 final class OtherSellerChartsRepository: BaseRepository, IOtherSellerChartsRepository {
 
     func getList(season: String) -> FirestoreResponseType<[OtherModel]> {
-        let db = OtherService.list(season: season)
-        return getDocuments(db, order: db.order)
+        switch otherModule {
+        case .accouting:
+            let db = OtherService.list(season: season)
+            return getDocuments(db, order: db.order)
+        case .jobi:
+            let db = JobiOtherService.list(season: season)
+            return getDocuments(db, order: db.order)
+        }
+
     }
 
     func getCollection(season: String, otherId: String) -> FirestoreResponseType<[OtherCollectionModel]> {
-        let db = OtherService.collection(season: season, otherId: otherId)
-        return getDocuments(db, order: db.order)
+        switch otherModule {
+        case .accouting:
+            let db = OtherService.collection(season: season, otherId: otherId)
+            return getDocuments(db, order: db.order)
+        case .jobi:
+            let db = JobiOtherService.collection(season: season, otherId: otherId)
+            return getDocuments(db, order: db.order)
+        }
+
     }
 
     func getPayment(season: String, otherId: String) -> FirestoreResponseType<[OtherPaymentModel]> {
-        let db = OtherService.payment(season: season, otherId: otherId)
-        return getDocuments(db, order: db.order)
+        switch otherModule {
+        case .accouting:
+            let db = OtherService.payment(season: season, otherId: otherId)
+            return getDocuments(db, order: db.order)
+        case .jobi:
+            let db = JobiOtherService.payment(season: season, otherId: otherId)
+            return getDocuments(db, order: db.order)
+        }
+
     }
 }

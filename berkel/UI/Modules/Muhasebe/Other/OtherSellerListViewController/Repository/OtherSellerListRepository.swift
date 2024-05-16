@@ -15,9 +15,20 @@ protocol IOtherSellerListRepository: AnyObject {
 final class OtherSellerListRepository: BaseRepository, IOtherSellerListRepository {
 
     func getOtherSellerList(cursor: [String]?, limit: Int) -> FirestoreResponseType<[OtherSellerModel]> {
-        return getDocuments(OtherSellerService.list,
-                            order: OtherSellerService.list.order,
-                            cursor: cursor,
-                            limit: limit)
+        switch otherModule {
+        case .accouting:
+            let db = OtherSellerService.list
+            return getDocuments(db,
+                                order: db.order,
+                                cursor: cursor,
+                                limit: limit)
+        case .jobi:
+            let db = JobiOtherSellerService.list
+            return getDocuments(db,
+                                order: db.order,
+                                cursor: cursor,
+                                limit: limit)
+        }
+        
     }
 }
