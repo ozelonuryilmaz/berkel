@@ -10,6 +10,7 @@ import UIKit
 protocol OrderDetailCollectionDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
     func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
+    func appendCopyFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
     func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
 }
 
@@ -49,6 +50,10 @@ extension OrderDetailCollectionDataSourceFactory: OrderDetailCollectionTableView
 
     func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
         self.outputDelegate?.appendFaturaTapped(uiModel: uiModel)
+    }
+    
+    func appendCopyFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        self.outputDelegate?.appendCopyFaturaTapped(uiModel: uiModel)
     }
 
     func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {

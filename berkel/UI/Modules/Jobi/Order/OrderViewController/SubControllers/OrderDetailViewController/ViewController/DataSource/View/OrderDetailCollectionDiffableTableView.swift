@@ -50,7 +50,7 @@ private extension OrderDetailCollectionDiffableTableView {
 
     func initializeTableView() {
         self.registerCell(OrderDetailCollectionTableViewCell.self)
-        self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 56, right: 0)
+        self.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 56, right: 0)
         self.delegate = self.orderDetailCollectionDataSource
         self.dataSource = self.orderDetailCollectionDataSource
         self.removeTableFooterView()

@@ -10,6 +10,7 @@ import UIKit
 protocol OrderDetailCollectionTableViewCellOutputDelegate: AnyObject {
     func cellTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
     func appendFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
+    func appendCopyFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
     func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel)
 }
 
@@ -25,6 +26,7 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var lblCount: UILabel!
     @IBOutlet private weak var btnFatura: UIButton!
     @IBOutlet private weak var btnCancel: UIButton!
+    @IBOutlet private weak var btnCopyFatura: UIButton!
     @IBOutlet private weak var viewButtons: UIView!
 
     // MARK: Constraints Outlets
@@ -47,9 +49,14 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
         btnCancel.onTap { [unowned self] _ in
             self.outputDelegate?.cancelTapped(uiModel: uiModel)
         }
- 
+
         btnFatura.onTap { [unowned self] _ in
             self.outputDelegate?.appendFaturaTapped(uiModel: uiModel)
+        }
+
+        btnCopyFatura.onTap { [unowned self] _ in
+            guard false == uiModel.orderCollectionModel?.faturaNo?.isEmpty else { return }
+            self.outputDelegate?.appendCopyFaturaTapped(uiModel: uiModel)
         }
     }
 
@@ -58,8 +65,11 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
         visibilityButtons(isVisible: uiModel.isActive)
 
         lblDate.text = uiModel.date
-        lblProductName.text = uiModel.orderName + "   \(uiModel.orderCollectionModel?.faturaNo ?? "")"
+        lblProductName.text = uiModel.orderName
         lblCount.text = uiModel.count
+
+        btnCopyFatura.setTitle(uiModel.orderCollectionModel?.faturaNo ?? "", for: .normal)
+        btnCopyFatura.setTitleColor(.primaryBlue, for: .normal)
     }
 
     private func visibilityButtons(isVisible: Bool) {

@@ -28,7 +28,8 @@ protocol IOrderDetailViewModel: OrderDetailCollectionDataSourceFactoryOutputDele
 
     // View State
     func viewStateSetNavigationTitle()
-    
+    func viewStateCopyFaturaNo(faturaNo: String)
+
     func getInvoicePDFModel() -> [InvoicePDFModel]
 
     // Service
@@ -86,7 +87,7 @@ final class OrderDetailViewModel: BaseViewModel, IOrderDetailViewModel {
         if self.uiModel.isActive { self.viewStateShowOrderActiveButton() }
         self.getDatas()
     }
-    
+
     func getInvoicePDFModel() -> [InvoicePDFModel] {
         return uiModel.getInvoicePDFModel()
     }
@@ -410,6 +411,10 @@ internal extension OrderDetailViewModel {
     func viewStateUpdateFaturaNo(collectionId: String) {
         viewState.value = .updateFaturaNo(collectionId: collectionId)
     }
+
+    func viewStateCopyFaturaNo(faturaNo: String) {
+        viewState.value = .copyFaturaNo(faturaNo: faturaNo)
+    }
 }
 
 // MARK: Coordinate
@@ -457,6 +462,10 @@ internal extension OrderDetailViewModel {
         self.viewStateUpdateFaturaNo(collectionId: collectionId)
     }
 
+    func appendCopyFaturaTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
+        self.viewStateCopyFaturaNo(faturaNo: uiModel.orderCollectionModel?.faturaNo ?? "")
+    }
+
     func cancelTapped(uiModel: IOrderDetailCollectionTableViewCellUIModel) {
         guard let data = uiModel.orderCollectionModel else { return }
         self.viewStateDeleteCollection(data: data)
@@ -477,4 +486,5 @@ enum OrderDetailViewState {
     case showSystemAlert(title: String, message: String)
     case deleteCollection(data: OrderCollectionModel)
     case updateFaturaNo(collectionId: String)
+    case copyFaturaNo(faturaNo: String)
 }

@@ -88,19 +88,19 @@ final class OrderDetailViewController: JobiBaseViewController {
             let pdfData = pdfCreator.createPDF()
             self.sharePDF(data: pdfData, viewController: self)
         }
-        
+
     }
-    
+
     func sharePDF(data: Data, viewController: UIViewController) {
         let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        
+
         // iPad için pop-over sunucusunu ayarlama
         if let popoverController = activityViewController.popoverPresentationController {
             popoverController.sourceView = viewController.view
             popoverController.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0)
             popoverController.permittedArrowDirections = []
         }
-        
+
         viewController.present(activityViewController, animated: true, completion: nil)
     }
 
@@ -178,8 +178,12 @@ final class OrderDetailViewController: JobiBaseViewController {
 
             case .updateFaturaNo(let collectionId):
                 self.faturaAlertWithTextField(collectionId: collectionId)
-            }
 
+            case .copyFaturaNo(let faturaNo):
+                UIPasteboard.general.string = faturaNo
+                self.showToast(message: "\(faturaNo) no'lu fatura kopyalandı")
+
+            }
         }).store(in: &cancelBag)
     }
 
@@ -260,7 +264,7 @@ private extension OrderDetailViewController {
 
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func faturaAlertWithTextField(paymentId: String) {
         let alertController = UIAlertController(title: "Güncel Fatura Numarası Ekleyin", message: nil, preferredStyle: .alert)
 
@@ -321,8 +325,12 @@ extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource,
             negativeButtonText: "Hayır"
         )
     }
-    
+
     func faturaButtonTapped(uiModel: OrderPaymentModel) {
         self.faturaAlertWithTextField(paymentId: uiModel.id ?? "")
+    }
+
+    func copyFaturaButtonTapped(uiModel: OrderPaymentModel) {
+        self.viewModel.viewStateCopyFaturaNo(faturaNo: uiModel.faturaNo ?? "")
     }
 }

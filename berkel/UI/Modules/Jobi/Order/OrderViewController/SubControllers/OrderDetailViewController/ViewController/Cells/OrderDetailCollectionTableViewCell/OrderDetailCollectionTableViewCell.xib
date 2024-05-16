@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aby-LW-eWc" userLabel="lblProductName">
-                                <rect key="frame" x="16" y="54" width="250" height="30"/>
+                                <rect key="frame" x="16" y="54" width="182" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VPe-pd-dMN"/>
                                 </constraints>
@@ -68,7 +68,7 @@
                                             <constraint firstAttribute="height" constant="36" id="iDA-Lm-4HX"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Fatura Ekle"/>
+                                        <state key="normal" title="Jobi Fatura"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,11 +84,19 @@
                                     <constraint firstItem="X5h-4G-bZ8" firstAttribute="top" secondItem="eIp-wp-KRH" secondAttribute="top" id="hNj-Ot-FOe"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aku-Ci-lYF">
+                                <rect key="frame" x="198" y="39" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Bh3-cm-nj8"/>
+                                    <constraint firstAttribute="width" priority="750" constant="80" id="K5n-Uv-LRc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Zvs-lm-33S" firstAttribute="leading" secondItem="eEF-jz-XDh" secondAttribute="leading" constant="16" id="0FB-Mm-FwD"/>
-                            <constraint firstAttribute="trailing" secondItem="aby-LW-eWc" secondAttribute="trailing" constant="16" id="5yp-FZ-GN0"/>
                             <constraint firstAttribute="trailing" secondItem="Z1e-zP-DQz" secondAttribute="trailing" constant="16" id="6aA-Bj-97U"/>
                             <constraint firstItem="eIp-wp-KRH" firstAttribute="top" secondItem="Z1e-zP-DQz" secondAttribute="bottom" constant="16" id="ZCi-un-H2P"/>
                             <constraint firstItem="Zvs-lm-33S" firstAttribute="top" secondItem="eEF-jz-XDh" secondAttribute="top" constant="16" id="ayt-Qh-awz"/>
@@ -100,6 +108,9 @@
                             <constraint firstItem="Z1e-zP-DQz" firstAttribute="top" secondItem="aby-LW-eWc" secondAttribute="bottom" constant="8" id="rXg-xp-CQ4"/>
                             <constraint firstAttribute="bottom" secondItem="eIp-wp-KRH" secondAttribute="bottom" id="sUv-TI-0Qq"/>
                             <constraint firstItem="Z1e-zP-DQz" firstAttribute="leading" secondItem="eEF-jz-XDh" secondAttribute="leading" constant="16" id="uBc-9c-PV4"/>
+                            <constraint firstItem="Aku-Ci-lYF" firstAttribute="centerY" secondItem="aby-LW-eWc" secondAttribute="centerY" id="xFs-7n-Dh1"/>
+                            <constraint firstAttribute="trailing" secondItem="Aku-Ci-lYF" secondAttribute="trailing" constant="4" id="xxv-CL-Xnb"/>
+                            <constraint firstItem="Aku-Ci-lYF" firstAttribute="leading" secondItem="aby-LW-eWc" secondAttribute="trailing" id="yly-JW-8ig"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -122,6 +133,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnCancel" destination="X5h-4G-bZ8" id="H5H-Fq-nkS"/>
+                <outlet property="btnCopyFatura" destination="Aku-Ci-lYF" id="zYe-An-vkj"/>
                 <outlet property="btnFatura" destination="ZJT-Sh-XzD" id="kit-eG-NU4"/>
                 <outlet property="constraintViewButtonsHeight" destination="BOt-WM-5W3" id="Gfp-Va-Dia"/>
                 <outlet property="lblCount" destination="Z1e-zP-DQz" id="RWA-bk-dJr"/>

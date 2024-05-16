@@ -12,9 +12,9 @@ typealias InvoicePDFModel = InvoicePDFCreator.Entry
 
 final class InvoicePDFCreator {
     var entries: [Entry]
-    var totalDebit: String { entries.reduce(0) { $0 + $1.debit }.decimalString() }
-    var totalCredit: String { entries.reduce(0) { $0 + $1.credit }.decimalString() }
-    var totalBalance: String { entries.filter({ $0.isSumBalance }).reduce(0) { $0 + $1.balance }.decimalString() }
+    var totalDebit: Double { entries.reduce(0) { $0 + $1.debit } }
+    var totalCredit: Double { entries.reduce(0) { $0 + $1.credit } }
+    var totalBalance: Double { totalDebit - totalCredit }
     
     struct Entry {
         let uuid: String = UUID().uuidString
@@ -22,7 +22,6 @@ final class InvoicePDFCreator {
         let description: String
         let invoiceNo: String
         let type: EntryType
-        var isSumBalance: Bool // Faturaların son bakiyeleri
         var debit: Double
         var credit: Double
         var balance: Double
@@ -115,7 +114,7 @@ final class InvoicePDFCreator {
             }
 
             // Sütun toplamları
-            let totalsRow = ["", "Genel Toplam", totalDebit, totalCredit, totalBalance]
+            let totalsRow = ["", "Genel Toplam", totalDebit.decimalString(), totalCredit.decimalString(), totalBalance.decimalString()]
             let totalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 15)]
             for (index, text) in totalsRow.enumerated() {
                 let cellRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset + 10, width: CGFloat(columnWidths[index]), height: 40)

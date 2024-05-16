@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aor-OT-3bc" userLabel="lblPrice">
-                                <rect key="frame" x="16" y="54" width="256" height="26"/>
+                                <rect key="frame" x="16" y="54" width="188" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="v8p-yp-O8I"/>
                                 </constraints>
@@ -68,7 +68,7 @@
                                             <constraint firstAttribute="height" constant="36" id="WZf-1e-RpS"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Fatura Ekle"/>
+                                        <state key="normal" title="Jobi Fatura"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,11 +84,21 @@
                                     <constraint firstAttribute="bottom" secondItem="L7N-nG-qyc" secondAttribute="bottom" constant="16" id="qKa-lb-yz0"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR3-9W-mNi">
+                                <rect key="frame" x="204" y="37" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="80" id="7MJ-Eh-ABs"/>
+                                    <constraint firstAttribute="height" constant="60" id="Vjv-dW-7RE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zbW-QY-owI" firstAttribute="top" secondItem="i29-gp-X4N" secondAttribute="top" constant="16" id="9pK-Mg-SLf"/>
                             <constraint firstAttribute="bottom" secondItem="3V0-Os-beO" secondAttribute="bottom" id="A4Q-VR-BmC"/>
+                            <constraint firstItem="rR3-9W-mNi" firstAttribute="centerY" secondItem="aor-OT-3bc" secondAttribute="centerY" id="BuX-2l-Snx"/>
                             <constraint firstItem="zbW-QY-owI" firstAttribute="leading" secondItem="i29-gp-X4N" secondAttribute="leading" constant="16" id="HcS-1H-ghg"/>
                             <constraint firstItem="JOE-ND-dXM" firstAttribute="leading" secondItem="i29-gp-X4N" secondAttribute="leading" constant="16" id="IbC-fL-ksJ"/>
                             <constraint firstAttribute="trailing" secondItem="zbW-QY-owI" secondAttribute="trailing" constant="16" id="Oah-KG-w79"/>
@@ -96,7 +106,8 @@
                             <constraint firstItem="JOE-ND-dXM" firstAttribute="top" secondItem="aor-OT-3bc" secondAttribute="bottom" constant="8" id="TDZ-4C-uyQ"/>
                             <constraint firstItem="aor-OT-3bc" firstAttribute="leading" secondItem="i29-gp-X4N" secondAttribute="leading" constant="16" id="WVN-67-aSn"/>
                             <constraint firstItem="3V0-Os-beO" firstAttribute="top" secondItem="JOE-ND-dXM" secondAttribute="bottom" constant="16" id="Wgh-0P-UQy"/>
-                            <constraint firstAttribute="trailing" secondItem="aor-OT-3bc" secondAttribute="trailing" constant="16" id="cfX-4g-NQr"/>
+                            <constraint firstItem="rR3-9W-mNi" firstAttribute="leading" secondItem="aor-OT-3bc" secondAttribute="trailing" id="iH7-6q-fgt"/>
+                            <constraint firstAttribute="trailing" secondItem="rR3-9W-mNi" secondAttribute="trailing" constant="4" id="pHL-e4-MP7"/>
                             <constraint firstAttribute="trailing" secondItem="3V0-Os-beO" secondAttribute="trailing" id="sr9-Dg-wr5"/>
                             <constraint firstItem="aor-OT-3bc" firstAttribute="top" secondItem="zbW-QY-owI" secondAttribute="bottom" constant="8" id="xRF-hE-cil"/>
                             <constraint firstAttribute="trailing" secondItem="JOE-ND-dXM" secondAttribute="trailing" constant="16" id="xkF-De-0aN"/>
@@ -121,6 +132,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnCopyFatura" destination="rR3-9W-mNi" id="V6b-Ze-eOG"/>
                 <outlet property="btnDelete" destination="q97-wJ-MRZ" id="N3s-0i-Hcj"/>
                 <outlet property="btnFatura" destination="L7N-nG-qyc" id="q9p-Lh-8aL"/>
                 <outlet property="constraintViewButtonsHeight" destination="1Yh-S6-t0V" id="DHj-hr-jje"/>
