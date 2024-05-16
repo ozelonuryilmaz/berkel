@@ -11,6 +11,13 @@ import FirebaseAuth
 public var jobiUuid: String = "unknown"
 public var jobiCollection: String = "unknown"
 
+public var jobiAdminKey: String {
+    return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
+}
+
+public var jobiBahadirKey: String {
+    return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
+}
 
 protocol ISplashUIModel {
 
@@ -20,7 +27,8 @@ protocol ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        moduleSelection: () -> (Void))
+                        moduleSelection: () -> (Void),
+                        restart: () -> (Void))
 
     func isUserAlreadyLogin(completion: @escaping (Bool) -> Void)
     mutating func setUsers(users: [UserModel])
@@ -37,10 +45,6 @@ struct SplashUIModel: ISplashUIModel {
 
     var isHaveAnySeason: Bool {
         return UserDefaultsManager.shared.getStringValue(key: .season) != nil
-    }
-    
-    private var jobiAdminKey: String {
-        return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
     }
     
     private var jobiAdmin: String {
@@ -66,24 +70,31 @@ struct SplashUIModel: ISplashUIModel {
 
     func decideToScreen(accounting: () -> (Void),
                         jobi: () -> (Void),
-                        moduleSelection: () -> (Void)) {
+                        moduleSelection: () -> (Void),
+                        restart: () -> (Void)) {
 
-        if self.userId == self.jobiAdminKey {
-            jobiUuid = self.jobiAdminKey
+        if self.userId == jobiAdminKey {
+            jobiUuid = jobiAdminKey
             jobiCollection = self.jobiAdmin
             moduleSelection()
+        } else if self.userId == jobiBahadirKey {
+            jobiUuid = jobiBahadirKey
+            jobiCollection = self.jobiAdmin
+            jobi()
         } else if true == user?.isAdmin && true == user?.isStockAdmin {
-            jobiUuid = self.jobiAdminKey
+            jobiUuid = jobiAdminKey
             jobiCollection = self.jobiAdmin
             moduleSelection()
         } else if true == user?.isAdmin {
-            jobiUuid = "unknown"
+            jobiUuid = self.userId ?? "unknown"
             jobiCollection = self.jobiGuest
-            moduleSelection()
+            accounting()
         } else if true == user?.isStockAdmin {
-            jobiUuid = self.jobiAdminKey
+            jobiUuid = jobiAdminKey
             jobiCollection = self.jobiAdmin
             jobi()
+        } else if self.user == nil {
+            restart()
         } else {
             jobiUuid = self.userId ?? "unknown"
             jobiCollection = self.jobiGuest

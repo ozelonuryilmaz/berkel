@@ -35,6 +35,8 @@ extension OrderService: CollectionServiceType {
         case .order(let season):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrder")
                 .document(season)
                 .collection("order")
@@ -42,6 +44,8 @@ extension OrderService: CollectionServiceType {
         case .customerCollections(let season, let customerId, let orderId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrderDetail")
                 .document(season)
                 .collection(customerId)
@@ -51,6 +55,8 @@ extension OrderService: CollectionServiceType {
         case .customerPayments(let season, let customerId, let orderId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrderDetail")
                 .document(season)
                 .collection(customerId)
@@ -74,6 +80,8 @@ extension OrderService: DocumentServiceType {
         case .orderDetail(let season, let orderId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrder")
                 .document(season)
                 .collection("order")
@@ -82,6 +90,8 @@ extension OrderService: DocumentServiceType {
         case .customerCollection(let season, let customerId, let orderId, let collectionId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrderDetail")
                 .document(season)
                 .collection(customerId)
@@ -92,6 +102,8 @@ extension OrderService: DocumentServiceType {
         case .customerPayment(let season, let customerId, let orderId, let paymentId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiOrderDetail")
                 .document(season)
                 .collection(customerId)

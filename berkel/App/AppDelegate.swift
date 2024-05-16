@@ -15,21 +15,31 @@ import FirebaseCore
 // Swift v5.10
 // Cocoapods v1.15.2
 
+/* // MARK: test key
+public var jobiAdminKey: String {
+    return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
+}
+
+public var jobiBahadirKey: String {
+    return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
+}
+*/
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var window: UIWindow?
     var appCoordinator: AppCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         // Firebase
         FirebaseApp.configure()
 
         // Keyboard Manager
         self.initIQKeyboardManager()
-        
+
         // start Coordinator
         self.startAppCoordinator()
 
@@ -39,12 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: Helper funcs
 extension AppDelegate {
-    
+
     private func startAppCoordinator() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.appCoordinator = AppCoordinator(window: window)
         self.window = window
-        
+
         self.startFlowSplash()
     }
 
@@ -55,7 +65,7 @@ extension AppDelegate {
     func startFlowAccounting() {
         self.appCoordinator.startFlowAccounting()
     }
-    
+
     func startFlowJobi() {
         self.appCoordinator.startFlowJobi()
     }
@@ -63,7 +73,7 @@ extension AppDelegate {
 
 // MARK: Setup
 extension AppDelegate {
-    
+
     func initIQKeyboardManager() {
         // IQKeyboardManager
         let keyboardSharedManager = IQKeyboardManager.shared

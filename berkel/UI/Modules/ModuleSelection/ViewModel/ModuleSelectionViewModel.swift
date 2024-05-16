@@ -11,6 +11,7 @@ protocol IModuleSelectionViewModel: AnyObject {
 
     var viewState: ScreenStateSubject<ModuleSelectionViewState> { get }
     var errorState: ErrorStateSubject { get }
+    var isAdmin: Bool { get }
 
     init(repository: IModuleSelectionRepository,
          coordinator: IModuleSelectionCoordinator,
@@ -40,6 +41,9 @@ final class ModuleSelectionViewModel: BaseViewModel, IModuleSelectionViewModel {
         self.uiModel = uiModel
     }
 
+    var isAdmin: Bool {
+        return uiModel.isAdmin
+    }
 }
 
 

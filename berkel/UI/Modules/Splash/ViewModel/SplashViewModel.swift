@@ -61,7 +61,10 @@ internal extension SplashViewModel {
             },
             callbackComplete: { [weak self] in
                 guard let self = self else { return }
-                self.startFlowAfterLogin()
+                DispatchQueue.delay(25) {[weak self] in
+                    guard let self = self else { return }
+                    self.startFlowAfterLogin()
+                }
             })
     }
 
@@ -114,6 +117,8 @@ private extension SplashViewModel {
                 viewStateStartFlowJobi()
             }, moduleSelection: {
                 viewStateStartModuleSelection()
+            }, restart: {
+                viewStateRestartApp()
             }
         )
     }
@@ -138,6 +143,10 @@ internal extension SplashViewModel {
     func viewStateStartModuleSelection() {
         viewState.value = .startModuleSelection
     }
+    
+    func viewStateRestartApp() {
+        viewState.value = .restartApp
+    }
 }
 
 // MARK: Coordinate
@@ -161,4 +170,5 @@ enum SplashViewState {
     case startFlowAccounting
     case startFlowJobi
     case startModuleSelection
+    case restartApp
 }

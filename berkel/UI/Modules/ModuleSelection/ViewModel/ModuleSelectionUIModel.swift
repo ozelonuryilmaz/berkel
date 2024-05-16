@@ -8,28 +8,37 @@
 import UIKit
 
 protocol IModuleSelectionUIModel {
-    
+
     var seasonTitle: String { get }
+    var isAdmin: Bool { get }
 
-	 init(data: ModuleSelectionPassData)
+    init(data: ModuleSelectionPassData)
 
-} 
+}
 
 struct ModuleSelectionUIModel: IModuleSelectionUIModel {
 
-	// MARK: Definitions
+    // MARK: Definitions
 
-	// MARK: Initialize
+    // MARK: Initialize
     init(data: ModuleSelectionPassData) {
 
     }
-    
+
     var seasonTitle: String {
         return season.isEmpty ? "" : "\(season) Sezonu"
     }
-    
+
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? ""
+    }
+
+    var userId: String? {
+        return UserManager.shared.userId
+    }
+
+    var isAdmin: Bool {
+        self.userId == jobiAdminKey
     }
 
     // MARK: Computed Props

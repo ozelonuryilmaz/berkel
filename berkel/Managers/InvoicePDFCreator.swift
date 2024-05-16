@@ -74,7 +74,7 @@ final class InvoicePDFCreator {
 
             // Tablo başlıkları
             let headers = ["Tarih", "Açıklama", "Borç", "Alacak", "Bakiye"]
-            let columnWidths = [140.0, 320.0, 110.0, 110.0, 110.0]
+            let columnWidths = [140.0, 290.0, 120.0, 120.0, 120.0]
             for (index, header) in headers.enumerated() {
                 let headerRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset, width: CGFloat(columnWidths[index]), height: 30)
                 header.draw(in: headerRect, withAttributes: titleAttributes)

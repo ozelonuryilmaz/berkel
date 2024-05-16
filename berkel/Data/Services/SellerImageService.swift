@@ -72,6 +72,8 @@ extension SellerImageService: CollectionServiceType {
             return Storage
                 .storage()
                 .reference()
+                .child(jobiCollection)
+                .child(jobiUuid)
                 .child("order")
                 .child(jbCustomerId)
                 .child(season)
@@ -125,6 +127,8 @@ extension SellerImageService: CollectionServiceType {
 
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiCustomer")
                 .document(jbCustomerId)
                 .collection("data")

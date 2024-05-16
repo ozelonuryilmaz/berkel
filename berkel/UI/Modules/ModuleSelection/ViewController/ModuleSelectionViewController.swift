@@ -19,6 +19,9 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
     @IBOutlet private weak var btnAccouting: UIButton!
     @IBOutlet private weak var btnCost: UIButton!
     @IBOutlet private weak var lblSeasonTitle: UILabel!
+    
+    @IBOutlet private weak var btnBahadir: UIButton!
+    @IBOutlet private weak var lblBahadir: UILabel!
 
     // MARK: Constraints Outlets
 
@@ -36,6 +39,9 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
         self.observeReactiveDatas()
         self.visibleNavigationBar(isVisible: false)
         self.viewModel.viewStateSetSeasonTitle()
+
+        self.btnBahadir.isHidden = !self.viewModel.isAdmin
+        self.lblBahadir.isHidden = !self.viewModel.isAdmin
     }
 
     override func registerEvents() {
@@ -47,6 +53,14 @@ final class ModuleSelectionViewController: BerkelBaseViewController {
         }
         
         btnCost.onTap { [unowned self] _ in
+            self.selfDismiss(completion: {
+                self.appDelegate.startFlowJobi()
+            })
+        }
+        
+        btnBahadir.onTap { [unowned self] _ in
+            jobiUuid = jobiBahadirKey
+            jobiCollection = "jobi"
             self.selfDismiss(completion: {
                 self.appDelegate.startFlowJobi()
             })

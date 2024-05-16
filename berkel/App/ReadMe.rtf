@@ -20,12 +20,14 @@ rules_version = '2';\
 service cloud.firestore \{\
   match /databases/\{database\}/documents \{\
   \
+  	// sadece Admin'in ID'si yer al\uc0\u305 yor\
    	function isAdmin() \{\
   	 	return request.auth != null && (request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true);\
   	\}\
     \
+    // Bahadir ve Admin'in ID'leri yer al\uc0\u305 yor\
     function isJobiAdmin() \{\
-  	 	return request.auth != null && (request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isStockAdmin == true);\
+  	 	return request.auth != null && (request.auth.uid == "ObKWhlJloOXGS0tHmx9CEyesgMc2" || request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2" || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isStockAdmin == true);\
   	\}\
   \
     // 'users' koleksiyonundaki herhangi bir belgeye e\uc0\u351 le\u351 tir\
@@ -44,7 +46,7 @@ service cloud.firestore \{\
 \
     // 'data' koleksiyonu i\'e7in izinler\
     match /data/\{documentId=**\} \{\
-      allow write, read: if isAdmin() == true;\
+      allow write, read, delete: if isAdmin() == true;\
       allow delete: if request.auth.uid == "gwkyj3WNUNhBpA1RJYFgfH7K8to2";\
     \}\
     \
@@ -86,30 +88,14 @@ service cloud.firestore \{\
     \
     // 'jobi' koleksiyonu i\'e7in izinler\
     match /jobi/\{jobiId=**\} \{\
-      allow write, read: if isJobiAdmin() == true;\
-    \}\
-\
-    // 'jobiOrder' koleksiyonu i\'e7in izinler\
-    match /jobiOrder/\{jobiOrderId=**\} \{\
-      allow write, read: if isJobiAdmin() == true;\
-    \}\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0      // 'jobiOrderDetail' koleksiyonu i\'e7in izinler\
-    match /jobiOrderDetail/\{jobiOrderDetailId=**\} \{\
-      allow write, read: if isJobiAdmin() == true;\
-    \}\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0     \
-    // 'jobiGuest' koleksiyonu i\'e7in izinler\
-    match /jobiGuest/\{jobiGuestId=**\} \{\
-      allow write, read: if request.auth != null;\
+      allow write, read, delete: if isJobiAdmin() == true;\
     \}\
     \
-    // 'jobiCustomer' koleksiyonu i\'e7in izinler\
-    match /jobiCustomer/\{jobiCustomerId=**\} \{\
-      allow write, read: if request.auth != null;\
+    // 'jobiGuest' koleksiyonu i\'e7in izinler\
+    match /jobiGuest/\{jobiGuestId=**\} \{\
+      allow write, read, delete: if request.auth != null;\
     \}\
+\
   \}\
 \}\
 \

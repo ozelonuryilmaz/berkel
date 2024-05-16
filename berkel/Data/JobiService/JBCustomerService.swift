@@ -30,11 +30,15 @@ extension JBCustomerService: CollectionServiceType {
         case .customer:
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiCustomer")
             
         case .prices(let customerId, let season, let stockId, let subStockId):
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiCustomer")
                 .document(customerId)
                 .collection("data")
@@ -62,6 +66,8 @@ extension JBCustomerService: DocumentServiceType {
             
             return Firestore
                 .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
                 .collection("jobiCustomer")
                 .document(id)
 
