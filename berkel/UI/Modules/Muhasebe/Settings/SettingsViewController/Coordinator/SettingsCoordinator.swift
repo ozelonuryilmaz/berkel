@@ -18,6 +18,9 @@ protocol ISettingsCoordinator: AnyObject {
                                         outputDelegate: NewSellerViewControllerOutputDelegate)
     func pushOtherSellerListViewController(passData: OtherSellerListPassData,
                                            outputDelegate: NewOtherItemViewControllerOutputDelegate)
+    
+    func pushJBCustomerListViewController(passData: JBCustomerListPassData,
+                                          outputDelegate: JBCustomerListViewControllerOutputDelegate)
 
     // Charts
     func pushBuyingChartsViewController(passData: BuyingChartsPassData)
@@ -68,6 +71,14 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
     func pushOtherSellerListViewController(passData: OtherSellerListPassData,
                                            outputDelegate: NewOtherItemViewControllerOutputDelegate) {
         let coordinator = OtherSellerListCoordinator(navigationController: self.navigationController)
+            .with(outputDelegate: outputDelegate)
+            .with(passData: passData)
+        coordinate(to: coordinator)
+    }
+    
+    func pushJBCustomerListViewController(passData: JBCustomerListPassData,
+                                          outputDelegate: JBCustomerListViewControllerOutputDelegate) {
+        let coordinator = JBCustomerListCoordinator(navigationController: self.navigationController)
             .with(outputDelegate: outputDelegate)
             .with(passData: passData)
         coordinate(to: coordinator)

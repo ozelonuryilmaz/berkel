@@ -43,7 +43,7 @@ class JobiTabbarCoordinator: RootableCoordinator {
         jobiListNavController.tabBarItem.title = .tab_title_settings
         jobiListNavController.tabBarItem.image = .tab_title_settings
         jobiListNavController.tabBarItem.selectedImage = .tab_title_settings_selected
-        let jobiListCoordinator = JobiListCoordinator(navigationController: jobiListNavController)
+        let jobiListCoordinator = SettingsCoordinator(navigationController: jobiListNavController)
 
         // orderNavController
         jobiTabbarController.viewControllers = [

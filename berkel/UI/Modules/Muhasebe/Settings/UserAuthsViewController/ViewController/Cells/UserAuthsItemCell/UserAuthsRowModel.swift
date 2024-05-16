@@ -10,4 +10,13 @@ import Foundation
 struct UserAuthsRowModel {
 
     var userModel: UserModel
+
+    var isAdmin: Bool {
+        switch otherModule {
+        case .accouting:
+            return userModel.isAdmin
+        case .jobi:
+            return userModel.isStockAdmin ?? false
+        }
+    }
 }

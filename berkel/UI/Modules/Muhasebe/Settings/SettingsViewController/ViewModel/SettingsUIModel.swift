@@ -35,6 +35,10 @@ struct SettingsUIModel: ISettingsUIModel {
     var season: String {
         return UserDefaultsManager.shared.getStringValue(key: .season) ?? "unknown"
     }
+    
+    var userId: String? {
+        return UserManager.shared.userId
+    }
 
     // MARK: Computed Props
     mutating func syncronizedSectionUIModels() {
@@ -65,29 +69,46 @@ extension SettingsUIModel {
     // Liste
     func generateListRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .saticiList)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cavusList)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .musteriList)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherList)))
+        switch otherModule {
+        case .accouting:
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .saticiList)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cavusList)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .musteriList)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherList)))
+        case .jobi:
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .jbMusteriList)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherList)))
+        }
+        
         return tempArray
     }
 
     // Gelir Gider Çizelgesi
     func generateGelirGiderCizelgesiRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .alisGelirGiderCizergesi)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .isciGelirGiderCizergesi)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .satisGelirGiderCizergesi)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherGelirGiderCizergesi)))
+        switch otherModule {
+        case .accouting:
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .alisGelirGiderCizergesi)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .isciGelirGiderCizergesi)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .satisGelirGiderCizergesi)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherGelirGiderCizergesi)))
+        case .jobi:
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .otherGelirGiderCizergesi)))
+        }
+        
         return tempArray
     }
 
     // Ayarlar
     func generateAyarlarRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
-        tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .moduleSelection)))
+
+        if jobiCollection == "jobi" && jobiBahadirKey != userId {
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .moduleSelection)))
+        }
+
         return tempArray
     }
 

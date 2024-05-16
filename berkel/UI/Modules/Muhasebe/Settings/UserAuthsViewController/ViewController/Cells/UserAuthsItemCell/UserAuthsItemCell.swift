@@ -25,17 +25,17 @@ class UserAuthsItemCell: BaseTableViewCell {
     func configureCell(with uiModel: UserAuthsRowModel) {
         registerEvents(uiModel: uiModel)
 
-        labelName.text = uiModel.userModel.name + " \(uiModel.userModel.isAdmin ? "✓" : "")"
+        labelName.text = uiModel.userModel.name + " \(uiModel.isAdmin ? "✓" : "")"
         labelEmail.text = uiModel.userModel.email
-        switchRole.setTitle(uiModel.userModel.isAdmin ? "-" : "+", for: .normal)
-        mContentView.alpha = uiModel.userModel.isAdmin ? 1 : 0.4
+        switchRole.setTitle(uiModel.isAdmin ? "-" : "+", for: .normal)
+        mContentView.alpha = uiModel.isAdmin ? 1 : 0.4
     }
 
     private func registerEvents(uiModel: UserAuthsRowModel) {
 
         switchRole.onTap { [unowned self] _ in
             var userModel = uiModel.userModel
-            userModel.isAdmin = !userModel.isAdmin
+            userModel.isAdmin = !uiModel.isAdmin
             self.outputDelegate?.switchButtonTap(userModel: userModel)
         }
     }

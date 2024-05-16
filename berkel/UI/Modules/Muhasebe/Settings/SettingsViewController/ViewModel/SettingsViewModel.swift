@@ -13,7 +13,8 @@ protocol ISettingsViewModel: SettingsItemCellOutputDelegate,
     AddBuyingItemViewControllerOutputDelegate,
     NewWorkerViewControllerOutputDelegate,
     NewSellerViewControllerOutputDelegate,
-    NewOtherItemViewControllerOutputDelegate {
+    NewOtherItemViewControllerOutputDelegate,
+                                JBCustomerListViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<SettingsViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -128,6 +129,8 @@ extension SettingsViewModel {
             self.pushCavusListViewController()
         case .musteriList:
             self.pushCustomerListViewController()
+        case .jbMusteriList:
+            self.pushJBCustomerListViewController()
         case .otherList:
             self.pushOtherSellerListViewController()
         case .alisGelirGiderCizergesi:
@@ -176,6 +179,11 @@ internal extension SettingsViewModel {
         self.coordinator.pushOtherSellerListViewController(passData: OtherSellerListPassData(isCancellableCellTabbed: true),
                                                            outputDelegate: self)
     }
+    
+    func pushJBCustomerListViewController(){
+        self.coordinator.pushJBCustomerListViewController(passData: JBCustomerListPassData(isCancellableCellTabbed: true),
+                                              outputDelegate: self)
+    }
 
     func pushBuyingChartsViewController() {
         self.coordinator.pushBuyingChartsViewController(passData: BuyingChartsPassData())
@@ -208,6 +216,11 @@ internal extension SettingsViewModel {
     func newWorkerData(_ data: WorkerModel) { }
     func newSellerData(_ data: SellerModel) { }
     func newOtherItemData(_ data: OtherModel) { }
+}
+
+// MARK: JBCustomerListViewControllerOutputDelegate
+internal extension SettingsViewModel {
+    func newOrderData(_ data: OrderModel) { }
 }
 
 enum SettingsViewState {

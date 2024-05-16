@@ -143,8 +143,15 @@ internal extension UserAuthsViewModel {
     }
 
     func updateUser(userModel: UserModel) {
+        var isAdmin: Bool = false
+        switch otherModule {
+        case .accouting:
+            isAdmin = userModel.isAdmin
+        case .jobi:
+            isAdmin = userModel.isStockAdmin ?? false
+        }
         handleResourceFirestore(
-            request: self.repository.updateUser(userId: userModel.id, isAdmin: userModel.isAdmin),
+            request: self.repository.updateUser(userId: userModel.id, isAdmin: isAdmin),
             response: self.updateUserResponse,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in

@@ -487,14 +487,6 @@
 		678F49CA2B9A1ECC006E5083 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49C22B9A1ECC006E5083 /* OrderViewModel.swift */; };
 		678F49CB2B9A1ECC006E5083 /* OrderPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49C32B9A1ECC006E5083 /* OrderPassData.swift */; };
 		678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678F49C42B9A1ECC006E5083 /* OrderViewController.xib */; };
-		678F49D52B9A1EDF006E5083 /* CostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49CD2B9A1EDF006E5083 /* CostCoordinator.swift */; };
-		678F49D62B9A1EDF006E5083 /* CostUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49CE2B9A1EDF006E5083 /* CostUIModel.swift */; };
-		678F49D72B9A1EDF006E5083 /* CostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49CF2B9A1EDF006E5083 /* CostViewController.swift */; };
-		678F49D82B9A1EDF006E5083 /* CostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49D02B9A1EDF006E5083 /* CostRepository.swift */; };
-		678F49D92B9A1EDF006E5083 /* CostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49D12B9A1EDF006E5083 /* CostBuilder.swift */; };
-		678F49DA2B9A1EDF006E5083 /* CostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49D22B9A1EDF006E5083 /* CostViewModel.swift */; };
-		678F49DB2B9A1EDF006E5083 /* CostPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49D32B9A1EDF006E5083 /* CostPassData.swift */; };
-		678F49DC2B9A1EDF006E5083 /* CostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678F49D42B9A1EDF006E5083 /* CostViewController.xib */; };
 		678F49E52B9A1EF1006E5083 /* JobiListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DD2B9A1EF1006E5083 /* JobiListCoordinator.swift */; };
 		678F49E62B9A1EF1006E5083 /* JobiListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DE2B9A1EF1006E5083 /* JobiListUIModel.swift */; };
 		678F49E72B9A1EF1006E5083 /* JobiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DF2B9A1EF1006E5083 /* JobiListViewController.swift */; };
@@ -1337,14 +1329,6 @@
 		678F49C22B9A1ECC006E5083 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		678F49C32B9A1ECC006E5083 /* OrderPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPassData.swift; sourceTree = "<group>"; };
 		678F49C42B9A1ECC006E5083 /* OrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
-		678F49CD2B9A1EDF006E5083 /* CostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCoordinator.swift; sourceTree = "<group>"; };
-		678F49CE2B9A1EDF006E5083 /* CostUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostUIModel.swift; sourceTree = "<group>"; };
-		678F49CF2B9A1EDF006E5083 /* CostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostViewController.swift; sourceTree = "<group>"; };
-		678F49D02B9A1EDF006E5083 /* CostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostRepository.swift; sourceTree = "<group>"; };
-		678F49D12B9A1EDF006E5083 /* CostBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostBuilder.swift; sourceTree = "<group>"; };
-		678F49D22B9A1EDF006E5083 /* CostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostViewModel.swift; sourceTree = "<group>"; };
-		678F49D32B9A1EDF006E5083 /* CostPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostPassData.swift; sourceTree = "<group>"; };
-		678F49D42B9A1EDF006E5083 /* CostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostViewController.xib; sourceTree = "<group>"; };
 		678F49DD2B9A1EF1006E5083 /* JobiListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListCoordinator.swift; sourceTree = "<group>"; };
 		678F49DE2B9A1EF1006E5083 /* JobiListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListUIModel.swift; sourceTree = "<group>"; };
 		678F49DF2B9A1EF1006E5083 /* JobiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListViewController.swift; sourceTree = "<group>"; };
@@ -4860,7 +4844,6 @@
 			children = (
 				678F49902B9A1DF7006E5083 /* Stock */,
 				678F49912B9A1DFE006E5083 /* Order */,
-				678F49922B9A1E01006E5083 /* Cost */,
 				678F49932B9A1E04006E5083 /* JobiList */,
 			);
 			path = Jobi;
@@ -4887,14 +4870,6 @@
 				67D574B32BD53A91004D0387 /* JBCustomerPriceViewController */,
 			);
 			path = Order;
-			sourceTree = "<group>";
-		};
-		678F49922B9A1E01006E5083 /* Cost */ = {
-			isa = PBXGroup;
-			children = (
-				678F49A02B9A1E5F006E5083 /* CostViewController */,
-			);
-			path = Cost;
 			sourceTree = "<group>";
 		};
 		678F49932B9A1E04006E5083 /* JobiList */ = {
@@ -5017,61 +4992,6 @@
 			isa = PBXGroup;
 			children = (
 				678F49C12B9A1ECC006E5083 /* OrderBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
-		678F49A02B9A1E5F006E5083 /* CostViewController */ = {
-			isa = PBXGroup;
-			children = (
-				678F49A52B9A1E72006E5083 /* Builder */,
-				678F49A42B9A1E6F006E5083 /* Coordinator */,
-				678F49A32B9A1E6C006E5083 /* Repository */,
-				678F49A22B9A1E69006E5083 /* ViewModel */,
-				678F49A12B9A1E66006E5083 /* ViewController */,
-			);
-			path = CostViewController;
-			sourceTree = "<group>";
-		};
-		678F49A12B9A1E66006E5083 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				678F49CF2B9A1EDF006E5083 /* CostViewController.swift */,
-				678F49D42B9A1EDF006E5083 /* CostViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		678F49A22B9A1E69006E5083 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				678F49D22B9A1EDF006E5083 /* CostViewModel.swift */,
-				678F49CE2B9A1EDF006E5083 /* CostUIModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		678F49A32B9A1E6C006E5083 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				678F49D02B9A1EDF006E5083 /* CostRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		678F49A42B9A1E6F006E5083 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				678F49CD2B9A1EDF006E5083 /* CostCoordinator.swift */,
-				678F49D32B9A1EDF006E5083 /* CostPassData.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		678F49A52B9A1E72006E5083 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				678F49D12B9A1EDF006E5083 /* CostBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -7488,7 +7408,6 @@
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
-				678F49DC2B9A1EDF006E5083 /* CostViewController.xib in Resources */,
 				679ADD272BC2D0F100A0FD67 /* StockDetailInfoTableViewCell.xib in Resources */,
 				677E67BD2AA353EA001775E2 /* WorkerViewController.xib in Resources */,
 				67D574DB2BD5512C004D0387 /* JBCPriceViewController.xib in Resources */,
@@ -7878,7 +7797,6 @@
 				677E67C92AA35403001775E2 /* SellerUIModel.swift in Sources */,
 				67BE9D692AF66B1000D07DA7 /* WorkerCollectionPassData.swift in Sources */,
 				67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */,
-				678F49D82B9A1EDF006E5083 /* CostRepository.swift in Sources */,
 				6747AC312B697CEE00D4E8CA /* OtherDetailPassData.swift in Sources */,
 				678BACE02B2A2D5000EF7050 /* SellerChartsBuilder.swift in Sources */,
 				67C0195F2B1109EA0094D023 /* SellerCollectionViewController.swift in Sources */,
@@ -8119,7 +8037,6 @@
 				6774FB172AE6DFC900F1F692 /* NewSellerImageRepository.swift in Sources */,
 				6775217F2B50218200239364 /* UserAuthsItemCell.swift in Sources */,
 				67DC11F42BB1E8620049FD18 /* MyStockListItemCell.swift in Sources */,
-				678F49D72B9A1EDF006E5083 /* CostViewController.swift in Sources */,
 				67D770402B4D49760034A867 /* BuyingChartsUIModel.swift in Sources */,
 				674C26232B0FC84100B9A32A /* SellerTableViewCell.swift in Sources */,
 				67A1EE892AF1691700126E44 /* CavusListRepository.swift in Sources */,
@@ -8159,7 +8076,6 @@
 				67F87F132AB3A3A000FFC097 /* AddBuyingItemCoordinator.swift in Sources */,
 				675984222B08E1F400F0DAD0 /* ProductListRepository.swift in Sources */,
 				679ADD2A2BC2D0FF00A0FD67 /* StockDetailInfoTableViewCellUIModel.swift in Sources */,
-				678F49D52B9A1EDF006E5083 /* CostCoordinator.swift in Sources */,
 				67EA5B7D2AAF8DFA0086E20C /* LoginCoordinator.swift in Sources */,
 				676F532D2AD9BEB8001F06DF /* BuyingDataService.swift in Sources */,
 				67460D4A2B5AB005000AB380 /* NewOtherItemRepository.swift in Sources */,
@@ -8181,7 +8097,6 @@
 				675D94FA2BCED0730084C0FD /* JBCustomerListPassData.swift in Sources */,
 				67460D482B5AB005000AB380 /* NewOtherItemUIModel.swift in Sources */,
 				67B98D092ADBEB3700CD4B15 /* BuyingPaymentUIModel.swift in Sources */,
-				678F49DA2B9A1EDF006E5083 /* CostViewModel.swift in Sources */,
 				67460D352B5AA70A000AB380 /* OtherPassData.swift in Sources */,
 				678F49B52B9A1EA0006E5083 /* StockUIModel.swift in Sources */,
 				674C262F2B0FCAD500B9A32A /* SellerSection.swift in Sources */,
@@ -8228,7 +8143,6 @@
 				67C019752B110B4C0094D023 /* SellerPaymentBuilder.swift in Sources */,
 				6772DE472AAF905E0044607A /* AuthenticationRepository.swift in Sources */,
 				67BE9D502AF66A6200D07DA7 /* WorkerDetailViewController.swift in Sources */,
-				678F49DB2B9A1EDF006E5083 /* CostPassData.swift in Sources */,
 				67A65E212B4C47E3003EACA0 /* WorkerImageModel.swift in Sources */,
 				670B3C812ABA0E8800EE7CFB /* AddBuyingItemDataSource.swift in Sources */,
 				67BE9D352AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift in Sources */,
@@ -8247,7 +8161,6 @@
 				67DB17272ABF155F00463CA9 /* NewBuyingPassData.swift in Sources */,
 				67A2EE222AB0D4AC00756120 /* RegisterCoordinator.swift in Sources */,
 				671884472AF1769D00D76672 /* CavusModel.swift in Sources */,
-				678F49D92B9A1EDF006E5083 /* CostBuilder.swift in Sources */,
 				67DB17212ABF155F00463CA9 /* NewBuyingCoordinator.swift in Sources */,
 				6759842D2B08EB8400F0DAD0 /* ProductListModel.swift in Sources */,
 				67460D982B5AE47C000AB380 /* OtherSellerModel.swift in Sources */,
@@ -8294,7 +8207,6 @@
 				67BE9D402AF643B300D07DA7 /* WorkerDataSource.swift in Sources */,
 				67DB17252ABF155F00463CA9 /* NewBuyingBuilder.swift in Sources */,
 				678F49EB2B9A1EF1006E5083 /* JobiListPassData.swift in Sources */,
-				678F49D62B9A1EDF006E5083 /* CostUIModel.swift in Sources */,
 				670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */,
 				67730D2B2BDE95CE00E925B8 /* OrderCollectionModel.swift in Sources */,
 				67DDE8842B0E765800E24949 /* CustomerListTableViewCellUIModel.swift in Sources */,

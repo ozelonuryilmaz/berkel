@@ -41,6 +41,13 @@ final class UserAuthsRepository: BaseRepository, IUserAuthsRepository {
 
     func updateUser(userId: String, isAdmin: Bool) -> FirestoreResponseType<Bool> {
         let db = UserService.save(userId: userId).documentReference
-        return updateData(db, data: ["isAdmin": isAdmin])
+
+        switch otherModule {
+        case .accouting:
+            return updateData(db, data: ["isAdmin": isAdmin])
+        case .jobi:
+            return updateData(db, data: ["isStockAdmin": !isAdmin])
+        }
+        
     }
 }

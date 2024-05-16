@@ -33,6 +33,7 @@ enum SettingsCellType {
     case saticiList
     case cavusList
     case musteriList
+    case jbMusteriList
     case otherList
     case alisGelirGiderCizergesi
     case isciGelirGiderCizergesi
@@ -49,7 +50,7 @@ enum SettingsCellType {
             return "Satıcı Listesi"
         case .cavusList:
             return "Çavuş Listesi"
-        case .musteriList:
+        case .musteriList, .jbMusteriList:
             return "Müşteri Listesi"
         case .otherList:
             return "Hizmet Listesi"
