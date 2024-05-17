@@ -81,7 +81,7 @@
 		671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */; };
 		671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */; };
 		671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */; };
-		671CCEFF2BF75E87005156A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */; };
+		671CCF032BF7767F005156A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671CCF022BF7767E005156A7 /* GoogleService-Info.plist */; };
 		672397FC2AEACB25001538C1 /* ArchiveListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */; };
 		672397FD2AEACB25001538C1 /* ArchiveListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */; };
 		672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F62AEACB25001538C1 /* ArchiveListViewController.swift */; };
@@ -488,14 +488,6 @@
 		678F49CA2B9A1ECC006E5083 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49C22B9A1ECC006E5083 /* OrderViewModel.swift */; };
 		678F49CB2B9A1ECC006E5083 /* OrderPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49C32B9A1ECC006E5083 /* OrderPassData.swift */; };
 		678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678F49C42B9A1ECC006E5083 /* OrderViewController.xib */; };
-		678F49E52B9A1EF1006E5083 /* JobiListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DD2B9A1EF1006E5083 /* JobiListCoordinator.swift */; };
-		678F49E62B9A1EF1006E5083 /* JobiListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DE2B9A1EF1006E5083 /* JobiListUIModel.swift */; };
-		678F49E72B9A1EF1006E5083 /* JobiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49DF2B9A1EF1006E5083 /* JobiListViewController.swift */; };
-		678F49E82B9A1EF1006E5083 /* JobiListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49E02B9A1EF1006E5083 /* JobiListRepository.swift */; };
-		678F49E92B9A1EF1006E5083 /* JobiListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49E12B9A1EF1006E5083 /* JobiListBuilder.swift */; };
-		678F49EA2B9A1EF1006E5083 /* JobiListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49E22B9A1EF1006E5083 /* JobiListViewModel.swift */; };
-		678F49EB2B9A1EF1006E5083 /* JobiListPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49E32B9A1EF1006E5083 /* JobiListPassData.swift */; };
-		678F49EC2B9A1EF1006E5083 /* JobiListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678F49E42B9A1EF1006E5083 /* JobiListViewController.xib */; };
 		678F49EE2B9A2047006E5083 /* JobiBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49ED2B9A2047006E5083 /* JobiBaseViewController.swift */; };
 		678F49FD2B9A25B8006E5083 /* ModuleSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49F52B9A25B8006E5083 /* ModuleSelectionCoordinator.swift */; };
 		678F49FE2B9A25B8006E5083 /* ModuleSelectionUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F49F62B9A25B8006E5083 /* ModuleSelectionUIModel.swift */; };
@@ -923,7 +915,7 @@
 		671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingPaymentTableViewCell.xib; sourceTree = "<group>"; };
 		671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
-		671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		671CCF022BF7767E005156A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListCoordinator.swift; sourceTree = "<group>"; };
 		672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListUIModel.swift; sourceTree = "<group>"; };
 		672397F62AEACB25001538C1 /* ArchiveListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListViewController.swift; sourceTree = "<group>"; };
@@ -1330,14 +1322,6 @@
 		678F49C22B9A1ECC006E5083 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		678F49C32B9A1ECC006E5083 /* OrderPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPassData.swift; sourceTree = "<group>"; };
 		678F49C42B9A1ECC006E5083 /* OrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
-		678F49DD2B9A1EF1006E5083 /* JobiListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListCoordinator.swift; sourceTree = "<group>"; };
-		678F49DE2B9A1EF1006E5083 /* JobiListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListUIModel.swift; sourceTree = "<group>"; };
-		678F49DF2B9A1EF1006E5083 /* JobiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListViewController.swift; sourceTree = "<group>"; };
-		678F49E02B9A1EF1006E5083 /* JobiListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListRepository.swift; sourceTree = "<group>"; };
-		678F49E12B9A1EF1006E5083 /* JobiListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListBuilder.swift; sourceTree = "<group>"; };
-		678F49E22B9A1EF1006E5083 /* JobiListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListViewModel.swift; sourceTree = "<group>"; };
-		678F49E32B9A1EF1006E5083 /* JobiListPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiListPassData.swift; sourceTree = "<group>"; };
-		678F49E42B9A1EF1006E5083 /* JobiListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobiListViewController.xib; sourceTree = "<group>"; };
 		678F49ED2B9A2047006E5083 /* JobiBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobiBaseViewController.swift; sourceTree = "<group>"; };
 		678F49F52B9A25B8006E5083 /* ModuleSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleSelectionCoordinator.swift; sourceTree = "<group>"; };
 		678F49F62B9A25B8006E5083 /* ModuleSelectionUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleSelectionUIModel.swift; sourceTree = "<group>"; };
@@ -4844,7 +4828,6 @@
 			children = (
 				678F49902B9A1DF7006E5083 /* Stock */,
 				678F49912B9A1DFE006E5083 /* Order */,
-				678F49932B9A1E04006E5083 /* JobiList */,
 			);
 			path = Jobi;
 			sourceTree = "<group>";
@@ -4870,14 +4853,6 @@
 				67D574B32BD53A91004D0387 /* JBCustomerPriceViewController */,
 			);
 			path = Order;
-			sourceTree = "<group>";
-		};
-		678F49932B9A1E04006E5083 /* JobiList */ = {
-			isa = PBXGroup;
-			children = (
-				678F49A62B9A1E7A006E5083 /* JobiListViewController */,
-			);
-			path = JobiList;
 			sourceTree = "<group>";
 		};
 		678F49942B9A1E17006E5083 /* StockViewController */ = {
@@ -4992,61 +4967,6 @@
 			isa = PBXGroup;
 			children = (
 				678F49C12B9A1ECC006E5083 /* OrderBuilder.swift */,
-			);
-			path = Builder;
-			sourceTree = "<group>";
-		};
-		678F49A62B9A1E7A006E5083 /* JobiListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				678F49AB2B9A1E8D006E5083 /* Builder */,
-				678F49AA2B9A1E8A006E5083 /* Coordinator */,
-				678F49A92B9A1E87006E5083 /* Repository */,
-				678F49A82B9A1E85006E5083 /* ViewModel */,
-				678F49A72B9A1E81006E5083 /* ViewController */,
-			);
-			path = JobiListViewController;
-			sourceTree = "<group>";
-		};
-		678F49A72B9A1E81006E5083 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				678F49DF2B9A1EF1006E5083 /* JobiListViewController.swift */,
-				678F49E42B9A1EF1006E5083 /* JobiListViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		678F49A82B9A1E85006E5083 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				678F49E22B9A1EF1006E5083 /* JobiListViewModel.swift */,
-				678F49DE2B9A1EF1006E5083 /* JobiListUIModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		678F49A92B9A1E87006E5083 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				678F49E02B9A1EF1006E5083 /* JobiListRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		678F49AA2B9A1E8A006E5083 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				678F49DD2B9A1EF1006E5083 /* JobiListCoordinator.swift */,
-				678F49E32B9A1EF1006E5083 /* JobiListPassData.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		678F49AB2B9A1E8D006E5083 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				678F49E12B9A1EF1006E5083 /* JobiListBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -6304,7 +6224,7 @@
 				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
-				671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */,
+				671CCF022BF7767E005156A7 /* GoogleService-Info.plist */,
 				67D820B02BAEDEF2008698FF /* Template */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
@@ -7365,7 +7285,6 @@
 				6710C7E42B666D3800028500 /* OtherTableViewCell.xib in Resources */,
 				672474622B5D1F7400E50B4A /* OtherSellerCategoryListViewController.xib in Resources */,
 				67A1EE8D2AF1691700126E44 /* CavusListViewController.xib in Resources */,
-				678F49EC2B9A1EF1006E5083 /* JobiListViewController.xib in Resources */,
 				673DF5B42ABF15BE005F6B33 /* NewBuyingViewController.xib in Resources */,
 				67E6BD082AB3AF8E002A8DB0 /* AddSellerViewController.xib in Resources */,
 				67CC75A62AA25A6F003206F0 /* Color.xcassets in Resources */,
@@ -7405,7 +7324,7 @@
 				67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */,
 				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
 				678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */,
-				671CCEFF2BF75E87005156A7 /* GoogleService-Info.plist in Resources */,
+				671CCF032BF7767F005156A7 /* GoogleService-Info.plist in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
@@ -7696,7 +7615,6 @@
 				675755E72B152B1F00BDA8C2 /* SellerPaymentModel.swift in Sources */,
 				67A1EE9E2AF169B000126E44 /* NewCavusBuilder.swift in Sources */,
 				67DDE88F2B0E778E00E24949 /* CustomerListDataSource.swift in Sources */,
-				678F49E62B9A1EF1006E5083 /* JobiListUIModel.swift in Sources */,
 				67FA8B562AF66C4A00C09B09 /* WorkerPaymentRepository.swift in Sources */,
 				6797F0502AA4975300638C09 /* Firestore+Combine.swift in Sources */,
 				67BE9D3C2AF6439900D07DA7 /* WorkerRowModel.swift in Sources */,
@@ -7715,7 +7633,6 @@
 				67BE9D4F2AF66A6200D07DA7 /* WorkerDetailUIModel.swift in Sources */,
 				672397FF2AEACB25001538C1 /* ArchiveListRepository.swift in Sources */,
 				678BACE22B2A2D5000EF7050 /* SellerChartsPassData.swift in Sources */,
-				678F49E52B9A1EF1006E5083 /* JobiListCoordinator.swift in Sources */,
 				675984212B08E1F400F0DAD0 /* ProductListViewController.swift in Sources */,
 				670B3CA02ABA219800EE7CFB /* AddBuyingItemResponseModel.swift in Sources */,
 				67A2EE242AB0D4AC00756120 /* RegisterViewController.swift in Sources */,
@@ -7787,7 +7704,6 @@
 				677E67922AA3506A001775E2 /* DispatchQueue+Extensions.swift in Sources */,
 				67B98D0C2ADBEB3700CD4B15 /* BuyingPaymentBuilder.swift in Sources */,
 				677E67A62AA353D2001775E2 /* BuyingViewController.swift in Sources */,
-				678F49E92B9A1EF1006E5083 /* JobiListBuilder.swift in Sources */,
 				67C0195E2B1109EA0094D023 /* SellerCollectionUIModel.swift in Sources */,
 				674705FE2B0A7D61006F1639 /* NewCustomerRepository.swift in Sources */,
 				67EB438F2BC146E3002E9D1D /* StockItemCell.swift in Sources */,
@@ -7889,7 +7805,6 @@
 				67DB17232ABF155F00463CA9 /* NewBuyingViewController.swift in Sources */,
 				67AD20F22B73F8040031A598 /* OtherSellerChartsRepository.swift in Sources */,
 				675129E52AAC686200429CB7 /* NetworkingError.swift in Sources */,
-				678F49EA2B9A1EF1006E5083 /* JobiListViewModel.swift in Sources */,
 				672398002AEACB25001538C1 /* ArchiveListBuilder.swift in Sources */,
 				67BE9D542AF66A6200D07DA7 /* WorkerDetailPassData.swift in Sources */,
 				67A1EE9C2AF169B000126E44 /* NewCavusViewController.swift in Sources */,
@@ -8084,7 +7999,6 @@
 				67707D782BAB3B01008CEBF4 /* StockModel.swift in Sources */,
 				6730ED6C2B1CAAE200111826 /* SellerDetailCollectionTableViewCell.swift in Sources */,
 				67C019762B110B4C0094D023 /* SellerPaymentViewModel.swift in Sources */,
-				678F49E82B9A1EF1006E5083 /* JobiListRepository.swift in Sources */,
 				675D954F2BCEFB100084C0FD /* JBCustomerModel.swift in Sources */,
 				678E0D2B2B1FB3E800C4FCC9 /* CustomerImageModel.swift in Sources */,
 				678B539C2AA2662F003F4355 /* Window+Extensions.swift in Sources */,
@@ -8189,7 +8103,6 @@
 				67707D2D2BAB3759008CEBF4 /* MyStockListViewModel.swift in Sources */,
 				67460D902B5AE409000AB380 /* NewOtherSellerViewController.swift in Sources */,
 				67AD20F42B73F8040031A598 /* OtherSellerChartsViewModel.swift in Sources */,
-				678F49E72B9A1EF1006E5083 /* JobiListViewController.swift in Sources */,
 				67B9EE4D2AD5AF9F003E6BA3 /* BuyingCollectionRepository.swift in Sources */,
 				67EA5B592AAF83890086E20C /* PrimaryTextField.swift in Sources */,
 				67460D7F2B5AE07C000AB380 /* OtherSellerListPassData.swift in Sources */,
@@ -8206,7 +8119,6 @@
 				67B9EE4E2AD5AF9F003E6BA3 /* BuyingCollectionBuilder.swift in Sources */,
 				67BE9D402AF643B300D07DA7 /* WorkerDataSource.swift in Sources */,
 				67DB17252ABF155F00463CA9 /* NewBuyingBuilder.swift in Sources */,
-				678F49EB2B9A1EF1006E5083 /* JobiListPassData.swift in Sources */,
 				670B3C7D2ABA0CBC00EE7CFB /* AddBuyingItemTableViewCellUIModel.swift in Sources */,
 				67730D2B2BDE95CE00E925B8 /* OrderCollectionModel.swift in Sources */,
 				67DDE8842B0E765800E24949 /* CustomerListTableViewCellUIModel.swift in Sources */,
@@ -8357,7 +8269,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;
@@ -8393,7 +8305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;
