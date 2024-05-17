@@ -15,16 +15,6 @@ import FirebaseCore
 // Swift v5.10
 // Cocoapods v1.15.2
 
-/* // MARK: test key
-public var jobiAdminKey: String {
-    return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
-}
-
-public var jobiBahadirKey: String {
-    return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
-}
-*/
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

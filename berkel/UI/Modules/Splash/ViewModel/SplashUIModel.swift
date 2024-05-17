@@ -8,8 +8,8 @@
 import UIKit
 import FirebaseAuth
 
-// Firebase Rules'da 5 admin 1 bahadir ID'si eklenecek
-// Canlıya çıkıldığında admin ve bahadir key güncellenecek
+// Canlıya çıkıldığında admin ve bahadir Key güncelle
+// GoogleService-info güncelle
 
 public var jobiUuid: String = "unknown"
 public var jobiCollection: String = "unknown"
@@ -22,6 +22,26 @@ public var jobiAdminKey: String {
 public var jobiBahadirKey: String {
     return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
 }
+
+/* // MARK: Test key
+public var jobiAdminKey: String {
+    return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
+}
+
+public var jobiBahadirKey: String {
+    return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
+}
+*/
+
+/* // MARK: Prod key
+public var jobiAdminKey: String {
+    return "jTk3PbUOcMazaqbfbcP6O2xyrgh1"
+}
+
+public var jobiBahadirKey: String {
+    return "b2tlFw1hekM5uFBlHZ67V2YrKSX2"
+}
+*/
 
 protocol ISplashUIModel {
 
@@ -50,11 +70,11 @@ struct SplashUIModel: ISplashUIModel {
     var isHaveAnySeason: Bool {
         return UserDefaultsManager.shared.getStringValue(key: .season) != nil
     }
-    
+
     private var jobiAdmin: String {
         return "jobi"
     }
-    
+
     private var jobiGuest: String {
         return "jobiGuest"
     }
