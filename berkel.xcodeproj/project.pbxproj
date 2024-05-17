@@ -81,7 +81,7 @@
 		671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */; };
 		671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */; };
 		671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */; };
-		671CCEFB2BF7421B005156A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671CCEFA2BF7421B005156A7 /* GoogleService-Info.plist */; };
+		671CCEFF2BF75E87005156A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */; };
 		672397FC2AEACB25001538C1 /* ArchiveListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */; };
 		672397FD2AEACB25001538C1 /* ArchiveListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */; };
 		672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F62AEACB25001538C1 /* ArchiveListViewController.swift */; };
@@ -923,7 +923,7 @@
 		671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingPaymentTableViewCell.xib; sourceTree = "<group>"; };
 		671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
-		671CCEFA2BF7421B005156A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListCoordinator.swift; sourceTree = "<group>"; };
 		672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListUIModel.swift; sourceTree = "<group>"; };
 		672397F62AEACB25001538C1 /* ArchiveListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListViewController.swift; sourceTree = "<group>"; };
@@ -6304,7 +6304,7 @@
 				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
-				671CCEFA2BF7421B005156A7 /* GoogleService-Info.plist */,
+				671CCEFE2BF75E86005156A7 /* GoogleService-Info.plist */,
 				67D820B02BAEDEF2008698FF /* Template */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
@@ -7405,7 +7405,7 @@
 				67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */,
 				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
 				678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */,
-				671CCEFB2BF7421B005156A7 /* GoogleService-Info.plist in Resources */,
+				671CCEFF2BF75E87005156A7 /* GoogleService-Info.plist in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
