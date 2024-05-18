@@ -36,17 +36,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="444"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzR-hy-AtS" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="380"/>
+                                    <rect key="frame" x="32" y="32" width="326" height="380"/>
                                     <subviews>
                                         <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="UsU-9R-N2N">
-                                            <rect key="frame" x="16" y="32" width="348" height="44"/>
+                                            <rect key="frame" x="16" y="32" width="294" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="mND-gp-0qv"/>
                                             </constraints>
                                             <locale key="locale" localeIdentifier="tr"/>
                                         </datePicker>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97v-lo-KJK" userLabel="tfCount" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="92" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="92" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="xzm-0M-83g"/>
@@ -66,7 +66,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfq-mh-kBV" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="184" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="184" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="mqx-tN-GtH"/>
@@ -81,7 +81,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h78-ut-Ljo" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="292" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="292" width="262" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="0MJ-ms-zu0"/>
@@ -102,15 +102,15 @@
                                         <constraint firstAttribute="bottom" secondItem="h78-ut-Ljo" secondAttribute="bottom" constant="32" id="0Mk-gX-RsT"/>
                                         <constraint firstItem="97v-lo-KJK" firstAttribute="top" secondItem="UsU-9R-N2N" secondAttribute="bottom" constant="16" id="52v-3a-Ind"/>
                                         <constraint firstItem="vfq-mh-kBV" firstAttribute="leading" secondItem="BzR-hy-AtS" secondAttribute="leading" constant="16" id="B6n-M8-EWd"/>
-                                        <constraint firstAttribute="trailing" secondItem="97v-lo-KJK" secondAttribute="trailing" id="Mng-YW-3AO"/>
-                                        <constraint firstAttribute="trailing" secondItem="vfq-mh-kBV" secondAttribute="trailing" id="X6R-fV-o4Y"/>
+                                        <constraint firstAttribute="trailing" secondItem="97v-lo-KJK" secondAttribute="trailing" constant="16" id="Mng-YW-3AO"/>
+                                        <constraint firstAttribute="trailing" secondItem="vfq-mh-kBV" secondAttribute="trailing" constant="16" id="X6R-fV-o4Y"/>
                                         <constraint firstItem="h78-ut-Ljo" firstAttribute="leading" secondItem="BzR-hy-AtS" secondAttribute="leading" constant="32" id="Z2F-Bp-q0V"/>
                                         <constraint firstItem="UsU-9R-N2N" firstAttribute="top" secondItem="BzR-hy-AtS" secondAttribute="top" constant="32" id="emm-EJ-7a6"/>
                                         <constraint firstItem="UsU-9R-N2N" firstAttribute="leading" secondItem="BzR-hy-AtS" secondAttribute="leading" constant="16" id="gDe-NC-vWp"/>
                                         <constraint firstItem="vfq-mh-kBV" firstAttribute="top" secondItem="97v-lo-KJK" secondAttribute="bottom" constant="16" id="gyc-eo-Cjp"/>
                                         <constraint firstItem="h78-ut-Ljo" firstAttribute="top" secondItem="vfq-mh-kBV" secondAttribute="bottom" constant="32" id="iwe-GU-I9R"/>
                                         <constraint firstItem="97v-lo-KJK" firstAttribute="leading" secondItem="BzR-hy-AtS" secondAttribute="leading" constant="16" id="jdl-UL-BIv"/>
-                                        <constraint firstAttribute="trailing" secondItem="h78-ut-Ljo" secondAttribute="trailing" constant="-4" id="wY8-fR-39x"/>
+                                        <constraint firstAttribute="trailing" secondItem="h78-ut-Ljo" secondAttribute="trailing" constant="32" id="wY8-fR-39x"/>
                                         <constraint firstAttribute="trailing" secondItem="UsU-9R-N2N" secondAttribute="trailing" constant="16" id="x7z-xv-CEa"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -136,8 +136,8 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="BzR-hy-AtS" secondAttribute="bottom" constant="32" id="GKZ-3h-1Qz"/>
                                 <constraint firstItem="BzR-hy-AtS" firstAttribute="top" secondItem="P7R-uH-XHH" secondAttribute="top" constant="32" id="XHZ-p3-eRb"/>
-                                <constraint firstItem="BzR-hy-AtS" firstAttribute="leading" secondItem="P7R-uH-XHH" secondAttribute="leading" constant="16" id="o0U-Pb-adK"/>
-                                <constraint firstAttribute="trailing" secondItem="BzR-hy-AtS" secondAttribute="trailing" constant="-6" id="vT6-iC-g2C"/>
+                                <constraint firstItem="BzR-hy-AtS" firstAttribute="leading" secondItem="P7R-uH-XHH" secondAttribute="leading" constant="32" id="o0U-Pb-adK"/>
+                                <constraint firstAttribute="trailing" secondItem="BzR-hy-AtS" secondAttribute="trailing" constant="32" id="vT6-iC-g2C"/>
                             </constraints>
                         </view>
                     </subviews>
