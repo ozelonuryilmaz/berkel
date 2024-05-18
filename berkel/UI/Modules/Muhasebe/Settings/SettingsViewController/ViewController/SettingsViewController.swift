@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class SettingsViewController: MainBaseViewController {
 
@@ -70,6 +71,21 @@ final class SettingsViewController: MainBaseViewController {
                 self.mainTabbarController?.selfDismiss()
                 self.appDelegate.window?.rootViewController?.selfDismiss()
                 self.appDelegate.startFlowSplash()
+
+            case .showHesabiSilAlert:
+                self.showSystemAlert(title: "Üyeliğiniz Silinecek!",
+                                     message: "Hesabınızı silmek istediğinize emin misiniz?",
+                                     positiveButtonText: "Sil",
+                                     positiveButtonClickListener: { [weak self] in
+                                         Auth.auth().currentUser?.delete { error in
+                                             if let error = error {
+                                                 self?.showToast(message: "Bir hata oluştu, kullanıcı silinemedi")
+                                             } else {
+                                                 self?.showToast(message: "Hesabınız silindi")
+                                                 self?.viewModel.viewStateStartFlowSplash()
+                                             }
+                                         }
+                                     }, negativeButtonText: "Hayır")
             }
 
         }).store(in: &cancelBag)

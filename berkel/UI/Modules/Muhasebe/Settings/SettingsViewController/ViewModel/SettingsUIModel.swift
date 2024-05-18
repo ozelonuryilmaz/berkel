@@ -115,6 +115,9 @@ extension SettingsUIModel {
     // Hesap
     func generateHesapRowUIModels() -> [ISettingsRowModel] {
         var tempArray = [ISettingsRowModel]()
+        if userId != jobiAdminKey && userId != jobiBahadirKey {
+            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .hesabiSil)))
+        }
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .cikisYap)))
         return tempArray
     }

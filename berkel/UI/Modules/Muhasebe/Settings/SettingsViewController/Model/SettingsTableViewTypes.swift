@@ -42,6 +42,7 @@ enum SettingsCellType {
     case userAuths
     case sezonlar
     case moduleSelection
+    case hesabiSil
     case cikisYap
 
     var rowTitle: String {
@@ -68,6 +69,8 @@ enum SettingsCellType {
             return "Sezon Değiştir"
         case .moduleSelection:
             return "Uygulama Değiştir"
+        case .hesabiSil:
+            return "Hesabı Sil"
         case .cikisYap:
             return "Çıkış Yap"
         }

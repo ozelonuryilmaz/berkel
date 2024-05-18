@@ -25,6 +25,8 @@ protocol ISettingsViewModel: SettingsItemCellOutputDelegate,
          coordinator: ISettingsCoordinator,
          uiModel: ISettingsUIModel)
 
+    func viewStateStartFlowSplash()
+
     func getNumberOfItemsInSection() -> Int
     func getNumberOfItemsInRow(section: Int) -> Int
 
@@ -82,6 +84,10 @@ internal extension SettingsViewModel {
 
     func viewStateStartFlowSplash() {
         viewState.value = .startFlowSplash
+    }
+    
+    func viewStateShowHesabiSil() {
+        viewState.value = .showHesabiSilAlert
     }
 
     // MARK: Action State
@@ -151,6 +157,8 @@ extension SettingsViewModel {
             })
         case .moduleSelection:
             self.viewStateStartFlowSplash()
+        case .hesabiSil:
+            self.viewStateShowHesabiSil()
         case .cikisYap:
             self.logOut()
         }
@@ -226,4 +234,5 @@ internal extension SettingsViewModel {
 enum SettingsViewState {
     case showNativeProgress(isProgress: Bool)
     case startFlowSplash
+    case showHesabiSilAlert
 }
