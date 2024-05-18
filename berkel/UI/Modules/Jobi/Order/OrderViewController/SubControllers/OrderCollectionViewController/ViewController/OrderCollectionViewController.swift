@@ -34,6 +34,8 @@ final class OrderCollectionViewController: BerkelBaseViewController {
     @IBOutlet private weak var tfDesc: PrimaryTextField!
     @IBOutlet private weak var btnProduct: UIButton!
     @IBOutlet private weak var btnSave: UIButton!
+    
+    @IBOutlet private weak var datePicker: UIDatePicker!
 
     // MARK: Constraints Outlets
 
@@ -53,6 +55,7 @@ final class OrderCollectionViewController: BerkelBaseViewController {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
 
+        self.initDatePickerView()
         self.viewModel.initComponents()
     }
 
@@ -118,6 +121,15 @@ final class OrderCollectionViewController: BerkelBaseViewController {
 
 // MARK: Props
 private extension OrderCollectionViewController {
+    
+    func initDatePickerView() {
+        datePicker.addTarget(self, action: #selector(dueDateChanged(sender:)), for: UIControl.Event.valueChanged)
+    }
+
+    @objc func dueDateChanged(sender: UIDatePicker) {
+        let date = sender.date.dateFormatterApiResponseType()
+        self.viewModel.setDate(date: date)
+    }
 
     func listenTextFieldsDidChange() {
         tfCount.addListenDidChange { [unowned self] text in

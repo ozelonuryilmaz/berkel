@@ -81,7 +81,6 @@
 		671AC4432AE1966200915113 /* BuyingPaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */; };
 		671AC4442AE1966200915113 /* BuyingPaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */; };
 		671AC4462AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */; };
-		671CCF032BF7767F005156A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 671CCF022BF7767E005156A7 /* GoogleService-Info.plist */; };
 		672397FC2AEACB25001538C1 /* ArchiveListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */; };
 		672397FD2AEACB25001538C1 /* ArchiveListUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */; };
 		672397FE2AEACB25001538C1 /* ArchiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672397F62AEACB25001538C1 /* ArchiveListViewController.swift */; };
@@ -791,6 +790,7 @@
 		67EB438F2BC146E3002E9D1D /* StockItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB438D2BC146E3002E9D1D /* StockItemCell.swift */; };
 		67EB43902BC146E3002E9D1D /* StockItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EB438E2BC146E3002E9D1D /* StockItemCell.xib */; };
 		67EB43922BC146F5002E9D1D /* StockItemCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EB43912BC146F5002E9D1D /* StockItemCellUIModel.swift */; };
+		67ECF9042BF9385C003D8553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67ECF9032BF9385C003D8553 /* GoogleService-Info.plist */; };
 		67F03DF82AA110B400DBCD48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F03DF72AA110B400DBCD48 /* AppDelegate.swift */; };
 		67F03E012AA110B500DBCD48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E002AA110B500DBCD48 /* Assets.xcassets */; };
 		67F03E042AA110B500DBCD48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F03E022AA110B500DBCD48 /* LaunchScreen.storyboard */; };
@@ -915,7 +915,6 @@
 		671AC4412AE1966200915113 /* BuyingPaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCell.swift; sourceTree = "<group>"; };
 		671AC4422AE1966200915113 /* BuyingPaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingPaymentTableViewCell.xib; sourceTree = "<group>"; };
 		671AC4452AE1966D00915113 /* BuyingPaymentTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingPaymentTableViewCellUIModel.swift; sourceTree = "<group>"; };
-		671CCF022BF7767E005156A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		672397F42AEACB25001538C1 /* ArchiveListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListCoordinator.swift; sourceTree = "<group>"; };
 		672397F52AEACB25001538C1 /* ArchiveListUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListUIModel.swift; sourceTree = "<group>"; };
 		672397F62AEACB25001538C1 /* ArchiveListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListViewController.swift; sourceTree = "<group>"; };
@@ -1627,6 +1626,7 @@
 		67EB438D2BC146E3002E9D1D /* StockItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemCell.swift; sourceTree = "<group>"; };
 		67EB438E2BC146E3002E9D1D /* StockItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockItemCell.xib; sourceTree = "<group>"; };
 		67EB43912BC146F5002E9D1D /* StockItemCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemCellUIModel.swift; sourceTree = "<group>"; };
+		67ECF9032BF9385C003D8553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67F03DF42AA110B400DBCD48 /* berkel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = berkel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F03DF72AA110B400DBCD48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67F03E002AA110B500DBCD48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -6224,7 +6224,7 @@
 				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
-				671CCF022BF7767E005156A7 /* GoogleService-Info.plist */,
+				67ECF9032BF9385C003D8553 /* GoogleService-Info.plist */,
 				67D820B02BAEDEF2008698FF /* Template */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
@@ -7324,7 +7324,6 @@
 				67C1EC512AFFA99D005DDA22 /* WorkerDetailCollectionTableViewCell.xib in Resources */,
 				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
 				678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */,
-				671CCF032BF7767F005156A7 /* GoogleService-Info.plist in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
 				678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
@@ -7349,6 +7348,7 @@
 				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
 				67B522EE2BDACFD500425CA1 /* OrderTableViewCell.xib in Resources */,
 				672474722B5D250600E50B4A /* OtherSellerCategoryListTableViewCell.xib in Resources */,
+				67ECF9042BF9385C003D8553 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8269,7 +8269,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;
@@ -8305,7 +8305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3EW38CK8VL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = berkel/App/Info.plist;

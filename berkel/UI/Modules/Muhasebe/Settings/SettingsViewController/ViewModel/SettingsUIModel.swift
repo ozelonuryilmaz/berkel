@@ -105,7 +105,9 @@ extension SettingsUIModel {
         tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .sezonlar)))
 
         if jobiCollection == "jobi" && jobiBahadirKey != userId {
-            tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
+            if userId == jobiAdminKey {
+                tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .userAuths)))
+            }
             tempArray.append(SettingsItemCellDataRow(uiModel: SettingsItemCellUIModel(cellType: .moduleSelection)))
         }
 

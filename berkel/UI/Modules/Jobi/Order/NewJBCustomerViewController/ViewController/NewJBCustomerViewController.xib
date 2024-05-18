@@ -36,10 +36,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="476"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2of-wZ-rcU" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="412"/>
+                                    <rect key="frame" x="32" y="32" width="326" height="412"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-14-TPT" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="32" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="32" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="6po-HX-ur4"/>
@@ -55,7 +55,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zt4-M7-iHH" userLabel="tfNumber" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="124" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="124" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="k6L-vD-nbj"/>
@@ -74,7 +74,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmV-9h-4kZ" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="216" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="216" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="Idl-Y9-hDZ"/>
@@ -89,7 +89,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3q-qG-BBd" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="324" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="324" width="262" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="9j8-oL-Ocd"/>
@@ -112,10 +112,10 @@
                                         <constraint firstAttribute="bottom" secondItem="w3q-qG-BBd" secondAttribute="bottom" constant="32" id="9Pa-I6-Dd3"/>
                                         <constraint firstItem="iaI-14-TPT" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="16" id="DpP-Cw-2cG"/>
                                         <constraint firstItem="cmV-9h-4kZ" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="16" id="La1-2j-k7g"/>
-                                        <constraint firstAttribute="trailing" secondItem="iaI-14-TPT" secondAttribute="trailing" id="Nca-4q-Yqe"/>
-                                        <constraint firstAttribute="trailing" secondItem="w3q-qG-BBd" secondAttribute="trailing" constant="-4" id="ZnY-O0-jXd"/>
-                                        <constraint firstAttribute="trailing" secondItem="cmV-9h-4kZ" secondAttribute="trailing" id="bj4-TS-dyo"/>
-                                        <constraint firstAttribute="trailing" secondItem="Zt4-M7-iHH" secondAttribute="trailing" id="d73-xr-QFp"/>
+                                        <constraint firstAttribute="trailing" secondItem="iaI-14-TPT" secondAttribute="trailing" constant="16" id="Nca-4q-Yqe"/>
+                                        <constraint firstAttribute="trailing" secondItem="w3q-qG-BBd" secondAttribute="trailing" constant="32" id="ZnY-O0-jXd"/>
+                                        <constraint firstAttribute="trailing" secondItem="cmV-9h-4kZ" secondAttribute="trailing" constant="16" id="bj4-TS-dyo"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zt4-M7-iHH" secondAttribute="trailing" constant="16" id="d73-xr-QFp"/>
                                         <constraint firstItem="Zt4-M7-iHH" firstAttribute="top" secondItem="iaI-14-TPT" secondAttribute="bottom" constant="16" id="fMo-uH-pse"/>
                                         <constraint firstItem="w3q-qG-BBd" firstAttribute="leading" secondItem="2of-wZ-rcU" secondAttribute="leading" constant="32" id="rzs-s4-yTC"/>
                                         <constraint firstItem="iaI-14-TPT" firstAttribute="top" secondItem="2of-wZ-rcU" secondAttribute="top" constant="32" id="tHg-2O-iM2"/>
@@ -144,8 +144,8 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="2of-wZ-rcU" secondAttribute="bottom" constant="32" id="KI4-dj-4os"/>
                                 <constraint firstItem="2of-wZ-rcU" firstAttribute="top" secondItem="4LJ-rK-lKu" secondAttribute="top" constant="32" id="PkE-YH-NHB"/>
-                                <constraint firstAttribute="trailing" secondItem="2of-wZ-rcU" secondAttribute="trailing" constant="-6" id="Tzb-Kq-moH"/>
-                                <constraint firstItem="2of-wZ-rcU" firstAttribute="leading" secondItem="4LJ-rK-lKu" secondAttribute="leading" constant="16" id="cNh-uo-dP0"/>
+                                <constraint firstAttribute="trailing" secondItem="2of-wZ-rcU" secondAttribute="trailing" constant="32" id="Tzb-Kq-moH"/>
+                                <constraint firstItem="2of-wZ-rcU" firstAttribute="leading" secondItem="4LJ-rK-lKu" secondAttribute="leading" constant="32" id="cNh-uo-dP0"/>
                             </constraints>
                         </view>
                     </subviews>

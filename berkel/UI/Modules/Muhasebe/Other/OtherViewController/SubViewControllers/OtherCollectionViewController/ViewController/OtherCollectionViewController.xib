@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,7 +38,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="472"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beF-Rw-SAG" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="408"/>
+                                    <rect key="frame" x="32" y="32" width="326" height="408"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7l-Zw-jgQ" userLabel="lblOtherSellerName">
                                             <rect key="frame" x="16" y="16" width="42" height="28"/>
@@ -50,7 +50,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(-)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8l4-bN-0o9" userLabel="lblCategoryName">
-                                            <rect key="frame" x="66" y="16" width="298" height="28"/>
+                                            <rect key="frame" x="66" y="16" width="244" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="88H-Yq-KxS"/>
                                                 <constraint firstAttribute="width" priority="250" constant="42" id="vNP-fT-ReN"/>
@@ -60,14 +60,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ffk-wk-3mw">
-                                            <rect key="frame" x="16" y="60" width="348" height="44"/>
+                                            <rect key="frame" x="16" y="60" width="294" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="y7I-8M-JsF"/>
                                             </constraints>
                                             <locale key="locale" localeIdentifier="tr"/>
                                         </datePicker>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0E-HJ-9dd" userLabel="tfPrice" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="120" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="120" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="u5A-ou-Rkk"/>
@@ -85,7 +85,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OWw-wB-2mP" userLabel="tfDesc" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="212" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="212" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="DzZ-01-e7w"/>
@@ -100,7 +100,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-dU-v9f" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="320" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="320" width="262" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="Ish-mW-2mM"/>
@@ -120,17 +120,16 @@
                                     <constraints>
                                         <constraint firstItem="OWw-wB-2mP" firstAttribute="leading" secondItem="beF-Rw-SAG" secondAttribute="leading" constant="16" id="0Uv-Ms-4Fm"/>
                                         <constraint firstItem="OWw-wB-2mP" firstAttribute="leading" secondItem="beF-Rw-SAG" secondAttribute="leading" constant="16" id="6gS-Zp-KIe"/>
-                                        <constraint firstAttribute="trailing" secondItem="OWw-wB-2mP" secondAttribute="trailing" id="AgI-qN-rOm"/>
-                                        <constraint firstAttribute="trailing" secondItem="OWw-wB-2mP" secondAttribute="trailing" id="DQn-wh-Ans"/>
+                                        <constraint firstAttribute="trailing" secondItem="OWw-wB-2mP" secondAttribute="trailing" constant="16" id="DQn-wh-Ans"/>
                                         <constraint firstItem="c0E-HJ-9dd" firstAttribute="top" secondItem="ffk-wk-3mw" secondAttribute="bottom" constant="16" id="DUC-3J-p2f"/>
                                         <constraint firstAttribute="bottom" secondItem="q8h-dU-v9f" secondAttribute="bottom" constant="32" id="FBg-pX-hrv"/>
                                         <constraint firstItem="q8h-dU-v9f" firstAttribute="top" secondItem="OWw-wB-2mP" secondAttribute="bottom" constant="32" id="Ioo-bP-AVh"/>
                                         <constraint firstItem="o7l-Zw-jgQ" firstAttribute="leading" secondItem="beF-Rw-SAG" secondAttribute="leading" constant="16" id="J9N-cN-10H"/>
-                                        <constraint firstAttribute="trailing" secondItem="q8h-dU-v9f" secondAttribute="trailing" constant="-4" id="MZX-Xw-DpJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="q8h-dU-v9f" secondAttribute="trailing" constant="32" id="MZX-Xw-DpJ"/>
                                         <constraint firstItem="8l4-bN-0o9" firstAttribute="top" secondItem="beF-Rw-SAG" secondAttribute="top" constant="16" id="c6P-Kg-Lzs"/>
                                         <constraint firstAttribute="trailing" secondItem="8l4-bN-0o9" secondAttribute="trailing" constant="16" id="cnM-U2-SLI"/>
                                         <constraint firstItem="q8h-dU-v9f" firstAttribute="leading" secondItem="beF-Rw-SAG" secondAttribute="leading" constant="32" id="d0x-8G-Awh"/>
-                                        <constraint firstAttribute="trailing" secondItem="c0E-HJ-9dd" secondAttribute="trailing" id="dQP-Kw-grf"/>
+                                        <constraint firstAttribute="trailing" secondItem="c0E-HJ-9dd" secondAttribute="trailing" constant="16" id="dQP-Kw-grf"/>
                                         <constraint firstItem="8l4-bN-0o9" firstAttribute="leading" secondItem="o7l-Zw-jgQ" secondAttribute="trailing" constant="8" id="m0g-2J-Y09"/>
                                         <constraint firstItem="o7l-Zw-jgQ" firstAttribute="top" secondItem="beF-Rw-SAG" secondAttribute="top" constant="16" id="oQf-ls-dYb"/>
                                         <constraint firstItem="ffk-wk-3mw" firstAttribute="top" secondItem="o7l-Zw-jgQ" secondAttribute="bottom" constant="16" id="oYD-fp-cKv"/>
@@ -161,9 +160,9 @@
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="beF-Rw-SAG" secondAttribute="bottom" constant="32" id="99K-Sk-GuY"/>
-                                <constraint firstItem="beF-Rw-SAG" firstAttribute="leading" secondItem="T2C-Lh-LvG" secondAttribute="leading" constant="16" id="WCO-wQ-a3L"/>
+                                <constraint firstItem="beF-Rw-SAG" firstAttribute="leading" secondItem="T2C-Lh-LvG" secondAttribute="leading" constant="32" id="WCO-wQ-a3L"/>
                                 <constraint firstItem="beF-Rw-SAG" firstAttribute="top" secondItem="T2C-Lh-LvG" secondAttribute="top" constant="32" id="fz4-eI-sCo"/>
-                                <constraint firstAttribute="trailing" secondItem="beF-Rw-SAG" secondAttribute="trailing" constant="-6" id="qhx-18-jw4"/>
+                                <constraint firstAttribute="trailing" secondItem="beF-Rw-SAG" secondAttribute="trailing" constant="32" id="qhx-18-jw4"/>
                             </constraints>
                         </view>
                     </subviews>

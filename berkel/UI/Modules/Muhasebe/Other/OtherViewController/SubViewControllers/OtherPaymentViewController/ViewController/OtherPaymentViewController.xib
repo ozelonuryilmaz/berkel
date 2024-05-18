@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,7 +38,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="472"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-h3-A11" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="408"/>
+                                    <rect key="frame" x="32" y="32" width="326" height="408"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWJ-kj-GeO" userLabel="lblOtherSellerName">
                                             <rect key="frame" x="16" y="16" width="42" height="28"/>
@@ -50,7 +50,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(-)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-lm-0YG" userLabel="lblCategoryName">
-                                            <rect key="frame" x="66" y="16" width="298" height="28"/>
+                                            <rect key="frame" x="66" y="16" width="244" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" priority="250" constant="42" id="bYJ-FZ-LS3"/>
                                                 <constraint firstAttribute="height" constant="28" id="sXb-oM-XgN"/>
@@ -60,14 +60,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="rQl-eT-nHM">
-                                            <rect key="frame" x="16" y="60" width="348" height="44"/>
+                                            <rect key="frame" x="16" y="60" width="294" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="whW-KI-yPK"/>
                                             </constraints>
                                             <locale key="locale" localeIdentifier="tr"/>
                                         </datePicker>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tev-tD-dvN" userLabel="tfPayment" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="120" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="120" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="ZEY-t5-5Fj"/>
@@ -87,7 +87,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2x-9o-ZYB" userLabel="tfDescription" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="212" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="212" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="ZgT-Eo-kG3"/>
@@ -102,7 +102,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-Xb-A9V" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="320" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="320" width="262" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="rNs-Xb-AI4"/>
@@ -120,11 +120,11 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="tev-tD-dvN" secondAttribute="trailing" id="3MZ-sa-Nc9"/>
+                                        <constraint firstAttribute="trailing" secondItem="tev-tD-dvN" secondAttribute="trailing" constant="16" id="3MZ-sa-Nc9"/>
                                         <constraint firstAttribute="trailing" secondItem="1cP-lm-0YG" secondAttribute="trailing" constant="16" id="3ZI-4U-bce"/>
                                         <constraint firstItem="k2x-9o-ZYB" firstAttribute="leading" secondItem="Ti2-h3-A11" secondAttribute="leading" constant="16" id="KOe-zU-S5p"/>
                                         <constraint firstItem="1cP-lm-0YG" firstAttribute="top" secondItem="Ti2-h3-A11" secondAttribute="top" constant="16" id="MhX-PX-PLI"/>
-                                        <constraint firstAttribute="trailing" secondItem="hMd-Xb-A9V" secondAttribute="trailing" constant="-4" id="OcE-B2-gpA"/>
+                                        <constraint firstAttribute="trailing" secondItem="hMd-Xb-A9V" secondAttribute="trailing" constant="32" id="OcE-B2-gpA"/>
                                         <constraint firstAttribute="trailing" secondItem="rQl-eT-nHM" secondAttribute="trailing" constant="16" id="Qpi-cK-sZS"/>
                                         <constraint firstItem="1cP-lm-0YG" firstAttribute="leading" secondItem="EWJ-kj-GeO" secondAttribute="trailing" constant="8" id="Ttx-az-Up9"/>
                                         <constraint firstItem="hMd-Xb-A9V" firstAttribute="top" secondItem="k2x-9o-ZYB" secondAttribute="bottom" constant="32" id="Ugm-AI-j0t"/>
@@ -132,7 +132,7 @@
                                         <constraint firstItem="rQl-eT-nHM" firstAttribute="top" secondItem="EWJ-kj-GeO" secondAttribute="bottom" constant="16" id="WyM-bH-S3q"/>
                                         <constraint firstItem="rQl-eT-nHM" firstAttribute="leading" secondItem="Ti2-h3-A11" secondAttribute="leading" constant="16" id="c5h-od-P4k"/>
                                         <constraint firstItem="hMd-Xb-A9V" firstAttribute="leading" secondItem="Ti2-h3-A11" secondAttribute="leading" constant="32" id="cVe-k9-h5s"/>
-                                        <constraint firstAttribute="trailing" secondItem="k2x-9o-ZYB" secondAttribute="trailing" id="ews-CN-L5B"/>
+                                        <constraint firstAttribute="trailing" secondItem="k2x-9o-ZYB" secondAttribute="trailing" constant="16" id="ews-CN-L5B"/>
                                         <constraint firstItem="EWJ-kj-GeO" firstAttribute="top" secondItem="Ti2-h3-A11" secondAttribute="top" constant="16" id="hpW-wG-TVf"/>
                                         <constraint firstItem="tev-tD-dvN" firstAttribute="top" secondItem="rQl-eT-nHM" secondAttribute="bottom" constant="16" id="j2F-JU-Avo"/>
                                         <constraint firstItem="EWJ-kj-GeO" firstAttribute="leading" secondItem="Ti2-h3-A11" secondAttribute="leading" constant="16" id="jCF-EP-4Hj"/>
@@ -160,9 +160,9 @@
                             </subviews>
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
-                                <constraint firstItem="Ti2-h3-A11" firstAttribute="leading" secondItem="4gg-BR-Bzs" secondAttribute="leading" constant="16" id="6l1-Yz-kwU"/>
+                                <constraint firstItem="Ti2-h3-A11" firstAttribute="leading" secondItem="4gg-BR-Bzs" secondAttribute="leading" constant="32" id="6l1-Yz-kwU"/>
                                 <constraint firstAttribute="bottom" secondItem="Ti2-h3-A11" secondAttribute="bottom" constant="32" id="AaP-fg-JR5"/>
-                                <constraint firstAttribute="trailing" secondItem="Ti2-h3-A11" secondAttribute="trailing" constant="-6" id="ha6-Xy-3Xk"/>
+                                <constraint firstAttribute="trailing" secondItem="Ti2-h3-A11" secondAttribute="trailing" constant="32" id="ha6-Xy-3Xk"/>
                                 <constraint firstItem="Ti2-h3-A11" firstAttribute="top" secondItem="4gg-BR-Bzs" secondAttribute="top" constant="32" id="mP1-vg-Uan"/>
                             </constraints>
                         </view>

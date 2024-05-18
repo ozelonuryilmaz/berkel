@@ -32,7 +32,8 @@ protocol IOrderCollectionUIModel {
     mutating func setStockModel(_ stockModel: StockModel)
     mutating func setSubStockModel(_ subStockModel: SubStockModel)
     mutating func setPrice(_ price: Double)
-
+    
+    mutating func setDate(date: String?)
     mutating func setCount(_ count: String)
     mutating func setKDV(_ kdv: String)
     mutating func setDesc(_ desc: String)
@@ -48,6 +49,7 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
 
     private var price: Double = 0.0
 
+    var date: String? = Date().dateFormatterApiResponseType()
     private var count: Int = 0
     private var kdv: Int = 0
     private var desc: String? = nil
@@ -125,7 +127,7 @@ struct OrderCollectionUIModel: IOrderCollectionUIModel {
                                     price: price,
                                     kdv: kdv,
                                     desc: desc,
-                                    date: Date().dateFormatterApiResponseType(),
+                                    date: date,
                                     isCalc: true,
                                     faturaNo: nil)
     }
@@ -171,6 +173,10 @@ extension OrderCollectionUIModel {
 
     mutating func setPrice(_ price: Double) {
         self.price = price
+    }
+    
+    mutating func setDate(date: String?) {
+        self.date = date
     }
 
     mutating func setCount(_ count: String) {

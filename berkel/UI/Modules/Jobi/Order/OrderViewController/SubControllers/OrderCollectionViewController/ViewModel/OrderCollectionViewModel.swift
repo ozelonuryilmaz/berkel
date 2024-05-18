@@ -21,7 +21,7 @@ protocol IOrderCollectionViewModel: JBCustomerPriceViewControllerOutputDelegate 
 
     // Init
     func initComponents()
-    
+
     // Service
     func saveOrder()
 
@@ -30,6 +30,7 @@ protocol IOrderCollectionViewModel: JBCustomerPriceViewControllerOutputDelegate 
     func dismiss()
 
     // Setter
+    func setDate(date: String?)
     func setCount(_ count: String)
     func setKDV(_ kdv: String)
     func setDesc(_ desc: String)
@@ -66,6 +67,10 @@ final class OrderCollectionViewModel: BaseViewModel, IOrderCollectionViewModel {
         self.viewStateSetCustomerName()
     }
 
+    func setDate(date: String?) {
+        self.uiModel.setDate(date: date)
+    }
+
     func setCount(_ count: String) {
         self.uiModel.setCount(count)
     }
@@ -91,24 +96,24 @@ internal extension OrderCollectionViewModel {
 
         handleResourceFirestore(
             request: self.repository.saveOrder(data: self.uiModel.data,
-                                            season: self.uiModel.season),
+                                               season: self.uiModel.season),
             response: self.responseOrderCollection,
             errorState: self.errorState,
             callbackLoading: { [weak self] isProgress in
                 guard let self = self else { return }
                 self.viewStateShowNativeProgress(isProgress: isProgress)
             }, callbackSuccess: { [weak self] in
-                guard let self = self  else { return }
+                guard let self = self else { return }
                 self.viewStateDisableButton() // üst üste butona tıklanılmasın
                 DispatchQueue.delay(100) { [weak self] in
                     self?.saveStock()
                 }
             })
     }
-    
+
     func saveStock() {
         var reRequest: Bool = true
-        
+
         handleResourceFirestore(
             request: self.jobiStockRepository.saveSubStockInfo(season: uiModel.season,
                                                                stockId: uiModel.stockId ?? "",
@@ -138,10 +143,10 @@ internal extension OrderCollectionViewModel {
                 }
             })
     }
-    
+
     func updateStockCount() {
         var reRequest: Bool = true
-        
+
         handleResourceFirestore(
             request: self.jobiStockRepository.updateSubStockCountWithTransaction(count: uiModel.getCount(),
                                                                                  season: uiModel.season,
@@ -199,11 +204,11 @@ internal extension OrderCollectionViewModel {
     func viewStateSetPrice() {
         viewState.value = .setPrice(price: uiModel.productPrice)
     }
-    
+
     func viewStateDisableButton() {
         viewState.value = .disableButton
     }
-    
+
     func viewStateShowSystemAlert(title: String, message: String) {
         viewState.value = .showSystemAlert(title: title, message: message)
     }
@@ -211,7 +216,7 @@ internal extension OrderCollectionViewModel {
 
 // MARK: Coordinate
 internal extension OrderCollectionViewModel {
-    
+
     func presentJBCustomerPriceViewController() {
         let passData = JBCustomerPricePassData(isPriceSelectable: true,
                                                customerModel: JBCustomerModel(id: uiModel.customerId,

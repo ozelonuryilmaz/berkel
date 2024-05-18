@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,10 +37,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="536"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xzr-92-vIN" userLabel="shadowView" customClass="ShadowView" customModule="berkel" customModuleProvider="target">
-                                    <rect key="frame" x="16" y="32" width="380" height="472"/>
+                                    <rect key="frame" x="32" y="32" width="326" height="472"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSx-pp-AiE" userLabel="btnCategory">
-                                            <rect key="frame" x="16" y="32" width="364" height="44"/>
+                                            <rect key="frame" x="16" y="32" width="294" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="l9r-xp-XQ4"/>
                                             </constraints>
@@ -53,7 +53,7 @@
                                             </buttonConfiguration>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gds-l7-viK" userLabel="tfName" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="92" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="92" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="yrp-9Y-aeP"/>
@@ -68,7 +68,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-gk-ksa" userLabel="tfPhone" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="184" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="184" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="DYB-oM-8e3"/>
@@ -86,7 +86,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djI-UO-8M6" userLabel="tfDesc" customClass="PrimaryTextField" customModule="berkel" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="276" width="364" height="76"/>
+                                            <rect key="frame" x="16" y="276" width="294" height="76"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="76" id="LXg-OC-I8t"/>
@@ -104,7 +104,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-Yb-bsY" userLabel="btnSave">
-                                            <rect key="frame" x="32" y="384" width="352" height="56"/>
+                                            <rect key="frame" x="32" y="384" width="262" height="56"/>
                                             <color key="backgroundColor" name="PrimaryBlue"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="byL-Zd-LMh"/>
@@ -123,10 +123,10 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="WKC-Yb-bsY" firstAttribute="leading" secondItem="Xzr-92-vIN" secondAttribute="leading" constant="32" id="1Vi-fA-mrB"/>
-                                        <constraint firstAttribute="trailing" secondItem="djI-UO-8M6" secondAttribute="trailing" id="2NO-cy-WvG"/>
-                                        <constraint firstAttribute="trailing" secondItem="WKC-Yb-bsY" secondAttribute="trailing" constant="-4" id="65t-yo-3sw"/>
+                                        <constraint firstAttribute="trailing" secondItem="djI-UO-8M6" secondAttribute="trailing" constant="16" id="2NO-cy-WvG"/>
+                                        <constraint firstAttribute="trailing" secondItem="WKC-Yb-bsY" secondAttribute="trailing" constant="32" id="65t-yo-3sw"/>
                                         <constraint firstItem="gSx-pp-AiE" firstAttribute="leading" secondItem="Xzr-92-vIN" secondAttribute="leading" constant="16" id="DbA-wT-Qh6"/>
-                                        <constraint firstAttribute="trailing" secondItem="gSx-pp-AiE" secondAttribute="trailing" id="HOu-Nr-CqT"/>
+                                        <constraint firstAttribute="trailing" secondItem="gSx-pp-AiE" secondAttribute="trailing" constant="16" id="HOu-Nr-CqT"/>
                                         <constraint firstItem="WKC-Yb-bsY" firstAttribute="top" secondItem="djI-UO-8M6" secondAttribute="bottom" constant="32" id="O5c-OU-GQL"/>
                                         <constraint firstItem="Al9-gk-ksa" firstAttribute="leading" secondItem="Xzr-92-vIN" secondAttribute="leading" constant="16" id="QEz-LW-EuA"/>
                                         <constraint firstAttribute="bottom" secondItem="WKC-Yb-bsY" secondAttribute="bottom" constant="32" id="S2J-kI-imR"/>
@@ -134,10 +134,10 @@
                                         <constraint firstItem="gds-l7-viK" firstAttribute="leading" secondItem="Xzr-92-vIN" secondAttribute="leading" constant="16" id="UTp-va-sNz"/>
                                         <constraint firstItem="gSx-pp-AiE" firstAttribute="top" secondItem="Xzr-92-vIN" secondAttribute="top" constant="32" id="dHt-ly-7zJ"/>
                                         <constraint firstItem="Al9-gk-ksa" firstAttribute="top" secondItem="gds-l7-viK" secondAttribute="bottom" constant="16" id="hTR-m6-Tr2"/>
-                                        <constraint firstAttribute="trailing" secondItem="gds-l7-viK" secondAttribute="trailing" id="kkl-IO-k3x"/>
+                                        <constraint firstAttribute="trailing" secondItem="gds-l7-viK" secondAttribute="trailing" constant="16" id="kkl-IO-k3x"/>
                                         <constraint firstItem="djI-UO-8M6" firstAttribute="leading" secondItem="Xzr-92-vIN" secondAttribute="leading" constant="16" id="ltb-Az-v2o"/>
                                         <constraint firstItem="gds-l7-viK" firstAttribute="top" secondItem="gSx-pp-AiE" secondAttribute="bottom" constant="16" id="o9a-Qp-vud"/>
-                                        <constraint firstAttribute="trailing" secondItem="Al9-gk-ksa" secondAttribute="trailing" id="x5n-NV-g1C"/>
+                                        <constraint firstAttribute="trailing" secondItem="Al9-gk-ksa" secondAttribute="trailing" constant="16" id="x5n-NV-g1C"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -160,10 +160,10 @@
                             </subviews>
                             <color key="backgroundColor" name="PrimaryVeryLightGray"/>
                             <constraints>
-                                <constraint firstItem="Xzr-92-vIN" firstAttribute="leading" secondItem="Jbr-JX-J4g" secondAttribute="leading" constant="16" id="D3U-fS-lyx"/>
+                                <constraint firstItem="Xzr-92-vIN" firstAttribute="leading" secondItem="Jbr-JX-J4g" secondAttribute="leading" constant="32" id="D3U-fS-lyx"/>
                                 <constraint firstAttribute="bottom" secondItem="Xzr-92-vIN" secondAttribute="bottom" constant="32" id="FjV-5o-BzD"/>
                                 <constraint firstItem="Xzr-92-vIN" firstAttribute="top" secondItem="Jbr-JX-J4g" secondAttribute="top" constant="32" id="ujU-mb-hcu"/>
-                                <constraint firstAttribute="trailing" secondItem="Xzr-92-vIN" secondAttribute="trailing" constant="-6" id="zPx-63-zHw"/>
+                                <constraint firstAttribute="trailing" secondItem="Xzr-92-vIN" secondAttribute="trailing" constant="32" id="zPx-63-zHw"/>
                             </constraints>
                         </view>
                     </subviews>
