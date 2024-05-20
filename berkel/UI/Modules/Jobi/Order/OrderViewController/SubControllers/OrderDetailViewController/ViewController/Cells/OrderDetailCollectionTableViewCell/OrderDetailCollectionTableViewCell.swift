@@ -24,6 +24,7 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var lblDate: UILabel!
     @IBOutlet private weak var lblProductName: UILabel!
     @IBOutlet private weak var lblCount: UILabel!
+    @IBOutlet private weak var lblDesc: UILabel!
     @IBOutlet private weak var btnFatura: UIButton!
     @IBOutlet private weak var btnCancel: UIButton!
     @IBOutlet private weak var btnCopyFatura: UIButton!
@@ -67,6 +68,7 @@ class OrderDetailCollectionTableViewCell: BaseTableViewCell {
         lblDate.text = uiModel.date
         lblProductName.text = uiModel.orderName
         lblCount.text = uiModel.count
+        lblDesc.text = uiModel.orderCollectionModel?.desc ?? ""
 
         btnCopyFatura.setTitle(uiModel.orderCollectionModel?.faturaNo ?? "", for: .normal)
         btnCopyFatura.setTitleColor(.primaryBlue, for: .normal)

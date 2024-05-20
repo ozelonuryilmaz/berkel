@@ -94,7 +94,7 @@ struct OrderDetailUIModel: IOrderDetailUIModel {
         for c in _collections {
             totalPrice += self.getTotalPrice(data: c)
         }
-        return "Toplam: \(totalPrice.decimalString()) TL"
+        return "Toplam: \(totalPrice.decimalTwoString()) TL"
     }
 
     func nowDoubt() -> String {
@@ -106,7 +106,7 @@ struct OrderDetailUIModel: IOrderDetailUIModel {
         }
         let waitingPrice = totalPrice - Double(payments)
 
-        return "\(payments.decimalString()) TL Tahsilat, \(waitingPrice.decimalString()) TL Bekliyor"
+        return "\(payments.decimalTwoString()) TL Tahsilat, \(waitingPrice.decimalTwoString()) TL Bekliyor"
     }
 
     func getCollection(orderId: String?) -> OrderCollectionModel? {
@@ -179,7 +179,7 @@ extension OrderDetailUIModel {
                                         isActive: self.isActive,
                                         date: responseModel.date ?? "")
 
-            let price = self.getTotalPrice(data: responseModel).decimalString()
+            let price = self.getTotalPrice(data: responseModel).decimalTwoString()
 
             return OrderDetailCollectionRowModel(
                 uiModel: OrderDetailCollectionTableViewCellUIModel(orderModel: orderModel,
@@ -189,7 +189,7 @@ extension OrderDetailUIModel {
                                                                    isCalc: responseModel.isCalc,
                                                                    isActive: self.isActive,
                                                                    date: responseModel.date?.dateFormatToAppDisplayType() ?? "",
-                                                                   count: "\(responseModel.count) x \(responseModel.price.decimalString()) + KDV = \(price) TL",
+                                                                   count: "\(responseModel.count) x \(responseModel.price.decimalTwoString()) + %\(responseModel.kdv) = \(price) TL",
                                                                    orderName: "\(responseModel.stockName) - \(responseModel.subStockName)")
             )
         }
@@ -225,7 +225,7 @@ extension OrderDetailUIModel {
         let paymentInvoices: [InvoicePDFModel] = payments.compactMap({
             guard let faturaNo = $0.faturaNo else { return nil }
             return InvoicePDFModel(date: $0.date ?? "", description: "Tahsilat", invoiceNo: faturaNo,
-                                   type: .payment, debit: 0, credit: Double($0.payment), balance: 0)
+                                   type: .payment, debit: 0, credit: $0.payment, balance: 0)
         }).sorted(by: { $0.date > $1.date })
 
         // PaymentInvoices'i invoices dizisine ekleyin

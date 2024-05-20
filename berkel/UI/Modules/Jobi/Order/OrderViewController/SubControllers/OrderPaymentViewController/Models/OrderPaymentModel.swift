@@ -17,7 +17,7 @@ struct OrderPaymentModel: Codable {
     let customerName: String
 
     let date: String?
-    let payment: Int
+    let payment: Double
     var faturaNo: String?
     let description: String?
 }

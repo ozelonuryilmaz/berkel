@@ -114,7 +114,7 @@ final class InvoicePDFCreator {
             }
 
             // Sütun toplamları
-            let totalsRow = ["", "Genel Toplam", totalDebit.decimalString(), totalCredit.decimalString(), totalBalance.decimalString()]
+            let totalsRow = ["", "Genel Toplam", totalDebit.decimalTwoString(), totalCredit.decimalTwoString(), totalBalance.decimalTwoString()]
             let totalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.boldSystemFont(ofSize: 15)]
             for (index, text) in totalsRow.enumerated() {
                 let cellRect = CGRect(x: CGFloat(sum(columnWidths, upTo: index)) + leftMargin, y: yOffset + 10, width: CGFloat(columnWidths[index]), height: 40)

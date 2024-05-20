@@ -14,7 +14,7 @@ protocol IOrderPaymentUIModel {
 
     var data: OrderPaymentModel { get }
     var customerName: String { get }
-    var payment: Int { get }
+    var payment: Double { get }
 
     init(data: OrderPaymentPassData)
 
@@ -35,7 +35,7 @@ struct OrderPaymentUIModel: IOrderPaymentUIModel {
     }
 
     var date: String? = Date().dateFormatterApiResponseType()
-    var payment: Int = 0
+    var payment: Double = 0.0
     var faturaNo: String? = nil
     var desc: String? = nil
 
@@ -88,7 +88,7 @@ extension OrderPaymentUIModel {
     }
 
     mutating func setPayment(_ text: String) {
-        self.payment = Int(text) ?? 0
+        self.payment = Double(text) ?? 0.0
     }
 
     mutating func setFaturaNo(_ text: String) {

@@ -42,7 +42,7 @@ class OrderDetailPaymentTableViewCell: BaseTableViewCell {
         self.visibilityButtons(isVisible: uiModel.isActive)
 
         lblDate.text = uiModel.payment.date?.dateFormatToAppDisplayType() ?? ""
-        lblPrice.text = "\(uiModel.payment.payment.decimalString()) TL Tahsilat"
+        lblPrice.text = "\(uiModel.payment.payment.decimalTwoString()) TL Tahsilat"
         lblDesc.text = uiModel.payment.description ?? ""
 
         btnCopyFatura.setTitle(uiModel.payment.faturaNo ?? "", for: .normal)

@@ -78,7 +78,7 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
-                                                    <integer key="value" value="4"/>
+                                                    <integer key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Tahsilat"/>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isPhoneNumber" value="NO"/>
