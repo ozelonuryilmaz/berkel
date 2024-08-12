@@ -16,11 +16,11 @@ public var jobiCollection: String = "unknown"
 public var otherModule: OtherModuleType = .accouting
 
 public var jobiAdminKey: String {
-    return "jTk3PbUOcMazaqbfbcP6O2xyrgh1"
+    return "gwkyj3WNUNhBpA1RJYFgfH7K8to2"
 }
 
 public var jobiBahadirKey: String {
-    return "b2tlFw1hekM5uFBlHZ67V2YrKSX2"
+    return "ObKWhlJloOXGS0tHmx9CEyesgMc2"
 }
 
 /* // MARK: Test key
