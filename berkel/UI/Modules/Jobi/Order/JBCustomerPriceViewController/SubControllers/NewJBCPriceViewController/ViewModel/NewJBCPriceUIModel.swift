@@ -73,7 +73,8 @@ struct NewJBCPriceUIModel: INewJBCPriceUIModel {
                              subStockId: subStockModel.id,
                              subStockName: subStockModel.subStockName,
                              customerId: customerModel.id,
-                             customerName: customerModel.name,
+                             customerName: customerModel.name, 
+                             isActive: true,
                              date: date,
                              price: count,
                              desc: desc ?? "")

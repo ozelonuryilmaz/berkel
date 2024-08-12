@@ -18,6 +18,7 @@ struct JBCPriceModel: Codable {
     let subStockName: String?
     let customerId: String?
     let customerName: String?
+    let isActive: Bool?
 
     let date: String?
     let price: Double

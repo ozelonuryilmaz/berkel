@@ -11,14 +11,14 @@ enum JBCustomerService {
 
     case update(id: String)
     case customer
-    case prices(customerId: String, season: String, stockId: String, subStockId: String)
+    case prices(id: String?, customerId: String, season: String, stockId: String, subStockId: String) // id updateData kısmında kullanılıyor
 }
 
 extension JBCustomerService: CollectionServiceType {
     
     var order: String {
         switch self {
-        case .customer, .prices(_,_,_,_):
+        case .customer, .prices(_,_,_,_,_):
             return "date"
         default:
             return ""
@@ -34,7 +34,7 @@ extension JBCustomerService: CollectionServiceType {
                 .document(jobiUuid)
                 .collection("jobiCustomer")
             
-        case .prices(let customerId, let season, let stockId, let subStockId):
+        case .prices(_, let customerId, let season, let stockId, let subStockId):
             return Firestore
                 .firestore()
                 .collection(jobiCollection)
@@ -70,6 +70,22 @@ extension JBCustomerService: DocumentServiceType {
                 .document(jobiUuid)
                 .collection("jobiCustomer")
                 .document(id)
+            
+        case .prices(let id, let customerId, let season, let stockId, let subStockId):
+            return Firestore
+                .firestore()
+                .collection(jobiCollection)
+                .document(jobiUuid)
+                .collection("jobiCustomer")
+                .document(customerId)
+                .collection("data")
+                .document(season)
+                .collection("stock")
+                .document(stockId)
+                .collection("subStocks")
+                .document(subStockId)
+                .collection("prices")
+                .document(id ?? "-")
 
         default:
             return Firestore

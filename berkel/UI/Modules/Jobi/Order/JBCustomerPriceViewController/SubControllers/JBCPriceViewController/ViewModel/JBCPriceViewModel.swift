@@ -43,6 +43,7 @@ final class JBCPriceViewModel: BaseViewModel, IJBCPriceViewModel {
     var viewState = ScreenStateSubject<JBCPriceViewState>(nil)
     var errorState = ErrorStateSubject(nil)
     let response = CurrentValueSubject<[JBCPriceModel]?, Never>(nil)
+    let cancelCustomerPriceResponse = CurrentValueSubject<Bool?, Never>(nil)
 
     // MARK: Initiliazer
     required init(repository: IJBCPriceRepository,
@@ -79,6 +80,23 @@ internal extension JBCPriceViewModel {
                     let prices = self.response.value else { return }
                 self.uiModel.setPrices(prices)
                 self.viewStateReloadData()
+            })
+    }
+    
+    func cancelCustomerPrice(priceModel: JBCPriceModel) {
+        handleResourceFirestore(
+            request: self.repository.cancelCustomerPrice(season: self.uiModel.season,
+                                                         priceModel: priceModel),
+            response: self.cancelCustomerPriceResponse,
+            errorState: self.errorState,
+            callbackLoading: { [weak self] isProgress in
+                guard let self = self else { return }
+                self.viewStateShowNativeProgress(isProgress: isProgress)
+            }, callbackSuccess: { [weak self] in
+                guard let self = self else { return }
+                DispatchQueue.delay(75) { [weak self] in
+                    self?.getPrices()
+                }
             })
     }
 }
@@ -133,6 +151,10 @@ internal extension JBCPriceViewModel {
         DispatchQueue.delay(25) { [weak self] in
             self?.popToRootViewController(animated: false)
         }
+    }
+    
+    func cancelButtonTapped(uiModel: JBCPriceItemCellUIModel) {
+        self.cancelCustomerPrice(priceModel: uiModel.priceModel)
     }
 }
 

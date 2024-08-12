@@ -16,7 +16,8 @@ final class NewJBCPriceRepository: BaseRepository, INewJBCPriceRepository {
 
     func savePrice(data: JBCPriceModel, season: String) -> FirestoreResponseType<JBCPriceModel> {
         let db: DocumentReference = JBCustomerService
-            .prices(customerId: data.customerId ?? "",
+            .prices(id: nil,
+                    customerId: data.customerId ?? "",
                     season: season,
                     stockId: data.stockId ?? "",
                     subStockId: data.subStockId ?? "")

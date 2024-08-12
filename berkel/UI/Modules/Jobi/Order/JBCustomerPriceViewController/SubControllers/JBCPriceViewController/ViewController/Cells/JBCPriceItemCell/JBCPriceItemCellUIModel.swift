@@ -26,4 +26,8 @@ struct JBCPriceItemCellUIModel {
     var desc: String {
         return priceModel.desc
     }
+    
+    var isActive: Bool {
+        return priceModel.isActive ?? true
+    }
 }
