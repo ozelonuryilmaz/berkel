@@ -13,6 +13,7 @@ protocol JBCustomerListTableViewCellOutputDelegate: AnyObject {
     func archiveTapped(customerId: String)
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel)
     func priceTapped(uiModel: IJBCustomerListTableViewCellUIModel)
+    func pastTapped(uiModel: IJBCustomerListTableViewCellUIModel)
 }
 
 
@@ -27,6 +28,7 @@ class JBCustomerListTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var btnCall: UIButton!
     @IBOutlet private weak var btnArshive: UIButton!
     @IBOutlet private weak var btnUpdate: UIButton!
+    @IBOutlet private weak var btnPast: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -63,6 +65,10 @@ class JBCustomerListTableViewCell: BaseTableViewCell {
 
         btnUpdate.onTap { [unowned self] _ in
             self.outputDelegate?.updateTapped(uiModel: uiModel)
+        }
+        
+        btnPast.onTap { [unowned self] _ in
+            self.outputDelegate?.pastTapped(uiModel: uiModel)
         }
     }
 

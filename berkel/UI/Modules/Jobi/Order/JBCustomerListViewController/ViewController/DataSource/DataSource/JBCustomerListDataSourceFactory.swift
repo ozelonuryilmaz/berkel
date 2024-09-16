@@ -11,6 +11,7 @@ protocol JBCustomerListDataSourceFactoryOutputDelegate: AnyObject {
     func cellTapped(uiModel: IJBCustomerListTableViewCellUIModel)
     func priceTapped(uiModel: IJBCustomerListTableViewCellUIModel)
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel)
+    func pastTapped(uiModel: IJBCustomerListTableViewCellUIModel)
     func phoneNumberTapped(phoneNumber: String)
     func archiveTapped(customerId: String)
     func scrollDidScroll(isAvailablePagination: Bool)
@@ -64,6 +65,10 @@ extension JBCustomerListDataSourceFactory: JBCustomerListTableViewCellOutputDele
 
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
         self.outputDelegate?.updateTapped(uiModel: uiModel)
+    }
+    
+    func pastTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
+        self.outputDelegate?.pastTapped(uiModel: uiModel)
     }
 }
 

@@ -59,6 +59,14 @@
 		6710C8052B667C4700028500 /* OtherCollectionPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710C7FD2B667C4700028500 /* OtherCollectionPassData.swift */; };
 		6710C8062B667C4700028500 /* OtherCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6710C7FE2B667C4700028500 /* OtherCollectionViewController.xib */; };
 		6710C8092B667D4700028500 /* OtherCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6710C8082B667D4700028500 /* OtherCollectionModel.swift */; };
+		671112222C96E73400A60641 /* JBCustomerHistoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121A2C96E73400A60641 /* JBCustomerHistoryCoordinator.swift */; };
+		671112232C96E73400A60641 /* JBCustomerHistoryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121B2C96E73400A60641 /* JBCustomerHistoryUIModel.swift */; };
+		671112242C96E73400A60641 /* JBCustomerHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121C2C96E73400A60641 /* JBCustomerHistoryViewController.swift */; };
+		671112252C96E73400A60641 /* JBCustomerHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121D2C96E73400A60641 /* JBCustomerHistoryRepository.swift */; };
+		671112262C96E73400A60641 /* JBCustomerHistoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121E2C96E73400A60641 /* JBCustomerHistoryBuilder.swift */; };
+		671112272C96E73400A60641 /* JBCustomerHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6711121F2C96E73400A60641 /* JBCustomerHistoryViewModel.swift */; };
+		671112282C96E73400A60641 /* JBCustomerHistoryPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671112202C96E73400A60641 /* JBCustomerHistoryPassData.swift */; };
+		671112292C96E73400A60641 /* JBCustomerHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671112212C96E73400A60641 /* JBCustomerHistoryViewController.xib */; };
 		67186A482AE51C4400B9E3D5 /* SellerImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67186A472AE51C4400B9E3D5 /* SellerImageService.swift */; };
 		6718842B2AF169E000D76672 /* NewCavusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6718842A2AF169E000D76672 /* NewCavusViewController.xib */; };
 		671884392AF16ABE00D76672 /* NewWorkerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671884312AF16ABE00D76672 /* NewWorkerCoordinator.swift */; };
@@ -893,6 +901,14 @@
 		6710C7FD2B667C4700028500 /* OtherCollectionPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCollectionPassData.swift; sourceTree = "<group>"; };
 		6710C7FE2B667C4700028500 /* OtherCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherCollectionViewController.xib; sourceTree = "<group>"; };
 		6710C8082B667D4700028500 /* OtherCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCollectionModel.swift; sourceTree = "<group>"; };
+		6711121A2C96E73400A60641 /* JBCustomerHistoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryCoordinator.swift; sourceTree = "<group>"; };
+		6711121B2C96E73400A60641 /* JBCustomerHistoryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryUIModel.swift; sourceTree = "<group>"; };
+		6711121C2C96E73400A60641 /* JBCustomerHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryViewController.swift; sourceTree = "<group>"; };
+		6711121D2C96E73400A60641 /* JBCustomerHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryRepository.swift; sourceTree = "<group>"; };
+		6711121E2C96E73400A60641 /* JBCustomerHistoryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryBuilder.swift; sourceTree = "<group>"; };
+		6711121F2C96E73400A60641 /* JBCustomerHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryViewModel.swift; sourceTree = "<group>"; };
+		671112202C96E73400A60641 /* JBCustomerHistoryPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JBCustomerHistoryPassData.swift; sourceTree = "<group>"; };
+		671112212C96E73400A60641 /* JBCustomerHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JBCustomerHistoryViewController.xib; sourceTree = "<group>"; };
 		67186A472AE51C4400B9E3D5 /* SellerImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerImageService.swift; sourceTree = "<group>"; };
 		6718842A2AF169E000D76672 /* NewCavusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCavusViewController.xib; sourceTree = "<group>"; };
 		671884312AF16ABE00D76672 /* NewWorkerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkerCoordinator.swift; sourceTree = "<group>"; };
@@ -2005,6 +2021,61 @@
 				6710C8082B667D4700028500 /* OtherCollectionModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		671112182C96E70400A60641 /* JBCustomerHistoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6711122D2C96E75600A60641 /* Builder */,
+				6711122C2C96E75300A60641 /* Coordinator */,
+				6711122B2C96E74F00A60641 /* Repository */,
+				6711122A2C96E74500A60641 /* ViewModel */,
+				671112192C96E71600A60641 /* ViewController */,
+			);
+			path = JBCustomerHistoryViewController;
+			sourceTree = "<group>";
+		};
+		671112192C96E71600A60641 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6711121C2C96E73400A60641 /* JBCustomerHistoryViewController.swift */,
+				671112212C96E73400A60641 /* JBCustomerHistoryViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6711122A2C96E74500A60641 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6711121F2C96E73400A60641 /* JBCustomerHistoryViewModel.swift */,
+				6711121B2C96E73400A60641 /* JBCustomerHistoryUIModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6711122B2C96E74F00A60641 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6711121D2C96E73400A60641 /* JBCustomerHistoryRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		6711122C2C96E75300A60641 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				6711121A2C96E73400A60641 /* JBCustomerHistoryCoordinator.swift */,
+				671112202C96E73400A60641 /* JBCustomerHistoryPassData.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		6711122D2C96E75600A60641 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6711121E2C96E73400A60641 /* JBCustomerHistoryBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		6718842C2AF169FD00D76672 /* ViewModel */ = {
@@ -4851,6 +4922,7 @@
 				675D94C72BCECE440084C0FD /* NewJBCustomerViewController */,
 				675D94C82BCECEC80084C0FD /* NewOrderViewController */,
 				67D574B32BD53A91004D0387 /* JBCustomerPriceViewController */,
+				671112182C96E70400A60641 /* JBCustomerHistoryViewController */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -7336,6 +7408,7 @@
 				675D94FB2BCED0730084C0FD /* JBCustomerListViewController.xib in Resources */,
 				6730ED672B1CA95400111826 /* SellerDetailPaymentTableViewCell.xib in Resources */,
 				678B537C2AA25F61003F4355 /* SplashViewController.xib in Resources */,
+				671112292C96E73400A60641 /* JBCustomerHistoryViewController.xib in Resources */,
 				6718842B2AF169E000D76672 /* NewCavusViewController.xib in Resources */,
 				672398032AEACB25001538C1 /* ArchiveListViewController.xib in Resources */,
 				6747AC1A2B69651B00D4E8CA /* OtherPaymentViewController.xib in Resources */,
@@ -7910,6 +7983,13 @@
 				677E67B92AA353EA001775E2 /* WorkerRepository.swift in Sources */,
 				6730ED6F2B1CAAF100111826 /* SellerDetailCollectionTableViewCellUIModel.swift in Sources */,
 				67DDE88D2B0E777D00E24949 /* CustomerListSection.swift in Sources */,
+				671112222C96E73400A60641 /* JBCustomerHistoryCoordinator.swift in Sources */,
+				671112232C96E73400A60641 /* JBCustomerHistoryUIModel.swift in Sources */,
+				671112242C96E73400A60641 /* JBCustomerHistoryViewController.swift in Sources */,
+				671112252C96E73400A60641 /* JBCustomerHistoryRepository.swift in Sources */,
+				671112262C96E73400A60641 /* JBCustomerHistoryBuilder.swift in Sources */,
+				671112272C96E73400A60641 /* JBCustomerHistoryViewModel.swift in Sources */,
+				671112282C96E73400A60641 /* JBCustomerHistoryPassData.swift in Sources */,
 				670B1AAC2BD50F9700C07DA4 /* OrderModel.swift in Sources */,
 				67A1EE9B2AF169B000126E44 /* NewCavusUIModel.swift in Sources */,
 				678F49EE2B9A2047006E5083 /* JobiBaseViewController.swift in Sources */,

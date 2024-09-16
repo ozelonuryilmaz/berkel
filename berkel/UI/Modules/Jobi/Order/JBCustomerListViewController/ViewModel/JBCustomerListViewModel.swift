@@ -12,7 +12,7 @@ import Combine
 protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
     JBCustomerListDataSourceFactoryOutputDelegate,
     JBCustomerPriceViewControllerOutputDelegate,
-                                    NewOrderViewControllerOutputDelegate {
+    NewOrderViewControllerOutputDelegate {
 
     var viewState: ScreenStateSubject<JBCustomerListViewState> { get }
     var errorState: ErrorStateSubject { get }
@@ -32,7 +32,7 @@ protocol IJBCustomerListViewModel: NewJBCustomerViewControllerOutputDelegate,
 }
 
 final class JBCustomerListViewModel: BaseViewModel, IJBCustomerListViewModel {
-    
+
 
     // MARK: Definitions
     private let repository: IJBCustomerListRepository
@@ -128,12 +128,16 @@ internal extension JBCustomerListViewModel {
     }
 
     func pushArchiveListViewController(jbCustomerId: String) {
-        let data = ArchiveListPassData(imagePageType: .order(jbCustomerId: jbCustomerId, 
+        let data = ArchiveListPassData(imagePageType: .order(jbCustomerId: jbCustomerId,
                                                              orderId: "",
                                                              orderName: ""))
         self.coordinator.pushArchiveListViewController(passData: data)
     }
     
+    func pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData) {
+        self.coordinator.pushJBCustomerHistoryViewController(passData: passData)
+    }
+
     func presentNewOrderViewController(passData: NewOrderPassData) {
         self.coordinator.presentNewOrderViewController(passData: passData,
                                                        outputDelegate: self)
@@ -197,6 +201,10 @@ extension JBCustomerListViewModel {
 
     func updateTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
         self.presentNewJBCustomerViewController(passData: NewJBCustomerPassData(customerInformation: uiModel))
+    }
+
+    func pastTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
+        self.pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData(customerModel: uiModel.customerModel))
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {
