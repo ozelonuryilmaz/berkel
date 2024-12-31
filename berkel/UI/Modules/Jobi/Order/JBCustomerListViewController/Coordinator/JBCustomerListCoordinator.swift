@@ -18,6 +18,7 @@ protocol IJBCustomerListCoordinator: AnyObject {
                                        outputDelegate: NewOrderViewControllerOutputDelegate)
     func pushArchiveListViewController(passData: ArchiveListPassData)
     func pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData)
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?)
     func popToRootViewController(animated: Bool)
 }
 
@@ -73,9 +74,20 @@ final class JBCustomerListCoordinator: NavigationCoordinator, IJBCustomerListCoo
     }
 
     func pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData) {
-        let coordinator = JBCustomerHistoryCoordinator(navigationController: self.navigationController)
+        let coordinator = JBCustomerHistoryCoordinator.getInstance(presenterViewController: self.navigationController.lastViewController)
             .with(passData: passData)
-        coordinate(to: coordinator)
+        DispatchQueue.delay(25) { [unowned self] in
+            self.coordinate(to: coordinator)
+        }
+    }
+
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
+        let coordinator = SeasonsCoordinator(presenterViewController: self.navigationController.lastViewController)
+            .with(seasonDismissCallback: seasonDismissCallback)
+            .with(passData: SeasonsPassData(isHiddenBackButton: false))
+        DispatchQueue.delay(25) { [unowned self] in
+            self.coordinate(to: coordinator)
+        }
     }
 
     func popToRootViewController(animated: Bool) {

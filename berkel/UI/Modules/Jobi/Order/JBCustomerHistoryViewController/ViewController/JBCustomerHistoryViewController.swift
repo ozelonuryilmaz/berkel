@@ -21,7 +21,7 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     }
     
     override var navigationSubTitle: String? {
-        return "Sipariş Geçmişi"
+        return "\(viewModel.season) Sipariş Geçmişi"
     }
 
     // MARK: Inject
@@ -45,14 +45,12 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     }
 
     override func initialComponents() {
+        self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
     }
 
     override func registerEvents() {
 
-        btnConfirm.onTap { [unowned self] _ in
-            
-        }
     }
 
     private func observeReactiveDatas() {
@@ -80,6 +78,11 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     }
 
     // MARK: Define Components
+    private lazy var closeBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(image: .closeNav) { [unowned self] _ in
+            self.selfDismiss()
+        }
+    }()
 }
 
 // MARK: Props

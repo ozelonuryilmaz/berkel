@@ -151,7 +151,7 @@ extension SettingsViewModel {
             self.pushUserAuthsViewController()
         case .sezonlar:
             self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
-                if isSelected {
+                if !isSelected.isEmpty {
                     self.viewStateStartFlowSplash()
                 }
             })
@@ -213,7 +213,7 @@ internal extension SettingsViewModel {
         self.coordinator.pushUserAuthsViewController()
     }
 
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
     }
 }

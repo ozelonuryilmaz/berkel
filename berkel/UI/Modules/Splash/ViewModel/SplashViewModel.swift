@@ -100,7 +100,7 @@ private extension SplashViewModel {
         } else {
             // Eğer sezon hiç seçilmemişse sezon seçildikten sonra FlowMain akışına geçilir.
             self.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
-                if isSelected {
+                if !isSelected.isEmpty {
                     self.startScreen()
                 } else {
                     self.decideToScreen()
@@ -156,7 +156,7 @@ internal extension SplashViewModel {
         self.coordinator.presentLoginViewController(authDismissCallBack: authDismissCallBack)
     }
 
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         self.coordinator.presentSeasonsViewController(seasonDismissCallback: seasonDismissCallback)
     }
 

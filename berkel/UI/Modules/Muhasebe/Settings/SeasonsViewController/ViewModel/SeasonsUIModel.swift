@@ -10,6 +10,7 @@ import UIKit
 protocol ISeasonsUIModel {
 
     var isHiddenBackButton: Bool { get }
+    var isAppSeasonSelection: Bool { get }
 
     init(data: SeasonsPassData)
 
@@ -29,10 +30,12 @@ struct SeasonsUIModel: ISeasonsUIModel {
     private var items: [SeasonResponseModel] = []
 
     let isHiddenBackButton: Bool
+    let isAppSeasonSelection: Bool
 
     // MARK: Initialize
     init(data: SeasonsPassData) {
         self.isHiddenBackButton = data.isHiddenBackButton
+        self.isAppSeasonSelection = data.isAppSeasonSelection
     }
 
     func isHaveSeason(_ season: String) -> Bool {

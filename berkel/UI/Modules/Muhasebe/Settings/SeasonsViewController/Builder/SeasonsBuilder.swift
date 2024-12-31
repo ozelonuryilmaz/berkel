@@ -11,7 +11,7 @@ enum SeasonsBuilder {
 
     static func generate(with data: SeasonsPassData,
                          coordinator: ISeasonsCoordinator,
-                         seasonDismissCallback: ((_ isSelected: Bool) -> Void)? = nil) -> SeasonsViewController {
+                         seasonDismissCallback: ((_ isSelected: String) -> Void)? = nil) -> SeasonsViewController {
 
         let repository = SeasonsRepository()
         let uiModel = SeasonsUIModel(data: data)

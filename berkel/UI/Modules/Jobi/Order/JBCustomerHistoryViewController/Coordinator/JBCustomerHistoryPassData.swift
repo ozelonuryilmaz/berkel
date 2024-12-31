@@ -10,6 +10,7 @@ import Foundation
 
 struct JBCustomerHistoryPassData: ICoordinatorPassData {
 
+    let season: String
     let customerModel: JBCustomerModel
 }
 

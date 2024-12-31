@@ -12,7 +12,7 @@ protocol IJBCustomerHistoryCoordinator: AnyObject {
 
 }
 
-final class JBCustomerHistoryCoordinator: NavigationCoordinator, IJBCustomerHistoryCoordinator {
+final class JBCustomerHistoryCoordinator: PresentationCoordinator, IJBCustomerHistoryCoordinator {
 
     private var coordinatorData: JBCustomerHistoryPassData { return castPassData(JBCustomerHistoryPassData.self) }
 
@@ -20,6 +20,17 @@ final class JBCustomerHistoryCoordinator: NavigationCoordinator, IJBCustomerHist
         let controller = JBCustomerHistoryBuilder.generate(with: coordinatorData,
                                                            coordinator: self)
         let navController = MainNavigationController()
+        navController.modalPresentationStyle = .fullScreen
         navController.setRootViewController(viewController: controller)
+        startPresent(targetVC: navController)
+    }
+}
+
+
+// Presenter
+extension JBCustomerHistoryCoordinator {
+
+    static func getInstance(presenterViewController: UIViewController?) -> JBCustomerHistoryCoordinator {
+        return JBCustomerHistoryCoordinator(presenterViewController: presenterViewController)
     }
 }

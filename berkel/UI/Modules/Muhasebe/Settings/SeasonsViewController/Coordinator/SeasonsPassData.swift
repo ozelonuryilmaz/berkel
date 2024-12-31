@@ -10,5 +10,6 @@ import Foundation
 struct SeasonsPassData: ICoordinatorPassData {
 
     var isHiddenBackButton: Bool = false
+    var isAppSeasonSelection: Bool = true
 }
 

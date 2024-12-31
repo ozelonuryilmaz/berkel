@@ -143,6 +143,14 @@ internal extension JBCustomerListViewModel {
                                                        outputDelegate: self)
     }
 
+    func presentSeasonsViewController(uiModel: IJBCustomerListTableViewCellUIModel) {
+        self.coordinator.presentSeasonsViewController(seasonDismissCallback: { [unowned self] isSelected in
+            DispatchQueue.delay(200) { [unowned self] in
+                self.pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData(season: isSelected, customerModel: uiModel.customerModel))
+            }
+        })
+    }
+
     func popToRootViewController(animated: Bool) {
         self.coordinator.popToRootViewController(animated: animated)
     }
@@ -204,7 +212,7 @@ extension JBCustomerListViewModel {
     }
 
     func pastTapped(uiModel: IJBCustomerListTableViewCellUIModel) {
-        self.pushJBCustomerHistoryViewController(passData: JBCustomerHistoryPassData(customerModel: uiModel.customerModel))
+        self.presentSeasonsViewController(uiModel: uiModel)
     }
 
     func scrollDidScroll(isAvailablePagination: Bool) {

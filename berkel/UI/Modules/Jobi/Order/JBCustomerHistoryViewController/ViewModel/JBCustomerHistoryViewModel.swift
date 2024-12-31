@@ -19,6 +19,7 @@ protocol IJBCustomerHistoryViewModel: AnyObject {
          uiModel: IJBCustomerHistoryUIModel)
     
     var customerName: String { get }
+    var season: String { get }
 }
 
 final class JBCustomerHistoryViewModel: BaseViewModel, IJBCustomerHistoryViewModel {
@@ -44,6 +45,10 @@ final class JBCustomerHistoryViewModel: BaseViewModel, IJBCustomerHistoryViewMod
 
     var customerName: String {
         return uiModel.customerName
+    }
+    
+    var season: String {
+        return uiModel.season
     }
 }
 

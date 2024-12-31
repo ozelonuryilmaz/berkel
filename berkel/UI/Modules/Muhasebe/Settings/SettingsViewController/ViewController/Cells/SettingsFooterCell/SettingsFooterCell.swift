@@ -49,7 +49,7 @@ extension SettingsFooterCell {
 extension SettingsFooterCell {
     private func setTitleLabelVersion() {
         labelVersion.text = """
-Copyright © 2024 by Onur Yılmaz
+Copyright © 2025 by Onur Yılmaz
 All rights reserved.
 """
     }

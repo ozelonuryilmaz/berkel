@@ -13,6 +13,7 @@ protocol ISeasonsViewModel: AnyObject {
     var errorState: ErrorStateSubject { get }
     var errorStateSeason: ErrorStateSubject { get }
     var isHiddenBackButton: Bool { get }
+    var isAppSeasonSelection: Bool { get }
 
     init(repository: ISeasonsRepository,
          coordinator: ISeasonsCoordinator,
@@ -47,6 +48,10 @@ final class SeasonsViewModel: BaseViewModel, ISeasonsViewModel {
 
     var isHiddenBackButton: Bool {
         return self.uiModel.isHiddenBackButton
+    }
+    
+    var isAppSeasonSelection: Bool {
+        return self.uiModel.isAppSeasonSelection
     }
 
     // MARK: Initiliazer

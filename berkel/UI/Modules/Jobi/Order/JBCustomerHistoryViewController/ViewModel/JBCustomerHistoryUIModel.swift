@@ -10,6 +10,7 @@ import UIKit
 
 protocol IJBCustomerHistoryUIModel {
 
+    var season: String { get }
     var customerName: String { get }
 
     init(data: JBCustomerHistoryPassData)
@@ -19,10 +20,12 @@ protocol IJBCustomerHistoryUIModel {
 struct JBCustomerHistoryUIModel: IJBCustomerHistoryUIModel {
 
     // MARK: Definitions
+    let season: String
     let customerModel: JBCustomerModel
 
     // MARK: Initialize
     init(data: JBCustomerHistoryPassData) {
+        self.season = data.season
         self.customerModel = data.customerModel
     }
 

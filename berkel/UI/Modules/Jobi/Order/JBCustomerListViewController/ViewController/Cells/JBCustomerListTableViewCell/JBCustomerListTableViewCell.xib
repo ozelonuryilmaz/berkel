@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -146,6 +146,7 @@
             <connections>
                 <outlet property="btnArshive" destination="K79-vM-eA7" id="PUk-VF-djr"/>
                 <outlet property="btnCall" destination="Lgd-F4-N0T" id="Foe-mp-eBv"/>
+                <outlet property="btnPast" destination="MK8-i8-iC7" id="hzo-0H-h9L"/>
                 <outlet property="btnPrice" destination="a2C-S3-NbA" id="JnI-HQ-Xjw"/>
                 <outlet property="btnUpdate" destination="Cvs-hv-92f" id="FUO-9i-HES"/>
                 <outlet property="lblDesc" destination="W4W-oO-378" id="iMt-Lt-rR3"/>

@@ -23,11 +23,11 @@ final class SeasonsViewController: BerkelBaseViewController {
 
     // MARK: Constraints Outlets
 
-    var seasonDismissCallback: ((_ isSelected: Bool) -> Void)? = nil
+    var seasonDismissCallback: ((_ isSelected: String) -> Void)? = nil
 
     // MARK: Initializer
     init(viewModel: ISeasonsViewModel,
-         seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+         seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         self.viewModel = viewModel
         super.init(nibName: "SeasonsViewController", bundle: nil)
 
@@ -161,11 +161,13 @@ extension SeasonsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.saveSeason(index: indexPath.row)
-
+        if viewModel.isAppSeasonSelection {
+            self.viewModel.saveSeason(index: indexPath.row)
+        }
         DispatchQueue.delay(25) { [unowned self] in
             self.selfDismiss(completion: {
-                self.seasonDismissCallback?(true)
+                let season = self.viewModel.getItemCellUIModel(index: indexPath.row).season
+                self.seasonDismissCallback?(season)
             })
         }
     }

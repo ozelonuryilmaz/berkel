@@ -10,7 +10,7 @@ import UIKit
 protocol ISplashCoordinator: AnyObject {
     
     func presentLoginViewController(authDismissCallBack: ((_ isLoggedIn: Bool) -> Void)?)
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?)
     func presentModuleSelectionViewController()
 }
 
@@ -34,7 +34,7 @@ final class SplashCoordinator: RootableCoordinator , ISplashCoordinator {
         }
     }
     
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         let coordinator = SeasonsCoordinator(presenterViewController: self.window?.topViewController())
             .with(seasonDismissCallback: seasonDismissCallback)
             .with(passData: SeasonsPassData(isHiddenBackButton: true))

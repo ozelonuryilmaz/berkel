@@ -29,7 +29,7 @@ protocol ISettingsCoordinator: AnyObject {
     func pushOtherSellerChartsViewController(passData: OtherSellerChartsPassData)
 
     // Settings
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?)
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?)
     func pushUserAuthsViewController()
 }
 
@@ -117,7 +117,7 @@ final class SettingsCoordinator: NavigationCoordinator, ISettingsCoordinator {
         coordinate(to: coordinator)
     }
 
-    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) {
+    func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         let coordinator = SeasonsCoordinator(presenterViewController: self.navigationController.lastViewController)
             .with(seasonDismissCallback: seasonDismissCallback)
             .with(passData: SeasonsPassData(isHiddenBackButton: false))

@@ -576,7 +576,6 @@
 		67A2EE272AB0D4AC00756120 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */; };
 		67A2EE282AB0D4AC00756120 /* RegisterPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */; };
 		67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */; };
-		67A542B42C6A9EE900410FF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67A542B32C6A9EE900410FF3 /* GoogleService-Info.plist */; };
 		67A65E212B4C47E3003EACA0 /* WorkerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */; };
 		67A65E302B4C62D1003EACA0 /* WorkerChartsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A65E282B4C62D1003EACA0 /* WorkerChartsCoordinator.swift */; };
 		67A65E312B4C62D1003EACA0 /* WorkerChartsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A65E292B4C62D1003EACA0 /* WorkerChartsUIModel.swift */; };
@@ -638,6 +637,7 @@
 		67B9EE502AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B9EE482AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift */; };
 		67B9EE512AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B9EE492AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib */; };
 		67B9EE592AD5B0A6003E6BA3 /* BuyingCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B9EE582AD5B0A6003E6BA3 /* BuyingCollectionModel.swift */; };
+		67BE915F2C99D762004CB64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67BE915E2C99D761004CB64C /* GoogleService-Info.plist */; };
 		67BE9D322AF63FF700D07DA7 /* WorkerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE9D302AF63FF700D07DA7 /* WorkerTableViewCell.swift */; };
 		67BE9D332AF63FF700D07DA7 /* WorkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67BE9D312AF63FF700D07DA7 /* WorkerTableViewCell.xib */; };
 		67BE9D352AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE9D342AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift */; };
@@ -1418,7 +1418,6 @@
 		67A2EE1F2AB0D4AC00756120 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		67A2EE202AB0D4AC00756120 /* RegisterPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPassData.swift; sourceTree = "<group>"; };
 		67A2EE212AB0D4AC00756120 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		67A542B32C6A9EE900410FF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67A65E202B4C47E3003EACA0 /* WorkerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerImageModel.swift; sourceTree = "<group>"; };
 		67A65E282B4C62D1003EACA0 /* WorkerChartsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerChartsCoordinator.swift; sourceTree = "<group>"; };
 		67A65E292B4C62D1003EACA0 /* WorkerChartsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerChartsUIModel.swift; sourceTree = "<group>"; };
@@ -1480,6 +1479,7 @@
 		67B9EE482AD5AF9F003E6BA3 /* BuyingCollectionPassData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCollectionPassData.swift; sourceTree = "<group>"; };
 		67B9EE492AD5AF9F003E6BA3 /* BuyingCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyingCollectionViewController.xib; sourceTree = "<group>"; };
 		67B9EE582AD5B0A6003E6BA3 /* BuyingCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingCollectionModel.swift; sourceTree = "<group>"; };
+		67BE915E2C99D761004CB64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		67BE9D302AF63FF700D07DA7 /* WorkerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTableViewCell.swift; sourceTree = "<group>"; };
 		67BE9D312AF63FF700D07DA7 /* WorkerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerTableViewCell.xib; sourceTree = "<group>"; };
 		67BE9D342AF6400100D07DA7 /* WorkerTableViewCellUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTableViewCellUIModel.swift; sourceTree = "<group>"; };
@@ -6296,7 +6296,7 @@
 				67F03DF72AA110B400DBCD48 /* AppDelegate.swift */,
 				672AD5EC2B4EFB06009C8E4A /* ReadMe.rtf */,
 				67F03E052AA110B500DBCD48 /* Info.plist */,
-				67A542B32C6A9EE900410FF3 /* GoogleService-Info.plist */,
+				67BE915E2C99D761004CB64C /* GoogleService-Info.plist */,
 				67D820B02BAEDEF2008698FF /* Template */,
 				678B53852AA261AA003F4355 /* Coordinator */,
 			);
@@ -7397,6 +7397,7 @@
 				677D62F12AC1F410004F3232 /* SeasonsTableViewCell.xib in Resources */,
 				678BACE32B2A2D5000EF7050 /* SellerChartsViewController.xib in Resources */,
 				6797F05F2AA49BF100638C09 /* README.md in Resources */,
+				67BE915F2C99D762004CB64C /* GoogleService-Info.plist in Resources */,
 				678F49CC2B9A1ECC006E5083 /* OrderViewController.xib in Resources */,
 				67A65E372B4C62D1003EACA0 /* WorkerChartsViewController.xib in Resources */,
 				679ADD272BC2D0F100A0FD67 /* StockDetailInfoTableViewCell.xib in Resources */,
@@ -7421,7 +7422,6 @@
 				67A2EE292AB0D4AC00756120 /* RegisterViewController.xib in Resources */,
 				67B522EE2BDACFD500425CA1 /* OrderTableViewCell.xib in Resources */,
 				672474722B5D250600E50B4A /* OtherSellerCategoryListTableViewCell.xib in Resources */,
-				67A542B42C6A9EE900410FF3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8367,7 +8367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jobi.berkel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -8403,7 +8403,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jobi.berkel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

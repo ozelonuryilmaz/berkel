@@ -15,10 +15,10 @@ final class SeasonsCoordinator: PresentationCoordinator, ISeasonsCoordinator {
 
     private var coordinatorData: SeasonsPassData { return castPassData(SeasonsPassData.self) }
 
-    private var seasonDismissCallback: ((_ isSelected: Bool) -> Void)? = nil
+    private var seasonDismissCallback: ((_ isSelected: String) -> Void)? = nil
 
     @discardableResult
-    func with(seasonDismissCallback: ((_ isSelected: Bool) -> Void)?) -> SeasonsCoordinator {
+    func with(seasonDismissCallback: ((_ isSelected: String) -> Void)?) -> SeasonsCoordinator {
         self.seasonDismissCallback = seasonDismissCallback
         return self
     }
