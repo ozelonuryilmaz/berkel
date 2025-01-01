@@ -84,7 +84,8 @@ final class JBCustomerListCoordinator: NavigationCoordinator, IJBCustomerListCoo
     func presentSeasonsViewController(seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         let coordinator = SeasonsCoordinator(presenterViewController: self.navigationController.lastViewController)
             .with(seasonDismissCallback: seasonDismissCallback)
-            .with(passData: SeasonsPassData(isHiddenBackButton: false))
+            .with(passData: SeasonsPassData(isHiddenBackButton: false,
+                                            isAppSeasonSelection: false))
         DispatchQueue.delay(25) { [unowned self] in
             self.coordinate(to: coordinator)
         }

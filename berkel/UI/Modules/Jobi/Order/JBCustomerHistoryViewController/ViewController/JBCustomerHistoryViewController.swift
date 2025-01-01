@@ -47,6 +47,7 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        self.viewModel.getDatas()
     }
 
     override func registerEvents() {

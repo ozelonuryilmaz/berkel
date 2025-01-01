@@ -27,7 +27,7 @@ final class SeasonsViewController: BerkelBaseViewController {
 
     // MARK: Initializer
     init(viewModel: ISeasonsViewModel,
-         seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
+        seasonDismissCallback: ((_ isSelected: String) -> Void)?) {
         self.viewModel = viewModel
         super.init(nibName: "SeasonsViewController", bundle: nil)
 
@@ -43,7 +43,9 @@ final class SeasonsViewController: BerkelBaseViewController {
             self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         }
 
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+        if viewModel.isAppSeasonSelection {
+            self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+        }
 
         self.observeReactiveDatas()
         self.initTableView()
@@ -84,11 +86,11 @@ final class SeasonsViewController: BerkelBaseViewController {
             }
         )
         observeErrorState(errorState: viewModel.errorState,
-                          errorHandle: errorHandle)
+            errorHandle: errorHandle)
 
         let errorHandleSeason = FirestoreErrorHandle(viewController: self)
         observeErrorState(errorState: viewModel.errorStateSeason,
-                          errorHandle: errorHandleSeason)
+            errorHandle: errorHandleSeason)
     }
 
     // MARK: Define Components
@@ -133,7 +135,7 @@ private extension SeasonsViewController {
             let inputName = alertController.textFields![0].text
             if inputName?.count == 9 {
                 self.viewModel.saveSeason(season: SeasonResponseModel(season: inputName!,
-                                                                      date: Date().dateFormatterApiResponseType()))
+                    date: Date().dateFormatterApiResponseType()))
             } else {
                 self.showSystemAlert(title: "Lütfen sezon isminin tam olduğundan emin olunuz.", message: "")
             }

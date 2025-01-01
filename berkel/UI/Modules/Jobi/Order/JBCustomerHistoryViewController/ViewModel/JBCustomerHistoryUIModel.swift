@@ -11,15 +11,20 @@ import UIKit
 protocol IJBCustomerHistoryUIModel {
 
     var season: String { get }
+    var customerId: String { get }
     var customerName: String { get }
 
     init(data: JBCustomerHistoryPassData)
 
+    func getCutomerOrderIdx(orders: [OrderModel]) -> [String]
+    mutating func groupOrdersIntoStockListModels(orderDetails: [OrderCollectionModel])
 }
 
 struct JBCustomerHistoryUIModel: IJBCustomerHistoryUIModel {
 
     // MARK: Definitions
+    private var stocks: [StockListModel] = []
+
     let season: String
     let customerModel: JBCustomerModel
 
@@ -30,6 +35,10 @@ struct JBCustomerHistoryUIModel: IJBCustomerHistoryUIModel {
     }
 
     // MARK: Computed Props
+    
+    var customerId: String {
+        return customerModel.id ?? ""
+    }
 
     var customerName: String {
         return customerModel.name
@@ -38,5 +47,58 @@ struct JBCustomerHistoryUIModel: IJBCustomerHistoryUIModel {
 
 // MARK: Props
 extension JBCustomerHistoryUIModel {
+
+    func getCutomerOrderIdx(orders: [OrderModel]) -> [String] {
+        return orders.compactMap({ order in
+            if order.jbCustomerId == self.customerModel.id {
+                return order.id
+            }
+            return nil
+        })
+    }
+
+    mutating func groupOrdersIntoStockListModels(orderDetails: [OrderCollectionModel]) {
+        var stockDictionary: [String: StockListModel] = self.stocks.reduce(into: [:]) { dict, stockListModel in
+            dict[stockListModel.stock.id ?? ""] = stockListModel
+        }
+
+        for order in orderDetails {
+            guard let stockId = order.stockId, let subStockId = order.subStockId else { continue }
+
+            // Anahtar oluştur (stockId bazlı)
+            let stockKey = stockId
+
+            // Geçici değişken oluştur
+            var stockListModel = stockDictionary[stockKey] ?? {
+                let stock = StockModel(
+                    id: stockId,
+                    userId: order.userId,
+                    stockName: order.stockName,
+                    date: order.date ?? ""
+                )
+                return StockListModel(stock: stock, subStocks: [])
+            }()
+
+            // SubStockModel oluştur ve ekle
+            if let index = stockListModel.subStocks.firstIndex(where: { $0.id == subStockId }) {
+                // Eğer subStock zaten varsa, counter değerini güncelle
+                stockListModel.subStocks[index].counter = (stockListModel.subStocks[index].counter ?? 0) + order.count
+            } else {
+                let subStock = SubStockModel(
+                    id: subStockId,
+                    userId: order.userId,
+                    subStockName: order.subStockName,
+                    date: order.date ?? "",
+                    counter: order.count
+                )
+                stockListModel.subStocks.append(subStock)
+            }
+
+            // Güncellenmiş modeli tekrar sözlüğe ekle
+            stockDictionary[stockKey] = stockListModel
+        }
+
+        self.stocks = Array(stockDictionary.values)
+    }
 
 }
