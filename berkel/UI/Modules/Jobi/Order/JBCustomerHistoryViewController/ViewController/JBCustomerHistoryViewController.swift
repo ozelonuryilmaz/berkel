@@ -28,9 +28,7 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     private let viewModel: IJBCustomerHistoryViewModel
 
     // MARK: IBOutlets
-    @IBOutlet private weak var startDatePicker: UIDatePicker!
-    @IBOutlet private weak var endDatePicker: UIDatePicker!
-    @IBOutlet private weak var btnConfirm: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Constraints Outlets
     
@@ -47,6 +45,7 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
     override func initialComponents() {
         self.navigationItem.leftBarButtonItems = [closeBarButtonItem]
         self.observeReactiveDatas()
+        self.initTableView()
         self.viewModel.getDatas()
     }
 
@@ -67,6 +66,8 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
             case .showNativeProgress(let isProgress):
                 self.playNativeLoading(isLoading: isProgress)
 
+            case .reloadData:
+                self.tableView.reloadData()
             }
 
         }).store(in: &cancelBag)
@@ -89,4 +90,51 @@ final class JBCustomerHistoryViewController: BerkelBaseViewController {
 // MARK: Props
 private extension JBCustomerHistoryViewController {
     
+    func initTableView() {
+        tableView.registerHeaderFooterView(StockHeaderCell.self)
+        tableView.registerCell(StockItemCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 16, right: 0)
+    }
 }
+
+
+// MARK: UITableViewDelegate & UITableViewDataSource
+extension JBCustomerHistoryViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.getNumberOfItemsInSection()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getNumberOfItemsInRow(section: section)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.generateReusableCell(StockItemCell.self, indexPath: indexPath)
+        cell.configureCell(with: viewModel.getItemCellUIModel(indexPath: indexPath),
+                           isArrowIconHidden: true)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = tableView.generateReusableHeaderFooterView(StockHeaderCell.self)
+        sectionView.configureCell(with: self.viewModel.getSectionUIModel(section: section),
+                                  isDateHidden: true)
+        return sectionView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return SettingsHeaderCell.defaultHeight + 32 // 32 for date
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .zero
+    }
+}
+

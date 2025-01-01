@@ -107,6 +107,7 @@ extension StockUIModel {
     }
 }
 
+// TableView
 internal extension StockUIModel {
 
     func getNumberOfItemsInSection() -> Int {

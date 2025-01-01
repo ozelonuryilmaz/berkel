@@ -18,6 +18,12 @@ protocol IJBCustomerHistoryUIModel {
 
     func getCutomerOrderIdx(orders: [OrderModel]) -> [String]
     mutating func groupOrdersIntoStockListModels(orderDetails: [OrderCollectionModel])
+    
+    // TableView
+    func getNumberOfItemsInSection() -> Int
+    func getNumberOfItemsInRow(section: Int) -> Int
+    func getSectionUIModel(section: Int) -> StockHeaderCellUIModel
+    func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel
 }
 
 struct JBCustomerHistoryUIModel: IJBCustomerHistoryUIModel {
@@ -101,4 +107,25 @@ extension JBCustomerHistoryUIModel {
         self.stocks = Array(stockDictionary.values)
     }
 
+}
+
+// TableView
+internal extension JBCustomerHistoryUIModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.stocks.count
+    }
+
+    func getNumberOfItemsInRow(section: Int) -> Int {
+        return self.stocks[section].subStocks.count
+    }
+
+    func getSectionUIModel(section: Int) -> StockHeaderCellUIModel {
+        return StockHeaderCellUIModel(stockModel: self.stocks[section].stock,
+                                      isUpdateButtonHideable: true)
+    }
+
+    func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel {
+        return StockItemCellUIModel(subStock: self.stocks[indexPath.section].subStocks[indexPath.row])
+    }
 }

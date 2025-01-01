@@ -23,6 +23,12 @@ protocol IJBCustomerHistoryViewModel: AnyObject {
     
     // Service
     func getDatas()
+    
+    // TableView
+    func getNumberOfItemsInSection() -> Int
+    func getNumberOfItemsInRow(section: Int) -> Int
+    func getSectionUIModel(section: Int) -> StockHeaderCellUIModel
+    func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel
 }
 
 final class JBCustomerHistoryViewModel: BaseViewModel, IJBCustomerHistoryViewModel {
@@ -75,14 +81,14 @@ internal extension JBCustomerHistoryViewModel {
                 // TODO: type: "ADD" ve müşteri id'si aynı ise toplat
                 orderIdx.forEach { orderId in
                     DispatchQueue.delay(25) { [weak self] in
-                        self?.getSellerCollection(orderId: orderId)
+                        self?.getSellerCollection(orderId: orderId, isLastItem: orderId == orderIdx.last)
                     }
                 }
             }
         )
     }
     
-    private func getSellerCollection(orderId: String) {
+    private func getSellerCollection(orderId: String, isLastItem: Bool) {
         handleResourceFirestore(
             request: self.repository.getCollection(season: uiModel.season,
                                                    customerId: uiModel.customerId,
@@ -95,6 +101,11 @@ internal extension JBCustomerHistoryViewModel {
             }, callbackSuccess: { [weak self] in
                 guard let self = self else { return }
                 self.uiModel.groupOrdersIntoStockListModels(orderDetails: self.responseCollection.value ?? [])
+            }, callbackComplete: { [weak self] in
+                guard let self = self else { return }
+                if isLastItem {
+                    self.viewStateReloadData()
+                }
             })
     }
     
@@ -107,7 +118,10 @@ internal extension JBCustomerHistoryViewModel {
     func viewStateShowNativeProgress(isProgress: Bool) {
         viewState.value = .showNativeProgress(isProgress: isProgress)
     }
-
+    
+    func viewStateReloadData() {
+        viewState.value = .reloadData
+    }
 }
 
 // MARK: Coordinate
@@ -115,6 +129,27 @@ internal extension JBCustomerHistoryViewModel {
 
 }
 
+// MARK: TableView
+internal extension JBCustomerHistoryViewModel {
+
+    func getNumberOfItemsInSection() -> Int {
+        return self.uiModel.getNumberOfItemsInSection()
+    }
+
+    func getNumberOfItemsInRow(section: Int) -> Int {
+        return self.uiModel.getNumberOfItemsInRow(section: section)
+    }
+
+    func getSectionUIModel(section: Int) -> StockHeaderCellUIModel {
+        return self.uiModel.getSectionUIModel(section: section)
+    }
+
+    func getItemCellUIModel(indexPath: IndexPath) -> StockItemCellUIModel {
+        return self.uiModel.getItemCellUIModel(indexPath: indexPath)
+    }
+}
+
 enum JBCustomerHistoryViewState {
     case showNativeProgress(isProgress: Bool)
+    case reloadData
 }

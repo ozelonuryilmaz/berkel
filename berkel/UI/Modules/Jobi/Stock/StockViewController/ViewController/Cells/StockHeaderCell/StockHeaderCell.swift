@@ -23,11 +23,13 @@ class StockHeaderCell: BaseTableViewHeaderFooterView {
         setupAllConstraints()
     }
 
-    func configureCell(with uiModel: StockHeaderCellUIModel) {
+    func configureCell(with uiModel: StockHeaderCellUIModel,
+                       isDateHidden: Bool = false) {
         registerEvents(uiModel: uiModel)
 
         headerTitleView.text = uiModel.stockName
         lblDate.text = uiModel.date
+        lblDate.isHidden = isDateHidden
         btnUpdateStock.isHidden = uiModel.isUpdateButtonHideable
     }
     

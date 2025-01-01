@@ -14,6 +14,7 @@ protocol StockItemCellOutputDelegate: AnyObject {
 
 class StockItemCell: BaseTableViewCell {
 
+    @IBOutlet private weak var iconArrowRight: UIImageView!
     @IBOutlet private weak var mContentView: UIView!
     @IBOutlet private weak var labelName: UILabel!
     @IBOutlet private weak var labelCount: UILabel!
@@ -25,11 +26,12 @@ class StockItemCell: BaseTableViewCell {
         // Initialization code
     }
 
-    func configureCell(with uiModel: StockItemCellUIModel) {
+    func configureCell(with uiModel: StockItemCellUIModel, isArrowIconHidden: Bool = false) {
         registerEvents(uiModel: uiModel)
 
         labelName.text = uiModel.subStockName
         labelCount.text = uiModel.subStockCount
+        iconArrowRight.isHidden = isArrowIconHidden
     }
 
     private func registerEvents(uiModel: StockItemCellUIModel) {
